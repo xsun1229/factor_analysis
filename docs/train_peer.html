@@ -27,6 +27,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -401,7 +403,13 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -420,7 +428,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -429,7 +437,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -438,10 +446,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-06-24
+<strong>Last updated:</strong> 2020-06-25
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -457,12 +465,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -529,83 +537,22 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong329ae59"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 329ae59 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreefedbdb4116fe55cedcb50718697cc68659b1154ctargetblankfedbdb4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/fedbdb4116fe55cedcb50718697cc68659b1154c" target="_blank">fedbdb4</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong329ae59" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreefedbdb4116fe55cedcb50718697cc68659b1154ctargetblankfedbdb4a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 329ae59. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/fedbdb4116fe55cedcb50718697cc68659b1154c" target="_blank">fedbdb4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
-Untracked files:
-    Untracked:  analysis/eval_flash.Rmd
-    Untracked:  analysis/eval_peer.Rmd
-    Untracked:  analysis/eval_plier_allpathway.Rmd
-    Untracked:  analysis/eval_plier_canon.Rmd
-    Untracked:  analysis/eval_plier_flash.Rmd
-    Untracked:  analysis/eval_plier_peer.Rmd
-    Untracked:  analysis/factor_plier_allpathway.Rmd
-    Untracked:  analysis/factor_plier_canon.Rmd
-    Untracked:  analysis/train_flash.Rmd
-    Untracked:  analysis/train_peer.Rmd
-    Untracked:  analysis/train_plier_allpathway.Rmd
-    Untracked:  analysis/train_plier_canon.Rmd
-    Untracked:  output/H_lv_processed_sorted_flash_all_001.txt
-    Untracked:  output/H_lv_processed_sorted_flash_all_005.txt
-    Untracked:  output/H_lv_processed_sorted_peer_005.txt
-    Untracked:  output/H_lv_processed_sorted_plier_all_001.rdata
-    Untracked:  output/H_lv_processed_sorted_plier_all_005.rdata
-    Untracked:  output/H_lv_processed_sorted_plier_can_001.txt
-    Untracked:  output/H_lv_processed_sorted_plier_can_005.txt
-    Untracked:  output/LV101_coef.jpeg
-    Untracked:  output/LV101_mse.jpeg
-    Untracked:  output/LV101_pvals.jpeg
-    Untracked:  output/LV101_testpred.jpeg
-    Untracked:  output/LV125.jpeg
-    Untracked:  output/LV50.jpeg
-    Untracked:  output/LV68.jpeg
-    Untracked:  output/LV6_coef.jpeg
-    Untracked:  output/LV6_coef_allpath.jpeg
-    Untracked:  output/LV6_mse.jpeg
-    Untracked:  output/LV6_mse_allpath.jpeg
-    Untracked:  output/LV6_testpred.jpeg
-    Untracked:  output/LV6_testpred_allpath.jpeg
-    Untracked:  output/LV90.jpeg
-    Untracked:  output/Umat_wb_nox.jpeg
-    Untracked:  output/Umat_wb_nox_allpath.jpeg
-    Untracked:  output/devide_snp001_le.jpeg
-    Untracked:  output/hist_H_lv_flash_all.jpeg
-    Untracked:  output/hist_H_lv_flash_all_005.jpeg
-    Untracked:  output/hist_H_lv_nox.jpeg
-    Untracked:  output/hist_H_lv_nox_005.jpeg
-    Untracked:  output/hist_H_lv_nox_allpath.jpeg
-    Untracked:  output/hist_H_lv_nox_allpath_005.jpeg
-    Untracked:  output/hist_H_lv_peer_005.jpeg
-    Untracked:  output/man_lv125.jpeg
-    Untracked:  output/man_lv50.jpeg
-    Untracked:  output/man_lv68.jpeg
-    Untracked:  output/man_lv90.jpeg
-    Untracked:  output/ms_snp.jpeg
-    Untracked:  output/nzero_variants_101.rdata
-    Untracked:  output/qq_unif_lv125.jpeg
-    Untracked:  output/qq_unif_lv50.jpeg
-    Untracked:  output/qq_unif_lv68.jpeg
-    Untracked:  output/qq_unif_lv90.jpeg
-    Untracked:  output/summary_H_le_sorted.rdata
-    Untracked:  output/summary_H_le_sorted_allpath.rdata
-    Untracked:  output/summary_H_le_sorted_flash_all.rdata
-    Untracked:  output/summary_H_le_sorted_pc5.rdata
-
-Unstaged changes:
-    Modified:   analysis/index.Rmd
-
+working directory clean
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -617,9 +564,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/train_peer.Rmd</code>) and HTML (<code>docs/train_peer.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/b2a406f07d0e359a6bc0ae9f205b571d0e719462/analysis/train_peer.Rmd" target="_blank">b2a406f</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-06-24
+</td>
+<td>
+first
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/b2a406f07d0e359a6bc0ae9f205b571d0e719462/docs/train_peer.html" target="_blank">b2a406f</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-06-24
+</td>
+<td>
+first
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -659,9 +666,9 @@ loaded via a namespace (and not attached):
  [1] Rcpp_1.0.4.6    rprojroot_1.3-2 digest_0.6.25   later_0.8.0    
  [5] R6_2.4.1        backports_1.1.7 git2r_0.26.1    magrittr_1.5   
  [9] evaluate_0.14   stringi_1.4.6   fs_1.3.1        promises_1.0.1 
-[13] rmarkdown_1.13  tools_3.6.1     stringr_1.4.0   glue_1.4.1     
-[17] httpuv_1.5.1    xfun_0.14       yaml_2.2.1      compiler_3.6.1 
-[21] htmltools_0.3.6 knitr_1.28     </code></pre>
+[13] whisker_0.3-2   rmarkdown_1.13  tools_3.6.1     stringr_1.4.0  
+[17] glue_1.4.1      httpuv_1.5.1    xfun_0.14       yaml_2.2.1     
+[21] compiler_3.6.1  htmltools_0.3.6 knitr_1.28     </code></pre>
 </div>
 </div>
 
