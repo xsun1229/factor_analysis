@@ -64,24 +64,17 @@ We first plot the change of mean squared errors and coefficients when training t
 #### LV6
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_mse.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_mse.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_coef.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_testpred.jpeg" width="40%">
 </figure>
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_coef.jpeg" width="80%">
-</figure>
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_testpred.jpeg" width="80%">
-</figure>
+
 
 #### LV101
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_mse.jpeg" width="80%">
-</figure>
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_coef.jpeg" width="80%">
-</figure>
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_testpred.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_mse.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_coef.jpeg" width="40%">
+     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_testpred.jpeg" width="40%">
 </figure>
 
 For LV101, we performned more analysis to detect the reason why it has relatively high heritability(0.19) but low r-squared(0.071) in lasso.
@@ -109,7 +102,7 @@ DT::datatable(summary_snp_all, options = list(pageLength =20))
 To compare the p-values of training set and test set, we made a scatter plot.
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_pvals.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_pvals.jpeg" width="50%">
 </figure>
 
 ### LVs with relatively low pval_test_l
@@ -129,10 +122,6 @@ The red line in manhattan plot means p-value is 5e-8.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90.jpeg" width="40%">
 </figure>
 
-<figure class="half">
-    
-</figure>
-
 
 #### lv50
 
@@ -141,12 +130,11 @@ The red line in manhattan plot means p-value is 5e-8.
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50.jpeg" width="40%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50.jpeg" width="80%">
-</figure>
+
   
 
 #### lv125
@@ -156,12 +144,10 @@ The red line in manhattan plot means p-value is 5e-8.
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125.jpeg" width="40%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125.jpeg" width="80%">
-</figure>
 
 #### lv68
 
@@ -171,9 +157,6 @@ The red line in manhattan plot means p-value is 5e-8.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv68.jpeg" width="80%">
-</figure>
-
-<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv68.jpeg" width="80%">
 </figure>
 
@@ -185,15 +168,71 @@ The red line in manhattan plot means p-value is 5e-8.
 This figure shows the prediction performance (R2 of Lasso/Elastic_net regression on training set in red) in comparison to LV heritability estimates (black; standard errors in gray). Performance was assessed using tenfold cross-validation in the GTEx whole-blood cohort (on training set, n = 536) with the elastic net and lasso models.
   
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/devide_snp001_le.jpeg" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/devide_snp001_le_maf005.jpeg" width="150%">
 </figure>
 
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/devide_snp001_le.jpeg" width="2000 height = 1000">
-
-
-![](https://github.com/xsun1229/pathway_analysis/raw/master/output/LV68.jpeg = 1000x1000)
 
 ### Summary of Heritability 
 
+Some notations to explain: **rsq_min** is the r-squared when lambda=lambda.min, **ncoef_nzero_min** is the number of non-zero coefficients when lambda=lambda.min, **rsq_test** is the r-squared in testing set (obtained from lm(lv.obs ~ lv.pred)) ,**pval_test** is the pvalue of F-statistics in testing set. When the suffix is '_1se', the notations mean lambda=lambda.1se. Suffix '_l' means lasso regression and '_e' means elastic_net
+
+In this table, there are several NA value. These NA values come from linear regression(lm(y_test ~ predict_l)). It means the variant in regression is linearly with the intercept. After checking the predict_l, we found the predict_l for all samples are the same.
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted_maf005.txt", header = T)
+DT::datatable(aa, options = list(pageLength =20))
+
+```
+
+### LVs with relatively low pval_test_l
+
+By sorting the pval_test_l in the table above, we can get several LVs that have very low pvalues on testing set (LV90,50,77,69). We made scatter plots of predicted LVs vs. observed LVs for them. Besides, we did GWAS analysis.
+
+The red line in manhattan plot means p-value is 5e-8. 
 
 
+#### lv90
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV90_lowpt_maf005.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_maf005.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_maf005.jpeg" width="40%">
+</figure>
+
+
+#### lv50
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV50_lowpt_maf005.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_maf005.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_maf005.jpeg" width="40%">
+</figure>
+
+
+#### lv77
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV77_lowpt_maf005.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv77_maf005.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv77_maf005.jpeg" width="40%">
+</figure>
+
+#### lv69
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV69_lowpt_maf005.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv69_maf005.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv69_maf005.jpeg" width="40%">
+</figure>
