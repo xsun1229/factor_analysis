@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Factor Analysis"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -8,4 +8,90 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+This page is about factor analysis. Below are details of analyses. 
+
+# **Factor Construction**
+
+  I used three softwares, [PLIER](https://github.com/wgmao/PLIER), [FLASH]( https://github.com/stephenslab/flashr), and [PEER](https://github.com/PMBio/peer/) to construct factors from GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). Genes on chrX were excluded when extracting factors using these softwares.
+
+## PLIER
+
+  PLIER(pathway-level information extractor) is a broadly applicable method to accurately infer relevant biological insights, such as variation in cell-type proportion or pathway activity, from global gene expression studies. It approximates the expression pattern of every gene as a linear combination of eigengene-like latent variables (LVs).
+
+  - plier-canonicalPathways
+  
+  In this part, I just used canonicalPathways which include KEGG and Reactome pathways to extract factors and obtained 128 factors.  [For more details](https://xsun1229.github.io/factor_analysis/factor_plier_canon.html)
+  
+  - plier-allpathways
+  
+  I used 'PLIER' package(with default settings) to construct factors related to all pathways provided by the software and got 96 factors. [For more details](https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html)
+  
+## FLASH
+  
+  Using 'FLASH', I obtained 100 factors from our GTEx expression matrix.
+
+## PEER
+
+  Using 'PEER', I obtained 60 factors from the GTEx expression matrix.
+  
+# **Factor evaluation**
+
+I first evaluated the heritability of factors using [GCTA](
+https://cnsgenomics.com/software/gcta/#GREML) and made histogrames to show the distribution of the heritabilities.
+
+When computing heritability, I used GTEx genotype data(the variants with maf >0.05 and maf >0.01 were selected, variants on chrX are excluded). 6,568,202 variants have maf >0.05 and 10,403,249 variants have maf >0.01.
+
+## PLIER
+  
+  - plier-canonicalPathways
+
+  [For more details](https://xsun1229.github.io/factor_analysis/eval_plier_canon.html)
+
+  - plier-allpathways
+  
+  [For more details](https://xsun1229.github.io/factor_analysis/eval_plier_allpathway.html)
+
+## FLASH
+
+  [For more details](https://xsun1229.github.io/factor_analysis/eval_flash.html)
+
+## PEER
+
+  [For more details](https://xsun1229.github.io/factor_analysis/eval_peer.html)
+
+# **Prediction models for factors**
+
+In this part, I tried to train prediction models for factors ~ genotype using Lasso and Elastic-net. I used whole blood genotype data from GTEx including 670 samples. In genptype data, there are 10,403,249 variants in total (variants in chrX have been excluded). The workflow are listed below.
+
+1. There are some missing values in our dataset. I used mean imputation (substitue the missing values with mean value of the corresponding variants) to impute the missing value. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ms_snp.jpeg" width="50%">
+</figure>
+The missing data pattern of our dataset. x-axis represents the proportion of missing value for each variant. y-axis represents the number of the variants.
+
+2. I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set. 
+
+3. In the training data, performed association test between the factors and all SNPs using Plink. I corrected the results for genotype PCs (We used Plink to compute 10 PCs and used them as corvariates in association test).
+
+4. From 3, we selected all SNPs with p < 1e-02 as candidate variants.
+
+5. Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.
+
+6. For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx . In the association tests, first 10 genotype pcs were included as covariants.
+
+
+
+## PLIER
+
+  [Results for plier-canonicalPathways factors](https://xsun1229.github.io/factor_analysis/train_plier_canon.html)
+    
+  [Results for plier-allpathway factors](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html)
+
+## FLASH
+
+  [Results for FLASH factors](https://xsun1229.github.io/factor_analysis/train_flash.html)
+
+## PEER
+
+  [Results for PEER factors](https://xsun1229.github.io/factor_analysis/train_peer.html)
