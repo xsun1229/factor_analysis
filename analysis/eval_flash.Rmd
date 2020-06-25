@@ -1,0 +1,43 @@
+---
+title: "Evaluation of factors - FLASH"
+author: "XSun"
+date: "2020-06-15"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+  Using 'FLASH', I obtained 100 factors from our GTEx expression matrix.
+
+
+## Results-maf0.01
+
+### Heritability of LVs
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_flash_all.jpeg" width="80%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/H_lv_processed_sorted_flash_all_001.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+
+```
+
+
+## Results-maf0.05
+
+### Heritability of LVs
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_flash_all_005.jpeg" width="80%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/H_lv_processed_sorted_flash_all_005.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+
+```
+

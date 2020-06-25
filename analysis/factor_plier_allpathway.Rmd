@@ -1,0 +1,43 @@
+---
+title: "factor_plier_allpathway"
+author: "XSun"
+date: "2020-05-25"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+I used 'PLIER' package(with default settings) to construct factors related to all pathways provided by the software here. The pathways are shown below
+
+    
+    (1) bloodCellMarkersIRISDMAP - 
+    IRIS: Abbas, Alexander R., et al. "Deconvolution of blood microarray data identifies cellular activation patterns in systemic lupus erythematosus." PloS one 4.7 (2009).
+    DMAP: Novershtern, Noa, et al. "Densely interconnected transcriptional circuits control cell states in human hematopoiesis." Cell 144.2 (2011): 296-309.
+    (2) canonicalPathways  - canonical pathway from MSigDB (*containing KEGG pathway*)
+    (3) chemgenPathways - chemical and genetic perturbations from MSigDB
+    (4) immunePathways  - Immunologic signatures from MSigDB
+    (5) oncogenicPathways - oncogeneic signatures gene sets from MsigDB
+    (6)svmMarkers - Newman, Aaron M., et al. "Robust enumeration of cell subsets from tissue expression profiles." Nature methods 12.5 (2015): 453-457.
+    (7) xCell - Aran, Dvir, Zicheng Hu, and Atul J. Butte. "xCell: digitally portraying the tissue cellular heterogeneity landscape." Genome biology 18.1 (2017): 220.
+    
+
+## Results
+
+### Overview
+
+    - The gene expression data from GTEx uses Ensemnl ID. In order to use PLIER R package, we need to convert Ensemnl ID to HGNC Gene Symbol. There are 19,696 genes in GTEx data. After conversion, 16,634 left(not all Ensemnl IDs have a corresponding HGNC Gene Symbol). 13,030 of 16,634 were used in PLIER.
+    - We used CanonicalPathways in PLIER R package, which contains 6611 curated pathways from Reactome and KEGG.
+    - We obtained 96 LVs from PLIER, 50 of them have AUC > 0.70(see figure below).
+
+### LVs with AUC>0.70
+
+```{r eval=FALSE, echo=T}
+plotU(plierResult, auc.cutoff = 0.7, fdr.cutoff = 0.05, top =3) 
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/Umat_wb_nox_allpath.jpeg" width="80%">
+</figure>
+

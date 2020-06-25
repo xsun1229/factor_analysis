@@ -1,0 +1,41 @@
+---
+title: "factor_plier_canonical pathway"
+author: "XSun"
+date: "2020-05-14"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+I used 'PLIER' package(with default settings) to construct factors related to KEGG and Reactome pathways here. 
+
+
+
+## Results
+
+### Overview
+
+    - The gene expression data from GTEx uses Ensemnl ID. In order to use PLIER R package, we need to convert Ensemnl ID to HGNC Gene Symbol. There are 19,696 genes in GTEx data. After conversion, 16,634 left(not all Ensemnl IDs have a corresponding HGNC Gene Symbol). 5,472 of 16,634 were used in PLIER.
+    - I used CanonicalPathways in PLIER R package, which contains 545 curated pathways from Reactome and KEGG.
+    - I obtained 128 LVs from PLIER, 39 of them have AUC > 0.70(see figure below).
+
+
+
+### LVs with AUC>0.70
+
+```{r eval=FALSE, echo=T}
+plotU(plierResult, auc.cutoff = 0.7, fdr.cutoff = 0.05, top =3) 
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/Umat_wb_nox.jpeg" width="80%">
+</figure>
+
+
+
+```{r}
+
+```
+

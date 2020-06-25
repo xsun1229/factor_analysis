@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2020-05-25" />
+
+<title>Evaluation of factors - PLIER_allPathways</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Evaluation of factors - PLIER_allPathways</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2020-05-25</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-06-24
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 2
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div class="panel-group" id="workflowr-checks">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/H_lv_processed_sorted_plier_all_001.rdata
+</td>
+<td style="text-align:left;">
+output/H_lv_processed_sorted_plier_all_001.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/H_lv_processed_sorted_plier_all_005.rdata
+</td>
+<td style="text-align:left;">
+output/H_lv_processed_sorted_plier_all_005.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong329ae59"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 329ae59 </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong329ae59" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 329ae59. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Untracked files:
+    Untracked:  analysis/eval_flash.Rmd
+    Untracked:  analysis/eval_peer.Rmd
+    Untracked:  analysis/eval_plier_allpathway.Rmd
+    Untracked:  analysis/eval_plier_canon.Rmd
+    Untracked:  analysis/eval_plier_flash.Rmd
+    Untracked:  analysis/eval_plier_peer.Rmd
+    Untracked:  analysis/factor_plier_allpathway.Rmd
+    Untracked:  analysis/factor_plier_canon.Rmd
+    Untracked:  analysis/train_flash.Rmd
+    Untracked:  analysis/train_peer.Rmd
+    Untracked:  analysis/train_plier_allpathway.Rmd
+    Untracked:  analysis/train_plier_canon.Rmd
+    Untracked:  output/H_lv_processed_sorted_flash_all_001.txt
+    Untracked:  output/H_lv_processed_sorted_flash_all_005.txt
+    Untracked:  output/H_lv_processed_sorted_peer_005.txt
+    Untracked:  output/H_lv_processed_sorted_plier_all_001.rdata
+    Untracked:  output/H_lv_processed_sorted_plier_all_005.rdata
+    Untracked:  output/H_lv_processed_sorted_plier_can_005.txt
+    Untracked:  output/LV101_coef.jpeg
+    Untracked:  output/LV101_mse.jpeg
+    Untracked:  output/LV101_pvals.jpeg
+    Untracked:  output/LV101_testpred.jpeg
+    Untracked:  output/LV125.jpeg
+    Untracked:  output/LV50.jpeg
+    Untracked:  output/LV68.jpeg
+    Untracked:  output/LV6_coef.jpeg
+    Untracked:  output/LV6_coef_allpath.jpeg
+    Untracked:  output/LV6_mse.jpeg
+    Untracked:  output/LV6_mse_allpath.jpeg
+    Untracked:  output/LV6_testpred.jpeg
+    Untracked:  output/LV6_testpred_allpath.jpeg
+    Untracked:  output/LV90.jpeg
+    Untracked:  output/Umat_wb_nox.jpeg
+    Untracked:  output/Umat_wb_nox_allpath.jpeg
+    Untracked:  output/devide_snp001_le.jpeg
+    Untracked:  output/hist_H_lv_flash_all.jpeg
+    Untracked:  output/hist_H_lv_flash_all_005.jpeg
+    Untracked:  output/hist_H_lv_nox.jpeg
+    Untracked:  output/hist_H_lv_nox_005.jpeg
+    Untracked:  output/hist_H_lv_nox_allpath.jpeg
+    Untracked:  output/hist_H_lv_nox_allpath_005.jpeg
+    Untracked:  output/hist_H_lv_peer_005.jpeg
+    Untracked:  output/man_lv125.jpeg
+    Untracked:  output/man_lv50.jpeg
+    Untracked:  output/man_lv68.jpeg
+    Untracked:  output/man_lv90.jpeg
+    Untracked:  output/ms_snp.jpeg
+    Untracked:  output/nzero_variants_101.rdata
+    Untracked:  output/qq_unif_lv125.jpeg
+    Untracked:  output/qq_unif_lv50.jpeg
+    Untracked:  output/qq_unif_lv68.jpeg
+    Untracked:  output/qq_unif_lv90.jpeg
+    Untracked:  output/summary_H_le_sorted.rdata
+    Untracked:  output/summary_H_le_sorted_allpath.rdata
+    Untracked:  output/summary_H_le_sorted_flash_all.rdata
+    Untracked:  output/summary_H_le_sorted_pc5.rdata
+
+Unstaged changes:
+    Modified:   analysis/index.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Using all pathways in ‘PLIER’, I obtained 96 factors.</p>
+</div>
+<div id="results-maf0.01" class="section level2">
+<h2>Results-maf0.01</h2>
+<div id="heritability-of-lvs" class="section level3">
+<h3>Heritability of LVs</h3>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_nox_allpath.jpeg" width="50%">
+</figure>
+<p>Details about the factors are listed below. The last column are the top 3 pathways related to each factor.</p>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96"],[73,35,76,57,31,37,1,10,71,4,89,30,55,90,95,24,23,11,2,22,19,26,17,7,39,40,85,69,21,13,79,48,68,83,54,78,61,46,8,47,64,80,84,72,81,63,44,12,27,5,75,86,70,33,34,3,49,94,43,25,82,36,53,93,14,28,16,67,74,42,20,88,56,6,9,15,18,29,32,38,41,45,50,51,52,58,59,60,62,65,66,77,87,91,92,96],[0.594691,0.480204,0.468943,0.467898,0.437314,0.434339,0.275412,0.270143,0.263368,0.250592,0.24784,0.24657,0.230352,0.229445,0.221034,0.218652,0.209858,0.206346,0.189971,0.187295,0.171774,0.159247,0.139411,0.132172,0.120885,0.117793,0.116732,0.109737,0.096973,0.094368,0.088815,0.088237,0.086668,0.081575,0.079367,0.078817,0.070017,0.064307,0.062962,0.062151,0.062149,0.062149,0.061496,0.055186,0.049647,0.046895,0.046011,0.042529,0.04179,0.039467,0.038582,0.035242,0.03401,0.033891,0.029549,0.029156,0.02662,0.02607,0.025581,0.021452,0.020444,0.019797,0.013461,0.01338,0.012611,0.008382,0.005917,0.005631,0.004436,0.003706,0.003333,0.002074,0.001083,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06],[0.21295,0.170657,0.162834,0.201041,0.196593,0.198276,0.188213,0.18384,0.172652,0.123196,0.16312,0.171425,0.138458,0.165059,0.173047,0.164385,0.142192,0.171673,0.126002,0.128545,0.154369,0.13397,0.097753,0.150768,0.094091,0.079371,0.124042,0.155461,0.082253,0.119476,0.129598,0.067018,0.074963,0.066069,0.066296,0.085246,0.07817,0.113221,0.082043,0.092264,0.092264,0.092264,0.093324,0.051687,0.077399,0.05958,0.069349,0.078679,0.047667,0.054674,0.064488,0.051142,0.07408,0.050938,0.048227,0.067453,0.051271,0.041394,0.052498,0.072109,0.039153,0.035552,0.036987,0.045719,0.046859,0.041646,0.028362,0.03893,0.025665,0.041496,0.040263,0.033825,0.028853,0.175485,0.081712,0.03715,0.040206,0.030284,0.030534,0.174553,0.059225,0.087809,0.051354,0.042202,0.030152,0.043287,0.030964,0.101449,0.178445,0.044753,0.032955,0.031315,0.040721,0.04774,0.084097,0.082295],[2.79263207325663,2.81385469098836,2.87988380804992,2.32737600787899,2.22446373980762,2.19057778046763,1.46329955954158,1.46944625761532,1.52542687023608,2.03409201597454,1.51937224129475,1.43835496572845,1.66369585000506,1.39007869913183,1.27730616537704,1.33012136143809,1.47587768650838,1.20197118941243,1.5076824177394,1.45703839122486,1.11274932143112,1.1886765693812,1.42615571900607,0.876658176801443,1.28476687462138,1.48408108755087,0.941068347817675,0.70588121779739,1.17896003793175,0.789849007332016,0.685311501720706,1.31661643140649,1.15614369755746,1.23469403199685,1.19716121636298,0.924582971635033,0.895701675834719,0.567977671986646,0.767426837146374,0.673621347437787,0.673599670510708,0.673599670510708,0.658951609446659,1.06769593901755,0.641442395896588,0.787092984222894,0.663470273543959,0.540538135970208,0.876707155894015,0.721860482130446,0.598281850886987,0.689100934652536,0.459098272138229,0.665338254348424,0.612706575154996,0.432241709041851,0.519201888006866,0.629801420495724,0.487275705741171,0.297494071475128,0.522156667432891,0.556846309630963,0.363938681158245,0.292657319713904,0.269126528521735,0.201267828843106,0.208624215499612,0.144644233239147,0.17284239236314,0.0893098129940235,0.0827807167871247,0.0613155949741316,0.0375350916715766,5.69849274866798e-06,1.22381045623654e-05,2.69179004037685e-05,2.48719096652241e-05,3.30207370228503e-05,3.27503766293312e-05,5.72891901027195e-06,1.68847615027438e-05,1.13883542689246e-05,1.94726798301982e-05,2.36955594521587e-05,3.31652958344388e-05,2.31016240441703e-05,3.22955690479266e-05,9.85716961231752e-06,5.60396760906722e-06,2.23448707349228e-05,3.03444090426339e-05,3.19335781574325e-05,2.45573536995653e-05,2.09467951403435e-05,1.18910305956217e-05,1.21514065253053e-05],[0.0026140560015786,0.00244756750762121,0.0019891087683529,0.00997263077942312,0.0130586297558664,0.0142411802619852,0.071692714109344,0.0708558942361229,0.0635763304644442,0.0209711594068669,0.0643344125321647,0.0751666817611067,0.0480866130206536,0.0822524903790377,0.100747088906791,0.0917391442150214,0.0699883653108647,0.114687345332954,0.0658179137909123,0.0725528915345854,0.132908053198945,0.11728348209876,0.0769116991297153,0.190336164876412,0.0994368805789745,0.0688937049515418,0.173334917379075,0.240131004367346,0.119207044464797,0.214807977222953,0.246573687702023,0.0939836141055941,0.123811192410032,0.108472198922498,0.115621861673349,0.177591437003329,0.185206057566783,0.28502506461092,0.221413888669236,0.250276038851606,0.250282931354849,0.250282931354849,0.254963421597985,0.142828845442127,0.260617647726971,0.215613718027704,0.253514705912379,0.294412984213399,0.190322859492711,0.235190129783163,0.274825942232839,0.24537987594684,0.323081798708737,0.252917084050847,0.270035187075149,0.332782874052377,0.301809981295132,0.264412258083361,0.313031480869655,0.383044666754935,0.300780626956216,0.288816220191117,0.357951899535771,0.384892048041568,0.393916158245448,0.420244578337879,0.41737080263972,0.442495885689366,0.431387657097585,0.464417847797281,0.467012951134126,0.475553935588596,0.485029180371791,0.499997726630308,0.499995117702658,0.499989261311431,0.499990077543641,0.499986826631874,0.499986934490066,0.499997714491986,0.499993263954742,0.499995456703978,0.499992231524704,0.499990546839478,0.499986768961252,0.499990783785424,0.499987115932039,0.499996067558277,0.499997764340383,0.499991085686314,0.499987894332261,0.499987260345511,0.499990203033315,0.49999164343778,0.499995256165138,0.499995152290171],[0.91461616745056,0.999120234604106,0.863062018395076,0.796874329447107,0.993138785476962,0.726582967125834,0.88905085357057,0,0.748440748440748,0,0.982702743888421,0.996033158724508,0.812039471270833,0.901460452904496,0.993286075124256,0.888674843354219,0.918713403384936,0.734367740716453,0.879924166746293,0.807655807781781,0,0.964151451499973,0.862214815432047,0,0.791267286353097,0.662106616734721,0.633808373358345,0,0,0.525341465264037,0.858246085890802,0.983822486885014,0,0.549197437861406,0.885933626071631,0,0.513457364341085,0,0,0.849798901940756,0.991702469037579,0.774319780474608,0.848798098484169,0.887123547545649,0,0.86049156927469,0,0,0.690194975628047,0.857024522266874,0,0.727124232714096,0,0,0.967046356291747,0.839485266355219,0.727527716880677,0,0.983409384416703,0.965542617484631,0.745107991360691,0.548413171896482,0,0,0,0.66901562056234,0.682675716859345,0,0,0.52204400211001,0.523489462396974,0,0.540054017405608,1,0.719856502342934,0.813138139558773,0.996881148274012,0,0.758976288389185,0,0,0.927428752476949,0.997227148154119,0,0.768580069818612,0,0,0.583919802674753,0.970701377706209,0,0.760544915512169,0,0.993107249537718,0.526895888682395,0.896968779728444,0.596649441573596],["1.MIPS_55S_RIBOSOME_MITOCHONDRIAL,2.SCHLOSSER_MYC_TARGETS_AND_SERUM_RESPONSE_UP,3.GSE22886_NEUTROPHIL_VS_MONOCYTE_DN,","1.CHEMELLO_SOLEUS_VS_EDL_MYOFIBERS_UP,2.RICKMAN_HEAD_AND_NECK_CANCER_F,3.YAUCH_HEDGEHOG_SIGNALING_PARACRINE_DN,","1.DMAP_ERY3,2.DMAP_ERY4,3.DMAP_ERY5,","1.SEKI_INFLAMMATORY_RESPONSE_LPS_UP,2.GSE9988_ANTI_TREM1_VS_LOW_LPS_MONOCYTE_DN,3.GSE9988_LPS_VS_LPS_AND_ANTI_TREM1_MONOCYTE_UP,","1.IRIS_Bcell-Memory_IgG_IgA,2.IRIS_Bcell-naive,3.DMAP_BCELLA2,","1.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,2.THEILGAARD_NEUTROPHIL_AT_SKIN_WOUND_DN,3.GSE9988_LPS_VS_LPS_AND_ANTI_TREM1_MONOCYTE_UP,","1.DMAP_TCELLA1,2.GSE34205_HEALTHY_VS_RSV_INF_INFANT_PBMC_UP,3.GSE26495_NAIVE_VS_PD1HIGH_CD8_TCELL_DN,","no-related-pathways","1.xCell:Eosinophils_FANTOM_3,","no-related-pathways","1.DMAP_ERY3,2.DMAP_ERY4,3.DMAP_ERY5,","1.IRIS_NKcell-IL15stimulated,2.IRIS_NKcell-IL2stimulated,3.DMAP_NKA2,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,2.PICCALUGA_ANGIOIMMUNOBLASTIC_LYMPHOMA_UP,","1.TAKEDA_TARGETS_OF_NUP98_HOXA9_FUSION_10D_DN,2.LIAN_LIPA_TARGETS_6M,3.PICCALUGA_ANGIOIMMUNOBLASTIC_LYMPHOMA_UP,","1.IRIS_CD4Tcell-N0,2.IRIS_MemoryTcell-RO-unactivated,3.DMAP_TCELLA6,","1.GALINDO_IMMUNE_RESPONSE_TO_ENTEROTOXIN,2.SEKI_INFLAMMATORY_RESPONSE_LPS_UP,3.NAGASHIMA_NRG1_SIGNALING_UP,","1.KEGG_VALINE_LEUCINE_AND_ISOLEUCINE_DEGRADATION,2.MIPS_55S_RIBOSOME_MITOCHONDRIAL,3.HSIAO_LIVER_SPECIFIC_GENES,","1.GSE26495_NAIVE_VS_PD1HIGH_CD8_TCELL_DN,","1.NIKOLSKY_BREAST_CANCER_16P13_AMPLICON,2.GINESTIER_BREAST_CANCER_ZNF217_AMPLIFIED_DN,3.LU_EZH2_TARGETS_UP,","1.NIKOLSKY_BREAST_CANCER_16P13_AMPLICON,2.LU_EZH2_TARGETS_UP,3.GSE9006_TYPE_1_VS_TYPE_2_DIABETES_PBMC_AT_DX_UP,","no-related-pathways","1.IRIS_PlasmaCell-FromPBMC,2.TARTE_PLASMA_CELL_VS_B_LYMPHOCYTE_UP,3.MATTIOLI_MGUS_VS_PCL,","1.REACTOME_MRNA_SPLICING,2.MIPS_C_COMPLEX_SPLICEOSOME,3.MIPS_SPLICEOSOME,","no-related-pathways","1.IRIS_Neutrophil-Resting,2.GSE9988_ANTI_TREM1_VS_LOW_LPS_MONOCYTE_DN,3.GSE9988_LPS_VS_LPS_AND_ANTI_TREM1_MONOCYTE_UP,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,2.CREIGHTON_ENDOCRINE_THERAPY_RESISTANCE_2,","1.DMAP_ERY3,","no-related-pathways","no-related-pathways","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,2.CREIGHTON_ENDOCRINE_THERAPY_RESISTANCE_2,3.SENGUPTA_NASOPHARYNGEAL_CARCINOMA_DN,","1.REACTOME_RESPIRATORY_ELECTRON_TRANSPORT_ATP_SYNTHESIS_BY_CHEMIOSMOTIC_COUPLING_AND_HEAT_PRODUCTION_BY_UNCOUPLING_PROTEINS_,2.REACTOME_RESPIRATORY_ELECTRON_TRANSPORT,3.REACTOME_TRANSLATION,","no-related-pathways","1.GSE1432_1H_VS_24H_IFNG_MICROGLIA_UP,","1.KEGG_RIBOSOME,2.MIPS_C_COMPLEX_SPLICEOSOME,3.REACTOME_RESPIRATORY_ELECTRON_TRANSPORT_ATP_SYNTHESIS_BY_CHEMIOSMOTIC_COUPLING_AND_HEAT_PRODUCTION_BY_UNCOUPLING_PROTEINS_,","no-related-pathways","1.NAKAMURA_CANCER_MICROENVIRONMENT_UP,2.HANN_RESISTANCE_TO_BCL2_INHIBITOR_DN,3.xCell:Memory B-cells_BLUEPRINT_1,","no-related-pathways","no-related-pathways","1.IRIS_Monocyte-Day0,2.IRIS_Neutrophil-Resting,3.THEILGAARD_NEUTROPHIL_AT_SKIN_WOUND_DN,","1.HSIAO_LIVER_SPECIFIC_GENES,2.CHIANG_LIVER_CANCER_SUBCLASS_PROLIFERATION_DN,3.YAMASHITA_LIVER_CANCER_STEM_CELL_DN,","1.IRIS_Monocyte-Day0,2.GSE11057_PBMC_VS_MEM_CD4_TCELL_UP,3.GSE13485_DAY7_VS_DAY21_YF17D_VACCINE_PBMC_UP,","1.TAKEDA_TARGETS_OF_NUP98_HOXA9_FUSION_16D_DN,2.TAKEDA_TARGETS_OF_NUP98_HOXA9_FUSION_10D_DN,3.WIERENGA_STAT5A_TARGETS_DN,","1.BOQUEST_STEM_CELL_DN,2.PICCALUGA_ANGIOIMMUNOBLASTIC_LYMPHOMA_UP,3.xCell:Endothelial cells_FANTOM_3,","no-related-pathways","1.SEIDEN_ONCOGENESIS_BY_MET,2.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,3.HAMAI_APOPTOSIS_VIA_TRAIL_UP,","no-related-pathways","no-related-pathways","1.HAMAI_APOPTOSIS_VIA_TRAIL_UP,2.GINESTIER_BREAST_CANCER_ZNF217_AMPLIFIED_DN,3.GABRIELY_MIR21_TARGETS,","1.LIEN_BREAST_CARCINOMA_METAPLASTIC,2.LINDVALL_IMMORTALIZED_BY_TERT_DN,3.ROY_WOUND_BLOOD_VESSEL_UP,","no-related-pathways","1.HAMAI_APOPTOSIS_VIA_TRAIL_UP,2.GABRIELY_MIR21_TARGETS,","no-related-pathways","no-related-pathways","1.SANA_RESPONSE_TO_IFNG_UP,2.HECKER_IFNB1_TARGETS,3.BOSCO_INTERFERON_INDUCED_ANTIVIRAL_MODULE,","1.REACTOME_GENERIC_TRANSCRIPTION_PATHWAY,2.ZWANG_DOWN_BY_2ND_EGF_PULSE,3.GSE18791_CTRL_VS_NEWCASTLE_VIRUS_DC_2H_UP,","1.GSE6269_E_COLI_VS_STREP_PNEUMO_INF_PBMC_DN,","no-related-pathways","1.HUPER_BREAST_BASAL_VS_LUMINAL_UP,2.DODD_NASOPHARYNGEAL_CARCINOMA_UP,3.JAEGER_METASTASIS_DN,","1.LEE_TARGETS_OF_PTCH1_AND_SUFU_DN,2.LEIN_NEURON_MARKERS,3.xCell:Neurons_FANTOM_1,","1.REACTOME_GENERIC_TRANSCRIPTION_PATHWAY,2.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,3.HAMAI_APOPTOSIS_VIA_TRAIL_UP,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,","no-related-pathways","no-related-pathways","no-related-pathways","1.GINESTIER_BREAST_CANCER_ZNF217_AMPLIFIED_DN,2.GSE13485_CTRL_VS_DAY21_YF17D_VACCINE_PBMC_UP,","1.THEILGAARD_NEUTROPHIL_AT_SKIN_WOUND_DN,","no-related-pathways","no-related-pathways","1.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,","no-related-pathways","1.GSE20715_0H_VS_48H_OZONE_LUNG_DN,","1.REACTOME_PEPTIDE_CHAIN_ELONGATION,2.KEGG_RIBOSOME,3.MIPS_60S_RIBOSOMAL_SUBUNIT_CYTOPLASMIC,","1.GSE11057_PBMC_VS_MEM_CD4_TCELL_UP,2.GSE29617_DAY3_VS_DAY7_TIV_FLU_VACCINE_PBMC_2008_UP,","1.SENGUPTA_EBNA1_ANTICORRELATED,2.GINESTIER_BREAST_CANCER_ZNF217_AMPLIFIED_DN,3.GSE6269_HEALTHY_VS_E_COLI_INF_PBMC_UP,","1.DMAP_MEGA2,2.RAGHAVACHARI_PLATELET_SPECIFIC_GENES,3.WIERENGA_STAT5A_TARGETS_DN,","no-related-pathways","1.MIPS_SPLICEOSOME,2.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,3.HAMAI_APOPTOSIS_VIA_TRAIL_UP,","no-related-pathways","no-related-pathways","1.ELVIDGE_HIF1A_AND_HIF2A_TARGETS_DN,2.MENSE_HYPOXIA_UP,3.GSE37416_CTRL_VS_12H_F_TULARENSIS_LVS_NEUTROPHIL_DN,","1.DMAP_ERY3,2.DMAP_ERY4,3.DMAP_ERY5,","no-related-pathways","1.GSE9988_ANTI_TREM1_VS_LOW_LPS_MONOCYTE_UP,2.GSE37416_0H_VS_12H_F_TULARENSIS_LVS_NEUTROPHIL_DN,3.GSE37416_12H_VS_24H_F_TULARENSIS_LVS_NEUTROPHIL_DN,","no-related-pathways","no-related-pathways","1.REACTOME_GENERIC_TRANSCRIPTION_PATHWAY,","1.IRIS_Neutrophil-Resting,2.DODD_NASOPHARYNGEAL_CARCINOMA_UP,3.THEILGAARD_NEUTROPHIL_AT_SKIN_WOUND_DN,","no-related-pathways","1.GSE1432_1H_VS_24H_IFNG_MICROGLIA_UP,2.GSE37416_0H_VS_3H_F_TULARENSIS_LVS_NEUTROPHIL_DN,","no-related-pathways","1.DUTERTRE_ESTRADIOL_RESPONSE_24HR_UP,2.LEE_EARLY_T_LYMPHOCYTE_UP,3.WHITFIELD_CELL_CYCLE_G2,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,","1.BOSCO_EPITHELIAL_DIFFERENTIATION_MODULE,2.HUPER_BREAST_BASAL_VS_LUMINAL_UP,3.CROMER_TUMORIGENESIS_DN,","1.GSE13485_CTRL_VS_DAY21_YF17D_VACCINE_PBMC_UP,"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>LVs<\/th>\n      <th>Heritability<\/th>\n      <th>SE<\/th>\n      <th>zscore<\/th>\n      <th>pval<\/th>\n      <th>LV_AUC<\/th>\n      <th>pwys<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="results-maf0.05" class="section level2">
+<h2>Results-maf0.05</h2>
+<div id="heritability-of-lvs-1" class="section level3">
+<h3>Heritability of LVs</h3>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_nox_allpath_005.jpeg" width="50%">
+</figure>
+<p>Details about the factors are listed below. The last column are the top 3 pathways related to each factor.</p>
+<div id="htmlwidget-cfefb73e51b4928e765c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfefb73e51b4928e765c">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96"],[76,71,85,31,24,42,28,10,4,30,46,35,73,55,38,79,1,2,89,61,39,54,70,40,78,26,22,21,68,90,17,19,23,13,8,7,83,48,72,5,63,95,47,64,80,84,34,86,33,12,44,27,94,36,75,82,14,81,93,49,53,43,74,3,16,56,66,57,69,37,20,88,52,67,59,29,77,25,6,9,11,15,18,32,41,45,50,51,58,60,62,65,87,91,92,96],[0.915329,0.782813,0.753205,0.730281,0.694296,0.666414,0.652108,0.621532,0.617677,0.614145,0.595348,0.585063,0.566282,0.531687,0.490684,0.468064,0.467324,0.447883,0.419902,0.399143,0.397559,0.371031,0.360144,0.333319,0.331259,0.310628,0.306171,0.294746,0.283593,0.271177,0.262672,0.255913,0.252015,0.216505,0.203264,0.194519,0.189722,0.186725,0.181716,0.154079,0.144708,0.143198,0.136192,0.136192,0.136192,0.129805,0.12897,0.127606,0.121399,0.12099,0.110154,0.101575,0.089921,0.088487,0.087288,0.083419,0.057419,0.057198,0.051679,0.051577,0.045723,0.039374,0.038812,0.035394,0.035312,0.019721,0.016345,0.015614,0.013816,0.012433,0.010088,0.009945,0.009561,0.007739,0.004044,0.002149,0.001485,0.001258,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06],[0.328766,0.416398,0.410284,0.402668,0.398723,0.424053,0.412058,0.421021,0.314933,0.390228,0.438572,0.257194,0.429005,0.347287,0.43055,0.362944,0.424902,0.304673,0.340342,0.364893,0.300603,0.314345,0.382171,0.22886,0.346923,0.281596,0.242072,0.244291,0.249909,0.283075,0.198244,0.282989,0.213855,0.302749,0.259768,0.247406,0.166498,0.149965,0.17863,0.195116,0.178373,0.23935,0.212963,0.212964,0.212964,0.209174,0.194727,0.170373,0.178046,0.217679,0.169874,0.116241,0.131512,0.136824,0.145226,0.128875,0.137663,0.097285,0.114768,0.096985,0.098038,0.08027,0.085911,0.090129,0.082425,0.073716,0.086471,0.07368,0.072486,0.066517,0.061278,0.061356,0.060914,0.05623,0.050368,0.044945,0.046809,0.045655,0.411227,0.102053,0.042778,0.051512,0.059334,0.04328,0.078933,0.113378,0.062665,0.05712,0.063525,0.129618,0.379135,0.068963,0.055129,0.062397,0.130622,0.111331],[2.78413522079534,1.87996340040058,1.83581372902672,1.81360574964984,1.74129909736835,1.57153469023919,1.58256361968461,1.47624940323642,1.96129652973807,1.57381069528583,1.35746924108242,2.27479256903349,1.31998927751425,1.530972941688,1.13966786668215,1.2896314582966,1.0998394924006,1.47004493342042,1.23376486005254,1.09386313247993,1.32253836455391,1.18033052855939,0.942363496968635,1.45643187975181,0.954848770476446,1.1030980553701,1.26479311940249,1.20653646675481,1.13478506176248,0.957968736200653,1.32499344242449,0.904321369381849,1.17843866171004,0.715130355509019,0.782482830833667,0.78623396360638,1.13948515898089,1.24512386223452,1.01727593349381,0.789678960208286,0.811266279089324,0.598278671401713,0.639510149650409,0.639507146747807,0.639507146747807,0.620559916624437,0.662311851977384,0.748980178784197,0.681840647922447,0.555818429889884,0.648445318294736,0.873831092299619,0.68374749072328,0.646721335438227,0.601049398867971,0.647286129970902,0.417098276225275,0.587942642750681,0.450291021887634,0.531803887199051,0.466380383116751,0.490519496698642,0.451769854849786,0.392703791232567,0.428413709432818,0.267526724184709,0.189022909414717,0.211916395222584,0.19060232320724,0.186914623329374,0.164626782858448,0.162086837473108,0.156958991364875,0.137631157744976,0.0802890724269377,0.0478139948826343,0.0317246683330129,0.0275544847223743,2.43174694268616e-06,9.79883001969565e-06,2.33765019402497e-05,1.94129523217891e-05,1.68537432163684e-05,2.31053604436229e-05,1.2668972419647e-05,8.82005327312177e-06,1.59578712199793e-05,1.75070028011204e-05,1.57418339236521e-05,7.71497785801355e-06,2.63758291901302e-06,1.45005292693183e-05,1.813927334071e-05,1.60264115261952e-05,7.6556782165332e-06,8.98222417835104e-06],[0.00268353268744159,0.0300565330742273,0.0331926051387135,0.0348692223121788,0.0408155821768453,0.0580292515553006,0.0567604805048928,0.0699384757509984,0.024922220939494,0.0577656103525979,0.0873160802133794,0.0114591881115754,0.0934192989861908,0.0628880400853218,0.127212349618629,0.0985893239271074,0.135701030963225,0.0707747923959468,0.108645268575152,0.137007505141747,0.0929944714978653,0.118934390332482,0.173003284635816,0.072636634025129,0.169827089925588,0.134992292624585,0.102972749269945,0.113805353530394,0.128232693364262,0.169039261859831,0.0925866631489382,0.182912509389355,0.119310886129924,0.2372642491837,0.21696543582544,0.215865215934538,0.1272504274313,0.106543111995005,0.154511091031802,0.214857640883441,0.208606385297854,0.274827002807773,0.261245556512732,0.26124653294994,0.26124653294994,0.267444609895195,0.253885691343982,0.226934576143324,0.247669859240431,0.289167492608156,0.25834848361436,0.191105122645985,0.247067314642027,0.258906156084754,0.273903542357945,0.258723388274644,0.338303262860656,0.278285396306597,0.326250305922177,0.297430915109568,0.320471625252485,0.31188316845927,0.325717394255083,0.347269135088554,0.334174972623626,0.394531820416834,0.425037430667834,0.416086129770207,0.424418584953513,0.42586378675107,0.434618874583555,0.435618735653621,0.437638583788876,0.445265964768345,0.468003674548066,0.480932241505089,0.487345811150234,0.489008741898604,0.499999029873329,0.499996090832407,0.499990674125009,0.499992255352532,0.499993276329248,0.499990782294816,0.499994945811253,0.499996481307834,0.499993633730465,0.49999301571638,0.499993719916877,0.49999692216914,0.499998947756656,0.499994215125786,0.499992763476929,0.499993606386839,0.499996945826274,0.499996416611003],[0.863062018395076,0.748440748440748,0.633808373358345,0.993138785476962,0.888674843354219,0.52204400211001,0.66901562056234,0,0,0.996033158724508,0,0.999120234604106,0.91461616745056,0.812039471270833,0,0.858246085890802,0.88905085357057,0.879924166746293,0.982702743888421,0.513457364341085,0.791267286353097,0.885933626071631,0,0.662106616734721,0,0.964151451499973,0.807655807781781,0,0,0.901460452904496,0.862214815432047,0,0.918713403384936,0.525341465264037,0,0,0.549197437861406,0.983822486885014,0.887123547545649,0.857024522266874,0.86049156927469,0.993286075124256,0.849798901940756,0.991702469037579,0.774319780474608,0.848798098484169,0.967046356291747,0.727124232714096,0,0,0,0.690194975628047,0,0.548413171896482,0,0.745107991360691,0,0,0,0.727527716880677,0,0.983409384416703,0,0.839485266355219,0.682675716859345,0.540054017405608,0.760544915512169,0.796874329447107,0,0.726582967125834,0.523489462396974,0,0.768580069818612,0,0,0,0,0.965542617484631,1,0.719856502342934,0.734367740716453,0.813138139558773,0.996881148274012,0.758976288389185,0,0.927428752476949,0.997227148154119,0,0,0.583919802674753,0.970701377706209,0,0.993107249537718,0.526895888682395,0.896968779728444,0.596649441573596],["1.DMAP_ERY3,2.DMAP_ERY4,3.DMAP_ERY5,","1.xCell:Eosinophils_FANTOM_3,","1.DMAP_ERY3,","1.IRIS_Bcell-Memory_IgG_IgA,2.IRIS_Bcell-naive,3.DMAP_BCELLA2,","1.GALINDO_IMMUNE_RESPONSE_TO_ENTEROTOXIN,2.SEKI_INFLAMMATORY_RESPONSE_LPS_UP,3.NAGASHIMA_NRG1_SIGNALING_UP,","1.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,","1.GINESTIER_BREAST_CANCER_ZNF217_AMPLIFIED_DN,2.GSE13485_CTRL_VS_DAY21_YF17D_VACCINE_PBMC_UP,","no-related-pathways","no-related-pathways","1.IRIS_NKcell-IL15stimulated,2.IRIS_NKcell-IL2stimulated,3.DMAP_NKA2,","no-related-pathways","1.CHEMELLO_SOLEUS_VS_EDL_MYOFIBERS_UP,2.RICKMAN_HEAD_AND_NECK_CANCER_F,3.YAUCH_HEDGEHOG_SIGNALING_PARACRINE_DN,","1.MIPS_55S_RIBOSOME_MITOCHONDRIAL,2.SCHLOSSER_MYC_TARGETS_AND_SERUM_RESPONSE_UP,3.GSE22886_NEUTROPHIL_VS_MONOCYTE_DN,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,2.PICCALUGA_ANGIOIMMUNOBLASTIC_LYMPHOMA_UP,","no-related-pathways","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,2.CREIGHTON_ENDOCRINE_THERAPY_RESISTANCE_2,3.SENGUPTA_NASOPHARYNGEAL_CARCINOMA_DN,","1.DMAP_TCELLA1,2.GSE34205_HEALTHY_VS_RSV_INF_INFANT_PBMC_UP,3.GSE26495_NAIVE_VS_PD1HIGH_CD8_TCELL_DN,","1.NIKOLSKY_BREAST_CANCER_16P13_AMPLICON,2.GINESTIER_BREAST_CANCER_ZNF217_AMPLIFIED_DN,3.LU_EZH2_TARGETS_UP,","1.DMAP_ERY3,2.DMAP_ERY4,3.DMAP_ERY5,","1.NAKAMURA_CANCER_MICROENVIRONMENT_UP,2.HANN_RESISTANCE_TO_BCL2_INHIBITOR_DN,3.xCell:Memory B-cells_BLUEPRINT_1,","1.IRIS_Neutrophil-Resting,2.GSE9988_ANTI_TREM1_VS_LOW_LPS_MONOCYTE_DN,3.GSE9988_LPS_VS_LPS_AND_ANTI_TREM1_MONOCYTE_UP,","1.KEGG_RIBOSOME,2.MIPS_C_COMPLEX_SPLICEOSOME,3.REACTOME_RESPIRATORY_ELECTRON_TRANSPORT_ATP_SYNTHESIS_BY_CHEMIOSMOTIC_COUPLING_AND_HEAT_PRODUCTION_BY_UNCOUPLING_PROTEINS_,","no-related-pathways","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,2.CREIGHTON_ENDOCRINE_THERAPY_RESISTANCE_2,","no-related-pathways","1.IRIS_PlasmaCell-FromPBMC,2.TARTE_PLASMA_CELL_VS_B_LYMPHOCYTE_UP,3.MATTIOLI_MGUS_VS_PCL,","1.NIKOLSKY_BREAST_CANCER_16P13_AMPLICON,2.LU_EZH2_TARGETS_UP,3.GSE9006_TYPE_1_VS_TYPE_2_DIABETES_PBMC_AT_DX_UP,","no-related-pathways","no-related-pathways","1.TAKEDA_TARGETS_OF_NUP98_HOXA9_FUSION_10D_DN,2.LIAN_LIPA_TARGETS_6M,3.PICCALUGA_ANGIOIMMUNOBLASTIC_LYMPHOMA_UP,","1.REACTOME_MRNA_SPLICING,2.MIPS_C_COMPLEX_SPLICEOSOME,3.MIPS_SPLICEOSOME,","no-related-pathways","1.KEGG_VALINE_LEUCINE_AND_ISOLEUCINE_DEGRADATION,2.MIPS_55S_RIBOSOME_MITOCHONDRIAL,3.HSIAO_LIVER_SPECIFIC_GENES,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,","no-related-pathways","no-related-pathways","1.GSE1432_1H_VS_24H_IFNG_MICROGLIA_UP,","1.REACTOME_RESPIRATORY_ELECTRON_TRANSPORT_ATP_SYNTHESIS_BY_CHEMIOSMOTIC_COUPLING_AND_HEAT_PRODUCTION_BY_UNCOUPLING_PROTEINS_,2.REACTOME_RESPIRATORY_ELECTRON_TRANSPORT,3.REACTOME_TRANSLATION,","1.BOQUEST_STEM_CELL_DN,2.PICCALUGA_ANGIOIMMUNOBLASTIC_LYMPHOMA_UP,3.xCell:Endothelial cells_FANTOM_3,","1.LIEN_BREAST_CARCINOMA_METAPLASTIC,2.LINDVALL_IMMORTALIZED_BY_TERT_DN,3.ROY_WOUND_BLOOD_VESSEL_UP,","1.SEIDEN_ONCOGENESIS_BY_MET,2.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,3.HAMAI_APOPTOSIS_VIA_TRAIL_UP,","1.IRIS_CD4Tcell-N0,2.IRIS_MemoryTcell-RO-unactivated,3.DMAP_TCELLA6,","1.IRIS_Monocyte-Day0,2.IRIS_Neutrophil-Resting,3.THEILGAARD_NEUTROPHIL_AT_SKIN_WOUND_DN,","1.HSIAO_LIVER_SPECIFIC_GENES,2.CHIANG_LIVER_CANCER_SUBCLASS_PROLIFERATION_DN,3.YAMASHITA_LIVER_CANCER_STEM_CELL_DN,","1.IRIS_Monocyte-Day0,2.GSE11057_PBMC_VS_MEM_CD4_TCELL_UP,3.GSE13485_DAY7_VS_DAY21_YF17D_VACCINE_PBMC_UP,","1.TAKEDA_TARGETS_OF_NUP98_HOXA9_FUSION_16D_DN,2.TAKEDA_TARGETS_OF_NUP98_HOXA9_FUSION_10D_DN,3.WIERENGA_STAT5A_TARGETS_DN,","1.SANA_RESPONSE_TO_IFNG_UP,2.HECKER_IFNB1_TARGETS,3.BOSCO_INTERFERON_INDUCED_ANTIVIRAL_MODULE,","1.HAMAI_APOPTOSIS_VIA_TRAIL_UP,2.GABRIELY_MIR21_TARGETS,","no-related-pathways","no-related-pathways","no-related-pathways","1.HAMAI_APOPTOSIS_VIA_TRAIL_UP,2.GINESTIER_BREAST_CANCER_ZNF217_AMPLIFIED_DN,3.GABRIELY_MIR21_TARGETS,","no-related-pathways","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,","no-related-pathways","1.REACTOME_GENERIC_TRANSCRIPTION_PATHWAY,2.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,3.HAMAI_APOPTOSIS_VIA_TRAIL_UP,","no-related-pathways","no-related-pathways","no-related-pathways","1.GSE6269_E_COLI_VS_STREP_PNEUMO_INF_PBMC_DN,","no-related-pathways","1.HUPER_BREAST_BASAL_VS_LUMINAL_UP,2.DODD_NASOPHARYNGEAL_CARCINOMA_UP,3.JAEGER_METASTASIS_DN,","no-related-pathways","1.REACTOME_GENERIC_TRANSCRIPTION_PATHWAY,2.ZWANG_DOWN_BY_2ND_EGF_PULSE,3.GSE18791_CTRL_VS_NEWCASTLE_VIRUS_DC_2H_UP,","1.THEILGAARD_NEUTROPHIL_AT_SKIN_WOUND_DN,","1.GSE20715_0H_VS_48H_OZONE_LUNG_DN,","1.GSE1432_1H_VS_24H_IFNG_MICROGLIA_UP,2.GSE37416_0H_VS_3H_F_TULARENSIS_LVS_NEUTROPHIL_DN,","1.SEKI_INFLAMMATORY_RESPONSE_LPS_UP,2.GSE9988_ANTI_TREM1_VS_LOW_LPS_MONOCYTE_DN,3.GSE9988_LPS_VS_LPS_AND_ANTI_TREM1_MONOCYTE_UP,","no-related-pathways","1.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,2.THEILGAARD_NEUTROPHIL_AT_SKIN_WOUND_DN,3.GSE9988_LPS_VS_LPS_AND_ANTI_TREM1_MONOCYTE_UP,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,","no-related-pathways","1.GSE9988_ANTI_TREM1_VS_LOW_LPS_MONOCYTE_UP,2.GSE37416_0H_VS_12H_F_TULARENSIS_LVS_NEUTROPHIL_DN,3.GSE37416_12H_VS_24H_F_TULARENSIS_LVS_NEUTROPHIL_DN,","no-related-pathways","no-related-pathways","no-related-pathways","no-related-pathways","1.LEE_TARGETS_OF_PTCH1_AND_SUFU_DN,2.LEIN_NEURON_MARKERS,3.xCell:Neurons_FANTOM_1,","1.REACTOME_PEPTIDE_CHAIN_ELONGATION,2.KEGG_RIBOSOME,3.MIPS_60S_RIBOSOMAL_SUBUNIT_CYTOPLASMIC,","1.GSE11057_PBMC_VS_MEM_CD4_TCELL_UP,2.GSE29617_DAY3_VS_DAY7_TIV_FLU_VACCINE_PBMC_2008_UP,","1.GSE26495_NAIVE_VS_PD1HIGH_CD8_TCELL_DN,","1.SENGUPTA_EBNA1_ANTICORRELATED,2.GINESTIER_BREAST_CANCER_ZNF217_AMPLIFIED_DN,3.GSE6269_HEALTHY_VS_E_COLI_INF_PBMC_UP,","1.DMAP_MEGA2,2.RAGHAVACHARI_PLATELET_SPECIFIC_GENES,3.WIERENGA_STAT5A_TARGETS_DN,","1.MIPS_SPLICEOSOME,2.MILI_PSEUDOPODIA_HAPTOTAXIS_UP,3.HAMAI_APOPTOSIS_VIA_TRAIL_UP,","no-related-pathways","1.ELVIDGE_HIF1A_AND_HIF2A_TARGETS_DN,2.MENSE_HYPOXIA_UP,3.GSE37416_CTRL_VS_12H_F_TULARENSIS_LVS_NEUTROPHIL_DN,","1.DMAP_ERY3,2.DMAP_ERY4,3.DMAP_ERY5,","no-related-pathways","no-related-pathways","1.REACTOME_GENERIC_TRANSCRIPTION_PATHWAY,","1.IRIS_Neutrophil-Resting,2.DODD_NASOPHARYNGEAL_CARCINOMA_UP,3.THEILGAARD_NEUTROPHIL_AT_SKIN_WOUND_DN,","no-related-pathways","1.DUTERTRE_ESTRADIOL_RESPONSE_24HR_UP,2.LEE_EARLY_T_LYMPHOCYTE_UP,3.WHITFIELD_CELL_CYCLE_G2,","1.DODD_NASOPHARYNGEAL_CARCINOMA_UP,","1.BOSCO_EPITHELIAL_DIFFERENTIATION_MODULE,2.HUPER_BREAST_BASAL_VS_LUMINAL_UP,3.CROMER_TUMORIGENESIS_DN,","1.GSE13485_CTRL_VS_DAY21_YF17D_VACCINE_PBMC_UP,"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>LVs<\/th>\n      <th>Heritability<\/th>\n      <th>SE<\/th>\n      <th>zscore<\/th>\n      <th>pval<\/th>\n      <th>LV_AUC<\/th>\n      <th>pwys<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.4.6    knitr_1.28      magrittr_1.5    xtable_1.8-4   
+ [5] R6_2.4.1        stringr_1.4.0   highr_0.8       tools_3.6.1    
+ [9] DT_0.13         xfun_0.14       git2r_0.26.1    htmltools_0.3.6
+[13] crosstalk_1.0.0 yaml_2.2.1      digest_0.6.25   rprojroot_1.3-2
+[17] shiny_1.3.2     later_0.8.0     htmlwidgets_1.3 promises_1.0.1 
+[21] fs_1.3.1        glue_1.4.1      evaluate_0.14   mime_0.9       
+[25] rmarkdown_1.13  stringi_1.4.6   compiler_3.6.1  backports_1.1.7
+[29] jsonlite_1.6.1  httpuv_1.5.1   </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

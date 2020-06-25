@@ -1,0 +1,198 @@
+---
+title: "Prediction model for plier-canonicalPathways factors"
+author: "XSun"
+date: "2020-05-16"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+  In this part, I adopted lasso/elastic_net regression to train prediction models. The dependent variables here were LVs extracted from [plier-canonicalPathways](https://xsun1229.github.io/factor_analysis/factor_plier_canon.html) and the independent variables were genotype of certain variants. (LVs ~ variant genotype)
+
+## Results-maf001
+
+### Heritability vs R-squared
+
+This figure shows the prediction performance (R2 of Lasso/Elastic_net regression on training set in red) in comparison to LV heritability estimates (black; standard errors in gray). Performance was assessed using tenfold cross-validation in the GTEx whole-blood cohort (on training set, n = 536) with the elastic net and lasso models.
+  
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/devide_snp001_le.jpeg" width="150%">
+</figure>
+
+
+### Summary of Heritability 
+
+The table below shows the heritability of LVs and performance of the training models. The table has been sorted by Heritability from small to large.
+
+Some notations to explain: **rsq_min** is the r-squared when lambda=lambda.min, **ncoef_nzero_min** is the number of non-zero coefficients when lambda=lambda.min, **rsq_test** is the r-squared in testing set (obtained from lm(lv.obs ~ lv.pred)) ,**pval_test** is the pvalue of F-statistics in testing set. When the suffix is '_1se', the notations mean lambda=lambda.1se. Suffix '_l' means lasso regression and '_e' means elastic_net
+
+
+```{r eval=FALSE, echo=T}
+  ###Lasso regression. 'k' represents the kth LV.
+    fit_lasso <- cv.glmnet(x, y, alpha =1, foldid = foldid)   ##'foldid = foldid' can fix the data partition in cross validation, making the codes reproducible
+    fit_r_train_l[k]  <- fit_lasso$glmnet.fit$dev.ratio[which(fit_lasso$glmnet.fit$lambda == fit_lasso$lambda.min)]  ###r2 when lambda = lambda.min
+    predict_l <- predict(fit_lasso, nx, s = fit_lasso$lambda.min )
+    
+    fit_linear <- lm(y_test ~ predict_l)
+    pval_test_l[i] <- summary(fit_linear)$coefficients[,4]
+    rsq_test_l[i] <- summary(fit_linear)$r.squared
+
+```
+
+  
+Some LVs like LV6,LV8 have pretty low heritability but have very high r-squared. In such LVs, the prediction model always selected many variants(ncoef_nzero). 
+
+Other LVs like LV101,LV113 have relatively high heritability but very low r-squared.In such LVs, the training model always selected few variants(ncoef_nzero). 
+
+In this table, there are several NA value. These NA values come from linear regression(lm(y_test ~ predict_l)). It means the variant in regression is linearly with the intercept. After checking the predict_l, we found the predict_l for all samples are the same.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted.rdata")
+rownames(sum_sorted) <- c()
+DT::datatable(sum_sorted, options = list(pageLength =20))
+
+```
+
+### lv6 and lv101
+
+Taking lv6(low heritability but high r2) and lv101(high heritability but low r2) as examples, we made sveral plots to show the models. Since the lasso and elastic_net models were not quite different, we just post the plots from lasso regression here.
+
+We first plot the change of mean squared errors and coefficients when training the model using lasso. We also plot the predicted lv values vs observed lv values. 
+
+#### LV6
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_mse.jpeg" width="80%">
+</figure>
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_coef.jpeg" width="80%">
+</figure>
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_testpred.jpeg" width="80%">
+</figure>
+
+#### LV101
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_mse.jpeg" width="80%">
+</figure>
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_coef.jpeg" width="80%">
+</figure>
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_testpred.jpeg" width="80%">
+</figure>
+
+For LV101, we performned more analysis to detect the reason why it has relatively high heritability(0.19) but low r-squared(0.071) in lasso.
+
+#### Variants with non-zero coefficients
+
+We got 15 variants with non-zero lasso coefficients. For these variants, we performed single snp linear regression (LV101 ~ genotype of a snp) and made conparision in both training set and testing set.
+
+Notations: **coefficients_lasso** is the coefficients from the lasso model. **pval_lm_traindata** is  the p-value of F-statistics from the linear regression using the training set data. **rsq_lm_traindata** is the r-squared of the linear regression using training set data. Suffix "_testdata" means the results using testing set. 
+
+
+```{r eval=FALSE, echo=T}
+### i is the ith variants
+  fit_linear[[i]] <- lm(y ~ x[,i])   ###y is T1B_PC5 and  x[,i] is genotype of a variant.
+  pval_snp[i] <- summary(fit_linear[[i]])$coefficients[,4] ### p-value of F-statistics 
+  rsq_snp[i] <- summary(fit_linear[[i]])$r.squared   ###r-squared of the linear regression
+
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/nzero_variants_101.rdata")
+DT::datatable(summary_snp_all, options = list(pageLength =20))
+```
+
+To compare the p-values of training set and test set, we made a scatter plot.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV101_pvals.jpeg" width="80%">
+</figure>
+
+### LVs with relatively low pval_test_l
+
+By sorting the pval_test_l in the table above, we can get several LVs that have very low pvalues on testing set (LV90,50,125,68). We made scatter plots of predicted LVs vs. observed LVs for them. Besides, we did GWAS analysis.
+
+The red line in manhattan plot means p-value is 5e-8. 
+
+#### lv90
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV90.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90.jpeg" width="80%">
+</figure>
+
+
+#### lv50
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV50.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50.jpeg" width="80%">
+</figure>
+  
+
+#### lv125
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV125.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125.jpeg" width="80%">
+</figure>
+
+#### lv68
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV68.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv68.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv68.jpeg" width="80%">
+</figure>
+
+
+## Results-maf005
+
+### Heritability vs R-squared
+
+This figure shows the prediction performance (R2 of Lasso/Elastic_net regression on training set in red) in comparison to LV heritability estimates (black; standard errors in gray). Performance was assessed using tenfold cross-validation in the GTEx whole-blood cohort (on training set, n = 536) with the elastic net and lasso models.
+  
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/devide_snp001_le.jpeg" width="150%">
+</figure>
+
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/devide_snp001_le.jpeg" width="2000 height = 1000">
+
+
+![](https://github.com/xsun1229/pathway_analysis/raw/master/output/LV68.jpeg = 1000x1000)
+
+### Summary of Heritability 
+
+
+

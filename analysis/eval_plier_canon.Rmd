@@ -1,0 +1,47 @@
+---
+title: "Evaluation of factors - PLIER_CanonicalPathways"
+author: "XSun"
+date: "2020-05-14"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+Using CanonicalPathways which include KEGG and Reactome pathways, I obtained 128 factors. 
+
+
+## Results-maf0.01
+
+### Heritability of LVs
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_nox.jpeg" width="50%">
+</figure>
+
+Details about the factors are listed below. The last column are the top 3 pathways related to each factor.
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/H_lv_processed_sorted_plier_can_001.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+
+```
+
+
+## Results-maf0.05
+
+### Heritability of LVs
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_nox_005.jpeg" width="50%">
+</figure>
+
+
+Details about the factors are listed below. The last column are the top 3 pathways related to each factor.
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/H_lv_processed_sorted_plier_can_005.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+
+```
