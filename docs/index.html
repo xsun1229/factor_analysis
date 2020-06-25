@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Factor Analysis</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Factor Analysis</h1>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-06-24
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong78a6335"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 78a6335 </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong78a6335" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 78a6335. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Untracked files:
+    Untracked:  analysis/eval_flash.Rmd
+    Untracked:  analysis/eval_peer.Rmd
+    Untracked:  analysis/eval_plier_allpathway.Rmd
+    Untracked:  analysis/eval_plier_canon.Rmd
+    Untracked:  analysis/eval_plier_flash.Rmd
+    Untracked:  analysis/eval_plier_peer.Rmd
+    Untracked:  analysis/factor_plier_allpathway.Rmd
+    Untracked:  analysis/factor_plier_canon.Rmd
+    Untracked:  analysis/train_flash.Rmd
+    Untracked:  analysis/train_peer.Rmd
+    Untracked:  analysis/train_plier_allpathway.Rmd
+    Untracked:  analysis/train_plier_canon.Rmd
+    Untracked:  output/H_lv_processed_sorted_flash_all_001.txt
+    Untracked:  output/H_lv_processed_sorted_flash_all_005.txt
+    Untracked:  output/H_lv_processed_sorted_peer_005.txt
+    Untracked:  output/H_lv_processed_sorted_plier_all_001.rdata
+    Untracked:  output/H_lv_processed_sorted_plier_all_005.rdata
+    Untracked:  output/H_lv_processed_sorted_plier_can_001.txt
+    Untracked:  output/H_lv_processed_sorted_plier_can_005.txt
+    Untracked:  output/LV101_coef.jpeg
+    Untracked:  output/LV101_mse.jpeg
+    Untracked:  output/LV101_pvals.jpeg
+    Untracked:  output/LV101_testpred.jpeg
+    Untracked:  output/LV125.jpeg
+    Untracked:  output/LV50.jpeg
+    Untracked:  output/LV68.jpeg
+    Untracked:  output/LV6_coef.jpeg
+    Untracked:  output/LV6_coef_allpath.jpeg
+    Untracked:  output/LV6_mse.jpeg
+    Untracked:  output/LV6_mse_allpath.jpeg
+    Untracked:  output/LV6_testpred.jpeg
+    Untracked:  output/LV6_testpred_allpath.jpeg
+    Untracked:  output/LV90.jpeg
+    Untracked:  output/Umat_wb_nox.jpeg
+    Untracked:  output/Umat_wb_nox_allpath.jpeg
+    Untracked:  output/devide_snp001_le.jpeg
+    Untracked:  output/hist_H_lv_flash_all.jpeg
+    Untracked:  output/hist_H_lv_flash_all_005.jpeg
+    Untracked:  output/hist_H_lv_nox.jpeg
+    Untracked:  output/hist_H_lv_nox_005.jpeg
+    Untracked:  output/hist_H_lv_nox_allpath.jpeg
+    Untracked:  output/hist_H_lv_nox_allpath_005.jpeg
+    Untracked:  output/hist_H_lv_peer_005.jpeg
+    Untracked:  output/man_lv125.jpeg
+    Untracked:  output/man_lv50.jpeg
+    Untracked:  output/man_lv68.jpeg
+    Untracked:  output/man_lv90.jpeg
+    Untracked:  output/ms_snp.jpeg
+    Untracked:  output/nzero_variants_101.rdata
+    Untracked:  output/qq_unif_lv125.jpeg
+    Untracked:  output/qq_unif_lv50.jpeg
+    Untracked:  output/qq_unif_lv68.jpeg
+    Untracked:  output/qq_unif_lv90.jpeg
+    Untracked:  output/summary_H_le_sorted.rdata
+    Untracked:  output/summary_H_le_sorted_allpath.rdata
+    Untracked:  output/summary_H_le_sorted_flash_all.rdata
+    Untracked:  output/summary_H_le_sorted_pc5.rdata
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+78a6335
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-06-24
+</td>
+<td>
+wflow_publish(all = T)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+329ae59
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-06-23
+</td>
+<td>
+Start workflowr project.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p>This page is about factor analysis. Below are details of analyses.</p>
+<div id="factor-construction" class="section level1">
+<h1><strong>Factor Construction</strong></h1>
+<p>I used three softwares, <a href="https://github.com/wgmao/PLIER">PLIER</a>, <a href="https://github.com/stephenslab/flashr">FLASH</a>, and <a href="https://github.com/PMBio/peer/">PEER</a> to construct factors from GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). Genes on chrX were excluded when extracting factors using these softwares.</p>
+<div id="plier" class="section level2">
+<h2>PLIER</h2>
+<p>PLIER(pathway-level information extractor) is a broadly applicable method to accurately infer relevant biological insights, such as variation in cell-type proportion or pathway activity, from global gene expression studies. It approximates the expression pattern of every gene as a linear combination of eigengene-like latent variables (LVs).</p>
+<ul>
+<li>plier-canonicalPathways</li>
+</ul>
+<p>In this part, I just used canonicalPathways which include KEGG and Reactome pathways to extract factors and obtained 128 factors. <a href="https://xsun1229.github.io/factor_analysis/factor_plier_canon.html">For more details</a></p>
+<ul>
+<li>plier-allpathways</li>
+</ul>
+<p>I used ‘PLIER’ package(with default settings) to construct factors related to all pathways provided by the software and got 96 factors. <a href="https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html">For more details</a></p>
+</div>
+<div id="flash" class="section level2">
+<h2>FLASH</h2>
+<p>Using ‘FLASH’, I obtained 100 factors from our GTEx expression matrix.</p>
+</div>
+<div id="peer" class="section level2">
+<h2>PEER</h2>
+<p>Using ‘PEER’, I obtained 60 factors from the GTEx expression matrix.</p>
+</div>
+</div>
+<div id="factor-evaluation" class="section level1">
+<h1><strong>Factor evaluation</strong></h1>
+<p>I first evaluated the heritability of factors using <a href="https://cnsgenomics.com/software/gcta/#GREML">GCTA</a> and made histogrames to show the distribution of the heritabilities.</p>
+<p>When computing heritability, I used GTEx genotype data(the variants with maf &gt;0.05 and maf &gt;0.01 were selected, variants on chrX are excluded). 6,568,202 variants have maf &gt;0.05 and 10,403,249 variants have maf &gt;0.01.</p>
+<div id="plier-1" class="section level2">
+<h2>PLIER</h2>
+<ul>
+<li>plier-canonicalPathways</li>
+</ul>
+<p><a href="https://xsun1229.github.io/factor_analysis/eval_plier_canon.html">For more details</a></p>
+<ul>
+<li>plier-allpathways</li>
+</ul>
+<p><a href="https://xsun1229.github.io/factor_analysis/eval_plier_allpathway.html">For more details</a></p>
+</div>
+<div id="flash-1" class="section level2">
+<h2>FLASH</h2>
+<p><a href="https://xsun1229.github.io/factor_analysis/eval_flash.html">For more details</a></p>
+</div>
+<div id="peer-1" class="section level2">
+<h2>PEER</h2>
+<p><a href="https://xsun1229.github.io/factor_analysis/eval_peer.html">For more details</a></p>
+</div>
+</div>
+<div id="prediction-models-for-factors" class="section level1">
+<h1><strong>Prediction models for factors</strong></h1>
+<p>In this part, I tried to train prediction models for factors ~ genotype using Lasso and Elastic-net. I used whole blood genotype data from GTEx including 670 samples. In genptype data, there are 10,403,249 variants in total (variants in chrX have been excluded). The workflow are listed below.</p>
+<ol style="list-style-type: decimal">
+<li>There are some missing values in our dataset. I used mean imputation (substitue the missing values with mean value of the corresponding variants) to impute the missing value.</li>
+</ol>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ms_snp.jpeg" width="50%">
+</figure>
+<p>The missing data pattern of our dataset. x-axis represents the proportion of missing value for each variant. y-axis represents the number of the variants.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set.</p></li>
+<li><p>In the training data, performed association test between the factors and all SNPs using Plink. I corrected the results for genotype PCs (We used Plink to compute 10 PCs and used them as corvariates in association test).</p></li>
+<li><p>From 3, we selected all SNPs with p &lt; 1e-02 as candidate variants.</p></li>
+<li><p>Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.</p></li>
+<li><p>For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx . In the association tests, first 10 genotype pcs were included as covariants.</p></li>
+</ol>
+<div id="plier-2" class="section level2">
+<h2>PLIER</h2>
+<p><a href="https://xsun1229.github.io/factor_analysis/train_plier_canon.html">Results for plier-canonicalPathways factors</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html">Results for plier-allpathway factors</a></p>
+</div>
+<div id="flash-2" class="section level2">
+<h2>FLASH</h2>
+<p><a href="https://xsun1229.github.io/factor_analysis/train_flash.html">Results for FLASH factors</a></p>
+</div>
+<div id="peer-2" class="section level2">
+<h2>PEER</h2>
+<p><a href="https://xsun1229.github.io/factor_analysis/train_peer.html">Results for PEER factors</a></p>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
