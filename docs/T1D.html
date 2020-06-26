@@ -11,11 +11,11 @@
 
 <meta name="author" content="XSun" />
 
-<meta name="date" content="2020-06-23" />
+<meta name="date" content="2020-03-23" />
 
-<title>Evaluation of factors - PEER</title>
+<title>T1D</title>
 
-<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -27,14 +27,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
-<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -427,16 +419,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Evaluation of factors - PEER</h1>
+<h1 class="title toc-ignore">T1D</h1>
 <h4 class="author">XSun</h4>
-<h4 class="date">2020-06-23</h4>
+<h4 class="date">2020-03-23</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -445,7 +437,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -457,7 +449,7 @@ div.tocify {
 <strong>Last updated:</strong> 2020-06-25
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -469,7 +461,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <hr>
 </div>
 <div id="checks" class="tab-pane fade">
-<div class="panel-group" id="workflowr-checks">
+<div id="workflowr-checks" class="panel-group">
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
@@ -479,90 +471,6 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
-</p>
-</div>
-<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
-</p>
-</div>
-<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
-<div class="panel-body">
-<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
-</p>
-</div>
-<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
-</p>
-</div>
-<div id="strongCachestrongnone" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
-</p>
-</div>
-<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
-<div class="panel-body">
-<p>
-Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
-</p>
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th style="text-align:left;">
-absolute
-</th>
-<th style="text-align:left;">
-relative
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-/project2/xinhe/xsun/website/factor_analysis/output/H_lv_processed_sorted_peer_005.txt
-</td>
-<td style="text-align:left;">
-output/H_lv_processed_sorted_peer_005.txt
-</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
@@ -598,7 +506,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/eval_peer.Rmd</code>) and HTML (<code>docs/eval_peer.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/T1D.Rmd</code>) and HTML (<code>docs/T1D.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -627,33 +535,16 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/b2a406f07d0e359a6bc0ae9f205b571d0e719462/analysis/eval_peer.Rmd" target="_blank">b2a406f</a>
+<a href="https://github.com/xsun1229/factor_analysis/blob/c08d79e7315f01271f8bd1a046935864593a17a2/analysis/T1D.Rmd" target="_blank">c08d79e</a>
 </td>
 <td>
 XSun
 </td>
 <td>
-2020-06-24
+2020-06-25
 </td>
 <td>
-first
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/b2a406f07d0e359a6bc0ae9f205b571d0e719462/docs/eval_peer.html" target="_blank">b2a406f</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-24
-</td>
-<td>
-first
+update
 </td>
 </tr>
 </tbody>
@@ -665,57 +556,21 @@ first
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>Using ‘PEER’, I obtained 60 factors from the GTEx expression matrix.</p>
+<p>From <a href="https://xsun1229.github.io/factor_analysis/eval_kegg.html">PC&amp;PEER from KEGG pathways</a>, I found that the 5th PC of Type I diabetes mellitus pathway has the heritability over 0.99. So I performed association test between the fifth PC and all SNPs(from GTEx) using Plink. I corrected the results for genotype PCs. I used Plink to compute 10 PCs and used them as corvariates in association test.</p>
 </div>
-<div id="results-maf0.05" class="section level2">
-<h2>Results-maf0.05</h2>
-<div id="heritability-of-lvs" class="section level3">
-<h3>Heritability of LVs</h3>
+<div id="results" class="section level2">
+<h2>Results</h2>
+<p>Since SNPs in MHC has p &lt; 1e-100, We show the results after removing MHC.</p>
+Manhattan plot
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_peer_005.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_noMHC_co.jpeg" width="50%">
 </figure>
-<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"],[6,25,36,21,23,32,29,41,43,60,53,30,16,19,37,1,17,46,26,10,57,39,47,38,14,31,45,40,18,51,50,27,33,54,48,49,8,24,13,44,52,15,22,7,2,3,4,5,9,11,12,20,28,34,35,42,55,56,58,59],[0.826231,0.704879,0.624521,0.622603,0.59319,0.566108,0.468783,0.448293,0.443911,0.423599,0.376594,0.359295,0.331903,0.30773,0.298604,0.285969,0.267407,0.251157,0.229975,0.20801,0.204542,0.18566,0.1745,0.161434,0.161064,0.149934,0.131478,0.119262,0.089216,0.07989,0.071621,0.064056,0.064009,0.059267,0.058419,0.05036,0.046681,0.040576,0.036172,0.030326,0.018671,0.009424,0.00705,0.006884,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06],[0.414123,0.409903,0.365302,0.387553,0.342582,0.299074,0.350909,0.345481,0.392859,0.346754,0.328941,0.240389,0.222613,0.334188,0.185864,0.313908,0.299334,0.30302,0.257018,0.299906,0.236654,0.208997,0.180012,0.166589,0.196037,0.171995,0.170614,0.169909,0.131751,0.114153,0.098791,0.099251,0.088289,0.098207,0.131582,0.107807,0.100202,0.078036,0.077352,0.081084,0.089007,0.060842,0.056286,0.052662,0.15164,0.121153,0.288466,0.214557,0.218053,0.17204,0.051984,0.120712,0.041906,0.09659,0.179923,0.120782,0.200156,0.048655,0.361763,0.067899],[1.9951342958493,1.71962391102285,1.70960191841271,1.60649769192859,1.73152705045799,1.89286932331129,1.33591044971773,1.29759089501304,1.12994993114578,1.22161243994301,1.14486792464302,1.49463993776754,1.49094167905738,0.920828994458209,1.60657254766926,0.910996215451661,0.893339881202937,0.828846280773546,0.894781688442055,0.69358398965009,0.864308230581355,0.888338110116413,0.96937981912317,0.969055579900233,0.821600004080862,0.871734643448937,0.770616713751509,0.701916908462765,0.677156150617453,0.699850201045965,0.724974947110567,0.645394001067999,0.724994053619364,0.603490586210759,0.443974099800885,0.467131076831746,0.465868944731642,0.519965144292378,0.467628503464681,0.37400720240738,0.209770018088465,0.154893001544985,0.125253171303699,0.130720443583609,6.5945660775521e-06,8.25402590113328e-06,3.46661304971816e-06,4.66076613673756e-06,4.5860410083787e-06,5.81260172053011e-06,1.92366882117575e-05,8.28418052886208e-06,2.38629313224837e-05,1.0353038616834e-05,5.55793311583288e-06,8.27937937772185e-06,4.99610303962909e-06,2.05528722638989e-05,2.76424067690726e-06,1.472775740438e-05],[0.0230141173706111,0.0427504134394562,0.0436697553318603,0.0540823008321679,0.041678902275274,0.0291876248546813,0.0907892724959236,0.0972139762718647,0.129248661322609,0.110927111035143,0.126131936365971,0.0675042185983797,0.0679884037300291,0.178569857321989,0.054074084312468,0.181148683868925,0.18583759344533,0.203595698023199,0.185451900436631,0.243971568539804,0.193709294994409,0.187179452840636,0.166177858778611,0.166258729478192,0.205652293488322,0.191676578151604,0.220467075713499,0.24136549178845,0.249153442893893,0.242010429988008,0.234233700034704,0.259335944979556,0.234227839216286,0.273091188076323,0.328530654807218,0.320203050649842,0.320654655692158,0.301543934610179,0.320025138907311,0.354199478839242,0.416923587257024,0.43845283550951,0.450161562013403,0.447998229737539,0.499997369148771,0.499996707120085,0.499998617021485,0.499998140623329,0.499998170434342,0.499997681107415,0.499992325671738,0.499996695090129,0.499990480067762,0.499995869735165,0.499997782705488,0.499996697005511,0.49999800684326,0.499991800590271,0.499998897227521,0.499994124474876]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>LVs<\/th>\n      <th>Heritability<\/th>\n      <th>SE<\/th>\n      <th>zscore<\/th>\n      <th>pval<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<br>
-<p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
-<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
-</button>
-</p>
-<div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.6.1 (2019-07-05)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Scientific Linux 7.4 (Nitrogen)
-
-Matrix products: default
-BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
-
-locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
-[1] workflowr_1.6.2
-
-loaded via a namespace (and not attached):
- [1] Rcpp_1.0.4.6    knitr_1.28      whisker_0.3-2   magrittr_1.5   
- [5] xtable_1.8-4    R6_2.4.1        stringr_1.4.0   highr_0.8      
- [9] tools_3.6.1     DT_0.13         xfun_0.14       git2r_0.26.1   
-[13] htmltools_0.3.6 crosstalk_1.0.0 yaml_2.2.1      digest_0.6.25  
-[17] rprojroot_1.3-2 shiny_1.3.2     later_0.8.0     htmlwidgets_1.3
-[21] promises_1.0.1  fs_1.3.1        mime_0.9        glue_1.4.1     
-[25] evaluate_0.14   rmarkdown_1.13  stringi_1.4.6   compiler_3.6.1 
-[29] backports_1.1.7 jsonlite_1.6.1  httpuv_1.5.1   </code></pre>
-</div>
-</div>
+<p>The red line here means -log10(p-value) is 5e-8.</p>
+<p>QQ plot</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/T1D_noMHC_co.jpeg" width="50%">
+</figure>
+<p>Here’s the qqplot of observed p-values vs expected p-values(uniform distribution).</p>
 </div>
 
 
