@@ -121,11 +121,12 @@ I extracted sevral factors from IDIN gene expression matrix (GTEx whole blood da
 
   - [PLIER factors](https://xsun1229.github.io/factor_analysis/idin_plier_allpathway.html)
   
-  - [FLASH factors](https://xsun1229.github.io/factor_analysis/idin_flash.html)
-    
-  
+  - [FLASH factors](https://xsun1229.github.io/factor_analysis/idin_flash.html) contains association test for:
+      
       Factors ~ rs11616269/rs9557207.
+      
       Expression data of SNP associated genes ~ SNPs
+      
       Factors ~ EBI2 expression
 
 ## T1D-PC5
