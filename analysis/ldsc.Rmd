@@ -1,0 +1,46 @@
+---
+title: "ldsc"
+author: "XSun"
+date: "2020-06-25"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+I adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software I used here is [ldsc](https://github.com/bulik/ldsc).
+
+
+## Material and Methods
+
+'ldsc' takes GWAS summary statistics, LD scores, regression weights, and allele frequenciesas inputs. Regression weights, allele frequenciesas and 53 categories of LD scroes can be downloaded [here](https://data.broadinstitute.org/alkesgroup/LDSCORE/). We need to prepare our own GWAS summary statistics and LD scores.
+
+### Summary Statistics 
+
+The software 'ldsc' uses GWAS summary statistics as inputs. The GWAS summary statistics we adopted here came from the association tests for factors ~ variants (using training data, 536 samples). I converted the GWAS results into following format(taking lv73, the one has the highest heritability in plier factors_allpathway as an example).
+
+
+```{r eval=FALSE, echo=T}
+head(sum_plier_allpathway_lv73.txt)
+SNP N Z A1 A2
+rs112409036 535 -0.160132099643991 T A
+rs11166389 533 0.00275588338106556 A G
+rs116740877 536 -0.0102126413071695 A T
+rs7535103 536 0.0275829957516441 T C
+rs2149190 523 0.0167134986922463 C G
+```
+      
+
+The 'SNP' IDs here are from dbSNP 151, I downloaded the correspondence between dbSNP 151 and GTEx variant ID from the [GTEx portal](https://storage.googleapis.com/gtex_analysis_v8/reference/GTEx_Analysis_2017-06-05_v8_WholeGenomeSeq_838Indiv_Analysis_Freeze.lookup_table.txt.gz)
+
+The 'N' here stands for the the number of non-missing samples for each variants.
+
+'Z' is the z-score for each variants. I computed it from p-value and effect size. 
+Z=sign(Effect Size)×|phi^(-1)(p/2)|.  phi^(-1) is the inverse cumulative distribution function of the normal distribution.
+
+A1 is the alternative allele and A2 is the reference allele.
+
+
+## LD scores
+

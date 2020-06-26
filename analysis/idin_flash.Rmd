@@ -1,0 +1,238 @@
+---
+title: "idin_flash"
+author: "XSun"
+date: "2020-05-27"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In this part, I used ['flashr'](https://github.com/stephenslab/flashr), to extract factors from IDIN gene expression matrix and part of the IDIN gene expression matrix. I also performed factor analysis find if any factor associates with the two SNPs ( [rs9557207](https://www.ncbi.nlm.nih.gov/snp/rs9557207) and [rs11616269](https://www.ncbi.nlm.nih.gov/snp/rs11616269)) and EBI2 expression data.
+
+## Material and Methods
+
+1. Data
+    - All genes in IDIN(same with the genes in [IDIN-PLIER](https://xsun1229.github.io/factor_analysis/idin_plier_allpathway.html)
+    - Part of the IDIN genes (genes associated with rs9557207 and rs11616269, listed by *Bayesian detection of expression quantitative trait [Genetics, 2011]*, see the table below,  evidence of associations :BF > 10)
+    - EBI2 expression data and genotype of variants are from GTEx data.
+
+**rs11616269**
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/gene_BF_116.rdata")
+DT::datatable(gene_116, options = list(pageLength =5))
+
+```
+
+**rs9557207**
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/gene_BF_955.rdata")
+DT::datatable(gene_955, options = list(pageLength =5))
+```
+
+
+2. We used workflow showed in ['flashr'](https://github.com/stephenslab/flashr) to extract factors. 
+
+```{r eval=FALSE, echo=T}
+f = flash(Y)    ### Y is the gene expression matrix.
+ldf = flash_get_ldf(f)
+```
+
+3. Then, we used the backfitting algorithm to improve the fit (but it takes longer).
+
+```{r eval=FALSE, echo=T}
+f.b = flash(Y, f_init = f, backfit=TRUE, greedy=FALSE)
+ldf.b = flash_get_ldf(f.b)
+```
+
+4. Perform association tests between the facotrs and two SNPs/EBI2 expression/cis-genetic component of EBI2 expression. 
+
+5. Besides, I performed association tests for the SNP-related gene expression and snp to find if they are associated with each other (single gene expression ~ single snp).
+
+## Results
+
+### Factors ~ rs11616269/rs9557207.
+
+We obtained 62 factors from the expression matrix of all IDIN genes using FLASH. For genes associated with rs9557207(25 genes), we got 8 factors and for genes associated with rs11616269(13 genes), we got 4.
+
+#### Factors from all IDIN genes
+
+We performed linear regression for factors(extracted from all genes in IDIN) ~ snp.
+
+```{r eval=FALSE, echo=T}
+  ### k indicates the kth factors
+  y <- as.numeric(factors[,k])   ## kth factors
+  x <- as.numeric(geno_2snp[,1])   ## genotype 
+  
+  pval_snp1[k] <- summary(lm(y ~ x))$coefficients[2,4]  ## pval of F-statistics in y ~ x regression
+  rsq_snp1[k] <- summary(lm(y ~ x))$r.squared    ## r-squared of the regression
+```
+
+We made a histogram to show the pvalue distribution. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rs11616269_pval_flash_b.jpeg" width="40%">
+        <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rs9557207_pval_flash_b.jpeg" width="40%">
+</figure>
+
+The table below shows the detailed results of the linear regression. 
+
+Notations: **pval** is the pvalue of F-statistics in regression. **rsq** is the r-squared of the regression.
+
+You can sort the table by clicking the arrow by the header of each column.
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_assoc_2snp_flash_b.rdata")
+rownames(summary) <- paste0("factor", seq(1, nrow(summary), by=1))
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+#### Factors from genes associated with rs9557207
+
+I performed linear regression for factors ~ snp. I list the p-values and r-squared of each regression here. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_assoc_955_flash_b.rdata")
+rownames(summary) <- paste0("factor", seq(1, nrow(summary), by=1))
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+#### Factors from genes associated with rs11616269
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_assoc_116_flash_b.rdata")
+rownames(summary) <- paste0("factor", seq(1, nrow(summary), by=1))
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+### Expression data of SNP associated genes ~ SNPs
+
+*It seems that the two snps are not associated with the gene expression(genes are reported in [Bayesian detection of expression quantitative trait (Genetics, 2011)]. So I'm considering the factor analysis results are reasonable.*
+
+
+- rs9557207
+
+```{r echo=FALSE}
+summary <- read.csv("/project2/xinhe/xsun/website/factor_analysis/output/rs9557207_gene_snp.csv", header = T)
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+- rs11616269
+
+```{r echo=FALSE}
+summary <- read.csv("/project2/xinhe/xsun/website/factor_analysis/output/rs11616269_gene_snp.csv", header = T)
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+
+### Factors ~ EBI2 expression
+
+I made histograms to show the pvalue distribution and I also made a table to show the detailed information for each factor.
+
+#### 62 factors extracted from all IDIN genes.
+
+I got 12 of 62 factors associated with EBI2 expression (pvalues of F-statistics in linear regression are less than 0.05)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_allgene_ebi2.jpeg" width="70%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/p_r_all_ebi2.rdata")
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+
+#### 8 factors extracted from rs9557207-related genes.
+
+I got 4 of 8 factors associated with EBI2 expression (pvalues of F-statistics in linear regression are less than 0.05)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_955_ebi2.jpeg" width="70%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/p_r_955_ebi2.rdata")
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+#### 4 Factors extracted from rs11616269-related genes.
+
+I got 3 of 4 factors associated with EBI2 expression (pvalues of F-statistics in linear regression are less than 0.05)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_116_ebi2.jpeg" width="70%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/p_r_116_ebi2.rdata")
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+### Factors ~ cis-genetic component of EBI2 expression
+
+In this part, I did association test for factors and cis-genetic component of EBI2 expression. To get the cis-genetic component of EBI2 expression, I performed lasso/elastic_net regression for EBI2 expression ~ cis-snp (within 500kb from TSS of EBI2, 3634 variants). 
+
+#### Cis-genetic component of EBI2 expression.
+
+The r-squared of lasso regression is 0.0061 and the r-squared of elastic-net is 0.0057 (lambda = lambda.min). Both lasso and elastic-net just selected a few snps when lambda = lambda.min. It seems that the expression of EBI2 are not predictable using cis-snps. So the results in this part are not as good as those in last part.
+
+Lasso
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ebi2_mse_l.jpeg" width="70%">
+</figure>
+
+Elastic-net
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ebi2_mse_l.jpeg" width="70%">
+</figure>
+
+Since the results of lasso and elastic-net are not quite different, I just attatch the results of lasso regression in the following part.
+
+#### 62 factors extracted from all IDIN genes.
+
+I got 8 of 62 factors associated with EBI2 expression (pvalues of F-statistics in linear regression are less than 0.05)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_all_cisebi2.jpeg" width="70%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/p_r_all_cisebi2.rdata")
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+
+#### 8 factors extracted from rs9557207-related genes.
+
+I got 2 of 8 factors associated with EBI2 expression (pvalues of F-statistics in linear regression are less than 0.05)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_955_cisebi2.jpeg" width="70%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/p_r_955_cisebi2.rdata")
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+#### 4 Factors extracted from rs11616269-related genes.
+
+I got 1 of 4 factors associated with EBI2 expression (pvalues of F-statistics in linear regression are less than 0.05)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_116_cisebi2.jpeg" width="70%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/p_r_116_cisebi2.rdata")
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+
+

@@ -1,0 +1,33 @@
+---
+title: "T1D"
+author: "XSun"
+date: "2020-03-23"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+From [PC&PEER from KEGG pathways](https://xsun1229.github.io/factor_analysis/eval_kegg.html), I found that the 5th PC of Type I diabetes mellitus pathway has the heritability over 0.99. So I performed association test between the fifth PC and all SNPs(from GTEx) using Plink. I corrected the results for genotype PCs. I used Plink to compute 10 PCs and used them as corvariates in association test.
+
+## Results 
+
+Since SNPs in MHC has p < 1e-100, We show the results after removing MHC. 
+
+Manhattan plot
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_noMHC_co.jpeg" width="50%">
+</figure> 
+
+The red line here means -log10(p-value) is 5e-8.
+
+QQ plot 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/T1D_noMHC_co.jpeg" width="50%">
+</figure>
+
+Here's the qqplot of observed p-values vs expected p-values(uniform distribution).
+
+

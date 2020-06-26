@@ -34,6 +34,10 @@ This page is about factor analysis. Below are details of analyses.
 
   Using 'PEER', I obtained 60 factors from the GTEx expression matrix.
   
+## Principal Component
+
+  I used PCA to infer several PCs for some special cases.
+  
 # **Factor evaluation**
 
 I first evaluated the heritability of factors using [GCTA](
@@ -58,6 +62,10 @@ When computing heritability, I used GTEx genotype data(the variants with maf >0.
 ## PEER
 
   [For more details](https://xsun1229.github.io/factor_analysis/eval_peer.html)
+  
+## PC&PEER from KEGG pathways
+
+  [For more details](https://xsun1229.github.io/factor_analysis/eval_kegg.html)
 
 # **Prediction models for factors**
 
@@ -95,3 +103,32 @@ The missing data pattern of our dataset. x-axis represents the proportion of mis
 ## PEER
 
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/train_peer.html)
+
+
+# **LD Score Regression**
+
+I adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software I used here is [ldsc](https://github.com/bulik/ldsc).
+
+The material and methods of ldsc can be found [here](https://xsun1229.github.io/factor_analysis/ldsc.html)
+
+# **Case Studies**
+
+## IDIN
+
+In [Bayesian detection of expression quantitative trait [Genetics, 2011]](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3241411/), authors used HESS to analyze the larger IDIN(IRF7-driven inflammatory network) and found two SNPs, [rs9557207](https://www.ncbi.nlm.nih.gov/snp/rs9557207) and [rs11616269](https://www.ncbi.nlm.nih.gov/snp/rs11616269),which are detected as hotspots for the IDIN expression. 
+
+I extracted sevral factors from IDIN gene expression matrix (GTEx whole blood data)/part of IDIN gene expression matrix and performed factor analysis to find if any factor associates with the two SNPs.
+
+  - [PLIER factors](https://xsun1229.github.io/factor_analysis/idin_plier_allpathway.html)
+  
+  - [FLASH factors](https://xsun1229.github.io/factor_analysis/idin_flash.html)
+    
+  
+      Factors ~ rs11616269/rs9557207.
+      Expression data of SNP associated genes ~ SNPs
+      Factors ~ EBI2 expression
+
+## T1D-PC5
+
+From [PC&PEER from KEGG pathways](https://xsun1229.github.io/factor_analysis/eval_kegg.html), I found that the 5th PC of Type I diabetes mellitus pathway has the heritability over 0.99. So I did further analysis for this factor. [For more details](https://xsun1229.github.io/factor_analysis/eval_kegg.html)
+

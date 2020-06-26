@@ -1,0 +1,81 @@
+---
+title: "idin_plier_allpathway"
+author: "XSun"
+date: "2020-05-24"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+Extract PLIER factors(using all pathways provided by PLIER) from IDIN gene expression matrix and perform association tests(factors ~ [rs9557207](https://www.ncbi.nlm.nih.gov/snp/rs9557207) and [rs11616269](https://www.ncbi.nlm.nih.gov/snp/rs11616269)).
+
+Genes we used here come from IRF7-driven inflammatory network (IDIN).
+Data source: Table S5 from *Heinig M., Petretto E., Wallace C., Bottolo L., Rotival M., et al. , 2010. A trans-acting locus regulates an anti-viral expression network and type 1 diabetes risk. Nature 467: 460464*
+
+```{r echo=FALSE}
+IDIN <- read.csv("/project2/xinhe/xsun/website/factor_analysis/output/IDIN.csv", header = T)
+DT::datatable(IDIN, options = list(pageLength =5))
+
+```
+
+## Results
+
+### Overview
+
+There are 524 genes(ensembl.id) in IDIN. 483 of them have expression data(GTEx whole blood data). After converting ensembl.id into hgnc_symbol, 480 genes left. We used the gene expression matrix of these genes to extract PLIER factors (LVs). 
+
+We used all pathway data provided in PLIER R package. Among 480 genes, 435 genes were used in factor extraction.
+
+## LVs
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/pathway_analysis/raw/master/output/Umat_wb_idin.jpeg" width="70%">
+</figure>
+
+
+x-axis shows the name of LVs and y-axis shows the pathway names related to each LVs.
+
+### Association test
+
+We performed linear regression for LVs ~ snp genotype. 
+
+```{r eval=FALSE, echo=T}
+  ### k indicates the kth LV
+  y <- as.numeric(LVs[,k])   ## kth LV
+  x <- as.numeric(geno_2snp[,1])   ## genotype of snp
+  
+  pval_snp1[k] <- summary(lm(y ~ x))$coefficients[2,4]  ## pval of F-statistics in y ~ x regression
+  rsq_snp1[k] <- summary(lm(y ~ x))$r.squared    ## r-squared of the regression
+```
+
+We made a histogram to show the pvalue distribution. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rs11616269_pval.jpeg" width="50%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rs9557207_pval.jpeg" width="50%">
+</figure>
+
+The table below shows the detailed results of the linear regression. 
+
+Notations: **LV_AUC** is an indicator to show the confidence that LV will associate with some pathways. AUV > 0.7 means high confidence. **pval** is the pvalue of F-statistics in regression. **rsq** is the r-squared of the regression.
+
+You can sort the table by clicking the arrow by the header of each column.
+
+```{r eval=FALSE, echo=T}
+LV_AUC <- apply(plierResult$Uauc, 2, max)  ### plierResult is the results of factor extraction.
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_assoc_2snp.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+
+```
+
+
+
+
