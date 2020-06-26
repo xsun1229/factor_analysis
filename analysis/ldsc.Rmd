@@ -41,6 +41,16 @@ Z=sign(Effect Size)×|phi^(-1)(p/2)|.  phi^(-1) is the inverse cumulative distri
 
 A1 is the alternative allele and A2 is the reference allele.
 
+### LD scores
 
-## LD scores
+I used 13 histone marks (H3K27ac,DNase,H3K27me3,H3K36me3,H3K4me1,H3K4me3,H3K9me3,H3K9ac,H2A,H3K4me2,H3K79me2,H4K20me1,H3K9me1) and open chromatin regions in immune cells to compute partitioned LD scores. The marks and cell types are listed below.
+
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/annot_list_2col.txt", header = F)
+colnames(aa) <- c("Marks","Cell types")
+
+DT::datatable(aa, options = list(pageLength =10))
+```
+
 
