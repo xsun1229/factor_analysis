@@ -47,7 +47,7 @@ DT::datatable(results_sum, options = list(pageLength =10))
 
 The covariants of the association test here are lv15,51,11,87,92,32,9,91,62(heritability = 0.000001, sorting by pval_test_l).
 
-I performed ldsc for lv40,78(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html),, 0.00067,0.001,) and lv76(highest heritability, 0.91)
+I performed ldsc for lv40,78(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 6.7e-4,0.001,) and lv76(highest heritability, 0.91)
 
 ### LV40
 

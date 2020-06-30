@@ -17,7 +17,7 @@ I made several plots to show the enrichment and 95% confidence intervals for eac
 
 The covariants of the association test here are lv47,81,120,64,54,58,8,83,89,9,31,102,40,14(heritability = 0.000001, sorting by pval_test_l).
 
-I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 3.17e-8,1.7e-5,) and lv104(highest heritability, 0.57)
+I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_canon.html), 3.17e-8,1.7e-5,) and lv104(highest heritability, 0.57)
 
 ### LV90
 
@@ -32,7 +32,7 @@ I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://
 
 The covariants of the association test here are lv31,124,81,40,54,51,16,14,64,9,105,113(heritability = 0.000001, sorting by pval_test_l).
 
-I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html),, 8.3e-8,4.6e-5,) and lv36(highest heritability, 0.95)
+I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_canon.html), 8.3e-8,4.6e-5,) and lv36(highest heritability, 0.95)
 
 ### LV90
 

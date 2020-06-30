@@ -9,16 +9,16 @@ editor_options:
 
 ## Introduction
 
-In this part, I list the ldsc results for plier_CanonicalPathways factors.
+In this part, I list the ldsc results for PEER factors.
 
-I made several plots to show the enrichment and 95% confidence intervals for each lv. Enrichment here is the proportion of prop.h2 devided by prop.snp.
+I made several plots to show the enrichment and 95% confidence intervals for each factor. Enrichment here is the proportion of prop.h2 devided by prop.snp.
 
 
 ## Results-maf001-unfinished
 
 The covariants of the association test here are lv47,81,120,64,54,58,8,83,89,9,31,102,40,14(heritability = 0.000001, sorting by pval_test_l).
 
-I performed ldsc for lv46,52(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 5.27e-5,0.0089) and lv4(highest heritability, 0.47)
+I performed ldsc for lv46,52(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_peer.html), 5.27e-5,0.0089) and lv4(highest heritability, 0.47)
 
 ### LV46
 
@@ -49,7 +49,7 @@ DT::datatable(results_sum, options = list(pageLength =10))
 
 The covariants of the association test here are lv59,5,11,34,4,9,58(heritability = 0.000001, sorting by pval_test_l).
 
-I performed ldsc for lv46,38(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 0.006,0.034) and lv6(highest heritability, 0.83)
+I performed ldsc for lv46,38(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_peer.html), 0.006,0.034) and lv6(highest heritability, 0.83)
 
 ### LV46
 
