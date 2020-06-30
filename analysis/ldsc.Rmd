@@ -16,6 +16,7 @@ I adopted LD score regression to estimate SNP-based heritability and partation t
 
 'ldsc' takes GWAS summary statistics, LD scores, regression weights, and allele frequenciesas inputs. Regression weights, allele frequenciesas and 53 categories of LD scroes can be downloaded [here](https://data.broadinstitute.org/alkesgroup/LDSCORE/). We need to prepare our own GWAS summary statistics and LD scores.
 
+
 ### LD scores
 
 I used 13 histone marks (H3K27ac,DNase,H3K27me3,H3K36me3,H3K4me1,H3K4me3,H3K9me3,H3K9ac,H2A,H3K4me2,H3K79me2,H4K20me1,H3K9me1) and open chromatin regions in immune cells to compute partitioned LD scores. The marks and cell types are listed below.

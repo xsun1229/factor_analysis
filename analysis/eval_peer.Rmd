@@ -12,6 +12,20 @@ editor_options:
   Using 'PEER', I obtained 60 factors from the GTEx expression matrix.
 
 
+## Results-maf0.01
+
+### Heritability of LVs
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_peer.jpeg" width="80%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/H_lv_processed_sorted_peer.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+
+```
+
 ## Results-maf0.05
 
 ### Heritability of LVs

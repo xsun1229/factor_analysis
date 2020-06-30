@@ -61,7 +61,7 @@ The red line in manhattan plot means p-value is 5e-8.
 #### factor46
   
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV46_peer.jpeg" width="200%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV46_lowpt_peer.jpeg" width="200%">
 </figure>
 
 <figure class="half">
@@ -74,7 +74,7 @@ The red line in manhattan plot means p-value is 5e-8.
 #### factor52
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV52_flash_all.jpeg" width="200%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV52_lowpt_peer.jpeg" width="200%">
 </figure>
 
 <figure class="half">

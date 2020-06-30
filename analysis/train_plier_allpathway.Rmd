@@ -64,24 +64,24 @@ We first plot the change of mean squared errors and coefficients when training t
 #### LV6
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_mse_allpath.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_mse_allpath.jpeg" width="40%">
 </figure>
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_coef_allpath.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_coef_allpath.jpeg" width="40%">
 </figure>
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_testpred_allpath.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV6_testpred_allpath.jpeg" width="40%">
 </figure>
 
 #### LV89
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV89_mse_allpath.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV89_mse_allpath.jpeg" width="40%">
 </figure>
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV89_coef_allpath.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV89_coef_allpath.jpeg" width="40%">
 </figure>
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV89_testpred_allpath.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV89_testpred_allpath.jpeg" width="40%">
 </figure>
 
 For LV89, we performned more analysis to detect the reason why it has relatively high heritability but low r-squared in lasso.
@@ -109,7 +109,7 @@ DT::datatable(summary_snp_all, options = list(pageLength =20))
 To compare the p-values of training set and test set, we made a scatter plot.
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV89_pvals_allpath.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV89_pvals_allpath.jpeg" width="40%">
 </figure>
 
 

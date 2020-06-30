@@ -33,7 +33,6 @@ H3K27ac CD8_Naive_Primary_Cells-H3K27ac.narrowPeak
 H3K27ac DC-H3K27ac.narrowPeak
 H3K27ac Dnd41_TCell_Leukemia-H3K27ac.narrowPeak
 H3K27ac GM12878_Lymphoblastoid-H3K27ac.narrowPeak
-H3K27ac Immune-H3K27ac.narrowPeak
 H3K27ac K562_Leukemia-H3K27ac.narrowPeak
 H3K27ac Macrophages-H3K27ac.narrowPeak
 H3K27ac Mobilized_CD34_Primary_Cells_Female-H3K27ac.narrowPeak
