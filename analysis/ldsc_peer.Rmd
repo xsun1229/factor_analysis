@@ -27,7 +27,7 @@ I performed ldsc for lv46,52(lowest pval_test_l from [prediction model](https://
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum__peer46_maf001.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_peer46_maf001.rdata")
 DT::datatable(results_sum, options = list(pageLength =10))
 ```
 
@@ -38,7 +38,7 @@ DT::datatable(results_sum, options = list(pageLength =10))
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum__peer52_maf001.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_peer52_maf001.rdata")
 DT::datatable(results_sum, options = list(pageLength =10))
 ```
 
