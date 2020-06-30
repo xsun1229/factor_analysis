@@ -16,9 +16,23 @@ I adopted LD score regression to estimate SNP-based heritability and partation t
 
 'ldsc' takes GWAS summary statistics, LD scores, regression weights, and allele frequenciesas inputs. Regression weights, allele frequenciesas and 53 categories of LD scroes can be downloaded [here](https://data.broadinstitute.org/alkesgroup/LDSCORE/). We need to prepare our own GWAS summary statistics and LD scores.
 
+### LD scores
+
+I used 13 histone marks (H3K27ac,DNase,H3K27me3,H3K36me3,H3K4me1,H3K4me3,H3K9me3,H3K9ac,H2A,H3K4me2,H3K79me2,H4K20me1,H3K9me1) and open chromatin regions in immune cells to compute partitioned LD scores. The marks and cell types are listed below.
+
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/annot_list_2col.txt", header = F)
+colnames(aa) <- c("Marks","Cell types")
+
+DT::datatable(aa, options = list(pageLength =10))
+```
+
 ### Summary Statistics 
 
-The software 'ldsc' uses GWAS summary statistics as inputs. The GWAS summary statistics we adopted here came from the association tests for factors ~ variants (using training data, 536 samples). I converted the GWAS results into following format(taking lv73, the one has the highest heritability in plier factors_allpathway as an example).
+The software 'ldsc' uses GWAS summary statistics as inputs. The GWAS summary statistics we adopted here came from the association tests for factors ~ variants + covariants(using training data, 536 samples). I performed the test for both maf>0.05 variants and maf>0.01 variants. The covariants here are 1.top ten pcs from genotype matrix 2.factors whose heritability equal to 0.000001 and p_val_test_l is greater than 0.5.
+
+I converted the GWAS results into following format(taking lv73, the one has the highest heritability in plier factors_allpathway as an example).
 
 
 ```{r eval=FALSE, echo=T}
@@ -40,17 +54,3 @@ The 'N' here stands for the the number of non-missing samples for each variants.
 Z=sign(Effect Size)×|phi^(-1)(p/2)|.  phi^(-1) is the inverse cumulative distribution function of the normal distribution.
 
 A1 is the alternative allele and A2 is the reference allele.
-
-### LD scores
-
-I used 13 histone marks (H3K27ac,DNase,H3K27me3,H3K36me3,H3K4me1,H3K4me3,H3K9me3,H3K9ac,H2A,H3K4me2,H3K79me2,H4K20me1,H3K9me1) and open chromatin regions in immune cells to compute partitioned LD scores. The marks and cell types are listed below.
-
-
-```{r echo=FALSE}
-aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/annot_list_2col.txt", header = F)
-colnames(aa) <- c("Marks","Cell types")
-
-DT::datatable(aa, options = list(pageLength =10))
-```
-
-

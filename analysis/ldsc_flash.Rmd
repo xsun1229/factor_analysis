@@ -1,0 +1,41 @@
+---
+title: "LDSC for FLASH factors"
+author: "XSun"
+date: "2020-06-29"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+```{r}
+
+```
+## Results-maf001
+
+The covariants of the association test here are lv5,85,44,47,98,2,33,23,63,15,57,71,99,83,18,50,7,65,68,94(heritability = 0.000001, sorting by pval_test_l).
+
+I performed ldsc for lv95,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 3.17e-8,1.7e-5,) and lv75(highest heritability, 0.99)
+
+### LV95
+
+
+### LV20
+
+### LV75
+
+
+## Results-maf005
+
+The covariants of the association test here are lv55,73,44,18,97,83,5,74,71,57,47,58,84,50,82,31,45,6,15(heritability = 0.000001, sorting by pval_test_l).
+
+I performed ldsc for lv26,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 0.13,0.15,) and lv92,86(highest heritability, 0.9999)
+
+### LV26
+
+### LV20
+
+### LV92
+
+### LV86

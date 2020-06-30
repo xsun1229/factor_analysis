@@ -109,7 +109,21 @@ The missing data pattern of our dataset. x-axis represents the proportion of mis
 
 I adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software I used here is [ldsc](https://github.com/bulik/ldsc).
 
-The material and methods of ldsc can be found [here](https://xsun1229.github.io/factor_analysis/ldsc.html)
+The ldsc material and methods of my project can be found [here](https://xsun1229.github.io/factor_analysis/ldsc.html)
+
+## PLIER
+
+  [Results for plier-canonicalPathways factors](https://xsun1229.github.io/factor_analysis/ldsc_plier_canon.html)
+    
+  [Results for plier-allpathway factors](https://xsun1229.github.io/factor_analysis/ldsc_plier_all.html)
+
+## FLASH
+
+  [Results for FLASH factors](https://xsun1229.github.io/factor_analysis/ldsc_flash.html)
+
+## PEER
+
+  [Results for PEER factors](https://xsun1229.github.io/factor_analysis/ldsc_peer.html)
 
 # **Case Studies**
 
