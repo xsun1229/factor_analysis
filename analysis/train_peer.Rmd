@@ -65,8 +65,8 @@ The red line in manhattan plot means p-value is 5e-8.
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv95.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv95.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv46_peer_maf001.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv46_peer_maf001.jpeg" width="40%">
 </figure>
 
 
@@ -78,8 +78,8 @@ The red line in manhattan plot means p-value is 5e-8.
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv20.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv20.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv52_peer_maf001.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv52_peer_maf001.jpeg" width="40%">
 </figure>
 
 ## Results-maf005

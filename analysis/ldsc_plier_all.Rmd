@@ -22,9 +22,25 @@ I performed ldsc for lv40,73(lowest pval_test_l from [prediction model](https://
 
 ### LV40
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all40_maf001.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all40_maf001.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
 
 ### LV73
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all73_maf001.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all73_maf001.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
 
 
 ## Results-maf005
