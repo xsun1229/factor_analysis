@@ -36,17 +36,34 @@ I performed ldsc for lv40,78(lowest pval_test_l from [prediction model](https://
 ### LV40
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/enric_lv40.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all40_maf005.jpeg" width="400%">
 </figure>
 
 ```{r echo=FALSE,eval=FALSE}
-aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/lv40.results", header = T)
-DT::datatable(aa, options = list(pageLength =10))
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all40_maf005.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
 ```
 
 
 ### LV78
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all78_maf005.jpeg" width="400%">
+</figure>
 
+```{r echo=FALSE,eval=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all78_maf005.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
 
 ### LV76
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all76_maf005.jpeg" width="400%">
+</figure>
+
+```{r echo=FALSE,eval=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all76_maf005.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
