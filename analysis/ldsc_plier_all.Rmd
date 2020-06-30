@@ -36,10 +36,10 @@ I performed ldsc for lv40,78(lowest pval_test_l from [prediction model](https://
 ### LV40
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all40_maf005.jpeg" width="400%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all40_maf005.jpeg" width="600%">
 </figure>
 
-```{r echo=FALSE,eval=FALSE}
+```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all40_maf005.rdata")
 DT::datatable(results_sum, options = list(pageLength =10))
 ```
@@ -48,10 +48,10 @@ DT::datatable(results_sum, options = list(pageLength =10))
 ### LV78
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all78_maf005.jpeg" width="400%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all78_maf005.jpeg" width="600%">
 </figure>
 
-```{r echo=FALSE,eval=FALSE}
+```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all78_maf005.rdata")
 DT::datatable(results_sum, options = list(pageLength =10))
 ```
@@ -60,10 +60,10 @@ DT::datatable(results_sum, options = list(pageLength =10))
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all76_maf005.jpeg" width="400%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all76_maf005.jpeg" width="600%">
 </figure>
 
-```{r echo=FALSE,eval=FALSE}
+```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all76_maf005.rdata")
 DT::datatable(results_sum, options = list(pageLength =10))
 ```

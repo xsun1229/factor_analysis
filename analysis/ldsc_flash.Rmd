@@ -34,8 +34,46 @@ I performed ldsc for lv26,20(lowest pval_test_l from [prediction model](https://
 
 ### LV26
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash26_maf005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash26_maf005.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
+
+
 ### LV20
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash20_maf005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash20_maf005.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
+
 
 ### LV92
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash92_maf005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash92_maf005.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
+
 ### LV86
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash86_maf005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash86_maf005.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```

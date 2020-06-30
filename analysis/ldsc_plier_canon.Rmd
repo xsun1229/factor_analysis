@@ -37,19 +37,19 @@ I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://
 ### LV90
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon90_maf005.jpeg" width="400%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon90_maf005.jpeg" width="600%">
 </figure>
 
-```{r echo=FALSE,eval=FALSE}
+```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_canon90_maf005.rdata")
 DT::datatable(results_sum, options = list(pageLength =10))
 ```
 ### LV50
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon50_maf005.jpeg" width="400%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon50_maf005.jpeg" width="600%">
 </figure>
 
-```{r echo=FALSE,eval=FALSE}
+```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_canon50_maf005.rdata")
 DT::datatable(results_sum, options = list(pageLength =10))
 ```
@@ -57,10 +57,10 @@ DT::datatable(results_sum, options = list(pageLength =10))
 ### LV36
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon36_maf005.jpeg" width="400%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon36_maf005.jpeg" width="600%">
 </figure>
 
-```{r echo=FALSE,eval=FALSE}
+```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_canon36_maf005.rdata")
 DT::datatable(results_sum, options = list(pageLength =10))
 ```
