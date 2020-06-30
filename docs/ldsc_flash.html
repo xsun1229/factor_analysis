@@ -9,9 +9,11 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="XSun" />
 
+<meta name="date" content="2020-06-29" />
 
-<title>Factor Analysis</title>
+<title>LDSC for FLASH factors</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +21,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -270,6 +275,90 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -277,6 +366,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -320,7 +419,9 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Factor Analysis</h1>
+<h1 class="title toc-ignore">LDSC for FLASH factors</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2020-06-29</h4>
 
 </div>
 
@@ -348,7 +449,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2020-06-29
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -370,6 +471,66 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
@@ -405,7 +566,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/ldsc_flash.Rmd</code>) and HTML (<code>docs/ldsc_flash.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -434,7 +595,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/82513dc84bf6a483539d394ab8235e8537497278/analysis/index.Rmd" target="_blank">82513dc</a>
+<a href="https://github.com/xsun1229/factor_analysis/blob/82513dc84bf6a483539d394ab8235e8537497278/analysis/ldsc_flash.Rmd" target="_blank">82513dc</a>
 </td>
 <td>
 XSun
@@ -446,125 +607,6 @@ XSun
 update
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/89244cbef8fb6d60e616239d6bed67bda2822fa6/docs/index.html" target="_blank">89244cb</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-26
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/73c95ec09c4aa7f1cc14c39b286696a951955697/analysis/index.Rmd" target="_blank">73c95ec</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-26
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/ebadf8425741a9a7185d28a572c68008c155130e/docs/index.html" target="_blank">ebadf84</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-25
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/c08d79e7315f01271f8bd1a046935864593a17a2/analysis/index.Rmd" target="_blank">c08d79e</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-25
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/87bb9e0e6332c23c08fcea6fc4ad7581c737296b/docs/index.html" target="_blank">87bb9e0</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-24
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/78a63351fa7081ba52ed1e3ebd2437eb274439ab/analysis/index.Rmd" target="_blank">78a6335</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-24
-</td>
-<td>
-wflow_publish(all = T)
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/329ae59816d549b249c87cb61efb706da43637db/analysis/index.Rmd" target="_blank">329ae59</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-23
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -572,129 +614,75 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>This page is about factor analysis. Below are details of analyses.</p>
-<div id="factor-construction" class="section level1">
-<h1><strong>Factor Construction</strong></h1>
-<p>I used three softwares, <a href="https://github.com/wgmao/PLIER">PLIER</a>, <a href="https://github.com/stephenslab/flashr">FLASH</a>, and <a href="https://github.com/PMBio/peer/">PEER</a> to construct factors from GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). Genes on chrX were excluded when extracting factors using these softwares.</p>
-<div id="plier" class="section level2">
-<h2>PLIER</h2>
-<p>PLIER(pathway-level information extractor) is a broadly applicable method to accurately infer relevant biological insights, such as variation in cell-type proportion or pathway activity, from global gene expression studies. It approximates the expression pattern of every gene as a linear combination of eigengene-like latent variables (LVs).</p>
-<ul>
-<li>plier-canonicalPathways</li>
-</ul>
-<p>In this part, I just used canonicalPathways which include KEGG and Reactome pathways to extract factors and obtained 128 factors. <a href="https://xsun1229.github.io/factor_analysis/factor_plier_canon.html">For more details</a></p>
-<ul>
-<li>plier-allpathways</li>
-</ul>
-<p>I used ‘PLIER’ package(with default settings) to construct factors related to all pathways provided by the software and got 96 factors. <a href="https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html">For more details</a></p>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
 </div>
-<div id="flash" class="section level2">
-<h2>FLASH</h2>
-<p>Using ‘FLASH’, I obtained 100 factors from our GTEx expression matrix.</p>
+<div id="results-maf001" class="section level2">
+<h2>Results-maf001</h2>
+<p>The covariants of the association test here are lv5,85,44,47,98,2,33,23,63,15,57,71,99,83,18,50,7,65,68,94(heritability = 0.000001, sorting by pval_test_l).</p>
+<p>I performed ldsc for lv95,20(lowest pval_test_l from <a href="https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html">prediction model</a>, 3.17e-8,1.7e-5,) and lv75(highest heritability, 0.99)</p>
+<div id="lv95" class="section level3">
+<h3>LV95</h3>
 </div>
-<div id="peer" class="section level2">
-<h2>PEER</h2>
-<p>Using ‘PEER’, I obtained 60 factors from the GTEx expression matrix.</p>
+<div id="lv20" class="section level3">
+<h3>LV20</h3>
 </div>
-<div id="principal-component" class="section level2">
-<h2>Principal Component</h2>
-<p>I used PCA to infer several PCs for some special cases.</p>
+<div id="lv75" class="section level3">
+<h3>LV75</h3>
 </div>
 </div>
-<div id="factor-evaluation" class="section level1">
-<h1><strong>Factor evaluation</strong></h1>
-<p>I first evaluated the heritability of factors using <a href="https://cnsgenomics.com/software/gcta/#GREML">GCTA</a> and made histogrames to show the distribution of the heritabilities.</p>
-<p>When computing heritability, I used GTEx genotype data(the variants with maf &gt;0.05 and maf &gt;0.01 were selected, variants on chrX are excluded). 6,568,202 variants have maf &gt;0.05 and 10,403,249 variants have maf &gt;0.01.</p>
-<div id="plier-1" class="section level2">
-<h2>PLIER</h2>
-<ul>
-<li>plier-canonicalPathways</li>
-</ul>
-<p><a href="https://xsun1229.github.io/factor_analysis/eval_plier_canon.html">For more details</a></p>
-<ul>
-<li>plier-allpathways</li>
-</ul>
-<p><a href="https://xsun1229.github.io/factor_analysis/eval_plier_allpathway.html">For more details</a></p>
+<div id="results-maf005" class="section level2">
+<h2>Results-maf005</h2>
+<p>The covariants of the association test here are lv55,73,44,18,97,83,5,74,71,57,47,58,84,50,82,31,45,6,15(heritability = 0.000001, sorting by pval_test_l).</p>
+<p>I performed ldsc for lv26,20(lowest pval_test_l from <a href="https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html">prediction model</a>, 0.13,0.15,) and lv92,86(highest heritability, 0.9999)</p>
+<div id="lv26" class="section level3">
+<h3>LV26</h3>
 </div>
-<div id="flash-1" class="section level2">
-<h2>FLASH</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/eval_flash.html">For more details</a></p>
+<div id="lv20-1" class="section level3">
+<h3>LV20</h3>
 </div>
-<div id="peer-1" class="section level2">
-<h2>PEER</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/eval_peer.html">For more details</a></p>
+<div id="lv92" class="section level3">
+<h3>LV92</h3>
 </div>
-<div id="pcpeer-from-kegg-pathways" class="section level2">
-<h2>PC&amp;PEER from KEGG pathways</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/eval_kegg.html">For more details</a></p>
+<div id="lv86" class="section level3">
+<h3>LV86</h3>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.4.6    rprojroot_1.3-2 digest_0.6.25   later_0.8.0    
+ [5] R6_2.4.1        backports_1.1.7 git2r_0.26.1    magrittr_1.5   
+ [9] evaluate_0.14   stringi_1.4.6   fs_1.3.1        promises_1.0.1 
+[13] whisker_0.3-2   rmarkdown_1.13  tools_3.6.1     stringr_1.4.0  
+[17] glue_1.4.1      httpuv_1.5.1    xfun_0.14       yaml_2.2.1     
+[21] compiler_3.6.1  htmltools_0.3.6 knitr_1.28     </code></pre>
 </div>
-</div>
-<div id="prediction-models-for-factors" class="section level1">
-<h1><strong>Prediction models for factors</strong></h1>
-<p>In this part, I tried to train prediction models for factors ~ genotype using Lasso and Elastic-net. I used whole blood genotype data from GTEx including 670 samples. In genptype data, there are 10,403,249 variants in total (variants in chrX have been excluded). The workflow are listed below.</p>
-<ol style="list-style-type: decimal">
-<li>There are some missing values in our dataset. I used mean imputation (substitue the missing values with mean value of the corresponding variants) to impute the missing value.</li>
-</ol>
-<figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ms_snp.jpeg" width="50%">
-</figure>
-<p>The missing data pattern of our dataset. x-axis represents the proportion of missing value for each variant. y-axis represents the number of the variants.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set.</p></li>
-<li><p>In the training data, performed association test between the factors and all SNPs using Plink. I corrected the results for genotype PCs (We used Plink to compute 10 PCs and used them as corvariates in association test).</p></li>
-<li><p>From 3, we selected all SNPs with p &lt; 1e-02 as candidate variants.</p></li>
-<li><p>Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.</p></li>
-<li><p>For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx . In the association tests, first 10 genotype pcs were included as covariants.</p></li>
-</ol>
-<div id="plier-2" class="section level2">
-<h2>PLIER</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/train_plier_canon.html">Results for plier-canonicalPathways factors</a></p>
-<p><a href="https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html">Results for plier-allpathway factors</a></p>
-</div>
-<div id="flash-2" class="section level2">
-<h2>FLASH</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/train_flash.html">Results for FLASH factors</a></p>
-</div>
-<div id="peer-2" class="section level2">
-<h2>PEER</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/train_peer.html">Results for PEER factors</a></p>
-</div>
-</div>
-<div id="ld-score-regression" class="section level1">
-<h1><strong>LD Score Regression</strong></h1>
-<p>I adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software I used here is <a href="https://github.com/bulik/ldsc">ldsc</a>.</p>
-<p>The ldsc material and methods of my project can be found <a href="https://xsun1229.github.io/factor_analysis/ldsc.html">here</a></p>
-<div id="plier-3" class="section level2">
-<h2>PLIER</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/ldsc_plier_canon.html">Results for plier-canonicalPathways factors</a></p>
-<p><a href="https://xsun1229.github.io/factor_analysis/ldsc_plier_all.html">Results for plier-allpathway factors</a></p>
-</div>
-<div id="flash-3" class="section level2">
-<h2>FLASH</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/ldsc_flash.html">Results for FLASH factors</a></p>
-</div>
-<div id="peer-3" class="section level2">
-<h2>PEER</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/ldsc_peer.html">Results for PEER factors</a></p>
-</div>
-</div>
-<div id="case-studies" class="section level1">
-<h1><strong>Case Studies</strong></h1>
-<div id="idin" class="section level2">
-<h2>IDIN</h2>
-<p>In <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3241411/">Bayesian detection of expression quantitative trait [Genetics, 2011]</a>, authors used HESS to analyze the larger IDIN(IRF7-driven inflammatory network) and found two SNPs, <a href="https://www.ncbi.nlm.nih.gov/snp/rs9557207">rs9557207</a> and <a href="https://www.ncbi.nlm.nih.gov/snp/rs11616269">rs11616269</a>,which are detected as hotspots for the IDIN expression.</p>
-<p>I extracted sevral factors from IDIN gene expression matrix (GTEx whole blood data)/part of IDIN gene expression matrix and performed factor analysis to find if any factor associates with the two SNPs.</p>
-<ul>
-<li><p><a href="https://xsun1229.github.io/factor_analysis/idin_plier_allpathway.html">PLIER factors</a></p></li>
-<li><p><a href="https://xsun1229.github.io/factor_analysis/idin_flash.html">FLASH factors</a> contains association test for:</p>
-<p>Factors ~ rs11616269/rs9557207.</p>
-<p>Expression data of SNP associated genes ~ SNPs</p>
-<p>Factors ~ EBI2 expression</p></li>
-</ul>
-</div>
-<div id="t1d-pc5" class="section level2">
-<h2>T1D-PC5</h2>
-<p>From <a href="https://xsun1229.github.io/factor_analysis/eval_kegg.html">PC&amp;PEER from KEGG pathways</a>, I found that the 5th PC of Type I diabetes mellitus pathway has the heritability over 0.99. So I did further analysis for this factor. <a href="https://xsun1229.github.io/factor_analysis/eval_kegg.html">For more details</a></p>
 </div>
 </div>
 
@@ -712,6 +700,8 @@ footer is added to webpages before the MathJax javascript. -->
 </script>
 
 
+</div>
+</div>
 
 </div>
 
