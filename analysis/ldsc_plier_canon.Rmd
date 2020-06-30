@@ -40,7 +40,7 @@ I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/enric_lv40.jpeg" width="80%">
 </figure>
 
-```{r echo=FALSE}
+```{r echo=FALSE,eval=FALSE}
 aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/lv40.results", header = T)
 DT::datatable(aa, options = list(pageLength =10))
 ```
