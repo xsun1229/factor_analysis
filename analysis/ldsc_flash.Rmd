@@ -16,14 +16,42 @@ editor_options:
 
 The covariants of the association test here are lv5,85,44,47,98,2,33,23,63,15,57,71,99,83,18,50,7,65,68,94(heritability = 0.000001, sorting by pval_test_l).
 
-I performed ldsc for lv95,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 3.17e-8,1.7e-5,) and lv75(highest heritability, 0.99)
+I performed ldsc for lv95,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 0.01,0.01,) and lv75(highest heritability, 0.99)
 
 ### LV95
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash95_maf001.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash95_maf001.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
 
 
 ### LV20
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash20_maf001.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash20_maf001.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
+
+
 ### LV75
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash95_maf001.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash75_maf001.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
 
 
 ## Results-maf005
