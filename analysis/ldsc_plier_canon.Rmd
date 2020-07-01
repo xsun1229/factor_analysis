@@ -72,6 +72,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_cano
 DT::datatable(results_sum, options = list(pageLength =10))
 ```
 ### LV50
+
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon50_maf005.jpeg" width="600%">
 </figure>
