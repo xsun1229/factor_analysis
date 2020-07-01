@@ -13,7 +13,7 @@ In this part, I list the ldsc results for PEER factors.
 
 I made several plots to show the enrichment and 95% confidence intervals for each factor. Enrichment here is the proportion of prop.h2 devided by prop.snp.
 
-** In the results, the annotation end with '.narroPeaks' and '.OpenChrom' are our own annotations. Others are ldsc-provided annotations. **
+**In the results, the annotation end with '.narroPeaks' and '.OpenChrom' are our own annotations. Others are ldsc-provided annotations.**
 
 ## Results-maf001
 
@@ -43,7 +43,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_peer52_maf
 DT::datatable(results_sum, options = list(pageLength =10))
 ```
 
-### LV4 -unfinished
+### LV4 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_peer4_maf001.jpeg" width="600%">

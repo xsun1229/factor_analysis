@@ -13,7 +13,7 @@ In this part, I list the ldsc results for plier_allpathways factors.
 
 I made several plots to show the enrichment and 95% confidence intervals for each lv. Enrichment here is the proportion of prop.h2 devided by prop.snp.
 
-** In the results, the annotation end with '.narroPeaks' and '.OpenChrom' are our own annotations. Others are ldsc-provided annotations. **
+**In the results, the annotation end with '.narroPeaks' and '.OpenChrom' are our own annotations. Others are ldsc-provided annotations.**
 
 ## Results-maf001
 
