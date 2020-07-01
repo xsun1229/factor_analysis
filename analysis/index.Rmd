@@ -86,7 +86,7 @@ The missing data pattern of our dataset. x-axis represents the proportion of mis
 
 5. Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.
 
-6. For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx . In the association tests, first 10 genotype pcs were included as covariants.
+6. For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx samples(670 samples). In the association tests, first 10 genotype pcs were included as covariants.
 
 
 

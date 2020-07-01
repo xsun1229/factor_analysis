@@ -29,7 +29,7 @@ colnames(aa) <- c("Marks","Cell types")
 DT::datatable(aa, options = list(pageLength =10))
 ```
 
-Apart from these annotations, I also used annotation
+Apart from these annotations, I also used annotations provided by 'ldsc'. ** In my results, the annotation end with '.narroPeaks' and '.OpenChrom' are our own annotations. Others are ldsc-provided annotations. **
 
 ### Summary Statistics 
 

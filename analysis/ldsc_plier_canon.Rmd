@@ -13,6 +13,8 @@ In this part, I list the ldsc results for plier_CanonicalPathways factors.
 
 I made several plots to show the enrichment and 95% confidence intervals for each lv. Enrichment here is the proportion of prop.h2 devided by prop.snp.
 
+** In the results, the annotation end with '.narroPeaks' and '.OpenChrom' are our own annotations. Others are ldsc-provided annotations. **
+
 ## Results-maf001
 
 The covariants of the association test here are lv47,81,120,64,54,58,8,83,89,9,31,102,40,14(heritability = 0.000001, sorting by pval_test_l).
@@ -21,11 +23,36 @@ I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://
 
 ### LV90
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon90_maf001.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_canon90_maf001.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
 
 ### LV50
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon50_maf001.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_canon50_maf001.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
 
 ### LV104
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_canon104_maf001.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_canon104_maf001.rdata")
+DT::datatable(results_sum, options = list(pageLength =10))
+```
 
 
 ## Results-maf005
