@@ -1,0 +1,38 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--h2 /project2/xinhe/xsun/ldsc/gwas_maf005/data/sum_flash_lv82.txt \
+--ref-ld-chr /project2/xinhe/xsun/ldsc/ldsc/1000G_EUR_Phase3_baseline/baseline. \
+--out /project2/xinhe/xsun/ldsc/results_maf005/flash_lv82_base \
+--overlap-annot  \
+--frqfile-chr frq/1000G.EUR.QC. \
+--w-ld-chr weights/weights.hm3_noMHC. 
+
+Beginning analysis at Thu Jul  2 14:48:49 2020
+Reading summary statistics from /project2/xinhe/xsun/ldsc/gwas_maf005/data/sum_flash_lv82.txt ...
+Read summary statistics for 6374728 SNPs.
+Dropped 2435 SNPs with duplicated rs numbers.
+Reading reference panel LD Score from /project2/xinhe/xsun/ldsc/ldsc/1000G_EUR_Phase3_baseline/baseline.[1-22] ...
+Read reference panel LD Scores for 1190321 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from weights/weights.hm3_noMHC.[1-22] ...
+Read regression weight LD Scores for 1187349 SNPs.
+After merging with reference panel LD, 740995 SNPs remain.
+After merging with regression SNP LD, 740995 SNPs remain.
+Removed 0 SNPs with chi^2 > 80 (740995 SNPs remain)
+Total Observed scale h2: -3.0237e-07 (5.5037e-05)
+Categories: baseL2_0 Coding_UCSC.bedL2_0 Coding_UCSC.extend.500.bedL2_0 Conserved_LindbladToh.bedL2_0 Conserved_LindbladToh.extend.500.bedL2_0 CTCF_Hoffman.bedL2_0 CTCF_Hoffman.extend.500.bedL2_0 DGF_ENCODE.bedL2_0 DGF_ENCODE.extend.500.bedL2_0 DHS_peaks_Trynka.bedL2_0 DHS_Trynka.bedL2_0 DHS_Trynka.extend.500.bedL2_0 Enhancer_Andersson.bedL2_0 Enhancer_Andersson.extend.500.bedL2_0 Enhancer_Hoffman.bedL2_0 Enhancer_Hoffman.extend.500.bedL2_0 FetalDHS_Trynka.bedL2_0 FetalDHS_Trynka.extend.500.bedL2_0 H3K27ac_Hnisz.bedL2_0 H3K27ac_Hnisz.extend.500.bedL2_0 H3K27ac_PGC2.bedL2_0 H3K27ac_PGC2.extend.500.bedL2_0 H3K4me1_peaks_Trynka.bedL2_0 H3K4me1_Trynka.bedL2_0 H3K4me1_Trynka.extend.500.bedL2_0 H3K4me3_peaks_Trynka.bedL2_0 H3K4me3_Trynka.bedL2_0 H3K4me3_Trynka.extend.500.bedL2_0 H3K9ac_peaks_Trynka.bedL2_0 H3K9ac_Trynka.bedL2_0 H3K9ac_Trynka.extend.500.bedL2_0 Intron_UCSC.bedL2_0 Intron_UCSC.extend.500.bedL2_0 PromoterFlanking_Hoffman.bedL2_0 PromoterFlanking_Hoffman.extend.500.bedL2_0 Promoter_UCSC.bedL2_0 Promoter_UCSC.extend.500.bedL2_0 Repressed_Hoffman.bedL2_0 Repressed_Hoffman.extend.500.bedL2_0 SuperEnhancer_Hnisz.bedL2_0 SuperEnhancer_Hnisz.extend.500.bedL2_0 TFBS_ENCODE.bedL2_0 TFBS_ENCODE.extend.500.bedL2_0 Transcribed_Hoffman.bedL2_0 Transcribed_Hoffman.extend.500.bedL2_0 TSS_Hoffman.bedL2_0 TSS_Hoffman.extend.500.bedL2_0 UTR_3_UCSC.bedL2_0 UTR_3_UCSC.extend.500.bedL2_0 UTR_5_UCSC.bedL2_0 UTR_5_UCSC.extend.500.bedL2_0 WeakEnhancer_Hoffman.bedL2_0 WeakEnhancer_Hoffman.extend.500.bedL2_0
+Lambda GC: 3.9288e-06
+Mean Chi^2: 3.1627e-05
+Intercept: 3.1747e-05 (6.1552e-07)
+Ratio: NA (mean chi^2 < 1)
+Reading annot matrix from /project2/xinhe/xsun/ldsc/ldsc/1000G_EUR_Phase3_baseline/baseline.[1-22] ...
+Results printed to /project2/xinhe/xsun/ldsc/results_maf005/flash_lv82_base.results
+Analysis finished at Thu Jul  2 14:51:07 2020
+Total time elapsed: 2.0m:18.23s

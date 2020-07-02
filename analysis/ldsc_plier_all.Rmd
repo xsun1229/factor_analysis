@@ -13,74 +13,141 @@ In this part, I list the ldsc results for plier_allpathways factors.
 
 I made several plots to show the enrichment and 95% confidence intervals for each lv. Enrichment here is the proportion of prop.h2 devided by prop.snp.
 
-**In the results, the annotation end with '.narroPeaks' and '.OpenChrom' are our own annotations. Others are ldsc-provided annotations.**
 
 ## Results-maf001
 
-The covariants of the association test here are lv41,29,15,77,91,9,66,52,92(heritability = 0.000001, sorting by pval_test_l).
-
-I performed ldsc for lv40,73(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 1.4e-4,0.0011,) and lv73 also has the highest heritability(0.59)
+I performed ldsc for lv40,73(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 1.4e-4,0.0011,) and lv73 also has the highest heritability(0.59),lv41,29,15(lowest heritability with very high pval_test_l).
 
 ### LV40
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all40_maf001.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv40_base.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all40_maf001.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv40_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
 
 ### LV73
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all73_maf001.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv73_base.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all73_maf001.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv73_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+### LV41 -- negative control
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv41_base.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv41_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+### LV29 -- negative control
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv29_base.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv29_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+### LV15 -- negative control
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv15_base.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv15_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
 
 
 ## Results-maf005
 
-The covariants of the association test here are lv15,51,11,87,92,32,9,91,62(heritability = 0.000001, sorting by pval_test_l).
 
-I performed ldsc for lv40,78(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 6.7e-4,0.001,) and lv76(highest heritability, 0.91)
+I performed ldsc for lv40,78(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 6.7e-4,0.001,) and lv76(highest heritability, 0.91),lv15,51,11(lowest heritability with very high pval_test_l)
 
 ### LV40
 
+
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all40_maf005.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv40_base_mad005.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all40_maf005.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv40_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
 
 
 ### LV78
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all78_maf005.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv78_base_mad005.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all78_maf005.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv78_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
+
 
 ### LV76
 
-
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_plier_all76_maf005.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv76_base_mad005.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_plier_all76_maf005.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv76_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+
+### LV15 -- negative control
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv15_base_mad005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv15_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+
+
+### LV51 -- negative control
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv51_base_mad005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv51_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+
+### LV11 -- negative control
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_all_lv11_base_mad005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_all_lv11_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```

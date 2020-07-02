@@ -13,98 +13,149 @@ In this part, I list the ldsc results for FLASH factors.
 
 I made several plots to show the enrichment and 95% confidence intervals for each factor. Enrichment here is the proportion of prop.h2 devided by prop.snp.
 
-**In the results, the annotation end with '.narroPeaks' and '.OpenChrom' are our own annotations. Others are ldsc-provided annotations.**
 
 ## Results-maf001
 
-The covariants of the association test here are lv5,85,44,47,98,2,33,23,63,15,57,71,99,83,18,50,7,65,68,94(heritability = 0.000001, sorting by pval_test_l).
-
-I performed ldsc for lv95,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 0.011,0.013,) and lv75(highest heritability, 0.99)
+I performed ldsc for lv95,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_flash.html), 0.011,0.013,), lv75(highest heritability, 0.99), lv5,84,44(lowest heritability with very high pval_test_l).
 
 ### LV95
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash95_maf001.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv95_base.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash95_maf001.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv95_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
 
 
 ### LV20
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash20_maf001.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv20_base.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash20_maf001.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv20_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
-
 
 ### LV75
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash95_maf001.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv75_base.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash75_maf001.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv75_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
 
 
+### LV5--negative control 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv5_base.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv5_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+### LV85--negative control 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv85_base.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv85_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+### LV44--negative control 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv44_base.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv44_base.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
 ## Results-maf005
 
-The covariants of the association test here are lv55,73,44,18,97,83,5,74,71,57,47,58,84,50,82,31,45,6,15(heritability = 0.000001, sorting by pval_test_l).
+I performed ldsc for lv26,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 0.013,0.015,) and lv92,86(highest heritability, 0.9999),lv55,73,44(lowest heritability with very high pval_test_l). 
 
-I performed ldsc for lv26,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 0.013,0.015,) and lv92,86(highest heritability, 0.9999)
 
 ### LV26
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash26_maf005.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv26_base_maf005.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash26_maf005.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv26_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
 
 
 ### LV20
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash20_maf005.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv20_base_maf005.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash20_maf005.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv20_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
 
-
-### LV92
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash92_maf005.jpeg" width="600%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash92_maf005.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
-```
 
 ### LV86
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ldsc_flash86_maf005.jpeg" width="600%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv86_base_maf005.jpeg" width="600%">
 </figure>
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/results_sum_flash86_maf005.rdata")
-DT::datatable(results_sum, options = list(pageLength =10))
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv86_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+### LV55--negative control 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv55_base_maf005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv55_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+### LV73--negative control 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv73_base_maf005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv73_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+
+### LV44--negative control 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/flash_lv44_base_maf005.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/flash_lv44_base_maf005.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
 ```
