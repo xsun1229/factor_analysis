@@ -18,6 +18,17 @@ I made several plots to show the enrichment and 95% confidence intervals for eac
 
 I performed ldsc for lv95,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_flash.html), 0.011,0.013,), lv75(highest heritability, 0.99), lv5,84,44(lowest heritability with very high pval_test_l).
 
+### Summary 
+
+For comparison, I made a summary table. The last 3 LVs are negative control factors.
+
+```{r echo=FALSE}
+
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/ldsc_sum_flash_maf001.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+
 ### LV95
 
 <figure class="half">
@@ -89,6 +100,18 @@ DT::datatable(aa, options = list(pageLength =10))
 ## Results-maf005
 
 I performed ldsc for lv26,20(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html), 0.013,0.015,) and lv92,86(highest heritability, 0.9999),lv55,73,44(lowest heritability with very high pval_test_l). 
+
+
+### Summary 
+
+For comparison, I made a summary table. The last 2 LVs are negative control factors.
+
+```{r echo=FALSE}
+
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/ldsc_sum_flash_maf005.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
 
 
 ### LV26

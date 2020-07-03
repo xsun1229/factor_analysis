@@ -40,3 +40,4 @@ The 'N' here stands for the the number of non-missing samples for each variants.
 Z=sign(Effect Size)×|phi^(-1)(p/2)|.  phi^(-1) is the inverse cumulative distribution function of the normal distribution.
 
 A1 is the alternative allele and A2 is the reference allele.
+  

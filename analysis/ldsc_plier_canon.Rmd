@@ -19,6 +19,16 @@ The covariants of the association test here are lv47,81,120,64,54,58,8,83,89,9,3
 
 I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_canon.html), 3.17e-8,1.7e-5,) and lv104(highest heritability, 0.57),lv47,81,120(lowest heritability with very high pval_test_l).
 
+### Summary 
+
+For comparison, I made a summary table. The last 3 LVs are negative control factors.
+
+```{r echo=FALSE}
+
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/ldsc_sum_plier_canon_maf001.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
 ### LV90
 
 <figure class="half">
@@ -89,6 +99,19 @@ DT::datatable(aa, options = list(pageLength =10))
 
 
 I performed ldsc for lv90,50(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/train_plier_canon.html), 8.3e-8,4.6e-5,) and lv36(highest heritability, 0.95),lv31,124,80(lowest heritability with very high pval_test_l).
+
+
+### Summary 
+
+For comparison, I made a summary table. The last 3 LVs are negative control factors.
+
+```{r echo=FALSE}
+
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/ldsc_sum_plier_canon_maf005.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+
+
 
 ### LV90
 
