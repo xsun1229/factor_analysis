@@ -139,7 +139,7 @@ I used WGCNA to find modules in GTEx expression data. These modules will be used
 
 In this part, I trained prediction models for factors inferred from last part. The workflow is the same with the workflow in 'Prediction models for factors'.
 
-- PLIER - canonicalPathways. [For more details](https://xsun1229.github.io/factor_analysis/wgcna_module.html)
+- PLIER - canonicalPathways. [For more details](https://xsun1229.github.io/factor_analysis/modu_train_pliercanon.html)
 
 ## LDSC for factors from Module 1
 
