@@ -12,6 +12,8 @@ editor_options:
 
   In this part, I adopted lasso/elastic_net regression to train prediction models. The dependent variables here were LVs extracted from [plier-canonicalPathways](https://xsun1229.github.io/factor_analysis/modu_factor_pliercanon.html) and the independent variables were genotype of certain variants. (LVs ~ variant genotype)
   
+  There are 1888 genes in this module. PLIER used 760 of them to infer factors. I got 120 factors for this module.
+  
 
 ## Results-maf001
 
