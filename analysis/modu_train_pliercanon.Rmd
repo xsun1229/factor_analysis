@@ -47,7 +47,7 @@ Some notations to explain: **rsq_min** is the r-squared when lambda=lambda.min, 
 In this table, there are several NA value. These NA values come from linear regression(lm(y_test ~ predict_l)). It means the variant in regression is linearly with the intercept. After checking the predict_l, we found the predict_l for all samples are the same.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted_mod_pliercanon.rdata")
 rownames(sum_sorted) <- c()
 DT::datatable(sum_sorted, options = list(pageLength =20))
 
