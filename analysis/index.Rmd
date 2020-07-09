@@ -141,6 +141,13 @@ In this part, I trained prediction models for factors inferred from last part. T
 
 - PLIER - canonicalPathways. [For more details](https://xsun1229.github.io/factor_analysis/wgcna_module.html)
 
+## LDSC for factors from Module 1
+
+In this part, I adopted [ldsc](https://github.com/bulik/ldsc) to detect the heritability enrichment of sevral factors from Module 1. The worlflow is the same with before.
+
+[For more details](https://xsun1229.github.io/factor_analysis/modu_ldsc_pliercanon.html)
+
+
 # **Case Studies**
 
 ## IDIN

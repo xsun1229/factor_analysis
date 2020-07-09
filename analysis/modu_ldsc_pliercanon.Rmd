@@ -1,0 +1,24 @@
+---
+title: "modu_ldsc_pliercanon"
+author: "XSun"
+date: "2020-07-08"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In this part, I list the ldsc results for plier_CanonicalPathways factors.
+
+I made several plots to show the enrichment and 95% confidence intervals for each lv. Enrichment here is the proportion of prop.h2 devided by prop.snp.
+
+## Results-maf001
+
+
+I performed ldsc for lv114,113(lowest pval_test_l from [prediction model](https://xsun1229.github.io/factor_analysis/modu_train_pliercanon.html), 1.87e-3,3.83e-3,) and lv46(highest heritability, 0.463),lv51,5,21(lowest heritability with very high pval_test_l).
+
+### Summary 
+
+For comparison, I made a summary table. The last 3 LVs are negative control factors.
+
