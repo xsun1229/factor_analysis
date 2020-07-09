@@ -11,9 +11,9 @@
 
 <meta name="author" content="XSun" />
 
-<meta name="date" content="2020-05-14" />
+<meta name="date" content="2020-06-07" />
 
-<title>factor_plier_canonical pathway</title>
+<title>wgcna_module</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -419,9 +419,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">factor_plier_canonical pathway</h1>
+<h1 class="title toc-ignore">wgcna_module</h1>
 <h4 class="author">XSun</h4>
-<h4 class="date">2020-05-14</h4>
+<h4 class="date">2020-06-07</h4>
 
 </div>
 
@@ -569,7 +569,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/factor_plier_canon.Rmd</code>) and HTML (<code>docs/factor_plier_canon.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/wgcna_module.Rmd</code>) and HTML (<code>docs/wgcna_module.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -598,7 +598,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/d5698613af55f5bfd00b2709f07970bd32718489/analysis/factor_plier_canon.Rmd" target="_blank">d569861</a>
+<a href="https://github.com/xsun1229/factor_analysis/blob/d5698613af55f5bfd00b2709f07970bd32718489/analysis/wgcna_module.Rmd" target="_blank">d569861</a>
 </td>
 <td>
 XSun
@@ -610,57 +610,6 @@ XSun
 updatatetetete
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/ebadf8425741a9a7185d28a572c68008c155130e/docs/factor_plier_canon.html" target="_blank">ebadf84</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-25
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/b2a406f07d0e359a6bc0ae9f205b571d0e719462/analysis/factor_plier_canon.Rmd" target="_blank">b2a406f</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-24
-</td>
-<td>
-first
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/b2a406f07d0e359a6bc0ae9f205b571d0e719462/docs/factor_plier_canon.html" target="_blank">b2a406f</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2020-06-24
-</td>
-<td>
-first
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -670,22 +619,125 @@ first
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>I used ‘PLIER’ package(with default settings) to construct factors related to Canonical Pathways here.</p>
+<p>Genes with significant co-expression relationship can form co-expression network. <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-9-559">Weighted correlation network analysis (WGCNA)</a> can be used for finding these clusters (modules) of highly correlated genes. We used WGCNA to find modules in GTEx expression data. These modules will be used in subsequent analysis.</p>
+</div>
+<div id="material-and-methods" class="section level2">
+<h2>Material and Methods</h2>
+<ol style="list-style-type: decimal">
+<li><p>We used GTEx expression data. The dataset contains 19696 genes and 670 samples.</p></li>
+<li><p>We followed the <a href="https://horvath.genetics.ucla.edu/html/CoexpressionNetwork/Rpackages/WGCNA/Tutorials/index.html">WGCNA tutorial</a> to construct gene co-expression network and identify modules.</p></li>
+</ol>
 </div>
 <div id="results" class="section level2">
 <h2>Results</h2>
-<div id="overview" class="section level3">
-<h3>Overview</h3>
-<pre><code>- The gene expression data from GTEx uses Ensemnl ID. In order to use PLIER R package, we need to convert Ensemnl ID to HGNC Gene Symbol. There are 19,696 genes in GTEx data. After conversion, 16,634 left(not all Ensemnl IDs have a corresponding HGNC Gene Symbol). 5,472 of 16,634 were used in PLIER.
-- I used CanonicalPathways in PLIER R package, which contains 545 curated pathways from Reactome and KEGG.
-- I obtained 128 LVs from PLIER, 39 of them have AUC &gt; 0.70(see figure below).</code></pre>
-</div>
-<div id="lvs-with-auc0.70" class="section level3">
-<h3>LVs with AUC&gt;0.70</h3>
-<pre class="r"><code>plotU(plierResult, auc.cutoff = 0.7, fdr.cutoff = 0.05, top =3) </code></pre>
+<div id="checking-data-for-excessive-missing-values-and-identification-of-outlier-samples" class="section level3">
+<h3>Checking data for excessive missing values and identification of outlier samples</h3>
+<pre class="r"><code>sampleTree &lt;- hclust(dist(expr), method = &quot;average&quot;)  ### the clustering method used here is UPGMA
+plot(sampleTree, main = &quot;sample clustering to detect outliers&quot;, sub = &quot;&quot;, xlab=&quot;&quot;,cex = 0.3, cex.lab=1.5, cex.axis = 1.5, cex.main = 2)</code></pre>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/Umat_wb_nox.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/outlier.jpeg" width="600%">
 </figure>
+<p>If the picture is too small, please use this link: <a href="https://github.com/xsun1229/factor_analysis/raw/master/output/outlier.jpeg" class="uri">https://github.com/xsun1229/factor_analysis/raw/master/output/outlier.jpeg</a></p>
+<p>There is not obvious outliers, so we used all samples in the following steps.</p>
+</div>
+<div id="construction-of-the-gene-network-and-identification-of-modules" class="section level3">
+<h3>Construction of the gene network and identification of modules</h3>
+<div id="choosing-the-soft-thresholding-power" class="section level4">
+<h4>1.Choosing the soft-thresholding power</h4>
+<pre class="r"><code># candidate powers
+powers = c(c(1:10), seq(from = 12, to=40, by=2))    
+# Call the network topology analysis function
+sft = pickSoftThreshold(expr, powerVector = powers, verbose = 5)   ###expr: the expression matrix
+
+# Plot the results:
+par(mfrow = c(1,2));
+par(pin = c(8,5))
+cex1 = 0.9;
+# Scale-free topology fit index as a function of the soft-thresholding power
+plot(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],
+     xlab=&quot;Soft Threshold (power)&quot;,ylab=&quot;Scale Free Topology Model Fit,signed R^2&quot;,type=&quot;n&quot;,
+     main = paste(&quot;Scale independence&quot;));
+text(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],
+     labels=powers,cex=cex1,col=&quot;red&quot;);
+# this line corresponds to using an R^2 cut-off of h
+abline(h=0.90,col=&quot;red&quot;)
+# Mean connectivity as a function of the soft-thresholding power
+plot(sft$fitIndices[,1], sft$fitIndices[,5],
+     xlab=&quot;Soft Threshold (power)&quot;,ylab=&quot;Mean Connectivity&quot;, type=&quot;n&quot;,
+     main = paste(&quot;Mean connectivity&quot;))
+text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col=&quot;red&quot;)</code></pre>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/threshold.jpeg" width="80%">
+</figure>
+<p>In the plot, the left panel shows the scale-free fit index (y-axis) as a function of the soft-thresholding power (x-axis). The right panel displays the mean connectivity(degree,y-axis) as a function of the soft-thresholding power (x-axis).</p>
+<p>We choose the power 22, which is the lowest power for which the scale-free topology fitindex curve flattens out upon reaching a high value (in this case, roughly 0.90).</p>
+</div>
+<div id="network-construction-and-module-detection" class="section level4">
+<h4>2.Network construction and module detection</h4>
+<p>We have chosen the soft thresholding power 22, a relatively large minimum module size of 30, and a medium sensitivity(deepSplit=2) to cluster splitting. The parameter mergeCutHeight is the threshold for merging of modules. Apart from the power 22, parameters are the same with the WGCNA tutorial.</p>
+<pre class="r"><code>net = blockwiseModules(expr, power = 22, maxBlockSize = 20000
+                         TOMType = &quot;unsigned&quot;, minModuleSize = 30,
+                         reassignThreshold = 0, mergeCutHeight = 0.25,
+                         numericLabels = TRUE, pamRespectsDendro = FALSE,
+                         saveTOMs = TRUE,
+                         saveTOMFileBase = &quot;gtexTOM_2w&quot;, 
+                         verbose = 3)</code></pre>
+<pre class="r"><code>table(net$colors)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>15066</td>
+<td>1888</td>
+<td>774</td>
+<td>431</td>
+<td>328</td>
+<td>245</td>
+<td>226</td>
+<td>204</td>
+<td>156</td>
+<td>114</td>
+<td>103</td>
+<td>58</td>
+<td>36</td>
+<td>34</td>
+<td>33</td>
+</tr>
+</tbody>
+</table>
+<p>We obtained 14 modules from our dataset. They are labeled 1 through 14. The label 0 is reserved for genes outside of all modules.</p>
+<pre class="r"><code>mergedColors = labels2colors(net$colors)
+# Plot the dendrogram and the module colors underneath
+plotDendroAndColors(net$dendrograms[[1]], mergedColors[net$blockGenes[[1]]],
+                    &quot;Module colors&quot;,dendroLabels = FALSE, hang = 0.03,
+                    addGuide = TRUE, guideHang = 0.05)</code></pre>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/cluster.jpeg" width="80%">
+</figure>
+<p>This plot shows clustering dendrogram of genes.</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/heatmap.jpeg" width="80%">
+</figure>
+<p>We tried to visualize the gene network using a heatmap plot. The heatmap depicts the Topological Overlap Matrix(TOM) among all genes in the analysis. Light color represents low overlap and progressively darker red colorrepresents higher overlap. Blocks of darker colors along the diagonal are the modules. The gene dendrogram andmodule assignment are also shown along the left side and the top.</p>
+<p>(There are too many genes in ourdataset, so it’s difficult to make the plot clear)</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -722,6 +774,7 @@ loaded via a namespace (and not attached):
 [13] whisker_0.3-2   rmarkdown_1.13  tools_3.6.1     stringr_1.4.0  
 [17] glue_1.4.1      httpuv_1.5.1    xfun_0.14       yaml_2.2.1     
 [21] compiler_3.6.1  htmltools_0.3.6 knitr_1.28     </code></pre>
+</div>
 </div>
 </div>
 </div>

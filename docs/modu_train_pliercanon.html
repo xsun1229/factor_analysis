@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2020-07-08" />
+
+<title>modu_train_pliercanon</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">modu_train_pliercanon</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2020-07-08</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-07-08
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div class="panel-group" id="workflowr-checks">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted.rdata
+</td>
+<td style="text-align:left;">
+output/summary_H_le_sorted.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0153beecfda6be6b91d2150e3520be96aacb5602targetblank0153beea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/0153beecfda6be6b91d2150e3520be96aacb5602" target="_blank">0153bee</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0153beecfda6be6b91d2150e3520be96aacb5602targetblank0153beea" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/0153beecfda6be6b91d2150e3520be96aacb5602" target="_blank">0153bee</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/modu_train_pliercanon.Rmd</code>) and HTML (<code>docs/modu_train_pliercanon.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/d5698613af55f5bfd00b2709f07970bd32718489/analysis/modu_train_pliercanon.Rmd" target="_blank">d569861</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-07-08
+</td>
+<td>
+updatatetetete
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In this part, I adopted lasso/elastic_net regression to train prediction models. The dependent variables here were LVs extracted from <a href="https://xsun1229.github.io/factor_analysis/modu_factor_pliercanon.html">plier-canonicalPathways</a> and the independent variables were genotype of certain variants. (LVs ~ variant genotype)</p>
+</div>
+<div id="results-maf001" class="section level2">
+<h2>Results-maf001</h2>
+<div id="heritability-vs-r-squared" class="section level3">
+<h3>Heritability vs R-squared</h3>
+<p>This figure shows the prediction performance (R2 of Lasso/Elastic_net regression on training set in red) in comparison to LV heritability estimates (black; standard errors in gray). Performance was assessed using tenfold cross-validation in the GTEx whole-blood cohort (on training set, n = 536) with the elastic net and lasso models.</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/devide_snp001_le_mod_pliercanon.jpeg" width="150%">
+</figure>
+</div>
+<div id="summary-of-heritability" class="section level3">
+<h3>Summary of Heritability</h3>
+<p>The table below shows the heritability of LVs and performance of the training models. The table has been sorted by Heritability from small to large.</p>
+<p>Some notations to explain: <strong>rsq_min</strong> is the r-squared when lambda=lambda.min, <strong>ncoef_nzero_min</strong> is the number of non-zero coefficients when lambda=lambda.min, <strong>rsq_test</strong> is the r-squared in testing set (obtained from lm(lv.obs ~ lv.pred)) ,<strong>pval_test</strong> is the pvalue of F-statistics in testing set. When the suffix is ’_1se’, the notations mean lambda=lambda.1se. Suffix ’_l’ means lasso regression and ’_e’ means elastic_net</p>
+<pre class="r"><code>  ###Lasso regression. &#39;k&#39; represents the kth LV.
+    fit_lasso &lt;- cv.glmnet(x, y, alpha =1, foldid = foldid)   ##&#39;foldid = foldid&#39; can fix the data partition in cross validation, making the codes reproducible
+    fit_r_train_l[k]  &lt;- fit_lasso$glmnet.fit$dev.ratio[which(fit_lasso$glmnet.fit$lambda == fit_lasso$lambda.min)]  ###r2 when lambda = lambda.min
+    predict_l &lt;- predict(fit_lasso, nx, s = fit_lasso$lambda.min )
+    
+    fit_linear &lt;- lm(y_test ~ predict_l)
+    pval_test_l[i] &lt;- summary(fit_linear)$coefficients[,4]
+    rsq_test_l[i] &lt;- summary(fit_linear)$r.squared</code></pre>
+<p>In this table, there are several NA value. These NA values come from linear regression(lm(y_test ~ predict_l)). It means the variant in regression is linearly with the intercept. After checking the predict_l, we found the predict_l for all samples are the same.</p>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128"],[5,6,8,9,14,15,16,20,21,27,29,31,34,36,39,40,45,47,54,58,64,71,81,83,89,102,105,120,124,59,76,63,35,112,121,53,7,56,98,91,107,42,25,43,62,28,111,125,110,70,32,66,96,4,93,46,78,41,48,44,49,117,80,23,126,79,74,61,82,69,106,12,97,26,22,73,103,123,114,68,88,108,85,84,90,67,33,24,55,128,17,11,2,57,95,127,115,87,72,52,10,50,100,1,118,92,38,77,101,60,122,3,19,113,18,37,99,86,30,94,75,13,119,51,65,116,109,104],[1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,1e-06,0.000627,0.001835,0.001994,0.002139,0.002928,0.004483,0.006454,0.00665,0.007081,0.012414,0.019288,0.022307,0.022885,0.023051,0.02361,0.030311,0.03294,0.033177,0.033652,0.038239,0.038917,0.038939,0.03976,0.040815,0.04111,0.042159,0.043911,0.048664,0.053734,0.054499,0.0617,0.066193,0.06893,0.071094,0.074133,0.075385,0.078155,0.079418,0.080135,0.086123,0.08696,0.092806,0.096303,0.09667,0.097385,0.098009,0.098981,0.102681,0.103273,0.104978,0.109854,0.11011,0.110362,0.111016,0.111851,0.114003,0.119548,0.119928,0.126104,0.126879,0.131251,0.131902,0.134804,0.13887,0.139498,0.142553,0.143014,0.144509,0.145064,0.147498,0.148031,0.153369,0.155142,0.155914,0.156843,0.158636,0.159718,0.1681,0.177864,0.190082,0.193068,0.19492,0.209151,0.214683,0.225381,0.235155,0.25188,0.25297,0.256063,0.2589,0.27687,0.306539,0.317717,0.340245,0.342268,0.371206,0.385306,0.387407,0.566678],[0.032691,0.096696,0.056814,0.137474,0.037459,0.041571,0.04448,0.071191,0.02956,0.045782,0.100529,0.135947,0.036071,0.036861,0.066475,0.04092,0.029216,0.027,0.032177,0.055409,0.036923,0.038654,0.148392,0.031754,0.175076,0.084758,0.031158,0.052049,0.06566,0.023374,0.028605,0.034606,0.029291,0.032951,0.033108,0.034137,0.039407,0.036799,0.043016,0.060673,0.0603,0.042982,0.044411,0.056375,0.052722,0.051686,0.069119,0.04698,0.060002,0.049034,0.053093,0.072203,0.059157,0.064231,0.067908,0.075671,0.073027,0.085366,0.085843,0.113845,0.059888,0.083574,0.082273,0.063782,0.066828,0.081572,0.0824,0.093723,0.07488,0.066522,0.075493,0.079178,0.075275,0.099209,0.084107,0.085872,0.097584,0.116277,0.130814,0.090011,0.169633,0.094853,0.144288,0.120343,0.171114,0.080807,0.144225,0.154814,0.095432,0.115508,0.113839,0.141543,0.120175,0.094315,0.096367,0.098616,0.131796,0.129824,0.176203,0.101036,0.149725,0.163213,0.157656,0.139434,0.136169,0.178119,0.156012,0.180873,0.132079,0.140341,0.162325,0.161418,0.181586,0.179394,0.161392,0.179049,0.179688,0.183312,0.148663,0.130599,0.118445,0.183794,0.139253,0.189556,0.190483,0.192858,0.199922,0.188215],[3.05894588724725e-05,1.03416894183834e-05,1.76012954553455e-05,7.27410273942709e-06,2.6695854133853e-05,2.40552308099396e-05,2.24820143884892e-05,1.40467193886868e-05,3.382949932341e-05,2.18426455812328e-05,9.947378368431e-06,7.35580777803114e-06,2.77231016606138e-05,2.71289438702151e-05,1.50432493418578e-05,2.44379276637341e-05,3.42278203723987e-05,3.7037037037037e-05,3.1078099263449e-05,1.80476095941093e-05,2.7083389757062e-05,2.58705437988307e-05,6.73890775783061e-06,3.14920954840335e-05,5.71180515890242e-06,1.17982963260105e-05,3.20944861672765e-05,1.92126649887606e-05,1.52299725860493e-05,0.026824676991529,0.0641496241915749,0.0576200658845287,0.07302584411594,0.0888592151983248,0.13540534009907,0.189061721885344,0.168751744613901,0.192423707165956,0.288590291984378,0.317900878479719,0.369933665008292,0.53243218091294,0.519038076152305,0.41880266075388,0.574921285231972,0.637309909840189,0.479998263863771,0.716304810557684,0.637295423485884,0.793673777378961,0.73341118414857,0.550669639765661,0.689943709113038,0.640033628621694,0.620825234140308,0.580288353530415,0.666383666315199,0.629454349506829,0.634868306093683,0.54196495234749,1.1052798557307,0.824778041017541,0.864123102354357,1.16228716565802,1.1280451307835,0.958110626195263,0.96381067961165,0.855019578972077,1.1501469017094,1.30723670364691,1.22933252089598,1.21628482659325,1.28422451012953,0.981614571258656,1.16528945272094,1.15265744363704,1.05223192326611,0.888163609312246,0.802498203556194,1.22045083378698,0.649107190228316,1.16350563503527,0.769405633178088,0.929435031534863,0.666240050492654,1.47942628732659,0.831534061362455,0.814551655535029,1.32952259200268,1.13629359005437,1.15867145705777,0.952389026656211,1.15556480133139,1.47906483592218,1.47927194994137,1.45021091912063,1.09645968011169,1.11738969682031,0.837091309455571,1.46513124034997,1.02433795291368,0.950549282226293,0.988950626680875,1.12485476999871,1.16499350072337,0.896692660524705,1.07748121939338,0.983364017846776,1.43915383974742,1.37570631533194,1.20080086246727,1.29571051555589,1.18226625400637,1.2563463660992,1.45704248042034,1.40676574568973,1.40782912604069,1.39686981757877,1.74152277298319,2.12000091884318,2.58802819874203,1.72865817164869,2.443358491379,1.80562999852286,1.94876183176451,1.99787408352259,1.93779073838797,3.01080147703424],[0.499987796571523,0.49999587426284,0.499992978099053,0.499997098052865,0.499989349895076,0.499990403351366,0.499991030973913,0.499994396169735,0.499986503982398,0.499991286045163,0.49999603157019,0.499997065457271,0.499988940082605,0.499989177117269,0.499993998611803,0.499990250677411,0.49998634507529,0.499985224359988,0.499987601632211,0.499992800045473,0.499989195290731,0.499989679146263,0.499997311564772,0.499987436471615,0.499997721319425,0.499995293160759,0.499987196152502,0.499992335255617,0.499993924120006,0.489299785452295,0.474425544396866,0.477025632980736,0.470892775890499,0.464596898419068,0.446145701114969,0.425022220949751,0.432995958032812,0.423705161873795,0.386447462717376,0.375280063106449,0.35571595849239,0.297213350816246,0.301867094607401,0.337680180061372,0.282672266888626,0.261961498615981,0.315614313769383,0.236901578527203,0.261966215702029,0.213692684909391,0.231653839927928,0.290930080247653,0.245114793654901,0.261075368414592,0.267357309140272,0.280860090002642,0.252582949972203,0.264525823061185,0.262757154684544,0.293921325048802,0.13451917191593,0.204748807847237,0.193760134606243,0.122559419068838,0.129650429914662,0.169003488856112,0.167570425699274,0.19627015441154,0.125041685802586,0.0955661668276869,0.109473579462104,0.111938219801512,0.0995317057747817,0.163144883087116,0.121950923508024,0.124525507637549,0.146346578239155,0.187226375280441,0.211132413574628,0.111147008486824,0.25813454733181,0.122312206588565,0.220826272760103,0.176331840013187,0.252628838610528,0.0695132093638851,0.202835997288698,0.207664496386256,0.0918378086790681,0.127916856279118,0.123295064809082,0.17044986126968,0.12392960619946,0.0695614936110794,0.0695338232633544,0.0734998555339963,0.136438829468342,0.131913869273838,0.201270622486334,0.0714425574005106,0.152837838771352,0.170916612594908,0.161343649437385,0.130325290496105,0.122010811822878,0.184941469047504,0.140632668289554,0.162714156449694,0.0750534702736968,0.0844562879697437,0.114914228619595,0.0975376185790511,0.118550035554474,0.104495209079798,0.0725523271806631,0.0797484315154764,0.0795908368072152,0.0812263611737363,0.0407959925084865,0.0170029839036309,0.00482635391537334,0.0419351458619612,0.0072756374502676,0.03548807680646,0.0256619369247799,0.0228651565062884,0.026324379084793,0.00130279572931724],[0.746872501918715,0.999029114198291,0.975472384015646,0.999067430188158,0.224277503677695,0.830288815545725,0.042792689664077,0,0.978456890450646,0.999018497029511,0.996502653671411,0.956761892388293,0.994447825690278,0.010232872791521,0.999070250595142,0.142723640634763,0.394065425681452,0.98626844282133,0.989824815010739,0.999000830834005,0.875603117139521,0.999010776589996,0.670314894231759,0.804037193004734,0.993400750749309,0.681418079377141,0.931087524152773,0.0277074167088155,0.999074704914613,0.865733190488923,0.999019739029675,0.999074731407323,0.945383565328771,0.999056007621289,0,0.999052020141201,0.999060125750177,0.939885651738356,0.997962419028441,0,0.971154523349351,0.999001752178034,0,0.999022991091683,0.176869051247298,0.99908236953855,0.530224959559641,0.0171067287910339,0.994080579713039,0.957450758617816,0.998988589108689,0.415109772077399,0,0.827999263041507,0.873280637329065,0.941531721972311,0.942886171016826,0.0323660425796027,0.153979957269242,0.986576430779306,0.867356474381081,0.00906453045888756,0.785866762403026,0.551596486678516,0.927725490713439,0.969473131065578,0.276973285617128,0.999043099738362,0.837046565030988,0.48402728076304,0.999058065935441,0.999054447943216,0.703891230784076,0.998970561109234,0.958608305350868,0.999002750817908,0.548202632982966,0.164616406309938,0.942726836308127,0.999079895649103,0.771867202481554,0.999034978149226,0.16643770234671,0.999062679257189,0.914527376063351,0,0.999052111532065,0.864003253739774,0.999054022695253,0.999071970301503,0.895933987126844,0.571627564985604,0.563237924120733,0.999078302593598,0.999008058510638,0.962801411477194,0,0.999044613873478,0.959838172452649,0.04219723434331,0.999022609921495,0.756779311941688,0.141916602175049,0.923541711228526,0.734022265952524,0.999059785671618,0.999001159900736,0.629993463932108,0.0707743168062449,0.148118975910163,0.509897322235159,0.925057929416362,0.999060825374644,0.0246346481495855,0.999085599240635,0.999006207815091,0.999017898422882,0.320523733788272,0.331144026943445,0.413732486988926,0.999064452890284,0.999019989962689,0.996407706629466,0.999006205167061,0.999003464189907,0.999031737670885,0.919463106915693,0.487290290738235],[0.0191768825543947,0.0025468152830638,0.00781840445884999,0.00120335448413954,0.0480145243277909,0.0167640962305254,0.0901865800468365,0.083958715936741,0.00925988346032878,0.00182720150517977,0.00352528384281124,0.00887664123882015,0.00207021318651789,0.0945650493467397,0.00104660052853621,0.0486360808410257,0.0605407306098818,0.00455538196737047,0.00552159552701236,0.00255507284466866,0.0117924288487393,0.00102462575185805,0.0400971683037139,0.0515313950300545,0.00386001280867275,0.013805289731051,0.00795882239352614,0.0521238122832954,0.000890250034620063,0.0216777443756464,0.000752266070405185,0.000868849903805949,0.0334065330886852,0.00139100292135954,0.0629204841835624,0.0013713697090804,0.00249957089759619,0.00868002889165607,0.00159778543937813,0.0460780516639079,0.00971876363727441,0.00107443396877448,0.0834706226061113,0.00164250787930492,0.00632180812467869,0.00200083670197885,0.0237160307805428,0.0615320535249032,0.00205310959280191,0.0158847553131811,0.00397177188154243,0.00190612175990556,0.133706772904633,0.0244084514302607,0.0115444079695238,0.0109886578249482,0.00976942706688139,0.0783406553639004,0.00374575186157546,0.00582702377547593,0.0327977540029595,0.118209073947287,0.018911452664483,0.0478821924511755,0.00658475564893222,0.00469484508064934,0.0476453264184808,0.000795822939860108,0.0126247369380792,0.0264817996536896,0.000801150245580732,0.00195209501854822,0.0234047589983871,0.00202738412432432,0.0120437611723825,0.00146957254071459,0.0421457638856807,0.0217419689804211,0.0184309488774757,0.000949917283967358,0.0135780972941593,0.0029613493690685,0.025845086074755,0.00104707018736558,0.00710867158045504,0.131843818236211,0.000452742854469242,0.0108123619923398,0.00166822357093823,0.00194848961948986,0.0247203569297453,0.0340967267728492,0.0758284319903853,0.00111882798774762,0.00203578204641597,0.0035304935546388,0.144196776663762,0.000590302717847219,0.0153452634949188,0.044863390185255,0.000994026784760226,0.0150532926339315,0.0692405664104893,0.00545154679080987,0.0192207242624687,0.00184730222458641,0.00100718010717107,0.0191380390745606,0.08379155878193,0.0260954342606906,0.0174376712705218,0.0203506948189693,0.000927884400106034,0.0415401688653057,0.00132685067197815,0.00222971646371414,0.000612122298652579,0.0403840751601452,0.0437243232207542,0.0415864521585581,0.00160070515778572,0.00282739748714406,0.00195565755228276,0.00187896573630401,0.00350688592057252,0.000788615816667144,0.00860065386551085,0.047527776962781],[280,696,502,706,64,317,7,0,512,676,611,447,590,1,698,42,111,548,577,651,348,712,225,312,613,232,435,7,681,341,673,676,429,685,0,710,677,420,663,0,526,717,0,669,38,687,125,6,574,473,690,136,0,343,378,446,470,3,34,532,366,3,266,32,365,450,70,691,349,119,690,708,250,680,445,690,183,55,449,722,294,715,46,686,385,0,689,371,688,681,397,158,203,699,694,469,0,669,478,6,691,242,9,413,248,712,704,203,15,39,172,427,716,7,707,707,698,89,68,112,676,716,621,728,704,702,376,129],[0.0223419365108539,0.012724165656129,0.000381760087293673,0.00114415046305834,0.00281830419091639,0.0600302978263393,0.0158552665040799,null,0.0179291908313337,0.0150135220646661,0.0161300768288171,0.00115644568143491,0.00593485898139682,0.00480510137620204,0.0417952160689394,0.00204390722852615,0.0191266525476466,1.90200541431015e-06,0.000247216644253185,0.000316300339471569,0.000216555351293108,0.00666046571798877,2.78495998904062e-05,0.000735301373536396,0.00100060082607068,0.00128329645123638,0.0124285288577845,0.000100273017214855,0.0265899200017526,0.000188973846568815,0.00242735036164735,0.000471333400117904,0.00202652506689172,0.00975653227912622,null,0.00314599233083473,0.0130722365088106,0.000763097747008353,0.0156739739203483,null,0.00671423180990044,0.000435327679148749,null,0.0037364096713178,0.00129741056230271,0.00255419142347349,0.00110693557697187,0.0834418837319043,0.0115540128179212,0.00498922390380427,0.0129424748385335,0.00110951869172195,null,0.00211705498756062,0.00637221416398364,0.00595590327306811,0.0119930293889482,0.000540389456483085,0.0016469559981437,0.00165621895118579,0.000740232162534262,2.29572356387761e-06,0.00617473110606082,0.0058260144326662,0.00164961672176214,0.0089819154066862,0.0530123983359437,0.00140485021815594,0.0029253466894165,0.057012213987278,0.0169591939179206,0.00611055818625184,0.0113054984073027,0.000570315795178017,3.93388259479085e-05,0.00325693002737431,0.00164129563910064,0.0108305250750713,0.00532469883143417,0.0813243890449461,0.0100487560807074,0.0114360832791558,0.00858406932068203,0.0103264336428272,0.207572584857479,null,0.0054759191974444,0.0125039615674038,0.0517829862638222,0.011749383182003,0.031844587268951,0.000489252774707759,0.0371067381941314,0.00967891337554473,0.0186510890871988,0.00362902728345385,null,0.0031212413378451,0.0344591649750801,2.82427302777069e-05,0.00976257654260632,0.130982736928792,0.000710124453825769,0.00843814300484112,0.013419456061546,0.0021645767848072,0.0446454196368444,0.0731083531746723,0.00988482430363748,0.0253751097947614,8.08141186683068e-08,0.0245744757385472,0.000513196975716809,0.0053169740289621,0.00070400229799435,0.0106455256877627,2.52316761317813e-05,0.0196731745318213,0.00354446195881768,0.00146908421915547,0.0162952830816794,0.00728236211688566,0.00189416737530594,0.0114519410678513,0.0149818453937061,0.000446951935353382,0.0015203618594025,0.000452737779818411],[0.0847524381053608,0.194396022036784,0.822695820172209,0.698016923912575,0.542387202033707,0.00432736774537286,0.147135560049093,null,0.122967488785184,0.158416963721369,0.143649344756308,0.69647800172238,0.376296477377369,0.426111141767944,0.0178140257267701,0.603969101828165,0.111026205423911,0.987381943000086,0.856905833060875,0.838383421324158,0.865984530249266,0.348533505863126,0.951743925328076,0.755791554566758,0.716731606160155,0.681124148552264,0.199693967274727,0.908577351205519,0.0597626920548876,0.874734931857859,0.571855853690449,0.803369463171797,0.60551315860596,0.256177532842565,null,0.519768063587194,0.188365785411477,0.751366418157464,0.149487102569796,null,0.346588837939324,0.810882709551484,null,0.482919908764239,0.679471325287409,0.561967784568065,0.702733594442323,0.000711880935938027,0.216380558835919,0.417362173927594,0.190588251633292,0.70240329924828,null,0.597561102016999,0.359215188221151,0.375449083425234,0.207807672415471,0.789769376396661,0.641523698005092,0.640587188393447,0.754999969078711,0.986137463526723,0.366792611597468,0.380722306733075,0.641254364807445,0.276042718764804,0.00744273746292003,0.667221771946554,0.534806832729406,0.00546273533462856,0.133675753550814,0.369302271414852,0.221418057492415,0.784165305930489,0.942661654201943,0.512485541196688,0.642097551059438,0.231438644456019,0.402087349990362,0.000838280993052284,0.249141843149216,0.218753958400302,0.286989795296111,0.242672763811683,3.17662278557297e-08,null,0.39546619613898,0.198326413034227,0.00818624095107577,0.212515104253571,0.0391173620872391,0.799743675412157,0.0257538857507778,0.258086934342979,0.115609774445627,0.48928914768357,null,0.521417543820408,0.0317604684979027,0.951404936546512,0.256029572316256,1.73276840610275e-05,0.759879478549358,0.291141574152571,0.182564143281269,0.593473320869345,0.0142565607920168,0.00157939821281747,0.253059293729397,0.0659942504136726,0.997398957984228,0.0704732717222342,0.795007386061689,0.402429856096653,0.760885446052406,0.235487465438735,0.954065373909829,0.106001505374031,0.494403543175249,0.660160981050714,0.141597906376244,0.326898886549427,0.61755347380429,0.218433028137489,0.158860085945952,0.808422310165281,0.654655261196811,0.807210287809002],[0,0.983738033315223,0.87774639027828,0.975501352824938,0,0.0502287371194123,0,0,0.894058323250729,0.980386732812086,0.982105777475676,0,0.991263623799792,0,0.98147908251227,0,0,0.901085447237787,0.919787411839565,0.977762532607181,0.731827689873924,0.988518867655754,0,0.501139416761424,0.978592292044269,0,0.555626266318542,0,0.990167912440632,0.474494512333312,0.956353556600254,0.976659760823953,0.890383054326,0.985473465908637,0,0.986632967240447,0.981013569241958,0.757873132220957,0.986243667321159,0,0.899194663517238,0.99827008631561,0,0.994534029925463,0,0.977692566714549,0,0,0.878998008689177,0,0.991100081517628,0,0,0,0,0.861019337195768,0.835967059019875,0,0,0.91972323030166,0.511664738234623,0,0.526286081860099,0,0,0.780622853850164,0,0.96734463079352,0.2368071049299,0,0.96804641701592,0.990751645378141,0,0.957465894242189,0.846133328904434,0.987186879353771,0,0,0.88357838127146,0.941434807962407,0.445854766742812,0.978946251402783,0,0.993074093934099,0.683760942652301,0,0.830178181272606,0.377454709422859,0.979131299648122,0.992441271008734,0,0.350414706049098,0,0.973345578749621,0.991141511181562,0.909579370240255,0,0.980676720985442,0.85028926132224,0,0.980163743207105,0.513619372659377,0,0.845947417706763,0.0542937630880847,0.989891368371362,0.978205684330559,0.0724262382948103,0,0,0,0.725454253068351,0.96724054375042,0,0.970965245994696,0.968319319568324,0.978437762050788,0,0,0.0842051626537498,0.977421750560542,0.986173572556902,0.975933456665206,0.87235046270726,0.988285254588774,0.969443416694569,0.503765063749452,0],[0.0613519700952273,0.0107711003738184,0.0180615283335676,0.00642194094036049,0.0664946603503522,0.0561865893035356,0.103692651286371,0.083958715936741,0.0213915317843332,0.00848111809107798,0.00814386290015095,0.0951813142090227,0.00261231275825579,0.0990678353546847,0.0048578893195619,0.06429403654716,0.11083423298214,0.0126756209118705,0.0160957439366612,0.0124243012333674,0.0179234432951444,0.00359765746637978,0.101660936737896,0.0859595476913388,0.00706667320728776,0.0462698456074518,0.0221458960604958,0.0599297177917284,0.00298376437267015,0.047802260459293,0.0053070884021133,0.00463679060644334,0.0484671595780437,0.00561550279298839,0.0629204841835624,0.0052846123798505,0.0116019803505194,0.0182706287758665,0.00424385838144142,0.0460780516639079,0.0186397164993928,0.00142033847426346,0.0834706226061113,0.00397507974058133,0.0100661062953689,0.0101925382895356,0.0601287823267921,0.0675313527759826,0.00998345393530072,0.122989891238281,0.0121292174276669,0.00348961007079777,0.133706772904633,0.0985373395515124,0.0535843950454061,0.0174970507689978,0.0170723512423036,0.0900727165169812,0.00569320976618034,0.0147736291730608,0.0690361282836624,0.123837687984491,0.0301123806616954,0.168123558154011,0.0811799451281755,0.0136857225182,0.0794771945558656,0.00488309575678637,0.0320083097507855,0.061176391843935,0.00491578361065002,0.00624527343593531,0.0714747521258282,0.0136527101100821,0.0241987224068373,0.00540564590044217,0.101998154337129,0.0287416034364197,0.0267401510371617,0.00807195474271671,0.0226496313797482,0.0143998620999477,0.0357925074615755,0.00291353499184801,0.0149630722613029,0.131843818236211,0.00672308768160013,0.0261673028453112,0.00811190655999802,0.0056799506275174,0.11474173252399,0.0450738661373165,0.167211606217498,0.00625515489635254,0.00621698421076757,0.00562154413661762,0.144196776663762,0.00273994249969381,0.0308322098270117,0.0540381122967865,0.00461386361785894,0.0239690988337534,0.105239504236208,0.00790926096868297,0.0510519308464847,0.00619142302603514,0.00489751557332658,0.0584448059953491,0.116041787759753,0.0361392112522757,0.0367046265025175,0.0408892876288313,0.00569341262987782,0.0455902840440959,0.00777139199543486,0.0130594957248383,0.002976506852237,0.0643028679746351,0.0800477922551603,0.0603348215662699,0.00815421298242483,0.0108954570488065,0.00519439812751997,0.0231647677610659,0.0123133488427467,0.00461893924806432,0.0239318302557971,0.10979532905503],[0,546,380,480,0,9,0,0,378,525,534,0,567,0,525,0,0,389,400,514,258,551,0,169,536,0,170,0,564,141,446,479,362,544,0,548,520,255,544,0,408,690,0,593,0,527,0,0,348,0,535,0,0,0,0,333,352,0,0,405,162,0,145,0,0,231,0,478,65,0,482,590,0,448,314,566,0,0,382,442,141,536,0,575,208,0,301,109,518,559,0,84,0,510,595,402,0,524,337,0,542,110,0,344,10,588,522,9,0,0,0,259,488,0,488,525,518,0,0,18,498,566,519,365,557,498,162,0],[0.742606912748116,0.998157450383805,0.98987481245555,0.999062394268505,0.215641858802289,0.841517783682749,0.037830201034895,0,0.980038728946416,0.980151554194897,0.999018922951563,0.0571106626435743,0.783243146848888,0.00922527848866235,0.999062893460655,0.134862335701812,0.347900920215866,0.987231390065057,0.994032296657855,0.999076566583577,0.849313885966263,0.999003960387615,0.605877540421656,0.80031703952457,0.989480738975861,0.648971666680673,0.935904418528669,0.0250914274614189,0.999066853876828,0.863530111036443,0.999013904479149,0.999078178925719,0.949059643579444,0.997636843742024,0,0.997138811922695,0.999058123673719,0.926805059048429,0.999009177953597,0,0.939913376029495,0.999086211772543,0.542131261071245,0.99901866494588,0.0946672599527648,0.998886791636042,0.490671701506303,0.0157006522410439,0.992125368992845,0.40988407954935,0.99898634116194,0.23016252149404,0,0.809459366983152,0.900958848952805,0.945833983554935,0.917192074054146,0.0620544340123927,0.10901870313777,0.990517899468757,0.825244664705308,0.00785607872562359,0.815155286750357,0.546784415428702,0.905580587099149,0.966210675563971,0.268096834454345,0.998734935461187,0.699320659907827,0.441236941473773,0.999055675078066,0.999053828503943,0.699139022235093,0.999056651624936,0.957757477158934,0.999086562399407,0.504899006313369,0.158332938574974,0.989389091624256,0.99878598749774,0.767883337446867,0.99903723590837,0.157378893719061,0.999054928546714,0.913164882706465,0.0834719144744776,0.999048905111892,0.788268956953758,0.999041713956452,0.999067215718976,0.932021844823889,0.531687751512738,0.521597790273323,0.999074323886198,0.999000637888234,0.940768259590184,0.250664549245343,0.999037083616307,0.968836883739232,0.0375267380542856,0.997302720399653,0.667829608411244,0.108642890626167,0.843281737143254,0.729584535932765,0.99905113187077,0.998801819177057,0.625915839937383,0.241027060685914,0.100507416038747,0.503271682830679,0.900493471108504,0.999053198843579,0.0221566863133001,0.999084061921801,0.999000718216965,0.999007792623357,0.310355898038979,0.284205175182539,0.362042648547165,0.982458167396578,0.999014468037586,0.961577026208101,0.971019349991279,0.999086389001655,0.999024398800993,0.910544244347438,0.479546203736585],[0.0383537651087894,0.00705409954980617,0.00982037172659728,0.00240670896827908,0.0960290486555817,0.0320042843697436,0.180373160093673,0.167917431873482,0.0176780149326164,0.016962236182156,0.00367617183702347,0.137457218446143,0.027882254933823,0.189130098693479,0.00209320105707242,0.0972721616820514,0.12684684613912,0.00869666565329402,0.00835376905372047,0.00487788168128538,0.0258843522050694,0.00204925150371611,0.0880131854185608,0.103062790060109,0.00974156746058328,0.0289252779868957,0.0151941632658303,0.104247624566591,0.00178050006924013,0.0433554887512928,0.00150453214081037,0.0017376998076119,0.0637763092072168,0.0044297400324169,0.125840968367125,0.00479301502456481,0.00499914179519238,0.0190526419844224,0.00220258305268564,0.0921561033278158,0.0282005239429415,0.00205119857344632,0.0689803295875392,0.00328501575860984,0.0138763532238354,0.00439183162036945,0.0496905748765296,0.123064107049806,0.0047211542326708,0.134360976258938,0.00794354376308487,0.00459186081514538,0.267413545809266,0.0511413564368695,0.0200814746372222,0.0209784127360874,0.0235346189726389,0.1427621749269,0.00784821731211532,0.00967539501832229,0.0754188941866717,0.236418147894573,0.0344628226668218,0.095764384902351,0.0151417377387212,0.00983678732636447,0.0952906528369617,0.00183000598416646,0.0349676522453532,0.0554855009564466,0.00160230049116146,0.00390419003709644,0.0468095179967742,0.00387047277403664,0.024087522344765,0.00280555640150498,0.0883051323161601,0.0434839379608422,0.0152313818740616,0.00218434808429748,0.0271561945883186,0.00592269873813701,0.05169017214951,0.00209414037473116,0.0142173431609101,0.218918108336538,0.000905485708938485,0.0272873067985602,0.00333644714187646,0.00389697923897972,0.0391809202245429,0.071440536168509,0.158878119718052,0.00223765597549525,0.00407156409283195,0.00890995518315239,0.198778489717064,0.00118060543569444,0.0266930552426946,0.0897267803705099,0.00331627322571921,0.0362634885339599,0.14507501620113,0.0158185219373659,0.0384414485249374,0.00369460444917282,0.00221075784830727,0.0382760781491212,0.13280675475096,0.0546759760124044,0.0348753425410437,0.0467967074525467,0.00185576880021207,0.0830803377306114,0.00265370134395629,0.00445943292742828,0.00122424459730516,0.0807681503202903,0.0916125795682892,0.0871332447641036,0.0141842372190374,0.00565479497428811,0.013109174058353,0.0210098815085628,0.00669498508663328,0.00157723163333429,0.0180203609468203,0.0950555539255621],[363,803,741,866,80,411,7,0,613,664,854,3,430,9,873,60,128,710,824,787,455,863,310,398,730,295,555,16,860,453,806,813,555,754,0,798,790,537,840,0,592,885,262,844,45,817,170,6,716,195,789,116,0,450,538,566,604,8,56,727,437,4,452,50,457,580,93,810,362,165,902,841,325,825,606,904,226,70,734,882,416,846,60,867,510,32,817,403,856,816,612,189,288,855,834,608,131,865,659,8,789,271,12,467,340,867,864,280,90,59,226,515,872,8,888,850,859,124,86,137,679,900,636,684,840,848,503,201],[0.0288115562168243,0.0159544422376924,0.000383351325699135,0.000345937181173937,0.0032930098254361,0.0516201851722804,0.0186509661304781,null,0.0128622242702772,0.0145232946805555,0.0106836027056753,0.000103596942629574,0.00483649332045758,0.0044065586463925,0.039898618206751,0.00210621952793911,0.0175687062274184,4.15484868341894e-07,2.63427615602314e-05,0.000427631987054554,0.00107725926700164,0.0101230353355593,7.43882827274465e-09,0.000683953968134371,0.0016215998945301,0.000971041339928657,0.0133036344176286,0.000111827388163351,0.02253390919594,0.000156834260120161,0.00416879176926427,0.000201763085754785,0.00199147656944815,0.0108001738590896,null,0.00409868303749722,0.0123796523834448,0.00126148398112399,0.0174056032628165,null,0.0062942654008518,0.000527667897522741,0.0125310852868851,0.00170877021864804,0.000965727105137819,0.00390832645997055,0.000102569572576547,0.0915819571458262,0.012006161598148,0.0126754007514514,0.0129944530005443,0.000302572683650837,null,0.00115408951670371,0.00151438476796564,0.00644521323929894,0.0112222912219716,0.0035660850597372,0.00119471608209744,0.00180275679646403,0.00167913530504848,8.34871632591596e-05,0.00425787796349362,0.0073129761743193,0.00179917015425906,0.0077375940487525,0.0584711438239277,0.00138198264294867,0.00239506685856436,0.0583172948022991,0.0176200093620874,0.0106963497125993,0.012007059564503,0.000738504553336082,0.000645769992737401,0.00237953994391699,0.00312510480314752,0.0106488132368287,0.00155868296835067,0.0809924174193058,0.0138341485404813,0.014593952455896,0.00748727540530789,0.00671924778340991,0.206525528152473,0.00433126431480131,0.0060908407620128,0.0123247165130358,0.0562451387247265,0.00714232317300515,0.021030240323144,0.000955835536916806,0.0388729976289809,0.0100472240395961,0.0221842874119867,0.00126053082868467,0.000844100107176433,0.00501231068233978,0.0332449588193555,9.53323670342221e-07,0.0083215120272428,0.130643117268496,1.12370466439389e-05,0.00810785630786496,0.0138697556436825,0.00208712745370065,0.0476164719263633,0.0765916636029944,0.0278603569070352,0.0318469356361004,3.7703586516254e-05,0.0226935847485951,0.000325797574465252,0.00574482168275632,0.000611754486209509,0.00722248171763115,1.0834275939138e-05,0.0255094171050263,0.00531090376034954,0.000706636362330381,0.0179476148973003,0.0042608140360043,0.00166218910297059,0.00505046818898802,0.0124453823670739,0.000663159106928465,0.00162831465565169,0.000279780539113192],[0.0499113639780666,0.145866658478926,0.822332774403648,0.831089219286821,0.51015511227332,0.00829016342195838,0.115610985883324,null,0.191977876333419,0.16543393415676,0.234647235710448,0.907081111973002,0.42460030296922,0.446019296413821,0.020671069648671,0.598501344546025,0.126832600737993,0.994102360750837,0.95306602531401,0.812530733406052,0.70656024617903,0.247391090018637,0.99921085519105,0.764213532893001,0.64410373448319,0.720771249702724,0.184476247844603,0.903477776286454,0.0834111843314478,0.885803932880807,0.458584771819882,0.870601264314725,0.608652144697514,0.23209715020518,null,0.462395843798334,0.200585928343293,0.683699475140602,0.128625134199605,null,0.362180183269813,0.792201924463817,0.197837337900761,0.635333541549318,0.721504820345958,0.473001169690934,0.907540943352973,0.000379375693577113,0.20755744090139,0.19525857237401,0.189694393271105,0.841882680284006,null,0.696772178146054,0.655291253346994,0.356468464960705,0.223135644014167,0.493087362465697,0.691747338129705,0.626178810759482,0.638283887759609,0.916549427931764,0.453812878471575,0.325880432390186,0.626522704831386,0.312172844781002,0.00488070163846909,0.669781512337268,0.574426795532451,0.0049390165305318,0.12627446821758,0.234366756274002,0.207540343233209,0.755276988498114,0.770702306905092,0.57567140896889,0.521159465768283,0.235414778276173,0.650612888679859,0.000860031161893086,0.175901804644839,0.164401227451149,0.320160522644986,0.346408160859793,3.47410317755003e-08,0.449939921811243,0.370078143534166,0.201594011638984,0.00579626393724382,0.331611469414624,0.0945582247393561,0.722876314255954,0.0224068868145711,0.249178111227724,0.085871121226588,0.683812600102647,0.738955422513555,0.416283976077738,0.034980794118572,0.991066621701575,0.29451463697654,1.78012893997495e-05,0.969336277791357,0.300823653580714,0.175342827925419,0.600165577642768,0.0113115952590865,0.00120755285552999,0.0539030075803228,0.039110016770744,0.943864037749446,0.0823128477915375,0.836008583881738,0.384071477321154,0.776660234384636,0.328903099241467,0.969890571276643,0.0652728253416475,0.402699298693569,0.760452044348619,0.122773451349637,0.453656932068758,0.639985275859533,0.414510924162853,0.199387473380639,0.767722157512045,0.643418126421937,0.847879844462463],[0.0249680349074091,0.986238901716028,0.943829265069514,0.975103474421601,0,0.138268312721172,0,0,0.917206533147963,0.924619241380495,0.988461669197634,0,0.313376294735083,0,0.982759197060323,0,0,0.922819800516048,0.931603269593825,0.979446377958829,0.678310527332654,0.989325325568853,0,0.532484140499977,0.962754875410538,0,0.697797083986553,0,0.988039752297679,0.57259118970488,0.951504147251848,0.971778676329108,0.905885736934378,0.978820429326745,0,0.982183327575817,0.982424831147861,0.773646771897244,0.990291665775341,0,0.841308771154946,0.993747462699297,0,0.996792321436778,0,0.977345578091102,0,0,0.886832411321987,0,0.990133381676628,0,0,0,0,0.858717531881387,0.784156271787638,0,0,0.937188230574908,0.344318151589201,0,0.552999046072689,0,0,0.719323521607439,0,0.974666417192713,0,0,0.957723390055342,0.989742304390423,0,0.990682380019067,0.867730066767337,0.985800013984251,0,0,0.936108822925166,0.945783212694924,0.437611041757225,0.982168611292622,0,0.988909653033062,0.701999172650043,0,0.8411754850045,0.151273262603109,0.976701348705953,0.990795988293963,0.7265510046264,0.382568815613214,0,0.967498775004253,0.990164020609539,0.857288766648578,0,0.982098452064405,0.892299340168187,0,0.965554802707062,0.419544621985873,0,0.716266355479088,0.0902150449250727,0.989773980084705,0.977877802442294,0.086025793071313,0,0,0,0.613748367152569,0.972166433169825,0,0.967659967136439,0.949717116559729,0.973854899336455,0,0,0.0517655193813319,0.926026114552489,0.987215474423234,0.9146710664844,0.677461480253201,0.988135381391521,0.965957154299446,0.458751634559134,0],[0.10672162961179,0.0196284510077105,0.0237665591667629,0.012843881880721,0.132989320700704,0.0932941870825895,0.207385302572743,0.167917431873482,0.037210526872617,0.0340810847123437,0.0129077441526131,0.190362628418045,0.0560219467625643,0.198135670709369,0.00927418150564542,0.12858807309432,0.221668465964279,0.0220492172941866,0.0293316848166562,0.0237191951358528,0.0393419137762028,0.00686827676455903,0.203321873475793,0.164105107175343,0.0186834521860957,0.0925396912149037,0.0351004878009357,0.119859435583457,0.00654935543048784,0.0831519367254981,0.0111195788225207,0.0101777439319609,0.0883229414120918,0.013527785986631,0.125840968367125,0.0121520401018178,0.0221493048765779,0.0348804010020005,0.00704665157109469,0.0921561033278158,0.0470413091161265,0.00544816346637189,0.166941245212223,0.00601400409727353,0.0201322125907379,0.0203850765790712,0.120257564653584,0.135062705551965,0.0190593810930173,0.245979782476562,0.0254135184913685,0.00697922014159555,0.267413545809266,0.197074679103025,0.107168790090812,0.0349941015379956,0.0392581105323494,0.180145433033962,0.0113864195323607,0.0256986984799692,0.166308521818042,0.247675375968982,0.0574874529765605,0.336247116308023,0.162359890256351,0.0314705104006553,0.158954389111731,0.00849413532940811,0.101932561676056,0.12235278368787,0.0113039131869437,0.0130852936633624,0.142949504251656,0.0123826763403038,0.0440979492091959,0.0113260795981215,0.203996308674258,0.0574832068728395,0.0386171047641362,0.0154101438844764,0.0452992627594965,0.0262412360796163,0.071585014923151,0.0073529283654415,0.0285659550691299,0.263687636472422,0.0128350259415032,0.0660387823989534,0.0169963221940872,0.0124674776024435,0.0824720813092691,0.0860503787180431,0.334423212434997,0.0137300495522399,0.0130260211875251,0.0141871683214276,0.288393553327525,0.0052308157690764,0.0511948845343044,0.108076224593573,0.0121985123365454,0.055117278107812,0.210479008472417,0.0219068554400097,0.0930332360382615,0.0123828460520703,0.00979503114665317,0.111576798730355,0.232083575519506,0.0722784225045514,0.0734092530050351,0.0985025833981044,0.0103752510879834,0.0911805680881918,0.0162828653503367,0.0329584291323777,0.00653342519105737,0.12860573594927,0.160095584510321,0.126415419023679,0.0298564596883983,0.0208004834220281,0.0199247789318812,0.0772823230558688,0.0246266976854935,0.00967774703448199,0.0501427247359504,0.21959065811006],[5,707,614,660,0,35,0,0,496,533,714,0,137,0,694,0,0,545,590,661,319,720,0,236,627,0,318,0,712,235,581,606,477,656,0,681,687,385,722,0,484,772,0,766,0,672,0,0,525,0,662,0,0,0,0,418,450,0,0,581,149,0,237,0,0,283,0,657,0,0,616,745,0,735,454,757,0,0,580,595,203,683,0,714,286,0,440,63,701,720,383,137,0,657,715,485,0,693,524,0,656,137,0,375,27,721,710,16,0,0,0,251,670,0,664,605,649,0,0,16,574,776,538,305,710,654,190,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>LVs<\/th>\n      <th>Heritability<\/th>\n      <th>SE<\/th>\n      <th>zscore<\/th>\n      <th>pval<\/th>\n      <th>rsq_min_l<\/th>\n      <th>lambda_min_l<\/th>\n      <th>ncoef_nzero_min_l<\/th>\n      <th>rsq_test_l<\/th>\n      <th>pval_test_l<\/th>\n      <th>rsq_1se_l<\/th>\n      <th>lambda_1se_l<\/th>\n      <th>ncoef_nzero_1se_l<\/th>\n      <th>rsq_min_e<\/th>\n      <th>lambda_min_e<\/th>\n      <th>ncoef_nzero_min_e<\/th>\n      <th>rsq_test_e<\/th>\n      <th>pval_test_e<\/th>\n      <th>rsq_1se_e<\/th>\n      <th>lambda_1se_e<\/th>\n      <th>ncoef_nzero_1se_e<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="lvs-with-relatively-low-pval_test_l" class="section level3">
+<h3>LVs with relatively low pval_test_l</h3>
+<p>By sorting the pval_test_l in the table above, we can get several LVs that have very low pvalues on testing set (LV114,113,25). We made scatter plots of predicted LVs vs. observed LVs for them. Besides, we did GWAS analysis.</p>
+<p>The red line in manhattan plot means p-value is 5e-8.</p>
+<div id="lv114" class="section level4">
+<h4>lv114</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV114_mod_pliercanon.jpeg" width="200%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv114_mod_pliercanon.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv114_mod_pliercanon.jpeg" width="40%">
+</figure>
+</div>
+<div id="lv113" class="section level4">
+<h4>lv113</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV113_mod_pliercanon.jpeg" width="200%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv113_mod_pliercanon.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv113_mod_pliercanon.jpeg" width="40%">
+</figure>
+</div>
+<div id="lv25" class="section level4">
+<h4>lv25</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV25_mod_pliercanon.jpeg" width="200%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv25_mod_pliercanon.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv25_mod_pliercanon.jpeg" width="40%">
+</figure>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.4.6    knitr_1.28      whisker_0.3-2   magrittr_1.5   
+ [5] xtable_1.8-4    R6_2.4.1        stringr_1.4.0   highr_0.8      
+ [9] tools_3.6.1     DT_0.13         xfun_0.14       git2r_0.26.1   
+[13] htmltools_0.3.6 crosstalk_1.0.0 yaml_2.2.1      digest_0.6.25  
+[17] rprojroot_1.3-2 shiny_1.3.2     later_0.8.0     htmlwidgets_1.3
+[21] promises_1.0.1  fs_1.3.1        mime_0.9        glue_1.4.1     
+[25] evaluate_0.14   rmarkdown_1.13  stringi_1.4.6   compiler_3.6.1 
+[29] backports_1.1.7 jsonlite_1.6.1  httpuv_1.5.1   </code></pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
