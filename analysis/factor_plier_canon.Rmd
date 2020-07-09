@@ -9,7 +9,7 @@ editor_options:
 
 ## Introduction
 
-I used 'PLIER' package(with default settings) to construct factors related to KEGG and Reactome pathways here. 
+I used 'PLIER' package(with default settings) to construct factors related to Canonical Pathways here. 
 
 
 

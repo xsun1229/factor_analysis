@@ -1,0 +1,95 @@
+---
+title: "modu_train_pliercanon"
+author: "XSun"
+date: "2020-07-08"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+
+## Introduction
+
+  In this part, I adopted lasso/elastic_net regression to train prediction models. The dependent variables here were LVs extracted from [plier-canonicalPathways](https://xsun1229.github.io/factor_analysis/modu_factor_pliercanon.html) and the independent variables were genotype of certain variants. (LVs ~ variant genotype)
+  
+
+## Results-maf001
+
+### Heritability vs R-squared
+
+This figure shows the prediction performance (R2 of Lasso/Elastic_net regression on training set in red) in comparison to LV heritability estimates (black; standard errors in gray). Performance was assessed using tenfold cross-validation in the GTEx whole-blood cohort (on training set, n = 536) with the elastic net and lasso models.
+  
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/devide_snp001_le_mod_pliercanon.jpeg" width="150%">
+</figure>
+
+
+### Summary of Heritability 
+
+The table below shows the heritability of LVs and performance of the training models. The table has been sorted by Heritability from small to large.
+
+Some notations to explain: **rsq_min** is the r-squared when lambda=lambda.min, **ncoef_nzero_min** is the number of non-zero coefficients when lambda=lambda.min, **rsq_test** is the r-squared in testing set (obtained from lm(lv.obs ~ lv.pred)) ,**pval_test** is the pvalue of F-statistics in testing set. When the suffix is '_1se', the notations mean lambda=lambda.1se. Suffix '_l' means lasso regression and '_e' means elastic_net
+
+
+```{r eval=FALSE, echo=T}
+  ###Lasso regression. 'k' represents the kth LV.
+    fit_lasso <- cv.glmnet(x, y, alpha =1, foldid = foldid)   ##'foldid = foldid' can fix the data partition in cross validation, making the codes reproducible
+    fit_r_train_l[k]  <- fit_lasso$glmnet.fit$dev.ratio[which(fit_lasso$glmnet.fit$lambda == fit_lasso$lambda.min)]  ###r2 when lambda = lambda.min
+    predict_l <- predict(fit_lasso, nx, s = fit_lasso$lambda.min )
+    
+    fit_linear <- lm(y_test ~ predict_l)
+    pval_test_l[i] <- summary(fit_linear)$coefficients[,4]
+    rsq_test_l[i] <- summary(fit_linear)$r.squared
+
+```
+
+
+In this table, there are several NA value. These NA values come from linear regression(lm(y_test ~ predict_l)). It means the variant in regression is linearly with the intercept. After checking the predict_l, we found the predict_l for all samples are the same.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted.rdata")
+rownames(sum_sorted) <- c()
+DT::datatable(sum_sorted, options = list(pageLength =20))
+
+```
+
+
+### LVs with relatively low pval_test_l
+
+By sorting the pval_test_l in the table above, we can get several LVs that have very low pvalues on testing set (LV114,113,25). We made scatter plots of predicted LVs vs. observed LVs for them. Besides, we did GWAS analysis.
+
+The red line in manhattan plot means p-value is 5e-8. 
+
+#### lv114
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV114_mod_pliercanon.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv114_mod_pliercanon.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv114_mod_pliercanon.jpeg" width="40%">
+</figure>
+
+#### lv113
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV113_mod_pliercanon.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv113_mod_pliercanon.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv113_mod_pliercanon.jpeg" width="40%">
+</figure>
+
+
+#### lv25
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LV25_mod_pliercanon.jpeg" width="200%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv25_mod_pliercanon.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv25_mod_pliercanon.jpeg" width="40%">
+</figure>

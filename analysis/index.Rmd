@@ -125,6 +125,22 @@ The ldsc material and methods of my project can be found [here](https://xsun1229
 
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/ldsc_peer.html)
 
+# **Module-based factor analysis**
+
+## Module construction - WGCNA
+
+I used WGCNA to find modules in GTEx expression data. These modules will be used in subsequent analysis. [For more details](https://xsun1229.github.io/factor_analysis/wgcna_module.html)
+
+## Factors from Module 1
+
+- PLIER - canonicalPathways. You can find the factor construction and evaluation [here](https://xsun1229.github.io/factor_analysis/modu_factor_pliercanon.html)
+
+## Prediction models for factors from Module 1
+
+In this part, I trained prediction models for factors inferred from last part. The workflow is the same with the workflow in 'Prediction models for factors'.
+
+- PLIER - canonicalPathways. [For more details](https://xsun1229.github.io/factor_analysis/wgcna_module.html)
+
 # **Case Studies**
 
 ## IDIN

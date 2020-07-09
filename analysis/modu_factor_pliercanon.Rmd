@@ -1,0 +1,51 @@
+---
+title: "modu_factor_pliercanon"
+author: "XSun"
+date: "2020-07-07"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+I used 'PLIER' package(with default settings) to construct factors related to Canonical Pathways from module 1.
+
+When employing CanonicalPathway to run PLIER, only the first 3 modules can be used in the software and get the factors.  Others cannot be used correctly in PLIER because the datasets are small.
+The table below shows the number of genes and factors in module.
+
+| Module             | 1    | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11 | 12 | 13 | 14 |
+|--------------------|------|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|----|
+| genes per module   | 1888 | 774 | 431 | 328 | 245 | 226 | 204 | 156 | 114 | 103 | 58 | 36 | 34 | 33 |
+| factors per module | 120   | 114  | 118  | -  | -  | -  | -  | -  | -  | -  | - | - | - | -  |
+
+
+In the following analysis, I just used the factors from module 1.
+
+## Results
+
+### Overview
+
+    - The gene expression data from GTEx uses Ensemnl ID. In order to use PLIER R package, we need to convert Ensemnl ID to HGNC Gene Symbol. There are 19,696 genes in GTEx data. After conversion, 16,634 left(not all Ensemnl IDs have a corresponding HGNC Gene Symbol). 760 of 16,634 were used in this part.
+    - I used CanonicalPathways in PLIER R package, which contains 545 curated pathways from Reactome and KEGG.
+    - I obtained 120 LVs from PLIER, 30 of them have AUC > 0.70(see figure below).
+
+## Heritability of factors
+
+I evaluated the heritability of factors using [GCTA](
+https://cnsgenomics.com/software/gcta/#GREML) and made histogrames to show the distribution of the heritabilities.
+
+When computing heritability, I used GTEx genotype data(the variants with maf >0.01 were selected, variants on chrX are excluded). 10,403,249 variants have maf >0.01.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_pliercanon_mod1.jpeg" width="50%">
+</figure>
+
+Details about the factors are listed below. The last column are the top 3 pathways related to each factor.
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/H_lv_processed_sorted_pliercanon_mod1.txt", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+
+```
+

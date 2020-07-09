@@ -1,0 +1,130 @@
+---
+title: "wgcna_module"
+author: "XSun"
+date: "2020-06-07"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+Genes with significant co-expression relationship can form co-expression network. [Weighted correlation network analysis (WGCNA)](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-9-559) can be used for finding these clusters (modules) of highly correlated genes. We used WGCNA to find modules in GTEx expression data. These modules will be used in subsequent analysis.
+
+
+## Material and Methods
+
+1. We used GTEx expression data. The dataset contains 19696 genes and 670 samples.
+
+2. We followed the [WGCNA tutorial]( https://horvath.genetics.ucla.edu/html/CoexpressionNetwork/Rpackages/WGCNA/Tutorials/index.html) to construct gene co-expression network and identify modules.
+
+## Results
+
+### Checking data for excessive missing values and identification of outlier samples
+
+```{r eval=FALSE, echo=T}
+sampleTree <- hclust(dist(expr), method = "average")  ### the clustering method used here is UPGMA
+plot(sampleTree, main = "sample clustering to detect outliers", sub = "", xlab="",cex = 0.3, cex.lab=1.5, cex.axis = 1.5, cex.main = 2)
+
+```
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/outlier.jpeg" width="600%">
+</figure>
+
+If the picture is too small, please use this link:  https://github.com/xsun1229/factor_analysis/raw/master/output/outlier.jpeg
+
+There is not obvious outliers, so we used all samples in the following steps.
+
+###  Construction of the gene network and identification of modules
+
+#### 1.Choosing the soft-thresholding power
+
+```{r eval=FALSE, echo=T}
+
+# candidate powers
+powers = c(c(1:10), seq(from = 12, to=40, by=2))    
+# Call the network topology analysis function
+sft = pickSoftThreshold(expr, powerVector = powers, verbose = 5)   ###expr: the expression matrix
+
+# Plot the results:
+par(mfrow = c(1,2));
+par(pin = c(8,5))
+cex1 = 0.9;
+# Scale-free topology fit index as a function of the soft-thresholding power
+plot(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],
+     xlab="Soft Threshold (power)",ylab="Scale Free Topology Model Fit,signed R^2",type="n",
+     main = paste("Scale independence"));
+text(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],
+     labels=powers,cex=cex1,col="red");
+# this line corresponds to using an R^2 cut-off of h
+abline(h=0.90,col="red")
+# Mean connectivity as a function of the soft-thresholding power
+plot(sft$fitIndices[,1], sft$fitIndices[,5],
+     xlab="Soft Threshold (power)",ylab="Mean Connectivity", type="n",
+     main = paste("Mean connectivity"))
+text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
+  
+```
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/threshold.jpeg" width="80%">
+</figure>
+
+
+In the plot, the left panel shows the scale-free fit index (y-axis) as a function of the soft-thresholding power (x-axis).  The right panel displays the mean connectivity(degree,y-axis) as a function of the soft-thresholding power (x-axis).
+
+We choose the power 22, which is the lowest power for which the scale-free topology fitindex curve flattens out upon reaching a high value (in this case, roughly 0.90).
+
+#### 2.Network construction and module detection
+
+We have chosen the soft thresholding power 22, a relatively large minimum module size of 30, and a medium sensitivity(deepSplit=2) to cluster splitting.  The parameter mergeCutHeight is the threshold for merging of modules. Apart from the power 22, parameters are the same with the WGCNA tutorial.
+
+
+```{r eval=FALSE, echo=T}
+net = blockwiseModules(expr, power = 22, maxBlockSize = 20000
+                         TOMType = "unsigned", minModuleSize = 30,
+                         reassignThreshold = 0, mergeCutHeight = 0.25,
+                         numericLabels = TRUE, pamRespectsDendro = FALSE,
+                         saveTOMs = TRUE,
+                         saveTOMFileBase = "gtexTOM_2w", 
+                         verbose = 3)
+```
+
+
+```{r eval=FALSE, echo=T}
+table(net$colors)
+```
+
+| 0     | 1    | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11 | 12 | 13 | 14 |
+|-------|------|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|----|
+| 15066 | 1888 | 774 | 431 | 328 | 245 | 226 | 204 | 156 | 114 | 103 | 58 | 36 | 34 | 33 |
+
+We obtained 14 modules from our dataset. They are labeled 1 through 14. The label 0 is reserved for genes outside of all modules.
+
+```{r eval=FALSE, echo=T}
+mergedColors = labels2colors(net$colors)
+# Plot the dendrogram and the module colors underneath
+plotDendroAndColors(net$dendrograms[[1]], mergedColors[net$blockGenes[[1]]],
+                    "Module colors",dendroLabels = FALSE, hang = 0.03,
+                    addGuide = TRUE, guideHang = 0.05)
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/cluster.jpeg" width="80%">
+</figure>
+
+
+This plot shows clustering dendrogram of genes.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/heatmap.jpeg" width="80%">
+</figure>
+
+We tried to visualize the gene network using a heatmap plot. The heatmap depicts the Topological Overlap Matrix(TOM) among all genes in the analysis. Light color represents low overlap and progressively darker red colorrepresents higher overlap. Blocks of darker colors along the diagonal are the modules. The gene dendrogram andmodule assignment are also shown along the left side and the top.
+
+(There are too many genes in ourdataset, so it's difficult to make the plot clear)
+
+
