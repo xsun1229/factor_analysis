@@ -131,21 +131,25 @@ The ldsc material and methods of my project can be found [here](https://xsun1229
 
 I used WGCNA to find modules in GTEx expression data. These modules will be used in subsequent analysis. [For more details](https://xsun1229.github.io/factor_analysis/wgcna_module.html)
 
-## Factors from Module 1
 
-- PLIER - canonicalPathways. You can find the factor construction and evaluation [here](https://xsun1229.github.io/factor_analysis/modu_factor_pliercanon.html)
+## Factor analysis
 
-## Prediction models for factors from Module 1
+When employing CanonicalPathway to run PLIER, only the first 3 modules can be used in the software and get the factors. Others cannot be used correctly in PLIER because the datasets are small. The table below shows the number of genes and factors in module.
 
-In this part, I trained prediction models for factors inferred from last part. The workflow is the same with the workflow in 'Prediction models for factors'.
+| Module             | 1    | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11 | 12 | 13 | 14 |
+|--------------------|------|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|----|
+| genes per module   | 1888 | 774 | 431 | 328 | 245 | 226 | 204 | 156 | 114 | 103 | 58 | 36 | 34 | 33 |
+| factors per module | 120   | 114  | 118  | -  | -  | -  | -  | -  | -  | -  | - | - | - | -  |
 
-- PLIER - canonicalPathways. [For more details](https://xsun1229.github.io/factor_analysis/modu_train_pliercanon.html)
 
-## LDSC for factors from Module 1
+The websites below contain 'factor construction', 'factor evaluation', 'prediction models' and 'ldsc' parts.
 
-In this part, I adopted [ldsc](https://github.com/bulik/ldsc) to detect the heritability enrichment of sevral factors from Module 1. The worlflow is the same with before.
+-  [Factors from Module 1](https://xsun1229.github.io/factor_analysis/modu1_factor_pliercanon.html)
 
-[For more details](https://xsun1229.github.io/factor_analysis/modu_ldsc_pliercanon.html)
+-  [Factors from Module 1](https://xsun1229.github.io/factor_analysis/modu2_factor_pliercanon.html)
+
+-  [Factors from Module 1](https://xsun1229.github.io/factor_analysis/modu3_factor_pliercanon.html)
+
 
 
 # **Case Studies**
