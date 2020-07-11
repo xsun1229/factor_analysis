@@ -116,6 +116,6 @@ The red line in manhattan plot means p-value is 5e-8.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv112_mod3_pliercanon.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv112_mod3_pliercanon.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv112wflow__mod3_pliercanon.jpeg" width="40%">
 </figure>
 
