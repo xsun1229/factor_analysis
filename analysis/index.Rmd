@@ -146,9 +146,9 @@ The websites below contain 'factor construction', 'factor evaluation', 'predicti
 
 -  [Factors from Module 1](https://xsun1229.github.io/factor_analysis/modu1_factor_pliercanon.html)
 
--  [Factors from Module 1](https://xsun1229.github.io/factor_analysis/modu2_factor_pliercanon.html)
+-  [Factors from Module 2](https://xsun1229.github.io/factor_analysis/modu2_factor_pliercanon.html)
 
--  [Factors from Module 1](https://xsun1229.github.io/factor_analysis/modu3_factor_pliercanon.html)
+-  [Factors from Module 3](https://xsun1229.github.io/factor_analysis/modu3_factor_pliercanon.html)
 
 
 
