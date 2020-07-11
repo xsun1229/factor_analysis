@@ -345,7 +345,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-07-09
+<strong>Last updated:</strong> 2020-07-11
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -376,16 +376,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree9abe220c380520f6b8373528391b7c1f8dc52d1dtargetblank9abe220a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/9abe220c380520f6b8373528391b7c1f8dc52d1d" target="_blank">9abe220</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreef6a45e68f78204dec6377bbb9df6c58e91cc5e67targetblankf6a45e6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/f6a45e68f78204dec6377bbb9df6c58e91cc5e67" target="_blank">f6a45e6</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree9abe220c380520f6b8373528391b7c1f8dc52d1dtargetblank9abe220a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreef6a45e68f78204dec6377bbb9df6c58e91cc5e67targetblankf6a45e6a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/9abe220c380520f6b8373528391b7c1f8dc52d1d" target="_blank">9abe220</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/f6a45e68f78204dec6377bbb9df6c58e91cc5e67" target="_blank">f6a45e6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -432,6 +432,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/5f65ccf6577306b939fdba93e84aa86f6f94bc04/analysis/index.Rmd" target="_blank">5f65ccf</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-07-11
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/ec5e5dd3cd6871f4d920ba49a36447664876cfd3/docs/index.html" target="_blank">ec5e5dd</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-07-09
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -806,23 +840,72 @@ Start workflowr project.
 <h2>Module construction - WGCNA</h2>
 <p>I used WGCNA to find modules in GTEx expression data. These modules will be used in subsequent analysis. <a href="https://xsun1229.github.io/factor_analysis/wgcna_module.html">For more details</a></p>
 </div>
-<div id="factors-from-module-1" class="section level2">
-<h2>Factors from Module 1</h2>
+<div id="factor-analysis" class="section level2">
+<h2>Factor analysis</h2>
+<p>When employing CanonicalPathway to run PLIER, only the first 3 modules can be used in the software and get the factors. Others cannot be used correctly in PLIER because the datasets are small. The table below shows the number of genes and factors in module.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>genes per module</td>
+<td>1888</td>
+<td>774</td>
+<td>431</td>
+<td>328</td>
+<td>245</td>
+<td>226</td>
+<td>204</td>
+<td>156</td>
+<td>114</td>
+<td>103</td>
+<td>58</td>
+<td>36</td>
+<td>34</td>
+<td>33</td>
+</tr>
+<tr class="even">
+<td>factors per module</td>
+<td>120</td>
+<td>114</td>
+<td>118</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>The websites below contain ‘factor construction’, ‘factor evaluation’, ‘prediction models’ and ‘ldsc’ parts.</p>
 <ul>
-<li>PLIER - canonicalPathways. You can find the factor construction and evaluation <a href="https://xsun1229.github.io/factor_analysis/modu_factor_pliercanon.html">here</a></li>
+<li><p><a href="https://xsun1229.github.io/factor_analysis/modu1_factor_pliercanon.html">Factors from Module 1</a></p></li>
+<li><p><a href="https://xsun1229.github.io/factor_analysis/modu2_factor_pliercanon.html">Factors from Module 1</a></p></li>
+<li><p><a href="https://xsun1229.github.io/factor_analysis/modu3_factor_pliercanon.html">Factors from Module 1</a></p></li>
 </ul>
-</div>
-<div id="prediction-models-for-factors-from-module-1" class="section level2">
-<h2>Prediction models for factors from Module 1</h2>
-<p>In this part, I trained prediction models for factors inferred from last part. The workflow is the same with the workflow in ‘Prediction models for factors’.</p>
-<ul>
-<li>PLIER - canonicalPathways. <a href="https://xsun1229.github.io/factor_analysis/modu_train_pliercanon.html">For more details</a></li>
-</ul>
-</div>
-<div id="ldsc-for-factors-from-module-1" class="section level2">
-<h2>LDSC for factors from Module 1</h2>
-<p>In this part, I adopted <a href="https://github.com/bulik/ldsc">ldsc</a> to detect the heritability enrichment of sevral factors from Module 1. The worlflow is the same with before.</p>
-<p><a href="https://xsun1229.github.io/factor_analysis/modu_ldsc_pliercanon.html">For more details</a></p>
 </div>
 </div>
 <div id="case-studies" class="section level1">
