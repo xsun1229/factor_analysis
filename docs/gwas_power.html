@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2020-07-13" />
+
+<title>gwas_power</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">gwas_power</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2020-07-13</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-07-13
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div class="panel-group" id="workflowr-checks">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/sum_all_cisgene.rdata
+</td>
+<td style="text-align:left;">
+output/sum_all_cisgene.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreea0378aff77704f45a9b757383957c017ebdaf6aetargetblanka0378afa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/a0378aff77704f45a9b757383957c017ebdaf6ae" target="_blank">a0378af</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreea0378aff77704f45a9b757383957c017ebdaf6aetargetblanka0378afa" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/a0378aff77704f45a9b757383957c017ebdaf6ae" target="_blank">a0378af</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/gwas_power.Rmd</code>) and HTML (<code>docs/gwas_power.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/a0378aff77704f45a9b757383957c017ebdaf6ae/analysis/gwas_power.Rmd" target="_blank">a0378af</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-07-13
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In step 6, the power of GWAS is low. So I tried to find functional SNPs to increase the GWAS power and reduce the testing burden.</p>
+</div>
+<div id="material-and-methods." class="section level2">
+<h2>Material and Methods.</h2>
+<ol style="list-style-type: decimal">
+<li>I used GTEx gene expression data and variant data. The dataset contains 19,696 genes. The variants here have maf &gt; 0.01. The total number of variants is 10,403,249.</li>
+<li>For each gene, I performed lasso regression for gene expression ~ cis-snps(within 500kb from TSS of gene). I got the weights of each cis-snp in this step. 17,175 of 19,696 genes have cis-snps. So I used these genes in the following procedure.</li>
+<li>Using the weights in step2, I can got the cis genetic component part of gene expression.</li>
+<li>For each gene, I performed linear regression for factors ~ cis genetic component part of gene expression. The factors I used here are LV90,50,125 of PLIER-CanonicalPathway and pc5 of TID pathway.</li>
+</ol>
+</div>
+<div id="results." class="section level2">
+<h2>Results.</h2>
+<p>These NA values come from linear regression(lm(y_test ~ predict_l)). It means the variant in regression is linearly with the intercept. After checking the predict_l, we found the predict_l for all samples are the same.</p>
+<p><strong>The results are strange. Most p-values of F-statistics in the linear regression are NA. It means the variant in regression is linearly with the intercept(the lasso-impputed expression are the same across samples). In the factors I used, each of them have 94 genes with no-NA pvalues. And the 94 genes are the same across these 4 factors. </strong></p>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["41","35","55","74","84","90","70","61","42","1","20","32","78","47","23","31","45","17","81","43","68","89","14","38","8","50","10","44","76","6","21","18","2","49","30","72","79","33","91","64","93","11","19","62","5","53","34","63","57","40","88","3","77","65","39","12","69","22","29","66","15","52","16","48","73","46","58","9","94","51","37","26","4","28","25","85","80","67","71","59","75","7","83","54","60","13","82","24","36","27","92","56","87","86"],["chr16","chr3","chr2","chr11","chr19","chr5","chr12","chr12","chr8","chr9","chr6","chr2","chr12","chr12","chr17","chr16","chr2","chr12","chr17","chr11","chr4","chr4","chr5","chr7","chr9","chr17","chr1","chr3","chr3","chr1","chr18","chr7","chr16","chr3","chr17","chr9","chr12","chr11","chr11","chr19","chr17","chr9","chr7","chr4","chr17","chr9","chr7","chr19","chr12","chr6","chr11","chr1","chr20","chr5","chr1","chr7","chr16","chr1","chr7","chr2","chr7","chr16","chr5","chr16","chr1","chr9","chr17","chr1","chr7","chr16","chr5","chr4","chr5","chr11","chr11","chr11","chr11","chr11","chr12","chr16","chr18","chr1","chr19","chr11","chr11","chr20","chr6","chr17","chr9","chr4","chr11","chr17","chr11","chr20"],["ENSG00000007038.10","ENSG00000023330.14","ENSG00000035115.21","ENSG00000050165.17","ENSG00000065268.10","ENSG00000066230.10","ENSG00000073614.12","ENSG00000089818.17","ENSG00000104714.13","ENSG00000107104.18","ENSG00000112245.10","ENSG00000119185.12","ENSG00000120645.11","ENSG00000123066.7","ENSG00000125450.10","ENSG00000130656.4","ENSG00000136720.6","ENSG00000139044.10","ENSG00000141252.19","ENSG00000142089.15","ENSG00000145214.13","ENSG00000145217.13","ENSG00000145936.8","ENSG00000146733.13","ENSG00000154330.12","ENSG00000161513.11","ENSG00000162407.8","ENSG00000163602.10","ENSG00000163832.15","ENSG00000164002.11","ENSG00000166347.18","ENSG00000168255.19","ENSG00000170100.13","ENSG00000170364.12","ENSG00000170921.15","ENSG00000172785.18","ENSG00000177406.4","ENSG00000177685.16","ENSG00000177697.17","ENSG00000179954.15","ENSG00000181031.15","ENSG00000181404.15","ENSG00000185290.3","ENSG00000185619.18","ENSG00000187624.8","ENSG00000196312.12","ENSG00000197258.5","ENSG00000197766.7","ENSG00000198324.13","ENSG00000203872.6","ENSG00000206013.2","ENSG00000213088.9","ENSG00000224635.1","ENSG00000225138.7","ENSG00000225880.5","ENSG00000226278.1","ENSG00000226942.2","ENSG00000227232.5","ENSG00000229043.2","ENSG00000230076.1","ENSG00000231721.6","ENSG00000233614.6","ENSG00000233913.7","ENSG00000237296.9","ENSG00000237491.8","ENSG00000237846.1","ENSG00000238083.7","ENSG00000240563.1","ENSG00000242611.2","ENSG00000242612.6","ENSG00000246596.6","ENSG00000250312.6","ENSG00000251634.2","ENSG00000251661.3","ENSG00000254910.1","ENSG00000255142.1","ENSG00000255284.1","ENSG00000255328.1","ENSG00000256020.1","ENSG00000261812.6","ENSG00000263006.6","ENSG00000263528.7","ENSG00000268336.1","ENSG00000270030.1","ENSG00000270972.1","ENSG00000271303.1","ENSG00000272463.1","ENSG00000272636.3","ENSG00000273226.1","ENSG00000275426.1","ENSG00000277290.1","ENSG00000278730.1","ENSG00000279672.1","ENSG00000283020.1"],[2817179,52198085,266397,12009768,984270,524331,389271,8076938,738105,470290,63521747,9423546,66764,116277337,75205658,152686,128318576,460363,721716,321339,986894,993439,170389676,56051603,68339262,74873030,56645300,72446620,47513760,40508740,74292015,102572655,89217702,4303303,63009555,179146,630890,826143,832883,55488403,386253,25003,56116399,705747,410326,97013599,104667748,859642,111369120,87344848,299525,159203313,38416796,473235,827521,55764796,38320,29552,1160484,214847127,131110094,11554,168616351,22437715,778769,40105821,46511510,62194830,77037,401825,177672208,124479,71128752,318639,311140,781644,777577,327170,586485,90093153,109064,206470494,51184904,326293,333191,653369,711404,181635,19375450,149737,243482,68127329,779616,29879362],[0.197257034375524,0.0963778423818584,0.349884295867329,0.554252362125788,0.715448984563653,0.897807595734868,0.505391579866711,0.400547588163904,0.200105725738597,0.0131062933531325,0.0594280568639428,0.0918077500148784,0.660912849738455,0.264547165609509,0.0687629277918962,0.0911849970092991,0.244264462231831,0.0413178508669099,0.69768801956281,0.215190606278334,0.503013739885408,0.88733990520725,0.0386460330114929,0.150523407855469,0.0258078763367802,0.285951518263936,0.02825555317184,0.230908968116285,0.574039599488743,0.0202616586598778,0.0613099442769679,0.0443281096323061,0.0162296540263712,0.275383493444948,0.0897823663996479,0.536336477237569,0.676517449412595,0.0927839187534191,0.922584529038356,0.470753295578065,0.95647402995751,0.0351867344897631,0.0584056018048593,0.432399125989356,0.0191584841373485,0.312404273645275,0.0944554787689736,0.457661179707907,0.362222586334313,0.151002941905704,0.857049928362367,0.0180307737585704,0.601859449040761,0.485519287462725,0.150602266436924,0.0360762984738788,0.504269267716215,0.0658069190562019,0.0886106195641413,0.495882147336297,0.0387302794313513,0.304282175317488,0.0394762460442416,0.27215194634301,0.549642932534255,0.254478620303607,0.363469406801171,0.0279302236378064,0.990724147430078,0.294655519562047,0.148202356016161,0.0795386136332708,0.0188000426317348,0.0833869913518679,0.079017381752069,0.728407774618177,0.691270891698252,0.500515292525117,0.51007078971856,0.384449856106394,0.564610887515815,0.0238471505555438,0.701532417698597,0.331594846870962,0.398504693010204,0.0376226991703296,0.700410283691094,0.0738443699078456,0.127459972548262,0.0808514201427612,0.923057344860944,0.361411482071601,0.854752213426513,0.76092990509401],[6.64351676110264e-14,9.52076415480513e-16,0.579069889634468,0.0403473473409799,0.0177712298466982,0.00210886668248219,0.0818877863301069,4.24410519632484e-13,0.877984810496163,0.000124447811381604,3.11662112043993e-14,1.29473007581211e-07,0.914287740922247,4.98454135938861e-06,2.1130002712818e-17,0.782030157985454,0.000285842998493216,0.887571429187764,0.977657232376203,0.0155670213327709,0.23402627689002,0.300009609022422,6.15341085548444e-08,3.86070560326145e-11,3.96923831196216e-12,1.61819977808443e-15,6.58927542865171e-16,1.46679135452925e-16,7.82035977834258e-09,3.6178102050301e-17,0.776969233611845,1.16398152578298e-13,2.98621086713778e-11,3.75171253079211e-15,1.12186756143011e-13,0.297981288257131,0.57791945943171,0.517598311910227,0.607861741290667,0.0536821553006842,0.434085393711746,0.0172257646762611,8.84173729693664e-15,0.00589666005525666,0.00019401572268943,2.68738741327689e-14,4.41085374229123e-12,0.0460858130975302,1.13410375042136e-14,2.21730801059571e-07,0.410306118142488,5.56489513944526e-17,1.93985706026127e-13,0.0585764743272823,0.359378934268343,1.04820987837079e-16,0.123575811494584,1.23269611744965e-08,0.00444282289326909,1.90186493036031e-10,1.66229219892323e-06,1.21480729451601e-05,1.61666120903392e-14,1.41504156451612e-13,4.26821571523099e-05,1.40030284498364e-14,1.22045147582856e-14,1.21061955075874e-14,0.833064863803717,0.00425832719729565,3.28830497656962e-07,0.400866255543554,2.64071046229488e-14,0.0461233104190505,0.179302743716298,0.942490012133425,0.345950561798644,0.000123222042077001,0.547009811234916,0.0857672938389222,0.0150079530281108,1.22798640946337e-15,1.45718968571271e-06,0.000837482847852831,4.05093198009227e-05,0.566372233505144,0.00768173404664116,0.28864365300483,1.71457304995552e-06,0.627871762129248,0.0255532469480536,5.35557305488775e-07,0.316718552162178,7.12750682779356e-14],[2.61521668324142e-15,2.55379385174021e-16,0.197066322524868,0.000304822699102885,0.120782451709428,3.24836543186043e-07,0.110879472117175,2.31792044182106e-07,0.927664686722441,8.00288831612119e-05,1.70083648111391e-18,1.49644360863554e-09,0.110820623852426,0.0054081213806169,4.91421189935518e-22,0.200909438290117,1.57204009111809e-08,0.0999467528961604,0.852668319628097,0.00125164298780044,0.00940816393960123,0.594139337151189,1.09280481733615e-12,4.2231522380479e-17,4.48266403622474e-19,1.39657720636962e-20,9.21463886224578e-17,1.57127633271305e-19,1.76293490469597e-08,9.22492930299658e-16,0.51022529600564,1.15456216741374e-14,3.71375461497586e-15,6.27001434165124e-20,3.65525917205081e-23,0.479589916544164,0.0319625270552627,0.00695234182333911,0.860965031026504,0.209040218935302,0.798825320886499,7.6205804049625e-07,3.08142369391105e-19,0.163845262769579,2.49059204219193e-05,1.26852297336111e-19,2.14008985213503e-19,1.66405383287348e-06,4.79588683327465e-15,9.30855773562409e-07,0.453128721001798,6.19651868354881e-17,1.54239855482609e-17,7.30217896406415e-06,0.798881394290265,1.27074832858602e-20,0.961927511754124,4.49216817591877e-17,0.00382864094760679,4.9539046188487e-13,1.56521963233807e-08,2.92471502731804e-05,6.7993830734055e-19,2.86112979988778e-17,1.19588235732746e-06,1.32806776032146e-19,2.49823460361394e-19,1.91709473129969e-17,0.462643084761631,2.97112199226584e-05,7.98242140249881e-08,0.37960704645345,6.53283546423507e-17,0.000519254700792814,0.0289293738665043,0.106306276122876,0.0161965283645969,0.00504632109081712,0.266440481096035,0.0116330313571875,0.0361861837551685,6.54128690727453e-23,9.52692520744035e-12,0.000628943035974515,0.00181932070834939,0.252609599859134,0.00106817008920946,0.746372621864359,3.84816902257284e-12,0.343798866618092,0.285678330318821,1.31896916525366e-10,0.0399041301476208,1.46436322543112e-18],[1.84646019611801e-05,9.67286277255309e-06,0.017802032260335,0.000246749092078758,0.274956178090525,0.292939660631081,0.825831430396469,0.000153859937505226,0.850487821467141,0.0715161238699988,0.00105588204762318,0.00040188038200119,0.799853322247945,0.00307041686735808,5.84216120349165e-06,0.553271886638822,0.0178050490378092,0.53962235305073,0.0965947596933919,0.0852337892125827,0.816011258851024,0.82703997399297,0.010800277446605,0.000230207949115876,0.00478815708103215,1.2926814561783e-05,9.60548733332172e-09,9.23806740208983e-08,7.69355571979198e-05,2.19101824036468e-10,0.621745267279465,1.52861955372437e-09,0.00543023331624357,2.18146694487001e-07,1.03210093558018e-05,0.361633257825719,0.535915065437851,0.429998413648782,0.761738061745173,0.458336019972474,0.420575020199834,0.247144970395669,6.12240455831983e-05,0.0182957256345736,0.000975681590535275,9.5549347903768e-06,3.34447237757123e-05,0.968166354106688,1.88737155253468e-05,0.000598757206387294,0.949124314128427,1.11603659613153e-10,0.000199371393883615,0.452870803193539,0.0985372179262705,1.70708876785414e-05,0.122666168640089,2.60148405444606e-05,0.229063511380533,0.0129018247008449,4.33823285118025e-06,0.00289011764928733,0.00137173273989703,0.000126390401669961,0.283588530611026,1.05186870885268e-05,7.17840459026683e-05,5.97650921237827e-10,0.847303233158488,0.389371275884968,5.11512336234798e-05,0.272068897045398,0.000182937579960881,0.539218495483585,0.175273053956191,0.0323755288114027,0.0637459788044612,0.0182068519621283,0.0639015551038876,0.306404421497122,0.831427232247137,4.25551897950878e-10,0.0373316786175815,0.0181452931778565,0.0178583643361646,0.00239520660540312,0.768952220640909,0.333952174853051,1.70463705868753e-05,0.21970574545494,0.459447587469437,2.36533107281964e-06,0.110433486835396,3.49514796265589e-05]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gene_chr<\/th>\n      <th>gene_name<\/th>\n      <th>gene_tss<\/th>\n      <th>T1D_pc5_pval<\/th>\n      <th>lv90_pval<\/th>\n      <th>lv50_pval<\/th>\n      <th>lv125_pval<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_t1dpc5.jpeg" width="40%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv90.jpeg" width="40%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv50.jpeg" width="40%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv125.jpeg" width="40%">
+</figure>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.4.6    knitr_1.28      whisker_0.3-2   magrittr_1.5   
+ [5] xtable_1.8-4    R6_2.4.1        stringr_1.4.0   highr_0.8      
+ [9] tools_3.6.1     DT_0.13         xfun_0.14       git2r_0.26.1   
+[13] htmltools_0.3.6 crosstalk_1.0.0 yaml_2.2.1      digest_0.6.25  
+[17] rprojroot_1.3-2 shiny_1.3.2     later_0.8.0     htmlwidgets_1.3
+[21] promises_1.0.1  fs_1.3.1        mime_0.9        glue_1.4.1     
+[25] evaluate_0.14   rmarkdown_1.13  stringi_1.4.6   compiler_3.6.1 
+[29] backports_1.1.7 jsonlite_1.6.1  httpuv_1.5.1   </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
