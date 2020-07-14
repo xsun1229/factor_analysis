@@ -1,0 +1,56 @@
+---
+title: "gwas_power"
+author: "XSun"
+date: "2020-07-13"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In step 6, the power of GWAS is low. So I tried to find functional SNPs to increase the GWAS power and reduce the testing burden.
+
+
+## Material and Methods. 
+
+1. I used GTEx gene expression data and variant data. The dataset contains 19,696 genes. The variants here have maf > 0.01. The total number of variants is 10,403,249.
+2. For each gene, I performed lasso regression for gene expression ~ cis-snps(within 500kb from TSS of gene). I got the weights of each cis-snp in this step. 17,175 of 19,696 genes have cis-snps. So I used these genes in the following procedure. 
+3. Using the weights in step2, I can got the cis genetic component part of gene expression. 
+4. For each gene, I performed linear regression for factors ~ cis genetic component part of gene expression. The factors I used here are LV90,50,125 of PLIER-CanonicalPathway and pc5 of TID pathway. 
+
+
+## Results.
+
+These NA values come from linear regression(lm(y_test ~ predict_l)). It means the variant in regression is linearly with the intercept. After checking the predict_l, we found the predict_l for all samples are the same.
+
+**The results are strange. Most p-values of F-statistics in the linear regression are NA. It means the variant in regression is linearly with the intercept(the lasso-impputed expression are the same across samples). In the factors I used, each of them have 94 genes with no-NA pvalues. And the 94 genes are the same across these 4 factors. **
+
+### Summary
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_all_cisgene.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_t1dpc5.jpeg" width="40%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv90.jpeg" width="40%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv50.jpeg" width="40%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv125.jpeg" width="40%">
+</figure>
+
+
+
+
+
