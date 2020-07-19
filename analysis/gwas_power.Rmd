@@ -53,14 +53,13 @@ pval[k] <- summary(fit_linear)$coefficients[2,4]   # the pval of kth gene
 ## Results.
 
 
-
-### Summary-plier factors
+### Summary
 
 The suffix "_NC" means negative control. 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cisgene_all.rdata")
-DT::datatable(summary, options = list(pageLength =20))
+DT::datatable(summary_all, options = list(pageLength =20))
 ```
 
 The number of genes that have pvalue < 0.05 in association tests:
@@ -70,10 +69,12 @@ The number of genes that have pvalue < 0.05 in association tests:
 | Number of genes with pval<0.05   | 474 | 1189 | 645 | 1008 | 1558 | 1788 | 1120 |
 
 
+### Histogram of 
+
 - T1D pc5
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_ht1dpc5.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_t1dpc5.jpeg" width="40%">
 </figure>
 
 - low_pval_test_l lvs
