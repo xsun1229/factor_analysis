@@ -14,40 +14,82 @@ In step 6, the power of GWAS is low. So I tried to find functional SNPs to incre
 
 ## Material and Methods. 
 
-1. I used GTEx gene expression data and variant data. The dataset contains 19,696 genes. The variants here have maf > 0.01. The total number of variants is 10,403,249.
-2. For each gene, I performed lasso regression for gene expression ~ cis-snps(within 500kb from TSS of gene). I got the weights of each cis-snp in this step. 17,175 of 19,696 genes have cis-snps. So I used these genes in the following procedure. 
-3. Using the weights in step2, I can got the cis genetic component part of gene expression. 
-4. For each gene, I performed linear regression for factors ~ cis genetic component part of gene expression. The factors I used here are LV90,50,125 of PLIER-CanonicalPathway and pc5 of TID pathway. 
+1. I used GTEx gene expression data and variant data. The dataset contains 19,696 genes. The variants here have maf > 0.01. The total number of variants is 10,403,249. The genotype of some variants are missing. I used mean-imputation to impute the missing data.
 
 
-## Results.
-
-These NA values come from linear regression(lm(y_test ~ predict_l)). It means the variant in regression is linearly with the intercept. After checking the predict_l, we found the predict_l for all samples are the same.
-
-**The results are strange. Most p-values of F-statistics in the linear regression are NA. It means the variant in regression is linearly with the intercept(the lasso-impputed expression are the same across samples). In the factors I used, each of them have 94 genes with no-NA pvalues. And the 94 genes are the same across these 4 factors. **
-
-### Summary
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/sum_all_cisgene.rdata")
-DT::datatable(summary, options = list(pageLength =20))
+```{r eval=FALSE, echo=T}
+indv <- nrow(snp_set)
+    for (j in 1: ncol(snp_set) ) {
+      missnum <- sum(is.na(snp_set[,j]))
+      if (missnum != 0) {
+        mean <- sum(snp_set[is.na((snp_set[,j]))==0,j])/ (indv - missnum)
+        snp_set[is.na(snp_set[,j]),j] <- mean 
+      }
+    }
 ```
 
 
+2. For each gene, I performed lasso regression for gene expression ~ cis-snps(within 500kb from TSS of gene). I got the weights of each cis-snp in this step. 17,175 of 19,696 genes have cis-snps. So I used these genes in the following procedure.  7895 of 17175 lasso regression selected at least one snp.
+
+```{r eval=FALSE, echo=T}
+fit_lasso <- cv.glmnet(x, y, alpha =1, foldid = foldid)
+```
+
+
+
+3. Using the weights in step2, I can got the cis genetic component part of gene expression. 
+
+```{r eval=FALSE, echo=T}
+y_p <- predict(fit_lasso,x,s=fit_lasso$lambda.min)
+```
+
+4. For each gene, I performed linear regression for factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants). The factors I used here are LV90,50,125,47,81,120 of PLIER-CanonicalPathway (the last three are negative control, whose heritability equal to 0.0001 and have very high pval_test_l) and pc5 of TID pathway. 
+
+```{r eval=FALSE, echo=T}
+fit_linear <- lm(factor ~ y_p + covariants[,3] + covariants[,4] + covariants[,5]+ covariants[,6] + covariants[,7] + covariants[,8] + covariants[,9] + covariants[,10] + covariants[,11] + covariants[,12])
+pval[k] <- summary(fit_linear)$coefficients[2,4]   # the pval of kth gene
+```
+
+## Results.
+
+
+
+### Summary-plier factors
+
+The suffix "_NC" means negative control. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cisgene_all.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+The number of genes that have pvalue < 0.05 in association tests:
+
+| Factor             | T1D-pc5    | LV90   | LV50  | LV125  | LV47-NC  | LV81-NC   | LV120-NC |
+|--------------------|------|-----|-----|-----|-----|-----|-----|
+| Number of genes with pval<0.05   | 474 | 1189 | 645 | 1008 | 1558 | 1788 | 1120 |
+
+
+- T1D pc5
+
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_t1dpc5.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_ht1dpc5.jpeg" width="40%">
 </figure>
+
+- low_pval_test_l lvs
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv90.jpeg" width="40%">
-</figure>
-
-<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv50.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv125.jpeg" width="40%">
 </figure>
 
+- negative controls
+
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv125.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv47.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv81.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv120.jpeg" width="40%">
 </figure>
 
 
