@@ -107,7 +107,7 @@ There is not any overlap in this factor. Although T1D pathway contains 174 genes
 
 #### LV90
 
-460 genes have pvalue < 0.01 in the association test with LV90. Among 5472 genes, the factor loadings of 2544 genes are greater than 0. 55 genes are both significant and have non-zero factor loadings.
+460 genes have pvalue < 0.01 in the association test with LV90. Among 5472 genes(PLIER used these genes to infer factors, these genes belong to 545 pathways), the factor loadings of 2544 genes are greater than 0. 55 genes are both significant and have non-zero factor loadings.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv90.jpeg" width="50%">
