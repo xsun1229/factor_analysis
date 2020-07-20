@@ -109,27 +109,39 @@ There is not any overlap in this factor. Although T1D pathway contains 174 genes
 
 460 genes have pvalue < 0.01 in the association test with LV90. Among 5472 genes, the factor loadings of 2544 genes are greater than 0. 55 genes are both significant and have non-zero factor loadings.
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv90.jpeg" width="50%">
+</figure>
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv90.rdata")
-DT::datatable(summary_loading_001, options = list(pageLength =20))
+DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
 
 #### LV50
 
 155 genes have pvalue < 0.01 in the association test with LV60. Among 5472 genes, the factor loadings of 2730 genes are greater than 0. 20 genes are both significant and have non-zero factor loadings.
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv50.jpeg" width="50%">
+</figure>
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv50.rdata")
-DT::datatable(summary_loading_001, options = list(pageLength =20))
+DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
 
 #### LV125
 
 351 genes have pvalue < 0.01 in the association test with LV125. Among 5472 genes, the factor loadings of 3014 genes are greater than 0. 62 genes are both significant and have non-zero factor loadings.
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv125.jpeg" width="50%">
+</figure>
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv125.rdata")
-DT::datatable(summary_loading_001, options = list(pageLength =20))
+DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
 
 
@@ -137,25 +149,39 @@ DT::datatable(summary_loading_001, options = list(pageLength =20))
 
 702 genes have pvalue < 0.01 in the association test with LV47. Among 5472 genes, the factor loadings of 2576 genes are greater than 0. 100 genes are both significant and have non-zero factor loadings.
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv47.jpeg" width="50%">
+</figure>
+
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv47.rdata")
-DT::datatable(summary_loading_001, options = list(pageLength =20))
+DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
 
 #### LV81-NC
 
 871 genes have pvalue < 0.01 in the association test with LV81. Among 5472 genes, the factor loadings of 3124 genes are greater than 0. 191 genes are both significant and have non-zero factor loadings.
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv81.jpeg" width="50%">
+</figure>
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv81.rdata")
-DT::datatable(summary_loading_001, options = list(pageLength =20))
+DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
 
 #### LV120-NC
 
 436 genes have pvalue < 0.01 in the association test with LV47. Among 5472 genes, the factor loadings of 2644 genes are greater than 0. 64 genes are both significant and have non-zero factor loadings.
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv120.jpeg" width="50%">
+</figure>
+
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv120.rdata")
-DT::datatable(summary_loading_001, options = list(pageLength =20))
+DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
