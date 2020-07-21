@@ -175,5 +175,5 @@ I extracted sevral factors from IDIN gene expression matrix (GTEx whole blood da
 
 ## T1D-PC5
 
-From [PC&PEER from KEGG pathways](https://xsun1229.github.io/factor_analysis/eval_kegg.html), I found that the 5th PC of Type I diabetes mellitus pathway has the heritability over 0.99. So I did further analysis for this factor. [For more details](https://xsun1229.github.io/factor_analysis/eval_kegg.html)
+From [PC&PEER from KEGG pathways](https://xsun1229.github.io/factor_analysis/eval_kegg.html), I found that the 5th PC of Type I diabetes mellitus pathway has the heritability over 0.99. So I did further analysis for this factor. [For more details](https://xsun1229.github.io/factor_analysis/T1D.html)
 
