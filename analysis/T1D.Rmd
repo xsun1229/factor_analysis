@@ -26,9 +26,9 @@ DT::datatable(sum_sorted, options = list(pageLength =20))
 ### Plots
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/pathway_analysis/raw/master/output/T1D_pc5_mse.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/pathway_analysis/raw/master/output/T1D_pc5_coef.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/pathway_analysis/raw/master/output/T1D_pc5_testpred.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/T1D_pc5_mse.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/T1D_pc5_coef.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/T1D_pc5_testpred.jpeg" width="40%">
 </figure>
 
 
