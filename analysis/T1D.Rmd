@@ -1,7 +1,7 @@
 ---
 title: "T1D"
 author: "XSun"
-date: "2020-03-23"
+date: "2020-05-16"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
@@ -11,23 +11,51 @@ editor_options:
 
 From [PC&PEER from KEGG pathways](https://xsun1229.github.io/factor_analysis/eval_kegg.html), I found that the 5th PC of Type I diabetes mellitus pathway has the heritability over 0.99. So I performed association test between the fifth PC and all SNPs(from GTEx) using Plink. I corrected the results for genotype PCs. I used Plink to compute 10 PCs and used them as corvariates in association test.
 
-## Results 
 
-Since SNPs in MHC has p < 1e-100, We show the results after removing MHC. 
+## Results
 
-Manhattan plot
+### Table
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted_pc5.rdata")
+rownames(sum_sorted) <- c()
+DT::datatable(sum_sorted, options = list(pageLength =20))
+```
+
+
+### Plots
+
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_noMHC_co.jpeg" width="50%">
-</figure> 
-
-The red line here means -log10(p-value) is 5e-8.
-
-QQ plot 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/T1D_noMHC_co.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/pathway_analysis/raw/master/output/T1D_pc5_mse.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/pathway_analysis/raw/master/output/T1D_pc5_coef.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/pathway_analysis/raw/master/output/T1D_pc5_testpred.jpeg" width="40%">
 </figure>
 
-Here's the qqplot of observed p-values vs expected p-values(uniform distribution).
 
+### Variants with non-zero coefficients
 
+We got 26 variants with non-zero lasso coefficients. For these variants, we performed single snp linear regression (T1B_PC5 ~ genotype of a snp) and made conparision in both training set and testing set.
+
+Notations: **coefficients_lasso** is the coefficients from the lasso model. **pval_lm_traindata** is  the p-value of F-statistics from the linear regression using the training set data. **rsq_lm_traindata** is the r-squared of the linear regression using training set data. Suffix "_testdata" means the results using testing set. 
+
+The MHC region ranges roughly from 27653730 to 37640596 on chr6. So the variants on chr6 in the table are all in MHC region. 
+
+```{r eval=FALSE, echo=T}
+### i is the ith variants
+  fit_linear[[i]] <- lm(y ~ x[,i])   ###y is T1B_PC5 and  x[,i] is genotype of a variant.
+  pval_snp[i] <- summary(fit_linear[[i]])$coefficients[,4] ### p-value of F-statistics 
+  rsq_snp[i] <- summary(fit_linear[[i]])$r.squared   ###r-squared of the linear regression
+
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/nzero_variants_pc5.rdata")
+DT::datatable(summary_snp_all, options = list(pageLength =20))
+
+```
+
+To compare the p-values of training set and test set, we made a scatter plot.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/T1D_pvals.jpeg" width="50%">
+</figure>
