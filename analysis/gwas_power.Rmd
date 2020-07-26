@@ -343,7 +343,16 @@ The FUSION provided pre-trained YFS whole blood weights. It contains 4700 genes.
 
 #### T1D PC5
 
-T1D pathway contains 174 genes(Ensemble ID), the GTEx expression data just cover 36 of them. 8 of these 36 genes has pvalue less than 0.01.   52
+T1D pathway contains 174 genes(Ensemble ID), the GTEx expression data just cover 36 of them. 8 of these 36 genes has pvalue less than 0.01.   
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_pc5_YFS.jpeg" width="50%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl_t1dpc5.rdata")
+DT::datatable(summary_loading_001, options = list(pageLength =10))
+```
 
 #### LV90
 
@@ -395,7 +404,7 @@ DT::datatable(summary_loading_001, options = list(pageLength =10))
 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv47_YFSs.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv47_YFS.rdata")
 DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
 
