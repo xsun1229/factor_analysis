@@ -54,6 +54,8 @@ pval[k] <- summary(fit_linear)$coefficients[2,4]   # the pval of kth gene
 
 6. To eliminate weak instrument bias, I did test association only on "cis-heritable" genes instead of all 7895 genes. I estimate cis-heritability of genes(use the cis-snp within 500kb from TSS) with gcta, and choose the genes have LRT pvalue < 0.01 to do factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants)  test. 
 
+7. The FUSION provided pre-trained YFS whole blood weights. It contains 4700 genes. I used these weights and GTEx genotype data to impute the cis-gene expression of these 4700 genes. Then, used these imputed expression to do the factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants) association test.
+
 
 ## Results- Original
 
@@ -188,7 +190,7 @@ DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
 
 
-## Results- eliminate weak instrument bias
+## Results- eliminate weak instrument bias-using same data
 
 I got 1900 cis-heritable genes from 7895 genes(heritability LRT pvalue < 0.01). And used these genes to do factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants).
 
@@ -305,4 +307,123 @@ DT::datatable(summary_loading_001, options = list(pageLength =10))
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv120_bias.rdata")
 DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
+
+
+## Results- eliminate weak instrument bias-using YFS data
+
+The FUSION provided pre-trained YFS whole blood weights. It contains 4700 genes. 4212 of them can be used to impute the cis-genetic part of gene expression. I used these weights and GTEx genotype data to impute the cis-gene expression of these 4212 genes. Then, used these imputed expression to do the factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants) association test.
+
+
+### Histogram of pvalues
+
+- T1D pc5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_t1dpc5_YFS.jpeg" width="40%">
+</figure>
+
+- low_pval_test_l lvs
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv90_YFS.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv50_YFS.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv125_YFS.jpeg" width="40%">
+</figure>
+
+- negative controls
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv47_YFS.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv81_YFS.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pv_h_lv120_YFS.jpeg" width="40%">
+</figure>
+
+
+### Find the overlap
+
+#### T1D PC5
+
+T1D pathway contains 174 genes(Ensemble ID), the GTEx expression data just cover 36 of them. 8 of these 36 genes has pvalue less than 0.01.   52
+
+#### LV90
+
+62 genes have pvalue < 0.01 in the association test with LV90. Among 5472 genes(PLIER used these genes to infer factors, these genes belong to 545 pathways), the factor loadings of 2544 genes are greater than 0. 15 genes are both significant and have non-zero factor loadings.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv90_YFS.jpeg" width="50%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv90_YFS.rdata")
+DT::datatable(summary_loading_001, options = list(pageLength =10))
+```
+
+#### LV50
+
+45 genes have pvalue < 0.01 in the association test with LV60. Among 5472 genes, the factor loadings of 2730 genes are greater than 0. 16 genes are both significant and have non-zero factor loadings.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv50_YFS.jpeg" width="50%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv50_YFS.rdata")
+DT::datatable(summary_loading_001, options = list(pageLength =10))
+```
+
+#### LV125
+
+53 genes have pvalue < 0.01 in the association test with LV125. Among 5472 genes, the factor loadings of 3014 genes are greater than 0. 17 genes are both significant and have non-zero factor loadings.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv125_YFS.jpeg" width="50%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv125_YFS.rdata")
+DT::datatable(summary_loading_001, options = list(pageLength =10))
+```
+
+
+#### LV47-NC
+
+30 genes have pvalue < 0.01 in the association test with LV47. Among 5472 genes, the factor loadings of 2576 genes are greater than 0. 7 genes are both significant and have non-zero factor loadings.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv47_YFS.jpeg" width="50%">
+</figure>
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv47_YFSs.rdata")
+DT::datatable(summary_loading_001, options = list(pageLength =10))
+```
+
+#### LV81-NC
+
+59 genes have pvalue < 0.01 in the association test with LV81. Among 5472 genes, the factor loadings of 3124 genes are greater than 0. 25 genes are both significant and have non-zero factor loadings.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv81_YFS.jpeg" width="50%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv81_YFS.rdata")
+DT::datatable(summary_loading_001, options = list(pageLength =10))
+```
+
+#### LV120-NC
+
+50 genes have pvalue < 0.01 in the association test with LV47. Among 5472 genes, the factor loadings of 2644 genes are greater than 0. 11 genes are both significant and have non-zero factor loadings.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_lv120_YFS.jpeg" width="50%">
+</figure>
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_cgl001_lv120_YFS.rdata")
+DT::datatable(summary_loading_001, options = list(pageLength =10))
+```
+
 
