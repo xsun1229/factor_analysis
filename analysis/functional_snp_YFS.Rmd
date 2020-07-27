@@ -1,0 +1,19 @@
+---
+title: "functional_snp_YFS"
+author: "XSun"
+date: "2020-07-27"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+I tried to find functional SNPs to increase the GWAS power and reduce the testing burden.
+
+## Material and Methods. 
+
+1. Used the pre-trained YFS whole blood weights(provided by FUSION) and  GTEx genotype data to impute the cis component part of gene expression.
+
+2. Used these imputed expression to do the factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants) association test
+
