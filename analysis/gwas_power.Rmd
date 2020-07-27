@@ -214,7 +214,7 @@ DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
 
 
-## Results- eliminate weak instrument bias-using same data
+## Results- eliminate weak instrument bias-using GTEx weights(filted by h2 pval)
 
 I got 1900 cis-heritable genes from 7895 genes(heritability LRT pvalue < 0.01). And used these genes to do factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants).
 
@@ -358,7 +358,7 @@ DT::datatable(summary_loading_001, options = list(pageLength =10))
 ```
 
 
-## Results- eliminate weak instrument bias-using YFS data
+## Results- eliminate weak instrument bias-using YFS weights
 
 The FUSION provided pre-trained YFS whole blood weights. It contains 4700 genes. 4212 of them can be used to impute the cis-genetic part of gene expression. I used these weights and GTEx genotype data to impute the cis-gene expression of these 4212 genes. Then, used these imputed expression to do the factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants) association test.
 
