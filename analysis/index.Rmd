@@ -104,9 +104,13 @@ The missing data pattern of our dataset. x-axis represents the proportion of mis
 
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/train_peer.html)
 
-## Find functional SNPs
+## ***Find functional SNPs***
 
-  In step 6, the power of GWAS is low. So I tried to find functional SNPs to increase the GWAS power and reduce the testing burden. [More details](https://xsun1229.github.io/factor_analysis/gwas_power.html)
+  In step 6, the GWAS power of some factors is low. So I tried to find functional SNPs to increase the GWAS power and reduce the testing burden.
+  
+  [GTEx&YFS data](https://xsun1229.github.io/factor_analysis/gwas_power.html)
+  
+  [Test weak instrument bias](https://xsun1229.github.io/factor_analysis/weak_bias.html)
 
 # **LD Score Regression**
 

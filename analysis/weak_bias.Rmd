@@ -1,0 +1,45 @@
+---
+title: "weak_bias"
+author: "XSun"
+date: "2020-07-31"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In this part, I split the GTEx data into two halves, and use one half to train the expression model, and the other half to assess association with factors.And also assess association with factors in the same half that I train the expression model. After that, I compare the results of two analyses: association test in the same half vs. the different half to find if weak instrument bias is a problem.
+
+
+## Material and Methods
+
+1. Randomly split the samples into 2 halves, name them as part1 and part2.
+
+2. Use FUSION to train weigths for part1. The cis-snp here are the snps within 500kb from TSS of gene. The models here are LASSO, elastic_net and top1.
+
+3. I used weights from last step and GTEx genotype data to impute the cis-gene expression. Do this on the two part seperately. 
+
+4.Then, used these imputed expression to do the factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants) association test for both two parts.
+
+5.Compare the results. I got a series of pvalues from the association test for each part: pval_s, pval_d. I computed the pearson correlation for pval_s and pval_d to find if they were correlated with each other. I also counted the number of significant associations at various p-value threshold for each LV.
+
+
+## Results
+
+### Overview
+
+1. 17,175 of 19,696 genes have cis-snps.
+
+2. 1445 genes have heitability p_value > 0.01, so I got 1445 weights.
+
+3. 1306 of 1445 weights can be used to impute gene expression data.
+
+### Summary 
+
+The table below shows the number of significant associations at various p-value threshold for each LV. The first column is the pearson corralation index. The suffix '_s' means impute gene expression using the same part samples and the suffix '_d' means impute gene expression using different part samples.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/compare_sum.rdata")
+DT::datatable(summary, options = list(pageLength =10))
+```
