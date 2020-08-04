@@ -16,7 +16,7 @@ In this part, I split the GTEx data into two halves, and use one half to train t
 
 1. Randomly split the samples into 2 halves, name them as part1 and part2.
 
-2. Use FUSION to train weigths for part1. The cis-snp here are the snps within 500kb from TSS of gene. The models here are LASSO, elastic_net and top1.
+2. Use FUSION to train weigths for part1. The cis-snp here are the snps within 500kb from TSS of gene. The models here are LASSO, elastic_net and blup.
 
 3. I used weights from last step and GTEx genotype data to impute the cis-gene expression. Do this on the two part seperately. 
 
@@ -31,15 +31,29 @@ In this part, I split the GTEx data into two halves, and use one half to train t
 
 1. 17,175 of 19,696 genes have cis-snps.
 
-2. 1445 genes have heitability p_value > 0.01, so I got 1445 weights.
-
-3. 1306 of 1445 weights can be used to impute gene expression data.
+2. I got 1468 weights from lasso model, 1428 from elastic-net model, 854 weights from blup models.
 
 ### Summary 
 
-The table below shows the number of significant associations at various p-value threshold for each LV. The first column is the pearson corralation index. The suffix '_s' means impute gene expression using the same part samples and the suffix '_d' means impute gene expression using different part samples.
+The table below shows the number of significant associations at various p-value threshold for each LV. The first column is the pearson corralation index. The suffix '_s' means impute gene expression using the same part samples and the suffix '_d' means impute gene expression using different part samples. 
+
+- Lasso model
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/compare_sum.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/compare_sum_lasso.rdata")
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+- Elastic-net model 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/compare_sum_enet.rdata")
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+- Blup model 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/compare_sum_blup.rdata")
 DT::datatable(summary, options = list(pageLength =10))
 ```
