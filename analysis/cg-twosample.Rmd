@@ -1,0 +1,119 @@
+---
+title: "cg-twosample"
+author: "XSun"
+date: "2020-08-16"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+To eliminate the overfitting and weak IV bias issue, I used external weights to impute the cis component part of genes. 
+
+## Material and Methods
+
+The FUSION provided pre-trained YFS whole blood weights. It contains 4700 genes. I used these weights and GTEx genotype data to impute the cis-gene expression of these 4700 genes. 
+
+1.  Weights training
+Use whole blood weights from YFS (provided by FUSION)
+
+2. Cis-gene imputation 
+Use weights in step1 to impute the cis-gene for all GTEx sample 
+
+3. Association test. Record the p-values for each gene.
+
+4. Count the number of significant associations at various p-value threshold for each LV.
+
+
+### Summary
+
+The table below shows the number of significant associations at various p-value threshold for each LV.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_pval_lvpc_YFS.rdata")
+DT::datatable(summary_all, options = list(pageLength =10))
+```
+
+I also made a histogram to show the distribution of the numbers.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_YFS.jpeg" width="200%">
+</figure>
+
+
+
+### QQ-plots
+
+For the LVs have relatively high num_pval<1e-4, num_pval<1e-3, I made QQplots against uniform distribution.
+
+- LVs have high num_pval<1e-4
+
+- LV90
+
+Genes have pval<1e-3: AQP11,ATP6V1G2,CD27,CLK4,DARC,GADD45G,GSTM2,GSTM4,ZNF354A,ZNF543
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_pval_lv90_YFS.jpeg" width="40%">
+</figure>    
+
+- LV67
+
+Genes have pval<1e-3: CACNB3,CEBPA,CLK4,MANSC1,TSEN54,ZNF354A
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_pval_lv67_YFS.jpeg" width="40%">
+</figure>
+
+- LVs have high num_pval<1e-3
+
+- LV89
+
+Genes have pval<1e-3: BOP1,CARM1,CLK4,HSF1,KDM6B,LAPTM4B,LRP10,PIK3AP1,SFXN4,ZNF354A
+
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_pval_lv89_YFS.jpeg" width="40%">
+</figure>
+
+- LV117
+
+Genes have pval<1e-3: BMF,CHEK2,DOCK8,HIF1AN,LY86,PBXIP1,SH3YL1,SLC27A3,SMARCA4,TOP3B
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_pval_lv117_YFS.jpeg" width="40%">
+</figure>
+
+- LV122
+
+Genes have pval<1e-3: AMH,CXCR6,DDT,DDTL,ITPRIP,KANK3,LAPTM4B,LZTFL1,OSGIN1,TSPAN2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_pval_lv122_YFS.jpeg" width="40%">
+    
+</figure>
+
+- LV127
+
+Genes have pval<1e-3: ABR,BBS2,FLCN,NMI,PFKM,PLD6,PUS3,SLC1A4,TIMM44,ZNF540
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_pval_lv127_YFS.jpeg" width="40%">
+    
+</figure>
+
+- LV36
+
+Genes have pval<1e-3: ACBD3,ADPRH,COQ5,FAR1,MPHOSPH9,PRKCDBP,RNF10,TOB1,ZNF529
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_pval_lv36_YFS.jpeg" width="40%">
+</figure>
+
+- LV76
+
+Genes have pval<1e-3: APEH,CDK9,CRYGS,EPHA1,FOXRED2,HIST1H2BJ,HSD17B12,KLF12,PAPSS2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_pval_lv76_YFS.jpeg" width="40%">
+    
+</figure>

@@ -104,33 +104,59 @@ The missing data pattern of our dataset. x-axis represents the proportion of mis
 
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/train_peer.html)
 
-## ***Find functional SNPs***
+
+## ** Make the prediction models better **
+
+### ***Find functional SNPs***
 
   In step 6, the GWAS power of some factors is low. So I tried to find functional SNPs to increase the GWAS power and reduce the testing burden.
   
-  [GTEx&YFS data](https://xsun1229.github.io/factor_analysis/gwas_power.html)
-  
-  [Test weak instrument bias](https://xsun1229.github.io/factor_analysis/weak_bias.html)
-
-# **LD Score Regression**
+### LD Score Regression 
 
 I adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software I used here is [ldsc](https://github.com/bulik/ldsc).
 
 The ldsc material and methods of my project can be found [here](https://xsun1229.github.io/factor_analysis/ldsc.html)
 
-## PLIER
+#### PLIER
 
   [Results for plier-canonicalPathways factors](https://xsun1229.github.io/factor_analysis/ldsc_plier_canon.html)
     
   [Results for plier-allpathway factors](https://xsun1229.github.io/factor_analysis/ldsc_plier_all.html)
 
-## FLASH
+#### FLASH
 
   [Results for FLASH factors](https://xsun1229.github.io/factor_analysis/ldsc_flash.html)
 
-## PEER
+#### PEER
 
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/ldsc_peer.html)
+  
+  
+  
+### ***Find functional cis-genes***  
+  
+  After preliminary [rough calculations](https://xsun1229.github.io/factor_analysis/gwas_power.html), we found that there might be overfitting issue. So we tried one/two sample settings to test and eliminate the overfitting issue. 
+  
+  The rought process are below, it differs slightly in different settings.
+  
+1. Train weights from expression matrix and genotype matrix. Variants are cis-snps (±500kb from the TSS of genes)
+
+2. Impute the cis genetic component part of gene expression (cis-genes):
+
+	 cis-genes = weights * genotype of cis-genes
+
+3. Association test: factors ~ cis-genes + 10 genotype pcs. Record the p-values for each gene.
+
+4. Count the number of significant associations at various p-value threshold for each factor.
+  
+  
+  
+  [One Sample Setting]()
+  [Two Sample Setting]()
+  
+  [Test weak instrument bias](https://xsun1229.github.io/factor_analysis/weak_bias.html)
+
+
 
 # **Module-based factor analysis**
 
