@@ -345,7 +345,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-08-01
+<strong>Last updated:</strong> 2020-08-16
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -376,16 +376,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed887dc2afea790cf9134c2cfe2848a148eca4daatargetblankd887dc2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/d887dc2afea790cf9134c2cfe2848a148eca4daa" target="_blank">d887dc2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree87573852db134bfe813a9a4cc1e6d6bedb007634targetblank8757385a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/87573852db134bfe813a9a4cc1e6d6bedb007634" target="_blank">8757385</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed887dc2afea790cf9134c2cfe2848a148eca4daatargetblankd887dc2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree87573852db134bfe813a9a4cc1e6d6bedb007634targetblank8757385a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/d887dc2afea790cf9134c2cfe2848a148eca4daa" target="_blank">d887dc2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/87573852db134bfe813a9a4cc1e6d6bedb007634" target="_blank">8757385</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -433,6 +433,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/87573852db134bfe813a9a4cc1e6d6bedb007634/analysis/index.Rmd" target="_blank">8757385</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-08-16
+</td>
+<td>
+wflow_publish(c(“analysis/cg-onesample.Rmd”, “analysis/index.Rmd”,
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/44e1617b5e8ff3b9fd2d5becefdd3aa4ea563203/docs/index.html" target="_blank">44e1617</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-08-01
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -986,29 +1020,44 @@ Start workflowr project.
 <h2>PEER</h2>
 <p><a href="https://xsun1229.github.io/factor_analysis/train_peer.html">Results for PEER factors</a></p>
 </div>
-<div id="find-functional-snps" class="section level2">
-<h2><strong><em>Find functional SNPs</em></strong></h2>
+<div id="make-the-prediction-models-better" class="section level2">
+<h2>** Make the prediction models better **</h2>
+<div id="find-functional-snps" class="section level3">
+<h3><strong><em>Find functional SNPs</em></strong></h3>
 <p>In step 6, the GWAS power of some factors is low. So I tried to find functional SNPs to increase the GWAS power and reduce the testing burden.</p>
-<p><a href="https://xsun1229.github.io/factor_analysis/gwas_power.html">GTEx&amp;YFS data</a></p>
-<p><a href="https://xsun1229.github.io/factor_analysis/weak_bias.html">Test weak instrument bias</a></p>
 </div>
-</div>
-<div id="ld-score-regression" class="section level1">
-<h1><strong>LD Score Regression</strong></h1>
+<div id="ld-score-regression" class="section level3">
+<h3>LD Score Regression</h3>
 <p>I adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software I used here is <a href="https://github.com/bulik/ldsc">ldsc</a>.</p>
 <p>The ldsc material and methods of my project can be found <a href="https://xsun1229.github.io/factor_analysis/ldsc.html">here</a></p>
-<div id="plier-3" class="section level2">
-<h2>PLIER</h2>
+<div id="plier-3" class="section level4">
+<h4>PLIER</h4>
 <p><a href="https://xsun1229.github.io/factor_analysis/ldsc_plier_canon.html">Results for plier-canonicalPathways factors</a></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/ldsc_plier_all.html">Results for plier-allpathway factors</a></p>
 </div>
-<div id="flash-3" class="section level2">
-<h2>FLASH</h2>
+<div id="flash-3" class="section level4">
+<h4>FLASH</h4>
 <p><a href="https://xsun1229.github.io/factor_analysis/ldsc_flash.html">Results for FLASH factors</a></p>
 </div>
-<div id="peer-3" class="section level2">
-<h2>PEER</h2>
+<div id="peer-3" class="section level4">
+<h4>PEER</h4>
 <p><a href="https://xsun1229.github.io/factor_analysis/ldsc_peer.html">Results for PEER factors</a></p>
+</div>
+</div>
+<div id="find-functional-cis-genes" class="section level3">
+<h3><strong><em>Find functional cis-genes</em></strong></h3>
+<p>After preliminary <a href="https://xsun1229.github.io/factor_analysis/gwas_power.html">rough calculations</a>, we found that there might be overfitting issue. So we tried one/two sample settings to test and eliminate the overfitting issue.</p>
+<p>The rought process are below, it differs slightly in different settings.</p>
+<ol style="list-style-type: decimal">
+<li><p>Train weights from expression matrix and genotype matrix. Variants are cis-snps (±500kb from the TSS of genes)</p></li>
+<li><p>Impute the cis genetic component part of gene expression (cis-genes):</p>
+<p>cis-genes = weights * genotype of cis-genes</p></li>
+<li><p>Association test: factors ~ cis-genes + 10 genotype pcs. Record the p-values for each gene.</p></li>
+<li><p>Count the number of significant associations at various p-value threshold for each factor.</p></li>
+</ol>
+<p><a href="">One Sample Setting</a> <a href="">Two Sample Setting</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/weak_bias.html">Test weak instrument bias</a></p>
+</div>
 </div>
 </div>
 <div id="module-based-factor-analysis" class="section level1">

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2020-08-16" />
+
+<title>cg-onesample</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">cg-onesample</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2020-08-16</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-08-16
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div class="panel-group" id="workflowr-checks">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/compare_sum_lasso.rdata
+</td>
+<td style="text-align:left;">
+output/compare_sum_lasso.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/compare_sum_enet.rdata
+</td>
+<td style="text-align:left;">
+output/compare_sum_enet.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/compare_sum_blup.rdata
+</td>
+<td style="text-align:left;">
+output/compare_sum_blup.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree87573852db134bfe813a9a4cc1e6d6bedb007634targetblank8757385a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/87573852db134bfe813a9a4cc1e6d6bedb007634" target="_blank">8757385</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree87573852db134bfe813a9a4cc1e6d6bedb007634targetblank8757385a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/87573852db134bfe813a9a4cc1e6d6bedb007634" target="_blank">8757385</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/cg-onesample.Rmd</code>) and HTML (<code>docs/cg-onesample.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/87573852db134bfe813a9a4cc1e6d6bedb007634/analysis/cg-onesample.Rmd" target="_blank">8757385</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-08-16
+</td>
+<td>
+wflow_publish(c(“analysis/cg-onesample.Rmd”, “analysis/index.Rmd”,
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In this part, I split the GTEx data into two halves, and use one half to train the expression model, and the other half to assess association with factors.</p>
+</div>
+<div id="methods" class="section level2">
+<h2>Methods</h2>
+<ol style="list-style-type: decimal">
+<li>Weights training</li>
+</ol>
+<p>Split the GTEx samples(670) into two equal part (part1-training part, part2). Employ FUSION to train weights on part1, models: LASSO, Elastic-net, BLUP</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Cis-gene imputation</li>
+</ol>
+<p>Use weights in step1 to impute the cis genetic component part of gene expression. For both part1 and part2, we imputed cis-genes and named these cis-genes as cis-gene-part1 and cis-gene-part2.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Association test:</li>
+</ol>
+<p>LVs ~ cis-gene-part1</p>
+<p>LVs ~ cis-gene-part2</p>
+<p>Record the p-values for each gene.</p>
+<p>4.Count the number of significant associations at various p-value threshold for each LV.</p>
+</div>
+<div id="results" class="section level2">
+<h2>Results</h2>
+<div id="overview" class="section level3">
+<h3>Overview</h3>
+<ol style="list-style-type: decimal">
+<li><p>17,175 of 19,696 genes have cis-snps.</p></li>
+<li><p>I got 1468 weights from lasso model, 1428 from elastic-net model, 854 weights from blup models.</p></li>
+</ol>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>The tables below show the number of significant associations at various p-value threshold for each LV. The first column is the pearson corralation index. The suffix ’_s’ means impute gene expression using the same part samples and the suffix ’_d’ means impute gene expression using different part samples.</p>
+<p>I also made a histogram to show the distribution of the numbers.</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_cgonesam.jpeg" width="200%">
+</figure>
+<ul>
+<li>Lasso model</li>
+</ul>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["lv1","lv2","lv3","lv4","lv5","lv6","lv7","lv8","lv9","lv10","lv11","lv12","lv13","lv14","lv15","lv16","lv17","lv18","lv19","lv20","lv21","lv22","lv23","lv24","lv25","lv26","lv27","lv28","lv29","lv30","lv31","lv32","lv33","lv34","lv35","lv36","lv37","lv38","lv39","lv40","lv41","lv42","lv43","lv44","lv45","lv46","lv47","lv48","lv49","lv50","lv51","lv52","lv53","lv54","lv55","lv56","lv57","lv58","lv59","lv60","lv61","lv62","lv63","lv64","lv65","lv66","lv67","lv68","lv69","lv70","lv71","lv72","lv73","lv74","lv75","lv76","lv77","lv78","lv79","lv80","lv81","lv82","lv83","lv84","lv85","lv86","lv87","lv88","lv89","lv90","lv91","lv92","lv93","lv94","lv95","lv96","lv97","lv98","lv99","lv100","lv101","lv102","lv103","lv104","lv105","lv106","lv107","lv108","lv109","lv110","lv111","lv112","lv113","lv114","lv115","lv116","lv117","lv118","lv119","lv120","lv121","lv122","lv123","lv124","lv125","lv126","lv127","lv128"],[0.0128381725691063,-0.0194474686746303,-0.023455750759262,0.0051088622751743,0.0346326877275897,0.0220710080893967,0.094172729570186,-0.0479732711891861,-0.00340966817309883,-0.0198182863673479,-0.0470132149770642,0.0670172910682361,-0.00270968926975919,-0.00727109029073801,0.0672931700424786,0.0591481343065961,0.0151540893390803,0.0278560577182529,-0.0629224243637012,-0.0402146068690766,0.0347042899139764,-0.0463745590975035,0.0284173855729584,-0.0460362693376219,0.0532443756840403,0.0379465913085974,0.0277434711691275,0.0273599564347705,0.0477873337167523,0.0049513618599603,0.0454943423367855,-0.0728386329473191,-0.0184528032250674,-0.044601840330993,-0.0314114072202209,-0.0191757028477532,-0.112276771668696,0.0139315359369717,-0.0547722756426767,-0.0141438577625366,0.0464296044995863,-0.128116152497706,-0.0126252127016589,-0.0292963303278231,0.0141774115542271,-0.102976023952095,0.0031099877915162,-0.0170000922419678,-0.0715128478104154,0.0801835718478627,-0.0464140303636268,-0.0216831197934955,0.058117379952589,0.0548301498411691,0.0279667758789048,0.0746738702708823,0.00478566139830236,0.0672924809300232,-0.0350783547003419,0.0880838325668593,0.0173255349174177,-0.0226529140215362,0.00502518995750346,-0.0191740611005838,-0.0427318038963091,-0.0148251152170808,-0.0584759424363484,-0.0749693061340232,-0.0183142026772146,0.00807456873768833,0.0254675513301358,0.0963816754827677,-0.0456069445280769,0.00157927111629886,-0.0147529779044684,-0.0200032265158222,-0.102590022435258,-0.024574031831332,-0.0600861952705111,-0.00605127762916574,0.0140875532615828,-0.012080151717204,-0.0971349326550576,-0.0436565286046868,-0.0249058262131622,-0.00480007889507666,0.0401941926300279,0.0044858872840966,-0.00277608150358795,-0.0073768864334018,-0.13040533106746,0.0573425338860162,-0.0825655267615156,-0.13925942210298,-0.0644519337019681,0.0728465989955764,-0.102823169340594,0.047492540446181,-0.00135981805617051,-0.0332576103501227,-0.0519948365192212,0.0347507226763788,0.0149394037617546,-0.0709498818477926,0.0891146474143076,-0.00161426702761692,-0.0387584833973312,0.0402240654047472,-0.00933884708744059,0.079005285933602,-0.110998902800361,0.0402642815563021,-0.0689471484261492,-0.158777076950931,-0.00676605809095422,-0.0409576838179112,0.139502384932435,-0.0468608799920046,-0.0293407672920581,0.0681691947314148,-0.034050295090424,-0.0461559133380313,-0.0401354495909099,-0.0390852514878246,-0.0687961590169678,-0.041167325037771,0.0625295631944204,-0.0606156656259178],[3,0,20,7,2,3,3,3,0,0,0,3,3,3,0,2,5,1,2,3,7,0,1,3,1,3,0,1,15,0,2,39,1,0,29,0,3,6,7,1,3,3,5,2,4,1,0,1,24,0,1,1,10,2,0,1,3,9,15,3,18,1,0,2,6,1,42,15,6,16,0,23,1,10,0,0,13,1,1,0,0,0,5,3,1,3,0,2,0,1,0,5,6,4,1,25,7,0,0,5,39,0,29,4,0,2,4,9,0,0,1,9,0,40,21,1,0,0,7,3,0,0,0,7,0,0,0,11],[33,6,59,48,28,21,38,16,3,2,6,15,20,15,6,4,9,2,26,43,21,2,4,16,8,8,0,17,25,2,3,92,2,3,64,0,13,28,16,5,13,16,31,11,39,7,4,6,38,0,4,4,40,35,8,4,7,21,40,5,48,6,0,5,14,5,89,41,19,59,2,72,2,25,2,0,32,17,8,7,7,3,20,18,15,14,6,42,5,9,12,40,12,18,4,64,19,2,2,7,61,5,66,10,5,4,24,22,6,6,3,18,8,62,62,5,5,1,24,8,10,0,1,14,6,2,1,39],[63,66,162,142,60,86,119,90,21,40,89,69,81,92,44,33,62,17,54,100,109,16,30,83,61,57,10,66,104,19,10,215,17,44,170,9,112,131,92,16,61,80,148,64,82,45,60,32,135,8,31,30,198,107,38,42,23,58,181,37,123,30,9,35,55,33,160,144,72,135,25,145,41,87,62,7,86,97,27,48,33,31,96,48,98,70,39,107,70,44,41,104,64,94,22,162,130,9,12,34,116,31,137,51,38,24,78,78,43,30,28,53,70,158,180,31,22,20,68,33,33,13,6,50,49,14,13,115],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0],[1,1,0,0,0,1,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,2,0,1,0,0,2,2,2,1,1,1,0,0,0,1,6,0,1,2,2,0,0,0,0,0,0,0,0,0,2,3,0,0,2,0,1,0,2,2,0,1,2,2,0,1,0,3,0,0,0,0,2,0,0,1,1,0,0,7,0,0,0,0,0,0,3,0,0,1,1,0,3,0,0,0,0,0,0,1,2,0,0,0,0,1,0,2,1,0,4,3,0,0,0,0,0,8,0,0,0,0,0,0,2,0,1],[16,13,8,12,10,10,2,5,11,7,8,16,6,9,8,14,5,11,3,1,7,27,11,7,4,14,0,7,16,8,20,5,4,4,6,2,19,15,3,10,17,7,9,1,1,4,4,7,2,10,15,7,26,13,5,10,4,3,9,10,12,8,3,10,21,7,10,11,19,0,8,5,7,13,8,2,10,9,16,2,15,3,7,6,1,7,3,29,8,1,4,7,7,22,16,4,3,5,6,12,5,7,2,4,11,3,8,7,9,26,3,8,17,3,7,9,8,5,14,4,5,10,14,4,21,10,14,12]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>cor<\/th>\n      <th>num_s_p&lt;1e-4<\/th>\n      <th>num_s_p&lt;1e-3<\/th>\n      <th>num_s_p&lt;1e-2<\/th>\n      <th>num_d_p&lt;1e-4<\/th>\n      <th>num_d_p&lt;1e-3<\/th>\n      <th>num_d_p&lt;1e-2<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li>Elastic-net model</li>
+</ul>
+<div id="htmlwidget-cfefb73e51b4928e765c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfefb73e51b4928e765c">{"x":{"filter":"none","data":[["lv1","lv2","lv3","lv4","lv5","lv6","lv7","lv8","lv9","lv10","lv11","lv12","lv13","lv14","lv15","lv16","lv17","lv18","lv19","lv20","lv21","lv22","lv23","lv24","lv25","lv26","lv27","lv28","lv29","lv30","lv31","lv32","lv33","lv34","lv35","lv36","lv37","lv38","lv39","lv40","lv41","lv42","lv43","lv44","lv45","lv46","lv47","lv48","lv49","lv50","lv51","lv52","lv53","lv54","lv55","lv56","lv57","lv58","lv59","lv60","lv61","lv62","lv63","lv64","lv65","lv66","lv67","lv68","lv69","lv70","lv71","lv72","lv73","lv74","lv75","lv76","lv77","lv78","lv79","lv80","lv81","lv82","lv83","lv84","lv85","lv86","lv87","lv88","lv89","lv90","lv91","lv92","lv93","lv94","lv95","lv96","lv97","lv98","lv99","lv100","lv101","lv102","lv103","lv104","lv105","lv106","lv107","lv108","lv109","lv110","lv111","lv112","lv113","lv114","lv115","lv116","lv117","lv118","lv119","lv120","lv121","lv122","lv123","lv124","lv125","lv126","lv127","lv128"],[0.0289922325109416,-0.0294076348637404,-0.0602464524460076,0.0283396841834903,0.0142046214482652,0.0392801386496564,0.0872265736336805,-0.0924992531976467,0.0103484893092222,-0.0185072744224351,-0.0382484929159499,0.04144824735926,0.0391710938334428,-0.00393941750778389,-0.0166292190073705,-0.00468516325275585,0.0190388382391297,0.031357261014238,-0.0529831631169124,-0.0107442748542029,0.0356806253191329,-0.0220413582182105,0.0380403908456011,-0.0482237304648144,0.0384713198555082,-0.00731855682079164,0.0415875305884697,0.00954041804079772,0.0274671979571719,0.0424583523651597,0.0221951839363238,-0.0576490191831592,-0.0161887149589032,-0.0257410093885111,-0.0477449779835099,0.0580154016612743,-0.100294589532234,0.0623109156246401,-0.0480910361810604,-0.0198425288270612,0.00459245902384826,-0.108214763965349,0.00594929486496429,-0.0428533936440908,-0.00223839726599156,-0.0461303138749137,0.00728344163402319,-0.0164650137127872,-0.043610080860982,0.0781855660620721,-0.000128649425715866,-0.0151352413000168,0.022867316326368,0.0552374517699653,-0.00891541962405919,0.0613796978293856,0.0666374496450288,0.0656331235222457,-0.0415733529151127,0.0806773880283512,-0.00385535178431669,-0.022740895478884,-0.00653872819484746,-0.00611380498091451,-0.0050470871113539,-0.0132428260746844,-0.017165977715202,-0.0555575584468957,-0.0193573116941124,-0.0227801377810732,-0.000975086366435087,0.0315639501619524,-0.0658387780184634,-0.0648177616582559,-0.0486091656140467,-0.00763187164905072,-0.0377255550493314,-0.0463736821296866,-0.0326949445038706,0.000297829116424302,0.0221694160105348,0.00152894035702466,-0.0877899228736545,-0.0047565489801993,-0.086964393762671,-0.0292538212479339,0.0435881431101531,-0.0261803829251942,-0.0083626097042443,0.0090599096309268,-0.172509738010664,-0.000936047365507485,-0.0511149808682651,-0.0790422624540464,-0.090977794890541,0.0797147604134005,-0.0927703656407953,0.026082677790773,0.0499812086904957,-0.0449212121834558,-0.0600060231175837,-0.00680738237432158,-0.0393915583367505,-0.0993434304261011,0.032064329333635,0.00830204472100472,-0.0374062134584614,-0.0108794241866734,0.0054562305936324,0.0948154585341153,-0.104769657160997,0.0356739294034779,-0.0870435242604985,-0.186823033930705,-0.0549734454859338,-0.044659503197584,0.122885879018754,-0.0203718848579237,0.0179585010301757,0.0324127213773062,0.00667994789017418,-0.0332988135744,-0.0326841150682157,-0.0712301455002785,-0.0940764421727589,-0.00425355345009886,-0.00904063209208434,-0.0391590094652397],[36,35,145,41,18,29,86,58,5,7,45,32,57,33,8,9,46,11,7,46,97,3,5,35,36,55,6,20,48,1,2,203,5,6,152,2,64,75,76,3,15,11,96,18,82,23,36,19,113,2,9,18,101,74,25,2,5,63,125,5,44,20,2,23,49,19,94,111,31,133,6,133,4,55,15,2,25,49,1,22,9,10,54,32,20,34,13,15,17,1,11,91,21,40,4,102,103,3,0,4,117,8,106,35,4,3,60,44,11,9,9,46,12,152,127,19,22,5,46,17,9,0,0,39,11,4,0,38],[79,71,220,104,58,76,151,102,18,26,75,64,112,99,18,19,89,24,35,115,155,18,16,63,76,97,14,66,88,2,13,277,14,18,213,3,117,123,124,12,45,41,168,48,148,46,57,44,173,3,32,37,185,141,62,17,16,109,190,13,89,43,4,58,90,43,168,167,57,213,15,213,11,82,35,5,56,80,15,56,24,39,100,61,52,81,42,72,47,16,35,163,55,81,14,177,155,9,11,14,163,29,181,65,21,6,103,82,30,36,35,92,52,203,185,40,46,11,92,42,36,0,1,81,28,12,3,92],[139,170,363,228,126,186,274,218,52,98,196,154,199,226,90,73,165,69,80,214,276,66,45,170,174,193,48,170,202,23,47,406,54,65,335,32,249,263,244,36,124,119,318,135,248,131,152,99,315,17,77,90,368,249,138,75,49,202,367,66,214,103,26,134,180,97,294,311,153,330,66,312,78,187,109,28,130,188,43,143,80,129,210,141,150,188,128,181,144,70,99,260,146,182,56,317,285,34,45,49,288,66,309,146,63,40,210,177,89,96,93,164,154,332,343,100,108,48,163,109,85,24,16,160,114,52,26,221],[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,6,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0],[2,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,3,1,0,1,1,0,1,3,2,2,1,3,0,0,0,1,9,1,1,0,1,1,0,1,1,0,1,0,2,0,3,2,0,0,1,0,1,0,1,6,1,1,2,1,1,0,0,1,0,1,0,0,1,1,0,2,1,2,1,5,0,0,0,0,0,0,6,0,1,0,1,1,3,2,0,1,0,0,1,1,3,1,0,0,0,0,2,1,0,0,0,0,0,0,2,0,0,4,1,0,0,1,0,0,3,0,1],[23,14,6,14,15,8,3,9,15,4,3,8,7,11,10,12,7,8,2,5,5,31,14,6,5,13,3,12,15,11,16,3,6,9,8,1,18,15,5,10,24,8,9,3,3,4,5,14,3,13,16,14,20,14,4,12,6,3,8,7,19,15,4,17,13,14,13,14,23,4,10,9,12,18,8,4,12,11,13,3,11,3,8,7,8,8,5,34,6,3,2,3,13,23,17,3,1,7,10,7,12,12,7,5,12,9,9,5,9,17,6,10,17,2,6,16,6,11,10,5,5,10,15,3,17,14,16,10]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>cor<\/th>\n      <th>num_s_p&lt;1e-4<\/th>\n      <th>num_s_p&lt;1e-3<\/th>\n      <th>num_s_p&lt;1e-2<\/th>\n      <th>num_d_p&lt;1e-4<\/th>\n      <th>num_d_p&lt;1e-3<\/th>\n      <th>num_d_p&lt;1e-2<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li>Blup model</li>
+</ul>
+<div id="htmlwidget-5ba5287ce9a3b08bdb5d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5ba5287ce9a3b08bdb5d">{"x":{"filter":"none","data":[["lv1","lv2","lv3","lv4","lv5","lv6","lv7","lv8","lv9","lv10","lv11","lv12","lv13","lv14","lv15","lv16","lv17","lv18","lv19","lv20","lv21","lv22","lv23","lv24","lv25","lv26","lv27","lv28","lv29","lv30","lv31","lv32","lv33","lv34","lv35","lv36","lv37","lv38","lv39","lv40","lv41","lv42","lv43","lv44","lv45","lv46","lv47","lv48","lv49","lv50","lv51","lv52","lv53","lv54","lv55","lv56","lv57","lv58","lv59","lv60","lv61","lv62","lv63","lv64","lv65","lv66","lv67","lv68","lv69","lv70","lv71","lv72","lv73","lv74","lv75","lv76","lv77","lv78","lv79","lv80","lv81","lv82","lv83","lv84","lv85","lv86","lv87","lv88","lv89","lv90","lv91","lv92","lv93","lv94","lv95","lv96","lv97","lv98","lv99","lv100","lv101","lv102","lv103","lv104","lv105","lv106","lv107","lv108","lv109","lv110","lv111","lv112","lv113","lv114","lv115","lv116","lv117","lv118","lv119","lv120","lv121","lv122","lv123","lv124","lv125","lv126","lv127","lv128"],[0.0643254227639067,0.0324275203633168,0.00871574869231581,0.0810026249192589,0.0465508130697502,0.167041302783918,-0.0371352444025141,-0.08883249481941,-0.0338385482707367,-0.0616633369673192,-0.0426386503683607,0.136453512304323,-0.0824001252000622,-0.115707144054955,0.0601583552521456,0.0983044693300285,-0.081730316046661,0.0251453888441185,-0.042538823387986,0.0721134879152114,-0.0640731824581375,-0.0140270104156829,-0.0531371709507601,0.0363443902309434,0.0490683323262333,0.113091687564066,-0.0485176519956458,-0.0488170039042186,-0.0439729157843496,-0.0115514283081569,-0.0684502787877474,-0.173934839589924,0.0354272350982115,-0.0571323784159943,-0.0888720031780208,0.058710515784281,-0.0234440831534697,0.0292857011471927,0.0168698484386153,-0.0501214880214636,-0.11393644948195,-0.0438371632623942,0.0091322717230277,-0.0570905127394441,-0.0101614154773203,0.0469501453634288,0.0882367403071008,0.144310180204478,-0.0216735143158281,0.0698108038169298,-0.0877801749470328,0.14627007511658,-0.150241257063638,0.165073058381659,-0.0602056246187289,0.0701059543302393,0.00256308190335859,0.0099698770065882,-0.0692134115298654,0.00629801992148484,0.115715779076327,0.134083061646262,0.00312640584261038,-0.0995619916738772,0.0591187387272729,0.147996355714265,0.0380298275816395,-0.199881572349229,0.126731317540639,-0.0828234211765354,-0.112051057426446,0.0741574462838436,-0.0116473618642619,-0.0407339286213374,-0.0137957886285479,0.112491096892434,0.0661205768657753,0.00395056413883476,0.016005918814399,-3.15326174318168e-05,0.023551729870925,-0.0546032556670867,0.0111987943580831,0.0298427452711105,-0.00941756878514316,-0.025627659590444,-0.0509858548040452,0.121959435392533,-0.00307159191348776,-0.0311819686054027,-0.0623357607649518,-0.0500068590769035,-0.199722851102646,-0.045215010886537,-0.131159318620588,0.0279942907605177,-0.138438413750151,-0.0592571341358455,-0.106466775148828,-0.0262667137403686,0.0917018408447709,0.0732333931490889,-0.01530706155874,-0.112464571484972,0.030401619408356,-0.0145278546978787,0.029309769478547,-0.0182559075696501,0.0525370775002248,0.0477359960435761,-0.00526501247567455,0.0436104691602269,-0.0317502520626976,-0.119099699671791,-0.0413684580911752,0.0898831420580366,0.0435997548313492,0.0449377480530109,0.0472749330518767,0.0202381674425769,-0.0980569595991288,-0.00676399514710919,-0.0612147300918077,0.0215800496574849,-0.0358553552498394,0.0290219083305988,-0.0990480259040046,-0.0400430881249877],[8,26,92,19,10,20,48,35,9,4,25,11,53,12,2,8,15,10,5,27,66,5,2,4,16,44,4,8,14,3,2,135,3,1,67,1,58,59,37,2,12,8,59,16,31,10,13,7,67,0,8,5,92,47,14,2,1,31,64,5,42,9,1,21,39,7,34,53,19,70,4,47,6,27,11,0,5,18,0,16,7,10,35,16,6,24,10,1,5,2,5,56,5,26,2,64,67,1,0,4,30,4,45,18,0,0,53,27,4,12,1,21,4,65,60,10,18,3,59,3,7,0,0,31,3,0,0,31],[20,56,148,46,33,53,91,77,19,13,56,39,97,53,12,13,35,34,25,57,114,13,10,40,40,76,8,28,42,5,8,178,6,9,102,6,91,130,77,4,37,31,97,31,85,15,40,30,111,1,24,28,147,68,50,9,5,62,113,13,82,29,2,32,65,28,68,102,55,122,9,107,16,54,30,0,16,45,9,46,15,31,68,27,17,48,24,20,27,10,17,93,22,48,5,105,135,2,1,15,68,19,83,39,11,2,83,58,12,27,10,47,31,108,96,32,36,13,93,15,29,0,0,77,17,6,0,60],[52,111,237,108,78,120,181,164,38,58,121,107,172,166,41,63,109,82,77,122,216,28,32,131,92,139,38,85,104,14,43,285,29,49,199,20,157,238,149,15,92,91,186,88,201,47,99,81,218,9,59,66,241,144,107,48,47,117,218,62,145,85,13,96,144,78,148,166,134,254,45,194,49,129,80,23,62,116,32,113,51,121,155,59,85,126,78,107,79,41,76,182,67,107,31,196,243,24,31,33,143,72,180,118,50,22,145,123,46,67,42,104,75,183,185,85,89,39,153,105,65,5,1,128,74,20,8,149],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],[3,5,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,0,1,4,0,0,0,1,0,0,1,0,7,0,0,1,2,0,0,0,0,0,0,0,6,0,0,0,0,1,1,2,0,0,0,0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,3,0,3,0,0,0,0,1,2,0,0,0,0,7,4,0,1,0,0,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,1,0,1,0,1,0],[15,23,2,8,6,12,0,5,6,1,2,4,2,1,6,7,3,7,0,7,2,15,4,12,1,8,0,5,22,8,9,1,20,13,2,3,9,10,2,6,7,6,3,2,1,1,2,1,1,17,4,1,3,10,9,10,8,1,2,0,15,1,3,7,7,1,3,26,13,1,2,4,2,10,11,5,4,14,28,4,8,2,14,5,0,1,3,6,15,2,3,1,3,26,25,3,4,4,7,6,6,6,3,1,3,2,4,4,9,25,3,2,17,2,3,1,1,5,3,1,4,6,6,0,13,1,18,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>cor<\/th>\n      <th>num_s_p&lt;1e-4<\/th>\n      <th>num_s_p&lt;1e-3<\/th>\n      <th>num_s_p&lt;1e-2<\/th>\n      <th>num_d_p&lt;1e-4<\/th>\n      <th>num_d_p&lt;1e-3<\/th>\n      <th>num_d_p&lt;1e-2<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.4.6    knitr_1.28      whisker_0.3-2   magrittr_1.5   
+ [5] xtable_1.8-4    R6_2.4.1        stringr_1.4.0   highr_0.8      
+ [9] tools_3.6.1     DT_0.13         xfun_0.14       git2r_0.26.1   
+[13] htmltools_0.3.6 crosstalk_1.0.0 yaml_2.2.1      digest_0.6.25  
+[17] rprojroot_1.3-2 shiny_1.3.2     later_0.8.0     htmlwidgets_1.3
+[21] promises_1.0.1  fs_1.3.1        mime_0.9        glue_1.4.1     
+[25] evaluate_0.14   rmarkdown_1.13  stringi_1.4.6   compiler_3.6.1 
+[29] backports_1.1.7 jsonlite_1.6.1  httpuv_1.5.1   </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
