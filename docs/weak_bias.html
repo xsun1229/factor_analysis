@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree13461a4f5c4f1f6a104139b9d0fbe2e63fd6f22dtargetblank13461a4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/13461a4f5c4f1f6a104139b9d0fbe2e63fd6f22d" target="_blank">13461a4</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree61c55810cca22a262bc766e76c3c1d2f4561028atargetblank61c5581a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/61c55810cca22a262bc766e76c3c1d2f4561028a" target="_blank">61c5581</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree13461a4f5c4f1f6a104139b9d0fbe2e63fd6f22dtargetblank13461a4a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree61c55810cca22a262bc766e76c3c1d2f4561028atargetblank61c5581a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/13461a4f5c4f1f6a104139b9d0fbe2e63fd6f22d" target="_blank">13461a4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/61c55810cca22a262bc766e76c3c1d2f4561028a" target="_blank">61c5581</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -534,6 +534,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/61c55810cca22a262bc766e76c3c1d2f4561028a/analysis/weak_bias.Rmd" target="_blank">61c5581</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-08-17
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/32c4974748b29b60f5fd231f90a2dc26de784012/docs/weak_bias.html" target="_blank">32c4974</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-08-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -664,7 +698,7 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/weak_bias.Rmd”,
 <h2>Results</h2>
 <div id="gwas-results" class="section level3">
 <h3>GWAS results</h3>
-<p>I did GWAS analysis for all 128 LVs, but I just list the results for the LVs have low pval_test here (LV90,50,125).</p>
+<p>I did GWAS analysis for all 128 LVs, but I just list the results for the LVs have low pval_test here (LV90,50,125).I also add negative control here(LV47,81)</p>
 <div id="lv90" class="section level4">
 <h4>LV90</h4>
 <ul>
@@ -726,6 +760,48 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/weak_bias.Rmd”,
 </ul>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_weak.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_weak.jpeg" width="40%">
+</figure>
+</div>
+<div id="lv47" class="section level4">
+<h4>LV47</h4>
+<ul>
+<li>GWAS results (all variants, for comparison)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in strong group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_strong.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_strong.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in weak group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_weak.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_weak.jpeg" width="40%">
+</figure>
+</div>
+<div id="lv81" class="section level4">
+<h4>LV81</h4>
+<ul>
+<li>GWAS results (all variants, for comparison)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in strong group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_strong.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_strong.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in weak group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_weak.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_weak.jpeg" width="40%">
 </figure>
 </div>
 </div>
