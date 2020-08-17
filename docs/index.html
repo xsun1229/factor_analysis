@@ -376,16 +376,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree87573852db134bfe813a9a4cc1e6d6bedb007634targetblank8757385a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/87573852db134bfe813a9a4cc1e6d6bedb007634" target="_blank">8757385</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree2891c67fe3111154df9b6abcf6bccc1f32151e2ctargetblank2891c67a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/2891c67fe3111154df9b6abcf6bccc1f32151e2c" target="_blank">2891c67</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree87573852db134bfe813a9a4cc1e6d6bedb007634targetblank8757385a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree2891c67fe3111154df9b6abcf6bccc1f32151e2ctargetblank2891c67a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/87573852db134bfe813a9a4cc1e6d6bedb007634" target="_blank">8757385</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/2891c67fe3111154df9b6abcf6bccc1f32151e2c" target="_blank">2891c67</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -433,6 +433,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/2891c67fe3111154df9b6abcf6bccc1f32151e2c/analysis/index.Rmd" target="_blank">2891c67</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-08-16
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/83950f0a3b1297820d1bed98ad5169c0f05b95d0/docs/index.html" target="_blank">83950f0</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-08-16
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1020,10 +1054,10 @@ Start workflowr project.
 <h2>PEER</h2>
 <p><a href="https://xsun1229.github.io/factor_analysis/train_peer.html">Results for PEER factors</a></p>
 </div>
-<div id="make-the-prediction-models-better" class="section level2">
-<h2>** Make the prediction models better **</h2>
-<div id="find-functional-snps" class="section level3">
-<h3><strong><em>Find functional SNPs</em></strong></h3>
+<div id="making-the-prediction-models-better" class="section level2">
+<h2><strong>Making the prediction models better</strong></h2>
+<div id="finding-functional-snps" class="section level3">
+<h3><strong><em>Finding functional SNPs</em></strong></h3>
 <p>In step 6, the GWAS power of some factors is low. So I tried to find functional SNPs to increase the GWAS power and reduce the testing burden.</p>
 </div>
 <div id="ld-score-regression" class="section level3">
@@ -1044,8 +1078,8 @@ Start workflowr project.
 <p><a href="https://xsun1229.github.io/factor_analysis/ldsc_peer.html">Results for PEER factors</a></p>
 </div>
 </div>
-<div id="find-functional-cis-genes" class="section level3">
-<h3><strong><em>Find functional cis-genes</em></strong></h3>
+<div id="finding-functional-cis-genes" class="section level3">
+<h3><strong><em>Finding functional cis-genes</em></strong></h3>
 <p>After preliminary <a href="https://xsun1229.github.io/factor_analysis/gwas_power.html">rough calculations</a>, we found that there might be overfitting issue. So we tried one/two sample settings to test and eliminate the overfitting issue.</p>
 <p>The rought process are below, it differs slightly in different settings.</p>
 <ol style="list-style-type: decimal">
@@ -1055,8 +1089,12 @@ Start workflowr project.
 <li><p>Association test: factors ~ cis-genes + 10 genotype pcs. Record the p-values for each gene.</p></li>
 <li><p>Count the number of significant associations at various p-value threshold for each factor.</p></li>
 </ol>
-<p><a href="">One Sample Setting</a> <a href="">Two Sample Setting</a></p>
-<p><a href="https://xsun1229.github.io/factor_analysis/weak_bias.html">Test weak instrument bias</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/cg-onesample.html">One Sample Setting</a> <a href="https://xsun1229.github.io/factor_analysis/cg-twosample.html">Two Sample Setting</a></p>
+</div>
+<div id="dealing-with-weak-iv-bias" class="section level3">
+<h3><strong><em>Dealing with weak IV bias</em></strong></h3>
+<p>Apart from using external weights(<a href="https://xsun1229.github.io/factor_analysis/cg-twosample.html">Two Sample Setting</a>), I tried other methods to eliminate the weak IV bias issue.</p>
+<p><a href="https://xsun1229.github.io/factor_analysis/weak_bias.html">For more details</a></p>
 </div>
 </div>
 </div>
