@@ -32,7 +32,7 @@ We can get more significant associations when trained weights and performed asso
 
 ### GWAS results
 
-I did GWAS analysis for all 128 LVs, but I just list the results for the LVs have low pval_test here (LV90,50,125). 
+I did GWAS analysis for all 128 LVs, but I just list the results for the LVs have low pval_test here (LV90,50,125).I also add negative control here(LV47,81) 
 
 #### LV90 
 
@@ -106,4 +106,53 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_weak.jpeg" width="40%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_weak.jpeg" width="40%">
+</figure>
+
+
+#### LV47 
+
+- GWAS results (all variants, for comparison)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in strong group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_strong.jpeg" width="40%">
+</figure>
+
+
+- GWAS results (variants in weak group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_weak.jpeg" width="40%">
+</figure>
+
+#### LV81 
+
+- GWAS results (all variants, for comparison)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in strong group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_strong.jpeg" width="40%">
+</figure>
+
+
+- GWAS results (variants in weak group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_weak.jpeg" width="40%">
 </figure>
