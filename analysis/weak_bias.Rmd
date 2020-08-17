@@ -20,7 +20,7 @@ We can get more significant associations when trained weights and performed asso
   
   - The cis-snp~gene pair dataset contains 149,431,316 pairs which include 9,756,636 variants.
   
-  - Strong cis-snps: I computed the FDR from p-values for each pairs in cis-snp~gene pair dataset. Then selected those pairs with FDR<0.1. These pairs contains 641,652 variants. I names these 641,652 variants as strong group.
+  - Strong group: I computed the FDR from p-values for each pairs in cis-snp~gene pair dataset. Then selected those pairs with FDR<0.1. These pairs contains 641,652 variants. I named these 641,652 variants as strong group.
   
   - Weak group: 9,761,597 variants in GTEx variants dataset but not in strong cis-snps set are selected as weak group
   
