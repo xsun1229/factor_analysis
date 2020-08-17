@@ -1,7 +1,7 @@
 ---
-title: "weak_bias"
+title: "weak_IV_bias"
 author: "XSun"
-date: "2020-07-31"
+date: "2020-08-16"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
@@ -9,51 +9,101 @@ editor_options:
 
 ## Introduction
 
-In this part, I split the GTEx data into two halves, and use one half to train the expression model, and the other half to assess association with factors.And also assess association with factors in the same half that I train the expression model. After that, I compare the results of two analyses: association test in the same half vs. the different half to find if weak instrument bias is a problem.
+We can get more significant associations when trained weights and performed association test one the same data set. We suspect that besides the over-fitting issuem, there seems to be weak IV bias issue. So we tried to eliminate that. 
 
 
-## Material and Methods
+## Methods
 
-1. Randomly split the samples into 2 halves, name them as part1 and part2.
+1. Finding the strong cis-snps. The cis-snps I used in [One Sample Setting](https://xsun1229.github.io/factor_analysis/cg-onesample.html) are those within 500kb from the TSS of genes, some of them might not be strong instruments of the genes. So I tried to find the strong cis-snps.
 
-2. Use FUSION to train weigths for part1. The cis-snp here are the snps within 500kb from TSS of gene. The models here are LASSO, elastic_net and blup.
-
-3. I used weights from last step and GTEx genotype data to impute the cis-gene expression. Do this on the two part seperately. 
-
-4.Then, used these imputed expression to do the factors ~ cis genetic component part of gene expression + 10 genotype pcs(covariants) association test for both two parts.
-
-5.Compare the results. I got a series of pvalues from the association test for each part: pval_s, pval_d. I computed the pearson correlation for pval_s and pval_d to find if they were correlated with each other. I also counted the number of significant associations at various p-value threshold for each LV.
-
-
+  - The GTEx V8 variants dataset contains 10,403,249 variants.
+  
+  - The cis-snp~gene pair dataset contains 149,431,316 pairs which include 9,756,636 variants.
+  
+  - Strong cis-snps: I computed the FDR from p-values for each pairs in cis-snp~gene pair dataset. Then selected those pairs with FDR<0.1. These pairs contains 641,652 variants. I names these 641,652 variants as strong group.
+  
+  - Weak group: 9,761,597 variants in GTEx variants dataset but not in strong cis-snps set are selected as weak group
+  
+  - GWAS: I did association tests for these two group with PLIER-Canonical LVs. The tests are adjusted for 10 genotype PCs.
+  
+  
+  
 ## Results
 
-### Overview
+### GWAS results
 
-1. 17,175 of 19,696 genes have cis-snps.
+I did GWAS analysis for all 128 LVs, but I just list the results for the LVs have low pval_test here (LV90,50,125). 
 
-2. I got 1468 weights from lasso model, 1428 from elastic-net model, 854 weights from blup models.
+#### LV90 
 
-### Summary 
+- GWAS results (all variants, for comparison)
 
-The table below shows the number of significant associations at various p-value threshold for each LV. The first column is the pearson corralation index. The suffix '_s' means impute gene expression using the same part samples and the suffix '_d' means impute gene expression using different part samples. 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90.jpeg" width="40%">
+</figure>
 
-- Lasso model
+- GWAS results (variants in strong group) 
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/compare_sum_lasso.rdata")
-DT::datatable(summary, options = list(pageLength =10))
-```
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_strong.jpeg" width="40%">
+</figure>
 
-- Elastic-net model 
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/compare_sum_enet.rdata")
-DT::datatable(summary, options = list(pageLength =10))
-```
+- GWAS results (variants in weak group) 
 
-- Blup model 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_weak.jpeg" width="40%">
+</figure>
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/compare_sum_blup.rdata")
-DT::datatable(summary, options = list(pageLength =10))
-```
+
+#### LV50 
+
+- GWAS results (all variants, for comparison)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in strong group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_strong.jpeg" width="40%">
+</figure>
+
+
+- GWAS results (variants in weak group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_weak.jpeg" width="40%">
+</figure>
+
+
+#### LV125 
+
+- GWAS results (all variants, for comparison)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in strong group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_strong.jpeg" width="40%">
+</figure>
+
+
+- GWAS results (variants in weak group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_weak.jpeg" width="40%">
+</figure>
