@@ -109,7 +109,7 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
 </figure>
 
 
-#### LV47 
+#### LV47-negative control
 
 - GWAS results (all variants, for comparison)
 
@@ -133,7 +133,7 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_weak.jpeg" width="40%">
 </figure>
 
-#### LV81 
+#### LV81-negative control
 
 - GWAS results (all variants, for comparison)
 
