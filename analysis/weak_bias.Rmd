@@ -16,16 +16,11 @@ We can get more significant associations when trained weights and performed asso
 
 1. Finding the strong cis-snps. The cis-snps I used in [One Sample Setting](https://xsun1229.github.io/factor_analysis/cg-onesample.html) are those within 500kb from the TSS of genes, some of them might not be strong instruments of the genes. So I tried to find the strong cis-snps.
 
-  - The GTEx V8 variants dataset contains 10,403,249 variants.
+  - The GTEx V8 eQTL dataset contains 2,414,654 significant eQTL-gene pairs (FDR < 0.05). 1,277,339 eQTLs are included in this dataset. 
   
-  - The cis-snp~gene pair dataset contains 149,431,316 pairs which include 9,756,636 variants.
-  
-  - Strong group: I computed the FDR from p-values for each pairs in cis-snp~gene pair dataset. Then selected those pairs with FDR<0.1. These pairs contains 641,652 variants. I named these 641,652 variants as strong group.
-  
-  - Weak group: 9,761,597 variants in GTEx variants dataset but not in strong cis-snps set are selected as weak group
-  
-  - GWAS: I did association tests for these two group with PLIER-Canonical LVs. The tests are adjusted for 10 genotype PCs.
-  
+  -  Among these cis-eQTLs: I divided them into several groups: top 5%, 5-25%, 25-50% and 50-100%
+
+  - GWAS: I did association tests for these groups with PLIER-Canonical LVs. The tests are adjusted for 10 genotype PCs.
   
   
 ## Results
@@ -43,21 +38,34 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90.jpeg" width="40%">
 </figure>
 
-- GWAS results (variants in strong group) 
+- GWAS results (variants in top5% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_strong.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_005.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_005.jpeg" width="40%">
 </figure>
 
 
-- GWAS results (variants in weak group) 
+- GWAS results (variants in 5-25% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_weak.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_025.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_025.jpeg" width="40%">
 </figure>
 
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_050.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_050.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_100.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_100.jpeg" width="40%">
+</figure>
 
 #### LV50 
 
@@ -68,19 +76,33 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50.jpeg" width="40%">
 </figure>
 
-- GWAS results (variants in strong group) 
+- GWAS results (variants in top5% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_strong.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_005.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_005.jpeg" width="40%">
 </figure>
 
 
-- GWAS results (variants in weak group) 
+- GWAS results (variants in 5-25% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_weak.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_025.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_025.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_050.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_050.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_100.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_100.jpeg" width="40%">
 </figure>
 
 
@@ -93,23 +115,38 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125.jpeg" width="40%">
 </figure>
 
-- GWAS results (variants in strong group) 
+- GWAS results (variants in top5% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_strong.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_005.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_005.jpeg" width="40%">
 </figure>
 
 
-- GWAS results (variants in weak group) 
+- GWAS results (variants in 5-25% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_weak.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_025.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_025.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_050.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_050.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_100.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_100.jpeg" width="40%">
 </figure>
 
 
-#### LV47-negative control
+
+#### LV47 
 
 - GWAS results (all variants, for comparison)
 
@@ -118,22 +155,38 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47.jpeg" width="40%">
 </figure>
 
-- GWAS results (variants in strong group) 
+- GWAS results (variants in top5% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_strong.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_005.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_005.jpeg" width="40%">
 </figure>
 
 
-- GWAS results (variants in weak group) 
+- GWAS results (variants in 5-25% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_weak.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_025.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_025.jpeg" width="40%">
 </figure>
 
-#### LV81-negative control
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_050.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_050.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_100.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_100.jpeg" width="40%">
+</figure>
+
+
+
+#### LV81 
 
 - GWAS results (all variants, for comparison)
 
@@ -142,17 +195,31 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81.jpeg" width="40%">
 </figure>
 
-- GWAS results (variants in strong group) 
+- GWAS results (variants in top5% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_strong.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_strong.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_005.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_005.jpeg" width="40%">
 </figure>
 
 
-- GWAS results (variants in weak group) 
+- GWAS results (variants in 5-25% group) 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_weak.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_weak.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_025.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_025.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_050.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_050.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_100.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_100.jpeg" width="40%">
 </figure>
