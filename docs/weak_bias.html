@@ -446,7 +446,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-08-19
+<strong>Last updated:</strong> 2020-08-22
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree44a3719a5f5e430f1162752730472fb885ade658targetblank44a3719a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/44a3719a5f5e430f1162752730472fb885ade658" target="_blank">44a3719</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree95b1b6cae014f1140fcee0d8d050c4e7d0c1fb7atargetblank95b1b6ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/95b1b6cae014f1140fcee0d8d050c4e7d0c1fb7a" target="_blank">95b1b6c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree44a3719a5f5e430f1162752730472fb885ade658targetblank44a3719a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree95b1b6cae014f1140fcee0d8d050c4e7d0c1fb7atargetblank95b1b6ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/44a3719a5f5e430f1162752730472fb885ade658" target="_blank">44a3719</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/95b1b6cae014f1140fcee0d8d050c4e7d0c1fb7a" target="_blank">95b1b6c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -534,6 +534,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/95b1b6cae014f1140fcee0d8d050c4e7d0c1fb7a/analysis/weak_bias.Rmd" target="_blank">95b1b6c</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-08-22
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/3868f9920d8bc13157d7833b62bd73aca40c7be0/docs/weak_bias.html" target="_blank">3868f99</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-08-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -827,11 +861,19 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/weak_bias.Rmd”,
 <li><p>Among these cis-eQTLs: I divided them into several groups: top 5%, 5-25%, 25-50% and 50-100%</p></li>
 <li><p>GWAS: I did association tests for these groups with PLIER-Canonical LVs. The tests are adjusted for 10 genotype PCs.</p></li>
 </ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Another cis-snp data set.</li>
+</ol>
+<ul>
+<li><p>Use only one eQTL per gene (the eQTL with lowest p_nominal):12041 eQTLs are selected.</p></li>
+<li><p>Among these cis-eQTLs: I divided them into several groups: top 5%, 5-25%, 25-50% and 50-100%</p></li>
+<li><p>GWAS: I did association tests for these groups with PLIER-Canonical LVs. The tests are adjusted for 10 genotype PCs.</p></li>
+</ul>
 </div>
 <div id="results" class="section level2">
 <h2>Results</h2>
-<div id="gwas-results" class="section level3">
-<h3>GWAS results</h3>
+<div id="gwas-resultsall-cis-eqtls-from-gtex-v8." class="section level3">
+<h3>GWAS results–all cis-eQTLs from GTEx v8.</h3>
 <p>I did GWAS analysis for all 128 LVs, but I just list the results for the LVs have low pval_test here (LV90,50,125).I also add negative control here(LV47,81)</p>
 <div id="lv90" class="section level4">
 <h4>LV90</h4>
@@ -996,6 +1038,175 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/weak_bias.Rmd”,
 </ul>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_100.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_100.jpeg" width="40%">
+</figure>
+</div>
+</div>
+<div id="gwas-results-top-cis-eqtls-per-gene." class="section level3">
+<h3>GWAS results– Top cis-eQTLs per gene.</h3>
+<p>I did GWAS analysis for all 128 LVs, but I just list the results for the LVs have low pval_test here (LV90,50,125).I also add negative control here(LV47,81)</p>
+<div id="lv90-1" class="section level4">
+<h4>LV90</h4>
+<ul>
+<li>GWAS results (all variants, for comparison)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in top5% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_005_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_005_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 5-25% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_025_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_025_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 25-50% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_050_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_050_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 50-100% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_100_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_100_top.jpeg" width="40%">
+</figure>
+</div>
+<div id="lv50-1" class="section level4">
+<h4>LV50</h4>
+<ul>
+<li>GWAS results (all variants, for comparison)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in top5% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_005_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_005_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 5-25% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_025_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_025_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 25-50% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_050_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_050_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 50-100% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_100_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_100_top.jpeg" width="40%">
+</figure>
+</div>
+<div id="lv125-1" class="section level4">
+<h4>LV125</h4>
+<ul>
+<li>GWAS results (all variants, for comparison)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in top5% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_005_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_005_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 5-25% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_025_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_025_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 25-50% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_050_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_050_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 50-100% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_100_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_100_top.jpeg" width="40%">
+</figure>
+</div>
+<div id="lv47-1" class="section level4">
+<h4>LV47</h4>
+<ul>
+<li>GWAS results (all variants, for comparison)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in top5% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_005_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_005_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 5-25% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_025_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_025_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 25-50% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_050_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_050_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 50-100% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_100_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_100_top.jpeg" width="40%">
+</figure>
+</div>
+<div id="lv81-1" class="section level4">
+<h4>LV81</h4>
+<ul>
+<li>GWAS results (all variants, for comparison)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in top5% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_005_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_005_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 5-25% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_025_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_025_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 25-50% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_050_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_050_top.jpeg" width="40%">
+</figure>
+<ul>
+<li>GWAS results (variants in 50-100% group)</li>
+</ul>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_100_top.jpeg" width="40%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_100_top.jpeg" width="40%">
 </figure>
 </div>
 </div>
