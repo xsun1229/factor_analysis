@@ -281,8 +281,8 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
 - GWAS results (all variants, for comparison)
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_top.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50.jpeg" width="40%">
 </figure>
 
 - GWAS results (variants in top5% group) 
@@ -320,8 +320,8 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
 - GWAS results (all variants, for comparison)
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_top.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125.jpeg" width="40%">
 </figure>
 
 - GWAS results (variants in top5% group) 
@@ -360,8 +360,8 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
 - GWAS results (all variants, for comparison)
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_top.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47.jpeg" width="40%">
 </figure>
 
 - GWAS results (variants in top5% group) 
@@ -400,8 +400,8 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
 - GWAS results (all variants, for comparison)
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_top.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81.jpeg" width="40%">
 </figure>
 
 - GWAS results (variants in top5% group) 
