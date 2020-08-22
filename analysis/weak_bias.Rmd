@@ -22,10 +22,18 @@ We can get more significant associations when trained weights and performed asso
 
   - GWAS: I did association tests for these groups with PLIER-Canonical LVs. The tests are adjusted for 10 genotype PCs.
   
+
+2. Another cis-snp data set.
+
+  -  Use only one eQTL per gene (the eQTL with lowest p_nominal):12041 eQTLs are selected.
+  
+  -  Among these cis-eQTLs: I divided them into several groups: top 5%, 5-25%, 25-50% and 50-100%
+
+  - GWAS: I did association tests for these groups with PLIER-Canonical LVs. The tests are adjusted for 10 genotype PCs.
   
 ## Results
 
-### GWAS results
+### GWAS results--all cis-eQTLs from GTEx v8.
 
 I did GWAS analysis for all 128 LVs, but I just list the results for the LVs have low pval_test here (LV90,50,125).I also add negative control here(LV47,81) 
 
@@ -222,4 +230,205 @@ I did GWAS analysis for all 128 LVs, but I just list the results for the LVs hav
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_100.jpeg" width="40%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_100.jpeg" width="40%">
+</figure>
+
+
+
+### GWAS results-- Top cis-eQTLs per gene.
+
+I did GWAS analysis for all 128 LVs, but I just list the results for the LVs have low pval_test here (LV90,50,125).I also add negative control here(LV47,81) 
+
+#### LV90 
+
+- GWAS results (all variants, for comparison)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in top5% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_005_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_005_top.jpeg" width="40%">
+</figure>
+
+
+- GWAS results (variants in 5-25% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_025_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_025_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_050_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_050_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_100_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_100_top.jpeg" width="40%">
+</figure>
+
+#### LV50 
+
+- GWAS results (all variants, for comparison)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in top5% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_005_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_005_top.jpeg" width="40%">
+</figure>
+
+
+- GWAS results (variants in 5-25% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_025_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_025_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_050_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_050_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_100_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_100_top.jpeg" width="40%">
+</figure>
+
+
+#### LV125 
+
+- GWAS results (all variants, for comparison)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in top5% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_005_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_005_top.jpeg" width="40%">
+</figure>
+
+
+- GWAS results (variants in 5-25% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_025_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_025_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_050_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_050_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_100_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_100_top.jpeg" width="40%">
+</figure>
+
+
+
+#### LV47 
+
+- GWAS results (all variants, for comparison)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in top5% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_005_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_005_top.jpeg" width="40%">
+</figure>
+
+
+- GWAS results (variants in 5-25% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_025_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_025_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_050_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_050_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_100_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv47_100_top.jpeg" width="40%">
+</figure>
+
+
+
+#### LV81 
+
+- GWAS results (all variants, for comparison)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in top5% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_005_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_005_top.jpeg" width="40%">
+</figure>
+
+
+- GWAS results (variants in 5-25% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_025_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_025_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 25-50% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_050_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_050_top.jpeg" width="40%">
+</figure>
+
+- GWAS results (variants in 50-100% group) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv81_100_top.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv81_100_top.jpeg" width="40%">
 </figure>
