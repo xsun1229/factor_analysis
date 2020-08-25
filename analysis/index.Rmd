@@ -69,40 +69,51 @@ When computing heritability, I used GTEx genotype data(the variants with maf >0.
 
 # **Prediction models for factors**
 
-In this part, I tried to train prediction models for factors ~ genotype using Lasso and Elastic-net. I used whole blood genotype data from GTEx including 670 samples. In genptype data, there are 10,403,249 variants in total (variants in chrX have been excluded). The workflow are listed below.
+In this part, I tried to train prediction models for factors ~ genotype using Lasso and Elastic-net. I used 670 samples from GTEx. I used two groups of variants to train models. The first group contains all variants provided by GTEx with maf > 0.01(10,403,249 variants) and maf > 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR > 0.05).
 
-1. There are some missing values in our dataset. I used mean imputation (substitue the missing values with mean value of the corresponding variants) to impute the missing value. 
+The workflow: 
+
+1. I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set. 
+
+2. In the training data, performed association test between the factors and all SNPs using Plink. I corrected the results for genotype PCs (We used Plink to compute 10 PCs and used them as corvariates in association test).
+
+3. From 3, we selected all SNPs with p < 1e-02 as candidate variants.
+
+4. Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.
+
+5. For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx samples(670 samples). In the association tests, first 10 genotype pcs were included as covariants.
+
+## **Training models with all variants**
+
+There are some missing values in our dataset. I used mean imputation (substitue the missing values with mean value of the corresponding variants) to impute the missing value. 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ms_snp.jpeg" width="50%">
 </figure>
 The missing data pattern of our dataset. x-axis represents the proportion of missing value for each variant. y-axis represents the number of the variants.
 
-2. I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set. 
 
-3. In the training data, performed association test between the factors and all SNPs using Plink. I corrected the results for genotype PCs (We used Plink to compute 10 PCs and used them as corvariates in association test).
-
-4. From 3, we selected all SNPs with p < 1e-02 as candidate variants.
-
-5. Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.
-
-6. For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx samples(670 samples). In the association tests, first 10 genotype pcs were included as covariants.
-
-
-
-## PLIER
+### PLIER
 
   [Results for plier-canonicalPathways factors](https://xsun1229.github.io/factor_analysis/train_plier_canon.html)
     
   [Results for plier-allpathway factors](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html)
 
-## FLASH
+### FLASH
 
   [Results for FLASH factors](https://xsun1229.github.io/factor_analysis/train_flash.html)
 
-## PEER
+### PEER
 
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/train_peer.html)
+
+
+## **Training models with cis-eQTLs**
+
+### PLIER
+
+  [Results for plier-canonicalPathways factors](https://xsun1229.github.io/factor_analysis/train_plier_canon_ciseqtl.html)
+
 
 
 ## **Making the prediction models better**
