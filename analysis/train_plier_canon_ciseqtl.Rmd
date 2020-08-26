@@ -75,7 +75,6 @@ The red line in manhattan plot means p-value is 5e-8.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_cispliercanon_maf001.jpeg.jpeg" width="40%">
 </figure>
 
-
   
 
 #### lv13
