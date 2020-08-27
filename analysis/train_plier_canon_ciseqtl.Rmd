@@ -99,3 +99,22 @@ The red line in manhattan plot means p-value is 5e-8.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv68_cispliercanon_maf001.jpeg" width="40%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv68_cispliercanon_maf001.jpeg" width="40%">
 </figure>
+
+
+### ldsc results of LV90
+
+I also used S-LDSC to find functional SNPs, but the results were not good. So, I just post the results of LV90 here. 
+
+
+
+### LV90
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plier_canon_lv90_base_ciseqtls.jpeg" width="600%">
+</figure>
+
+```{r echo=FALSE}
+aa <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/plier_canon_lv90_base_ciseqtls.results", header = T)
+DT::datatable(aa, options = list(pageLength =10))
+```
+

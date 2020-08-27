@@ -161,11 +161,14 @@ The ldsc material and methods of my project can be found [here](https://xsun1229
 4. Count the number of significant associations at various p-value threshold for each factor.
   
   [One Sample Setting](https://xsun1229.github.io/factor_analysis/cg-onesample.html)
+  
   [Two Sample Setting](https://xsun1229.github.io/factor_analysis/cg-twosample.html)
+  
+  [One Sample Setting- only cis-eQTLs](https://xsun1229.github.io/factor_analysis/cg-onesample-ciseqtls.html)
   
 ### ***Dealing with weak IV bias***
 
-  Apart from using external weights([Two Sample Setting](https://xsun1229.github.io/factor_analysis/cg-twosample.html)), I tried other methods to eliminate the weak IV bias issue. 
+  Apart from using external weights([Two Sample Setting](https://xsun1229.github.io/factor_analysis/cg-twosample.html)), I tried other methods to eliminate the weak IV bias issue (divide the cis-eQTLS into different groups according to the p-values). 
   
   [For more details](https://xsun1229.github.io/factor_analysis/weak_bias.html)
 
