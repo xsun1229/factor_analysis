@@ -1,0 +1,76 @@
+---
+title: "catalog_gwas_pliercanon"
+author: "XSun"
+date: "2020-09-18"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the [Catalog of Published GWAS](https://www.ebi.ac.uk/gwas/). I selected the SNPs with fdr < 0.05. Then, I did GWAS analysis for the plier_canonical factors with the SNPs.
+
+## Material and Methods
+
+1. I used the GWAS results of 8 immune traits: platelet count, white blood cell count, myeloid white cell count, lymphocyte counts, red blood cell count, granulocyte count, eosinophil count, neutrophil count. These data are from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042*
+
+2. Computed the fdr of each SNP according to their p-values from GWAS data. Chose those SNPs with fdr < 0.05.
+
+3. Did GWAS analysis for plier_canonical factors and SNPs from 2. The association tests were corrected by 10 genotype PCs of these SNPs. 
+
+
+## Results 
+
+### Overview
+
+The GWAS data contain over 29,000,000 variants. For each GWAS data set, 33,000 ~68,000 variants were selected after fdr threshold applied. 118,428 vatirants were non-repeating. 98,535 of 118,428 can be found in GTEx data set.
+
+### GWAS results-plots
+
+In step 3, I did GWAS analysis for all 128 factors. Here I just post the qqplots and manhattan plots of the 'significant' LVs(LV90,50,125,68, same with the low pval_test LVs in [train_plier_canon](https://xsun1229.github.io/factor_analysis/train_plier_canon.html#lvs_with_relatively_low_pval_test_l))
+
+#### LV90
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_pliercanon_catagwas.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv90_pliercanon_catagwas.jpeg" width="80%">
+</figure>
+
+#### LV50
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv50_pliercanon_catagwas.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv50_pliercanon_catagwas.jpeg" width="80%">
+</figure>
+
+#### LV125
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_pliercanon_catagwas.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv125_pliercanon_catagwas.jpeg" width="80%">
+</figure>
+
+
+#### LV68
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv68_pliercanon_catagwas.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv68_pliercanon_catagwas.jpeg" width="80%">
+</figure>
+
+
+### GWAS results-summary table
+
+I used 'qvalue' R package to compute the fdr from p-values for each gene and made a table to show the number of SNPs that pass the threshold. The threshold of first column is 'fdr < 0.1', the threshold of the second column is 'fdr < 0.2'
+
+```{r eval=FALSE, echo=T}
+library(qvalue) 
+fdr <- lfdr(results_linear$P)
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/fdr_sum_pliercanon.rdata")
+DT::datatable(fdr_sum_1, options = list(pageLength =20))
+```
+

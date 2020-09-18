@@ -142,7 +142,11 @@ The ldsc material and methods of my project can be found [here](https://xsun1229
 
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/ldsc_peer.html)
   
-  
+### Using catalog GWAS data 
+
+To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the [Catalog of Published GWAS](https://www.ebi.ac.uk/gwas/). I selected the SNPs with fdr > 0.01. Then, I did GWAS analysis for the plier_canonical factors with the SNPs.
+
+[For more details](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon.html)
   
 ### ***Finding functional cis-genes***  
   
