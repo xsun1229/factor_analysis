@@ -144,10 +144,15 @@ The ldsc material and methods of my project can be found [here](https://xsun1229
   
 ### Using catalog GWAS data 
 
-To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the [Catalog of Published GWAS](https://www.ebi.ac.uk/gwas/). I selected the SNPs with fdr > 0.01. Then, I did GWAS analysis for the plier_canonical factors with the SNPs.
+To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the [Catalog of Published GWAS](https://www.ebi.ac.uk/gwas/). I selected the SNPs with fdr < 0.05/ fdr < 0.01/ pval < 5e-8. Then, I did GWAS analysis for the plier_canonical factors with the SNPs.
 
-[For more details](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon.html)
-  
+[Threshold: fdr<0.05 & pool all traits together ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon.html)
+
+[Threshold: fdr<0.01/pval<5e-8 & pool all traits together ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_tog.html)
+
+[Threshold: fdr<0.01/pval<5e-8 & consider traits separately ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep.html)
+
+
 ### ***Finding functional cis-genes***  
   
   After preliminary [rough calculations](https://xsun1229.github.io/factor_analysis/gwas_power.html), we found that there might be overfitting issue. So we tried one/two sample settings to test and eliminate the overfitting issue. 

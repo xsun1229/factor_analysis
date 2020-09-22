@@ -1,0 +1,96 @@
+---
+title: "catalog_gwas_pliercanon_sep"
+author: "XSun"
+date: "2020-09-21"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In this part, I considered the traits separately.  I selected the SNPs with fdr < 0.01 and pval < 5e-8 for each traits. Then, I did GWAS analysis for the plier_canonical factors with the SNPs.
+ 
+## Material and Methods
+
+1. I used the GWAS results of 12 immune traits: platelet count, white blood cell count, myeloid white cell count, lymphocyte counts, red blood cell count, granulocyte count, eosinophil count, neutrophil count. These data are from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042* . I also used IBD,Ulcerative colitist,Crohn's disease and asthma collected by our lab.
+
+2. Computed the fdr of each SNP according to their p-values from GWAS data. Chose those SNPs with fdr < 0.01 and pval < 5e-8 separately. 
+
+3. Did GWAS analysis for plier_canonical factors and SNPs from 2. The association tests were corrected by 10 genotype PCs of these SNPs. 
+
+
+## Results - fdr < 0.01
+
+### Overview
+
+platelet count trait contains  25,265  SNPs with fdr<0.01. 
+
+white blood cell count trait contains  15,280  SNPs with fdr<0.01. 
+
+myeloid white cell count trait contains 12,132   SNPs with fdr<0.01. 
+
+lymphocyte count trait contains 19,437  SNPs with fdr<0.01. 
+
+red blood cell count trait contains 19,404 SNPs with fdr<0.01. 
+
+granulocyte count trait contains 22,756 SNPs with fdr<0.01. 
+
+eosinophil count trait contains  20,922 SNPs with fdr<0.01. 
+
+neutrophil count trait contains 23,168  SNPs with fdr<0.01. 
+
+IBD trait contains  9,634  SNPs with fdr<0.01. 
+
+Ulcerative colitist trait contains  4,464  SNPs with fdr<0.01. 
+
+Crohn's disease trait contains  7,316  SNPs with fdr<0.01. 
+
+asthma trait contains 7,446   SNPs with fdr<0.01. 
+
+### Summary table
+
+I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_pliercanon.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+
+## Results - pval < 5e-8
+
+### Overview
+
+platelet count trait contains  26,767  SNPs with pval<5e-8. 
+
+white blood cell count trait contains  16,586  SNPs with pval<5e-8. 
+
+myeloid white cell count trait contains 13,340 SNPs with pval<5e-8. 
+
+lymphocyte count trait contains 21,011  SNPs with pval<5e-8. 
+
+red blood cell count trait contains 20,572 SNPs with pval<5e-8. 
+
+granulocyte count trait contains 12,653 SNPs with pval<5e-8. 
+
+eosinophil count trait contains  22,382 SNPs with pval<5e-8. 
+
+neutrophil count trait contains 13,191  SNPs with pval<5e-8. 
+
+IBD trait contains 6,866 SNPs with pval<5e-8. 
+
+Ulcerative colitist trait contains  2,667  SNPs with pval<5e-8. 
+
+Crohn's disease trait contains  4,998  SNPs with pval<5e-8. 
+
+asthma trait contains 5,032 SNPs with pval<5e-8. 
+
+### Summary table
+
+I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
