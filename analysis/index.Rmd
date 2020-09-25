@@ -152,6 +152,8 @@ To address issues with respect to computational time and multiple testing, I con
 
 [Threshold: fdr<0.01/pval<5e-8 & consider traits separately ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep.html)
 
+[Threshold: fdr<0.01/pval<5e-8 & consider traits separately & perform ld clumping  ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping.html)
+
 
 ### ***Finding functional cis-genes***  
   

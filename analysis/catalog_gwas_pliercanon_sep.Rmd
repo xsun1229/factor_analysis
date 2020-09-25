@@ -53,7 +53,7 @@ asthma trait contains 7,446   SNPs with fdr<0.01.
 I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_pliercanon_wgpc.rdata")
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
@@ -86,11 +86,21 @@ Crohn's disease trait contains  4,998  SNPs with pval<5e-8.
 
 asthma trait contains 5,032 SNPs with pval<5e-8. 
 
-### Summary table
+### Summary table -- compute genotype pcs from current dataset
 
 I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+
+### Summary table -- compute genotype pcs from whole genome
+
+I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc.rdata")
 DT::datatable(summary, options = list(pageLength =20))
 ```

@@ -1,0 +1,109 @@
+---
+title: "catalog_gwas_pliercanon_sep_ldclumping"
+author: "XSun"
+date: "2020-09-24"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In this part, I considered the traits separately. I selected the SNPs with fdr < 0.01 and pval < 5e-8 for each traits. Then, I did LD Clumping for these SNPs to eliminate the LD and select a smaller subset of SNPs. Finally, I did GWAS analysis for the plier_canonical factors with the SNPs.
+
+## Material and Methods
+
+1. I used the GWAS results of 12 immune traits: platelet count, white blood cell count, myeloid white cell count, lymphocyte counts, red blood cell count, granulocyte count, eosinophil count, neutrophil count. These data are from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042* . I also used IBD,Ulcerative colitist,Crohn's disease and asthma collected by our lab.
+
+2. Computed the fdr of each SNP according to their p-values from GWAS data. Chose those SNPs with fdr < 0.01 and pval < 5e-8 separately. 
+
+3. Did LD Clumping for the SNPs in obtained from step 2. I used default settings of PLINK LD clumping: 
+      
+     --clump-p1 0.0001            Significance threshold for index SNPs
+     
+     --clump-p2 0.01              Secondary significance threshold for clumped SNPs
+ 
+     --clump-r2 0.50              LD threshold for clumping
+
+     --clump-kb 250               Physical distance threshold for clumping
+
+For each trait, I got a subset of SNPs that are not in LD with each other.
+
+4. Did GWAS analysis for plier_canonical factors and SNPs from 3. The association tests were corrected by 10 genotype PCs of whole genome.
+
+
+## Results - fdr < 0.01
+
+### Overview
+
+platelet count trait contains  1,956  SNPs with fdr<0.01. 
+
+white blood cell count trait contains 1,057 SNPs with fdr<0.01. 
+
+myeloid white cell count trait contains 894 SNPs with fdr<0.01. 
+
+lymphocyte count trait contains 1,276  SNPs with fdr<0.01. 
+
+red blood cell count trait contains 1,273 SNPs with fdr<0.01. 
+
+granulocyte count trait contains 1,592 SNPs with fdr<0.01. 
+
+eosinophil count trait contains  1,480 SNPs with fdr<0.01. 
+
+neutrophil count trait contains 1,602  SNPs with fdr<0.01. 
+
+IBD trait contains 595 SNPs with fdr<0.01. 
+
+Ulcerative colitist trait contains 317 SNPs with fdr<0.01. 
+
+Crohn's disease trait contains 431 SNPs with fdr<0.01. 
+
+asthma trait contains 788 SNPs with fdr<0.01. 
+
+### Summary table
+
+I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_pliercanon_wgpc_ldcl.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+## Results - pval < 5e-8
+
+### Overview
+
+platelet count trait contains 2,096  SNPs with fdr<0.01. 
+
+white blood cell count trait contains 1,057 SNPs with fdr<0.01. 
+
+myeloid white cell count trait contains 982 SNPs with fdr<0.01. 
+
+lymphocyte count trait contains 1,378 SNPs with fdr<0.01. 
+
+red blood cell count trait contains 1,141 SNPs with fdr<0.01. 
+
+granulocyte count trait contains 919 SNPs with fdr<0.01. 
+
+eosinophil count trait contains 1,579 SNPs with fdr<0.01. 
+
+neutrophil count trait contains 926 SNPs with fdr<0.01. 
+
+IBD trait contains 359 SNPs with fdr<0.01. 
+
+Ulcerative colitist trait contains 176 SNPs with fdr<0.01. 
+
+Crohn's disease trait contains 263 SNPs with fdr<0.01. 
+
+asthma trait contains 502 SNPs with fdr<0.01. 
+
+### Summary table
+
+I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+
