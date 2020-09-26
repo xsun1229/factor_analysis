@@ -78,25 +78,25 @@ For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_n
 ### Crohn's disease
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_CD_fdr001.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv115_CD_fdr001.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_CD_fdr001.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv115_CD_fdr001.jpeg" width="50%">
 </figure>
 
 ### IBD
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv13_IBD_fdr001.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_fdr001.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_IBD_fdr001.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_IBD_fdr001.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_fdr001.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_IBD_fdr001.jpeg" width="50%">
 </figure>
 
 ### Ulcerative colitist
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_UC_fdr001.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_UC_fdr001.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_fdr001.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_UC_fdr001.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_UC_fdr001.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_fdr001.jpeg" width="50%">
 </figure>
 
 ## Results - pval < 5e-8
@@ -144,24 +144,24 @@ For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_n
 ### Crohn's disease
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv85_CD_pval5e8.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_pval5e8.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv115_CD_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv85_CD_pval5e8.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_pval5e8.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv115_CD_pval5e8.jpeg" width="50%">
 </figure>
 
 ### IBD
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_IBD_pval5e8.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_pval5e8.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_IBD_pval5e8.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_IBD_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_IBD_pval5e8.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_pval5e8.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_IBD_pval5e8.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_IBD_pval5e8.jpeg" width="50%">
 </figure>
 
 ### Ulcerative colitist
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_UC_pval5e8.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_pval5e8.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv127_UC_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_UC_pval5e8.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_pval5e8.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv127_UC_pval5e8.jpeg" width="50%">
 </figure>
