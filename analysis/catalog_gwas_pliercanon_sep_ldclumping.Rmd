@@ -75,7 +75,7 @@ DT::datatable(summary, options = list(pageLength =20))
 
 For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_num' and selected the top 3 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction. Each dot indicates a variant.
 
-### Crohn's disease
+#### Crohn's disease
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_CD_fdr001.jpeg" width="50%">
@@ -83,7 +83,7 @@ For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_n
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv115_CD_fdr001.jpeg" width="50%">
 </figure>
 
-### IBD
+#### IBD
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_IBD_fdr001.jpeg" width="50%">
@@ -91,7 +91,7 @@ For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_n
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_IBD_fdr001.jpeg" width="50%">
 </figure>
 
-### Ulcerative colitist
+#### Ulcerative colitist
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_UC_fdr001.jpeg" width="50%">
@@ -141,7 +141,7 @@ DT::datatable(summary, options = list(pageLength =20))
 
 For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_num' and selected the top 3/4 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction.Each dot indicates a variant.
 
-### Crohn's disease
+#### Crohn's disease
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv85_CD_pval5e8.jpeg" width="50%">
@@ -149,7 +149,7 @@ For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_n
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv115_CD_pval5e8.jpeg" width="50%">
 </figure>
 
-### IBD
+#### IBD
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_IBD_pval5e8.jpeg" width="50%">
@@ -158,7 +158,7 @@ For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_n
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_IBD_pval5e8.jpeg" width="50%">
 </figure>
 
-### Ulcerative colitist
+#### Ulcerative colitist
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_UC_pval5e8.jpeg" width="50%">
