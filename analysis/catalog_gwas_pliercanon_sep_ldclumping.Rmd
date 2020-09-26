@@ -31,6 +31,7 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 4. Did GWAS analysis for plier_canonical factors and SNPs from 3. The association tests were corrected by 10 genotype PCs of whole genome.
 
+5. For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_num' and selected the top 3/4 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction.
 
 ## Results - fdr < 0.01
 
@@ -69,33 +70,62 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_plierc
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
+
+### Effect size plots
+
+For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_num' and selected the top 3 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction. Each dot indicates a variant.
+
+### Crohn's disease
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_CD_fdr001.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv115_CD_fdr001.jpeg" width="60%">
+</figure>
+
+### IBD
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv13_IBD_fdr001.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_fdr001.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_IBD_fdr001.jpeg" width="60%">
+</figure>
+
+### Ulcerative colitist
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_UC_fdr001.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_UC_fdr001.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_fdr001.jpeg" width="60%">
+</figure>
+
 ## Results - pval < 5e-8
 
 ### Overview
 
-platelet count trait contains 2,096  SNPs with fdr<0.01. 
+platelet count trait contains 2,096  SNPs with pval<5e-8. 
 
-white blood cell count trait contains 1,057 SNPs with fdr<0.01. 
+white blood cell count trait contains 1,057 SNPs with pval<5e-8. 
 
-myeloid white cell count trait contains 982 SNPs with fdr<0.01. 
+myeloid white cell count trait contains 982 SNPs with pval<5e-8. 
 
-lymphocyte count trait contains 1,378 SNPs with fdr<0.01. 
+lymphocyte count trait contains 1,378 SNPs with pval<5e-8. 
 
-red blood cell count trait contains 1,141 SNPs with fdr<0.01. 
+red blood cell count trait contains 1,141 SNPs with pval<5e-8. 
 
-granulocyte count trait contains 919 SNPs with fdr<0.01. 
+granulocyte count trait contains 919 SNPs with pval<5e-8. 
 
-eosinophil count trait contains 1,579 SNPs with fdr<0.01. 
+eosinophil count trait contains 1,579 SNPs with pval<5e-8. 
 
-neutrophil count trait contains 926 SNPs with fdr<0.01. 
+neutrophil count trait contains 926 SNPs with pval<5e-8. 
 
-IBD trait contains 359 SNPs with fdr<0.01. 
+IBD trait contains 359 SNPs with pval<5e-8. 
 
-Ulcerative colitist trait contains 176 SNPs with fdr<0.01. 
+Ulcerative colitist trait contains 176 SNPs with pval<5e-8. 
 
-Crohn's disease trait contains 263 SNPs with fdr<0.01. 
+Crohn's disease trait contains 263 SNPs with pval<5e-8. 
 
-asthma trait contains 502 SNPs with fdr<0.01. 
+asthma trait contains 502 SNPs with pval<5e-8. 
 
 ### Summary table
 
@@ -107,3 +137,31 @@ DT::datatable(summary, options = list(pageLength =20))
 ```
 
 
+### Effect size plots
+
+For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_num' and selected the top 3/4 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction.Each dot indicates a variant.
+
+### Crohn's disease
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv85_CD_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv115_CD_pval5e8.jpeg" width="60%">
+</figure>
+
+### IBD
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_IBD_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_IBD_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_IBD_pval5e8.jpeg" width="60%">
+</figure>
+
+### Ulcerative colitist
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_UC_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_pval5e8.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv127_UC_pval5e8.jpeg" width="60%">
+</figure>
