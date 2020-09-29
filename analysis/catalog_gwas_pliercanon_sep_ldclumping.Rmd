@@ -37,6 +37,8 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 ### Overview
 
+After filtering by 'fdr<0.01' and LD Clumping, for each trait, I got :
+
 platelet count trait contains  1001  SNPs with fdr<0.01. 
 
 white blood cell count trait contains 552 SNPs with fdr<0.01. 
@@ -125,6 +127,8 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
 ## Results - pval < 5e-8
 
 ### Overview
+
+After filtering by 'fdr<0.01' and LD Clumping, for each trait, I got :
 
 platelet count trait contains 1,073  SNPs with pval<5e-8. 
 
