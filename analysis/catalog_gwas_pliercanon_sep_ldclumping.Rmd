@@ -80,22 +80,22 @@ I add thress lines to make the plots clear. They are x=0, y=0 and y=x.
 #### Crohn's disease
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_CD_fdr001.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_CD_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001_pliercanon.jpeg" width="50%">
 </figure>
 
 #### IBD
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_IBD_fdr001.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_fdr001.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_IBD_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_fdr001_pliercanon.jpeg" width="50%">
 </figure>
 
 #### Ulcerative colitist
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_UC_fdr001.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_fdr001.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_UC_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_fdr001_pliercanon.jpeg" width="50%">
 </figure>
 
 ### QQ plots of the top factor-trait associations. 
