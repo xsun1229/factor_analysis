@@ -209,5 +209,5 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
 #### Ulcerative colitist -- LV6 has 13 SNPs with fdr<0.2
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv13_UC_pval5e8_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_UC_pval5e8_pliercanon.jpeg" width="50%">
 </figure>
