@@ -106,19 +106,19 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
 #### Crohn's disease -- LV88 has 5 SNPs with fdr<0.2
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_CD_fdr_pliercanon.jpeg" width="50%">
 </figure>
 
 #### IBD -- LV88 has 7 SNPs with fdr<0.2
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_IBD_fdr_pliercanon.jpeg" width="50%">
 </figure>
 
 #### Ulcerative colitist -- LV100 has 3 SNPs with fdr<0.2
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv100_UC_fdr_pliercanon.jpeg" width="50%">
 </figure>
 
 
@@ -197,17 +197,17 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
 #### Crohn's disease -- LV88 has 4 SNPs with fdr<0.2
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_pval5e8_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_CD_pval_pliercanon.jpeg" width="50%">
 </figure>
 
 #### IBD -- LV88 has 4 SNPs with fdr<0.2
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_pval5e8_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_IBD_pval_pliercanon.jpeg" width="50%">
 </figure>
 
 #### Ulcerative colitist -- LV6 has 13 SNPs with fdr<0.2
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_UC_pval5e8_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv6_UC_pval_pliercanon.jpeg" width="50%">
 </figure>
