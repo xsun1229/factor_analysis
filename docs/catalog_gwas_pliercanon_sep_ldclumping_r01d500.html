@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2020-10-05" />
+
+<title>catalog_gwas_pliercanon_sep_ldclumping_r01d500</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">catalog_gwas_pliercanon_sep_ldclumping_r01d500</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2020-10-05</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-10-05
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div class="panel-group" id="workflowr-checks">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_pliercanon_wgpc_ldcl_r01.rdata
+</td>
+<td style="text-align:left;">
+output/sum_sep_tog_fdr_pliercanon_wgpc_ldcl_r01.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/info_fdr001_pliercanon_r01.rdata
+</td>
+<td style="text-align:left;">
+output/info_fdr001_pliercanon_r01.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_r01.rdata
+</td>
+<td style="text-align:left;">
+output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_r01.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/info_pval5e8_pliercanon.rdata
+</td>
+<td style="text-align:left;">
+output/info_pval5e8_pliercanon.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeb41d4c63a7a90e4918d7cdb956aee2ff3ba664b8targetblankb41d4c6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/b41d4c63a7a90e4918d7cdb956aee2ff3ba664b8" target="_blank">b41d4c6</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeb41d4c63a7a90e4918d7cdb956aee2ff3ba664b8targetblankb41d4c6a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/b41d4c63a7a90e4918d7cdb956aee2ff3ba664b8" target="_blank">b41d4c6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d500.Rmd</code>) and HTML (<code>docs/catalog_gwas_pliercanon_sep_ldclumping_r01d500.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/35ee0f92803e9c008bd5e164406df938ebf19847/analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d500.Rmd" target="_blank">35ee0f9</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-10-05
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/3c693ed4521cfd7af00273e11adae6e332552d39/analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d500.Rmd" target="_blank">3c693ed</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-10-05
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In this part, I considered the traits separately. I selected the SNPs with fdr &lt; 0.01 and pval &lt; 5e-8 for each traits. Then, I did LD Clumping for these SNPs to eliminate the LD and select a smaller subset of SNPs. Finally, I did GWAS analysis for the plier_canonical factors with the SNPs.</p>
+</div>
+<div id="material-and-methods" class="section level2">
+<h2>Material and Methods</h2>
+<ol style="list-style-type: decimal">
+<li><p>I used the GWAS results of 12 immune traits: platelet count, white blood cell count, myeloid white cell count, lymphocyte counts, red blood cell count, granulocyte count, eosinophil count, neutrophil count. These data are from <em>Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. <a href="doi:10.1016/j.cell.2016.10.042" class="uri">doi:10.1016/j.cell.2016.10.042</a></em> . I also used IBD,Ulcerative colitist,Crohn’s disease and asthma collected by our lab.</p></li>
+<li><p>Computed the fdr of each SNP according to their p-values from GWAS data. Chose those SNPs with fdr &lt; 0.01 and pval &lt; 5e-8 separately.</p></li>
+<li><p>Did LD Clumping for the SNPs in obtained from step 2. I used default settings of PLINK LD clumping:</p>
+<p>–clump-p1 0.0001 Significance threshold for index SNPs</p>
+<p>–clump-p2 0.01 Secondary significance threshold for clumped SNPs</p>
+<p>–clump-r2 0.1 LD threshold for clumping</p>
+<p>–clump-kb 500 Physical distance threshold for clumping</p></li>
+</ol>
+<p>For each trait, I got a subset of SNPs that are not in LD with each other.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Did GWAS analysis for plier_canonical factors and SNPs from 3. The association tests were corrected by 10 genotype PCs of whole genome.</p></li>
+<li><p>For Crohn’s disease, IBD, and Ulcerative colitist, I sorted the LVs by ‘fdr020_num’ and selected the top 3/4 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction.</p></li>
+</ol>
+</div>
+<div id="results---fdr-0.01" class="section level2">
+<h2>Results - fdr &lt; 0.01</h2>
+<div id="overview" class="section level3">
+<h3>Overview</h3>
+<p>After filtering by ‘fdr&lt;0.01’ and LD Clumping, for each trait, I got :</p>
+<p>platelet count trait contains 661 SNPs with fdr&lt;0.01.</p>
+<p>white blood cell count trait contains 262 SNPs with fdr&lt;0.01.</p>
+<p>myeloid white cell count trait contains 308 SNPs with fdr&lt;0.01.</p>
+<p>lymphocyte count trait contains 419 SNPs with fdr&lt;0.01.</p>
+<p>red blood cell count trait contains 443 SNPs with fdr&lt;0.01.</p>
+<p>granulocyte count trait contains 570 SNPs with fdr&lt;0.01.</p>
+<p>eosinophil count trait contains 474 SNPs with fdr&lt;0.01.</p>
+<p>neutrophil count trait contains 568 SNPs with fdr&lt;0.01.</p>
+<p>IBD trait contains 210 SNPs with fdr&lt;0.01.</p>
+<p>Ulcerative colitist trait contains 131 SNPs with fdr&lt;0.01.</p>
+<p>Crohn’s disease trait contains 159 SNPs with fdr&lt;0.01.</p>
+<p>asthma trait contains 321 SNPs with fdr&lt;0.01.</p>
+</div>
+<div id="summary-table" class="section level3">
+<h3>Summary table</h3>
+<p>I used ‘qvalue’ R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are ‘fdr &lt; 0.1’,‘fdr &lt; 0.2’,‘pval &lt; 5e-8’.</p>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["LV1","LV2","LV3","LV4","LV5","LV6","LV7","LV8","LV9","LV10","LV11","LV12","LV13","LV14","LV15","LV16","LV17","LV18","LV19","LV20","LV21","LV22","LV23","LV24","LV25","LV26","LV27","LV28","LV29","LV30","LV31","LV32","LV33","LV34","LV35","LV36","LV37","LV38","LV39","LV40","LV41","LV42","LV43","LV44","LV45","LV46","LV47","LV48","LV49","LV50","LV51","LV52","LV53","LV54","LV55","LV56","LV57","LV58","LV59","LV60","LV61","LV62","LV63","LV64","LV65","LV66","LV67","LV68","LV69","LV70","LV71","LV72","LV73","LV74","LV75","LV76","LV77","LV78","LV79","LV80","LV81","LV82","LV83","LV84","LV85","LV86","LV87","LV88","LV89","LV90","LV91","LV92","LV93","LV94","LV95","LV96","LV97","LV98","LV99","LV100","LV101","LV102","LV103","LV104","LV105","LV106","LV107","LV108","LV109","LV110","LV111","LV112","LV113","LV114","LV115","LV116","LV117","LV118","LV119","LV120","LV121","LV122","LV123","LV124","LV125","LV126","LV127","LV128"],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,2,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,4,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,4,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,0,0,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,3,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,4,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,1,0,0,1,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>eo_fdr001_fdr010_num<\/th>\n      <th>eo_fdr001_fdr020_num<\/th>\n      <th>eo_fdr001_pval5e8_num<\/th>\n      <th>EUR.CD_fdr001_fdr010_num<\/th>\n      <th>EUR.CD_fdr001_fdr020_num<\/th>\n      <th>EUR.CD_fdr001_pval5e8_num<\/th>\n      <th>EUR.IBD_fdr001_fdr010_num<\/th>\n      <th>EUR.IBD_fdr001_fdr020_num<\/th>\n      <th>EUR.IBD_fdr001_pval5e8_num<\/th>\n      <th>EUR.UC_fdr001_fdr010_num<\/th>\n      <th>EUR.UC_fdr001_fdr020_num<\/th>\n      <th>EUR.UC_fdr001_pval5e8_num<\/th>\n      <th>gran_fdr001_fdr010_num<\/th>\n      <th>gran_fdr001_fdr020_num<\/th>\n      <th>gran_fdr001_pval5e8_num<\/th>\n      <th>lymph_fdr001_fdr010_num<\/th>\n      <th>lymph_fdr001_fdr020_num<\/th>\n      <th>lymph_fdr001_pval5e8_num<\/th>\n      <th>myeloid_wbc_fdr001_fdr010_num<\/th>\n      <th>myeloid_wbc_fdr001_fdr020_num<\/th>\n      <th>myeloid_wbc_fdr001_pval5e8_num<\/th>\n      <th>neut_fdr001_fdr010_num<\/th>\n      <th>neut_fdr001_fdr020_num<\/th>\n      <th>neut_fdr001_pval5e8_num<\/th>\n      <th>plt_fdr001_fdr010_num<\/th>\n      <th>plt_fdr001_fdr020_num<\/th>\n      <th>plt_fdr001_pval5e8_num<\/th>\n      <th>rbc_fdr001_fdr010_num<\/th>\n      <th>rbc_fdr001_fdr020_num<\/th>\n      <th>rbc_fdr001_pval5e8_num<\/th>\n      <th>ukb.allasthma_fdr001_fdr010_num<\/th>\n      <th>ukb.allasthma_fdr001_fdr020_num<\/th>\n      <th>ukb.allasthma_fdr001_pval5e8_num<\/th>\n      <th>wbc_fdr001_fdr010_num<\/th>\n      <th>wbc_fdr001_fdr020_num<\/th>\n      <th>wbc_fdr001_pval5e8_num<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="info-table" class="section level3">
+<h3>Info table</h3>
+<p>For each trait, I made a table to show the info of snps with fdr&gt;0.2 in the factor ~ SNP + genotype pcs association test. The suffix ’_assoc’ here means that results are from factor ~ SNP + genotype pcs association test. The suffix ’_gwas’ here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means ‘ln(OR)’, for others, it means ‘beta’.</p>
+<div id="htmlwidget-cfefb73e51b4928e765c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfefb73e51b4928e765c">{"x":{"filter":"none","data":[["eo","eo","EUR.CD","EUR.CD","EUR.CD","EUR.CD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.UC","EUR.UC","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","lymph","lymph","lymph","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","neut","neut","plt","plt","plt","plt","plt","plt","plt","plt","plt","plt","plt","plt","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","ukb.allasthma","ukb.allasthma","ukb.allasthma","wbc","wbc","wbc","wbc","wbc"],["LV125","LV125","LV88","LV88","LV88","LV88","LV46","LV46","LV88","LV88","LV23","LV23","LV72","LV100","LV94","LV96","LV7","LV13","LV39","LV41","LV51","LV59","LV119","LV119","LV119","LV119","LV94","LV94","LV20","LV20","LV108","LV108","LV37","LV94","LV39","LV90","LV41","LV106","LV98","LV40","LV49","LV76","LV93","LV105","LV59","LV59","LV59","LV3","LV3","LV3","LV82","LV82","LV82","LV101","LV101","LV101","LV119","LV119","LV119","LV119","LV119"],["chr1_64848529_C_A_b38","chr10_8960206_A_T_b38","chr1_67127791_T_C_b38","chr5_131133394_G_A_b38","chr5_131912097_G_A_b38","chr5_130590349_C_T_b38","chr2_240624322_G_A_b38","chr2_240649568_A_G_b38","chr5_131745267_C_T_b38","chr5_131126137_G_T_b38","chr12_68103628_A_G_b38","chr6_29679938_C_T_b38","chr10_102632823_C_T_b38","chr16_3637972_G_T_b38","chr1_30775144_A_G_b38","chr19_43556868_G_T_b38","chr6_137886592_C_G_b38","chr6_137886592_C_G_b38","chr6_32762615_C_T_b38","chr10_97258112_C_T_b38","chr6_137886592_C_G_b38","chr6_137886592_C_G_b38","chr6_31355703_G_A_b38","chr6_32762615_C_T_b38","chr6_31355703_G_A_b38","chr6_32757738_G_A_b38","chr5_157050529_G_A_b38","chr6_31148894_G_A_b38","chr6_31772677_G_A_b38","chr6_31148894_G_A_b38","chr6_29945653_C_T_b38","chr8_60836736_G_T_b38","chr14_100682190_G_T_b38","chr5_157018676_G_A_b38","chr3_184110630_A_G_b38","chr2_43810257_C_G_b38","chr1_25416203_C_T_b38","chr12_48035993_C_T_b38","chr3_56907974_G_T_b38","chr10_63263006_A_G_b38","chr6_34414160_A_G_b38","chr6_135093456_C_A_b38","chr8_105621041_A_C_b38","chr5_88256149_T_C_b38","chr6_41957260_C_T_b38","chr3_71207158_C_T_b38","chr9_4847570_T_C_b38","chr21_15413604_A_C_b38","chr16_166594_T_C_b38","chr7_100601973_G_T_b38","chr4_54482753_C_T_b38","chr2_8614076_G_A_b38","chr22_42718545_G_A_b38","chr2_100184736_T_C_b38","chr9_6545605_C_G_b38","chr3_188605873_A_G_b38","chr19_16589041_C_G_b38","chr6_32762615_C_T_b38","chr6_31355703_G_A_b38","chr6_32757738_G_A_b38","chr6_31151515_G_A_b38"],["rs114269697","rs827620","rs113181267","rs139746351","rs35149731","rs72797733","rs4676410","rs6749767","rs35403253","rs4706006","rs12817473","rs17369215","rs11594179","rs78315731","rs4949298","rs142327387","rs1082428","rs1082428","rs11759423","rs111823183","rs1082428","rs1082428","rs41555513","rs11759423","rs41555513","rs62396663","rs1393209","rs9263760","rs805825","rs9263760","rs112863520","rs41304212","rs55954399","rs2902133","rs34226055","rs116520905","rs78207142","rs733592","rs13065124","rs80151542","rs6925243","rs76200612","rs144702715","rs146412114","rs112233623","rs17699658","rs7874244","rs13050889","rs141494605","rs2734887","rs11732390","rs4669306","rs8138197","rs11677053","rs75636497","rs76245582","rs10408220","rs11759423","rs41555513","rs62396663","rs62398819"],["-0.2369","0.05015","-0.05549","0.03794","0.03747","0.03879","0.0686","0.0605","0.03882","0.03958","0.06995","0.07091","0.1373","0.1412","-0.07476","-0.2392","-0.1331","0.1835","0.1251","0.1487","-0.09388","0.1015","-0.2391","-0.1143","-0.2391","-0.2536","0.0907","-0.09148","-0.08266","-0.09479","-0.2028","-0.549","-0.3148","0.1004","0.0821","0.07837","0.08441","-0.04577","0.08433","-0.1652","0.1995","0.04666","-0.09668","0.2054","0.2656","0.09313","0.0927","-0.1105","0.4465","-0.1612","-0.1083","-0.0485","-0.03839","-0.08468","0.14","0.2096","-0.09639","-0.1143","-0.2391","-0.2536","-0.2322"],["-0.09911958","-0.02829761","-0.35539913043468","0.17089822494062","0.168695813212142","0.153501897985254","0.154701956417821","0.0936954841273232","0.101798178061036","0.101500073731347","0.190700562824842","0.144896563703219","0.02204413","-0.04152576","-0.01913388","-0.06000741","0.01829902","0.01829902","0.03636242","0.04306064","0.01829902","0.01829902","0.062692","0.04008263","0.1109096","0.09611396","0.02757482","0.03776033","-0.02485822","0.03776033","-0.04821786","0.06103133","-0.05208175","0.02994149","0.03842378","-0.05683335","0.03846426","0.02394735","-0.03987401","0.06721721","-0.04480278","-0.02689054","-0.04677378","0.1207113","-0.2492646","0.0325114","0.0619076","-0.02382117","0.1584023","-0.06114284","0.0529421","0.02294696","0.03539667","-0.0334245","-0.0553019","-0.0635953","0.03941649","0.0470181","0.1019718","0.09737845","0.1254853"],["0.0004109","0.0004975","0.001312","0.0009357","0.001123","0.0007349","0.0009196","0.0003133","0.0006349","0.0005657","0.0004406","0.001506","9.626e-05","0.0001155","9.696e-05","1.12e-06","0.0002234","1.625e-06","1.657e-05","9.226e-05","0.0002754","1.87e-05","0.0002518","0.0005651","0.0002518","0.0003694","0.0003225","0.0001217","0.0001846","0.0008906","2.859e-05","0.0001174","8.178e-06","4.155e-05","8.654e-05","0.0001388","5.734e-05","2.528e-05","0.0001398","2.273e-05","9.747e-05","0.000117","0.0001288","5.806e-06","0.0006933","0.0006217","0.0005994","0.0001605","0.0003146","0.0003701","0.0002676","0.0001514","0.0006741","0.0006444","0.0002968","0.0007981","0.0002759","0.0005651","0.0002518","0.0003694","0.0006875"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Traits<\/th>\n      <th>factors<\/th>\n      <th>SNP_gtexid<\/th>\n      <th>SNP_rsid<\/th>\n      <th>BETA_assoc<\/th>\n      <th>BETA_gwas<\/th>\n      <th>P_assoc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="effect-size-plots" class="section level3">
+<h3>Effect size plots</h3>
+<p>For Crohn’s disease, IBD, and Ulcerative colitist, I sorted the LVs by ‘fdr020_num’ and selected the top 2 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction. Each dot indicates a variant.</p>
+<p>I add thress lines to make the plots clear. They are x=0, y=0 and y=x.</p>
+<div id="crohns-disease" class="section level4">
+<h4>Crohn’s disease</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001_r01.jpeg" width="50%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_CD_fdr001_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ibd" class="section level4">
+<h4>IBD</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/outputeffectsize_lv88_IBD_fdr001_r01.jpeg" width="50%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv46_IBD_fdr001_pliercanon.jpeg" width="50%">
+</figure>
+</div>
+<div id="ulcerative-colitist" class="section level4">
+<h4>Ulcerative colitist</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_CD_fdr001_r01.jpeg" width="50%">
+</figure>
+</div>
+</div>
+<div id="qq-plots-of-the-top-factor-trait-associations." class="section level3">
+<h3>QQ plots of the top factor-trait associations.</h3>
+<p>For Crohn’s disease, IBD and Ulcerative colitist, I made QQ plots of the top factor-trait associations.</p>
+<div id="crohns-disease-lv88-has-4-snps-with-fdr0.2" class="section level4">
+<h4>Crohn’s disease – LV88 has 4 SNPs with fdr&lt;0.2</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_CD_fdr_pliercanon_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ibd-lv88-has-2-snps-with-fdr0.2" class="section level4">
+<h4>IBD – LV88 has 2 SNPs with fdr&lt;0.2</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_IBD_fdr_pliercanon_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ibd-lv46-has-2-snps-with-fdr0.2" class="section level4">
+<h4>IBD – LV46 has 2 SNPs with fdr&lt;0.2</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv46_IBD_fdr_pliercanon_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ulcerative-colitist-lv23-has-2-snps-with-fdr0.2" class="section level4">
+<h4>Ulcerative colitist – LV23 has 2 SNPs with fdr&lt;0.2</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv23_UC_fdr_pliercanon_r01.jpeg" width="50%">
+</figure>
+</div>
+</div>
+</div>
+<div id="results---pval-5e-8" class="section level2">
+<h2>Results - pval &lt; 5e-8</h2>
+<div id="overview-1" class="section level3">
+<h3>Overview</h3>
+<p>After filtering by ‘fdr&lt;0.01’ and LD Clumping, for each trait, I got :</p>
+<p>platelet count trait contains 712 SNPs with pval&lt;5e-8.</p>
+<p>white blood cell count trait contains 392 SNPs with pval&lt;5e-8.</p>
+<p>myeloid white cell count trait contains 337 SNPs with pval&lt;5e-8.</p>
+<p>lymphocyte count trait contains 456 SNPs with pval&lt;5e-8.</p>
+<p>red blood cell count trait contains 487 SNPs with pval&lt;5e-8.</p>
+<p>granulocyte count trait contains 326 SNPs with pval&lt;5e-8.</p>
+<p>eosinophil count trait contains 512 SNPs with pval&lt;5e-8.</p>
+<p>neutrophil count trait contains 333 SNPs with pval&lt;5e-8.</p>
+<p>IBD trait contains 120 SNPs with pval&lt;5e-8.</p>
+<p>Ulcerative colitist trait contains 75 SNPs with pval&lt;5e-8.</p>
+<p>Crohn’s disease trait contains 100 SNPs with pval&lt;5e-8.</p>
+<p>asthma trait contains 191 SNPs with pval&lt;5e-8.</p>
+</div>
+<div id="summary-table-1" class="section level3">
+<h3>Summary table</h3>
+<p>I used ‘qvalue’ R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are ‘fdr &lt; 0.1’,‘fdr &lt; 0.2’,‘pval &lt; 5e-8’.</p>
+<div id="htmlwidget-5ba5287ce9a3b08bdb5d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5ba5287ce9a3b08bdb5d">{"x":{"filter":"none","data":[["LV1","LV2","LV3","LV4","LV5","LV6","LV7","LV8","LV9","LV10","LV11","LV12","LV13","LV14","LV15","LV16","LV17","LV18","LV19","LV20","LV21","LV22","LV23","LV24","LV25","LV26","LV27","LV28","LV29","LV30","LV31","LV32","LV33","LV34","LV35","LV36","LV37","LV38","LV39","LV40","LV41","LV42","LV43","LV44","LV45","LV46","LV47","LV48","LV49","LV50","LV51","LV52","LV53","LV54","LV55","LV56","LV57","LV58","LV59","LV60","LV61","LV62","LV63","LV64","LV65","LV66","LV67","LV68","LV69","LV70","LV71","LV72","LV73","LV74","LV75","LV76","LV77","LV78","LV79","LV80","LV81","LV82","LV83","LV84","LV85","LV86","LV87","LV88","LV89","LV90","LV91","LV92","LV93","LV94","LV95","LV96","LV97","LV98","LV99","LV100","LV101","LV102","LV103","LV104","LV105","LV106","LV107","LV108","LV109","LV110","LV111","LV112","LV113","LV114","LV115","LV116","LV117","LV118","LV119","LV120","LV121","LV122","LV123","LV124","LV125","LV126","LV127","LV128"],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,2,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,4,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,4,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,0,0,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,3,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,4,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,1,0,0,1,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>eo_pval5e8_fdr010_num<\/th>\n      <th>eo_pval5e8_fdr020_num<\/th>\n      <th>eo_pval5e8_pval5e8_num<\/th>\n      <th>EUR.CD_pval5e8_fdr010_num<\/th>\n      <th>EUR.CD_pval5e8_fdr020_num<\/th>\n      <th>EUR.CD_pval5e8_pval5e8_num<\/th>\n      <th>EUR.IBD_pval5e8_fdr010_num<\/th>\n      <th>EUR.IBD_pval5e8_fdr020_num<\/th>\n      <th>EUR.IBD_pval5e8_pval5e8_num<\/th>\n      <th>EUR.UC_pval5e8_fdr010_num<\/th>\n      <th>EUR.UC_pval5e8_fdr020_num<\/th>\n      <th>EUR.UC_pval5e8_pval5e8_num<\/th>\n      <th>gran_pval5e8_fdr010_num<\/th>\n      <th>gran_pval5e8_fdr020_num<\/th>\n      <th>gran_pval5e8_pval5e8_num<\/th>\n      <th>lymph_pval5e8_fdr010_num<\/th>\n      <th>lymph_pval5e8_fdr020_num<\/th>\n      <th>lymph_pval5e8_pval5e8_num<\/th>\n      <th>myeloid_wbc_pval5e8_fdr010_num<\/th>\n      <th>myeloid_wbc_pval5e8_fdr020_num<\/th>\n      <th>myeloid_wbc_pval5e8_pval5e8_num<\/th>\n      <th>neut_pval5e8_fdr010_num<\/th>\n      <th>neut_pval5e8_fdr020_num<\/th>\n      <th>neut_pval5e8_pval5e8_num<\/th>\n      <th>plt_pval5e8_fdr010_num<\/th>\n      <th>plt_pval5e8_fdr020_num<\/th>\n      <th>plt_pval5e8_pval5e8_num<\/th>\n      <th>rbc_pval5e8_fdr010_num<\/th>\n      <th>rbc_pval5e8_fdr020_num<\/th>\n      <th>rbc_pval5e8_pval5e8_num<\/th>\n      <th>ukb.allasthma_pval5e8_fdr010_num<\/th>\n      <th>ukb.allasthma_pval5e8_fdr020_num<\/th>\n      <th>ukb.allasthma_pval5e8_pval5e8_num<\/th>\n      <th>wbc_pval5e8_fdr010_num<\/th>\n      <th>wbc_pval5e8_fdr020_num<\/th>\n      <th>wbc_pval5e8_pval5e8_num<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="info-table-1" class="section level3">
+<h3>Info table</h3>
+<p>For each trait, I made a table to show the info of snps with fdr&gt;0.2 in the factor ~ SNP + genotype pcs association test. The suffix ’_assoc’ here means that results are from factor ~ SNP + genotype pcs association test. The suffix ’_gwas’ here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means ‘ln(OR)’, for others, it means ‘beta’.</p>
+<div id="htmlwidget-0b516daec537d8efb4b6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0b516daec537d8efb4b6">{"x":{"filter":"none","data":[["eo","eo","eo","eo","EUR.CD","EUR.CD","EUR.CD","EUR.CD","EUR.CD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","gran","gran","lymph","lymph","lymph","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","neut","neut","plt","plt","plt","plt","plt","plt","rbc","rbc","rbc","rbc","rbc","ukb.allasthma","ukb.allasthma","ukb.allasthma","ukb.allasthma","ukb.allasthma","wbc","wbc","wbc","wbc"],["LV88","LV88","LV88","LV88","LV88","LV88","LV88","LV88","LV88","LV88","LV88","LV88","LV88","LV98","LV98","LV100","LV100","LV23","LV23","LV14","LV14","LV96","LV96","LV123","LV123","LV123","LV119","LV119","LV94","LV94","LV96","LV96","LV96","LV96","LV46","LV46","LV40","LV40","LV42","LV42","LV59","LV59","LV59","LV59","LV59","LV36","LV36","LV36","LV36","LV36","LV119","LV119","LV119","LV119"],["chr5_130440872_C_T_b38","chr5_131087866_G_A_b38","chr5_131338383_G_A_b38","chr5_132288693_C_T_b38","chr1_67127791_T_C_b38","chr5_130590349_C_T_b38","chr5_131133394_G_A_b38","chr5_131745267_C_T_b38","chr5_132079743_G_A_b38","chr1_67127791_T_C_b38","chr17_39816455_G_T_b38","chr5_131126137_G_T_b38","chr5_131745267_C_T_b38","chr6_31748659_A_G_b38","chr6_32399920_C_G_b38","chr6_31748659_A_G_b38","chr6_32399920_C_G_b38","chr12_68103628_A_G_b38","chr6_29679938_C_T_b38","chr13_26962835_G_A_b38","chr6_31524576_T_G_b38","chr1_65586528_GA_G_b38","chr19_43650300_C_T_b38","chr2_110987736_A_T_b38","chr6_31375271_TATAC_T_b38","chr7_39929604_T_C_b38","chr6_31355703_G_A_b38","chr6_32762615_C_T_b38","chr5_157050529_G_A_b38","chr6_31148894_G_A_b38","chr1_65586528_GA_G_b38","chr19_43650300_C_T_b38","chr1_65586528_GA_G_b38","chr19_43650300_C_T_b38","chr15_56694047_T_G_b38","chr6_135165003_G_A_b38","chr10_63263006_A_G_b38","chr10_63540310_CAT_C_b38","chr1_171637310_A_G_b38","chr17_2287096_T_C_b38","chr1_45571722_T_C_b38","chr3_71207158_C_T_b38","chr6_41957260_C_T_b38","chr6_42062167_C_T_b38","chr9_4847570_T_C_b38","chr1_152313385_G_A_b38","chr1_152564174_C_G_b38","chr1_152949110_T_C_b38","chr5_110557545_G_A_b38","chr7_20547220_A_G_b38","chr19_16589041_C_G_b38","chr6_31355703_G_A_b38","chr6_32757738_G_A_b38","chr6_32762615_C_T_b38"],["rs763787","rs4705885","rs4706020","rs162889","rs113181267","rs72797733","rs139746351","rs35403253","rs3852206","rs113181267","rs12450323","rs4706006","rs35403253","rs116043458","rs116522341","rs116043458","rs116522341","rs12817473","rs17369215","rs1359946","rs143210366","rs56044144","rs183992796","rs72834562","rs10692097","rs6956091","rs41555513","rs11759423","rs1393209","rs9263760","rs56044144","rs183992796","rs56044144","rs183992796","rs12912666","rs113617776","rs80151542","rs201053483","rs79263003","rs113513990","rs659437","rs17699658","rs112233623","rs9369329","rs7874244","rs61816761","rs61813875","rs115813648","rs7701532","rs35621564","rs10408220","rs41555513","rs62396663","rs11759423"],["0.04312","0.04011","0.03974","-0.04422","-0.05549","0.03879","0.03794","0.03882","0.0331","-0.05549","-0.0413","0.03958","0.03882","-0.1369","-0.128","0.1454","0.1445","0.06995","0.07091","0.07022","-0.1556","0.06828","-0.211","-0.06332","0.02863","-0.03139","-0.2391","-0.1143","0.0907","-0.09148","0.06828","-0.211","0.06828","-0.211","0.069","0.356","-0.1652","-0.1706","0.2297","0.08895","0.1054","0.09313","0.2656","-0.07658","0.0927","0.4517","0.215","0.2607","0.1417","-0.05626","-0.09639","-0.2391","-0.2536","-0.1143"],["-0.04247689","-0.05188584","-0.05481638","0.04330177","-0.35539913043468","0.153501897985254","0.17089822494062","0.172498467845192","0.182096531477657","-0.248101494554949","-0.122303236388138","0.101500073731347","0.101798178061036","-0.537399392701022","-0.542702126413249","-0.537399392701022","-0.542702126413249","0.190700562824842","0.144896563703219","0.158302050949734","0.390202181442252","-0.05217339","-0.06917273","0.04223615","0.02785111","-0.0233481","0.07136165","0.03676075","0.02757482","0.03776033","-0.05062779","-0.06591929","-0.05223084","-0.069312","-0.02144066","-0.08669234","0.06721721","0.0683079","0.07595896","-0.04203289","0.03210065","0.0325114","-0.2492646","0.0207022","0.0619076","0.234067","0.1532","0.155812","0.0898655","-0.0486546","0.03941649","0.1019718","0.09737845","0.0470181"],["0.0001992","0.0004959","0.0004205","0.0001724","0.001312","0.0007349","0.0009357","0.0006349","0.002244","0.001312","0.00141","0.0005657","0.0006349","0.000318","0.0004597","0.0008238","0.0005396","0.0004406","0.001506","0.001998","0.001491","0.0005721","6.035e-06","0.0001331","6.756e-05","4.936e-06","0.0002518","0.0005651","0.0003225","0.0001217","0.0005721","6.035e-06","0.0005721","6.035e-06","4.359e-05","7.954e-05","2.273e-05","1.882e-05","0.0001016","0.0001102","0.0002344","0.0006217","0.0006933","0.0006439","0.0005994","4.601e-09","6.815e-05","7.893e-05","0.000369","0.0009562","0.0002759","0.0002518","0.0003694","0.0005651"],["0.0948777009129169","0.153910631425871","0.139566934467331","0.0892505847706157","0.101071581135223","0.0679283785427095","0.0793544335643122","0.062300879618199","0.155205547190727","0.145018412568233","0.152666684723889","0.0849353750311859","0.0906510434872823","0.0666814168726751","0.0919251567726984","0.131427985412773","0.0962455088830954","0.0812183674604877","0.186475343506569","0.181052625941957","0.152804767584387","0.149876878086823","0.0124834312357387","0.123056526819242","0.0736019520074031","0.0107684401001857","0.123683523082625","0.196099328355776","0.199576529517849","0.0985331452847401","0.18463618321189","0.0125714110112065","0.153941579543568","0.0125889208099439","0.0871868031221433","0.148067550668814","0.0445268703579512","0.0372422343443874","0.161544422712953","0.170514066581606","0.117610300136213","0.186377937261911","0.198271311760055","0.190097931675532","0.182612649278571","1.91620123429501e-05","0.0293409654533349","0.0324429463865238","0.101441779846882","0.196178389149676","0.109618859671757","0.103589344787898","0.133440322363652","0.184986868373444"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Traits<\/th>\n      <th>factors<\/th>\n      <th>SNP_gtexid<\/th>\n      <th>SNP_rsid<\/th>\n      <th>BETA_assoc<\/th>\n      <th>BETA_gwas<\/th>\n      <th>P_assoc<\/th>\n      <th>fdr_assoc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="effect-size-plots-1" class="section level3">
+<h3>Effect size plots</h3>
+<p>For Crohn’s disease, IBD, and Ulcerative colitist, I sorted the LVs by ‘fdr020_num’ and selected the top 2 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction.Each dot indicates a variant.</p>
+<p>I add thress lines to make the plots clear. They are x=0, y=0 and y=x.</p>
+<div id="crohns-disease-1" class="section level4">
+<h4>Crohn’s disease</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_CD_pval5e8_r01.jpeg" width="50%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_pval5e8_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ibd-1" class="section level4">
+<h4>IBD</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv46_IBD_pval5e8_r01.jpeg" width="50%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_pval5e8_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ulcerative-colitist-1" class="section level4">
+<h4>Ulcerative colitist</h4>
+<figure class="half">
+<p><img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_UC_pval5e8_r01.jpeg" width="50%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_UC_pval5e8_r01.jpeg" width="50%"></p>
+</figure>
+</div>
+</div>
+<div id="qq-plots-of-the-top-factor-trait-associations.-1" class="section level3">
+<h3>QQ plots of the top factor-trait associations.</h3>
+<p>For Crohn’s disease, IBD and Ulcerative colitist, I made QQ plots of the top factor-trait associations.</p>
+<div id="crohns-disease-lv88-has-4-snps-with-fdr0.2-1" class="section level4">
+<h4>Crohn’s disease – LV88 has 4 SNPs with fdr&lt;0.2</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_CD_pval_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ibd-lv88-has-2-snps-with-fdr0.2-1" class="section level4">
+<h4>IBD – LV88 has 2 SNPs with fdr&lt;0.2</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_IBD_pval_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ibd-lv98-has-2-snps-with-fdr0.2" class="section level4">
+<h4>IBD – LV98 has 2 SNPs with fdr&lt;0.2</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv98_IBD_pval_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ulcerative-colitist-lv23-has-2-snps-with-fdr0.2-1" class="section level4">
+<h4>Ulcerative colitist – LV23 has 2 SNPs with fdr&lt;0.2</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv23_UC_pval_r01.jpeg" width="50%">
+</figure>
+</div>
+<div id="ulcerative-colitist-lv24-has-2-snps-with-fdr0.2" class="section level4">
+<h4>Ulcerative colitist – LV24 has 2 SNPs with fdr&lt;0.2</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv24_UC_pval_r01.jpeg" width="50%">
+</figure>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5        rstudioapi_0.11   whisker_0.3-2     knitr_1.29       
+ [5] magrittr_1.5      R6_2.4.1          rlang_0.4.7       highr_0.8        
+ [9] stringr_1.4.0     tools_3.6.1       DT_0.15           xfun_0.16        
+[13] git2r_0.26.1      crosstalk_1.1.0.1 htmltools_0.5.0   ellipsis_0.3.1   
+[17] rprojroot_1.3-2   yaml_2.2.1        digest_0.6.25     tibble_3.0.3     
+[21] lifecycle_0.2.0   crayon_1.3.4      later_1.1.0.1     htmlwidgets_1.5.1
+[25] vctrs_0.3.4       promises_1.1.1    fs_1.5.0          glue_1.4.2       
+[29] evaluate_0.14     rmarkdown_1.13    stringi_1.4.6     compiler_3.6.1   
+[33] pillar_1.4.6      backports_1.1.10  jsonlite_1.7.1    httpuv_1.5.1     
+[37] pkgconfig_2.0.3  </code></pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
