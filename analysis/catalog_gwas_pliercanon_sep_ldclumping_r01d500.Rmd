@@ -1,11 +1,12 @@
 ---
-title: "catalog_gwas_pliercanon_sep_ldclumping"
+title: "catalog_gwas_pliercanon_sep_ldclumping_r01d500"
 author: "XSun"
-date: "2020-09-24"
+date: "2020-10-05"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
+
 
 ## Introduction
 
@@ -23,9 +24,9 @@ In this part, I considered the traits separately. I selected the SNPs with fdr <
      
      --clump-p2 0.01              Secondary significance threshold for clumped SNPs
  
-     --clump-r2 0.2               LD threshold for clumping
+     --clump-r2 0.1               LD threshold for clumping
 
-     --clump-kb 250               Physical distance threshold for clumping
+     --clump-kb 500               Physical distance threshold for clumping
 
 For each trait, I got a subset of SNPs that are not in LD with each other.
 
@@ -39,36 +40,36 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 After filtering by 'fdr<0.01' and LD Clumping, for each trait, I got :
 
-platelet count trait contains  1001  SNPs with fdr<0.01. 
+platelet count trait contains  661  SNPs with fdr<0.01. 
 
-white blood cell count trait contains 552 SNPs with fdr<0.01. 
+white blood cell count trait contains 262 SNPs with fdr<0.01. 
 
-myeloid white cell count trait contains 440 SNPs with fdr<0.01. 
+myeloid white cell count trait contains 308 SNPs with fdr<0.01. 
 
-lymphocyte count trait contains 646 SNPs with fdr<0.01. 
+lymphocyte count trait contains 419 SNPs with fdr<0.01. 
 
-red blood cell count trait contains 669 SNPs with fdr<0.01. 
+red blood cell count trait contains 443 SNPs with fdr<0.01. 
 
-granulocyte count trait contains 810 SNPs with fdr<0.01. 
+granulocyte count trait contains 570 SNPs with fdr<0.01. 
 
-eosinophil count trait contains  736 SNPs with fdr<0.01. 
+eosinophil count trait contains  474 SNPs with fdr<0.01. 
 
-neutrophil count trait contains 807 SNPs with fdr<0.01. 
+neutrophil count trait contains 568 SNPs with fdr<0.01. 
 
-IBD trait contains 309 SNPs with fdr<0.01. 
+IBD trait contains 210 SNPs with fdr<0.01. 
 
-Ulcerative colitist trait contains 177 SNPs with fdr<0.01. 
+Ulcerative colitist trait contains 131 SNPs with fdr<0.01. 
 
-Crohn's disease trait contains 231 SNPs with fdr<0.01. 
+Crohn's disease trait contains 159 SNPs with fdr<0.01. 
 
-asthma trait contains 453 SNPs with fdr<0.01. 
+asthma trait contains 321 SNPs with fdr<0.01. 
 
 ### Summary table
 
 I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_pliercanon_wgpc_ldcl.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_pliercanon_wgpc_ldcl_r01.rdata")
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
@@ -91,22 +92,21 @@ I add thress lines to make the plots clear. They are x=0, y=0 and y=x.
 #### Crohn's disease
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_CD_fdr001_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001_r01.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_CD_fdr001_r01.jpeg" width="50%">
 </figure>
 
 #### IBD
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_IBD_fdr001_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/outputeffectsize_lv88_IBD_fdr001_r01.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv46_IBD_fdr001_pliercanon.jpeg" width="50%">
 </figure>
 
 #### Ulcerative colitist
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_UC_fdr001_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_CD_fdr001_r01.jpeg" width="50%">
 </figure>
 
 ### QQ plots of the top factor-trait associations. 
@@ -120,16 +120,22 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_CD_fdr_pliercanon.jpeg" width="50%">
 </figure>
 
-#### IBD -- LV88 has 7 SNPs with fdr<0.2
+#### IBD -- LV88 has 2 SNPs with fdr<0.2
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_IBD_fdr_pliercanon.jpeg" width="50%">
 </figure>
 
-#### Ulcerative colitist -- LV100 has 2 SNPs with fdr<0.2
+#### IBD -- LV46 has 2 SNPs with fdr<0.2
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv100_UC_fdr_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv46_IBD_fdr_pliercanon.jpeg" width="50%">
+</figure>
+
+#### Ulcerative colitist -- LV23 has 2 SNPs with fdr<0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv23_UC_fdr_pliercanon.jpeg" width="50%">
 </figure>
 
 
@@ -139,36 +145,36 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
 
 After filtering by 'fdr<0.01' and LD Clumping, for each trait, I got :
 
-platelet count trait contains 1,073  SNPs with pval<5e-8. 
+platelet count trait contains 712  SNPs with pval<5e-8. 
 
-white blood cell count trait contains 591 SNPs with pval<5e-8. 
+white blood cell count trait contains 392 SNPs with pval<5e-8. 
 
-myeloid white cell count trait contains 490 SNPs with pval<5e-8. 
+myeloid white cell count trait contains 337 SNPs with pval<5e-8. 
 
-lymphocyte count trait contains 699 SNPs with pval<5e-8. 
+lymphocyte count trait contains 456 SNPs with pval<5e-8. 
 
-red blood cell count trait contains 731 SNPs with pval<5e-8. 
+red blood cell count trait contains 487 SNPs with pval<5e-8. 
 
-granulocyte count trait contains 464 SNPs with pval<5e-8. 
+granulocyte count trait contains 326 SNPs with pval<5e-8. 
 
-eosinophil count trait contains 786 SNPs with pval<5e-8. 
+eosinophil count trait contains 512 SNPs with pval<5e-8. 
 
-neutrophil count trait contains 476 SNPs with pval<5e-8. 
+neutrophil count trait contains 333 SNPs with pval<5e-8. 
 
-IBD trait contains 178 SNPs with pval<5e-8. 
+IBD trait contains 120 SNPs with pval<5e-8. 
 
-Ulcerative colitist trait contains 103 SNPs with pval<5e-8. 
+Ulcerative colitist trait contains 75 SNPs with pval<5e-8. 
 
-Crohn's disease trait contains 142 SNPs with pval<5e-8. 
+Crohn's disease trait contains 100 SNPs with pval<5e-8. 
 
-asthma trait contains 283 SNPs with pval<5e-8. 
+asthma trait contains 191 SNPs with pval<5e-8. 
 
 ### Summary table
 
 I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_r01.rdata")
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
@@ -205,8 +211,8 @@ I add thress lines to make the plots clear. They are x=0, y=0 and y=x.
 #### Ulcerative colitist
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_UC_pval5e8_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_pval5e8_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_UC_pval5e8_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_UC_pval5e8_pliercanon.jpeg" width="50%">
 
 </figure>
 
@@ -216,7 +222,7 @@ I add thress lines to make the plots clear. They are x=0, y=0 and y=x.
 For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top factor-trait associations. 
 
 
-#### Crohn's disease -- LV88 has 5 SNPs with fdr<0.2
+#### Crohn's disease -- LV88 has 4 SNPs with fdr<0.2
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_CD_pval_pliercanon.jpeg" width="50%">
@@ -228,8 +234,8 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_IBD_pval_pliercanon.jpeg" width="50%">
 </figure>
 
-#### Ulcerative colitist -- LV98 has 2 SNPs with fdr<0.2
+#### Ulcerative colitist -- LV6 has 13 SNPs with fdr<0.2
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv98_UC_pval_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv6_UC_pval_pliercanon.jpeg" width="50%">
 </figure>
