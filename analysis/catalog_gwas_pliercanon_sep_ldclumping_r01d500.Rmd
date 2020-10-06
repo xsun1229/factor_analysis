@@ -78,7 +78,7 @@ DT::datatable(summary, options = list(pageLength =20))
 For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs association test. The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/info_fdr001_pliercanon_r01.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_fdr001_pliercanon_ld_r01.rdata")
 DT::datatable(final_full, options = list(pageLength =20))
 ```
 
@@ -185,7 +185,7 @@ DT::datatable(summary, options = list(pageLength =20))
 For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs association test. The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/info_pval5e8_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_pval5e8_pliercanon_ld_r01.rdata")
 DT::datatable(final_full, options = list(pageLength =20))
 ```
 
