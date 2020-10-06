@@ -118,7 +118,7 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_CD_fdr_pliercanon.jpeg" width="50%">
-</figure>
+</figure> 
 
 #### IBD -- LV88 has 7 SNPs with fdr<0.2
 
