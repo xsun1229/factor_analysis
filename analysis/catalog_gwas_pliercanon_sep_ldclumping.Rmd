@@ -88,25 +88,104 @@ For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_n
 
 I add thress lines to make the plots clear. They are x=0, y=0 and y=x.
 
+#### Eosinophil count 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_eo_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_eo_fdr001_r02.jpeg" width="50%">
+</figure>
+
 #### Crohn's disease
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_CD_fdr001_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_EUR.CD_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv122_EUR.CD_fdr001_r02.jpeg" width="50%">
 </figure>
 
 #### IBD
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_IBD_fdr001_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.IBD_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_EUR.IBD_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_EUR.IBD_fdr001_r02.jpeg" width="50%">
 </figure>
 
 #### Ulcerative colitist
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_UC_fdr001_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_fdr001_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.UC_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_EUR.UC_fdr001_r02.jpeg" width="50%">
+</figure>
+
+
+#### granulocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_gran_fdr001.jpeg" width="50%">
+</figure>
+
+
+#### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv65_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv80_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### myeloid white cell count
+
+None of the LVs have >1 SNPs at FDR<0.2.
+
+#### neutrophil count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_neut_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_neut_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### plt
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv46_neut_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv40_neut_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_neut_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### rbc
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv40_ukb.allasthma_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_ukb.allasthma_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### wbc
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_wbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_wbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_wbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_fdr001_r02.jpeg" width="50%">
 </figure>
 
 ### QQ plots of the top factor-trait associations. 
@@ -188,26 +267,107 @@ For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_n
 
 I add thress lines to make the plots clear. They are x=0, y=0 and y=x.
 
+#### Eosinophil count 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_eo_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_eo_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_eo_fdr001_r02.jpeg" width="50%">
+</figure>
+
 #### Crohn's disease
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_CD_pval5e8_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_CD_pval5e8_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv18_EUR.CD_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_EUR.CD_fdr001_r02.jpeg" width="50%">
 </figure>
 
 #### IBD
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_IBD_pval5e8_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_IBD_pval5e8_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.IBD_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_EUR.IBD_fdr001_r02.jpeg" width="50%">
 </figure>
 
 #### Ulcerative colitist
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_UC_pval5e8_pliercanon.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_UC_pval5e8_pliercanon.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_EUR.UC_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_EUR.UC_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.UC_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_EUR.UC_fdr001_r02.jpeg" width="50%">
+</figure>
 
+
+#### granulocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_gran_fdr001.jpeg" width="50%">
+</figure>
+
+
+#### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv65_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv80_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_lymph_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### myeloid white cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_myeloid_wbc_pval5e8.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_myeloid_wbc_pval5e8.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_myeloid_wbc_pval5e8.jpeg" width="50%">
+</figure>
+
+#### neutrophil count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_neut_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### plt
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv46_neut_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv40_neut_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_neut_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### rbc
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv70_rbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv21_ukb.allasthma_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_ukb.allasthma_fdr001_r02.jpeg" width="50%">
+</figure>
+
+#### wbc
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_wbc_fdr001_r02.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_fdr001_r02.jpeg" width="50%">
 </figure>
 
 
