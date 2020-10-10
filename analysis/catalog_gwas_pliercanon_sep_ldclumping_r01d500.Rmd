@@ -14,6 +14,7 @@ In this part, I considered the traits separately. I selected the SNPs with fdr <
 
 ## Material and Methods
 
+
 1. I used the GWAS results of 12 immune traits: platelet count, white blood cell count, myeloid white cell count, lymphocyte counts, red blood cell count, granulocyte count, eosinophil count, neutrophil count. These data are from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042* . I also used IBD,Ulcerative colitist,Crohn's disease and asthma collected by our lab.
 
 2. Computed the fdr of each SNP according to their p-values from GWAS data. Chose those SNPs with fdr < 0.01 and pval < 5e-8 separately. 
