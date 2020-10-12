@@ -14,7 +14,6 @@ In this part, I considered the traits separately. I selected the SNPs with fdr <
 
 ## Material and Methods
 
-
 1. I used the GWAS results of 12 immune traits: platelet count, white blood cell count, myeloid white cell count, lymphocyte counts, red blood cell count, granulocyte count, eosinophil count, neutrophil count. These data are from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042* . I also used IBD,Ulcerative colitist,Crohn's disease and asthma collected by our lab.
 
 2. Computed the fdr of each SNP according to their p-values from GWAS data. Chose those SNPs with fdr < 0.01 and pval < 5e-8 separately. 
@@ -33,7 +32,11 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 4. Did GWAS analysis for plier_canonical factors and SNPs from 3. The association tests were corrected by 10 genotype PCs of whole genome.
 
-5. For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_num' and selected the top 3/4 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction.
+5. For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/articles/introduction.html) R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR<0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.
+
+6. For the traits and LVs in 5, I made an info table to show more details of the SNPs. 
+
+7. For several LVs we are interested in, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. The genes I used for GSEA are the genes that used to compute LVs, the gene scores used as input of GSEA are the gene loadings. 
 
 ## Results - fdr < 0.01
 
@@ -74,21 +77,35 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_plierc
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
+For IBD, the LV88 and LV46 have two snps with fdr>0.2. For these two LV, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. The genes I used for GSEA are the genes that used to compute LVs, the gene scores used as input of GSEA are the gene loadings.
+
+[GSEA_LV46](http://www.webgestalt.org/results/1602473050/#)
+
+The gene list contains 2581 genes, among the 2581 genes, 1878 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 4 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV88](http://www.webgestalt.org/results/1602472671/#)
+
+The gene list contains 2570 genes, among the 2570 genes, 1886 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 6 negative related categories are identified as enriched categories and all are shown in this report.
+
+
 ### Info table
 
-For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs association test. For each trait, I just list the LV that has the most significant SNPs. If several LVs have same number of significant and they are all the LV that has the most significant SNPs, I list them all. The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
+For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs association test. For each trait,The LVs have more than one significant SNPs with FDR<0.2 are included. 
+
+The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
+
+'snp_ld' here means the snps that in LD with the snp in each line.'ld_r2' means the LD r-squared which is corresponding to the 'snp_ld' column. 'cis-eqtl' column indicates whether the snp is a cis-eqtl according to GTEx data. 'cis_gene_hgnc' and 'cis_gene_hgnc' is the genes that the snp influence when it act as cis-eqtl. 'func' and 'func_gene' are obtained from ANNOVAR, which indicating the snp function within the genes.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/info_fdr001_pliercanon_ld_r01.rdata")
+colnames(final_full)[14:15] <- c("func","func_gene")
 DT::datatable(final_full, options = list(pageLength =20))
 ```
 
 
 ### Effect size plots
 
-For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_num' and selected the top 2 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction. Each dot indicates a variant.
-
-I add thress lines to make the plots clear. They are x=0, y=0 and y=x.
+For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/articles/introduction.html) R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR<0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.
 
 #### Eosinophil count 
 
@@ -243,10 +260,24 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_plier
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
+For IBD, the LV88 have two snps with fdr>0.2,the LV98 have one snps with fdr>0.2 . For these two LV, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. The genes I used for GSEA are the genes that used to compute LVs, the gene scores used as input of GSEA are the gene loadings.
+
+[GSEA_LV88](http://www.webgestalt.org/results/1602472671/#)
+
+The gene list contains 2570 genes, among the 2570 genes, 1886 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 6 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV98](http://www.webgestalt.org/results/1602473032/#)
+
+The gene list contains 2565 genes, among the 2565 genes, 1892 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 5 negative related categories are identified as enriched categories and all are shown in this report.
+
 
 ### Info table
 
-For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs association test. For each trait, I just list the LV that has the most significant SNPs. If several LVs have same number of significant and they are all the LV that has the most significant SNPs, I list them all. The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
+For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs association test. For each trait,The LVs have more than one significant SNPs with FDR<0.2 are included. 
+
+The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
+
+'snp_ld' here means the snps that in LD with the snp in each line.'ld_r2' means the LD r-squared which is corresponding to the 'snp_ld' column. 'cis-eqtl' column indicates whether the snp is a cis-eqtl according to GTEx data. 'cis_gene_hgnc' and 'cis_gene_hgnc' is the genes that the snp influence when it act as cis-eqtl. 'func' and 'func_gene' are obtained from ANNOVAR, which indicating the snp function within the genes.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/info_pval5e8_pliercanon_ld_r01.rdata")
@@ -255,9 +286,7 @@ DT::datatable(final_full, options = list(pageLength =20))
 
 ### Effect size plots
 
-For Crohn's disease, IBD, and Ulcerative colitist, I sorted the LVs by 'fdr020_num' and selected the top 2 LVs. For each LV, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) in meta-GWAS) to show if the variants have the same effect direction.Each dot indicates a variant.
-
-I add thress lines to make the plots clear. They are x=0, y=0 and y=x.
+For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/articles/introduction.html) R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR<0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.
 
 #### Eosinophil count 
 
