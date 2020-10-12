@@ -36,7 +36,7 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 6. For the traits and LVs in 5, I made an info table to show more details of the SNPs. 
 
-7. For several LVs we are interested in, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. The genes I used for GSEA are the genes that used to compute LVs, the gene scores used as input of GSEA are the gene loadings. 
+7. For several LVs we are interested in, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. I used two kind gene sets to do GSEA: 1. genes that used to compute LVs; 2. Sorting the genes in 1 by their loadings, take the top 25% as the gene set. For both gene sets, the gene scores used as input of GSEA are the gene loadings.
 
 ## Results - fdr < 0.01
 
@@ -77,16 +77,50 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_fdr_plierc
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
-For IBD, the LV88 and LV46 have two snps with fdr>0.2. For these two LV, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. The genes I used for GSEA are the genes that used to compute LVs, the gene scores used as input of GSEA are the gene loadings.
 
-[GSEA_LV46](http://www.webgestalt.org/results/1602473050/#)
+### Gene set enrichment
+
+For IBD, the LV88 and LV46 have two snps with fdr>0.2. For these two LV, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. 
+
+I used two kind gene sets to do GSEA: 1. genes that used to compute LVs; 2. Sorting the genes in 1 by their loadings, take the top 25% as the gene set. For both gene sets, the gene scores used as input of GSEA are the gene loadings.
+
+#### Using all genes
+
+Since the KEGG and REACTOME pathway cannot be used to perform analysis simultaneously, so the results are show separately.
+
+[GSEA_LV46_KEGG](http://www.webgestalt.org/results/1602473050/#)
 
 The gene list contains 2581 genes, among the 2581 genes, 1878 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 4 negative related categories are identified as enriched categories and all are shown in this report.
 
-[GSEA_LV88](http://www.webgestalt.org/results/1602472671/#)
+[GSEA_LV46_REACTOME](http://www.webgestalt.org/results/1602532361/#)
+
+The gene list contains 2581 genes, among the 2581 genes, 2341 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 10 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV88_KEGG](http://www.webgestalt.org/results/1602472671/#)
 
 The gene list contains 2570 genes, among the 2570 genes, 1886 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 6 negative related categories are identified as enriched categories and all are shown in this report.
 
+[GSEA_LV88_REACTOME](http://www.webgestalt.org/results/1602532391/#)
+
+The gene list contains 2570 genes, among the 2570 genes, 2318 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 10 negative related categories are identified as enriched categories and all are shown in this report.
+
+#### Using top25% genes
+
+[GSEA_LV46_KEGG](http://www.webgestalt.org/results/1602531602/#)
+
+The gene list contains 645 genes, among the 645 genes, 475 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 5 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV46_REACTOME](http://www.webgestalt.org/results/1602531889/#)
+
+The gene list contains 645 genes, among the 645 genes, 586 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 0 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV88_KEGG](http://www.webgestalt.org/results/1602529935/#)
+
+The gene list contains 642 genes, among the 642 genes, 459 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 0 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV88_REACTOME](http://www.webgestalt.org/results/1602532129/#)
+
+The gene list contains 642 genes, among the 642 genes, 574 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 3 negative related categories are identified as enriched categories and all are shown in this report.
 
 ### Info table
 
@@ -260,15 +294,49 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_plier
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
-For IBD, the LV88 have two snps with fdr>0.2,the LV98 have one snps with fdr>0.2 . For these two LV, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. The genes I used for GSEA are the genes that used to compute LVs, the gene scores used as input of GSEA are the gene loadings.
+### Gene set enrichment
 
-[GSEA_LV88](http://www.webgestalt.org/results/1602472671/#)
+For IBD, the LV88 have two snps with fdr>0.2,the LV98 have one snps with fdr>0.2. For these two LV, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. 
+
+I used two kind gene sets to do GSEA: 1. genes that used to compute LVs; 2. Sorting the genes in 1 by their loadings, take the top 25% as the gene set. For both gene sets, the gene scores used as input of GSEA are the gene loadings.
+
+#### Using all genes
+
+Since the KEGG and REACTOME pathway cannot be used to perform analysis simultaneously, so the results are show separately.
+
+[GSEA_LV88_KEGG](http://www.webgestalt.org/results/1602472671/#)
 
 The gene list contains 2570 genes, among the 2570 genes, 1886 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 6 negative related categories are identified as enriched categories and all are shown in this report.
 
-[GSEA_LV98](http://www.webgestalt.org/results/1602473032/#)
+[GSEA_LV88_REACTOME](http://www.webgestalt.org/results/1602532391/#)
+
+The gene list contains 2570 genes, among the 2570 genes, 2318 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 10 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV98_KEGG](http://www.webgestalt.org/results/1602473032/#)
 
 The gene list contains 2565 genes, among the 2565 genes, 1892 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 5 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV98_REACTOME](http://www.webgestalt.org/results/1602532361/#)
+
+The gene list contains 2565 genes, among the 2565 genes, 2346 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 2 negative related categories are identified as enriched categories and all are shown in this report.
+
+#### Using top25% genes
+
+[GSEA_LV88_KEGG](http://www.webgestalt.org/results/1602529935/#)
+
+The gene list contains 642 genes, among the 642 genes, 459 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 0 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV88_REACTOME](http://www.webgestalt.org/results/1602532129/#)
+
+The gene list contains 642 genes, among the 642 genes, 574 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 3 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV98_KEGG](http://www.webgestalt.org/results/1602531602/#)
+
+The gene list contains 641 genes, among the 641 genes, 470 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 6 positive related categories and 2 negative related categories are identified as enriched categories and all are shown in this report.
+
+[GSEA_LV98_REACTOME](http://www.webgestalt.org/results/1602533607/#)
+
+The gene list contains 641 genes, among the 641 genes, 581 genes are annotated to the selected functional categories, which are used for the enrichment analysis. 10 positive related categories and 10 negative related categories are identified as enriched categories and all are shown in this report.
 
 
 ### Info table
