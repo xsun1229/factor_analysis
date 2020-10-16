@@ -260,3 +260,19 @@ None of the LVs have >1 SNPs at FDR<0.2.
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k.jpeg" width="50%">
 </figure>
+
+
+### effect size plots -- more SNPs
+
+For some promising trait-factor pairs (i.e. BMI-LV3, LV27,LV76, RBC-LV82, Asthma-LV68,  WBC-LV119, Lymphocyte-LV23, LV78), I relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)
+
+I also made a plot to show the the distribution of the SNPs' fdr.
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv3_bmi_pval5e8_d1k.jpeg" width="30%">
+</figure>
