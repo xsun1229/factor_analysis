@@ -276,3 +276,80 @@ I also made a plot to show the the distribution of the SNPs' fdr.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_fdr05.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv3_bmi_pval5e8_d1k.jpeg" width="30%">
 </figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv27_bmi_pval5e8_d1k.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv76_bmi_pval5e8_d1k.jpeg" width="30%">
+</figure>
+
+
+### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv23_lymph_pval5e8_d1k.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv78_lymph_pval5e8_d1k.jpeg" width="30%">
+</figure>
+
+### red blood cell count 
+
+
+### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv82_rbc_pval5e8_d1k.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv42_rbc_pval5e8_d1k.jpeg" width="30%">
+</figure
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv59_rbc_pval5e8_d1k.jpeg" width="30%">
+</figure>
+
+
+### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_ukb.allasthma_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_ukb.allasthma_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_ukb.allasthma_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv68_ukb.allasthma_pval5e8_d1k.jpeg" width="30%">
+</figure>
+
+### white blood cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv119_wbc_pval5e8_d1k.jpeg" width="30%">
+</figure>
