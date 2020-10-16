@@ -106,6 +106,8 @@ For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,
 
 [BMI-LV27](http://www.webgestalt.org/results/1602814539/#)
 
+[BMI-LV76](http://www.webgestalt.org/results/1602879396/#)
+
 [RBC-LV82](http://www.webgestalt.org/results/1602814564/#)
 
 [Asthma-LV68](http://www.webgestalt.org/results/1602814547/#)
@@ -123,6 +125,8 @@ For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,
 
 [BMI-LV27](http://www.webgestalt.org/results/1602814170/#)
 
+[BMI-LV76](http://www.webgestalt.org/results/1602879417/#)
+
 [RBC-LV82](http://www.webgestalt.org/results/1602814198/#)
 
 [Asthma-LV68](http://www.webgestalt.org/results/1602814181/#)
@@ -139,6 +143,8 @@ For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,
 
 [BMI-LV27](http://www.webgestalt.org/results/1602817777/#)
 
+[BMI-LV76](http://www.webgestalt.org/results/1602879472/#)
+
 [RBC-LV82](http://www.webgestalt.org/results/1602817795/#)
 
 [Asthma-LV68](http://www.webgestalt.org/results/1602817784/#)
@@ -154,6 +160,8 @@ For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,
 [BMI-LV3](http://www.webgestalt.org/results/1602818962/#)
 
 [BMI-LV27](http://www.webgestalt.org/results/1602818974/#)
+
+[BMI-LV76](http://www.webgestalt.org/results/1602879491/#)
 
 [RBC-LV82](http://www.webgestalt.org/results/1602818985/#)
 
@@ -291,6 +299,17 @@ I also made a plot to show the the distribution of the SNPs' fdr.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv76_bmi_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
+#### Crohn's disease
+
+The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k_fdr03.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k_fdr05.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv88_EUR.CD_pval5e8_d1k.jpeg" width="50%">
+</figure>
+
 
 ### lymphocyte count
 
@@ -310,9 +329,6 @@ I also made a plot to show the the distribution of the SNPs' fdr.
 
 ### red blood cell count 
 
-
-### lymphocyte count
-
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_fdr03.jpeg" width="30%">
@@ -320,13 +336,14 @@ I also made a plot to show the the distribution of the SNPs' fdr.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv82_rbc_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
+The rbc~lv42 and rbc~lv59 pairs are not very promising pairs when considering SNPs at fdr<0.2, but the fitting results at fdr <0.5 are better than the former results. So I post the plots here too.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k_fdr03.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k_fdr05.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv42_rbc_pval5e8_d1k.jpeg" width="30%">
-</figure
+</figure>
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k.jpeg" width="30%">
