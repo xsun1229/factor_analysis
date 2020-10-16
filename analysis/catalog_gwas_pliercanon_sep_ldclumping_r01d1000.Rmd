@@ -43,7 +43,7 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 ### Overview
 
-After filtering by 'fdr<0.01' and LD Clumping, for each trait, I got :
+After filtering by 'pval < 5e-8' and LD Clumping, for each trait, I got :
 
 platelet count trait contains 688 SNPs with pval<5e-8. 
 
