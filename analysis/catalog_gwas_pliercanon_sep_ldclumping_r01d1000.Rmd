@@ -181,62 +181,62 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 #### BMI 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_bmi_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_bmi_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 
 #### Eosinophil count 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_eo_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_eo_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 #### Crohn's disease
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 #### IBD
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 #### Ulcerative colitist
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_EUR.UC_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_EUR.UC_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_EUR.UC_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_EUR.UC_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 
 #### granulocyte count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv120_gran_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv120_gran_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 
 #### lymphocyte count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_lymph_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv65_lymph_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_lymph_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv65_lymph_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 #### myeloid white cell count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_myeloid_wbc_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_myeloid_wbc_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_myeloid_wbc_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_myeloid_wbc_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 #### neutrophil count
@@ -250,23 +250,23 @@ None of the LVs have >1 SNPs at FDR<0.2.
 #### rbc
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_rbc_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_rbc_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv70_rbc_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_rbc_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_rbc_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv70_rbc_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 #### asthma
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_ukb.allasthma_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_ukb.allasthma_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 #### wbc
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 
@@ -304,14 +304,14 @@ I also made a plot to show the the distribution of the SNPs' fdr.
 The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k_fdr03.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k_fdr05.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv88_EUR.CD_pval5e8_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv88_EUR.CD_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 
-### lymphocyte count
+#### lymphocyte count
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k.jpeg" width="30%">
@@ -327,7 +327,7 @@ The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but th
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv78_lymph_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
-### red blood cell count 
+#### red blood cell count 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k.jpeg" width="30%">
@@ -353,7 +353,7 @@ The rbc~lv42 and rbc~lv59 pairs are not very promising pairs when considering SN
 </figure>
 
 
-### asthma
+#### asthma
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_ukb.allasthma_pval5e8_d1k.jpeg" width="30%">
@@ -362,7 +362,7 @@ The rbc~lv42 and rbc~lv59 pairs are not very promising pairs when considering SN
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv68_ukb.allasthma_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
-### white blood cell count
+#### white blood cell count
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k.jpeg" width="30%">
