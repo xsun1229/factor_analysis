@@ -100,44 +100,25 @@ DT::datatable(final_full, options = list(pageLength =20))
 
 For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,  WBC-LV119, Lymphocyte-LV23, LV78), I did enrichment analysis with WebGestalt. The analysis are under different settings:
 
-1. ORA: For each factor, I used all genes with non-zero loadings to do the analysis. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. 
+1. ORA: For each factor, I sorted the genes in 1 by their loadings, taking the top 25% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.01 are listed.
 
-[BMI-LV3](http://www.webgestalt.org/results/1602814527/#)
+[BMI-LV3](http://www.webgestalt.org/results/1602886306/#)
 
-[BMI-LV27](http://www.webgestalt.org/results/1602814539/#)
+[BMI-LV27](http://www.webgestalt.org/results/1602885128/#)
 
-[BMI-LV76](http://www.webgestalt.org/results/1602879396/#)
+[BMI-LV76](http://www.webgestalt.org/results/1602885152/#)
 
-[RBC-LV82](http://www.webgestalt.org/results/1602814564/#)
+[RBC-LV82](http://www.webgestalt.org/results/1602885207/#)
 
-[Asthma-LV68](http://www.webgestalt.org/results/1602814547/#)
+[Asthma-LV68](http://www.webgestalt.org/results/1602885140/#)
 
-[WBC-LV119](http://www.webgestalt.org/results/1602814725/#)
+[WBC-LV119](http://www.webgestalt.org/results/1602885228/#)
 
-[Lymphocyte-LV23](http://www.webgestalt.org/results/1602814533/#)
+[Lymphocyte-LV23](http://www.webgestalt.org/results/1602885119/#)
 
-[Lymphocyte-LV78](http://www.webgestalt.org/results/1602814553/#)
+[Lymphocyte-LV78](http://www.webgestalt.org/results/1602885162/#)
 
-
-2. ORA: For each factor, I sorted the genes in 1 by their loadings, taking the top 25% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. 
-
-[BMI-LV3](http://www.webgestalt.org/results/1602814145/#)
-
-[BMI-LV27](http://www.webgestalt.org/results/1602814170/#)
-
-[BMI-LV76](http://www.webgestalt.org/results/1602879417/#)
-
-[RBC-LV82](http://www.webgestalt.org/results/1602814198/#)
-
-[Asthma-LV68](http://www.webgestalt.org/results/1602814181/#)
-
-[WBC-LV119](http://www.webgestalt.org/results/1602814208/#)
-
-[Lymphocyte-LV23](http://www.webgestalt.org/results/1602814161/#)
-
-[Lymphocyte-LV78](http://www.webgestalt.org/results/1602814187/#)
-
-3. GSEA: For each factor, I used all genes (zero loading genes included), taking the gene loadings as their gene score in GSEA. The function database is Reactome pathway.
+2. GSEA: For each factor, I used all genes (zero loading genes included), taking the gene loadings as their gene score in GSEA. The function database is Reactome pathway.
 
 [BMI-LV3](http://www.webgestalt.org/results/1602817719/#)
 
@@ -155,7 +136,7 @@ For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,
 
 [Lymphocyte-LV78](http://www.webgestalt.org/results/1602817790/#)
 
-4. GSEA: For each factor, I used all genes (zero loading genes included), taking the gene loadings as their gene score in GSEA. For those loadings = 0, I assigned a random number from normal distribution N(0,1e-5) to it to avoid ties. The function database is Reactome pathway.
+3. GSEA: For each factor, I used all genes (zero loading genes included), taking the gene loadings as their gene score in GSEA. For those loadings = 0, I assigned a random number from normal distribution N(0,1e-5) to it to avoid ties. The function database is Reactome pathway.
 
 [BMI-LV3](http://www.webgestalt.org/results/1602818962/#)
 
