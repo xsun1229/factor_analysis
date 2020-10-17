@@ -577,16 +577,16 @@ output/info_pval5e8_pliercanon_ld_d1k.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree73f6e3486b018c354be0d2b9cf98713e08b7eedctargetblank73f6e34a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/73f6e3486b018c354be0d2b9cf98713e08b7eedc" target="_blank">73f6e34</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreebddde1b55af64396f6ebf07015d07fdab972ab58targetblankbddde1ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/bddde1b55af64396f6ebf07015d07fdab972ab58" target="_blank">bddde1b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree73f6e3486b018c354be0d2b9cf98713e08b7eedctargetblank73f6e34a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreebddde1b55af64396f6ebf07015d07fdab972ab58targetblankbddde1ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/73f6e3486b018c354be0d2b9cf98713e08b7eedc" target="_blank">73f6e34</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/bddde1b55af64396f6ebf07015d07fdab972ab58" target="_blank">bddde1b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -634,6 +634,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/bddde1b55af64396f6ebf07015d07fdab972ab58/analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.Rmd" target="_blank">bddde1b</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-10-16
+</td>
+<td>
+wflow_publish(“analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/39c0f34e0db695765e7d05eab7b1ab0a0273a7d5/docs/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html" target="_blank">39c0f34</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-10-16
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -940,28 +974,17 @@ update
 <h3>Enrichment analysis</h3>
 <p>For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68, WBC-LV119, Lymphocyte-LV23, LV78), I did enrichment analysis with WebGestalt. The analysis are under different settings:</p>
 <ol style="list-style-type: decimal">
-<li>ORA: For each factor, I used all genes with non-zero loadings to do the analysis. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1.</li>
+<li>ORA: For each factor, I sorted the genes in 1 by their loadings, taking the top 25% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr&lt;0.01 are listed.</li>
 </ol>
-<p><a href="http://www.webgestalt.org/results/1602814527/#">BMI-LV3</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814539/#">BMI-LV27</a></p>
-<p><a href="http://www.webgestalt.org/results/1602879396/#">BMI-LV76</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814564/#">RBC-LV82</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814547/#">Asthma-LV68</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814725/#">WBC-LV119</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814533/#">Lymphocyte-LV23</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814553/#">Lymphocyte-LV78</a></p>
+<p><a href="http://www.webgestalt.org/results/1602886306/#">BMI-LV3</a></p>
+<p><a href="http://www.webgestalt.org/results/1602885128/#">BMI-LV27</a></p>
+<p><a href="http://www.webgestalt.org/results/1602885152/#">BMI-LV76</a></p>
+<p><a href="http://www.webgestalt.org/results/1602885207/#">RBC-LV82</a></p>
+<p><a href="http://www.webgestalt.org/results/1602885140/#">Asthma-LV68</a></p>
+<p><a href="http://www.webgestalt.org/results/1602885228/#">WBC-LV119</a></p>
+<p><a href="http://www.webgestalt.org/results/1602885119/#">Lymphocyte-LV23</a></p>
+<p><a href="http://www.webgestalt.org/results/1602885162/#">Lymphocyte-LV78</a></p>
 <ol start="2" style="list-style-type: decimal">
-<li>ORA: For each factor, I sorted the genes in 1 by their loadings, taking the top 25% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1.</li>
-</ol>
-<p><a href="http://www.webgestalt.org/results/1602814145/#">BMI-LV3</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814170/#">BMI-LV27</a></p>
-<p><a href="http://www.webgestalt.org/results/1602879417/#">BMI-LV76</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814198/#">RBC-LV82</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814181/#">Asthma-LV68</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814208/#">WBC-LV119</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814161/#">Lymphocyte-LV23</a></p>
-<p><a href="http://www.webgestalt.org/results/1602814187/#">Lymphocyte-LV78</a></p>
-<ol start="3" style="list-style-type: decimal">
 <li>GSEA: For each factor, I used all genes (zero loading genes included), taking the gene loadings as their gene score in GSEA. The function database is Reactome pathway.</li>
 </ol>
 <p><a href="http://www.webgestalt.org/results/1602817719/#">BMI-LV3</a></p>
@@ -972,7 +995,7 @@ update
 <p><a href="http://www.webgestalt.org/results/1602817802/#">WBC-LV119</a></p>
 <p><a href="http://www.webgestalt.org/results/1602817770/#">Lymphocyte-LV23</a></p>
 <p><a href="http://www.webgestalt.org/results/1602817790/#">Lymphocyte-LV78</a></p>
-<ol start="4" style="list-style-type: decimal">
+<ol start="3" style="list-style-type: decimal">
 <li>GSEA: For each factor, I used all genes (zero loading genes included), taking the gene loadings as their gene score in GSEA. For those loadings = 0, I assigned a random number from normal distribution N(0,1e-5) to it to avoid ties. The function database is Reactome pathway.</li>
 </ol>
 <p><a href="http://www.webgestalt.org/results/1602818962/#">BMI-LV3</a></p>
