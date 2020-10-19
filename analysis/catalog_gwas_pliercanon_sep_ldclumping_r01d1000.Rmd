@@ -385,15 +385,10 @@ To check if the effect size correlation is due to reverse causality: i.e. trait 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_reverse.jpeg" width="30%">
 </figure>
+
 
 #### Crohn's disease
 
@@ -408,25 +403,16 @@ The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but th
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_reverse.jpeg" width="30%">
 </figure>
 
 #### red blood cell count 
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_reverse.jpeg" width="30%">
-</figure>
-
 The rbc~lv42 and rbc~lv59 pairs are not very promising pairs when considering SNPs at fdr<0.2, but the fitting results at fdr <0.5 are better than the former results. So I post the plots here too.
 
 <figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_reverse.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k_reverse.jpeg" width="30%">
 </figure>
 
