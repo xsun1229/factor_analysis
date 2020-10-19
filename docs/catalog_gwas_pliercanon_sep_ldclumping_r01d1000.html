@@ -577,16 +577,16 @@ output/info_pval5e8_pliercanon_ld_d1k.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed04088b5a2d7c1f36fc55476c498ee1c145117e2targetblankd04088ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/d04088b5a2d7c1f36fc55476c498ee1c145117e2" target="_blank">d04088b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreedb41780c96b80ded28da5b87dcbc49048bca07ddtargetblankdb41780a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/db41780c96b80ded28da5b87dcbc49048bca07dd" target="_blank">db41780</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed04088b5a2d7c1f36fc55476c498ee1c145117e2targetblankd04088ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreedb41780c96b80ded28da5b87dcbc49048bca07ddtargetblankdb41780a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/d04088b5a2d7c1f36fc55476c498ee1c145117e2" target="_blank">d04088b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/db41780c96b80ded28da5b87dcbc49048bca07dd" target="_blank">db41780</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -634,6 +634,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/db41780c96b80ded28da5b87dcbc49048bca07dd/analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.Rmd" target="_blank">db41780</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-10-19
+</td>
+<td>
+wflow_publish(“analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/b197942c24b6fa6aaac214bba54a9ec6d0fdd838/analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.Rmd" target="_blank">b197942</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-10-19
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/3250458e67ecd7f9e5d3cd42ecca62fafedcec10/docs/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html" target="_blank">3250458</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-10-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1320,10 +1371,14 @@ update
 <div id="effect-size-plots---checking-the-reverse-causality" class="section level3">
 <h3>Effect size plots - checking the reverse causality</h3>
 <p>To check if the effect size correlation is due to reverse causality: i.e. trait -&gt; LV (trait causally affect LV), instead of LV -&gt; trait (which is what we like to see). I used all SNPs associated with traits(pval&lt;5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV.</p>
+<p>Some pair show p &lt; 0.05, the result may be driven by the possible causal effect of LV -&gt; trait. To test this, I removed the SNPs that are associated with LVs at FDR &lt; 0.2 and made the plots again.</p>
 <div id="bmi-2" class="section level4">
 <h4>BMI</h4>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_reverse.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_reverse.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_reverse.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_reverse_remove.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_reverse_remove.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_reverse_remove.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_reverse_remove.jpeg" width="30%">
 </figure>
 </div>
 <div id="crohns-disease-2" class="section level4">
@@ -1332,11 +1387,17 @@ update
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k_reverse.jpeg" width="30%">
 </figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k_reverse_remove.jpeg" width="30%">
+</figure>
 </div>
 <div id="lymphocyte-count-2" class="section level4">
 <h4>lymphocyte count</h4>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_reverse.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_reverse_remove.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_revers_remove.jpeg" width="30%">
 </figure>
 </div>
 <div id="red-blood-cell-count-1" class="section level4">
@@ -1345,17 +1406,26 @@ update
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_reverse.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k_reverse.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k_reverse.jpeg" width="30%">
 </figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_reverse_remove.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k_reverse_remove.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k_reverse_remove.jpeg" width="30%">
+</figure>
 </div>
 <div id="asthma-2" class="section level4">
 <h4>asthma</h4>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_ukb.allasthma_pval5e8_d1k_reverse.jpeg" width="30%">
 </figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_ukb.allasthma_pval5e8_d1k_reverse_remove.jpeg" width="30%">
+</figure>
 </div>
 <div id="white-blood-cell-count-1" class="section level4">
 <h4>white blood cell count</h4>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_reverse_remove.jpeg" width="30%">
 </figure>
 <br>
 <p>
