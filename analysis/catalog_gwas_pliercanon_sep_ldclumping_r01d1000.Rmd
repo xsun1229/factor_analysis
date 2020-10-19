@@ -108,6 +108,8 @@ For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,
 
 [BMI-LV76](http://www.webgestalt.org/results/1603046194/#)
 
+[BMI-LV90](http://www.webgestalt.org/results/1603129380/#)
+
 [RBC-LV82](http://www.webgestalt.org/results/1603046204/#)
 
 [Asthma-LV68](http://www.webgestalt.org/results/1603046188/#)
@@ -303,6 +305,13 @@ I also made a plot to show the the distribution of the SNPs' fdr.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_fdr03.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_fdr05.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv76_bmi_pval5e8_d1k.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv90_bmi_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 #### Crohn's disease
