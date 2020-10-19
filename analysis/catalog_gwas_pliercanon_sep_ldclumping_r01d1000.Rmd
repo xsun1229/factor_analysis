@@ -102,39 +102,64 @@ For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,
 
 1. ORA: For each factor, I sorted the genes in 1 by their loadings, taking the top 25% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.01 are listed.
 
-[BMI-LV3](http://www.webgestalt.org/results/1602886306/#)
+[BMI-LV3](http://www.webgestalt.org/results/1603046168/#)
 
-[BMI-LV27](http://www.webgestalt.org/results/1602885128/#)
+[BMI-LV27](http://www.webgestalt.org/results/1603046183/#)
 
-[BMI-LV76](http://www.webgestalt.org/results/1602885152/#)
+[BMI-LV76](http://www.webgestalt.org/results/1603046194/#)
 
-[RBC-LV82](http://www.webgestalt.org/results/1602885207/#)
+[RBC-LV82](http://www.webgestalt.org/results/1603046204/#)
 
-[Asthma-LV68](http://www.webgestalt.org/results/1602885140/#)
+[Asthma-LV68](http://www.webgestalt.org/results/1603046188/#)
 
-[WBC-LV119](http://www.webgestalt.org/results/1602885228/#)
+[WBC-LV119](http://www.webgestalt.org/results/1603046209/#)
 
-[Lymphocyte-LV23](http://www.webgestalt.org/results/1602885119/#)
+[Lymphocyte-LV23](http://www.webgestalt.org/results/1603046175/#)
 
-[Lymphocyte-LV78](http://www.webgestalt.org/results/1602885162/#)
+[Lymphocyte-LV78](http://www.webgestalt.org/results/1603046199/#)
 
 2. GSEA: For each factor, I used all genes (zero loading genes included), taking the gene loadings as their gene score in GSEA. The function database is Reactome pathway.
 
-[BMI-LV3](http://www.webgestalt.org/results/1602817719/#)
+[BMI-LV3-Reactome](http://www.webgestalt.org/results/1602817719/#)
+[BMI-LV3-GO](http://www.webgestalt.org/results/1603047206/#)
+[BMI-LV3-phenotype](http://www.webgestalt.org/results/1603047219/#)
+[BMI-LV3-disease-Disgenet](http://www.webgestalt.org/results/1603047233/#)
 
-[BMI-LV27](http://www.webgestalt.org/results/1602817777/#)
 
-[BMI-LV76](http://www.webgestalt.org/results/1602879472/#)
+[BMI-LV27-Reactome](http://www.webgestalt.org/results/1602817777/#)
+[BMI-LV27-GO](http://www.webgestalt.org/results/1603057432/#)
+[BMI-LV27-phenotype](http://www.webgestalt.org/results/1603056104/#)
+[BMI-LV27-disease-Disgenet](http://www.webgestalt.org/results/1603048331/#)
 
-[RBC-LV82](http://www.webgestalt.org/results/1602817795/#)
+[BMI-LV76-Reactome](http://www.webgestalt.org/results/1602879472/#)
+[BMI-LV76-GO](http://www.webgestalt.org/results/1603057390/#)
+[BMI-LV76-phenotype](http://www.webgestalt.org/results/1603051035/#)
+[BMI-LV76-disease-Disgenet](http://www.webgestalt.org/results/1603050188/#)
 
-[Asthma-LV68](http://www.webgestalt.org/results/1602817784/#)
+[RBC-LV82-Reactome](http://www.webgestalt.org/results/1602817795/#)
+[RBC-LV82-GO](http://www.webgestalt.org/results/1603055953/#)
+[RBC-LV82-phenotype](http://www.webgestalt.org/results/1603049647/#)
+[RBC-LV82-disease-Disgenet](http://www.webgestalt.org/results/1603048694/#)
 
-[WBC-LV119](http://www.webgestalt.org/results/1602817802/#)
+[Asthma-LV68-Reactome](http://www.webgestalt.org/results/1602817784/#)
+[Asthma-LV68-GO](http://www.webgestalt.org/results/1603057396/#)
+[Asthma-LV68-phenotype](http://www.webgestalt.org/results/1603056098/#)
+[Asthma-LV68-disease-Disgenet](http://www.webgestalt.org/results/1603050957/#)
 
-[Lymphocyte-LV23](http://www.webgestalt.org/results/1602817770/#)
+[WBC-LV119-Reactome](http://www.webgestalt.org/results/1602817802/#)
+[WBC-LV119-GO](http://www.webgestalt.org/results/1603055946/#)
+[WBC-LV119-phenotype](http://www.webgestalt.org/results/1603051028/#)
+[WBC-LV119-disease-Disgenet](http://www.webgestalt.org/results/1603048685/#)
+
+[Lymphocyte-LV23-Reactome](http://www.webgestalt.org/results/1602817770/#)
+[Lymphocyte-LV23-GO](http://www.webgestalt.org/results/1603058325/#)
+[Lymphocyte-LV23-phenotype](http://www.webgestalt.org/results/1603057276/#)
+[Lymphocyte-LV23-disease-Disgenet](http://www.webgestalt.org/results/1603048322/#)
 
 [Lymphocyte-LV78](http://www.webgestalt.org/results/1602817790/#)
+[Lymphocyte-LV78-GO](http://www.webgestalt.org/results/1603055931/#)
+[Lymphocyte-LV78-phenotype](http://www.webgestalt.org/results/1603049640/#)
+[Lymphocyte-LV78-disease-Disgenet](http://www.webgestalt.org/results/1603050962/#)
 
 3. GSEA: For each factor, I used all genes (zero loading genes included), taking the gene loadings as their gene score in GSEA. For those loadings = 0, I assigned a random number from normal distribution N(0,1e-5) to it to avoid ties. The function database is Reactome pathway.
 
@@ -350,4 +375,70 @@ The rbc~lv42 and rbc~lv59 pairs are not very promising pairs when considering SN
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_fdr03.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_fdr05.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv119_wbc_pval5e8_d1k.jpeg" width="30%">
+</figure>
+
+### Effect size plots - checking the reverse causality
+
+To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits. The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+#### Crohn's disease
+
+The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+
+#### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+#### red blood cell count 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+The rbc~lv42 and rbc~lv59 pairs are not very promising pairs when considering SNPs at fdr<0.2, but the fitting results at fdr <0.5 are better than the former results. So I post the plots here too.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_rbc_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv59_rbc_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_ukb.allasthma_pval5e8_d1k_reverse.jpeg" width="30%">
+</figure>
+
+#### white blood cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_reverse.jpeg" width="30%">
 </figure>
