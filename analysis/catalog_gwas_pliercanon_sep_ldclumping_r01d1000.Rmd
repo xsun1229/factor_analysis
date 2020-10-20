@@ -432,7 +432,7 @@ The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but th
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_revers_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_reverse_remove.jpeg" width="30%">
 </figure>
 
 #### red blood cell count 
