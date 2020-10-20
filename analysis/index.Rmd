@@ -144,19 +144,17 @@ The ldsc material and methods of my project can be found [here](https://xsun1229
   
 ### Using catalog GWAS data 
 
+#### PLIER-Canonical 
+
 To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the [Catalog of Published GWAS](https://www.ebi.ac.uk/gwas/). I selected the SNPs with fdr < 0.05/ fdr < 0.01/ pval < 5e-8. Then, I did GWAS analysis for the plier_canonical factors with the SNPs.
 
-[Threshold: fdr<0.05 & pool all traits together ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon.html)
+[Threshold: pval<5e-8 & consider traits separately & perform ld clumping (r2 cutoff 0.1, physical dist 1Mb) ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html)
 
-[Threshold: fdr<0.01/pval<5e-8 & pool all traits together ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_tog.html)
+#### PEER
 
-[Threshold: fdr<0.01/pval<5e-8 & consider traits separately ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep.html)
+To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the [Catalog of Published GWAS](https://www.ebi.ac.uk/gwas/). I selected the SNPs with fdr < 0.05/ fdr < 0.01/ pval < 5e-8. Then, I did GWAS analysis for the plier_canonical factors with the SNPs.
 
-[Threshold: fdr<0.01/pval<5e-8 & consider traits separately & perform ld clumping (r2 cutoff 0.2, physical dist 250kb) ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping.html)
-
-[Threshold: fdr<0.01/pval<5e-8 & consider traits separately & perform ld clumping (r2 cutoff 0.1, physical dist 500kb) ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d500.html)
-
-[Threshold: fdr<0.01/pval<5e-8 & consider traits separately & perform ld clumping (r2 cutoff 0.1, physical dist 1Mb) ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html)
+[Threshold: pval<5e-8 & consider traits separately & perform ld clumping (r2 cutoff 0.1, physical dist 1Mb) ](https://xsun1229.github.io/factor_analysis/catalog_gwas_peer_sep_ldclumping_r01d1000.html)
 
 ### ***Finding functional cis-genes***  
   
