@@ -111,7 +111,7 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 #### Eosinophil count 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv157_eo_pval5e8_d1k_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_d1k_peer.jpeg" width="30%">
 </figure>
 
 #### Crohn's disease
@@ -157,7 +157,7 @@ None of the LVs have >1 SNPs at FDR<0.2.
 #### plt
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_plt_pval5e8_d1k_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv7_plt_pval5e8_d1k_peer.jpeg" width="30%">
 </figure>
 
 #### rbc
@@ -169,7 +169,7 @@ None of the LVs have >1 SNPs at FDR<0.2.
 </figure>
 
 
-###T2D
+#### T2D
 
 None of the LVs have >1 SNPs at FDR<0.2.
 
@@ -183,4 +183,156 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_d1k_peer.jpeg" width="30%">
+</figure>
+
+
+### effect size plots -- more SNPs
+
+For some promising trait-factor pairs (i.e. BMI-LV14, LV40,LV76, RBC-LV28), I relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)
+
+I also made a plot to show the the distribution of the SNPs' fdr.
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_d1k_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_d1k_peer_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_d1k_peer_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv14_bmi_pval5e8_d1k_peer.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv40_bmi_pval5e8_d1k_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv40_bmi_pval5e8_d1k_peer_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv40_bmi_pval5e8_d1k_peer_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv40_bmi_pval5e8_d1k_peer.jpeg" width="30%">
+</figure>
+
+#### IBD
+
+The IBD~lv6 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result. So I post the plots here too.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.IBD_pval5e8_d1k_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.IBD_pval5e8_d1k_peer_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.IBD_pval5e8_d1k_peer_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv6_EUR.IBD_pval5e8_d1k_peer.jpeg" width="30%">
+</figure>
+
+#### myeloid white cell count
+
+The myeloid white cell count~lv6 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result. So I post the plots here too.
+
+<figure class="half">
+     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_d1k_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_d1k_peer_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_d1k_peer_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv43_myeloid_wbc_pval5e8_d1k_peer.jpeg" width="30%">
+</figure>
+
+#### neutrophil count
+
+The neutrophil count~lv6 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result. So I post the plots here too.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_neut_pval5e8_d1k_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_neut_pval5e8_d1k_peer_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_neut_pval5e8_d1k_peer_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv43_neut_pval5e8_d1k_peer.jpeg" width="30%">
+</figure>
+
+
+#### red blood cell count 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_rbc_pval5e8_d1k_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_rbc_pval5e8_d1k_peer_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_rbc_pval5e8_d1k_peer_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv28_rbc_pval5e8_d1k_peer.jpeg" width="30%">
+</figure>
+
+
+#### wbc
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_d1k_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_d1k_peer_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_d1k_peer_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv43_wbc_pval5e8_d1k_peer.jpeg" width="30%">
+</figure>
+
+### Effect size plots - checking the reverse causality
+
+To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits(pval<5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
+
+Some pair show p < 0.05, the result may be driven by the possible causal effect of LV -> trait. To test this, I removed the SNPs that are associated with LVs at FDR < 0.2 and made the plots again.
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_d1k_reverse_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv40_bmi_pval5e8_d1k_reverse_peer.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_d1k_reverse_remove_peer.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv40_bmi_pval5e8_d1k_reverse_remove_peer.jpeg" width="30%">
+</figure>
+
+#### IBD
+
+The IBD~lv6 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result. So I post the plots here too.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.IBD_pval5e8_d1k_reverse_peer.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.IBD_pval5e8_d1k_reverse_remove_peer.jpeg" width="30%">
+</figure>
+
+#### myeloid white cell count
+
+The myeloid white cell count~lv6 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result. So I post the plots here too.
+
+<figure class="half">
+     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_d1k_reverse_peer.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_d1k_reverse_remove_peer.jpeg" width="30%">
+</figure>
+
+#### neutrophil count
+
+The neutrophil count~lv6 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result. So I post the plots here too.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_neut_pval5e8_d1k_reverse_peer.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_neut_pval5e8_d1k_reverse_remove_peer.jpeg" width="30%">
+</figure>
+
+
+#### red blood cell count 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_rbc_pval5e8_d1k_reverse_peer.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_rbc_pval5e8_d1k_reverse_remove_peer.jpeg" width="30%">
+</figure>
+
+
+#### wbc
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_d1k_reverse_peer.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_d1k_reverse_remove_peer.jpeg" width="30%">
 </figure>
