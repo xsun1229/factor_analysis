@@ -336,3 +336,5 @@ The neutrophil count~lv6 is not very promising pairs when considering SNPs at fd
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_d1k_reverse_remove_peer.jpeg" width="30%">
 </figure>
+
+
