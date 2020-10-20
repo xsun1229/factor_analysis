@@ -376,16 +376,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree5374205dd44ccc3c3a110d38b4219f30a8da6863targetblank5374205a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/5374205dd44ccc3c3a110d38b4219f30a8da6863" target="_blank">5374205</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree9af0dfd3ecdb56e29a054bd6407ed933fdfc3358targetblank9af0dfda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/9af0dfd3ecdb56e29a054bd6407ed933fdfc3358" target="_blank">9af0dfd</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree5374205dd44ccc3c3a110d38b4219f30a8da6863targetblank5374205a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree9af0dfd3ecdb56e29a054bd6407ed933fdfc3358targetblank9af0dfda" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/5374205dd44ccc3c3a110d38b4219f30a8da6863" target="_blank">5374205</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/9af0dfd3ecdb56e29a054bd6407ed933fdfc3358" target="_blank">9af0dfd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -436,6 +436,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/9af0dfd3ecdb56e29a054bd6407ed933fdfc3358/analysis/index.Rmd" target="_blank">9af0dfd</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-10-19
+</td>
+<td>
+wflow_publish(c(“analysis/index.Rmd”))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/9f98c45c96ef4a4c7b46c34f0ed13359aa4d464f/docs/index.html" target="_blank">9f98c45</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-10-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1364,14 +1398,13 @@ Start workflowr project.
 </div>
 <div id="using-catalog-gwas-data" class="section level3">
 <h3>Using catalog GWAS data</h3>
-<div id="plier-canonical" class="section level4">
-<h4>PLIER-Canonical</h4>
-<p>To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the <a href="https://www.ebi.ac.uk/gwas/">Catalog of Published GWAS</a>. I selected the SNPs with fdr &lt; 0.05/ fdr &lt; 0.01/ pval &lt; 5e-8. Then, I did GWAS analysis for the plier_canonical factors with the SNPs.</p>
+<p>To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the <a href="https://www.ebi.ac.uk/gwas/">Catalog of Published GWAS</a>. I selected the SNPs with fdr &lt; 0.05/ fdr &lt; 0.01/ pval &lt; 5e-8. Then, I did GWAS analysis for the factors with the SNPs.</p>
+<div id="plier-canonical-factors" class="section level4">
+<h4>PLIER-Canonical factors</h4>
 <p><a href="https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html">Threshold: pval&lt;5e-8 &amp; consider traits separately &amp; perform ld clumping (r2 cutoff 0.1, physical dist 1Mb)</a></p>
 </div>
 <div id="peer-4" class="section level4">
 <h4>PEER</h4>
-<p>To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the <a href="https://www.ebi.ac.uk/gwas/">Catalog of Published GWAS</a>. I selected the SNPs with fdr &lt; 0.05/ fdr &lt; 0.01/ pval &lt; 5e-8. Then, I did GWAS analysis for the plier_canonical factors with the SNPs.</p>
 <p><a href="https://xsun1229.github.io/factor_analysis/catalog_gwas_peer_sep_ldclumping_r01d1000.html">Threshold: pval&lt;5e-8 &amp; consider traits separately &amp; perform ld clumping (r2 cutoff 0.1, physical dist 1Mb)</a></p>
 </div>
 </div>
