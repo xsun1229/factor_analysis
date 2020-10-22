@@ -984,60 +984,75 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 #### BMI 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
 </figure>
 
 #### lymphocyte count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+#### palate count 
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
 </figure>
 
 #### red blood cell count 
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
 </figure>
 
 
 #### asthma
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
 </figure>
 
 #### white blood cell count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
 </figure>
 
