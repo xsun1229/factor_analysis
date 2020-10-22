@@ -984,14 +984,12 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 #### BMI 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
@@ -1006,7 +1004,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
 </figure>
 
 #### palate count 
