@@ -252,9 +252,6 @@ For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs 
 
 #### BMI 
 
-The BMI~lv90 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
-
-
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_peer_d1k_ageco.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%">
@@ -493,6 +490,96 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_wbc_pval5e8_peer_d1k_ageco_reverse_remove.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_peer_d1k_ageco_reverse_remove.jpeg" width="30%">
 </figure>
+
+
+### QQplots - promising pairs
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv14_bmi_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### Eosinophil count 
+
+The Eo ~lv9 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv9_eo_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### Ulcerative colitist
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv77_EUR.UC_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### Granulocyte count 
+
+The gran ~lv43,96 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv43_gran_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv96_gran_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+
+#### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv66_lymph_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv76_lymph_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### Myeloid white cell count 
+
+The myeloid_wbc ~lv43 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv43_myeloid_wbc_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### Neutrophil count
+
+The neut ~lv43 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv43_neut_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### red blood cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv73_rbc_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_ukb.allasthma_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### white blood cell count
+
+The wbc ~lv43 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv11_wbc_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv68_wbc_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv43_wbc_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
 
 ## Results(former results) - pval < 5e-8 & 60 PEER factors & covariants: 10 whole genome PCs
 
