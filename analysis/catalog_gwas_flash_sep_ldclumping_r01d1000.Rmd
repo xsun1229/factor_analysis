@@ -114,3 +114,185 @@ I did ORA for all the factors mentioned above with WebGestalt. The analysis sett
 
 [Neutrophil - LV31](http://www.webgestalt.org/results/1603486867/#)
 
+
+
+### Effect size plots
+
+For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/articles/introduction.html) R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR<0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### Eosinophil count 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_eo_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### Crohn's disease
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_EUR.CD_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.CD_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### IBD
+
+None of the LVs have >1 SNPs at FDR<0.2.
+
+#### Ulcerative colitist
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_EUR.UC_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.UC_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### granulocyte count
+
+None of the LVs have >1 SNPs at FDR<0.2.
+
+
+#### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_lymph_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### myeloid white cell count
+
+None of the LVs have >1 SNPs at FDR<0.2.
+
+#### neutrophil count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### plt
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv65_plt_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### rbc
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_rbc_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv48_rbc_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### T2D
+
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_T2D_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv87_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+</figure>
+
+#### wbc
+
+None of the LVs have >1 SNPs at FDR<0.2.
+
+
+### Effect size plots- more SNPs
+
+For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)
+
+#### Neutrophil count
+
+The neut ~lv31 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+#### platelet
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+#### T2D
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_T2D_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_T2D_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_T2D_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+
+
+### Effect size plots - checking the reverse causality
+
+To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits(pval<5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
+
+Some pair show p < 0.05, the result may be driven by the possible causal effect of LV -> trait. To test this, I removed the SNPs that are associated with LVs at FDR < 0.2 and made the plots again.
+
+#### Neutrophil count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+#### platelet count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+#### T2D
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_T2D_pval5e8_flash_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_T2D_pval5e8_flash_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+
