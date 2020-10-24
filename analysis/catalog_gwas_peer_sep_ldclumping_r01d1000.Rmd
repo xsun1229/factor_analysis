@@ -197,8 +197,8 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%">
 </figure>
 
 #### neutrophil count
