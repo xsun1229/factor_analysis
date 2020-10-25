@@ -419,6 +419,8 @@ To check if the effect size correlation is due to reverse causality: i.e. trait 
 
 Some pair show p < 0.05, the result may be driven by the possible causal effect of LV -> trait. To test this, I removed the SNPs that are associated with LVs at FDR < 0.2 and made the plots again.
 
+### QQplots
+
 #### BMI 
 
 <figure class="half">
@@ -459,7 +461,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv36_ukb.allasthma_pliercanon_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv39_ukb.allasthma_pliercanon_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv79_ukb.allasthma_pliercanon_d1k_ageco.jpeg" width="30%">
 </figure>
 
 
@@ -467,7 +469,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv6_wbc_pliercanon_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv119_wbc_pliercanon_d1k_ageco.jpeg.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv119_wbc_pliercanon_d1k_ageco.jpeg" width="30%">
 </figure>
 
 
