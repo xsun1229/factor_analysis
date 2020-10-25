@@ -296,3 +296,29 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 </figure>
 
 
+
+### QQplots - promising pairs
+
+#### Neutrophil count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv31_neut_flash.jpeg" width="30%">
+</figure>
+
+#### platelet count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv79_plt_flash.jpeg" width="30%">
+</figure>
+
+#### T2D
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv23_T2D_flash.jpeg" width="30%">
+</figure>
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv30_ukb.allasthma_flash.jpeg" width="30%">
+</figure>
