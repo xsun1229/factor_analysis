@@ -412,6 +412,68 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 
 
 
+
+### Effect size plots - checking the reverse causality
+
+To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits(pval<5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
+
+Some pair show p < 0.05, the result may be driven by the possible causal effect of LV -> trait. To test this, I removed the SNPs that are associated with LVs at FDR < 0.2 and made the plots again.
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv27_bmi_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv76_bmi_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_bmi_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv23_lymph_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv26_lymph_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+
+#### platelet count 
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv49_plt_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+
+#### red blood cell count 
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv82_rbc_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv36_ukb.allasthma_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv39_ukb.allasthma_peer_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### white blood cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv6_wbc_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv119_wbc_peer_d1k_ageco.jpeg.jpeg" width="30%">
+</figure>
+
+
+
+
+
 ## Results - pval < 5e-8 & association test covariants: 10 PCs
 
 ### Summary table
