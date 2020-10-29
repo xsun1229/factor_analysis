@@ -657,11 +657,11 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv6_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv6_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv6_pliercanon_d1k_top2.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv6_pliercanon_d1k_top2.jpeg" width="50%">
 </figure>
 
 
