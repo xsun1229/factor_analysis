@@ -479,7 +479,7 @@ LV6 and LV119
 
 
 
-### Colocalisation
+### Colocalization
 
 The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc incorporated in the FUSION pipeline with the default parameters for TWAS-significant associations (using the R function Fusion.assoc_test.R in FUSION with -coloc_P flag) and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
 
@@ -495,7 +495,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv27_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv27_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
 
@@ -507,7 +507,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv76_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv76_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
 
@@ -519,7 +519,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv90_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv90_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
 
@@ -528,7 +528,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV23 and LV26
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv23_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv23_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
 ```{r echo=FALSE}
@@ -539,7 +539,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv26_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv26_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
 ```{r echo=FALSE}
@@ -555,7 +555,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV49
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv49_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv49_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
 ```{r echo=FALSE}
@@ -571,7 +571,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV82
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv82_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv82_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
 ```{r echo=FALSE}
@@ -585,34 +585,22 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 
 #### asthma
 
+The asthma GWAS data doesn't contain the MAF of SNPs which is required in 'coloc' package when performing colocalization analysis. So I just post the plots here. 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv36_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv36_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allasthma_lv36_coloc.results_d1k.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv79_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv79_pliercanon_d1k.jpeg" width="50%">
 </figure>
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allasthma_lv79_coloc.results_d1k.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
 
 
 #### white blood cell count
 
 LV6 and LV119
-
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv6_pliercanon_d1k.jpeg" width="30%">
