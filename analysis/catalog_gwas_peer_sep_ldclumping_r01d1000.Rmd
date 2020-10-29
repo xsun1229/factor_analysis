@@ -581,6 +581,432 @@ The wbc ~lv43 is not very promising pairs when considering SNPs at fdr<0.2, but 
 </figure>
 
 
+### Colocalization
+
+The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
+
+Chromosome selection: I first sorted the SNPs by their pvalues from factor association tests, then I selected the first two SNPs and chose their chromosome to do the colocalization test adn visualization. 
+
+#### BMI 
+
+LV14 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/bmi_lv14_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv14_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+LV14 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/bmi_lv14_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv14_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+#### Eosinophil count 
+
+The Eo ~lv9 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+
+LV9 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/eo_lv9_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_eo_lv9_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+LV9 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/eo_lv9_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_eo_lv9_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+
+#### Ulcerative colitist
+
+lv77 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/EUR.UC_lv77_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_EUR.UC_lv77_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv77 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/EUR.UC_lv77_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_EUR.UC_lv77_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+#### Granulocyte count 
+
+The gran ~lv43,96 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+
+lv43 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/gran_lv43_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_gran_lv43_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv43 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/gran_lv43_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_gran_lv43_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+
+lv96 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/gran_lv96_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_gran_lv96_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv96 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/gran_lv96_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_gran_lv96_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+
+#### lymphocyte count
+
+lv66 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_lv66_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv66_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv66 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_lv66_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv66_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+
+lv76 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_lv76_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv76_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv76 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_lv76_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv76_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+#### Myeloid white cell count 
+
+The myeloid_wbc ~lv43 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+lv43 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/myeloid_wbc_lv43_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_myeloid_wbc_lv43_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv43 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/myeloid_wbc_lv43_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_myeloid_wbc_lv43_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+#### Neutrophil count
+
+The neut ~lv43 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+lv43 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/neut_lv43_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_neut_lv43_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv43 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/neut_lv43_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_neut_lv43_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+#### red blood cell count
+
+lv73 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv73_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv73_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv73 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv73_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv73_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+
+#### asthma
+
+The asthma GWAS data doesn't contain the MAF of SNPs which is required in 'coloc' package when performing colocalization analysis. So I just post the plots here. 
+
+lv47 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allasthma_lv47_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv47_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv47 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allasthma_lv47_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv47_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+#### white blood cell count
+
+The wbc ~lv43 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
+
+lv11 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_lv11_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv11_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv11 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_lv11_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv11_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+
+lv68 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_lv68_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv68_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv68 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_lv68_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv68_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+
+lv43 top1 snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_lv43_coloc.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv43_peer_d1k.jpeg" width="80%">
+</figure>
+
+
+lv43 the second snp and its chromosome
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_lv43_coloc_top2.results_peer_d1k.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv43_peer_d1k_top2.jpeg" width="80%">
+</figure>
+
+
 ## Results(former results) - pval < 5e-8 & 60 PEER factors & covariants: 10 whole genome PCs
 
 In this part, the PEER factors are consistent with the the [former PEER factors](https://xsun1229.github.io/factor_analysis/eval_peer.html)
