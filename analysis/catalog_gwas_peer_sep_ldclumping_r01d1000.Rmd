@@ -894,26 +894,12 @@ The asthma GWAS data doesn't contain the MAF of SNPs which is required in 'coloc
 
 lv47 top1 snp and its chromosome
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allasthma_lv47_coloc.results_peer_d1k.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv47_peer_d1k.jpeg" width="80%">
 </figure>
 
-
 lv47 the second snp and its chromosome
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allasthma_lv47_coloc_top2.results_peer_d1k.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv47_peer_d1k_top2.jpeg" width="80%">
