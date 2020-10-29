@@ -493,7 +493,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv27_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv27_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 
@@ -507,7 +507,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv27_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv27_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 LV76 top1 snp and its chromosome
@@ -520,7 +520,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv76_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv76_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 LV76 the second snp and its chromosome
@@ -533,7 +533,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv76_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv76_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 LV90 top1 snp and its chromosome
@@ -546,7 +546,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv90_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv90_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 LV90 the second snp and its chromosome
@@ -559,7 +559,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv90_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv90_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 
@@ -576,7 +576,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv23_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv23_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 
@@ -591,7 +591,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv23_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv23_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 LV26 top1 snp and its chromosome
@@ -604,7 +604,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv26_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv26_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 LV26 the second snp and its chromosome
@@ -617,7 +617,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv26_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_lymph_lv26_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 #### platelet count 
@@ -632,7 +632,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv49_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv49_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 LV49 the second snp and its chromosome
@@ -645,7 +645,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv49_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv49_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 
@@ -661,7 +661,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv82_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv82_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 
@@ -675,7 +675,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv82_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv82_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 
@@ -686,25 +686,25 @@ The asthma GWAS data doesn't contain the MAF of SNPs which is required in 'coloc
 LV36 top1 snp and its chromosome
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv36_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv36_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 LV36 the second snp and its chromosome
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv36_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv36_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 LV79 top1 snp and its chromosome
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv79_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv79_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 LV79 the second snp and its chromosome
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv79_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv79_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 
@@ -721,7 +721,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv6_pliercanon_d1k.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv6_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 LV6 the second snp and its chromosome
@@ -734,7 +734,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv6_pliercanon_d1k_top2.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv6_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 LV119 top1 snp and its chromosome
@@ -747,7 +747,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv119_pliercanon_d1k.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv119_pliercanon_d1k.jpeg" width="80%">
 </figure>
 
 LV119 the second snp and its chromosome
@@ -760,7 +760,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv119_pliercanon_d1k_top2.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_wbc_lv119_pliercanon_d1k_top2.jpeg" width="80%">
 </figure>
 
 ## Results - pval < 5e-8 & association test covariants: 10 PCs
