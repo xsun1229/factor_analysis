@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2020-11-02" />
+
+<title>catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2020-11-02</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-11-02
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div class="panel-group" id="workflowr-checks">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_d1k_geu.rdata
+</td>
+<td style="text-align:left;">
+output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_d1k_geu.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/info_pval5e8_pliercanon_ld_d1k_geu.rdata
+</td>
+<td style="text-align:left;">
+output/info_pval5e8_pliercanon_ld_d1k_geu.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree3fb8acd0fb7dda69cfd85d2cb097fdb0e5adb49ftargetblank3fb8acda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/3fb8acd0fb7dda69cfd85d2cb097fdb0e5adb49f" target="_blank">3fb8acd</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree3fb8acd0fb7dda69cfd85d2cb097fdb0e5adb49ftargetblank3fb8acda" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/3fb8acd0fb7dda69cfd85d2cb097fdb0e5adb49f" target="_blank">3fb8acd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.Rmd</code>) and HTML (<code>docs/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/3fb8acd0fb7dda69cfd85d2cb097fdb0e5adb49f/analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.Rmd" target="_blank">3fb8acd</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-02
+</td>
+<td>
+wflow_publish(“analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/377743f6909512c3cdcc86d7b08b40df7da98179/analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.Rmd" target="_blank">377743f</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-02
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In this part, I used GEUVADIS YRI data in LCL and inferred 42 plier-canonical LVs from the expression matrix. Then I used these factors to do the same analysis with the <a href="https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html">GTEx LVs</a>. Since the pipeline is the same with former analysis(an exception: the covariants in association tests are: 10 whole genome PCs and gender), I just post the results here.</p>
+</div>
+<div id="snps-after-filter" class="section level2">
+<h2>Snps after filter</h2>
+<p>The original GEUVADIS YRI data genotype data contains 85 samples and 19,594,321 variants. After filtering by MAF&gt;0.01, 12,920,935 left. Then, I combine the genotype dataset with the Catalog-GWAS data.</p>
+<p>After filtering by ‘pval &lt; 5e-8’ and LD Clumping(r2 = 0.1, physical dist = 1Mb), for each trait, I got :</p>
+<p>platelet count trait contains 1234 SNPs with pval&lt;5e-8.</p>
+<p>white blood cell count trait contains 788 SNPs with pval&lt;5e-8.</p>
+<p>myeloid white cell count trait contains 686 SNPs with pval&lt;5e-8.</p>
+<p>lymphocyte count trait contains 872 SNPs with pval&lt;5e-8.</p>
+<p>red blood cell count trait contains 892 SNPs with pval&lt;5e-8.</p>
+<p>granulocyte count trait contains 638 SNPs with pval&lt;5e-8.</p>
+<p>eosinophil count trait contains 964 SNPs with pval&lt;5e-8.</p>
+<p>neutrophil count trait contains 628 SNPs with pval&lt;5e-8.</p>
+<p>IBD trait contains 250 SNPs with pval&lt;5e-8.</p>
+<p>Ulcerative colitist trait contains 101 SNPs with pval&lt;5e-8.</p>
+<p>Crohn’s disease trait contains 189 SNPs with pval&lt;5e-8.</p>
+<p>asthma trait contains 333 SNPs with pval&lt;5e-8.</p>
+<p>BMI trait contains 197 SNPs with pval&lt;5e-8.</p>
+<p>T2D contains 25 SNPs with pval&lt;5e-8.</p>
+<div id="summary-table" class="section level3">
+<h3>Summary table</h3>
+<p>I used ‘qvalue’ R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are ‘fdr &lt; 0.1’,‘fdr &lt; 0.2’,‘pval &lt; 5e-8’.</p>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["LV1","LV2","LV3","LV4","LV5","LV6","LV7","LV8","LV9","LV10","LV11","LV12","LV13","LV14","LV15","LV16","LV17","LV18","LV19","LV20","LV21","LV22","LV23","LV24","LV25","LV26","LV27","LV28","LV29","LV30","LV31","LV32","LV33","LV34","LV35","LV36","LV37","LV38","LV39","LV40","LV41","LV42"],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,1,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,2,0,0,2,0,0,2,4,0,1,0,0,1,0,0,0,0,0,0,2,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,3,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>bmi_fdr010_num<\/th>\n      <th>bmi_fdr020_num<\/th>\n      <th>bmi_pval5e8_num<\/th>\n      <th>eo_fdr010_num<\/th>\n      <th>eo_fdr020_num<\/th>\n      <th>eo_pval5e8_num<\/th>\n      <th>EUR.CD_fdr010_num<\/th>\n      <th>EUR.CD_fdr020_num<\/th>\n      <th>EUR.CD_pval5e8_num<\/th>\n      <th>EUR.IBD_fdr010_num<\/th>\n      <th>EUR.IBD_fdr020_num<\/th>\n      <th>EUR.IBD_pval5e8_num<\/th>\n      <th>EUR.UC_fdr010_num<\/th>\n      <th>EUR.UC_fdr020_num<\/th>\n      <th>EUR.UC_pval5e8_num<\/th>\n      <th>gran_fdr010_num<\/th>\n      <th>gran_fdr020_num<\/th>\n      <th>gran_pval5e8_num<\/th>\n      <th>lymph_fdr010_num<\/th>\n      <th>lymph_fdr020_num<\/th>\n      <th>lymph_pval5e8_num<\/th>\n      <th>myeloid_wbc_fdr010_num<\/th>\n      <th>myeloid_wbc_fdr020_num<\/th>\n      <th>myeloid_wbc_pval5e8_num<\/th>\n      <th>neut_fdr010_num<\/th>\n      <th>neut_fdr020_num<\/th>\n      <th>neut_pval5e8_num<\/th>\n      <th>plt_fdr010_num<\/th>\n      <th>plt_fdr020_num<\/th>\n      <th>plt_pval5e8_num<\/th>\n      <th>rbc_fdr010_num<\/th>\n      <th>rbc_fdr020_num<\/th>\n      <th>rbc_pval5e8_num<\/th>\n      <th>T2D_fdr010_num<\/th>\n      <th>T2D_fdr020_num<\/th>\n      <th>T2D_pval5e8_num<\/th>\n      <th>ukb.allasthma_fdr010_num<\/th>\n      <th>ukb.allasthma_fdr020_num<\/th>\n      <th>ukb.allasthma_pval5e8_num<\/th>\n      <th>wbc_fdr010_num<\/th>\n      <th>wbc_fdr020_num<\/th>\n      <th>wbc_pval5e8_num<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="info-table" class="section level3">
+<h3>Info table</h3>
+<p>For each trait, I made a table to show the info of snps with fdr&gt;0.2 in the factor ~ SNP + genotype pcs + gender association test. For each trait,The LVs have more than one significant SNPs with FDR&lt;0.2 are included.</p>
+<p>The suffix ’_assoc’ here means that results are from factor ~ SNP + genotype pcs association test. The suffix ’_gwas’ here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, T2D, asthma the effectsize_gwas here means ‘ln(OR)’, for others, it means ‘beta’.</p>
+<p>‘snp_ld’ here means the snps that in LD with the snp in each line.’ld_r2’ means the LD r-squared which is corresponding to the ‘snp_ld’ column. ‘cis-eqtl’ column indicates whether the snp is a cis-eqtl according to GTEx data. ‘cis_gene_hgnc’ and ‘cis_gene_hgnc’ is the genes that the snp influence when it act as cis-eqtl. ‘func’ and ‘func_gene’ are obtained from ANNOVAR, which indicating the snp function within the genes.</p>
+<div id="htmlwidget-cfefb73e51b4928e765c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfefb73e51b4928e765c">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28"],["rs12446632","rs3897645","rs7288670","rs74653574","rs2586529","rs62550971","rs10802501","rs1716182","rs28611014","rs4766535","rs174593","rs9410196","rs4148440","rs4766535","rs4148440","rs4766535","rs6912735","rs9321476","rs174593","rs78429945","rs9838625","rs36066142","rs74912344","rs10491424","rs157577","rs35251008","rs140152038","rs7931195"],["bmi","bmi","eo","eo","plt","plt","plt","plt","plt","plt","plt","plt","plt","plt","plt","plt","rbc","rbc","rbc","rbc","rbc","rbc","rbc","ukb.allasthma","ukb.allasthma","ukb.allasthma","ukb.allasthma","ukb.allasthma"],["LV6","LV6","LV28","LV28","LV11","LV11","LV12","LV12","LV12","LV12","LV24","LV24","LV5","LV5","LV8","LV8","LV10","LV10","LV24","LV24","LV24","LV5","LV5","LV27","LV27","LV27","LV32","LV32"],["16","18","22","19","17","9","1","12","22","12","11","9","13","12","13","12","6","6","11","20","3","12","16","5","5","15","16","11"],["19935389","57728947","24621826","16408418","4837210","91401060","247612202","123686127","50734890","111543825","61618831","91392555","95898428","111543825","95898428","111543825","2206012","135150550","61618831","30439298","141063953","121182774","89235746","110453806","131563571","67468525","27365310","76281972"],["-0.0403","0.0282","-0.02307912","-0.08691022","-0.06093788","-0.06604463","-0.03367817","0.03093478","0.02262564","-0.0574295","0.03174154","-0.06628607","0.03333272","-0.0574295","0.03333272","-0.0574295","0.02366438","-0.04388278","0.02659664","-0.03222761","-0.02852834","0.03325217","0.04963905","0.055552","0.0381377","-0.0534405","0.265028","-0.0689242"],["1.477e-18","1.126e-19","2.31e-09","3.083e-10","6.071e-14","1.822e-18","1.488e-11","3.716e-12","3.447e-08","1.691e-11","6.318e-15","3.811e-18","1.923e-08","1.691e-11","1.923e-08","1.691e-11","1.18e-10","1.289e-31","2.138e-11","1.623e-11","8.961e-15","1.719e-18","5.21e-09","5.7e-18","3.6e-08","9e-15","2.2e-12","1e-27"],["0.7139","0.3766","-0.3106","-0.5121","0.6235","-0.6529","-0.4561","-0.6182","-0.6311","-0.4677","0.3005","0.9074","-2.13","-0.5772","-1.184","-0.3149","0.3318","-0.3802","0.3005","0.6924","1.295","-0.5932","-2.019","-0.3176","0.2938","0.3608","1.194","0.3265"],["0.0006401","0.0004398","0.0002006","0.0002083","0.0002207","0.0002586","0.0001773","0.0001942","0.0002085","0.0001935","7.047e-05","8.391e-05","1.309e-05","2.153e-05","6.395e-05","0.0001507","0.0001282","7.917e-05","7.047e-05","0.0001579","0.0001555","0.0001957","4.906e-05","0.0001094","0.0004845","0.0004257","0.0002516","0.0002715"],["0.156744056065033","0.125175593402997","0.162213105932147","0.165484058716071","0.177559587829598","0.191662208145939","0.152266339312418","0.163701161548849","0.17373961355595","0.163218083268982","0.13166920567293","0.15266945703183","0.0282660721625543","0.0427602922675166","0.111782313526094","0.19198979242934","0.185569528391293","0.122031080635568","0.0777165190085764","0.143050887368923","0.141136178705166","0.18691396937353","0.0793760252995414","0.0646200035371718","0.194792028104671","0.175345634589871","0.0992515916655852","0.104347685856042"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,"T",null,null,"T",null,null,"T",null,null,null,null,null,null,null,"T",null,null,"T",null,null,null,null,null,null],[null,null,null,null,"RP11-314A20.5,RP5-1050D4.4",null,null,"RP13-942N8.1",null,null,"TMEM138,CYB561A3",null,null,null,null,null,null,null,"TMEM138,CYB561A3",null,null,"GATC",null,null,null,null,null,null],[null,null,null,null,"ENSG00000261898,ENSG00000262678",null,null,"ENSG00000256092",null,null,"ENSG00000149483,ENSG00000162144",null,null,null,null,null,null,null,"ENSG00000149483,ENSG00000162144",null,null,"ENSG00000257218",null,null,null,null,null,null],["intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic","intergenic"],["NONE(dist=NONE),NONE(dist=NONE)","NONE(dist=NONE),LOC102725121(dist=11857)","NONE(dist=NONE),LINC00266-3(dist=140255)","NONE(dist=NONE),LINC00266-3(dist=140251)","NONE(dist=NONE),NONE(dist=NONE)","NONE(dist=NONE),LINC01986(dist=65427)","NONE(dist=NONE),FAM110C(dist=38796)","NONE(dist=NONE),FAM110C(dist=38796)","NONE(dist=NONE),LOC102723672(dist=144430)","NONE(dist=NONE),LINC01001(dist=127118)","NONE(dist=NONE),PLEKHG4B(dist=92264)","NONE(dist=NONE),LINC01986(dist=65428)","NONE(dist=NONE),OR4F21(dist=116069)","NONE(dist=NONE),ZNF595(dist=53155)","NONE(dist=NONE),ZNF595(dist=53155)","NONE(dist=NONE),LINC01986(dist=65429)","NONE(dist=NONE),LINC01986(dist=65429)","NONE(dist=NONE),LINC01986(dist=65429)","NONE(dist=NONE),NONE(dist=NONE)","NONE(dist=NONE),NONE(dist=NONE)","NONE(dist=NONE),LINC01001(dist=127123)","NONE(dist=NONE),DDX11L5(dist=11979)","NONE(dist=NONE),LINC00266-3(dist=140243)","NONE(dist=NONE),TUBB8(dist=92814)","NONE(dist=NONE),FAM110C(dist=38794)","NONE(dist=NONE),NONE(dist=NONE)","NONE(dist=NONE),NONE(dist=NONE)","NONE(dist=NONE),FAM138D(dist=67600)"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>SNP_rsid<\/th>\n      <th>Traits<\/th>\n      <th>factors<\/th>\n      <th>SNP_chr<\/th>\n      <th>SNP_pos_hg19<\/th>\n      <th>BETA_gwas<\/th>\n      <th>P_gwas<\/th>\n      <th>BETA_assoc<\/th>\n      <th>P_assoc<\/th>\n      <th>fdr_assoc<\/th>\n      <th>snp_ld<\/th>\n      <th>ld_r2<\/th>\n      <th>cis_eqtl<\/th>\n      <th>cis_genes_hgnc<\/th>\n      <th>cis_genes_ensembl<\/th>\n      <th>func<\/th>\n      <th>func_gene<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="enrichment-analysis" class="section level3">
+<h3>Enrichment analysis</h3>
+<p>There isn’t any promising pairs (from the effectsize plots), so I didn’t do enrichment analysis for these factors.</p>
+</div>
+<div id="effect-size-plots" class="section level3">
+<h3>Effect size plots</h3>
+<p>For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by <a href="https://mrcieu.github.io/TwoSampleMR/articles/introduction.html">TwoSampleMR</a> R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR&lt;0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.</p>
+<div id="bmi" class="section level4">
+<h4>BMI</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_bmi_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+</figure>
+</div>
+<div id="eosinophil-count" class="section level4">
+<h4>Eosinophil count</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_eo_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+</figure>
+</div>
+<div id="plt" class="section level4">
+<h4>plt</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_plt_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_plt_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_plt_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_plt_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_plt_pval5e8_d1k_geu.jpeg" width="30%">
+</figure>
+</div>
+<div id="red-blood-cell-count" class="section level4">
+<h4>red blood cell count</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_rbc_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_rbc_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_rbc_pval5e8_d1k_geu.jpeg" width="30%">
+</figure>
+</div>
+<div id="asthma" class="section level4">
+<h4>asthma</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_ukb.allasthma_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_ukb.allasthma_pval5e8_d1k_geu.jpeg" width="30%">
+</figure>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5        rstudioapi_0.11   whisker_0.3-2     knitr_1.30       
+ [5] magrittr_1.5      R6_2.4.1          rlang_0.4.8       highr_0.8        
+ [9] stringr_1.4.0     tools_3.6.1       DT_0.15           xfun_0.18        
+[13] git2r_0.26.1      crosstalk_1.1.0.1 htmltools_0.5.0   ellipsis_0.3.1   
+[17] rprojroot_1.3-2   yaml_2.2.1        digest_0.6.25     tibble_3.0.3     
+[21] lifecycle_0.2.0   crayon_1.3.4      later_1.1.0.1     htmlwidgets_1.5.2
+[25] vctrs_0.3.4       promises_1.1.1    fs_1.5.0          glue_1.4.2       
+[29] evaluate_0.14     rmarkdown_1.13    stringi_1.5.3     compiler_3.6.1   
+[33] pillar_1.4.6      backports_1.1.10  jsonlite_1.7.1    httpuv_1.5.1     
+[37] pkgconfig_2.0.3  </code></pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
