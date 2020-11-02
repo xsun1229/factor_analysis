@@ -92,7 +92,7 @@ DT::datatable(summary, options = list(pageLength =20))
 
 For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs association test. For each trait,The LVs have more than one significant SNPs with FDR<0.2 are included. 
 
-The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
+The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC,T2D, asthma, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
 
 'snp_ld' here means the snps that in LD with the snp in each line.'ld_r2' means the LD r-squared which is corresponding to the 'snp_ld' column. 'cis-eqtl' column indicates whether the snp is a cis-eqtl according to GTEx data. 'cis_gene_hgnc' and 'cis_gene_hgnc' is the genes that the snp influence when it act as cis-eqtl. 'func' and 'func_gene' are obtained from ANNOVAR, which indicating the snp function within the genes.
 

@@ -1,0 +1,91 @@
+---
+title: "catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu"
+author: "XSun"
+date: "2020-11-02"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In this part, I used GEUVADIS YRI data in LCL and inferred 42 plier-canonical LVs from the expression matrix. Then I used these factors to do the same analysis with the [GTEx LVs](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html). Since the pipeline is the same with former analysis(an exception: the covariants in association tests are: 10 whole genome PCs and gender), I just post the results here. 
+
+## Snps after filter
+
+The original GEUVADIS YRI data genotype data contains 85 samples and 19,594,321 variants. After filtering by MAF>0.01, 12,920,935 left. Then, I combine the genotype dataset with the Catalog-GWAS data.
+
+After filtering by 'pval < 5e-8' and LD Clumping(r2 = 0.1, physical dist = 1Mb), for each trait, I got :
+
+platelet count trait contains 1234 SNPs with pval<5e-8. 
+
+white blood cell count trait contains 788 SNPs with pval<5e-8. 
+
+myeloid white cell count trait contains 686 SNPs with pval<5e-8. 
+
+lymphocyte count trait contains 872 SNPs with pval<5e-8. 
+
+red blood cell count trait contains 892 SNPs with pval<5e-8. 
+
+granulocyte count trait contains 638 SNPs with pval<5e-8. 
+
+eosinophil count trait contains 964 SNPs with pval<5e-8. 
+
+neutrophil count trait contains 628 SNPs with pval<5e-8. 
+
+IBD trait contains 250 SNPs with pval<5e-8. 
+
+Ulcerative colitist trait contains 101 SNPs with pval<5e-8. 
+
+Crohn's disease trait contains 189 SNPs with pval<5e-8. 
+
+asthma trait contains 333 SNPs with pval<5e-8. 
+
+BMI trait contains 197 SNPs with pval<5e-8. 
+
+T2D contains 25 SNPs with pval<5e-8. 
+
+
+### Summary table
+
+I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_d1k_geu.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+
+
+### Info table
+
+For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs + gender association test. For each trait,The LVs have more than one significant SNPs with FDR<0.2 are included. 
+
+The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, T2D, asthma the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
+
+'snp_ld' here means the snps that in LD with the snp in each line.'ld_r2' means the LD r-squared which is corresponding to the 'snp_ld' column. 'cis-eqtl' column indicates whether the snp is a cis-eqtl according to GTEx data. 'cis_gene_hgnc' and 'cis_gene_hgnc' is the genes that the snp influence when it act as cis-eqtl. 'func' and 'func_gene' are obtained from ANNOVAR, which indicating the snp function within the genes.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_pval5e8_pliercanon_ld_d1k_geu.rdata")
+rownames(final_full) <- seq(1,nrow(final_full), by=1)
+DT::datatable(final_full, options = list(pageLength =20))
+```
+
+
+
+
+### Enrichment analysis 
+
+There isn't any promising pairs (from the effectsize plots), so I didn't do enrichment analysis for these factors. 
+
+
+
+### Effect size plots
+
+For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/articles/introduction.html) R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR<0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_bmi_pval5e8_d1k_geu.jpeg" width="30%">
+</figure>
