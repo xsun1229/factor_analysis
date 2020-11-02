@@ -457,7 +457,7 @@ div.tocify {
 <strong>Last updated:</strong> 2020-11-02
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 2
 </p>
 <p>
 <strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -473,12 +473,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -577,16 +577,16 @@ output/info_pval5e8_pliercanon_ld_d1k_geu.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree3fb8acd0fb7dda69cfd85d2cb097fdb0e5adb49ftargetblank3fb8acda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/3fb8acd0fb7dda69cfd85d2cb097fdb0e5adb49f" target="_blank">3fb8acd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree5c21e0afc89612042aa21e4e2fc1951232793d1ftargetblank5c21e0aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/5c21e0afc89612042aa21e4e2fc1951232793d1f" target="_blank">5c21e0a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree3fb8acd0fb7dda69cfd85d2cb097fdb0e5adb49ftargetblank3fb8acda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree5c21e0afc89612042aa21e4e2fc1951232793d1ftargetblank5c21e0aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/3fb8acd0fb7dda69cfd85d2cb097fdb0e5adb49f" target="_blank">3fb8acd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/5c21e0afc89612042aa21e4e2fc1951232793d1f" target="_blank">5c21e0a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -596,6 +596,9 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    analysis/.Rhistory
+
+Unstaged changes:
+    Modified:   analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.Rmd
 
 </code></pre>
 <p>
@@ -634,6 +637,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/5c21e0afc89612042aa21e4e2fc1951232793d1f/analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.Rmd" target="_blank">5c21e0a</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-02
+</td>
+<td>
+wflow_publish(“analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/84df365d16ca22b848c1f93c6269e9aa4806da83/docs/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.html" target="_blank">84df365</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-02
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -727,26 +764,31 @@ update
 <div id="eosinophil-count" class="section level4">
 <h4>Eosinophil count</h4>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_eo_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_eo_pval5e8_pliercanon_pliercanon_d1k_geu.jpeg" width="30%">
 </figure>
 </div>
 <div id="plt" class="section level4">
 <h4>plt</h4>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_plt_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_plt_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_plt_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_plt_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_plt_pval5e8_d1k_geu.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
 </figure>
 </div>
 <div id="red-blood-cell-count" class="section level4">
 <h4>red blood cell count</h4>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_rbc_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_rbc_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_rbc_pval5e8_d1k_geu.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_rbc_pval5e8_pliercanon_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_rbc_pval5e8_pliercanon_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_rbc_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
 </figure>
 </div>
 <div id="asthma" class="section level4">
 <h4>asthma</h4>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_ukb.allasthma_pval5e8_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_ukb.allasthma_pval5e8_d1k_geu.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_pliercanon_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_ukb.allasthma_pval5e8_pliercanon_d1k_geu.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_ukb.allasthma_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
 </figure>
+</div>
+</div>
+<div id="effect-size-plots--more-snps" class="section level3">
+<h3>Effect size plots- more SNPs</h3>
+<p>Since there isn’t any promising pairs, sp</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -787,7 +829,6 @@ loaded via a namespace (and not attached):
 [29] evaluate_0.14     rmarkdown_1.13    stringi_1.5.3     compiler_3.6.1   
 [33] pillar_1.4.6      backports_1.1.10  jsonlite_1.7.1    httpuv_1.5.1     
 [37] pkgconfig_2.0.3  </code></pre>
-</div>
 </div>
 </div>
 </div>
