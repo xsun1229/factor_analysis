@@ -213,7 +213,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV6 the second snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputbmi_lv6_coloc_top2_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/bmi_lv6_coloc_top2_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -242,7 +242,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV28 the second snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputeo_lv28_coloc_top2_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/eo_lv28_coloc_top2_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -271,7 +271,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV12 the second snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputplt_lv12_coloc_top2_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv12_coloc_top2_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -299,7 +299,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV5 the second snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputplt_lv5_coloc_top2_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv5_coloc_top2_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -328,7 +328,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV8 the second snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputplt_lv8_coloc_top2_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv8_coloc_top2_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -357,7 +357,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV11 the second snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputplt_lv11_coloc_top2_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv11_coloc_top2_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -385,7 +385,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV24 the second snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputplt_lv24_coloc_top2_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv24_coloc_top2_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -402,7 +402,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV24 top1 snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv24_coloc_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv24_coloc_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -416,7 +416,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV24 the second snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputrbc_lv24_coloc_top2_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv24_coloc_top2_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -444,7 +444,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 LV5 the second snp and its chromosome
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputrbc_lv5_coloc_top2_geu.results_pliercanon.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv5_coloc_top2_geu.results_pliercanon.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
 knitr::kable(pval, caption = "pvalues in coloclization")
@@ -455,32 +455,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 </figure>
 
 
-LV10 top1 snp and its chromosome
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv10_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv10_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV10 the second snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/outputrbc_lv10_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv10_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
 
 
 #### asthma
