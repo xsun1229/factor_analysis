@@ -93,34 +93,34 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 #### Eosinophil count 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_eo_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_eo_pval5e8_pliercanon_pliercanon_d1k_geu.jpeg" width="30%">
 </figure>
 
 
 #### plt
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_plt_pval5e8_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_plt_pval5e8_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_plt_pval5e8_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_plt_pval5e8_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_plt_pval5e8_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
 </figure>
 
 
 #### red blood cell count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_rbc_pval5e8_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_rbc_pval5e8_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_rbc_pval5e8_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_rbc_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_rbc_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_rbc_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
 </figure>
 
 
 #### asthma
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_ukb.allasthma_pval5e8_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_ukb.allasthma_pval5e8_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_ukb.allasthma_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_ukb.allasthma_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
 </figure>
