@@ -16,7 +16,7 @@ In this part, I used GEUVADIS in LCL(462 samples) and inferred 152 plier-canonic
 
 1. Genotype data. 
 
-The catalog-GWAS data use rsid, so I first converted the GEUVADIS SNP ID(SNP_chr_pos) into rs ID. I downloaded the common dbSNP153 variants(maf >0.01) from the [ucsc table browser](https://genome.ucsc.edu/cgi-bin/hgTables) and mapped the converted SNPs according to these variants.
+The catalog-GWAS data use rsid, so I first converted the GEUVADIS SNP ID(SNP_chr_pos) into rs ID. I downloaded the common dbSNP153 variants(maf >0.01) from the [ucsc table browser](https://genome.ucsc.edu/cgi-bin/hgTables) and converted SNPs according to these variants.
 
 2. Expression data.
 
