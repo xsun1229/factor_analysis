@@ -9,42 +9,52 @@ editor_options:
 
 ## Introduction
 
-In this part, I used GEUVADIS YRI data in LCL and inferred 42 plier-canonical LVs from the expression matrix. Then I used these factors to do the same analysis with the [GTEx LVs](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html). Since the pipeline is the same with former analysis(an exception: the covariants in association tests are: 10 whole genome PCs and gender), I just post the results here. 
+In this part, I used GEUVADIS in LCL(462 samples) and inferred 152 plier-canonical LVs from the expression matrix. Then I used these factors to do the same analysis with the [GTEx LVs](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html). Since the analysis pipeline is the same with former analysis(an exception: the covariants in association tests are: 10 whole genome PCs, gender, population, lab,), I just post the results here. 
+
+
+## Data processing
+
+1. Genotype data. 
+
+The catalog-GWAS data use rsid, so I first converted the GEUVADIS SNP ID(SNP_chr_pos) into rs ID. I downloaded the common dbSNP153 variants(maf >0.01) from the [ucsc table browser](https://genome.ucsc.edu/cgi-bin/hgTables) and mapped the converted SNPs according to these variants.
+
+2. Expression data.
+
+The GEUVADIS expression data are unnormalized. I followed the [GEUVADIS paper](https://www.nature.com/articles/nature12531#Sec8) to do the normalization. Ran PEER for the genes and inferred 10 factors. Then, regress out these factors from the expression data. Transform the expression data to standard normal distribution.
 
 ## Snps after filter
 
-The original GEUVADIS YRI data genotype data contains 85 samples and 19,594,321 variants. After filtering by MAF>0.01, 12,920,935 left. Then, I combine the genotype dataset with the Catalog-GWAS data.
-
 After filtering by 'pval < 5e-8' and LD Clumping(r2 = 0.1, physical dist = 1Mb), for each trait, I got :
 
-platelet count trait contains 1234 SNPs with pval<5e-8. 
+platelet count trait contains 917 SNPs with pval<5e-8. 
 
-white blood cell count trait contains 788 SNPs with pval<5e-8. 
+white blood cell count trait contains 563 SNPs with pval<5e-8. 
 
-myeloid white cell count trait contains 686 SNPs with pval<5e-8. 
+myeloid white cell count trait contains 477 SNPs with pval<5e-8. 
 
-lymphocyte count trait contains 872 SNPs with pval<5e-8. 
+lymphocyte count trait contains 653 SNPs with pval<5e-8. 
 
-red blood cell count trait contains 892 SNPs with pval<5e-8. 
+red blood cell count trait contains 671 SNPs with pval<5e-8. 
 
-granulocyte count trait contains 638 SNPs with pval<5e-8. 
+granulocyte count trait contains 457 SNPs with pval<5e-8. 
 
-eosinophil count trait contains 964 SNPs with pval<5e-8. 
+eosinophil count trait contains 730 SNPs with pval<5e-8. 
 
-neutrophil count trait contains 628 SNPs with pval<5e-8. 
+neutrophil count trait contains 460 SNPs with pval<5e-8. 
 
 IBD trait contains 250 SNPs with pval<5e-8. 
 
-Ulcerative colitist trait contains 101 SNPs with pval<5e-8. 
+Ulcerative colitist trait contains 115 SNPs with pval<5e-8. 
 
 Crohn's disease trait contains 189 SNPs with pval<5e-8. 
 
-asthma trait contains 333 SNPs with pval<5e-8. 
+asthma trait contains 215 SNPs with pval<5e-8. 
 
-BMI trait contains 197 SNPs with pval<5e-8. 
+BMI trait contains 106 SNPs with pval<5e-8. 
 
-T2D contains 25 SNPs with pval<5e-8. 
+T2D contains 15 SNPs with pval<5e-8. 
 
+## Results
 
 ### Summary table
 
@@ -54,7 +64,6 @@ I used 'qvalue' R package to compute the fdr from p-values for each SNP and made
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_d1k_geu.rdata")
 DT::datatable(summary, options = list(pageLength =20))
 ```
-
 
 
 ### Info table
@@ -72,419 +81,27 @@ DT::datatable(final_full, options = list(pageLength =20))
 ```
 
 
+### Summary table  - lower fdr threshold
 
-
-### Enrichment analysis 
-
-There isn't any promising pairs (from the effectsize plots), so I didn't do enrichment analysis for these factors. 
-
-
-
-### Effect size plots
-
-For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/articles/introduction.html) R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR<0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.
-
-#### BMI 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_bmi_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-#### Eosinophil count 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_eo_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-
-#### plt
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_plt_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-
-#### red blood cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_rbc_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv5_rbc_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_rbc_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-
-#### asthma
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_ukb.allasthma_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv32_ukb.allasthma_pval5e8_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-### Effect size plots- more SNPs
-
-Since there isn't any promising pairs after relaxing the threshold, so I will not post the plots here.
-
-### Effect size plots - checking the reverse causality
-
-Since there isn't any promising pairs after relaxing the threshold, so I will not post the plots here.
-
-
-### QQplots 
-
-These are the QQplots from association tests. 
-
-#### BMI 
-
-LV27, LV76 and LV90
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv6_bmi_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-
-#### Eosinophil count 
-
-LV28
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv28_eo_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-#### plt
-
-LV12,5,8,11,24
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv12_plt_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv5_plt_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv8_plt_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv11_plt_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv24_plt_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-
-#### red blood cell count
-
-LV24,5,10
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv24_rbc_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv5_rbc_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv10_rbc_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-#### asthma
-
-LV27,32
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv27_ukb.allasthma_pliercanon_d1k_geu.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv32_ukb.allasthma_pliercanon_d1k_geu.jpeg" width="30%">
-</figure>
-
-### Colocalization
-
-The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
-
-Chromosome selection: I first sorted the SNPs by their pvalues from factor association tests, then I selected the first two SNPs and chose their chromosome to do the colocalization test and visualization. 
-
-Since there isn't any promising pairs, I post all pairs here.
-
-#### BMI 
-
-LV6 top1 snp and its chromosome
+I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/bmi_lv6_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_d1k_geu_low.rdata")
+DT::datatable(summary, options = list(pageLength =20))
 ```
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv6_plier_d1k_geu.jpeg" width="80%">
-</figure>
 
+### Info table  - lower fdr threshold
 
-LV6 the second snp and its chromosome
+For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs + gender association test. For each trait,The LVs have more than one significant SNPs with FDR<0.2 are included. 
+
+The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, T2D, asthma the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
+
+'snp_ld' here means the snps that in LD with the snp in each line.'ld_r2' means the LD r-squared which is corresponding to the 'snp_ld' column. 'cis-eqtl' column indicates whether the snp is a cis-eqtl according to GTEx data. 'cis_gene_hgnc' and 'cis_gene_hgnc' is the genes that the snp influence when it act as cis-eqtl. 'func' and 'func_gene' are obtained from ANNOVAR, which indicating the snp function within the genes.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/bmi_lv6_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_pval5e8_pliercanon_ld_d1k_geu_low.rdata")
+rownames(final_full) <- seq(1,nrow(final_full), by=1)
+DT::datatable(final_full, options = list(pageLength =20))
 ```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_bmi_lv6_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-#### Eosinophil count 
-
-LV28 top1 snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_lv28_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_eo_lv28_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV28 the second snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_lv28_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_eo_lv28_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-#### plt
-
-LV12 top1 snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv12_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv12_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV12 the second snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv12_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv12_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-
-LV5 top1 snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv5_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv5_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV5 the second snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv5_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv5_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-
-
-LV8 top1 snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv8_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv8_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV8 the second snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv8_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv8_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-
-
-LV11 top1 snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv11_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv11_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV11 the second snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv11_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv11_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-
-LV24 top1 snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv24_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv24_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV24 the second snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv24_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_plt_lv24_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-
-#### red blood cell count
-
-
-LV24 top1 snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/plt_lv24_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv24_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV24 the second snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv24_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv24_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-
-LV5 top1 snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv5_coloc_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv5_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV5 the second snp and its chromosome
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv5_coloc_top2_geu.results_pliercanon.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_rbc_lv5_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-
-
-
-
-#### asthma
-
-The asthma GWAS data doesn't contain the MAF of SNPs which is required in 'coloc' package when performing colocalization analysis. So I just post the plots here. 
-
-LV27 top1 snp and its chromosome
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv27_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV27 the second snp and its chromosome
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv27_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
-
-LV32 top1 snp and its chromosome
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv32_plier_d1k_geu.jpeg" width="80%">
-</figure>
-
-
-LV32 the second snp and its chromosome
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/coloc_ukb.allasthma_lv32_plier_d1k_geu_top2.jpeg" width="80%">
-</figure>
 
