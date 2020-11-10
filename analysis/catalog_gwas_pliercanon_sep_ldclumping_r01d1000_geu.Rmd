@@ -83,7 +83,7 @@ DT::datatable(final_full, options = list(pageLength =20))
 
 ### Summary table  - lower fdr threshold
 
-I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'.
+I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.01','fdr < 0.05','pval < 5e-8'.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_d1k_geu_low.rdata")
@@ -93,7 +93,7 @@ DT::datatable(summary, options = list(pageLength =20))
 
 ### Info table  - lower fdr threshold
 
-For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs + gender association test. For each trait,The LVs have more than one significant SNPs with FDR<0.2 are included. 
+For each trait, I made a table to show the info of snps with fdr>0.05 in the factor ~ SNP + genotype pcs + gender association test. For each trait,The LVs have more than one significant SNPs with FDR<0.05 are included. 
 
 The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, T2D, asthma the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
 
