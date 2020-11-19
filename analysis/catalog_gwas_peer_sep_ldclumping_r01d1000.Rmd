@@ -733,7 +733,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EUR.UC_77_32483933.coloc.results_peer.rdata" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EUR.UC_77_32483933.coloc_peer.jpeg" width="80%">
 </figure>
 
 
@@ -745,7 +745,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EUR.UC_77_32636617.coloc.results_peer.rdata" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/outputEUR.UC_77_32636617.coloc_peer.jpeg" width="80%">
 </figure>
 
 
