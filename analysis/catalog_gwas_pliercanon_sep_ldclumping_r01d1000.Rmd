@@ -641,10 +641,10 @@ knitr::kable(pval, caption = "PPs in coloclization analysis")
 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_44943964.coloc_pliercanon_d1k.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "PPs in coloclization analysis")
+# load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_44943964.coloc_pliercanon_d1k.rdata")
+# note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+# pval <- cbind(results$summary,note)
+# knitr::kable(pval, caption = "PPs in coloclization analysis")
 ```
 
 <figure class="half">
