@@ -54,7 +54,7 @@ HDL trait contains 225 SNPs with pval<5e-8.
 
 LDL trait contains 203 SNPs with pval<5e-8.
 
-WHR trait contains 37 SNPs with pval<5e-8.
+eo trait contains 37 SNPs with pval<5e-8.
 
 
 ## Results - pval < 5e-8 & 120 PEER factors & covariants: 10 PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
@@ -110,8 +110,8 @@ None of the LVs have >1 SNPs at FDR<0.2.
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv48_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv84_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv121_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
 </figure>
 
 #### Crohn's disease
@@ -221,7 +221,7 @@ None of the LVs have >1 SNPs at FDR<0.2.
 None of the LVs have >1 SNPs at FDR<0.2.
 
 
-#### WHR
+#### eo
 
 None of the LVs have >1 SNPs at FDR<0.2.
 
@@ -319,87 +319,106 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 
 #### Eosinophil count 
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_eo_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+</figure>
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_eo_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv84_eo_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv84_eo_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv121_eo_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv121_eo_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+</figure>
 
 #### Ulcerative colitist
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv29_EUR.UC_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv29_EUR.UC_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+</figure>
 
 
 #### granulocyte count
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_gran_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_gran_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+</figure>
 
 
 #### LDL
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+</figure>
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+</figure>
 
 
 #### lymphocyte count
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_lymph_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_lymph_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+</figure>
 
 
 #### neutrophil count
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_neut_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+</figure>
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_neut_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+</figure>
 
 #### myeloid white cell count
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_myeloid_wbc_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+</figure>
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_myeloid_wbc_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+</figure>
 
 #### red blood cell count
 
 
-
-#### Neutrophil count
-
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_rbc_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-#### platelet count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-#### T2D
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_T2D_pval5e8_flash_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_T2D_pval5e8_flash_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-#### asthma
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_rbc_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
 </figure>
 
 
-#### WHR
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_WHR_pval5e8_flash_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_WHR_pval5e8_flash_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
 
 
 
