@@ -302,6 +302,62 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_WHR_pval5e8_peer_d1k_ageco.jpeg" width="30%">
 </figure>
 
+
+### Resampling
+
+For some promising trait-factor pairs, I did resampling. I resampled the SNPs without replacement, I fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times. The following plots are the resampling results.
+
+I made a histogram to show the pvalues/rsquared distribution from resampling. The red line in the plots are the pvalue/rsquared in the origin analysis. The p_mean/r_mean values in the plots are the mean values of the resampling. The 'prob of getting more extreme values' is computed by: (number of more extreme values)/(times of resampling)
+
+#### Asthma_2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_50_asthma_2.jpeg" width="40%">
+</figure>
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_14_bmi.jpeg" width="40%">
+</figure>
+
+
+#### Ulcerative colitist
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_77_EUR.UC.jpeg" width="40%">
+</figure>
+
+#### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_66_lymph.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_76_lymph.jpeg" width="40%">
+</figure>
+
+#### red blood cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_73_rbc.jpeg" width="40%">
+</figure>
+
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_47_asthma.jpeg" width="40%">
+</figure>
+
+#### white blood cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_11_wbc.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_68_wbc.jpeg" width="40%">
+</figure>
+
+
+
+
 ### Effect size plots- more SNPs
 
 For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)
