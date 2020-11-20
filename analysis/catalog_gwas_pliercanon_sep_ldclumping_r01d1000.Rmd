@@ -87,6 +87,11 @@ T2D contains 14 SNPs with pval<5e-8. T2D_2 contains 4 SNPs with pval<5e-8.
 
 Asthma trait contains 186 SNPs with pval<5e-8. Asthma_2 trait contains 112 SNPs with pval<5e-8.
 
+HDL trait contains 227 SNPs with pval<5e-8.
+
+LDL trait contains 204 SNPs with pval<5e-8.
+
+WHR trait contains 36 SNPs with pval<5e-8.
 
 ## Results - pval < 5e-8 & association test covariants: 10 PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
 
