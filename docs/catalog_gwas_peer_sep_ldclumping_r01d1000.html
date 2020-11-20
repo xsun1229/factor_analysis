@@ -721,16 +721,16 @@ output/info_pval5e8_peer_ld_d1k.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree7c67709ea5a8ccc9523581104062c8d1ed10301atargetblank7c67709a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/7c67709ea5a8ccc9523581104062c8d1ed10301a" target="_blank">7c67709</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed4a5b600f49883f53d5236d23b0f3ce4e001aa0dtargetblankd4a5b60a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/d4a5b600f49883f53d5236d23b0f3ce4e001aa0d" target="_blank">d4a5b60</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree7c67709ea5a8ccc9523581104062c8d1ed10301atargetblank7c67709a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed4a5b600f49883f53d5236d23b0f3ce4e001aa0dtargetblankd4a5b60a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/7c67709ea5a8ccc9523581104062c8d1ed10301a" target="_blank">7c67709</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/d4a5b600f49883f53d5236d23b0f3ce4e001aa0d" target="_blank">d4a5b60</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -778,6 +778,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/d4a5b600f49883f53d5236d23b0f3ce4e001aa0d/analysis/catalog_gwas_peer_sep_ldclumping_r01d1000.Rmd" target="_blank">d4a5b60</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-20
+</td>
+<td>
+wflow_publish(“analysis/catalog_gwas_peer_sep_ldclumping_r01d1000.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/ca8c7fb2f41755d160b65704c87804a2d79d172e/analysis/catalog_gwas_peer_sep_ldclumping_r01d1000.Rmd" target="_blank">ca8c7fb</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-20
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/b7e821e4724da724925c9d6778577da1e9d41d8f/docs/catalog_gwas_peer_sep_ldclumping_r01d1000.html" target="_blank">b7e821e</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-20
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1191,6 +1242,7 @@ update
 <li><p>For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by <a href="https://mrcieu.github.io/TwoSampleMR/articles/introduction.html">TwoSampleMR</a> R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR&lt;0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.</p></li>
 <li><p>For the traits and LVs in 5, I made an info table to show more details of the SNPs.</p></li>
 <li><p>For several LVs we are interested in, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. I used two kind gene sets to do GSEA: 1. genes that used to compute LVs; 2. Sorting the genes in 1 by their loadings, take the top 25% as the gene set. For both gene sets, the gene scores used as input of GSEA are the gene loadings.</p></li>
+<li><p>Resampling. For some promising trait-factor pairs, I did resampling. I resampled the SNPs without replacement, I fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times. The following plots are the resampling results.</p></li>
 </ol>
 </div>
 <div id="snps-after-filter" class="section level2">
@@ -1397,7 +1449,7 @@ update
 <div id="asthma-1" class="section level4">
 <h4>asthma</h4>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_47_asthma.jpeg" width="40%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_47_ukb.asthma.jpeg" width="40%">
 </figure>
 </div>
 <div id="white-blood-cell-count" class="section level4">
