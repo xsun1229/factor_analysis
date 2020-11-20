@@ -53,7 +53,7 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 7. For several LVs we are interested in, I did gene set enrichment analysis to test if the LVs are correlated with some KEGG/REACTOME pathways. I used two kind gene sets to do GSEA: 1. genes that used to compute LVs; 2. Sorting the genes in 1 by their loadings, take the top 25% as the gene set. For both gene sets, the gene scores used as input of GSEA are the gene loadings.
 
-
+8. Resampling. For some promising trait-factor pairs, I did resampling. I resampled the SNPs without replacement, I fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times. The following plots are the resampling results.
 
 ## Snps after filter
 
