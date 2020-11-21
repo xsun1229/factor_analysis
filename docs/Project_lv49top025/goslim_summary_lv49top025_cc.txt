@@ -1,0 +1,21 @@
+GO:0016020	membrane	412
+GO:0005634	nucleus	340
+GO:0005829	cytosol	335
+GO:0032991	protein-containing complex	305
+GO:0031974	membrane-enclosed lumen	295
+GO:0012505	endomembrane system	215
+GO:0031982	vesicle	208
+GO:0005615	extracellular space	160
+GO:0042995	cell projection	97
+GO:0005783	endoplasmic reticulum	97
+GO:0005856	cytoskeleton	96
+GO:0005794	Golgi apparatus	91
+GO:0005739	mitochondrion	82
+GO:0031975	envelope	67
+GO:0005694	chromosome	61
+GO:0005768	endosome	47
+GO:0005773	vacuole	40
+GO:0031012	extracellular matrix	21
+GO:0042579	microbody	13
+GO:0005840	ribosome	11
+GO:0005811	lipid droplet	3
