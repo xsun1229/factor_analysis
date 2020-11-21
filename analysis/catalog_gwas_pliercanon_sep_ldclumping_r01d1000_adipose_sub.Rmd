@@ -226,6 +226,68 @@ None of the LVs have >1 SNPs at FDR<0.2.
 None of the LVs have >1 SNPs at FDR<0.2.
 
 
+
+### Resampling
+
+For some promising trait-factor pairs, I did resampling. I resampled the SNPs without replacement, I fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times. The following plots are the resampling results.
+
+I made a histogram to show the pvalues/rsquared distribution from resampling. The red line in the plots are the pvalue/rsquared in the origin analysis. The p_mean/r_mean values in the plots are the mean values of the resampling. The 'prob of getting more extreme values' is computed by: (number of more extreme values)/(times of resampling)
+
+#### Eosinophil count 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_eo_adp.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_84_eo_adp.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_121_eo_adp.jpeg" width="40%">
+</figure>
+
+#### Ulcerative colitist
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_29_EUR.UC_adp.jpeg" width="40%">
+</figure>
+
+#### granulocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_gran_adp.jpeg" width="40%">
+</figure>
+
+
+#### LDL
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_LDL_adp.jpeg" width="40%">
+</figure>
+
+#### lymphocyte count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_lymph_adp.jpeg" width="40%">
+</figure>
+
+
+#### neutrophil count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_neut_adp.jpeg" width="40%">
+</figure>
+
+
+#### myeloid white cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_myeloid_wbc_adp.jpeg" width="40%">
+</figure>
+
+
+#### red blood cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_104_wbc_adp.jpeg" width="40%">
+</figure>
+
+
 ### Effect size plots- more SNPs
 
 For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)
