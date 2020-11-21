@@ -301,57 +301,57 @@ I made a histogram to show the pvalues/rsquared distribution from resampling. Th
 #### BMI 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_27_bmi.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_76_bmi.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_27_bmi.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_76_bmi.jpeg" width="80%">
 </figure>
 
 
 #### LDL
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_125_LDL.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_125_LDL.jpeg" width="80%">
 </figure>
 
 #### lymphocyte count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_26_lymph.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_26_lymph.jpeg" width="80%">
 </figure>
 
 #### platelet count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_49_plt.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_49_plt.jpeg" width="80%">
 </figure>
 
 #### red blood cell count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_plt.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_rbc.jpeg" width="80%">
 </figure>
 
 
 #### asthma
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_36_ukb.allasthma.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_39_ukb.allasthma.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_68_ukb.allasthma.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_36_ukb.allasthma.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_39_ukb.allasthma.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_68_ukb.allasthma.jpeg" width="80%">
 </figure>
 
 
 #### white blood cell count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_6_wbc.jpeg" width="40%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_119_wbc.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_6_wbc.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_119_wbc.jpeg" width="80%">
 </figure>
 
 
 #### WHR
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_47_WHR.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_47_WHR.jpeg" width="80%">
 </figure>
 
 
