@@ -126,28 +126,96 @@ For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,
 1. ORA: For each factor, I sorted the genes that have non-zero loadings by their loadings, taking the top 25% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.01 are listed.
 
 
-[BMI-LV27](http://www.webgestalt.org/results/1603046183/#)
+**BMI-LV27**
 
-[BMI-LV76](http://www.webgestalt.org/results/1603046194/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv27top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[BMI-LV90](http://www.webgestalt.org/results/1603129380/#)
+**BMI-LV76**
 
-[PLT-LV49](http://www.webgestalt.org/results/1603392884/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv76top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[RBC-LV82](http://www.webgestalt.org/results/1603046204/#)
+**BMI-LV90**
 
-[Asthma-LV36](http://www.webgestalt.org/results/1603392903/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv90top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[Asthma-LV39](http://www.webgestalt.org/results/1603394356/#)
+**PLT-LV49**
 
-[WBC-LV6](http://www.webgestalt.org/results/1603394345/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv49top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[WBC-LV119](http://www.webgestalt.org/results/1603046209/#)
+**RBC-LV82**
 
-[Lymphocyte-LV23](http://www.webgestalt.org/results/1603046175/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv82top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[Lymphocyte-LV26](http://www.webgestalt.org/results/1603392923/#)
+**Asthma-LV36**
 
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv36top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Asthma-LV39**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv39top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**WBC-LV6**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv6top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**WBC-LV119**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv119top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Lymphocyte-LV23**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv23top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Lymphocyte-LV26**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv26top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**LDL-LV125**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv125top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**WHR**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv47top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
 ### Effect size plots
 
