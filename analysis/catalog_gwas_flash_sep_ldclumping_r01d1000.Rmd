@@ -129,14 +129,33 @@ There are some promising trait-factor pairs when considering SNPs at fdr<0.2 (i.
 I did ORA for all the factors mentioned above with WebGestalt. The analysis settings: for each factor, I sorted the genes their absolute loading values, taking the top 5% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings).
 
 
-[PLT - LV79](http://www.webgestalt.org/results/1603486860/#)
+**PLT - LV79**
 
-[T2D - LV23](http://www.webgestalt.org/results/1603486885/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv79top005_flash.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[Asthma - LV30](http://www.webgestalt.org/results/1603502899/#)
+**T2D - LV23**
 
-[Neutrophil - LV31](http://www.webgestalt.org/results/1603486867/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv30top005_flash.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
+**Asthma - LV30**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv30top005_flash.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**WHR - LV1**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv1top005_flash.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
 
 ### Effect size plots
