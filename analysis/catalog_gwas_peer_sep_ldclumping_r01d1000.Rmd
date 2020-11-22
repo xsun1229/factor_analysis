@@ -123,31 +123,103 @@ DT::datatable(final_full, options = list(pageLength =20))
 
 There are some promising trait-factor pairs when considering SNPs at fdr<0.2 (i.e. BMI-LV14, Ulcerative colitist - LV77,  Lymphocyte-LV66,76, Neutrophil - LV43, RBC-LV73, Asthma - LV47, WBC-LV11,68). When relaxing the cutoff to fdr<0.5, there appeared some other promising pairs(i.e. Eocinophil count - LV9, Granulocyte count - LV43,96, Myeloid white cell count -LV43, WBC-LV43).
 
-I did ORA for all the factors mentioned above with WebGestalt. The analysis settings: for each factor, I sorted the genes their absolute loading values, taking the top 5% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.01 are listed. If all the categories don't have fdr<0.01, I just listed the top 20 categories that related to each factors. 
+I did ORA for all the factors mentioned above with WebGestalt. The analysis settings: for each factor, I sorted the genes their absolute loading values, taking the top 5% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.01 are listed. 
 
+**Asthma_2 - LV50**
 
-[BMI - LV14](http://www.webgestalt.org/results/1603472381/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv50top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[Eocinophil - LV9](http://www.webgestalt.org/results/1603472369/#)
+**BMI - LV14**
 
-[Ulcerative colitist - LV77](http://www.webgestalt.org/results/1603502010/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv14top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[Granulocyte/Neutrophil/WBC/Myeloid white cell - LV43](http://www.webgestalt.org/results/1603472386/#)
+**Eocinophil - LV9**
 
-[Granulocyte - LV96](http://www.webgestalt.org/results/1603472435/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv9top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[Lymphocyte-LV66](http://www.webgestalt.org/results/1603502255/#)
+**Ulcerative colitist - LV77**
 
-[Lymphocyte-LV76](http://www.webgestalt.org/results/1603472431/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv77top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[RBC - LV73](http://www.webgestalt.org/results/1603502267/#)
+**Granulocyte/Neutrophil/WBC/Myeloid white cell - LV43**
 
-[Asthma - LV47](http://www.webgestalt.org/results/1603472390/#)
+The fdrs of all the categories are > 0.01
 
-[WBC - LV11](http://www.webgestalt.org/results/1603472375/#)
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv43top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
-[WBC - LV68](http://www.webgestalt.org/results/1603472406/#)
+**Granulocyte - LV96**
 
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv96top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Lymphocyte-LV66**
+
+The fdrs of all the categories are > 0.01
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv66top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Lymphocyte-LV76**
+
+The fdrs of all the categories are > 0.01
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv76top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**RBC - LV73**
+
+The fdrs of all the categories are > 0.01
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv73top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Asthma - LV47**
+
+The fdrs of all the categories are > 0.01
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv47top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**WBC - LV11**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv11top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**WBC - LV68**
+
+The fdrs of all the categories are > 0.01
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv68top005_peer.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
 
 ### Effect size plots
