@@ -54,7 +54,7 @@ HDL trait contains 225 SNPs with pval<5e-8.
 
 LDL trait contains 203 SNPs with pval<5e-8.
 
-eo trait contains 37 SNPs with pval<5e-8.
+WHR trait contains 37 SNPs with pval<5e-8.
 
 
 ## Results - pval < 5e-8 & 120 PEER factors & covariants: 10 PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
@@ -86,7 +86,48 @@ DT::datatable(final_full, options = list(pageLength =20))
 
 ### Enrichment analysis
 
+**Eocinophil/granulocyte count/neutrophil count/lymphocyte count/myeloid white cell count - LV74**
 
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv74top025_pliercanon_adp.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+
+**Eocinophil - LV84**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv84top025_pliercanon_adp.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Eocinophil - LV121**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv121top025_pliercanon_adp.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Ulcerative colitist - LV29**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv29top025_pliercanon_adp.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**LDL - LV35**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv35top025_pliercanon_adp.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Red Blood Cell Count - LV104**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv104top025_pliercanon_adp.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
 
 ### Effect size plots
@@ -284,7 +325,7 @@ I made a histogram to show the pvalues/rsquared distribution from resampling. Th
 #### red blood cell count
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_104_wbc_adp.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_104_rbc_adp.jpeg" width="80%">
 </figure>
 
 
@@ -473,11 +514,11 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_rbc_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv104_rbc_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_rbc_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv104_rbc_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
 </figure>
 
 
