@@ -316,16 +316,15 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 
 
 <figure class="half">
-    <img src="https://github.com/xsun12257/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun12257/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%">
-    <img src="https://github.com/xsun12257/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
 
 
 <figure class="half">
-    <img src="https://github.com/xsun12257/factor_analysis/raw/master/output/resampling_hist_peer_57_eo.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_57_eo.jpeg" width="80%">
 </figure>
-
 
 
 #### Crohn's disease
@@ -696,7 +695,16 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 
 #### T2D_2
 
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco.jpeg" width="30%">
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_T2D_2.jpeg" width="80%">
+</figure>
 
 #### T2D
 
@@ -1148,7 +1156,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/outputEUR.UC_77_32636617.coloc_peer_500.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EUR.UC_77_32636617.coloc_peer_500.jpeg" width="80%">
 </figure>
 
 
