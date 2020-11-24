@@ -617,16 +617,16 @@ output/LDL_35_45149969.coloc.results_adp.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree675bc6be224322408210c7db114a893fb26fb4f6targetblank675bc6ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/675bc6be224322408210c7db114a893fb26fb4f6" target="_blank">675bc6b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee2a4aac638bd0e67d3426450ddebbd2e1f4eb3cdtargetblanke2a4aaca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/e2a4aac638bd0e67d3426450ddebbd2e1f4eb3cd" target="_blank">e2a4aac</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree675bc6be224322408210c7db114a893fb26fb4f6targetblank675bc6ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee2a4aac638bd0e67d3426450ddebbd2e1f4eb3cdtargetblanke2a4aaca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/675bc6be224322408210c7db114a893fb26fb4f6" target="_blank">675bc6b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/e2a4aac638bd0e67d3426450ddebbd2e1f4eb3cd" target="_blank">e2a4aac</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -674,6 +674,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/e2a4aac638bd0e67d3426450ddebbd2e1f4eb3cd/analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_adipose_sub.Rmd" target="_blank">e2a4aac</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-24
+</td>
+<td>
+wflow_publish(c(“analysis/catalog_gwas_flash_sep_ldclumping_r01d1000.Rmd”,
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/77d4653edf35b39c04d2b7293c15335fbf38f261/docs/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_adipose_sub.html" target="_blank">77d4653</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-24
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -931,6 +965,9 @@ rstudio.github.io/DT/server.html</code></pre>
 <div id="effect-size-plots-resampling" class="section level3">
 <h3>Effect size plots &amp; Resampling</h3>
 <p>For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by <a href="https://mrcieu.github.io/TwoSampleMR/articles/introduction.html">TwoSampleMR</a> R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR&lt;0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.</p>
+<p>I also relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)</p>
+<p>For all pairs , I did resampling. I resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times.</p>
+<p>I made a histogram to show the pvalues/rsquared distribution from resampling. The red line in the plots are the pvalue/rsquared in the origin analysis. The p_mean/r_mean values in the plots are the mean values of the pvalues and rsquared in point fitting. The ‘prob of getting more extreme values’ is computed by: (number of more extreme values)/(times of resampling).</p>
 <div id="bmi" class="section level4">
 <h4>BMI</h4>
 <figure class="half">
