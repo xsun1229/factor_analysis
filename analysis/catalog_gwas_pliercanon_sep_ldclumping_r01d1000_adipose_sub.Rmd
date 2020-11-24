@@ -22,33 +22,9 @@ This part is the same with [PLIER-Canonical](https://xsun1229.github.io/factor_a
 
 After filtering by 'pval < 5e-8' and LD Clumping, for each trait, I got :
 
-platelet count trait contains 691 SNPs with pval<5e-8. 
-
-white blood cell count trait contains 367 SNPs with pval<5e-8. 
-
-myeloid white cell count trait contains 317 SNPs with pval<5e-8. 
-
-lymphocyte count trait contains 446 SNPs with pval<5e-8. 
-
-red blood cell count trait contains 462 SNPs with pval<5e-8. 
-
-granulocyte count trait contains 308 SNPs with pval<5e-8. 
-
-eosinophil count trait contains 496 SNPs with pval<5e-8. 
-
-neutrophil count trait contains 311 SNPs with pval<5e-8. 
-
-IBD trait contains 118 SNPs with pval<5e-8. 
-
-Ulcerative colitist trait contains 75 SNPs with pval<5e-8. 
-
-Crohn's disease trait contains 97 SNPs with pval<5e-8. 
-
 BMI trait contains 102 SNPs with pval<5e-8. 
 
 T2D contains 14 SNPs with pval<5e-8. T2D_2 contains 4 SNPs with pval<5e-8.
-
-Asthma trait contains 192 SNPs with pval<5e-8. Asthma_2 trait contains 110 SNPs with pval<5e-8.
 
 HDL trait contains 225 SNPs with pval<5e-8.
 
@@ -73,7 +49,7 @@ DT::datatable(summary, options = list(pageLength =20))
 
 For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs association test. For each trait,The LVs have more than one significant SNPs with FDR<0.2 are included. 
 
-The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
+The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. 
 
 'snp_ld' here means the snps that in LD with the snp in each line.'ld_r2' means the LD r-squared which is corresponding to the 'snp_ld' column. 'cis-eqtl' column indicates whether the snp is a cis-eqtl according to GTEx data. 'cis_gene_hgnc' and 'cis_gene_hgnc' is the genes that the snp influence when it act as cis-eqtl. 'func' and 'func_gene' are obtained from ANNOVAR, which indicating the snp function within the genes.
 
@@ -86,46 +62,12 @@ DT::datatable(final_full, options = list(pageLength =20))
 
 ### Enrichment analysis
 
-**Eocinophil/granulocyte count/neutrophil count/lymphocyte count/myeloid white cell count - LV74**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv74top025_pliercanon_adp.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-
-**Eocinophil - LV84**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv84top025_pliercanon_adp.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**Eocinophil - LV121**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv121top025_pliercanon_adp.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**Ulcerative colitist - LV29**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv29top025_pliercanon_adp.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
+There is only one promising pair: LDL-LV35
 
 **LDL - LV35**
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv35top025_pliercanon_adp.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**Red Blood Cell Count - LV104**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv104top025_pliercanon_adp.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
@@ -146,48 +88,6 @@ None of the LVs have >1 SNPs at FDR<0.2.
 </figure>
 
 
-#### Eosinophil count 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv48_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv84_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv121_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-#### Crohn's disease
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_EUR.CD_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv64_EUR.CD_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-#### IBD
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_EUR.IBD_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv71_EUR.IBD_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_EUR.IBD_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-#### Ulcerative colitist
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv29_EUR.UC_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_EUR.UC_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_EUR.UC_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_EUR.UC_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-
-#### granulocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_gran_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_gran_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-
 #### HDL
 
 None of the LVs have >1 SNPs at FDR<0.2.
@@ -200,46 +100,6 @@ None of the LVs have >1 SNPs at FDR<0.2.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
 </figure>
 
-#### lymphocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_lymph_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv48_lymph_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_lymph_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_lymph_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv106_lymph_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-#### myeloid white cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_myeloid_wbc_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv106_myeloid_wbc_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-#### neutrophil count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv22_neut_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv45_neut_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_neut_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_neut_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-#### plt
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv56_plt_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv124_plt_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-#### rbc
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_rbc_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv104_rbc_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
 
 #### T2D_2
 
@@ -249,20 +109,8 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 None of the LVs have >1 SNPs at FDR<0.2.
 
-#### asthma
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_ukb.allasthma_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv75_ukb.allasthma_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_ukb.allasthma_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-</figure>
-
-#### wbc
-
-None of the LVs have >1 SNPs at FDR<0.2.
-
-
-#### eo
+#### WHR
 
 None of the LVs have >1 SNPs at FDR<0.2.
 
@@ -270,62 +118,23 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 ### Resampling
 
-For some promising trait-factor pairs, I did resampling. I resampled the SNPs without replacement, I fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times. The following plots are the resampling results.
+For all pairs in 'info table', I did resampling. I resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times. The following plots are the resampling results.
 
 I made a histogram to show the pvalues/rsquared distribution from resampling. The red line in the plots are the pvalue/rsquared in the origin analysis. The p_mean/r_mean values in the plots are the mean values of the resampling. The 'prob of getting more extreme values' is computed by: (number of more extreme values)/(times of resampling)
 
-#### Eosinophil count 
+#### BMI 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_eo_adp.jpeg" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_84_eo_adp.jpeg" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_121_eo_adp.jpeg" width="80%">
-</figure>
-
-#### Ulcerative colitist
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_29_EUR.UC_adp.jpeg" width="80%">
-</figure>
-
-#### granulocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_gran_adp.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_78_bmi_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_100_bmi_adp.jpeg" width="30%">
 </figure>
 
 
 #### LDL
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_LDL_adp.jpeg" width="80%">
-</figure>
-
-#### lymphocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_lymph_adp.jpeg" width="80%">
-</figure>
-
-
-#### neutrophil count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_neut_adp.jpeg" width="80%">
-</figure>
-
-
-#### myeloid white cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_myeloid_wbc_adp.jpeg" width="80%">
-</figure>
-
-
-#### red blood cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_104_rbc_adp.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_LDL_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_94_LDL_adp.jpeg" width="30%">
 </figure>
 
 
@@ -333,42 +142,9 @@ I made a histogram to show the pvalues/rsquared distribution from resampling. Th
 
 For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)
 
+To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits(pval<5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
 
-#### Eosinophil count 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_eo_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_eo_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv84_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv84_eo_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv84_eo_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv121_eo_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv121_eo_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv121_eo_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
-
-#### Ulcerative colitist
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv29_EUR.UC_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv29_EUR.UC_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv29_EUR.UC_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
-
-#### granulocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_gran_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_gran_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_gran_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
+Some pair show p < 0.05, the result may be driven by the possible causal effect of LV -> trait. To test this, I removed the SNPs that are associated with LVs at FDR < 0.2 and made the plots again.
 
 
 #### LDL
@@ -377,208 +153,24 @@ For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs 
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
-
-
-#### lymphocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_lymph_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_lymph_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_lymph_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
-
-#### neutrophil count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_neut_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_neut_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_neut_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
-
-#### myeloid white cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_myeloid_wbc_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_myeloid_wbc_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_myeloid_wbc_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
-
-#### red blood cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv104_rbc_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv104_rbc_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv104_rbc_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
-
-
-### Effect size plots - checking the reverse causality
-
-To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits(pval<5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
-
-Some pair show p < 0.05, the result may be driven by the possible causal effect of LV -> trait. To test this, I removed the SNPs that are associated with LVs at FDR < 0.2 and made the plots again.
-
-
-#### Eosinophil count 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_eo_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_eo_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv84_eo_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv84_eo_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv121_eo_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv121_eo_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
-</figure>
-
-#### Ulcerative colitist
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv29_EUR.UC_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv29_EUR.UC_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
-</figure>
-
-
-#### granulocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_gran_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_gran_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
-</figure>
-
-
-#### LDL
-
-<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
 </figure>
-
-
-#### lymphocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_lymph_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_lymph_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
-</figure>
-
-
-#### neutrophil count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_neut_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_neut_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
-</figure>
-
-#### myeloid white cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_myeloid_wbc_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_myeloid_wbc_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
-</figure>
-
-#### red blood cell count
-
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv104_rbc_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv104_rbc_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
-</figure>
-
 
 
 
 
 ### QQplots - promising pairs
 
-#### Eosinophil count 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv74_eo_pliercanon_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv84_eo_pliercanon_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv121_eo_pliercanon_adp.jpeg" width="30%">
-</figure>
-
-#### Ulcerative colitist
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv29_EUR.UC_pliercanon_adp.jpeg" width="30%">
-</figure>
-
-
-#### granulocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv74_gran_pliercanon_adp.jpeg" width="30%">
-</figure>
 
 #### LDL
+
+LV35
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv35_LDL_pliercanon_adp.jpeg" width="30%">
 </figure>
 
-
-#### lymphocyte count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv74_lymph_pliercanon_adp.jpeg" width="30%">
-</figure>
-
-
-#### neutrophil count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv74_neut_pliercanon_adp.jpeg" width="30%">
-</figure>
-
-#### myeloid white cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv74_myeloid_wbc_pliercanon_adp.jpeg" width="30%">
-</figure>
-
-#### red blood cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv104_rbc_pliercanon_adp.jpeg" width="30%">
-</figure>
 
 ### Colocalization
 
@@ -586,213 +178,6 @@ The colocalization analysis was performed using the approximate Bayes factor tes
 
 Chromosome selection: I first sorted the SNPs by their pvalues from factor association tests, then I selected the first two SNPs and chose their chromosome to do the colocalization test adn visualization. 
 
-#### Eosinophil count 
-
-LV74
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_74_26498530.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_74_26498530.coloc_adp.jpeg" width="80%">
-</figure>
-
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_74_26521207.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_74_26521207.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_74_27970706.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_74_27970706.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_74_28986516.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_74_28986516.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_74_30331468.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_74_30331468.coloc_adp.jpeg" width="80%">
-</figure>
-
-lv84
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_84_132280681.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_84_132280681.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_84_132395414.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_84_132395414.coloc_adp.jpeg" width="80%">
-</figure>
-
-
-lv121
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_121_233205886.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_121_233205886.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_121_23520972.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_121_23520972.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/eo_121_96350497.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/eo_121_96350497.coloc_adp.jpeg" width="80%">
-</figure>
-
-
-#### Ulcerative colitist
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/EUR.UC_29_206798727.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EUR.UC_29_206798727.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/EUR.UC_29_32836793.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EUR.UC_29_32836793.coloc_adp.jpeg" width="80%">
-</figure>
-
-
-#### granulocyte count
-
-lv74
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/gran_74_157050529.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gran_74_157050529.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/gran_74_26463347.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gran_74_26463347.coloc_adp.jpeg" width="80%">
-</figure>
-
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/gran_74_27873148.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gran_74_27873148.coloc_adp.jpeg" width="80%">
-</figure>
-
-
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/gran_74_27873148.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gran_74_27873148.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/gran_74_31276269.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gran_74_31276269.coloc_adp.jpeg" width="80%">
-</figure>
 
 #### LDL
 
@@ -821,205 +206,6 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 </figure>
 
 
-#### lymphocyte count
-
-lv74
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_74_26463347.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/lymph_74_26463347.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_74_27873148.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/lymph_74_27873148.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_74_28894720.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/lymph_74_28894720.coloc_adp.jpeg" width="80%">
-</figure>
-
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_74_30331468.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/lymph_74_30331468.coloc_adp.jpeg" width="80%">
-</figure>
-
-#### neutrophil count
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/neut_74_157050529.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/neut_74_157050529.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/neut_74_26463347.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/neut_74_26463347.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/neut_74_27873148.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/neut_74_27873148.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/neut_74_28894720.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/neut_74_28894720.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/neut_74_31276269.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/neut_74_31276269.coloc_adp.jpeg" width="80%">
-</figure>
-
-#### myeloid white cell count
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/myeloid_wbc_74_157050529.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/myeloid_wbc_74_157050529.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/myeloid_wbc_74_26463347.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/myeloid_wbc_74_26463347.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/myeloid_wbc_74_27873148.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/myeloid_wbc_74_27873148.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/myeloid_wbc_74_28894720.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/myeloid_wbc_74_28894720.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/myeloid_wbc_74_30331468.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/myeloid_wbc_74_30331468.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/myeloid_wbc_74_5280229.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/myeloid_wbc_74_5280229.coloc_adp.jpeg" width="80%">
-</figure>
-
-
-
-#### red blood cell count
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_104_31149298.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_104_31149298.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_104_47092874.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_104_47092874.coloc_adp.jpeg" width="80%">
-</figure>
 
 
 
