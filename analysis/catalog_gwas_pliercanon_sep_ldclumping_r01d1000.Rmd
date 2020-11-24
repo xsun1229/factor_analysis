@@ -610,10 +610,7 @@ None of the LVs have >1 SNPs at FDR<0.2.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_T2D_2_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_38_T2D_2.jpeg" width="80%">
-</figure>
-
+Since there were only 4 SNPs left after filtering by p-values in GWAS summary data and all of them have fdr<0.2 in association test. So there is no other SNPs to do resampling.
 
 #### T2D
 
@@ -921,7 +918,7 @@ LV47
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_WHR_pliercanon_d1k_ageco.jpeg" width="30%">
 </figure>
 
-### Colocalization -- 200kb
+### Colocalization -- 500kb
 
 The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
 
