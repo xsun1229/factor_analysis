@@ -217,11 +217,17 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/lv47top025_pliercanon.
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-### Effect size plots
+### Effect size plots & Resampling
 
 For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/articles/introduction.html) R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR<0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.
 
 I also relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)
+
+For all pairs , I did resampling. I resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times.
+
+I made a histogram to show the pvalues/rsquared distribution from resampling. The red line in the plots are the pvalue/rsquared in the origin analysis. The p_mean/r_mean values in the plots are the mean values of the pvalues and rsquared in point fitting. The 'prob of getting more extreme values' is computed by: (number of more extreme values)/(times of resampling).
+
+
 
 #### Asthma_2 
 
@@ -606,8 +612,6 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_T2D_2_pval5e8_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_T2D_2_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_T2D_2_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
 
 Since there were only 4 SNPs left after filtering by p-values in GWAS summary data and all of them have fdr<0.2 in association test. So there is no other SNPs to do resampling.

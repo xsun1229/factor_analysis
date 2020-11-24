@@ -166,7 +166,25 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv2_asthma_2_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv2_asthma_2_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv2_asthma_2_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_2_asthma_2.jpeg" width="80%">
+</figure>
+
+
+<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_asthma_2_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_asthma_2_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_asthma_2_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_79_asthma_2.jpeg" width="80%">
 </figure>
 
 
@@ -174,21 +192,55 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_90_bmi.jpeg" width="80%">
+</figure>
 
 #### Eosinophil count 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_eo_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_eo_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_eo_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_73_eo.jpeg" width="80%">
+</figure>
+
 
 #### Crohn's disease
 
+
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_EUR.CD_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.CD_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_EUR.CD_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv12_EUR.CD_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_12_EUR.CD.jpeg" width="80%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.CD_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.CD_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_EUR.CD_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_6_EUR.CD.jpeg" width="80%">
+</figure>
+
 
 #### IBD
 
@@ -198,7 +250,24 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_EUR.UC_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_EUR.UC_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_EUR.UC_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_66_EUR.UC.jpeg" width="80%">
+</figure>
+
+<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.UC_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.UC_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.UC_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_91_EUR.UC.jpeg" width="80%">
 </figure>
 
 
@@ -211,20 +280,41 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv60_HDL_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv60_HDL_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv60_HDL_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_60_HDL.jpeg" width="80%">
+</figure>
 
 #### LDL
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv92_LDL_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv92_LDL_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv92_LDL_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_92_LDL.jpeg" width="80%">
 </figure>
 
 #### lymphocyte count
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_lymph_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_lymph_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_lymph_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_100_lymph.jpeg" width="80%">
+</figure>
+
 
 #### myeloid white cell count
 
@@ -234,100 +324,71 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv31_neut_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_31_neut.jpeg" width="80%">
 </figure>
 
 #### plt
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv65_plt_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_79_plt.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv65_plt_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv65_plt_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv65_plt_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_65_plt.jpeg" width="80%">
+</figure>
+
 
 #### rbc
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_rbc_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv48_rbc_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_rbc_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv37_rbc_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
 </figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_37_rbc.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv48_rbc_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv48_rbc_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv48_rbc_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_48_rbc.jpeg" width="80%">
+</figure>
+
 
 
 #### T2D_2
 
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_T2D_2_pval5e8_flash_d1k_ageco.jpeg" width="30%">
 
-#### T2D
-
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_T2D_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-
-#### asthma
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv87_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-</figure>
-
-#### wbc
-
-None of the LVs have >1 SNPs at FDR<0.2.
-
-
-#### WHR
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_WHR_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_WHR_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_WHR_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-</figure>
-
-
-
-### Resampling
-
-For some promising trait-factor pairs, I did resampling. I resampled the SNPs without replacement, I fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times. The following plots are the resampling results.
-
-I made a histogram to show the pvalues/rsquared distribution from resampling. The red line in the plots are the pvalue/rsquared in the origin analysis. The p_mean/r_mean values in the plots are the mean values of the resampling. The 'prob of getting more extreme values' is computed by: (number of more extreme values)/(times of resampling)
-
-
-#### platelet
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_79_plt.jpeg" width="80%">
-</figure>
-
-
-#### T2D
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_23_T2D.jpeg" width="80%">
-</figure>
-
-
-#### asthma
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_30_ukb.allasthma.jpeg" width="80%">
-</figure>
-
-#### WHR
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_1_WHR.jpeg" width="80%">
-</figure>
-
-
-### Effect size plots- more SNPs
-
-For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)
-
-
-#### platelet
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_plt_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
-</figure>
+Since there were only 4 SNPs left after filtering by p-values in GWAS summary data and all of them have fdr<0.2 in association test. So there is no other SNPs to do resampling.
 
 
 #### T2D
@@ -339,7 +400,23 @@ For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs 
 </figure>
 
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_23_T2D.jpeg" width="80%">
+</figure>
+
 #### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv87_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv87_ukb.allasthma_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv87_ukb.allasthma_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_87_ukb.allasthma.jpeg" width="80%">
+</figure>
+
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
@@ -348,6 +425,26 @@ For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs 
 </figure>
 
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_30_ukb.allasthma.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_ukb.allasthma_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_ukb.allasthma_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv42_ukb.allasthma_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_42_ukb.allasthma.jpeg" width="80%">
+</figure>
+
+
+#### wbc
+
+None of the LVs have >1 SNPs at FDR<0.2.
+
 
 #### WHR
 
@@ -355,6 +452,33 @@ For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs 
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_WHR_pval5e8_flash_d1k_ageco.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_WHR_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_WHR_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_1_WHR.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_WHR_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_WHR_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_WHR_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_19_WHR.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_WHR_pval5e8_flash_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_WHR_pval5e8_flash_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_WHR_pval5e8_flash_d1k_ageco_fdr05.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_49_WHR.jpeg" width="80%">
 </figure>
 
 
@@ -449,7 +573,82 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv1_WHR_flash.jpeg" width="30%">
 </figure>
 
-### Colocalization
+
+### Colocalization - 500kb
+
+The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
+
+Chromosome selection: I first sorted the SNPs by their pvalues from factor association tests, then I selected the first two SNPs and chose their chromosome to do the colocalization test adn visualization. 
+
+
+#### platelet count
+
+lv79
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt_79_30343875.coloc_flash.results_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plt_79_30343875.coloc_flash_500.jpeg" width="80%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt_79_44179062.coloc_flash.results_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plt_79_44179062.coloc_flash_500.jpeg" width="80%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt_79_44377654.coloc_flash.results_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/plt_79_44377654.coloc_flash_500.jpeg" width="80%">
+</figure>
+
+#### WHR
+
+lv79
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/WHR_1_172377408.coloc_flash.results_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/WHR_1_172377408.coloc_flash_500.jpeg" width="80%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/WHR_1_58565242.coloc_flash.results_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/WHR_1_58565242.coloc_flash_500.jpeg" width="80%">
+</figure>
+
+
+
+
+
+### Colocalization - 200kb
 
 The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
 
@@ -523,3 +722,4 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 
 
 
+-
