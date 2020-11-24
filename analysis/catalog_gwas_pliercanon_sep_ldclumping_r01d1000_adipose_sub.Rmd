@@ -72,21 +72,32 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
 
-### Effect size plots
+### Effect size plots & Resampling
 
 For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/articles/introduction.html) R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR<0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.
 
-#### Asthma_2
-
-None of the LVs have >1 SNPs at FDR<0.2.
 
 #### BMI 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_bmi_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_bmi_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_bmi_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
 </figure>
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_78_bmi_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_100_bmi_adp.jpeg" width="30%">
+</figure>
 
 #### HDL
 
@@ -97,7 +108,22 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_LDL_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_94_LDL_adp.jpeg" width="30%">
 </figure>
 
 
@@ -116,43 +142,10 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 
 
-### Resampling
-
-For all pairs in 'info table', I did resampling. I resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times. The following plots are the resampling results.
-
-I made a histogram to show the pvalues/rsquared distribution from resampling. The red line in the plots are the pvalue/rsquared in the origin analysis. The p_mean/r_mean values in the plots are the mean values of the resampling. The 'prob of getting more extreme values' is computed by: (number of more extreme values)/(times of resampling)
-
-#### BMI 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_78_bmi_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_100_bmi_adp.jpeg" width="30%">
-</figure>
-
 
 #### LDL
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_LDL_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_94_LDL_adp.jpeg" width="30%">
-</figure>
-
-
-### Effect size plots- more SNPs
-
-For some promising trait-factor pairs , I relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)
-
-To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits(pval<5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
-
-Some pair show p < 0.05, the result may be driven by the possible causal effect of LV -> trait. To test this, I removed the SNPs that are associated with LVs at FDR < 0.2 and made the plots again.
-
-
-#### LDL
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_reverse_adp.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_reverse_remove_adp.jpeg" width="30%">
 </figure>
@@ -172,7 +165,45 @@ LV35
 </figure>
 
 
-### Colocalization
+
+### Colocalization -- 500kb
+
+The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
+
+Chromosome selection: I first sorted the SNPs by their pvalues from factor association tests, then I selected the first two SNPs and chose their chromosome to do the colocalization test adn visualization. 
+
+
+#### LDL
+
+lv35
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_35_20816003.coloc.results_adp_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_35_20816003.coloc_adp_500.jpeg" width="80%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_35_45149969.coloc.results_adp_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "pvalues in coloclization")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_35_45149969.coloc_adp_500.jpeg" width="80%">
+</figure>
+
+
+
+
+
+### Colocalization - 200 kb
 
 The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
 

@@ -158,7 +158,7 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
 
-### Effect size plots
+### Effect size plots &Resampling
 
 For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/articles/introduction.html) R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR<0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.
 
