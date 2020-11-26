@@ -84,25 +84,64 @@ I made a histogram to show the pvalues/rsquared distribution from resampling. Th
 
 #### BMI 
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_bmi_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_bmi_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_bmi_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
+LV78
+
+fdr0.2
 
 <figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_bmi_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_78_bmi_adp.jpeg" width="30%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
+p-value from resampling: 0.336
+
+fdr0.3 
 
 <figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_bmi_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_78_bmi_fdr03_adp.jpeg" width="30%">
+</figure>
+
+p-value from resampling: 0.336
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_bmi_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_78_bmi_fdr05_adp.jpeg" width="30%">
+</figure>
+
+p-value from resampling: 0.432
+
+LV100
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_100_bmi_adp.jpeg" width="30%">
 </figure>
+
+p-value from resampling: 0.305
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_100_bmi_fdr03_adp.jpeg" width="30%">
+</figure>
+
+p-value from resampling: 0.305
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_bmi_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_100_bmi_fdr05_adp.jpeg" width="30%">
+</figure>
+
+p-value from resampling: 0.607
+
 
 #### HDL
 
@@ -111,25 +150,65 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 #### LDL
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
+LV35
+
+fdr0.2
 
 <figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_LDL_adp.jpeg" width="30%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
-</figure>
+p-value from resampling: 0.037
+
+fdr0.3 
 
 <figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_LDL_fdr03_adp.jpeg" width="30%">
+</figure>
+
+p-value from resampling: 0.037
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_LDL_fdr05_adp.jpeg" width="30%">
+</figure>
+
+p-value from resampling: 0.037
+
+
+
+LV94
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_adp.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_94_LDL_adp.jpeg" width="30%">
 </figure>
+
+p-value from resampling: 0.295
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_fdr03_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_94_LDL_fdr03_adp.jpeg" width="30%">
+</figure>
+
+p-value from resampling: 0.295
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_LDL_pval5e8_pliercanon_d1k_ageco_fdr05_adp.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_94_LDL_fdr05_adp.jpeg" width="30%">
+</figure>
+
+p-value from resampling: 0.295
 
 
 #### T2D_2
@@ -203,45 +282,4 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_35_45149969.coloc_adp_500.jpeg" width="80%">
 </figure>
-
-
-
-
-
-### Colocalization - 200 kb
-
-The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
-
-Chromosome selection: I first sorted the SNPs by their pvalues from factor association tests, then I selected the first two SNPs and chose their chromosome to do the colocalization test adn visualization. 
-
-
-#### LDL
-
-lv35
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_35_20816003.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_35_20816003.coloc_adp.jpeg" width="80%">
-</figure>
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_35_45149969.coloc.results_adp.rdata")
-note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
-pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
-```
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_35_45149969.coloc_adp.jpeg" width="80%">
-</figure>
-
-
-
-
 
