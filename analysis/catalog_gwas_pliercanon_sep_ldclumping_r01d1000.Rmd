@@ -498,16 +498,6 @@ fdr0.5
 </figure>
 
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_pval5e8_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_98_EUR.IBD.jpeg" width="80%">
-</figure>
-
 #### Ulcerative colitist
 
 LV23
