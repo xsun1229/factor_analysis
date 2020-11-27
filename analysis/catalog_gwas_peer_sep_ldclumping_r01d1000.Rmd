@@ -231,8 +231,6 @@ I also relaxed the fdr threshold of the SNPs that used to make effect size plots
 For all pairs , I did resampling. I resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times.
 
 I made a histogram to show the rsquared distribution from resampling. The red line in the plots are the rsquared in the origin analysis. The r_mean values in the plots are the mean values of rsquared in point fitting. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).
-#### Asthma_2 
-
 
 #### Asthma_2 
 
