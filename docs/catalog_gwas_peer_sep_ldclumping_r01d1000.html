@@ -454,7 +454,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-11-24
+<strong>Last updated:</strong> 2020-11-27
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -945,16 +945,16 @@ output/info_pval5e8_peer_ld_d1k.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee2a4aac638bd0e67d3426450ddebbd2e1f4eb3cdtargetblanke2a4aaca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/e2a4aac638bd0e67d3426450ddebbd2e1f4eb3cd" target="_blank">e2a4aac</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree510fc1df3d04cd2aaee2dd1dfe6a3783e0f2e334targetblank510fc1da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/510fc1df3d04cd2aaee2dd1dfe6a3783e0f2e334" target="_blank">510fc1d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee2a4aac638bd0e67d3426450ddebbd2e1f4eb3cdtargetblanke2a4aaca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree510fc1df3d04cd2aaee2dd1dfe6a3783e0f2e334targetblank510fc1da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/e2a4aac638bd0e67d3426450ddebbd2e1f4eb3cd" target="_blank">e2a4aac</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/510fc1df3d04cd2aaee2dd1dfe6a3783e0f2e334" target="_blank">510fc1d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -1002,6 +1002,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/510fc1df3d04cd2aaee2dd1dfe6a3783e0f2e334/analysis/catalog_gwas_peer_sep_ldclumping_r01d1000.Rmd" target="_blank">510fc1d</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-27
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/931a5146627601ee97988273be0c15b1d1d36e54/docs/catalog_gwas_peer_sep_ldclumping_r01d1000.html" target="_blank">931a514</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-11-24
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1762,143 +1796,289 @@ update
 <p>For each trait, I made a plot of association with LV(indicating by beta in GWAS) vs association with trait(indicating by ln(odds ratio) or beta in GWAS) to show if the variants have the correlated effect direction. The effect sizes of Catalog GWAS and factor association tests are harmonized by <a href="https://mrcieu.github.io/TwoSampleMR/articles/introduction.html">TwoSampleMR</a> R package to make the effect alleles in these two analysis identical. The LVs have more than one significant SNPs with FDR&lt;0.2 are included in the plotting.Besides, for each plots, I fitted the points with intercept = 0. The pvalues and r-squared are shown on the plots.</p>
 <p>I also relaxed the fdr threshold of the SNPs that used to make effect size plots(from 0.2 to 0.3/0.5)</p>
 <p>For all pairs , I did resampling. I resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times.</p>
-<p>I made a histogram to show the pvalues/rsquared distribution from resampling. The red line in the plots are the pvalue/rsquared in the origin analysis. The p_mean/r_mean values in the plots are the mean values of the pvalues and rsquared in point fitting. The ‘prob of getting more extreme values’ is computed by: (number of more extreme values)/(times of resampling).</p>
+<p>I made a histogram to show the rsquared distribution from resampling. The red line in the plots are the rsquared in the origin analysis. The r_mean values in the plots are the mean values of rsquared in point fitting. The ‘p-value from resampling’ is computed by: (number of more extreme values)/(times of resampling). #### Asthma_2</p>
 <div id="asthma_2" class="section level4">
 <h4>Asthma_2</h4>
+<p>LV50</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_asthma_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_asthma_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_asthma_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_asthma_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_50_asthma_2.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_50_asthma_2.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_asthma_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_50_asthma_2_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_asthma_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_asthma_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_asthma_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_asthma_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_50_asthma_2_fdr05.jpeg" width="30%">
 </figure>
+<p>LV57</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_57_asthma_2.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_asthma_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_57_asthma_2.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv93_asthma_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv93_asthma_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv93_asthma_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_asthma_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_57_asthma_2_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_93_asthma_2.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_asthma_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_57_asthma_2_fdr05.jpeg" width="30%">
 </figure>
+<p>LV93</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_asthma_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_asthma_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_asthma_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv93_asthma_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_93_asthma_2.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_110_asthma_2.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv93_asthma_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_93_asthma_2_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv93_asthma_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_93_asthma_2_fdr05.jpeg" width="30%">
+</figure>
+<p>LV110</p>
+<p>fdr0.2</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_asthma_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_110_asthma_2.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_asthma_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_110_asthma_2_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_asthma_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_110_asthma_2_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="bmi" class="section level4">
 <h4>BMI</h4>
+<p>LV14</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_14_bmi.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_14_bmi.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_14_bmi_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_bmi_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_bmi_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_bmi_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv14_bmi_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_14_bmi_fdr05.jpeg" width="30%">
 </figure>
+<p>LV79</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_bmi.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_bmi_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_bmi.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_bmi_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_bmi_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_bmi_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_bmi_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="eosinophil-count" class="section level4">
 <h4>Eosinophil count</h4>
+<p>LV9</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_eo_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_eo_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_eo_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_eo_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_eo.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_eo.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_eo_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_eo_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_eo_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_eo_fdr05.jpeg" width="30%">
 </figure>
+<p>LV57</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_57_eo.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_57_eo.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_57_eo_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv57_eo_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_57_eo_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="crohns-disease" class="section level4">
 <h4>Crohn’s disease</h4>
+<p>LV75</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv75_EUR.CD_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv75_EUR.CD_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv75_EUR.CD_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv75_EUR.CD_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_75_EUR.CD.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_75_EUR.CD.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv75_EUR.CD_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_75_EUR.CD_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.CD_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.CD_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.CD_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv75_EUR.CD_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_75_EUR.CD_fdr05.jpeg" width="30%">
 </figure>
+<p>LV91</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_91_EUR.CD.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.CD_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_91_EUR.CD.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.CD_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_91_EUR.CD_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.CD_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_91_EUR.CD_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="ibd" class="section level4">
 <h4>IBD</h4>
+<p>LV91</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.IBD_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.IBD_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.IBD_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.IBD_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_91_EUR.IBD.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_91_EUR.IBD.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.IBD_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_91_EUR.IBD_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv120_EUR.IBD_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv120_EUR.IBD_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv120_EUR.IBD_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv91_EUR.IBD_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_91_EUR.IBD_fdr05.jpeg" width="30%">
 </figure>
+<p>LV120</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_120_EUR.IBD.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv120_EUR.IBD_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_120_EUR.IBD.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv120_EUR.IBD_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_120_EUR.IBD_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv120_EUR.IBD_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_120_EUR.IBD_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="ulcerative-colitist" class="section level4">
 <h4>Ulcerative colitist</h4>
+<p>LV77</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv77_EUR.UC_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv77_EUR.UC_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv77_EUR.UC_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv77_EUR.UC_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_77_EUR.UC.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_77_EUR.UC.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv77_EUR.UC_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_77_EUR.UC_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_EUR.UC_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_EUR.UC_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_EUR.UC_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv77_EUR.UC_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_77_EUR.UC_fdr05.jpeg" width="30%">
 </figure>
+<p>LV110</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_110_EUR.UC.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_EUR.UC_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_110_EUR.UC.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_EUR.UC_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_110_EUR.UC_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_EUR.UC_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_110_EUR.UC_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="granulocyte-count" class="section level4">
 <h4>granulocyte count</h4>
+<p>LV43</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_gran_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_gran_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_gran_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_gran_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_gran.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_gran.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_gran_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_gran_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_gran_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_gran_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_gran_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_gran_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_gran_fdr05.jpeg" width="30%">
 </figure>
+<p>LV79</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_gran.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_gran_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_gran.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_gran_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_gran_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_gran_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_gran_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_gran_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_96_gran.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_gran_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_gran_fdr05.jpeg" width="30%">
+</figure>
+<p>LV96</p>
+<p>fdr0.2</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_gran_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_96_gran.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_gran_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_96_gran_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_gran_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_96_gran_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="hdl" class="section level4">
 <h4>HDL</h4>
+<p>LV1</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_HDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_HDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_HDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_HDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_1_HDL.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_1_HDL.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_HDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_1_HDL_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_HDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_HDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_HDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv1_HDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_1_HDL_fdr05.jpeg" width="30%">
 </figure>
+<p>LV9</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_HDL.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_HDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_HDL.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_HDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_HDL_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_HDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_HDL_fdr05.jpeg" width="30%">
+</figure>
+<p>LV38</p>
+<p>fdr0.2</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_HDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_38_HDL.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_HDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_38_HDL_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_HDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_38_HDL_fdr05.jpeg" width="30%">
 </figure>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_HDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_HDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv38_HDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
@@ -1906,218 +2086,428 @@ update
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_38_HDL.jpeg" width="80%">
 </figure>
+<p>LV108</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv108_HDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv108_HDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv108_HDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv108_HDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_108_HDL.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_108_HDL.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv108_HDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_108_HDL_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv108_HDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_108_HDL_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="ldl" class="section level4">
 <h4>LDL</h4>
+<p>LV8</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_LDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_LDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_LDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_LDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_8_LDL.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_8_LDL.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_LDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_8_LDL_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_LDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_LDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_LDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv8_LDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_8_LDL_fdr05.jpeg" width="30%">
 </figure>
+<p>LV19</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_LDL.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_LDL_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_LDL.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_LDL_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_LDL_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_LDL_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_LDL_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="lymphocyte-count" class="section level4">
 <h4>lymphocyte count</h4>
+<p>LV72</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_72_lymph.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_72_lymph.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_72_lymph_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_72_lymph_fdr05.jpeg" width="30%">
 </figure>
+<p>LV20</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_20_lymph.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_20_lymph.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_20_lymph_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_44_lymph.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_20_lymph_fdr05.jpeg" width="30%">
 </figure>
+<p>LV44</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_44_lymph.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_66_lymph.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_44_lymph_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv44_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_44_lymph_fdr05.jpeg" width="30%">
 </figure>
+<p>LV66</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_76_lymph.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_66_lymph.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_66_lymph_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv66_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_66_lymph_fdr05.jpeg" width="30%">
+</figure>
+<p>LV76</p>
+<p>fdr0.2</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_lymph_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_76_lymph.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_lymph_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_76_lymph_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_lymph_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_76_lymph_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="myeloid-white-cell-count" class="section level4">
 <h4>myeloid white cell count</h4>
+<p>LV43</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_myeloid_wbc.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_myeloid_wbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_myeloid_wbc_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_myeloid_wbc_fdr05.jpeg" width="30%">
 </figure>
+<p>LV79</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_myeloid_wbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_myeloid_wbc.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_myeloid_wbc_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_72_myeloid_wbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_myeloid_wbc_fdr05.jpeg" width="30%">
 </figure>
+<p>LV72</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_72_myeloid_wbc.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_88_myeloid_wbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_72_myeloid_wbc_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_72_myeloid_wbc_fdr05.jpeg" width="30%">
+</figure>
+<p>LV88</p>
+<p>fdr0.2</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_myeloid_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_88_myeloid_wbc.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_88_myeloid_wbc_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_myeloid_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_88_myeloid_wbc_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="neutrophil-count" class="section level4">
 <h4>neutrophil count</h4>
+<p>LV79</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_neut_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_neut_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_neut_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_neut_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_neut.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_neut.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_neut_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_neut_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv79_neut_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_79_neut_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="plt" class="section level4">
 <h4>plt</h4>
+<p>LV50</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_plt_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_plt_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_plt_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_plt_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_50_plt.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_50_plt.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_plt_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_50_plt_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv81_plt_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv81_plt_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv81_plt_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv50_plt_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_50_plt_fdr05.jpeg" width="30%">
 </figure>
+<p>LV81</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_81_plt.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv81_plt_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_81_plt.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv81_plt_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_81_plt_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv81_plt_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_81_plt_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="rbc" class="section level4">
 <h4>rbc</h4>
+<p>LV19</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_rbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_rbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_rbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_rbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_rbc.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_rbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_rbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_rbc_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv41_rbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv41_rbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv41_rbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_rbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_rbc_fdr05.jpeg" width="30%">
 </figure>
+<p>LV41</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_41_rbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv41_rbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_41_rbc.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_rbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_rbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_rbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv41_rbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_41_rbc_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_73_rbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv41_rbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_41_rbc_fdr05.jpeg" width="30%">
+</figure>
+<p>LV73</p>
+<p>fdr0.2</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_rbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_73_rbc.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_rbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_73_rbc_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv73_rbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_73_rbc_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="t2d_2" class="section level4">
 <h4>T2D_2</h4>
+<p>LV9</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_T2D_2.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_T2D_2.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_T2D_2_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_T2D_2_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="t2d" class="section level4">
 <h4>T2D</h4>
+<p>LV19</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_T2D_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_T2D_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_T2D_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_T2D_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_T2D.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_T2D.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_T2D_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_T2D_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv19_T2D_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_19_T2D_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="asthma" class="section level4">
 <h4>asthma</h4>
+<p>LV24</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_24_ukb.allasthma.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_24_ukb.allasthma.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_24_ukb.allasthma_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_24_ukb.allasthma_fdr05.jpeg" width="30%">
 </figure>
+<p>LV94</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_94_ukb.allasthma.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_94_ukb.allasthma.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv102_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv102_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv102_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_94_ukb.allasthma_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_102_ukb.allasthma.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_94_ukb.allasthma_fdr05.jpeg" width="30%">
 </figure>
+<p>LV102</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv102_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_102_ukb.allasthma.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_47_ukb.allasthma.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv102_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_102_ukb.allasthma_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv58_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv58_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv58_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv102_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_102_ukb.allasthma_fdr05.jpeg" width="30%">
 </figure>
+<p>LV47</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_58_ukb.allasthma.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_47_ukb.allasthma.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_47_ukb.allasthma_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_47_ukb.allasthma_fdr05.jpeg" width="30%">
+</figure>
+<p>LV58</p>
+<p>fdr0.2</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv58_ukb.allasthma_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_58_ukb.allasthma.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv58_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_58_ukb.allasthma_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv58_ukb.allasthma_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_58_ukb.allasthma_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="wbc" class="section level4">
 <h4>wbc</h4>
+<p>LV43</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_wbc.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_wbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_wbc_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv43_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_43_wbc_fdr05.jpeg" width="30%">
 </figure>
+<p>LV11</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_11_wbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_11_wbc.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_11_wbc_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_68_wbc.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv11_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_11_wbc_fdr05.jpeg" width="30%">
+</figure>
+<p>LV68</p>
+<p>fdr0.2</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_wbc_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_68_wbc.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_wbc_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_68_wbc_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv68_wbc_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_68_wbc_fdr05.jpeg" width="30%">
 </figure>
 </div>
 <div id="whr" class="section level4">
 <h4>WHR</h4>
+<p>LV10</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_WHR_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_WHR_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_WHR_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_WHR_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_10_WHR.jpeg" width="30%">
 </figure>
+<p>fdr0.3</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_10_WHR.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_WHR_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_10_WHR_fdr03.jpeg" width="30%">
 </figure>
+<p>fdr0.5</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_WHR_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_WHR_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_WHR_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv10_WHR_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_10_WHR_fdr05.jpeg" width="30%">
 </figure>
+<p>LV39</p>
+<p>fdr0.2</p>
 <figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_39_WHR.jpeg" width="80%">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_WHR_pval5e8_peer_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_39_WHR.jpeg" width="30%">
+</figure>
+<p>fdr0.3</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_WHR_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_39_WHR_fdr03.jpeg" width="30%">
+</figure>
+<p>fdr0.5</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_WHR_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_39_WHR_fdr05.jpeg" width="30%">
 </figure>
 </div>
 </div>
