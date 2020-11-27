@@ -628,7 +628,6 @@ fdr0.5
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_T2D_2_pval5e8_flash_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_flash_26_T2D_2.jpeg" width="30%">
 </figure>
 
 Since there were only 4 SNPs left after filtering by p-values in GWAS summary data and all of them have fdr<0.2 in association test. So there is no other SNPs to do resampling.
