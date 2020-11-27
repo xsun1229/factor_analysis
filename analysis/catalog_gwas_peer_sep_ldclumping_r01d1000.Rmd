@@ -1268,20 +1268,6 @@ fdr0.2
 </figure>
 
 
-fdr0.3 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco_fdr03.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_T2D_2_fdr03.jpeg" width="30%">
-</figure>
-
-
-fdr0.5
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv9_T2D_2_pval5e8_peer_d1k_ageco_fdr05.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_peer_9_T2D_2_fdr05.jpeg" width="30%">
-</figure>
 
 
 #### T2D
