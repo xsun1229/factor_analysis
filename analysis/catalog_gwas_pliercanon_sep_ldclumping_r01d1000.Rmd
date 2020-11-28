@@ -1762,7 +1762,7 @@ LV26
 load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_26_41686157.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1774,7 +1774,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_26_59258463.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1790,7 +1790,7 @@ LV49
 load("/project2/xinhe/xsun/website/factor_analysis/output/plt_49_34414160.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1801,7 +1801,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 load("/project2/xinhe/xsun/website/factor_analysis/output/plt_49_56786080.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1812,7 +1812,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 load("/project2/xinhe/xsun/website/factor_analysis/output/plt_49_88978375.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1828,7 +1828,7 @@ LV82
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_82_32506416.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1839,7 +1839,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_82_42718545.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1854,7 +1854,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_82_54482753.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1865,7 +1865,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_82_8614076.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1884,7 +1884,7 @@ LV6
 load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_6_129655816.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1895,7 +1895,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_6_81575948.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1911,7 +1911,7 @@ LV119
 load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_119_16589041.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1922,7 +1922,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 load("/project2/xinhe/xsun/website/factor_analysis/output/wbc_119_31355703.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1938,7 +1938,7 @@ LV47
 load("/project2/xinhe/xsun/website/factor_analysis/output/WHR_47_53955989.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
@@ -1949,7 +1949,7 @@ knitr::kable(pval, caption = "pvalues in coloclization")
 load("/project2/xinhe/xsun/website/factor_analysis/output/WHR_47_6742916.coloc_pliercanon_d1k_500.rdata")
 note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
 pval <- cbind(results$summary,note)
-knitr::kable(pval, caption = "pvalues in coloclization")
+knitr::kable(pval, caption = "PPs in coloclization")
 ```
 
 <figure class="half">
