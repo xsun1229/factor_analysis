@@ -101,6 +101,11 @@ WHR trait contains 36 SNPs with pval<5e-8.
 I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'. The 'num_significant_pairs' indicates the number of significant pairs under each threshold. If a trait~factor pair has as least 1 significant SNP, we named it as 'significant pair'. 
 
 ```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_pliercanon_wgpc_ldcl_d1k_ageco.rdata")
+knitr::kable(sum, caption = "number of significant trait-LV associations across all traits")
+```
+
+```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_d1k_ageco.rdata")
 DT::datatable(summary, options = list(pageLength =20))
 ```
