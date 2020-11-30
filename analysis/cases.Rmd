@@ -13,15 +13,13 @@ After checking the code and found nothing, I made scatter plots to show the pval
 ## RBC - LV82 
 
 <figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_rbc_f.jpeg" width="80%">
-</figure>
 
 ## Platelet - LV49
 
 <figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_49_plt_f.jpeg" width="80%">
 </figure>
-
-
-
 
