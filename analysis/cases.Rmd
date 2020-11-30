@@ -14,32 +14,14 @@ After checking the code and found nothing, I made scatter plots to show the pval
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_rbc_f.jpeg" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/p_r_rbc_82.jpeg" width="80%">
 </figure>
 
 ## Platelet - LV49
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_49_plt_f.jpeg" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/p_r_plt_49.jpeg" width="80%">
 </figure>
 
 
 
-For this weird pair, I checked the code and data.  
 
-## Eosinophil count vs. LV125
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_eo_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
-</figure>
-
-```{r eval=FALSE, echo=T}
-fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
-```
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/dat.rdata")
-colnames(aa) <- c("beta.outcome_gwas","beta.exposure_assoc")
-knitr::kable(aa, caption = "effect size value")
-```
