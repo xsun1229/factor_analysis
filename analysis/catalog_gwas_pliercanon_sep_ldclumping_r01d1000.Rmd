@@ -16,13 +16,13 @@ In this part, I considered the traits separately. I selected the SNPs with pval 
 
 1. Catalog GWAS data:  
 
-- Platelet count, white blood cell count, myeloid white cell count, lymphocyte counts, red blood cell count, granulocyte count, eosinophil count, neutrophil count from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042*. 
+- platelet count (plt), white blood cell count, myeloid white cell count (myeloid wbc), lymphocyte count, red blood cell count(wbc), granulocyte count(gran), eosinophil count(eo), neutrophil count (neut) from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042*. 
 
 - T2D. I first used data from our lab collaction *Morris et al. Large-scale association analysis provides insights into the genetic architecture and pathophysiology of type 2 diabetes. Nat Genet. 2012 Sep;44(9):981-90. doi: 10.1038/ng.2383. Epub 2012 Aug 12. PMID: 22885922; PMCID: PMC3442244.* but it doesn't contain MAF info of variants.So I added this from [GWAS Catalog](https://www.ebi.ac.uk/gwas/home): *Wood AR et al. Variants in the FTO and CDKAL1 loci have recessive effects on risk of obesity and type 2 diabetes, respectively. Diabetologia. 2016 Jun;59(6):1214-21. doi: 10.1007/s00125-016-3908-5. Epub 2016 Mar 10. PMID: 26961502; PMCID: PMC4869698.*.
 
 - Asthma. I first used data from our lab collaction *Zhu et al, Shared Genetics of Asthma and Mental Health Disorders: A Large-Scale Genome-Wide Cross-Trait Analysis. European Respiratory Journal, 2019 (PMID: 31619474)* but it doesn't contain MAF info of variants.So I added this from [GWAS Catalog](https://www.ebi.ac.uk/gwas/home): *Manuel A.R. et al. Genetic Architectures of Childhood- and Adult-Onset Asthma Are Partly Distinct,The American Journal of Human Genetics,Volume 104, Issue 4,2019,Pages 665-684,ISSN 0002-9297,https://doi.org/10.1016/j.ajhg.2019.02.022.*.
 
-- IBD,Ulcerative colitist,Crohn's disease data are from lab collection *Liu, van Sommeren et al, Nature Genetics, 2015*
+- IBD,Ulcerative colitist(UC),Crohn's disease(CD) data are from lab collection *Liu, van Sommeren et al, Nature Genetics, 2015*
 
 - Waist-hip ratio data are from *Shungin et al. New genetic loci link adipose and insulin biology to body fat distribution. Nature. 2015 Feb 12;518(7538):187-196. doi: 10.1038/nature14132. PMID: 25673412; PMCID: PMC4338562*.
 
@@ -59,27 +59,27 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 After filtering by 'pval < 5e-8' and LD Clumping, for each trait, I got :
 
-platelet count trait contains 688 SNPs with pval<5e-8. 
+platelet count (plt) trait contains 688 SNPs with pval<5e-8. 
 
-white blood cell count trait contains 368 SNPs with pval<5e-8. 
+white blood cell count(wbc)trait contains 368 SNPs with pval<5e-8. 
 
-myeloid white cell count trait contains 319 SNPs with pval<5e-8. 
+myeloid white cell count (myeloid wbc) trait contains 319 SNPs with pval<5e-8. 
 
-lymphocyte count trait contains 436 SNPs with pval<5e-8. 
+lymphocyte count(lymph) trait contains 436 SNPs with pval<5e-8. 
 
-red blood cell count trait contains 466 SNPs with pval<5e-8. 
+red blood cell count(wbc) trait contains 466 SNPs with pval<5e-8. 
 
-granulocyte count trait contains 316 SNPs with pval<5e-8. 
+granulocyte count(gran) trait contains 316 SNPs with pval<5e-8. 
 
-eosinophil count trait contains 491 SNPs with pval<5e-8. 
+eosinophil count(eo) trait contains 491 SNPs with pval<5e-8. 
 
-neutrophil count trait contains 317 SNPs with pval<5e-8. 
+neutrophil count (neut) trait contains 317 SNPs with pval<5e-8. 
 
 IBD trait contains 116 SNPs with pval<5e-8. 
 
-Ulcerative colitist trait contains 73 SNPs with pval<5e-8. 
+Ulcerative colitist(UC) trait contains 73 SNPs with pval<5e-8. 
 
-Crohn's disease trait contains 96 SNPs with pval<5e-8. 
+Crohn's disease(CD) trait contains 96 SNPs with pval<5e-8. 
 
 BMI trait contains 104 SNPs with pval<5e-8. 
 
@@ -394,7 +394,7 @@ fdr0.5
 </figure>
 
 
-#### Eosinophil count 
+#### eosinophil count(eo) 
 
 LV106
 
@@ -447,7 +447,7 @@ fdr0.5
 </figure>
 
 
-#### Crohn's disease
+#### Crohn's disease(CD)
 
 LV106
 
@@ -503,7 +503,7 @@ fdr0.5
 </figure>
 
 
-#### Ulcerative colitist
+#### Ulcerative colitist(UC)
 
 LV23
 
@@ -714,12 +714,12 @@ fdr0.5
 </figure>
 
 
-#### granulocyte count
+#### granulocyte count(gran)
 
 None of the LVs have >1 SNPs at FDR<0.2.
 
 
-#### lymphocyte count
+#### lymphocyte count(lymph)
 
 LV23
 
@@ -849,7 +849,7 @@ fdr0.5
 </figure>
 
 
-#### myeloid white cell count
+#### myeloid white cell count (myeloid wbc)
 
 LV65
 
@@ -931,7 +931,7 @@ fdr0.5
 
 
 
-#### neutrophil count
+#### neutrophil count (neut)
 
 
 LV6
@@ -1523,7 +1523,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 </figure>
 
 
-#### lymphocyte count
+#### lymphocyte count(lymph)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
@@ -1535,7 +1535,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
 </figure>
 
-#### platelet count 
+#### platelet count (plt) 
 
 
 <figure class="half">
@@ -1546,7 +1546,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
 </figure>
 
-#### red blood cell count 
+#### red blood cell count(wbc) 
 
 
 <figure class="half">
@@ -1616,7 +1616,7 @@ LV125
 
 
 
-#### platelet count 
+#### platelet count (plt) 
 
 LV49
 
@@ -1626,7 +1626,7 @@ LV49
 
 
 
-#### red blood cell count 
+#### red blood cell count(wbc) 
 
 LV82
 
@@ -1773,7 +1773,7 @@ knitr::kable(pval, caption = "PPs in coloclization analysis")
 <!-- </figure> -->
 
 
-#### lymphocyte count
+#### lymphocyte count(lymph)
 
 LV26
 
@@ -1801,7 +1801,7 @@ knitr::kable(pval, caption = "PPs in coloclization")
 </figure>
 
 
-#### platelet count 
+#### platelet count (plt) 
 
 LV49 
 
@@ -1839,7 +1839,7 @@ knitr::kable(pval, caption = "PPs in coloclization")
 </figure>
 
 
-#### red blood cell count 
+#### red blood cell count(wbc) 
 
 LV82 
 
@@ -2105,13 +2105,13 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 </figure>
 
 
-#### Eosinophil count 
+#### eosinophil count(eo) 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_eo_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
-#### Crohn's disease
+#### Crohn's disease(CD)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_d1k.jpeg" width="30%">
@@ -2123,7 +2123,7 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
-#### Ulcerative colitist
+#### Ulcerative colitist(UC)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_EUR.UC_pval5e8_d1k.jpeg" width="30%">
@@ -2131,14 +2131,14 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 </figure>
 
 
-#### granulocyte count
+#### granulocyte count(gran)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv120_gran_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
 
-#### lymphocyte count
+#### lymphocyte count(lymph)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k.jpeg" width="30%">
@@ -2148,14 +2148,14 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
-#### myeloid white cell count
+#### myeloid white cell count (myeloid wbc)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_myeloid_wbc_pval5e8_d1k.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_myeloid_wbc_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
-#### neutrophil count
+#### neutrophil count (neut)
 
 None of the LVs have >1 SNPs at FDR<0.2.
 
@@ -2222,7 +2222,7 @@ I also made a plot to show the the distribution of the SNPs' fdr.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv90_bmi_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
-#### Crohn's disease
+#### Crohn's disease(CD)
 
 The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
 
@@ -2234,7 +2234,7 @@ The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but th
 </figure>
 
 
-#### lymphocyte count
+#### lymphocyte count(lymph)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k.jpeg" width="30%">
@@ -2250,7 +2250,7 @@ The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but th
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/fdrhist_lv78_lymph_pval5e8_d1k.jpeg" width="30%">
 </figure>
 
-#### red blood cell count 
+#### red blood cell count(wbc) 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k.jpeg" width="30%">
@@ -2318,7 +2318,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 
 
 
-#### Crohn's disease
+#### Crohn's disease(CD)
 
 The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but the fitting result at fdr <0.5 is better than the former result . So I post the plots here too.
 
@@ -2331,7 +2331,7 @@ The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but th
 </figure>
 
 
-#### lymphocyte count
+#### lymphocyte count(lymph)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_reverse.jpeg" width="30%">
@@ -2343,7 +2343,7 @@ The CD~lv88 is not very promising pairs when considering SNPs at fdr<0.2, but th
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_reverse_remove.jpeg" width="30%">
 </figure>
 
-#### red blood cell count 
+#### red blood cell count(wbc) 
 
 The rbc~lv42 and rbc~lv59 pairs are not very promising pairs when considering SNPs at fdr<0.2, but the fitting results at fdr <0.5 are better than the former results. So I post the plots here too.
 
@@ -2421,13 +2421,13 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 </figure>
 
 
-#### Eosinophil count 
+#### eosinophil count(eo) 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_eo_pval5e8_d1k_noageco.jpeg" width="30%">
 </figure>
 
-#### Crohn's disease
+#### Crohn's disease(CD)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_EUR.CD_pval5e8_d1k_noageco.jpeg" width="30%">
@@ -2440,7 +2440,7 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_pval5e8_d1k_noageco.jpeg" width="30%">
 </figure>
 
-#### Ulcerative colitist
+#### Ulcerative colitist(UC)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_EUR.UC_pval5e8_d1k_noageco.jpeg" width="30%">
@@ -2450,12 +2450,12 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
 </figure>
 
 
-#### granulocyte count
+#### granulocyte count(gran)
 
 None of the LVs have >1 SNPs at FDR<0.2.
 
 
-#### lymphocyte count
+#### lymphocyte count(lymph)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_noageco.jpeg" width="30%">
@@ -2466,14 +2466,14 @@ None of the LVs have >1 SNPs at FDR<0.2.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_pval5e8_d1k_noageco.jpeg" width="30%">
 </figure>
 
-#### myeloid white cell count
+#### myeloid white cell count (myeloid wbc)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_myeloid_wbc_pval5e8_d1k_noageco.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_myeloid_wbc_pval5e8_d1k_noageco.jpeg" width="30%">
 </figure>
 
-#### neutrophil count
+#### neutrophil count (neut)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv95_neut_pval5e8_d1k_noageco.jpeg" width="30%">
@@ -2546,7 +2546,7 @@ The BMI~lv90 is not very promising pairs when considering SNPs at fdr<0.2, but t
 </figure>
 
 
-#### lymphocyte count
+#### lymphocyte count(lymph)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_noageco.jpeg" width="30%">
@@ -2560,7 +2560,7 @@ The BMI~lv90 is not very promising pairs when considering SNPs at fdr<0.2, but t
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_noageco_fdr05.jpeg" width="30%">
 </figure>
 
-#### red blood cell count
+#### red blood cell count(wbc)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_noageco.jpeg" width="30%">
@@ -2608,7 +2608,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
 </figure>
 
-#### lymphocyte count
+#### lymphocyte count(lymph)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_noageco_reverse.jpeg" width="30%">
@@ -2620,7 +2620,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv78_lymph_pval5e8_d1k_noageco_reverse_remove.jpeg" width="30%">
 </figure>
 
-#### red blood cell count 
+#### red blood cell count(wbc) 
 
 
 <figure class="half">

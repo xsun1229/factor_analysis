@@ -14,7 +14,7 @@ In this part, I considered the traits separately. I selected the SNPs with fdr <
 
 ## Material and Methods
 
-1. I used the GWAS results of 12 immune traits: platelet count, white blood cell count, myeloid white cell count, lymphocyte counts, red blood cell count, granulocyte count, eosinophil count, neutrophil count. These data are from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042* . I also used IBD,Ulcerative colitist,Crohn's disease and asthma collected by our lab.
+1. I used the GWAS results of 12 immune traits: platelet count(plt), white blood cell count (wbc), myeloid white cell count(myeloid_wbc), lymphocyte counts, red blood cell count (rbc), granulocyte count, eosinophil count, neutrophil count. These data are from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042* . I also used IBD,Ulcerative colitist (EUR.UC),Crohn's disease (EUR.CD) and asthma collected by our lab.
 
 2. Computed the fdr of each SNP according to their p-values from GWAS data. Chose those SNPs with fdr < 0.01 and pval < 5e-8 separately. 
 
@@ -44,15 +44,15 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 After filtering by 'fdr<0.01' and LD Clumping, for each trait, I got :
 
-platelet count trait contains  661  SNPs with fdr<0.01. 
+platelet count(plt) trait contains  661  SNPs with fdr<0.01. 
 
-white blood cell count trait contains 262 SNPs with fdr<0.01. 
+white blood cell count (wbc) trait contains 262 SNPs with fdr<0.01. 
 
-myeloid white cell count trait contains 308 SNPs with fdr<0.01. 
+myeloid white cell count(myeloid_wbc) trait contains 308 SNPs with fdr<0.01. 
 
-lymphocyte count trait contains 419 SNPs with fdr<0.01. 
+lymphocyte count(lymph)trait contains 419 SNPs with fdr<0.01. 
 
-red blood cell count trait contains 443 SNPs with fdr<0.01. 
+red blood cell count (rbc) trait contains 443 SNPs with fdr<0.01. 
 
 granulocyte count trait contains 570 SNPs with fdr<0.01. 
 
@@ -62,9 +62,9 @@ neutrophil count trait contains 568 SNPs with fdr<0.01.
 
 IBD trait contains 210 SNPs with fdr<0.01. 
 
-Ulcerative colitist trait contains 131 SNPs with fdr<0.01. 
+Ulcerative colitist (EUR.UC) trait contains 131 SNPs with fdr<0.01. 
 
-Crohn's disease trait contains 159 SNPs with fdr<0.01. 
+Crohn's disease (EUR.CD) trait contains 159 SNPs with fdr<0.01. 
 
 asthma trait contains 321 SNPs with fdr<0.01. 
 
@@ -104,7 +104,7 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_eo_fdr001_r01.jpeg" width="50%">
 </figure>
 
-#### Crohn's disease
+#### Crohn's disease (EUR.CD)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_fdr001_r01.jpeg" width="50%">
@@ -118,7 +118,7 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv46_EUR.IBD_fdr001_r01.jpeg" width="50%">
 </figure>
 
-#### Ulcerative colitist
+#### Ulcerative colitist (EUR.UC)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_EUR.UC_fdr001_r01.jpeg" width="50%">
@@ -141,7 +141,7 @@ None of the LVs have >1 SNPs at FDR<0.2.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_fdr001_r01.jpeg" width="50%">
 </figure>
 
-#### myeloid white cell count
+#### myeloid white cell count(myeloid_wbc)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_myeloid_wbc_fdr001_r01.jpeg" width="50%">
@@ -184,10 +184,10 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 ### QQ plots of the top factor-trait associations. 
 
-For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top factor-trait associations. 
+For Crohn's disease (EUR.CD), IBD and Ulcerative colitist (EUR.UC), I made QQ plots of the top factor-trait associations. 
 
 
-#### Crohn's disease -- LV88 has 4 SNPs with fdr<0.2
+#### Crohn's disease (EUR.CD) -- LV88 has 4 SNPs with fdr<0.2
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_CD_fdr_pliercanon_r01.jpeg" width="50%">
@@ -205,7 +205,7 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv46_IBD_fdr_pliercanon_r01.jpeg" width="50%">
 </figure>
 
-#### Ulcerative colitist -- LV23 has 2 SNPs with fdr<0.2
+#### Ulcerative colitist (EUR.UC) -- LV23 has 2 SNPs with fdr<0.2
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv23_UC_fdr_pliercanon_r01.jpeg" width="50%">
@@ -218,15 +218,15 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
 
 After filtering by 'fdr<0.01' and LD Clumping, for each trait, I got :
 
-platelet count trait contains 712  SNPs with pval<5e-8. 
+platelet count(plt) trait contains 712  SNPs with pval<5e-8. 
 
-white blood cell count trait contains 392 SNPs with pval<5e-8. 
+white blood cell count (wbc) trait contains 392 SNPs with pval<5e-8. 
 
-myeloid white cell count trait contains 337 SNPs with pval<5e-8. 
+myeloid white cell count(myeloid_wbc) trait contains 337 SNPs with pval<5e-8. 
 
-lymphocyte count trait contains 456 SNPs with pval<5e-8. 
+lymphocyte count(lymph)trait contains 456 SNPs with pval<5e-8. 
 
-red blood cell count trait contains 487 SNPs with pval<5e-8. 
+red blood cell count (rbc) trait contains 487 SNPs with pval<5e-8. 
 
 granulocyte count trait contains 326 SNPs with pval<5e-8. 
 
@@ -236,9 +236,9 @@ neutrophil count trait contains 333 SNPs with pval<5e-8.
 
 IBD trait contains 120 SNPs with pval<5e-8. 
 
-Ulcerative colitist trait contains 75 SNPs with pval<5e-8. 
+Ulcerative colitist (EUR.UC) trait contains 75 SNPs with pval<5e-8. 
 
-Crohn's disease trait contains 100 SNPs with pval<5e-8. 
+Crohn's disease (EUR.CD) trait contains 100 SNPs with pval<5e-8. 
 
 asthma trait contains 191 SNPs with pval<5e-8. 
 
@@ -342,7 +342,7 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_eo_pval5e8_r01.jpeg" width="50%">
 </figure>
 
-#### Crohn's disease
+#### Crohn's disease (EUR.CD)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_EUR.CD_pval5e8_r01.jpeg" width="50%">
@@ -356,7 +356,7 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_EUR.IBD_pval5e8_r01.jpeg" width="50%">
 </figure>
 
-#### Ulcerative colitist
+#### Ulcerative colitist (EUR.UC)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_EUR.UC_pval5e8_r01.jpeg" width="50%">
@@ -382,7 +382,7 @@ For each trait, I made a plot of association with LV(indicating by beta in GWAS)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_pval5e8_r01.jpeg" width="50%">
 </figure>
 
-#### myeloid white cell count
+#### myeloid white cell count(myeloid_wbc)
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv94_myeloid_wbc_pval5e8_r01.jpeg" width="50%">
@@ -426,10 +426,10 @@ None of the LVs have >1 SNPs at FDR<0.2.
 
 ### QQ plots of the top factor-trait associations. 
 
-For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top factor-trait associations. 
+For Crohn's disease (EUR.CD), IBD and Ulcerative colitist (EUR.UC), I made QQ plots of the top factor-trait associations. 
 
 
-#### Crohn's disease -- LV88 has 4 SNPs with fdr<0.2
+#### Crohn's disease (EUR.CD) -- LV88 has 4 SNPs with fdr<0.2
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv88_CD_pval_r01.jpeg" width="50%">
@@ -447,14 +447,14 @@ For Crohn's disease, IBD and Ulcerative colitist, I made QQ plots of the top fac
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv98_IBD_pval_r01.jpeg" width="50%">
 </figure>
 
-#### Ulcerative colitist -- LV23 has 2 SNPs with fdr<0.2
+#### Ulcerative colitist (EUR.UC) -- LV23 has 2 SNPs with fdr<0.2
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv23_UC_pval_r01.jpeg" width="50%">
 </figure>
 
 
-#### Ulcerative colitist -- LV24 has 2 SNPs with fdr<0.2
+#### Ulcerative colitist (EUR.UC) -- LV24 has 2 SNPs with fdr<0.2
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv24_UC_pval_r01.jpeg" width="50%">
