@@ -1721,56 +1721,56 @@ knitr::kable(pval, caption = "PPs in coloclization analysis")
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/bmi_76_43842728.coloc_pliercanon_d1k_500.jpeg" width="80%">
 </figure>
 
-<!-- #### LDL -->
+#### LDL
 
-<!-- LV125 -->
+LV125
 
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_160687504.coloc_pliercanon_d1k_500.rdata") -->
-<!-- note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP") -->
-<!-- pval <- cbind(results$summary,note) -->
-<!-- knitr::kable(pval, caption = "PPs in coloclization analysis") -->
-<!-- ``` -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_160687504.coloc_pliercanon_d1k_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "PPs in coloclization analysis")
+```
 
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_125_160687504.coloc_pliercanon_d1k_500.jpeg" width="80%"> -->
-<!-- </figure> -->
-
-
-<!-- ```{r echo=FALSE} -->
-<!-- # load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_44943964.coloc_pliercanon_d1k_500.rdata") -->
-<!-- # note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP") -->
-<!-- # pval <- cbind(results$summary,note) -->
-<!-- # knitr::kable(pval, caption = "PPs in coloclization analysis") -->
-<!-- ``` -->
-
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_125_44943964.coloc_pliercanon_d1k_500.jpeg" width="80%"> -->
-<!-- </figure> -->
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_125_160687504.coloc_pliercanon_d1k_500.jpeg" width="80%">
+</figure>
 
 
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_44943964.coloc_pliercanon_d1k_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "PPs in coloclization analysis")
+```
 
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_56955678.coloc_pliercanon_d1k_500.rdata") -->
-<!-- note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP") -->
-<!-- pval <- cbind(results$summary,note) -->
-<!-- knitr::kable(pval, caption = "PPs in coloclization analysis") -->
-<!-- ``` -->
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_125_44943964.coloc_pliercanon_d1k_500.jpeg" width="80%">
+</figure>
 
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_125_56955678.coloc_pliercanon_d1k_500.jpeg" width="80%"> -->
-<!-- </figure> -->
 
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_56965346.coloc_pliercanon_d1k_500.rdata") -->
-<!-- note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP") -->
-<!-- pval <- cbind(results$summary,note) -->
-<!-- knitr::kable(pval, caption = "PPs in coloclization analysis") -->
-<!-- ``` -->
 
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_125_56965346.coloc_pliercanon_d1k_500.jpeg" width="80%"> -->
-<!-- </figure> -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_56955678.coloc_pliercanon_d1k_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "PPs in coloclization analysis")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_125_56955678.coloc_pliercanon_d1k_500.jpeg" width="80%">
+</figure>
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_125_56965346.coloc_pliercanon_d1k_500.rdata")
+note <- c(NA,"no association with either trait","association with trait 1 but not with trait 2","association with trait 2 but not with trait 1","association with trait 1 and trait 2,two independent SNPs"," association with trait 1 and trait 2, one shared SNP")
+pval <- cbind(results$summary,note)
+knitr::kable(pval, caption = "PPs in coloclization analysis")
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LDL_125_56965346.coloc_pliercanon_d1k_500.jpeg" width="80%">
+</figure>
 
 
 #### lymphocyte count(lymph)
