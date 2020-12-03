@@ -1489,7 +1489,7 @@ To summarize the results above, I made a scatter plot of all trait-LV pairs. The
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.5_pliercanon.jpeg" width="60%">
 </figure>
 
-
+[Summary Table](https://docs.google.com/spreadsheets/d/e/2PACX-1vSR12eEGl_7UKoQYVrpVOTWrz_foBJ4_jLWrZEUw-4sazkyXEc84kOl01WS4BN4ahaSX3TRi_4qGwY7/pubhtml#)
 
 ### Effect size plots - checking the reverse causality
 
@@ -1669,6 +1669,9 @@ LV47
 The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
 
 SNP selection: 1. Chose the SNPs in the info table.  2. For each SNP, the region used in colocalization analysis is between [pos-100kb, pos+100kb]. 3. All SNPs in this region are included in alalysis.
+
+
+[Summary Table](https://docs.google.com/spreadsheets/d/e/2PACX-1vSAZ81jk5r0ubcT4EKnH6rxVNXJc-JTOa1ZkHWTnzLOXcw6443h3Y9LZX_JE4X5NR_qHdeF6D1yKtzg/pubhtml)
 
 #### BMI 
 
