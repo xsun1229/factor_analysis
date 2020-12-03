@@ -1868,9 +1868,6 @@ knitr::kable(pval, caption = "PPs in coloclization")
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_82_42718545.coloc_pliercanon_d1k_500.jpeg" width="80%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_82_32506416.coloc_pliercanon_d1k_500.jpeg" width="80%">
-</figure>
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_82_54482753.coloc_pliercanon_d1k_500.rdata")
