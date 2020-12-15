@@ -1,0 +1,15 @@
+---
+title: "EM_diagnosis"
+author: "XSun"
+date: "2020-12-14"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+We will try to [relate the PLIER-Canonical factors to GWAS of complex traits](https://www.overleaf.com/project/5fc6d070dbe8f5b9fe43a54b). There seems to be some problems, so,in this part, I did diagnosis for some cases. 
+
+
+
