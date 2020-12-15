@@ -58,7 +58,7 @@ EM <- function(dat) {
 
 2. effectsize plots 
 
-I made a scattor plots to show all the effectsize data point for each trait-LV pairs. The points are colored by the p_j in EM results according to the following rules:
+I made scattor plots to show all the effectsize data point for each trait-LV pairs. The points are colored by the p_j in EM results according to the following rules:
 
 p_j > 0.1  "orange"  marked as "1"
 
