@@ -92,12 +92,19 @@ p_j > 0.1  "orange"  marked as "1"
 
 others  "blue"  marked as "4" 
 
+For those points have relatively high p_j(greater than 0.01), I made effectsize plots to show if they are correlated.
+
+
 #### LDL
 
 LV125
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_emp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_emp_top.jpeg" width="30%">
 </figure>
 
 <figure class="half">
@@ -131,6 +138,10 @@ LV49
 </figure>
 
 <figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_emp_top.jpeg" width="30%">
+</figure>
+
+<figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_49_plt.jpeg" width="30%">
 </figure>
@@ -155,6 +166,10 @@ LV36
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp_top.jpeg" width="30%">
 </figure>
 
 <figure class="half">
@@ -183,6 +198,10 @@ LV6
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_emp.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_emp_top.jpeg" width="30%">
 </figure>
 
 <figure class="half">
