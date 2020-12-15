@@ -168,9 +168,6 @@ LV36
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp.jpeg" width="30%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp_top.jpeg" width="30%">
-</figure>
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%">
