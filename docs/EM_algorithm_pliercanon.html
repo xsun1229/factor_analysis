@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2020-12-14" />
+
+<title>EM_algorithm_pliercanon</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">EM_algorithm_pliercanon</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2020-12-14</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-12-14
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div class="panel-group" id="workflowr-checks">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/EM_SUM.rdata
+</td>
+<td style="text-align:left;">
+output/EM_SUM.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeb410adeb622ae9322e31cd123b85333668c4388etargetblankb410adea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/b410adeb622ae9322e31cd123b85333668c4388e" target="_blank">b410ade</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeb410adeb622ae9322e31cd123b85333668c4388etargetblankb410adea" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/b410adeb622ae9322e31cd123b85333668c4388e" target="_blank">b410ade</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/EM_algorithm_pliercanon.Rmd</code>) and HTML (<code>docs/EM_algorithm_pliercanon.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/b410adeb622ae9322e31cd123b85333668c4388e/analysis/EM_algorithm_pliercanon.Rmd" target="_blank">b410ade</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-12-14
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>We will try to <a href="https://www.overleaf.com/project/5fc6d070dbe8f5b9fe43a54b">relate the PLIER-Canonical factors to GWAS of complex traits</a>.</p>
+</div>
+<div id="methods" class="section level2">
+<h2>Methods</h2>
+<ol style="list-style-type: decimal">
+<li>EM algorithm settings.</li>
+</ol>
+<p>The detailed equations are in the <a href="https://www.overleaf.com/project/5fc6d070dbe8f5b9fe43a54b">overleaf file</a>.</p>
+<p>For all trait-LV pairs with &gt;= 2 SNPs passing FDR&lt;0.2 cutoff. I use the EM algorithm to infer the gamma and pi.</p>
+<p>We need to set initial values for gamma, pi and sigma2. For gamma, I use the slope in the effect size correlation plot at FDR &lt; 0.2. For pi, I used (number of SNP have FDR&lt;0.2)/(number of data points in GWAS). For sigma2, I fitted a normal distribution with mean 0 to all GWAS effect sizes and used the sd2 as the sigma2.</p>
+<p>Below are the codes I used.</p>
+<pre class="r"><code>EM &lt;- function(dat) {
+  
+        gamma &lt;- c()
+        pi_bern &lt;- c()
+        
+        gamma[1] &lt;- beta_fit
+        pi_bern[1] &lt;- nrow(snp_select)/nrow(dat)
+        
+        t &lt;- 0
+        while (length(gamma) == 1 ||  abs( gamma[length(gamma)] - gamma[length(gamma)-1]) &gt;1e-5) {
+          
+          t &lt;- t+1
+          
+          p &lt;- pi_bern[t]*dnorm(dat$beta.outcome,mean = gamma[t]*dat$beta.exposure,sd = (dat$se.outcome))/((1-pi_bern[t])* dnorm(dat$beta.outcome,mean = 0,sd = sqrt(sigma^2 + (dat$se.outcome)^2)) + pi_bern[t]*dnorm(dat$beta.outcome,mean = gamma[t]*dat$beta.exposure,sd = (dat$se.outcome)))
+          
+          pi_bern[t+1] &lt;- sum(p)/nrow(dat)
+          
+          gamma[t+1] &lt;- sum(dat$beta.outcome * p * dat$beta.exposure/(dat$se.outcome)^2) / sum(((dat$beta.exposure)^2 *p)/(dat$se.outcome)^2)
+          
+        }
+        
+        results &lt;- list(p,pi_bern,gamma)
+        names(results) &lt;- c(&quot;p&quot;,&quot;pi&quot;,&quot;gamma&quot;)
+        return(results)
+        
+      }
+      
+      EM_results &lt;- try(EM(dat = dat))</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>effectsize plots</li>
+</ol>
+<p>I made a scattor plots to show all the effectsize data point for each trait-LV pairs. The points are colored by the p_j in EM results according to the following rules:</p>
+<p>p_j &gt; 0.1 “orange” marked as “1”</p>
+<p>0.01&lt; p_j &lt; 0.1 “red” marked as “2”</p>
+<p>0.001&lt; p_j &lt; 0.01 “green” marked as “3”</p>
+<p>others “blue” marked as “4”</p>
+</div>
+<div id="results" class="section level2">
+<h2>Results</h2>
+<div id="em-algorithm-summary-table" class="section level3">
+<h3>EM algorithm summary table</h3>
+<p>I made a table to show the pi and gamma in EM iteration.</p>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["asthma_2_lv88","asthma_2_lv91","bmi_lv27","bmi_lv30","bmi_lv76","bmi_lv90","eo_lv106","eo_lv125","EUR.CD_lv126","EUR.IBD_lv98","EUR.UC_lv108","EUR.UC_lv23","EUR.UC_lv24","LDL_lv113","LDL_lv117","LDL_lv125","LDL_lv23","LDL_lv79","lymph_lv123","lymph_lv23","lymph_lv26","lymph_lv37","lymph_lv65","myeloid_wbc_lv119","myeloid_wbc_lv65","myeloid_wbc_lv94","neut_lv6","neut_lv95","plt_lv49","plt_lv97","rbc_lv118","rbc_lv20","rbc_lv3","rbc_lv82","T2D_2_lv38","T2D_lv1","ukb.allasthma_lv21","ukb.allasthma_lv36","ukb.allasthma_lv39","ukb.allasthma_lv68","ukb.allasthma_lv82","wbc_lv119","wbc_lv6","WHR_lv1","WHR_lv106","WHR_lv47","WHR_lv82"],[0.0178571428571429,0.0267857142857143,0.0192307692307692,0.0192307692307692,0.0192307692307692,0.0192307692307692,0.00407331975560081,0.00610997963340122,0.03125,0.0172413793103448,0.0273972602739726,0.0273972602739726,0.0273972602739726,0.00980392156862745,0.00980392156862745,0.0196078431372549,0.00980392156862745,0.0147058823529412,0.00688073394495413,0.00458715596330275,0.00458715596330275,0.00458715596330275,0.00458715596330275,0.00626959247648903,0.00626959247648903,0.00626959247648903,0.00630914826498423,0.00630914826498423,0.00436046511627907,0.00290697674418605,0.00429184549356223,0.00429184549356223,0.00643776824034335,0.00858369098712446,1,0.142857142857143,0.0268817204301075,0.010752688172043,0.010752688172043,0.010752688172043,0.0161290322580645,0.00543478260869565,0.00543478260869565,0.0555555555555556,0.0833333333333333,0.0555555555555556,0.0555555555555556],[0.000539912557918254,4.67848209172086e-43,0.0195458846554841,1.12743364130731e-17,3.33080317251187e-05,1.02660109421903e-10,1.34564648743531e-10,5.22850646366112e-12,3.35784971140674e-06,3.49565599787987e-06,2.96569294885108e-12,0.0176643132637829,2.5910155577443e-16,1.57653203773117e-28,0.0275203265144653,0.0133789184449593,0.0490181128157253,2.64353248056396e-12,3.90890292595549e-21,5.44433654191803e-10,1.50791437572303e-50,1.44607457886627e-12,0.036425032133073,0.0388663535333114,3.90619166913379e-10,5.01282463184222e-15,0.0336053477817,0.0265574468392112,0.0290650405106546,1.83196704108106e-09,5.62225938503636e-08,0.0302337165129106,2.50128796778105e-05,1.32270207824686e-09,1,0.131934132340919,9.32216967190156e-12,0.00177467701356095,2.07931845024093e-09,4.69698149356502e-20,1.00633380099304e-12,1.03566713569435e-07,0.0290329007857046,2.16164565594311e-11,9.30899207670726e-09,0.00150145170620313,0.0511090422835558],[11.7445448365714,-14.0529915416351,0.343315411648094,-0.380076102895279,0.518177170650346,0.940837694874094,0.0957650046887094,0.514465187698457,4.30711594304353,0.283356359833542,-0.312117441785614,2.40034207273052,4.15754050212979,0.222249709641685,-0.212791070311468,-2.03006285971874,-0.694828057496302,0.292817674300879,-0.225610913125505,-0.29481858010051,-0.221585416545514,0.128781438985704,-0.185500307199038,-0.405452482400688,-0.0310614380575884,-0.0536052653140715,0.21658740231213,0.144550356783846,-0.227160529040697,0.0537182026369107,0.55223620340223,-1.24004750198731,0.0148439007277676,-0.556166109909909,5.41885540209931,-2.20937366442729,0.269892467466628,0.520976429497475,0.961266548188089,1.35515739390015,-0.0306147049264548,-0.432901586354278,0.196408066711513,0.132496700666656,-0.136540627196126,-0.488446630610683,-0.840137672118968],[11.1211515393843,-35.3840187033325,0.460033628898669,-0.538404893591601,0.516414888174015,0.867934350667856,1.36148862953028,0.586229407973339,5.05651699466741,5.23690377441351,-1.06133458957601,4.05601754109611,4.69876475474924,1.62772051203298,-0.919606614320774,-2.33630113897907,-1.92988407377646,1.28767954908035,-2.44629248806469,-1.0401855763593,-0.250082081125279,0.14955948776645,-0.572990463029444,-1.07116659534644,-0.304950881829014,-0.508454225427697,0.650171660869074,0.901154919447354,-0.891473515970036,1.48509960924347,1.68763402630227,-1.39798931595548,0.881746598238981,-1.75599194133491,19.9085138678396,-7.80023611072355,1.3557058635095,0.51665685531931,2.11561589149624,1.39016209469674,-3.16519413695471,-0.45187308819557,0.619034264356961,0.819497151541853,-0.774920426141443,-0.489875541105554,-1.47345278825911],[3,18,15,53,5,22,39,17,17,40,9,74,39,152,115,7,114,44,51,42,42,8,74,106,43,17,64,71,121,86,50,97,84,55,3,25,121,9,37,34,83,8,101,10,14,8,35]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>pi_initial<\/th>\n      <th>pi_final<\/th>\n      <th>gamma_initial<\/th>\n      <th>gamma_final<\/th>\n      <th>iteration_times<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="diagnosis-plots" class="section level3">
+<h3>Diagnosis plots</h3>
+<p>For the pairs have pvalue &lt; 0.05 in resampling (fdr&lt;0.2 cutoff), I made effectsize plots for all data points. The points are colored by the p_j in EM results according to the following rules:</p>
+<p>p_j &gt; 0.1 “orange” marked as “1”</p>
+<p>0.01&lt; p_j &lt; 0.1 “red” marked as “2”</p>
+<p>0.001&lt; p_j &lt; 0.01 “green” marked as “3”</p>
+<p>others “blue” marked as “4”</p>
+<div id="ldl" class="section level4">
+<h4>LDL</h4>
+<p>LV125</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_emp.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_pval5e8_d1k_ageco_fdr02.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_125_LDL_fdr02.jpeg" width="30%">
+</figure>
+</div>
+<div id="lymphocyte-countlymph" class="section level4">
+<h4>lymphocyte count(lymph)</h4>
+<p>LV26</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_emp.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco_fdr02.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_26_lymph_fdr02.jpeg" width="30%">
+</figure>
+</div>
+<div id="plt" class="section level4">
+<h4>plt</h4>
+<p>LV49</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_emp.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco_fdr03.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_49_plt_fdr03.jpeg" width="30%">
+</figure>
+</div>
+<div id="rbc" class="section level4">
+<h4>rbc</h4>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_emp.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_rbc.jpeg" width="30%">
+</figure>
+</div>
+<div id="asthma" class="section level4">
+<h4>asthma</h4>
+<p>LV36</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_36_ukb.allasthma.jpeg" width="30%">
+</figure>
+<p>LV39</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_emp.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_39_ukb.allasthma.jpeg" width="30%">
+</figure>
+</div>
+<div id="wbc" class="section level4">
+<h4>wbc</h4>
+<p>LV6</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_emp.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_6_wbc.jpeg" width="30%">
+</figure>
+<p>LV119</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_emp.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_119_wbc.jpeg" width="30%">
+</figure>
+</div>
+<div id="whr" class="section level4">
+<h4>WHR</h4>
+<p>LV47</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_emp.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_47_WHR.jpeg" width="30%">
+</figure>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5        rstudioapi_0.11   whisker_0.3-2     knitr_1.30       
+ [5] magrittr_1.5      R6_2.4.1          rlang_0.4.8       highr_0.8        
+ [9] stringr_1.4.0     tools_3.6.1       DT_0.15           xfun_0.18        
+[13] git2r_0.26.1      crosstalk_1.1.0.1 htmltools_0.5.0   ellipsis_0.3.1   
+[17] rprojroot_1.3-2   yaml_2.2.1        digest_0.6.25     tibble_3.0.3     
+[21] lifecycle_0.2.0   crayon_1.3.4      later_1.1.0.1     htmlwidgets_1.5.2
+[25] vctrs_0.3.4       promises_1.1.1    fs_1.5.0          glue_1.4.2       
+[29] evaluate_0.14     rmarkdown_1.13    stringi_1.5.3     compiler_3.6.1   
+[33] pillar_1.4.6      backports_1.1.10  jsonlite_1.7.1    httpuv_1.5.1     
+[37] pkgconfig_2.0.3  </code></pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
