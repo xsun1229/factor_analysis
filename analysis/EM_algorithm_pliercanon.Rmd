@@ -56,7 +56,33 @@ EM <- function(dat) {
 
 ```
 
-2. effectsize plots 
+2. Likelihood ratio test
+
+We used LRT to test if there is a causal effect. The H0 here: pi = 0 and the H1: pi is free. I compute LRT statistic as follows: 
+
+```{r eval=FALSE, echo=T}
+
+      lik_0 <- prod(dnorm(dat$beta.outcome,mean = 0, sd = sqrt(sigma^2 + dat$se.outcome^2) )) 
+      
+      gamma_f <- EM_results$gamma[length(EM_results$gamma)]
+      pi_f <- EM_results$pi[length(EM_results$pi)]
+      lik_1 <- prod((1-pi_f)*dnorm(dat$beta.outcome,mean = 0, sd = sqrt(sigma^2 + dat$se.outcome^2)) + pi_f *dnorm(dat$beta.outcome,mean = gamma_f*dat$beta.exposure,sd = dat$se.outcome))
+      
+      LRT <- -2*log(lik_1/lik_0)  ####LRT statistic
+      
+      pval <- pchisq(LRT,df = 2, lower.tail = F)   ####LRT statistic follows chi-squared distribution with freedom = 2.
+
+```
+
+3. Resampling
+
+The test may not be robust to misspeification of the prior. So I resampled the beta_j from the data set to calculate the gamma_initial to initialize the EM and compute the new LRT statistic accordingly. 
+
+The resampling was repeated 1000 times. 
+
+The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).
+
+4. effectsize plots 
 
 I made scattor plots to show all the effectsize data point for each trait-LV pairs. The points are colored by the p_j in EM results according to the following rules:
 
