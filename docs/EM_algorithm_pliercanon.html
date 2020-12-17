@@ -569,16 +569,16 @@ output/EM_SUM.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed8af29fe675aa0dccf31dd2b1ad8dd26dc6e1dd0targetblankd8af29fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/d8af29fe675aa0dccf31dd2b1ad8dd26dc6e1dd0" target="_blank">d8af29f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree7a4a37f211dc9fc2c6166aa92cecf2ed1bf61ec2targetblank7a4a37fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/7a4a37f211dc9fc2c6166aa92cecf2ed1bf61ec2" target="_blank">7a4a37f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed8af29fe675aa0dccf31dd2b1ad8dd26dc6e1dd0targetblankd8af29fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree7a4a37f211dc9fc2c6166aa92cecf2ed1bf61ec2targetblank7a4a37fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/d8af29fe675aa0dccf31dd2b1ad8dd26dc6e1dd0" target="_blank">d8af29f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/7a4a37f211dc9fc2c6166aa92cecf2ed1bf61ec2" target="_blank">7a4a37f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -626,6 +626,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/7a4a37f211dc9fc2c6166aa92cecf2ed1bf61ec2/analysis/EM_algorithm_pliercanon.Rmd" target="_blank">7a4a37f</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-12-17
+</td>
+<td>
+wflow_publish(“analysis/EM_algorithm_pliercanon.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/a49ef0eb5d85ccc48fcb5d63a6fb63a0b883303c/docs/EM_algorithm_pliercanon.html" target="_blank">a49ef0e</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-12-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -882,13 +916,13 @@ update
 <li>Likelihood ratio test</li>
 </ol>
 <p>We used LRT to test if there is a causal effect. The H0 here: pi = 0 and the H1: pi is free. I compute LRT statistic as follows:</p>
-<pre class="r"><code>      lik_0 &lt;- prod(dnorm(dat$beta.outcome,mean = 0, sd = sqrt(sigma^2 + dat$se.outcome^2) )) 
+<pre class="r"><code>      log_lik_0 &lt;- sum(log(dnorm(dat$beta.outcome,mean = 0, sd = sqrt(sigma^2 + dat$se.outcome^2) )))
       
       gamma_f &lt;- EM_results$gamma[length(EM_results$gamma)]
       pi_f &lt;- EM_results$pi[length(EM_results$pi)]
-      lik_1 &lt;- prod((1-pi_f)*dnorm(dat$beta.outcome,mean = 0, sd = sqrt(sigma^2 + dat$se.outcome^2)) + pi_f *dnorm(dat$beta.outcome,mean = gamma_f*dat$beta.exposure,sd = dat$se.outcome))
+      log_lik_1 &lt;- sum(log((1-pi_f)*dnorm(dat$beta.outcome,mean = 0, sd = sqrt(sigma^2 + dat$se.outcome^2)) + pi_f *dnorm(dat$beta.outcome,mean = gamma_f*dat$beta.exposure,sd = dat$se.outcome)))
       
-      LRT &lt;- -2*log(lik_1/lik_0)  ####LRT statistic
+      LRT &lt;- 2*log(log_lik_1/log_lik_0)  ####LRT statistic
       
       pval &lt;- pchisq(LRT,df = 2, lower.tail = F)   ####LRT statistic follows chi-squared distribution with freedom = 2.</code></pre>
 <ol start="3" style="list-style-type: decimal">
