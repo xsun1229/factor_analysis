@@ -195,23 +195,56 @@ others  "blue"  marked as "4"
 
 For those points have relatively high p_j(greater than 0.01), I made effectsize plots to show if they are correlated.
 
+#### lymphocyte count(lymph)
 
-#### Asthma
-
-LV21
+LV123
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv21_ukb.allasthma_emp_new_l.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_emp_new_e.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv21_ukb.allasthma_emp_top_new_l.jpeg.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_emp_top_new_e.jpeg.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv21_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_21_ukb.allasthma.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_123_lymph.jpeg" width="30%">
 </figure>
+
+
+#### BMI
+
+LV76
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_emp_new_e.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_76_bmi.jpeg" width="30%">
+</figure>
+
+
+#### WHR
+
+LV82
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_new_e.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_top_new_e.jpeg.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_WHR.jpeg" width="30%">
+</figure>
+
 
 ## Results  -- Same pi for all SNPs
 
