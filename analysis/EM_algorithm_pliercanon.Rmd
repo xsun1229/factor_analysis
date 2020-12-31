@@ -233,11 +233,11 @@ LV76
 LV82
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_new_e.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_new_q.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_top_new_e.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_top_new_q.jpeg" width="30%">
 </figure>
 
 <figure class="half">
