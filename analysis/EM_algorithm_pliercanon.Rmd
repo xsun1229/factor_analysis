@@ -99,7 +99,7 @@ LV21
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv21_ukb.allasthma_emp_top_new_l.jpeg.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv21_ukb.allasthma_emp_top_new_l.jpeg" width="30%">
 </figure>
 
 <figure class="half">
@@ -117,7 +117,7 @@ LV23
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_emp_top_new_l.jpeg.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_emp_top_new_l.jpeg" width="30%">
 </figure>
 
 <figure class="half">
@@ -135,7 +135,7 @@ LV119
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_emp_top_new_l.jpeg.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_emp_top_new_l.jpeg" width="30%">
 </figure>
 
 <figure class="half">
@@ -204,7 +204,7 @@ LV123
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_emp_top_new_e.jpeg.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_emp_top_new_e.jpeg" width="30%">
 </figure>
 
 <figure class="half">
@@ -237,7 +237,7 @@ LV82
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_top_new_e.jpeg.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_top_new_e.jpeg" width="30%">
 </figure>
 
 <figure class="half">
