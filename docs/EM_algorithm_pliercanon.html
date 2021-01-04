@@ -454,7 +454,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-12-30
+<strong>Last updated:</strong> 2021-01-04
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -571,6 +571,22 @@ output/EM_SUM_new_q.rdata
 </tr>
 <tr>
 <td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/EM_SUM_new_turn.rdata
+</td>
+<td style="text-align:left;">
+output/EM_SUM_new_turn.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/EM_SUM_new_turn_q.rdata
+</td>
+<td style="text-align:left;">
+output/EM_SUM_new_turn_q.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 /project2/xinhe/xsun/website/factor_analysis/output/EM_SUM.rdata
 </td>
 <td style="text-align:left;">
@@ -585,16 +601,16 @@ output/EM_SUM.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeb6cf1c00be5321bad12d1f91bce2db65feb15417targetblankb6cf1c0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/b6cf1c00be5321bad12d1f91bce2db65feb15417" target="_blank">b6cf1c0</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreedf88baaf3024573c48254b2f0dced279407d437ctargetblankdf88baaa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/df88baaf3024573c48254b2f0dced279407d437c" target="_blank">df88baa</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeb6cf1c00be5321bad12d1f91bce2db65feb15417targetblankb6cf1c0a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreedf88baaf3024573c48254b2f0dced279407d437ctargetblankdf88baaa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/b6cf1c00be5321bad12d1f91bce2db65feb15417" target="_blank">b6cf1c0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/df88baaf3024573c48254b2f0dced279407d437c" target="_blank">df88baa</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -642,6 +658,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/df88baaf3024573c48254b2f0dced279407d437c/analysis/EM_algorithm_pliercanon.Rmd" target="_blank">df88baa</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-01-04
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/e83f0648d13acc0f23427d47adbdd72ddb62302c/docs/EM_algorithm_pliercanon.html" target="_blank">e83f064</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-12-30
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1140,12 +1190,14 @@ update
 <p>We need to set initial values for gamma, pi and sigma2. For gamma, I use the slope in the effect size correlation plot at FDR &lt; 0.2. For pi, I used (number of SNP have FDR&lt;0.2)/(number of data points in GWAS). For sigma2, I fitted a normal distribution with mean 0 to all GWAS effect sizes and used the sd2 as the sigma2.</p>
 <p>1.2 Incorporating FDR information of IVs</p>
 <p>In this part, the pi of each SNP are obtained from ‘local FDR’ or q-value (1 - local FDR or 1 - qvalue) . For sigma2, I fitted a normal distribution with mean 0 to all GWAS effect sizes and used the sd2 as the sigma2.</p>
+<p>1.3 Using Truncated Normal distribution to model the density of beta_hat</p>
+<p>In this part, we estimated sigma^2 first using MLE, treating all SNPs as being not IVs. Then, updated gamma and p_j using the same rules as before.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Likelihood ratio test</li>
 </ol>
 <p>2.1 Same pi for all SNPs</p>
 <p>We used LRT to test if there is a causal effect. The H0 here: pi = 0 and the H1: pi is free.</p>
-<p>2.2 Incorporating FDR information of IVs</p>
+<p>2.2 Incorporating FDR information of IVs &amp; Using Truncated Normal distribution to model the density of beta_hat</p>
 <p>The H0 here: gamma = 0 and the H1: gamma is free</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Resampling</li>
@@ -1154,6 +1206,8 @@ update
 <p>The test may not be robust to misspeification of the prior. So I resampled the beta_j from the data set to calculate the gamma_initial to initialize the EM and compute the new LRT statistic accordingly.</p>
 <p>The resampling was repeated 1000 times.</p>
 <p>The ‘p-value from resampling’ is computed by: (number of more extreme values)/(times of resampling).</p>
+<p>3.2 Incorporating FDR information of IVs &amp; Using Truncated Normal distribution to model the density of beta_hat</p>
+<p>For SNP_j, we fixed (alpha_j,pi_j), but resample beta_hat_j from all SNPs.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>effectsize plots</li>
 </ol>
@@ -1253,7 +1307,7 @@ update
 </div>
 <div id="diagnosis-plots-1" class="section level3">
 <h3>Diagnosis plots</h3>
-<p>For the pairs have pvalue &lt; 0.05 in resampling (fdr&lt;0.2 cutoff), I made effectsize plots for all data points. The points are colored by the p_j in EM results according to the following rules:</p>
+<p>For the pairs have pvalue &lt; 0.05 in resampling, I made effectsize plots for all data points. The points are colored by the p_j in EM results according to the following rules:</p>
 <p>p_j &gt; 0.1 “orange” marked as “1”</p>
 <p>0.01&lt; p_j &lt; 0.1 “red” marked as “2”</p>
 <p>0.001&lt; p_j &lt; 0.01 “green” marked as “3”</p>
@@ -1297,15 +1351,203 @@ update
 </div>
 </div>
 </div>
-<div id="results-same-pi-for-all-snps" class="section level2">
-<h2>Results – Same pi for all SNPs</h2>
+<div id="results-using-truncated-normal-distribution-to-model-the-density-of-beta_hat-using-local-fdr-as-pi" class="section level2">
+<h2>Results – Using Truncated Normal distribution to model the density of beta_hat &amp; using local FDR as pi</h2>
 <div id="em-algorithm-summary-table-2" class="section level3">
 <h3>EM algorithm summary table</h3>
-<p>I made a table to show the pi and gamma in EM iteration.</p>
 <div id="htmlwidget-5ba5287ce9a3b08bdb5d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5ba5287ce9a3b08bdb5d">{"x":{"filter":"none","data":[["asthma_2_lv88","asthma_2_lv91","bmi_lv27","bmi_lv30","bmi_lv76","bmi_lv90","eo_lv106","eo_lv125","EUR.CD_lv126","EUR.IBD_lv98","EUR.UC_lv108","EUR.UC_lv23","EUR.UC_lv24","LDL_lv113","LDL_lv117","LDL_lv125","LDL_lv23","LDL_lv79","lymph_lv123","lymph_lv23","lymph_lv26","lymph_lv37","lymph_lv65","myeloid_wbc_lv119","myeloid_wbc_lv65","myeloid_wbc_lv94","neut_lv6","neut_lv95","plt_lv49","plt_lv97","rbc_lv118","rbc_lv20","rbc_lv3","rbc_lv82","T2D_2_lv38","T2D_lv1","ukb.allasthma_lv21","ukb.allasthma_lv36","ukb.allasthma_lv39","ukb.allasthma_lv68","ukb.allasthma_lv82","wbc_lv119","wbc_lv6","WHR_lv1","WHR_lv106","WHR_lv47","WHR_lv82"],[0.0178571428571429,0.0267857142857143,0.0192307692307692,0.0192307692307692,0.0192307692307692,0.0192307692307692,0.00407331975560081,0.00610997963340122,0.03125,0.0172413793103448,0.0273972602739726,0.0273972602739726,0.0273972602739726,0.00980392156862745,0.00980392156862745,0.0196078431372549,0.00980392156862745,0.0147058823529412,0.00688073394495413,0.00458715596330275,0.00458715596330275,0.00458715596330275,0.00458715596330275,0.00626959247648903,0.00626959247648903,0.00626959247648903,0.00630914826498423,0.00630914826498423,0.00436046511627907,0.00290697674418605,0.00429184549356223,0.00429184549356223,0.00643776824034335,0.00858369098712446,1,0.142857142857143,0.0268817204301075,0.010752688172043,0.010752688172043,0.010752688172043,0.0161290322580645,0.00543478260869565,0.00543478260869565,0.0555555555555556,0.0833333333333333,0.0555555555555556,0.0555555555555556],[0.000539912557918254,4.67848209172086e-43,0.0195458846554841,1.12743364130731e-17,3.33080317251187e-05,1.02660109421903e-10,1.34564648743531e-10,5.22850646366112e-12,3.35784971140674e-06,3.49565599787987e-06,2.96569294885108e-12,0.0176643132637829,2.5910155577443e-16,1.57653203773117e-28,0.0275203265144653,0.0133789184449593,0.0490181128157253,2.64353248056396e-12,3.90890292595549e-21,5.44433654191803e-10,1.50791437572303e-50,1.44607457886627e-12,0.036425032133073,0.0388663535333114,3.90619166913379e-10,5.01282463184222e-15,0.0336053477817,0.0265574468392112,0.0290650405106546,1.83196704108106e-09,5.62225938503636e-08,0.0302337165129106,2.50128796778105e-05,1.32270207824686e-09,1,0.131934132340919,9.32216967190156e-12,0.00177467701356095,2.07931845024093e-09,4.69698149356502e-20,1.00633380099304e-12,1.03566713569435e-07,0.0290329007857046,2.16164565594311e-11,9.30899207670726e-09,0.00150145170620313,0.0511090422835558],[11.7445448365714,-14.0529915416351,0.343315411648094,-0.380076102895279,0.518177170650346,0.940837694874094,0.0957650046887094,0.514465187698457,4.30711594304353,0.283356359833542,-0.312117441785614,2.40034207273052,4.15754050212979,0.222249709641685,-0.212791070311468,-2.03006285971874,-0.694828057496302,0.292817674300879,-0.225610913125505,-0.29481858010051,-0.221585416545514,0.128781438985704,-0.185500307199038,-0.405452482400688,-0.0310614380575884,-0.0536052653140715,0.21658740231213,0.144550356783846,-0.227160529040697,0.0537182026369107,0.55223620340223,-1.24004750198731,0.0148439007277676,-0.556166109909909,5.41885540209931,-2.20937366442729,0.269892467466628,0.520976429497475,0.961266548188089,1.35515739390015,-0.0306147049264548,-0.432901586354278,0.196408066711513,0.132496700666656,-0.136540627196126,-0.488446630610683,-0.840137672118968],[11.1211515393843,-35.3840187033325,0.460033628898669,-0.538404893591601,0.516414888174015,0.867934350667856,1.36148862953028,0.586229407973339,5.05651699466741,5.23690377441351,-1.06133458957601,4.05601754109611,4.69876475474924,1.62772051203298,-0.919606614320774,-2.33630113897907,-1.92988407377646,1.28767954908035,-2.44629248806469,-1.0401855763593,-0.250082081125279,0.14955948776645,-0.572990463029444,-1.07116659534644,-0.304950881829014,-0.508454225427697,0.650171660869074,0.901154919447354,-0.891473515970036,1.48509960924347,1.68763402630227,-1.39798931595548,0.881746598238981,-1.75599194133491,19.9085138678396,-7.80023611072355,1.3557058635095,0.51665685531931,2.11561589149624,1.39016209469674,-3.16519413695471,-0.45187308819557,0.619034264356961,0.819497151541853,-0.774920426141443,-0.489875541105554,-1.47345278825911],[3,18,15,53,5,22,39,17,17,40,9,74,39,152,115,7,114,44,51,42,42,8,74,106,43,17,64,71,121,86,50,97,84,55,3,25,121,9,37,34,83,8,101,10,14,8,35],[1,1,0.390269237673026,1,1,1,1,1,1,0.999915172988997,1,0.90536175459923,1,1,0.399860364743652,0.00022927025122611,0.0554900863818084,1,1,0.999999886981193,1,1,0.0462157295966475,0.167807804604931,1,1,0.106433441815586,0.102936008327832,0.0361998088293451,0.999999907597957,0.999990430436555,0.0943693225696809,0.996666846038547,0.999999869454095,0.163357741620117,0.411246250669453,0.999999999891457,0.943987275594314,1,1,0.999999999948443,1,0.266841917483518,1,1,1,0.62711319276292],[-0.0565052852986128,0,1.88183685006942,0,-0.00543460411375918,-1.2580585462274e-08,-6.32144292467274e-09,-3.71119313058443e-09,-0.000247082314970726,0.000169661218034634,-3.42204486969422e-10,0.198841372627143,-1.4210854715202e-14,0,1.83327976192095,16.76121822773,5.78310179587214,-2.34535946219694e-10,0,2.26037627726328e-07,0,-1.20144250104204e-09,6.14887014276087,3.56987194935652,-1.95719849216403e-08,-1.93267624126747e-12,4.4804708973586,4.54729552439289,6.63740288224335,1.84804093805724e-07,1.91392184660799e-05,4.72107846284916,0.00667744258748826,2.61091827269411e-07,3.62362549843976,1.7771261877146,2.17085016629426e-10,0.115285184341587,-8.32295654618065e-08,0,1.03113961813506e-10,-5.96450145167182e-05,2.64219773054856,-1.09881170828885e-09,-1.77177781779392e-07,-0.0336650308147739,0.933256447841131],[0.291,0.605,0.078,0.465,0.045,0.509,0.501,0.278,0.402,0.843,0.275,0.47,0.428,0.563,0.179,0.014,0.161,0.019,0.489,0.645,0.673,0.697,0.159,0.177,0.479,0.512,0.186,0.165,0.374,0.876,0.689,0.004,0.486,0.577,null,0.318681318681319,0.318,0.012,0.547,0.706,0.397,0.507,0.728,0.233333333333333,0.16,0.623809523809524,0.0761904761904762]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>pi_initial<\/th>\n      <th>pi_final<\/th>\n      <th>gamma_initial<\/th>\n      <th>gamma_final<\/th>\n      <th>iteration_times<\/th>\n      <th>LRT_p<\/th>\n      <th>LRT_stat<\/th>\n      <th>pval_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-5ba5287ce9a3b08bdb5d">{"x":{"filter":"none","data":[["asthma_2_lv88","asthma_2_lv91","bmi_lv27","bmi_lv30","bmi_lv76","bmi_lv90","eo_lv106","eo_lv125","EUR.CD_lv126","EUR.IBD_lv98","EUR.UC_lv108","EUR.UC_lv23","EUR.UC_lv24","LDL_lv113","LDL_lv117","LDL_lv125","LDL_lv23","LDL_lv79","lymph_lv123","lymph_lv23","lymph_lv26","lymph_lv37","lymph_lv65","myeloid_wbc_lv119","myeloid_wbc_lv65","myeloid_wbc_lv94","neut_lv6","neut_lv95","plt_lv49","plt_lv97","rbc_lv118","rbc_lv20","rbc_lv3","rbc_lv82","T2D_2_lv38","T2D_lv1","ukb.allasthma_lv21","ukb.allasthma_lv36","ukb.allasthma_lv39","ukb.allasthma_lv68","ukb.allasthma_lv82","wbc_lv119","wbc_lv6","WHR_lv1","WHR_lv106","WHR_lv47","WHR_lv82"],[9.75415245515535,6.31469308764865,0.484677110837958,-0.347456088319525,0.516705757440832,0.847418952837598,0.257107170564333,-0.108570717856702,2.39396761118466,-1.35668244924515,-0.0112858489252608,1.29355590877626,-0.409944430271831,-0.220404885614582,-0.0810648308515773,-0.426567677947165,-0.587529947890768,-0.0241536348201991,0.54277636993971,-0.191567351826037,-0.0658384845828947,-0.0123848322914587,-0.0149367940464905,-0.156867467304411,0.0385904945067729,-0.168881291724567,0.122236744527984,-0.0590986457244129,-0.0843029536055058,0.105542556047019,0.287491901057208,-0.631790085339419,-0.00879684255120292,-0.165569428950476,19.9085138678396,-2.55282460406553,0.053801065562173,0.120921893027568,0.844032690817198,0.116069772725978,-0.0400798557720367,-0.267823697026209,0.056333529245265,0.0825980004093711,-0.0462470078493612,-0.448024267483414,-0.985450841289805],[9.88573470019101,13.3549935979513,0.38578893230953,-0.444652098221337,0.516608359486548,0.766432600838913,0.648649615613415,-0.610877553694706,5.6250508909937,-4.00343691187889,0.989122669135922,2.74839223960178,-6.73471913829769,-1.24878561504016,-0.382778317139884,-1.04658510080561,-0.48215495657425,-0.973382532895756,1.15795417871478,-0.401258242085307,-0.253351770803864,0.186551332560834,-0.264089543558695,-0.364847538885486,0.236420543989449,-0.39509951328312,0.244045122691627,-0.36841947655582,-0.269387052355406,0.723022764914155,0.571164258415329,-0.426556311521535,-0.538907000777578,-0.883552006572944,20.0421433052757,-6.47930445272042,0.76108475984117,0.599855009262604,1.13599631759152,2.40118921567453,-1.10838738823745,-0.460895097655752,0.362302821441121,0.971348555866756,-0.764283817561877,-0.489873466299595,-1.30825708699147],[0.775646459793516,0.775646459793516,0.032801945963977,0.032801945963977,0.032801945963977,0.032801945963977,0.048296349101232,0.048296349101232,0.303223115197603,0.259981196252142,0.310920270869737,0.310920270869737,0.310920270869737,0.0893850411883067,0.0893850411883067,0.0893850411883067,0.0893850411883067,0.0893850411883067,0.0494664926679524,0.0494664926679524,0.0494664926679524,0.0494664926679524,0.0494664926679524,0.0516991968484048,0.0516991968484048,0.0516991968484048,0.0517647076878563,0.0517647076878563,0.0562560096280646,0.0562560096280646,0.0540479353251335,0.0540479353251335,0.0540479353251335,0.0540479353251335,0.162941707368003,0.16228720951495,0.0773423674500861,0.0773423674500861,0.0773423674500861,0.0773423674500861,0.0773423674500861,0.0503874182145585,0.0503874182145585,0.02717274415092,0.02717274415092,0.02717274415092,0.02717274415092],[1.28743289087733,1.28743289087733,-0.0408352946671915,-0.0408352946671915,-0.0408352946671915,-0.0408352946671915,0.053112602864817,0.053112602864817,0.404713850366395,0.324460698807216,0.387690912194687,0.387690912194687,0.387690912194687,0.0997036471296949,0.0997036471296949,0.0997036471296949,0.0997036471296949,0.0997036471296949,0.0563524199837837,0.0563524199837837,0.0563524199837837,0.0563524199837837,0.0563524199837837,0.0599093999566422,0.0599093999566422,0.0599093999566422,0.0590471601871779,0.0590471601871779,0.0556235678312103,0.0556235678312103,0.0523610180844712,0.0523610180844712,0.0523610180844712,0.0523610180844712,0.271849813557418,-0.215022750475806,0.0944729796568847,0.0944729796568847,0.0944729796568847,0.0944729796568847,0.0944729796568847,0.0569836330189997,0.0569836330189997,0.0367588640054328,0.0367588640054328,0.0367588640054328,0.0367588640054328],[4,3,6,9,3,7,22,7,16,82,6,11,21,17,11,8,13,18,13,22,11,4,17,8,17,8,8,14,14,28,8,14,38,18,5,11,9,12,11,36,10,10,33,18,6,4,8],[3.33663613436023e-05,0.00292087157253921,2.68892389620907e-08,1.69938967562683e-09,7.87518704566205e-06,2.20895987184379e-06,1.63707507339393e-05,9.2071545506793e-08,1.33624267011197e-08,1.42898698385103e-08,0.000668661937760558,3.2068149560349e-08,1.37881770859608e-10,1.16397245237007e-09,9.15933056816211e-09,7.64561875567279e-08,0.00091033852334537,4.3319481397164e-10,1.43307385418832e-14,6.26240370025937e-08,4.60661656733048e-06,0.00266296043578836,1.98094775122362e-10,0.000160678747105872,6.91606959763501e-10,6.71332948417725e-07,1.32987403506023e-05,3.52933897117676e-13,1.64741068329838e-13,5.13915194032726e-15,1.36081858206968e-08,2.40799441903133e-16,1.21325735095016e-20,4.45150262991712e-21,0.0296256150607747,1.33938494982453e-05,1.44048985043721e-18,1.74218817307373e-10,2.85434456154025e-09,1.08363806033477e-12,1.23381291242836e-08,1.48252786274997e-08,9.94116972122147e-11,0.000531949698876841,2.23774554479991e-06,1.01585259885971e-05,0.000378087502820505],[17.2157217470432,8.85624916641206,30.9199573624707,36.2910904992982,19.9679326814362,22.4041517737099,18.5708183127074,28.5339146047952,32.2779038756708,32.1475238892446,11.5743948334924,30.5781712594353,41.1934790866138,37.0288001250276,33.0119681635023,28.8938269858904,11.0015881282504,38.9572216450046,59.1879683749601,29.2804592962145,20.9942591302672,9.02510901716641,40.4853600333238,14.2427481630284,38.0441802264,24.6957142356996,18.9671654477336,52.8890374489756,54.3858954916846,61.2065023010687,32.2424927196271,67.2366205802828,86.7794161108914,88.762612169299,4.73088631602794,18.9535689801265,77.3382521177371,40.7363198208139,35.2807842418541,50.6864737691704,32.4328774110235,32.0760626711512,41.8329931867195,12.0001955029796,22.3792857170866,19.481377337902,12.6374888802002],[0.166051660516605,0.303135888501742,0.43,0.143,0,0.002,0.372,0.418,0.29,0.165,0.181,0.23,0.254,0.643,0.249,0.936,0.342770475227503,0.771,0.459,0.006,0.904,0.432,0.136,0.351,0.907,0.092,0.132,0.69,0.308,0.044,0.236,0.087,0.44,0.844,null,0.28,0.039,0.653,0.015,0.5,0.471,0.021,0.922,0.277,0.308,0.226,0.012]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gamma_initial<\/th>\n      <th>gamma_final<\/th>\n      <th>sigma_init<\/th>\n      <th>sigma_final<\/th>\n      <th>iteration_times<\/th>\n      <th>LRT_p<\/th>\n      <th>LRT_stat<\/th>\n      <th>pval_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="diagnosis-plots-2" class="section level3">
+<h3>Diagnosis plots</h3>
+<p>For the pairs have pvalue &lt; 0.05 in resampling, I made effectsize plots for all data points. The points are colored by the p_j in EM results according to the following rules:</p>
+<p>p_j &gt; 0.1 “orange” marked as “1”</p>
+<p>0.01&lt; p_j &lt; 0.1 “red” marked as “2”</p>
+<p>0.001&lt; p_j &lt; 0.01 “green” marked as “3”</p>
+<p>others “blue” marked as “4”</p>
+<p>For those points have relatively high p_j(greater than 0.01), I made effectsize plots to show if they are correlated.</p>
+<div id="lymphocyte-countlymph-2" class="section level4">
+<h4>lymphocyte count(lymph)</h4>
+<p>LV23</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_emp_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_emp_top_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_23_lymph.jpeg" width="30%">
+</figure>
+</div>
+<div id="asthma-1" class="section level4">
+<h4>Asthma</h4>
+<p>lv21</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv21_ukb.allasthma_emp_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv21_ukb.allasthma_emp_top_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv21_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_21_ukb.allasthma.jpeg" width="30%">
+</figure>
+<p>lv39</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_emp_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_emp_top_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_39_ukb.allasthma.jpeg" width="30%">
+</figure>
+</div>
+</div>
+<div id="bmi-2" class="section level3">
+<h3>BMI</h3>
+<p>lv76</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_emp_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_76_bmi.jpeg" width="30%">
+</figure>
+<p>lv90</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_emp_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_emp_top_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_90_bmi.jpeg" width="30%">
+</figure>
+<div id="whr-2" class="section level4">
+<h4>WHR</h4>
+<p>lv82</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_top_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_WHR.jpeg" width="30%">
+</figure>
+</div>
+<div id="plt" class="section level4">
+<h4>plt</h4>
+<p>lv97</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv97_plt_emp_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv97_plt_emp_top_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv97_plt_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_97_plt.jpeg" width="30%">
+</figure>
+</div>
+<div id="wbc" class="section level4">
+<h4>wbc</h4>
+<p>lv119</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_emp_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_emp_top_trun.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_119_wbc.jpeg" width="30%">
+</figure>
+</div>
+</div>
+</div>
+<div id="results-using-truncated-normal-distribution-to-model-the-density-of-beta_hat-using-qvalues-as-pi" class="section level2">
+<h2>Results – Using Truncated Normal distribution to model the density of beta_hat &amp; using qvalues as pi</h2>
+<div id="em-algorithm-summary-table-3" class="section level3">
+<h3>EM algorithm summary table</h3>
+<div id="htmlwidget-0b516daec537d8efb4b6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0b516daec537d8efb4b6">{"x":{"filter":"none","data":[["asthma_2_lv88","asthma_2_lv91","bmi_lv27","bmi_lv30","bmi_lv76","bmi_lv90","eo_lv106","eo_lv125","EUR.CD_lv126","EUR.IBD_lv98","EUR.UC_lv108","EUR.UC_lv23","EUR.UC_lv24","LDL_lv113","LDL_lv117","LDL_lv125","LDL_lv23","LDL_lv79","lymph_lv123","lymph_lv23","lymph_lv26","lymph_lv37","lymph_lv65","myeloid_wbc_lv119","myeloid_wbc_lv65","myeloid_wbc_lv94","neut_lv6","neut_lv95","plt_lv49","plt_lv97","rbc_lv118","rbc_lv20","rbc_lv3","rbc_lv82","T2D_2_lv38","T2D_lv1","ukb.allasthma_lv21","ukb.allasthma_lv36","ukb.allasthma_lv39","ukb.allasthma_lv68","ukb.allasthma_lv82","wbc_lv119","wbc_lv6","WHR_lv1","WHR_lv106","WHR_lv47","WHR_lv82"],[6.79661011673602,4.63443701439237,0.348844305802962,-0.234667990795533,0.327688053799349,0.658604261141434,0.332526172902779,-0.122484027697439,1.10247119954218,-1.03744443585418,0.193457592337755,1.09235200578012,-0.936533258990496,-0.0557850553474214,-0.0849832022597764,-0.239526683480207,-0.60664776432489,0.038214862451861,0.599480171980493,-0.120551923338222,-0.0494888476137419,0.0931474754767437,0.00237301535748827,-0.0851839724132434,0.0258541383358877,-0.126975777607787,0.0661698355096503,-0.0296563702914487,-0.0632449244489427,0.041549617943029,0.220783799993078,-0.456856240570957,-0.0156889221228879,-0.0312487007668735,19.9085138678396,-2.52042934976532,0.0688638206191018,-0.0038996999205613,0.565090851131597,0.0683979420305188,-0.00219470508451672,-0.224794104496764,0.0183493026856298,0.120312890833782,-0.0701757253231958,-0.367289714877811,-0.877054889707756],[11.1211515393843,26.6730972494948,0.401139499734499,-0.476753414125282,0.516634807584728,0.786688606047004,1.26277424586695,-0.701298985281994,6.08801530917034,-4.743931193737,0.998946243101379,3.02952507341152,-7.19482511353668,-1.53824172913556,-0.398695912763408,-1.10143281978306,-0.78823961917308,-1.10296826610197,1.26580481219973,-0.42163246158501,-1.13528539342878,0.164337666340599,0.493168642978932,-0.375089670471757,0.378940223022177,-0.431651071443621,0.319021415739674,-0.459800088744966,-0.417411854172915,1.05860481258586,0.602523089155964,-0.470641672148461,-0.63004910584965,-0.973396290281637,21.4238264202062,-6.54121708857191,0.817017688291939,-2.07382244185028,1.22142292781325,2.78789439425737,-1.20054143058046,-0.493614818552855,0.601267838746905,1.88851350928767,-0.78078510164379,-0.492235311459532,-1.31172673676571],[0.775646459793516,0.775646459793516,0.032801945963977,0.032801945963977,0.032801945963977,0.032801945963977,0.048296349101232,0.048296349101232,0.303223115197603,0.259981196252142,0.310920270869737,0.310920270869737,0.310920270869737,0.0893850411883067,0.0893850411883067,0.0893850411883067,0.0893850411883067,0.0893850411883067,0.0494664926679524,0.0494664926679524,0.0494664926679524,0.0494664926679524,0.0494664926679524,0.0516991968484048,0.0516991968484048,0.0516991968484048,0.0517647076878563,0.0517647076878563,0.0562560096280646,0.0562560096280646,0.0540479353251335,0.0540479353251335,0.0540479353251335,0.0540479353251335,0.162941707368003,0.16228720951495,0.0773423674500861,0.0773423674500861,0.0773423674500861,0.0773423674500861,0.0773423674500861,0.0503874182145585,0.0503874182145585,0.02717274415092,0.02717274415092,0.02717274415092,0.02717274415092],[1.28743289087733,1.28743289087733,-0.0408352946671915,-0.0408352946671915,-0.0408352946671915,-0.0408352946671915,0.053112602864817,0.053112602864817,0.404713850366395,0.324460698807216,0.387690912194687,0.387690912194687,0.387690912194687,0.0997036471296949,0.0997036471296949,0.0997036471296949,0.0997036471296949,0.0997036471296949,0.0563524199837837,0.0563524199837837,0.0563524199837837,0.0563524199837837,0.0563524199837837,0.0599093999566422,0.0599093999566422,0.0599093999566422,0.0590471601871779,0.0590471601871779,0.0556235678312103,0.0556235678312103,0.0523610180844712,0.0523610180844712,0.0523610180844712,0.0523610180844712,0.271849813557418,-0.215022750475806,0.0944729796568847,0.0944729796568847,0.0944729796568847,0.0944729796568847,0.0944729796568847,0.0569836330189997,0.0569836330189997,0.0367588640054328,0.0367588640054328,0.0367588640054328,0.0367588640054328],[4,5,7,12,4,8,28,14,13,26,7,15,14,25,18,11,28,36,15,22,237,13,133,11,80,12,18,44,72,52,11,14,45,31,7,9,11,284,13,75,17,10,57,53,9,5,10],[0.00253540389336014,0.000452395447298511,2.82112082038842e-12,1.03155205070258e-12,3.27748081546849e-07,3.63745271401629e-08,5.51454737738595e-19,2.62978000447434e-12,2.48979906045461e-12,2.05302888105796e-15,1.65988256557155e-05,9.45505407660608e-12,3.21773546221532e-17,5.89907222145927e-17,9.85910452380288e-10,1.63604063124083e-12,3.70609829426563e-06,9.01965536001486e-14,4.88408314270111e-22,3.93602692286322e-10,1.00897068474695e-19,0.000339552973225731,1.56558942861804e-18,1.22428075699043e-06,3.76175189860208e-17,2.92006017229063e-11,5.08986038040341e-10,1.89451537803501e-19,6.74389827728599e-21,1.75725422495578e-21,3.10570074285367e-11,3.39378368643429e-29,2.86669026228647e-35,2.05846221602049e-30,0.215208510610265,1.45379471206579e-07,1.447893623638e-26,3.98513744683399e-22,4.0059068719872e-13,9.71949995178113e-22,5.34635584566847e-11,2.50656775575263e-12,3.11664819438338e-20,9.35249372437407e-08,4.05433135245666e-08,7.11205723628192e-07,6.14343499944184e-08],[9.11486700105098,12.3023206841719,48.8092090563919,50.7831556505189,26.0788886193877,30.3337298097788,79.2349634728121,48.9469638779631,49.0542521267482,63.0134211028705,18.5444450567275,46.438272872724,71.2062111915399,70.0104631466524,37.3525666259933,49.8780575948074,21.4111491276555,55.5698475217367,93.1352196902153,39.1443398574402,82.5913613851462,12.8385371263732,77.1737709938034,23.5386724121989,70.8980205539381,44.2297734964047,38.6424945969428,81.3461384438895,87.9409200936977,90.6015188838974,44.1091231102098,125.804142020628,153.57604428518,131.366666908458,1.53603796702896,27.6499014816205,113.791052886593,93.5378137090183,52.6402695408028,91.7733423653785,43.0461560014098,49.0410858320881,84.9137713936625,28.5035895398017,30.1232884680702,24.5845254209936,29.3176255591285],[0.469,0.581,0.453,0.009,0,0.124,0.047,0.25,0.326,0.291,0.198,0.458,0.288,0.075,0.751,0.801,0.196,0.779,0.013,0.627,0.346,0.615,0.408,0.693,0.73,0.225,0.391,0.572,0.869,0.517,0.975,0.318,0.105,0.619,null,0.241,0.069,0.343,0.951,0.488,0.515,0.074,0.591,0.181,0.256,0.228,0.019]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gamma_initial<\/th>\n      <th>gamma_final<\/th>\n      <th>sigma_init<\/th>\n      <th>sigma_final<\/th>\n      <th>iteration_times<\/th>\n      <th>LRT_p<\/th>\n      <th>LRT_stat<\/th>\n      <th>pval_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="diagnosis-plots-3" class="section level3">
+<h3>Diagnosis plots</h3>
+<p>For the pairs have pvalue &lt; 0.05 in resampling, I made effectsize plots for all data points. The points are colored by the p_j in EM results according to the following rules:</p>
+<p>p_j &gt; 0.1 “orange” marked as “1”</p>
+<p>0.01&lt; p_j &lt; 0.1 “red” marked as “2”</p>
+<p>0.001&lt; p_j &lt; 0.01 “green” marked as “3”</p>
+<p>others “blue” marked as “4”</p>
+<p>For those points have relatively high p_j(greater than 0.01), I made effectsize plots to show if they are correlated.</p>
+<div id="lymphocyte-countlymph-3" class="section level4">
+<h4>lymphocyte count(lymph)</h4>
+<p>LV123</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_emp_trun_q.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_emp_top_trun_q.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv123_lymph_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_123_lymph.jpeg" width="30%">
+</figure>
+</div>
+</div>
+<div id="bmi-3" class="section level3">
+<h3>BMI</h3>
+<p>lv76</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_emp_trun_q.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_76_bmi.jpeg" width="30%">
+</figure>
+<p>lv30</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_bmi_emp_trun_q.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_bmi_emp_top_trun_q.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_bmi_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_bmi.jpeg" width="30%">
+</figure>
+<div id="whr-3" class="section level4">
+<h4>WHR</h4>
+<p>lv82</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_trun_q.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_emp_top_trun_q.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_WHR_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_WHR.jpeg" width="30%">
+</figure>
+</div>
+<div id="eosinophil-counteo" class="section level4">
+<h4>eosinophil count(eo)</h4>
+<p>lv106</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv106_eo_emp_trun_q.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv106_eo_emp_top_trun_q.jpeg" width="30%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv106_eo_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_106_eo.jpeg" width="30%">
+</figure>
+</div>
+</div>
+</div>
+<div id="results-same-pi-for-all-snps" class="section level2">
+<h2>Results – Same pi for all SNPs</h2>
+<div id="em-algorithm-summary-table-4" class="section level3">
+<h3>EM algorithm summary table</h3>
+<p>I made a table to show the pi and gamma in EM iteration.</p>
+<div id="htmlwidget-d0109ea5b7e7d667f148" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d0109ea5b7e7d667f148">{"x":{"filter":"none","data":[["asthma_2_lv88","asthma_2_lv91","bmi_lv27","bmi_lv30","bmi_lv76","bmi_lv90","eo_lv106","eo_lv125","EUR.CD_lv126","EUR.IBD_lv98","EUR.UC_lv108","EUR.UC_lv23","EUR.UC_lv24","LDL_lv113","LDL_lv117","LDL_lv125","LDL_lv23","LDL_lv79","lymph_lv123","lymph_lv23","lymph_lv26","lymph_lv37","lymph_lv65","myeloid_wbc_lv119","myeloid_wbc_lv65","myeloid_wbc_lv94","neut_lv6","neut_lv95","plt_lv49","plt_lv97","rbc_lv118","rbc_lv20","rbc_lv3","rbc_lv82","T2D_2_lv38","T2D_lv1","ukb.allasthma_lv21","ukb.allasthma_lv36","ukb.allasthma_lv39","ukb.allasthma_lv68","ukb.allasthma_lv82","wbc_lv119","wbc_lv6","WHR_lv1","WHR_lv106","WHR_lv47","WHR_lv82"],[0.0178571428571429,0.0267857142857143,0.0192307692307692,0.0192307692307692,0.0192307692307692,0.0192307692307692,0.00407331975560081,0.00610997963340122,0.03125,0.0172413793103448,0.0273972602739726,0.0273972602739726,0.0273972602739726,0.00980392156862745,0.00980392156862745,0.0196078431372549,0.00980392156862745,0.0147058823529412,0.00688073394495413,0.00458715596330275,0.00458715596330275,0.00458715596330275,0.00458715596330275,0.00626959247648903,0.00626959247648903,0.00626959247648903,0.00630914826498423,0.00630914826498423,0.00436046511627907,0.00290697674418605,0.00429184549356223,0.00429184549356223,0.00643776824034335,0.00858369098712446,1,0.142857142857143,0.0268817204301075,0.010752688172043,0.010752688172043,0.010752688172043,0.0161290322580645,0.00543478260869565,0.00543478260869565,0.0555555555555556,0.0833333333333333,0.0555555555555556,0.0555555555555556],[0.000539912557918254,4.67848209172086e-43,0.0195458846554841,1.12743364130731e-17,3.33080317251187e-05,1.02660109421903e-10,1.34564648743531e-10,5.22850646366112e-12,3.35784971140674e-06,3.49565599787987e-06,2.96569294885108e-12,0.0176643132637829,2.5910155577443e-16,1.57653203773117e-28,0.0275203265144653,0.0133789184449593,0.0490181128157253,2.64353248056396e-12,3.90890292595549e-21,5.44433654191803e-10,1.50791437572303e-50,1.44607457886627e-12,0.036425032133073,0.0388663535333114,3.90619166913379e-10,5.01282463184222e-15,0.0336053477817,0.0265574468392112,0.0290650405106546,1.83196704108106e-09,5.62225938503636e-08,0.0302337165129106,2.50128796778105e-05,1.32270207824686e-09,1,0.131934132340919,9.32216967190156e-12,0.00177467701356095,2.07931845024093e-09,4.69698149356502e-20,1.00633380099304e-12,1.03566713569435e-07,0.0290329007857046,2.16164565594311e-11,9.30899207670726e-09,0.00150145170620313,0.0511090422835558],[11.7445448365714,-14.0529915416351,0.343315411648094,-0.380076102895279,0.518177170650346,0.940837694874094,0.0957650046887094,0.514465187698457,4.30711594304353,0.283356359833542,-0.312117441785614,2.40034207273052,4.15754050212979,0.222249709641685,-0.212791070311468,-2.03006285971874,-0.694828057496302,0.292817674300879,-0.225610913125505,-0.29481858010051,-0.221585416545514,0.128781438985704,-0.185500307199038,-0.405452482400688,-0.0310614380575884,-0.0536052653140715,0.21658740231213,0.144550356783846,-0.227160529040697,0.0537182026369107,0.55223620340223,-1.24004750198731,0.0148439007277676,-0.556166109909909,5.41885540209931,-2.20937366442729,0.269892467466628,0.520976429497475,0.961266548188089,1.35515739390015,-0.0306147049264548,-0.432901586354278,0.196408066711513,0.132496700666656,-0.136540627196126,-0.488446630610683,-0.840137672118968],[11.1211515393843,-35.3840187033325,0.460033628898669,-0.538404893591601,0.516414888174015,0.867934350667856,1.36148862953028,0.586229407973339,5.05651699466741,5.23690377441351,-1.06133458957601,4.05601754109611,4.69876475474924,1.62772051203298,-0.919606614320774,-2.33630113897907,-1.92988407377646,1.28767954908035,-2.44629248806469,-1.0401855763593,-0.250082081125279,0.14955948776645,-0.572990463029444,-1.07116659534644,-0.304950881829014,-0.508454225427697,0.650171660869074,0.901154919447354,-0.891473515970036,1.48509960924347,1.68763402630227,-1.39798931595548,0.881746598238981,-1.75599194133491,19.9085138678396,-7.80023611072355,1.3557058635095,0.51665685531931,2.11561589149624,1.39016209469674,-3.16519413695471,-0.45187308819557,0.619034264356961,0.819497151541853,-0.774920426141443,-0.489875541105554,-1.47345278825911],[3,18,15,53,5,22,39,17,17,40,9,74,39,152,115,7,114,44,51,42,42,8,74,106,43,17,64,71,121,86,50,97,84,55,3,25,121,9,37,34,83,8,101,10,14,8,35],[1,1,0.390269237673026,1,1,1,1,1,1,0.999915172988997,1,0.90536175459923,1,1,0.399860364743652,0.00022927025122611,0.0554900863818084,1,1,0.999999886981193,1,1,0.0462157295966475,0.167807804604931,1,1,0.106433441815586,0.102936008327832,0.0361998088293451,0.999999907597957,0.999990430436555,0.0943693225696809,0.996666846038547,0.999999869454095,0.163357741620117,0.411246250669453,0.999999999891457,0.943987275594314,1,1,0.999999999948443,1,0.266841917483518,1,1,1,0.62711319276292],[-0.0565052852986128,0,1.88183685006942,0,-0.00543460411375918,-1.2580585462274e-08,-6.32144292467274e-09,-3.71119313058443e-09,-0.000247082314970726,0.000169661218034634,-3.42204486969422e-10,0.198841372627143,-1.4210854715202e-14,0,1.83327976192095,16.76121822773,5.78310179587214,-2.34535946219694e-10,0,2.26037627726328e-07,0,-1.20144250104204e-09,6.14887014276087,3.56987194935652,-1.95719849216403e-08,-1.93267624126747e-12,4.4804708973586,4.54729552439289,6.63740288224335,1.84804093805724e-07,1.91392184660799e-05,4.72107846284916,0.00667744258748826,2.61091827269411e-07,3.62362549843976,1.7771261877146,2.17085016629426e-10,0.115285184341587,-8.32295654618065e-08,0,1.03113961813506e-10,-5.96450145167182e-05,2.64219773054856,-1.09881170828885e-09,-1.77177781779392e-07,-0.0336650308147739,0.933256447841131],[0.291,0.605,0.078,0.465,0.045,0.509,0.501,0.278,0.402,0.843,0.275,0.47,0.428,0.563,0.179,0.014,0.161,0.019,0.489,0.645,0.673,0.697,0.159,0.177,0.479,0.512,0.186,0.165,0.374,0.876,0.689,0.004,0.486,0.577,null,0.318681318681319,0.318,0.012,0.547,0.706,0.397,0.507,0.728,0.233333333333333,0.16,0.623809523809524,0.0761904761904762]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>pi_initial<\/th>\n      <th>pi_final<\/th>\n      <th>gamma_initial<\/th>\n      <th>gamma_final<\/th>\n      <th>iteration_times<\/th>\n      <th>LRT_p<\/th>\n      <th>LRT_stat<\/th>\n      <th>pval_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="diagnosis-plots-4" class="section level3">
 <h3>Diagnosis plots</h3>
 <p>For the pairs have pvalue &lt; 0.05 in resampling (fdr&lt;0.2 cutoff), I made effectsize plots for all data points. The points are colored by the p_j in EM results according to the following rules:</p>
 <p>p_j &gt; 0.1 “orange” marked as “1”</p>
@@ -1326,7 +1568,7 @@ update
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_125_LDL.jpeg" width="30%">
 </figure>
 </div>
-<div id="lymphocyte-countlymph-2" class="section level4">
+<div id="lymphocyte-countlymph-4" class="section level4">
 <h4>lymphocyte count(lymph)</h4>
 <p>LV26</p>
 <figure class="half">
@@ -1336,7 +1578,7 @@ update
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_26_lymph.jpeg" width="30%">
 </figure>
 </div>
-<div id="plt" class="section level4">
+<div id="plt-1" class="section level4">
 <h4>plt</h4>
 <p>LV49</p>
 <figure class="half">
@@ -1358,7 +1600,7 @@ update
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_rbc.jpeg" width="30%">
 </figure>
 </div>
-<div id="asthma-1" class="section level4">
+<div id="asthma-2" class="section level4">
 <h4>asthma</h4>
 <p>LV36</p>
 <figure class="half">
@@ -1375,7 +1617,7 @@ update
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_39_ukb.allasthma.jpeg" width="30%">
 </figure>
 </div>
-<div id="wbc" class="section level4">
+<div id="wbc-1" class="section level4">
 <h4>wbc</h4>
 <p>LV6</p>
 <figure class="half">
@@ -1395,7 +1637,7 @@ update
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_ageco.jpeg" width="30%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_119_wbc.jpeg" width="30%">
 </figure>
 </div>
-<div id="whr-2" class="section level4">
+<div id="whr-4" class="section level4">
 <h4>WHR</h4>
 <p>LV47</p>
 <figure class="half">
