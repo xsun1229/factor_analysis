@@ -278,9 +278,7 @@ others  "blue"  marked as "4"
 
 For those points have relatively high p_j(greater than 0.01), I made effectsize plots to show if they are correlated.
 
-
-### asthma 
-
+### Asthma
 
 lv82
 
@@ -292,6 +290,7 @@ lv82
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_ukb.allasthma_emp_top_trun.jpeg" width="30%">
 </figure>
 
+
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_ukb.allasthma.jpeg" width="30%">
@@ -299,25 +298,57 @@ lv82
 
 
 
+### Asthma_2
+
+lv88
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_asthma_2_emp_trun.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv88_asthma_2_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_88_asthma_2.jpeg" width="30%">
+</figure>
+
+
 ### BMI 
 
-
-lv27
+lv76
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_emp_trun.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_emp_trun.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_emp_top_trun.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_emp_top_trun.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_76_bmi.jpeg" width="30%">
+</figure>
+
+
+
+####  WHR
+
+lv47
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_emp_trun.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_27_bmi.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_emp_top_trun.jpeg" width="30%">
 </figure>
 
-#### WHR
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_47_WHR.jpeg" width="30%">
+</figure>
 
 
 lv82
@@ -335,23 +366,33 @@ lv82
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_WHR.jpeg" width="30%">
 </figure>
 
+####  LDL
 
-
-#### rbc
-
-lv30
+lv23
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_rbc_emp_trun.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_LDL_emp_trun.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_rbc_emp_top_trun.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_LDL_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_23_LDL.jpeg" width="30%">
+</figure>
+
+
+lv117
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv117_LDL_emp_trun.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_rbc_pval5e8_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_rbc.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv117_LDL_emp_top_trun.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv117_LDL_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_117_LDL.jpeg" width="30%">
 </figure>
 
 ## Results -- Using Truncated Normal distribution to model the density of beta_hat & using qvalues as pi
@@ -378,27 +419,58 @@ others  "blue"  marked as "4"
 
 For those points have relatively high p_j(greater than 0.01), I made effectsize plots to show if they are correlated.
 
+### Asthma
 
-
-
-### BMI 
-
-lv76
+lv39
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_emp_trun_q.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_emp_trun_q.jpeg" width="30%">
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_emp_top_trun_q.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_emp_top_trun_q.jpeg" width="30%">
 </figure>
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_76_bmi.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_39_ukb.allasthma.jpeg" width="30%">
 </figure>
 
+lv82
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_ukb.allasthma_emp_trun_q.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_ukb.allasthma_emp_top_trun_q.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_ukb.allasthma.jpeg" width="30%">
+</figure>
+
+
+### LDL 
+
+lv117
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv117_LDL_emp_trun_q.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv117_LDL_emp_top_trun_q.jpeg" width="30%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv117_LDL_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_117_LDL.jpeg" width="30%">
+</figure>
 
 
 ####  WHR
@@ -419,24 +491,6 @@ lv82
 </figure>
 
 
-
-
-####  rbc
-
-lv20
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_rbc_emp_trun_q.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_rbc_emp_top_trun_q.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_rbc_pval5e8_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_20_rbc.jpeg" width="30%">
-</figure>
 
 ## Results  -- Same pi for all SNPs
 
