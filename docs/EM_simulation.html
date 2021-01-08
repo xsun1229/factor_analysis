@@ -446,7 +446,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-01-07
+<strong>Last updated:</strong> 2021-01-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -537,16 +537,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreebc20fa93c36323e53d57f1ff6f2523d02aa634b6targetblankbc20fa9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/bc20fa93c36323e53d57f1ff6f2523d02aa634b6" target="_blank">bc20fa9</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree879aca1b7d43b66fa8d5a9b7c4ecc5ae80dcb72btargetblank879aca1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/879aca1b7d43b66fa8d5a9b7c4ecc5ae80dcb72b" target="_blank">879aca1</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreebc20fa93c36323e53d57f1ff6f2523d02aa634b6targetblankbc20fa9a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree879aca1b7d43b66fa8d5a9b7c4ecc5ae80dcb72btargetblank879aca1a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/bc20fa93c36323e53d57f1ff6f2523d02aa634b6" target="_blank">bc20fa9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/879aca1b7d43b66fa8d5a9b7c4ecc5ae80dcb72b" target="_blank">879aca1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -594,6 +594,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/879aca1b7d43b66fa8d5a9b7c4ecc5ae80dcb72b/analysis/EM_simulation.Rmd" target="_blank">879aca1</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-01-08
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/dfe837b92d9f6629b73245544edb376328e4b021/docs/EM_simulation.html" target="_blank">dfe837b</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-01-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -830,6 +864,10 @@ for (gamma_set in gamma_candi) {
 <p>The LRT statistics is 0.3609266, p-value is 0.5479921</p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_0.jpeg" width="50%">
+</figure>
+<p><em>I found that for a certain gamma, the simulation results can change a lot if I do multiple simulations. For example, when I used gamma = 0 in my beta_hat_j resampling, the estimated gamma can vary from -0.144 to 0.139(1000 times simulation), the distribution of gamma_estimated is shown below. The LRT statistic and p values can change a lot accordingly.</em></p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_0.jpeg" width="50%">
 </figure>
 </div>
 <div id="gamma-0.520976-effectsize-from-asthma-lv36" class="section level3">
