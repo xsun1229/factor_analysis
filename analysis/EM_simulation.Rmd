@@ -223,8 +223,25 @@ The estimated gamma is -2.028335
 
 The LRT statistics is -1249.609 , p-value is 1
 
+
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_-2.03006.jpeg" width="50%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_-2.03006.jpeg" width="50%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_-2.03006.jpeg" width="50%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv82_rbc_-2.03006.jpeg" width="50%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv82_rbc_-2.03006.jpeg" width="50%">
 </figure>
 
 
