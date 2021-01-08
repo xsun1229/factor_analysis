@@ -194,6 +194,18 @@ The LRT statistics is 0.3609266, p-value is 0.5479921
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_0.jpeg" width="50%">
 </figure>
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_0.jpeg" width="50%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv82_rbc_0.jpeg" width="50%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv82_rbc_0.jpeg" width="50%">
+</figure>
+
 
 ### gamma = 0.520976 (effectsize from asthma-LV36)
 
