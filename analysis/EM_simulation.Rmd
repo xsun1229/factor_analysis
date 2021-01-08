@@ -32,8 +32,6 @@ library(MASS)
 
 library(truncnorm)
 
-load("/project2/xinhe/xsun/pwy_PLIER_nox/maf001/5.catalog_gwas/4.fdr001pval5e8_sep_ldcl/5.r01_1Mb_newco/full_list.rdata")
-
 folder_EM <- "/project2/xinhe/xsun/pwy_PLIER_nox/maf001/5.catalog_gwas/4.fdr001pval5e8_sep_ldcl/5.r01_1Mb_newco/EM_new_trun_simulation/"
 system(sprintf("mkdir -p \"%s\" ",folder_EM))
 
@@ -163,16 +161,22 @@ for (gamma_set in gamma_candi) {
 
 ```
 
-
-
-
 ## Results
 
 The sigma estimated from RBC-LV82 is 0.044
 
 The se_median is 0.004226026
 
-The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate)
+The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
+
+p_j > 0.1  "orange"  marked as "1"
+
+0.01< p_j < 0.1  "red"  marked as "2"
+
+0.001< p_j < 0.01  "green"  marked as "3" 
+
+others  "blue"  marked as "4" 
+
 
 ### gamma = 0 
 
