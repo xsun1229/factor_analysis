@@ -278,7 +278,7 @@ others  "blue"  marked as "4"
 
 For those points have relatively high p_j(greater than 0.01), I made effectsize plots to show if they are correlated.
 
-### Asthma
+#### Asthma
 
 lv82
 
@@ -297,7 +297,7 @@ lv82
 </figure>
 
 
-### BMI 
+#### BMI 
 
 lv76
 
@@ -315,7 +315,7 @@ lv76
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_76_bmi.jpeg" width="30%">
 </figure>
 
-### IBD
+#### IBD
 
 lv98
 
@@ -333,7 +333,7 @@ lv98
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_98_EUR.IBD.jpeg" width="30%">
 </figure>
 
-### lymphocyte (lymph)
+#### lymphocyte (lymph)
 
 lv23
 
@@ -357,10 +357,6 @@ lv23
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_LDL_emp_trun.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_LDL_emp_top_trun.jpeg" width="30%">
 </figure>
 
 
