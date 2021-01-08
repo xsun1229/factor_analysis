@@ -537,16 +537,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree879aca1b7d43b66fa8d5a9b7c4ecc5ae80dcb72btargetblank879aca1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/879aca1b7d43b66fa8d5a9b7c4ecc5ae80dcb72b" target="_blank">879aca1</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreefe683a2dd059cc9d0887cff07bdeb5f910ee3332targetblankfe683a2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/fe683a2dd059cc9d0887cff07bdeb5f910ee3332" target="_blank">fe683a2</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree879aca1b7d43b66fa8d5a9b7c4ecc5ae80dcb72btargetblank879aca1a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreefe683a2dd059cc9d0887cff07bdeb5f910ee3332targetblankfe683a2a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/879aca1b7d43b66fa8d5a9b7c4ecc5ae80dcb72b" target="_blank">879aca1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/fe683a2dd059cc9d0887cff07bdeb5f910ee3332" target="_blank">fe683a2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -594,6 +594,74 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/fe683a2dd059cc9d0887cff07bdeb5f910ee3332/analysis/EM_simulation.Rmd" target="_blank">fe683a2</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-01-08
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/2040b71a8390270e568b8cd84ec4dae848f86a98/analysis/EM_simulation.Rmd" target="_blank">2040b71</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-01-08
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/adb1ea8c732b66a1167ad5f87179adf092309f72/analysis/EM_simulation.Rmd" target="_blank">adb1ea8</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-01-08
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/1484b7ee671de173c26204bf938a9981a0e92d69/docs/EM_simulation.html" target="_blank">1484b7e</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-01-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -865,9 +933,18 @@ for (gamma_set in gamma_candi) {
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_0.jpeg" width="50%">
 </figure>
-<p><em>I found that for a certain gamma, the simulation results can change a lot if I do multiple simulations. For example, when I used gamma = 0 in my beta_hat_j resampling, the estimated gamma can vary from -0.144 to 0.139(1000 times simulation), the distribution of gamma_estimated is shown below. The LRT statistic and p values can change a lot accordingly.</em></p>
+<p><em>I found that for a certain gamma, the simulation results can change a lot if I do multiple simulations. For example, when I used gamma = 0 in my beta_hat_j resampling, the estimated gamma can vary from -0.144 to 0.139(1000 times simulation), the distribution of gamma_estimated is shown below. The LRT statistic and p values can change a lot accordingly.But the overall trend of colored dots and the fitted line won’t change a lot</em></p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_0.jpeg" width="50%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_0.jpeg" width="50%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv82_rbc_0.jpeg" width="50%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv82_rbc_0.jpeg" width="50%">
 </figure>
 </div>
 <div id="gamma-0.520976-effectsize-from-asthma-lv36" class="section level3">
@@ -884,6 +961,18 @@ for (gamma_set in gamma_candi) {
 <p>The LRT statistics is -1249.609 , p-value is 1</p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_-2.03006.jpeg" width="50%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_-2.03006.jpeg" width="50%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_-2.03006.jpeg" width="50%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv82_rbc_-2.03006.jpeg" width="50%">
+</figure>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv82_rbc_-2.03006.jpeg" width="50%">
 </figure>
 </div>
 <div id="gamma--0.5561661-effectsize-from-rbc-lv82" class="section level3">
