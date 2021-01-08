@@ -188,6 +188,13 @@ The LRT statistics is 0.3609266, p-value is 0.5479921
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_0.jpeg" width="50%">
 </figure>
 
+*I found that for a certain gamma, the simulation results can change a lot if I do multiple simulations. For example, when I used gamma = 0 in my beta_hat_j resampling, the estimated gamma can vary from -0.144 to 0.139(1000 times simulation), the distribution of gamma_estimated is shown below. The LRT statistic and p values can change a lot accordingly.*
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_0.jpeg" width="50%">
+</figure>
+
+
 ### gamma = 0.520976 (effectsize from asthma-LV36)
 
 The estimated gamma is 0.5222789
