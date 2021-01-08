@@ -172,6 +172,8 @@ The sigma estimated from RBC-LV82 is 0.044
 
 The se_median is 0.004226026
 
+The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate)
+
 ### gamma = 0 
 
 The estimated gamma is -0.01472069
