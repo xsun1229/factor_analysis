@@ -203,6 +203,8 @@ DT::datatable(summary_snp, options = list(pageLength =5))
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_0.jpeg" width="50%">
 </figure>
 
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_0.jpeg" width="50%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_0.jpeg" width="50%">
@@ -224,6 +226,8 @@ DT::datatable(summary_snp, options = list(pageLength =5))
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_0.520976.jpeg" width="50%">
 </figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_0.520976.jpeg" width="50%">
@@ -248,6 +252,8 @@ DT::datatable(summary_snp, options = list(pageLength =5))
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_-2.03006.jpeg" width="50%">
 </figure>
 
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_-2.03006.jpeg" width="50%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_-2.03006.jpeg" width="50%">
@@ -270,6 +276,8 @@ DT::datatable(summary_snp, options = list(pageLength =5))
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_-0.5561661.jpeg" width="50%">
 </figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_-0.5561661.jpeg" width="50%">
