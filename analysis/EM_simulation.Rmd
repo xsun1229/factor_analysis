@@ -196,7 +196,7 @@ The LRT statistics is 2.36149, p-value is 0.1243634
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_gamma_0_details.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
+DT::datatable(summary_snp, options = list(pageLength =5))
 ```
 
 <figure class="half">
@@ -218,7 +218,7 @@ The LRT statistics is 250.2126 , p-value is 2.334001e-56
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_gamma_0.520976_details.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
+DT::datatable(summary_snp, options = list(pageLength =5))
 ```
 
 <figure class="half">
@@ -241,7 +241,7 @@ The LRT statistics is 213.4056 , p-value is 2.482535e-48
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_gamma_-2.03006_details.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
+DT::datatable(summary_snp, options = list(pageLength =5))
 ```
 
 <figure class="half">
@@ -264,7 +264,7 @@ The LRT statistics is 315.5435, p-value is 1.354073e-70
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_gamma_-2.03006_details.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
+DT::datatable(summary_snp, options = list(pageLength =5))
 ```
 
 <figure class="half">
