@@ -205,13 +205,11 @@ The se_median is 0.004226026
 
 The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
 
-p_j > 0.1  "orange"  marked as "1"
+p_j >= 0.8  "orange"  marked as "1"
 
-0.01< p_j < 0.1  "red"  marked as "2"
+0.5 =< p_j < 0.8  "red"  marked as "2"
 
-0.001< p_j < 0.01  "green"  marked as "3" 
-
-others  "blue"  marked as "4" 
+0 =< p_j < 0.5  "blue"  marked as "3" 
 
 
 ### gamma = 0 
@@ -320,13 +318,11 @@ The se_median is 0.00345
 
 The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
 
-p_j > 0.1  "orange"  marked as "1"
+p_j >= 0.8  "orange"  marked as "1"
 
-0.01< p_j < 0.1  "red"  marked as "2"
+0.5 =< p_j < 0.8  "red"  marked as "2"
 
-0.001< p_j < 0.01  "green"  marked as "3" 
-
-others  "blue"  marked as "4" 
+0 =< p_j < 0.5  "blue"  marked as "3" 
 
 
 ### gamma = 0 
@@ -414,13 +410,11 @@ The se_median is 0.0049
 
 The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
 
-p_j > 0.1  "orange"  marked as "1"
+p_j >= 0.8  "orange"  marked as "1"
 
-0.01< p_j < 0.1  "red"  marked as "2"
+0.5 =< p_j < 0.8  "red"  marked as "2"
 
-0.001< p_j < 0.01  "green"  marked as "3" 
-
-others  "blue"  marked as "4" 
+0 =< p_j < 0.5  "blue"  marked as "3" 
 
 
 ### gamma = 0 
@@ -510,13 +504,11 @@ The se_median is 0.0037
 
 The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
 
-p_j > 0.1  "orange"  marked as "1"
+p_j >= 0.8  "orange"  marked as "1"
 
-0.01< p_j < 0.1  "red"  marked as "2"
+0.5 =< p_j < 0.8  "red"  marked as "2"
 
-0.001< p_j < 0.01  "green"  marked as "3" 
-
-others  "blue"  marked as "4" 
+0 =< p_j < 0.5  "blue"  marked as "3" 
 
 
 ### gamma = 0 
