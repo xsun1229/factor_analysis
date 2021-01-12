@@ -35,12 +35,24 @@ folder_EM <- "/project2/xinhe/xsun/pwy_PLIER_nox/maf001/5.catalog_gwas/4.fdr001p
 system(sprintf("mkdir -p \"%s\" ",folder_EM))
 
 ## function: generate beta_hat
-beta_hat_simulation <- function(gamma_set,se_median,sigma_optim) {
+## input: gamma, se_beta, sigma_optim, pi,
+## Sample Z_j from Bernoulli(pi_j), and sample beta_hat_j accordingly. 
+## If Z_j = 1, sample from normal distribution (here need to use the true value of gamma)
+## If Z_j = 0, sample from TN distribution, using rtruncnorm function
+## se.outcome here is the median of se.outcome
+beta_hat_simulation <- function(gamma_set,se_beta,sigma_optim) {
+  
+  ### fixed values
+  t_z <-5.45
+  qval_results <- qvalue(dat$pval.exposure,pi0 = 1)
+  pi_bern <- 1 - qval_results$lfdr
   
   beta_hat <- c()
   sign <-c()
   
   sigma <- sigma_optim
+  
+  se_median <- median(se_beta)
   
   Z <- rbinom(length(pi_bern),1,pi_bern)   ### Z_j = 0/ Z_j = 1
   
@@ -55,17 +67,19 @@ beta_hat_simulation <- function(gamma_set,se_median,sigma_optim) {
   
 }
 
-## function: optimize sigma
-sigma_optim <- function(t_z,se_median) {
+## Using Truncated Normal distribution to model sigma
+sigma_optim <- function(se_beta_dat) {
+  
+  t_z <-5.45
+  se_beta <- median(se_beta_dat)  #### can be changed 
   
   #### initial sigma
-  
   sigma_dat <- dat$beta.outcome
   fit_norm <- fitdistr(sigma_dat,"normal")
   sigma_init <- fit_norm$estimate[2]
   
   ####optim function
-  optim_function <- function(sigma)  -sum(log(dnorm(dat$beta.outcome,mean = 0,sd = sqrt(sigma^2 + se_median^2)) ) - 2*(1 - pnorm( t_z* se_median/sqrt(sigma^2 + se_median^2) ,mean = 0, sd = 1)) )
+  optim_function <- function(sigma)  -sum(log(dnorm(dat$beta.outcome,mean = 0,sd = sqrt(sigma^2 + se_beta^2)) ) - 2*(1 - pnorm( t_z* se_beta/sqrt(sigma^2 + se_beta^2) ,mean = 0, sd = 1)) )
   
   sigma <- optim(sigma_init, optim_function, method = "CG")$par
   
@@ -75,11 +89,17 @@ sigma_optim <- function(t_z,se_median) {
 }
 
 ## function: EM
-EM <- function(beta_hat,se_median, sigma_optim) {
+EM <- function(beta_hat,se_beta_dat, sigma_optim) {
+  
+  ### fixed values
+  t_z <-5.45
+  qval_results <- qvalue(dat$pval.exposure,pi0 = 1)
+  pi_bern <- 1 - qval_results$lfdr
+  se_beta <- median(se_beta_dat)
   
   gamma <- c()
   
-  gamma[1] <- sum(beta_hat * pi_bern * dat$beta.exposure/(se_median)^2) / sum(((dat$beta.exposure)^2 *pi_bern)/(se_median)^2)
+  gamma[1] <- sum(beta_hat * pi_bern * dat$beta.exposure/(se_beta)^2) / sum(((dat$beta.exposure)^2 *pi_bern)/(se_beta)^2)
   
   sigma <- sigma_optim
   
@@ -88,11 +108,12 @@ EM <- function(beta_hat,se_median, sigma_optim) {
     
     t <- t+1
     
-    g_2 <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_median,0, sqrt(sigma^2 + se_median^2)) + dtruncnorm(beta_hat,a=t_z* se_median, b =Inf ,0, sqrt(sigma^2 + se_median^2)))
+    # g <- dnorm(beta_hat,mean = 0,sd = sqrt(sigma^2 + se_beta^2)) / (2*(1 - pnorm( t_z* se_beta/sqrt(sigma^2 + se_beta^2) ,mean = 0, sd = 1)))
+    g_2 <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,0, sqrt(sigma^2 + se_beta^2)) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,0, sqrt(sigma^2 + se_beta^2)))
     
-    p <- pi_bern*dnorm(beta_hat,mean = gamma[t]*dat$beta.exposure,sd = se_median)/((1-pi_bern)* g_2+ pi_bern*dnorm(beta_hat,mean = gamma[t]*dat$beta.exposure,sd = se_median))
+    p <- pi_bern*dnorm(beta_hat,mean = gamma[t]*dat$beta.exposure,sd = se_beta)/((1-pi_bern)* g_2+ pi_bern*dnorm(beta_hat,mean = gamma[t]*dat$beta.exposure,sd = se_beta))
     
-    gamma[t+1] <- sum(beta_hat * p * dat$beta.exposure/(se_median)^2) / sum(((dat$beta.exposure)^2 *p)/(se_median)^2)
+    gamma[t+1] <- sum(beta_hat * p * dat$beta.exposure/(se_beta)^2) / sum(((dat$beta.exposure)^2 *p)/(se_beta)^2)
     
   }
   
@@ -102,76 +123,81 @@ EM <- function(beta_hat,se_median, sigma_optim) {
 }
 
 
-k_candi <- 14  ### RBC
-i_candi <- 82  ### LV
-gamma_candi <- c(0, 0.520976, -2.03006, -0.556166)  ###these are effectsizes(asthma-LV36, LDL-LV125, RBC-LV82) in earlier results(based on FDR < 0.2 cutoff) 
-      
+## LRT test
+
+LRT_test <- function(se_beta_dat,EM_results,sigma_optim, beta_hat) {
+  
+  t_z <-5.45
+  qval_results <- qvalue(dat$pval.exposure,pi0 = 1)
+  pi_bern <- 1 - qval_results$lfdr
+  se_beta <- median(se_beta_dat)
+  
+  g_2 <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,0, sqrt(sigma_results["sigma_final"]^2 + se_beta^2)) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,0, sqrt(sigma_results["sigma_final"]^2 + se_beta^2)))
+  
+  log_lik_0 <- sum(log((1-pi_bern)*g_2 + pi_bern *dnorm(beta_hat,mean = 0,sd = se_beta)))
+  gamma_f <- EM_results$gamma[length(EM_results$gamma)]
+  log_lik_1 <- sum(log((1-pi_bern)*g_2 + pi_bern *dnorm(beta_hat,mean = gamma_f*dat$beta.exposure,sd = se_beta)))
+  
+  LRT <- 2*(log_lik_1-log_lik_0)
+  
+  pval <- pchisq(LRT,df = 1, lower.tail = F)
+  
+  EM_results[[length(EM_results)+1]] <- pval
+  names(EM_results)[length(EM_results)]  <- "pval_LRT"
+  
+  EM_results[[length(EM_results)+1]] <- LRT
+  names(EM_results)[length(EM_results)]  <- "LRT"
+  
+  return(EM_results)
+}
+
+k_candi <- 14 ### RBC
+i_candi <- 82 ### lv
+
+gamma_candi <- c(0, 0.520976, -2.03006,-0.5561661)
 for (k in k_candi) {
   
   if(length(full_list[[k]]) !=0){
     for( i in i_candi) { 
       
-      for (gamma_set in gamma_candi) {
+      for (gamma_real in gamma_candi) {
         
         file_harmo <- paste0("/project2/xinhe/xsun/pwy_PLIER_nox/maf001/5.catalog_gwas/4.fdr001pval5e8_sep_ldcl/5.r01_1Mb_newco/gwas_pval5e8/",names(full_list)[k],"/assoc_results_MHC/lv",i,"/wb.lv",i,".harmo.results.rdata")
-        load(file_harmo) 
+        load(file_harmo)  
         
-        ### global variables
-        t_z <-5.45
-            ###initial values (EM)
-        qval_results <- qvalue(dat$pval.exposure,pi0 = 1)
-        pi_bern <- 1 - qval_results$lfdr
-        se_median <- median(dat$se.outcome)
+        ### sigma optimization
+        sigma_results <- sigma_optim(se_beta_dat = dat$se.outcome)
         
-        ### sigma_optim
-        sigma_results <- sigma_optim(t_z,se_median)
-        ### beta_hat_simulation
-        beta_hat <- beta_hat_simulation(gamma_set,se_median,sigma_results["sigma_final"])
-        ### EM
-        EM_results <- try(EM(beta_hat,se_median,sigma_results["sigma_final"]))
+        ### beta hat simulation
+        beta_hat_simulated <- beta_hat_simulation(gamma_set = gamma_real,se_beta = dat$se.outcome,sigma_optim = sigma_results["sigma_final"])
         
-        EM_results[[length(EM_results)+1]] <- beta_hat
-        names(EM_results)[length(EM_results)]  <- "beta_hat"
+        ##em
+        EM_results <- try(EM(beta_hat = beta_hat_simulated,se_beta_dat = dat$se.outcome,sigma_optim = sigma_results["sigma_final"]))
         
-        ### LRT test
+        EM_results[[length(EM_results)+1]] <- beta_hat_simulated
+        names(EM_results)[length(EM_results)]  <- "beta_hat_simulated"
         
-        g_2 <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_median,0, sqrt(sigma_results["sigma_final"]^2 + se_median^2)) + dtruncnorm(beta_hat,a=t_z* se_median, b =Inf ,0, sqrt(sigma_results["sigma_final"]^2 + se_median^2)))
+        ### LRT 
+        EM_results <- LRT_test(se_beta_dat = dat$se.outcome,EM_result = EM_results,sigma_optim = sigma_results["sigma_final"], beta_hat_simulated)
         
-        log_lik_0 <- sum(log((1-pi_bern)*g_2 + pi_bern *dnorm(beta_hat,mean = 0,sd = se_median)))
-        gamma_f <- EM_results$gamma[length(EM_results$gamma)]
-        log_lik_1 <- sum(log((1-pi_bern)*g_2 + pi_bern *dnorm(beta_hat,mean = gamma_f*dat$beta.exposure,sd = se_median)))
-        
-        LRT <- 2*(log_lik_1-log_lik_0)
-        
-        pval <- pchisq(LRT,df = 1, lower.tail = F)
-        
-        EM_results[[length(EM_results)+1]] <- pval
-        names(EM_results)[length(EM_results)]  <- "pval_LRT"
-        
-        EM_results[[length(EM_results)+1]] <- LRT
-        names(EM_results)[length(EM_results)]  <- "LRT"
-        
+        ####
         EM_results[[length(EM_results)+1]] <- sigma_results["sigma_initial"]
         names(EM_results)[length(EM_results)]  <- "sigma_init"
         
         EM_results[[length(EM_results)+1]] <- sigma_results["sigma_final"]
         names(EM_results)[length(EM_results)]  <- "sigma_final"
         
-        file_EM <- paste0(folder_EM,names(full_list)[k],"_lv",i,"_gamma_",gamma_set,".rdata")
+        file_EM <- paste0(folder_EM,names(full_list)[k],"_lv",i,"_gamma_",gamma_real,".rdata")
         save(EM_results,file = file_EM)
-        
       }
-      
-      
     }
-    
   }
-  
 }
+
 
 ```
 
-## Results
+## Results  -- RBC-LV82
 
 The sigma estimated from RBC-LV82 is 0.044
 
@@ -284,4 +310,289 @@ I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT ac
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_-0.5561661.jpeg" width="50%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv82_rbc_-0.5561661.jpeg" width="50%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv82_rbc_-0.5561661.jpeg" width="50%">
+</figure>
+
+## Results  -- BMI-LV76
+
+The sigma estimated from BMI-LV76 is 0.02721383 
+
+The se_median is 0.00345
+
+The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
+
+p_j > 0.1  "orange"  marked as "1"
+
+0.01< p_j < 0.1  "red"  marked as "2"
+
+0.001< p_j < 0.01  "green"  marked as "3" 
+
+others  "blue"  marked as "4" 
+
+
+### gamma = 0 
+
+The estimated gamma is 0.05324691
+
+The LRT statistics is 0.6672347, p-value is 0.4140174
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_0.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv76_bmi_0.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv76_bmi_0.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv76_bmi_0.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv76_bmi_0.jpeg" width="50%">
+</figure>
+
+### gamma = 0.520976 (effectsize from asthma-LV36)
+
+The estimated gamma is 0.5960419
+
+The LRT statistics is 14.30071 , p-value is 0.0001558059
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_0.520976.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv76_bmi_0.520976.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv76_bmi_0.520976.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv76_bmi_0.520976.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv76_bmi_0.520976.jpeg" width="50%">
+</figure>
+ 
+### gamma = -2.03006 (effectsize from LDL-LV125)
+
+The estimated gamma is -2.122162
+
+The LRT statistics is 31.02158, p-value is 2.55176e-08
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_-2.03006.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv76_bmi_-2.03006.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv76_bmi_-2.03006.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv76_bmi_-2.03006.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv76_bmi_-2.03006.jpeg" width="50%">
+</figure>
+
+
+### gamma = 0.518177 (effectsize from BMI-LV76)
+
+The estimated gamma is 0.5312593
+
+The LRT statistics is 36.23881, p-value is 1.74559e-09
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_0.518177170650346.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv76_bmi_0.518177170650346.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv76_bmi_0.518177170650346.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv76_bmi_0.518177170650346.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv76_bmi_0.518177170650346.jpeg" width="50%">
+</figure>
+
+## Results  -- LDL-LV23
+
+The sigma estimated from LDL-LV23 is 0.08089562 
+
+The se_median is 0.0049
+
+The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
+
+p_j > 0.1  "orange"  marked as "1"
+
+0.01< p_j < 0.1  "red"  marked as "2"
+
+0.001< p_j < 0.01  "green"  marked as "3" 
+
+others  "blue"  marked as "4" 
+
+
+### gamma = 0 
+
+The estimated gamma is -0.03716855
+
+The LRT statistics is 1.4147, p-value is 0.2342778
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_LDL_0.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv23_LDL_0.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv23_LDL_0.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv23_LDL_0.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv23_LDL_0.jpeg" width="50%">
+</figure>
+
+### gamma = 0.520976 (effectsize from asthma-LV36)
+
+The estimated gamma is 0.4843603
+
+The LRT statistics is 18.48737, p-value is 1.710339e-05
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_LDL_0.520976.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv23_LDL_0.520976.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv23_LDL_0.520976.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv23_LDL_0.520976.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv23_LDL_0.520976.jpeg" width="50%">
+</figure>
+ 
+### gamma = -2.03006 (effectsize from LDL-LV125)
+
+The estimated gamma is -2.079071
+
+The LRT statistics is 32.03172, p-value is 1.516754e-08
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_LDL_-2.03006.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv23_LDL_-2.03006.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv23_LDL_-2.03006.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv23_LDL_-2.03006.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv23_LDL_-2.03006.jpeg" width="50%">
+</figure>
+
+
+### gamma = -0.694828 (effectsize from LDL-LV23)
+
+The estimated gamma is -0.5375233
+
+The LRT statistics is 19.31348, p-value is 1.109204e-05
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_LDL_-0.694828057496302.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv23_LDL_-0.694828057496302.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv23_LDL_-0.694828057496302.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv23_LDL_-0.694828057496302.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv23_LDL_-0.694828057496302.jpeg" width="50%">
+</figure>
+
+
+## Results  -- WHR-LV47
+
+The sigma estimated from WHR-LV47 is 0.02253585 
+
+The se_median is 0.0037
+
+The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
+
+p_j > 0.1  "orange"  marked as "1"
+
+0.01< p_j < 0.1  "red"  marked as "2"
+
+0.001< p_j < 0.01  "green"  marked as "3" 
+
+others  "blue"  marked as "4" 
+
+
+### gamma = 0 
+
+The estimated gamma is 0.001849057
+
+The LRT statistics is 0.001978944, p-value is 0.9645176
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_0.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv47_WHR_0.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv47_WHR_0.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv47_WHR_0.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv47_WHR_0.jpeg" width="50%">
+</figure>
+
+### gamma = 0.520976 (effectsize from asthma-LV36)
+
+The estimated gamma is 0.5349979
+
+The LRT statistics is 17.93447, p-value is 2.286425e-05
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_0.520976.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv47_WHR_0.520976.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv47_WHR_0.520976.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv47_WHR_0.520976.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv47_WHR_0.520976.jpeg" width="50%">
+</figure>
+ 
+### gamma = -2.03006 (effectsize from LDL-LV125)
+
+The estimated gamma is -1.975429
+
+The LRT statistics is 72.83279, p-value is 1.41113e-17
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_-2.03006.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv47_WHR_-2.03006.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv47_WHR_-2.03006.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv47_WHR_-2.03006.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv47_WHR_-2.03006.jpeg" width="50%">
+</figure>
+
+
+### gamma = -0.48845 (effectsize from WHR-LV47)
+
+The estimated gamma is -0.42523754
+
+The LRT statistics is 28.41637, p-value is 9.783464e-08
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_-0.488446630610683.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv47_WHR_-0.488446630610683.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv47_WHR_-0.488446630610683.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv47_WHR_-0.488446630610683.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv47_WHR_-0.488446630610683.jpeg" width="50%">
 </figure>
