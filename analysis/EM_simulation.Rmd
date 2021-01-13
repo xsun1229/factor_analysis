@@ -23,7 +23,11 @@ In this part, we did some simulations for RBC-LV82 pair to check the EM algorith
  
 4. We made scatter plot of effect sizes(alpha vs simulated beta), the fitted slope (gamma) are shown in each plot. The dots are colored according to p_j (posterior estimate)
 
+5. I did resampling in the simulated data, obtained p-values, and compared with LRT results.
+
 ## Codes 
+
+### Simulation 
 
 ```{r eval=FALSE, echo=T}
 
@@ -196,6 +200,15 @@ for (k in k_candi) {
 
 
 ```
+
+
+### P-values comparison
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/EM_simu_resam_sum.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
 
 ## Results  -- RBC-LV82
 
