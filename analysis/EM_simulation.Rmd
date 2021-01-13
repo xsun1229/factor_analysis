@@ -206,7 +206,7 @@ for (k in k_candi) {
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/EM_simu_resam_sum.rdata")
-DT::datatable(summary, options = list(pageLength =20))
+DT::datatable(pval_compare, options = list(pageLength =20))
 ```
 
 
