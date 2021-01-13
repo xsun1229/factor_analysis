@@ -202,7 +202,7 @@ for (k in k_candi) {
 ```
 
 
-### P-values comparison
+## P-values comparison
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/EM_simu_resam_sum.rdata")
