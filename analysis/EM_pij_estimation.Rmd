@@ -22,15 +22,15 @@ I computed the qvalues, lfdr, lfsr for the SNPs. After that, I made several scat
 ### RBC-LV82
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv82_RBC.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv82_RBC.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv82_rbc.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv82_rbc.jpeg" width="30%">
 </figure>
 
 ### BMI-LV76
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv76_BMI.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv76_BMI.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv76_bmi.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv76_bmi.jpeg" width="30%">
 </figure>
 
 ### LDL-LV23
