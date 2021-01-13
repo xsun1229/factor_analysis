@@ -24,6 +24,7 @@ I computed the qvalues, lfdr, lfsr for the SNPs. After that, I made several scat
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv82_rbc.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv82_rbc.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_qs_lv82_rbc.jpeg" width="30%">
 </figure>
 
 ### BMI-LV76
@@ -31,6 +32,7 @@ I computed the qvalues, lfdr, lfsr for the SNPs. After that, I made several scat
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv76_bmi.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv76_bmi.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_qs_lv76_bmi.jpeg" width="30%">
 </figure>
 
 ### LDL-LV23
@@ -38,6 +40,7 @@ I computed the qvalues, lfdr, lfsr for the SNPs. After that, I made several scat
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv23_LDL.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv23_LDL.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_qs_lv23_LDL.jpeg" width="30%">
 </figure>
 
 ### WHR-LV47
@@ -45,4 +48,5 @@ I computed the qvalues, lfdr, lfsr for the SNPs. After that, I made several scat
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv47_WHR.jpeg" width="30%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv47_WHR.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_qs_lv47_WHR.jpeg" width="30%">
 </figure>
