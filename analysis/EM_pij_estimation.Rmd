@@ -1,0 +1,48 @@
+---
+title: "EM_pij_estimation"
+author: "XSun"
+date: "2021-01-12"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In this part, We'll try to investigate how to estimate pi_j used in [EM](https://xsun1229.github.io/factor_analysis/EM_algorithm_pliercanon.html). I will compare locfdr, q-values and lfsr. 
+
+## Methods
+
+The local FDR and q-values are computed from 'qvalue' package. The lfsr is computed from 'ashr' package.
+
+I computed the qvalues, lfdr, lfsr for the SNPs. After that, I made several scatter plots for each pair. The pairs are the same with those used in [simulations](https://xsun1229.github.io/factor_analysis/EM_simulation.html). 
+
+## Results 
+
+### RBC-LV82
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv82_RBC.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv82_RBC.jpeg" width="30%">
+</figure>
+
+### BMI-LV76
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv76_BMI.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv76_BMI.jpeg" width="30%">
+</figure>
+
+### LDL-LV23
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv23_LDL.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv23_LDL.jpeg" width="30%">
+</figure>
+
+### WHR-LV47
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_ql_lv47_WHR.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EM_sd_lv47_WHR.jpeg" width="30%">
+</figure>
