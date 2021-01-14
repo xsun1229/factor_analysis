@@ -279,6 +279,7 @@ for (i in 1:length(files)) {
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/EM_simu_resam_sum.rdata")
+pval_compare$pval_resampling[pval_compare$pval_resampling == 0] <- 0.0005
 DT::datatable(pval_compare, options = list(pageLength =20))
 ```
 
