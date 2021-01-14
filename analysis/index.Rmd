@@ -167,6 +167,16 @@ To address issues with respect to computational time and multiple testing, I con
 
 [Threshold: pval<5e-8 & consider traits separately & perform ld clumping (r2 cutoff 0.1, physical dist 1Mb) ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.html)
 
+#### EM algorithm - PLIER-Canonical factors
+
+[Real data](https://xsun1229.github.io/factor_analysis/EM_simulation.html)
+
+[Simulated data](https://xsun1229.github.io/factor_analysis/algorithm_pliercanon.html)
+
+[EM_pi_j_estimation](https://xsun1229.github.io/factor_analysis/EM_pij_estimation.html)
+
+
+
 ### ***Finding functional cis-genes***  
   
   After preliminary [rough calculations](https://xsun1229.github.io/factor_analysis/gwas_power.html), we found that there might be overfitting issue. So we tried one/two sample settings to test and eliminate the overfitting issue. 
