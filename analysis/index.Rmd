@@ -175,6 +175,7 @@ To address issues with respect to computational time and multiple testing, I con
 
 [EM_pi_j_estimation](https://xsun1229.github.io/factor_analysis/EM_pij_estimation.html)
 
+[Resampling summary](https://xsun1229.github.io/factor_analysis/EM_resampling_sum.html)
 
 
 ### ***Finding functional cis-genes***  
