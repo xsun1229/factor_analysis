@@ -202,6 +202,79 @@ for (k in k_candi) {
 ```
 
 
+
+### Resampling
+
+I used the simulated data from the 'Simulation' part, The R functions used in this part are the same with the previous part. 
+
+```{r eval=FALSE, echo=T}
+
+for (i in 1:length(files)) {
+  
+  load(files[i])   #### load the earlier EM results (use the beta_simulated, pvalue, sigma)
+  
+  cata <- unlist(strsplit(files[i],split = "_"))[1]
+  lv <- unlist(strsplit(unlist(strsplit(files[i],split = "_"))[2], split = "lv"))[2]
+  
+  file_harmo <- paste0("/project2/xinhe/xsun/pwy_PLIER_nox/maf001/5.catalog_gwas/4.fdr001pval5e8_sep_ldcl/5.r01_1Mb_newco/gwas_pval5e8/",cata,"/assoc_results_MHC/lv",lv,"/wb.lv",lv,".harmo.results.rdata")
+  load(file_harmo)     #### load the gwas data since the se.outcome were not saved in previous analysis
+  
+
+  beta_hat_simulated <- EM_results$beta_hat_simulated
+  
+  ### the number of resampling times is 1000 
+  num <- factorial(nrow(dat))
+  if(num > 1000 || num_choose == Inf  ) {
+    
+    times_resam <- 1000
+    
+  } else {
+    times_resam <- num
+  }
+  
+  ### do permutation for 1000 times.
+  set.seed(1000)
+  comb_select <- arrangements::permutations(nrow(dat),nrow(dat),replace = F,nsample = times_resam)
+  
+  ### obtain the beta_permuted from beta_hat_simulated
+  beta_perm <- c()
+  for(bb in 1:nrow(comb_select)) {
+    
+    beta_perm <- rbind(beta_perm,beta_hat_simulated[comb_select[bb,]])
+    
+  }
+  
+  ### EM 1000 times and record the p-values of LRT
+  EM_results_all <- list()
+  pval_all_em_resam <-c()
+  for (tt in 1:times_resam) {
+    
+    EM_results_tmp <- try(EM(beta_hat =beta_perm[tt,], se_beta_dat =  dat$se.outcome,sigma_optim = EM_results$sigma_final ))
+    
+    if (!class(EM_results_tmp) == "try-error") {
+      
+      ### LRT 
+      EM_results_tmp <- LRT_test(se_beta_dat = dat$se.outcome,EM_result = EM_results_tmp,sigma_optim = EM_results$sigma_final, beta_perm[tt,])
+      
+      EM_results_all[[tt]] <- EM_results_tmp
+      
+      pval_all_em_resam[tt] <- EM_results_all[[tt]]$pval_LRT
+      
+    }
+  }
+  
+  pval_less_num <- sum(pval_all_em_resam < EM_results$pval_LRT)   ## count the number of lower pvalues
+  pval_resampling <- pval_less_num/length(pval_all_em_resam)
+  
+  EM_results[[length(EM_results)+1]] <- pval_resampling
+  names(EM_results)[length(EM_results)] <- "pval_resampling"
+  
+  save(EM_results,file = files[i] )
+  
+  
+}
+```
+
 ## P-values comparison
 
 ```{r echo=FALSE}
