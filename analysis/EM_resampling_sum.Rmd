@@ -38,7 +38,7 @@ p_j >= 0.8  "orange"  marked as "1"
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_emp_top_trun.jpeg" width="40%">
 </figure>
 
-#### LDL-LV125
+#### Asthma-LV36
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp_trun.jpeg" width="40%">
