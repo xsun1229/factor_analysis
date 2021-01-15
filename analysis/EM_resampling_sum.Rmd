@@ -11,7 +11,36 @@ editor_options:
 
 In this part, we compare the resampling results of the real data. The table below shows the number of SNPs at FDR < 0.2, p-value from earlier resamping analysis (using FDR < 0.2, [details](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html#effect_size_plots__resampling)), p-value from the LRT using EM, and p-value from resampled version of LRT [details](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html#effect_size_plots__resampling)).
 
+### Summary table
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/resampling_sum.rdata")
 DT::datatable(sum, options = list(pageLength =20))
 ```
+
+
+### Plots
+
+In some cases, the results of different methods differ a lot. I made effectsize plots for such pairs. 
+
+#### LDL-LV125
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_emp_trun.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_emp_top_trun.jpeg" width="40%">
+</figure>
+
+#### LDL-LV125
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp_trun.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp_top_trun.jpeg" width="40%">
+</figure>
+
+
+#### Lymph-LV26
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_emp_trun.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_emp_top_trun.jpeg" width="40%">
+</figure>
