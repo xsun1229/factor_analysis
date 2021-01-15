@@ -15,13 +15,21 @@ In this part, we compare the resampling results of the real data. The table belo
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/resampling_sum.rdata")
+sum <- as.data.frame(sum)
+sum$pval_EM_resampling[sum$pval_EM_resampling == 0] <- 0.0005
 DT::datatable(sum, options = list(pageLength =20))
 ```
 
-
 ### Plots
 
-In some cases, the results of different methods differ a lot. I made effectsize plots for such pairs. 
+In some cases, the results of different methods differ a lot. I made effectsize plots for such pairs. For those points have relatively high p_j(greater than 0.5), I made effectsize plots to show if they are correlated. THe pval and rsq in the second plot are from the point fitting.
+
+
+p_j >= 0.8  "orange"  marked as "1"
+
+0.5 =< p_j < 0.8  "red"  marked as "2"
+
+0 =< p_j < 0.5  "blue"  marked as "3" 
 
 #### LDL-LV125
 
