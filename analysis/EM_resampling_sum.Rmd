@@ -55,8 +55,31 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_EM_trun_detai
 DT::datatable(summary_snp, options = list(pageLength =20))
 ```
 
+### WHR-LV47 (A good case for comparison)
 
-#### LDL-LV125
+#### EM plots
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_emp_trun.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_emp_top_trun.jpeg" width="40%">
+</figure>
+
+#### Ealier plots (FDR < 0.2)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_47_WHR.jpeg" width="30%">
+</figure>
+
+#### SNP-based details
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/WHR_lv47_EM_trun_details.rdata")
+DT::datatable(summary_snp, options = list(pageLength =20))
+```
+
+
+### LDL-LV125
 
 #### EM plots
 
@@ -80,7 +103,7 @@ DT::datatable(summary_snp, options = list(pageLength =20))
 ```
 
 
-#### Asthma-LV36
+### Asthma-LV36
 
 #### EM plots
 
@@ -104,9 +127,8 @@ DT::datatable(summary_snp, options = list(pageLength =20))
 ```
 
 
-#### Lymph-LV26
+### Lymph-LV26
 
-#### LDL-LV125
 
 #### EM plots
 
