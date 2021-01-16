@@ -11,7 +11,7 @@ editor_options:
 
 In this part, we compare the resampling results of the real data. The table below shows the number of SNPs at FDR < 0.2, p-value from earlier resamping analysis (using FDR < 0.2, [details](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html#effect_size_plots__resampling)), p-value from the LRT using EM, and p-value from resampled version of LRT [details](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html#effect_size_plots__resampling)).
 
-### Summary table
+## Summary table
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/resampling_sum.rdata")
@@ -20,9 +20,9 @@ sum$pval_EM_resampling[sum$pval_EM_resampling == 0] <- 0.0005
 DT::datatable(sum, options = list(pageLength =20))
 ```
 
-### Plots
+## Diagnosis
 
-In some cases, the results of different methods differ a lot. I made effectsize plots for such pairs. For those points have relatively high p_j(greater than 0.5), I made effectsize plots to show if they are correlated. THe pval and rsq in the second plot are from the point fitting.
+In some cases, the results of different methods differ a lot. I made effectsize plots for such pairs. For those points have relatively high p_j(greater than 0.5), I made effectsize plots to show if they are correlated. The pval and rsq in the second plot are from the point fitting.
 
 
 p_j >= 0.8  "orange"  marked as "1"
@@ -31,24 +31,101 @@ p_j >= 0.8  "orange"  marked as "1"
 
 0 =< p_j < 0.5  "blue"  marked as "3" 
 
+
+### RBC-LV82
+
+#### EM plots
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_emp_trun.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_emp_top_trun.jpeg" width="40%">
+</figure>
+
+#### Ealier plots (FDR < 0.2)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_rbc.jpeg" width="30%">
+</figure>
+
+#### SNP-based details
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_EM_trun_details.rdata")
+DT::datatable(summary_snp, options = list(pageLength =20))
+```
+
+
 #### LDL-LV125
+
+#### EM plots
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_emp_trun.jpeg" width="40%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_emp_top_trun.jpeg" width="40%">
 </figure>
 
+#### Ealier plots (FDR < 0.2)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_125_LDL.jpeg" width="30%">
+</figure>
+
+#### SNP-based details
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_lv125_EM_trun_details.rdata")
+DT::datatable(summary_snp, options = list(pageLength =20))
+```
+
+
 #### Asthma-LV36
+
+#### EM plots
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp_trun.jpeg" width="40%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_emp_top_trun.jpeg" width="40%">
 </figure>
 
+#### Ealier plots (FDR < 0.2)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_36_ukb.allasthma.jpeg" width="30%">
+</figure>
+
+#### SNP-based details
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allasthma_lv36_EM_trun_details.rdata")
+DT::datatable(summary_snp, options = list(pageLength =20))
+```
+
 
 #### Lymph-LV26
+
+#### LDL-LV125
+
+#### EM plots
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_emp_trun.jpeg" width="40%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_emp_top_trun.jpeg" width="40%">
 </figure>
+
+#### Ealier plots (FDR < 0.2)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_26_lymph.jpeg" width="30%">
+</figure>
+
+#### SNP-based details
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lymph_lv26_EM_trun_details.rdata")
+DT::datatable(summary_snp, options = list(pageLength =20))
+```
+
