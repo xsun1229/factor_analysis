@@ -50,6 +50,8 @@ p_j >= 0.8  "orange"  marked as "1"
 
 #### SNP-based details
 
+** the estimated gamma is -0.8929334, the estimated sigma is 0.044
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_EM_trun_details.rdata")
 DT::datatable(summary_snp, options = list(pageLength =20))
@@ -73,6 +75,8 @@ DT::datatable(summary_snp, options = list(pageLength =20))
 </figure>
 
 #### SNP-based details
+
+** the estimated gamma is -0.527373055, the estimated sigma is 0.044
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv3_EM_trun_details.rdata")
