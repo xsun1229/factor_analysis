@@ -1,0 +1,22 @@
+---
+title: "EM_resampling_sum_pval5e7"
+author: "XSun"
+date: "2021-01-20"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+This part is the same with ["EM_resampling_sum"](https://xsun1229.github.io/factor_analysis/EM_resampling_sum.html). But the SNPs used here are those have pval < 5E-7 in GWAS data. 
+
+## Summary table
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/resampling_sum_pval5e7.rdata")
+sum <- as.data.frame(sum)
+sum$pval_EM_resampling[sum$pval_EM_resampling == 0] <- 0.0005
+DT::datatable(sum, options = list(pageLength =20))
+```
+

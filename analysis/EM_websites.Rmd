@@ -1,0 +1,19 @@
+---
+title: "EM_websites"
+author: "XSun"
+date: "2021-01-20"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+Websites related to EM algorithm:
+
+
+[Real data](https://xsun1229.github.io/factor_analysis/EM_algorithm_pliercanon.html)
+[Simulated data](https://xsun1229.github.io/factor_analysis/EM_simulation.html)
+[EM_pi_j_estimation](https://xsun1229.github.io/factor_analysis/EM_pij_estimation.html)
+[Resampling summary table](https://xsun1229.github.io/factor_analysis/EM_resampling_sum.html) 
+[Resampling summary table -- pval5e7](https://xsun1229.github.io/factor_analysis/EM_resampling_sum_pval5e7.html) 
