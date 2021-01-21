@@ -581,5 +581,5 @@ To summarize the results above, I made a scatter plot of all trait-LV pairs. The
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_pliercanon.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_pval5e7.jpeg" width="60%">
 </figure>
