@@ -11,7 +11,9 @@ editor_options:
 
 This part contains the results of the latest model -- modeling both non-IV and IV variants using Truncated Normal distritution.
 
-## Codes (EM function and LRT test function)
+## Codes 
+
+### EM function 
 
 ```{r eval=FALSE, echo=T}
 
@@ -51,7 +53,11 @@ EM <- function(beta_hat,se_beta_dat, sigma_optim) {
   return(results)
 }
 
+```
 
+### LRT test function
+
+```{r eval=FALSE, echo=T}
 LRT_test <- function(se_beta_dat,EM_results,sigma_optim, beta_hat) {
   
   t_z <-5.45
@@ -82,6 +88,41 @@ LRT_test <- function(se_beta_dat,EM_results,sigma_optim, beta_hat) {
   names(EM_results)[length(EM_results)]  <- "LRT"
   
   return(EM_results)
+}
+
+
+```
+
+### Beta_hat simulation
+
+```{r eval=FALSE, echo=T}
+
+beta_hat_simulation <- function(gamma_set,se_beta,sigma_optim) {
+  
+  ### fixed values
+  t_z <-5.45
+  qval_results <- qvalue(dat$pval.exposure,pi0 = 1)
+  pi_bern <- 1 - qval_results$lfdr
+  
+  beta_hat <- c()
+  sign <-c()
+  
+  sigma <- sigma_optim
+  
+  se_median <- median(se_beta)
+  
+  Z <- rbinom(length(pi_bern),1,pi_bern)   ### Z_j = 0/ Z_j = 1
+  
+  sign[Z == 0] <-rbinom(sum(Z == 0),1,0.5)  ### 0 -- negative 1 -- positive 
+  sign[is.na(sign)] <- rbinom(sum(is.na(sign)),1,0.5) + 3    ### 3 negative 4 -- positive
+  
+  beta_hat[sign == 0] <- rtruncnorm(sum(sign == 0),a=-Inf,b=-t_z*se_median,0,sqrt(sigma^2 + se_median^2))
+  beta_hat[sign == 1] <- rtruncnorm(sum(sign == 1),a=t_z*se_median,b=Inf,0,sqrt(sigma^2 + se_median^2))
+  beta_hat[sign == 3] <- rtruncnorm(sum(sign == 3),a=-Inf, b = -t_z* se_median,gamma_set*dat$beta.exposure[sign == 3], se_median)
+  beta_hat[sign == 4] <- rtruncnorm(sum(sign == 4),a=t_z* se_median, b =Inf ,gamma_set*dat$beta.exposure[sign == 4], se_median)
+  
+  return(beta_hat)
+  
 }
 
 
