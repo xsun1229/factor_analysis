@@ -21,3 +21,5 @@ Websites related to EM algorithm:
 [Resampling summary table](https://xsun1229.github.io/factor_analysis/EM_resampling_sum.html) 
 
 [Resampling summary table -- pval5e7](https://xsun1229.github.io/factor_analysis/EM_resampling_sum_pval5e7.html) 
+
+[Using truncated normal distribution for IV and Non-IV variables](https://xsun1229.github.io/factor_analysis/EM_algorithm_pliercanon_trunc.html)
