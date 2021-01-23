@@ -1,0 +1,98 @@
+---
+title: "EM_algorithm_pliercanon_trunc"
+author: "XSun"
+date: "2021-01-22"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+This part contains the results of the latest model -- modeling both non-IV and IV variants using Truncated Normal distritution.
+
+## Codes (EM function and LRT test function)
+
+```{r eval=FALSE, echo=T}
+
+EM <- function(beta_hat,se_beta_dat, sigma_optim) {
+  
+  ### fixed values
+  t_z <-5.45
+  qval_results <- qvalue(dat$pval.exposure,pi0 = 1)
+  pi_bern <- 1 - qval_results$lfdr
+  se_beta <- se_beta_dat   ######
+  
+  gamma <- c()
+  
+  gamma[1] <- sum(beta_hat * pi_bern * dat$beta.exposure/(se_beta)^2) / sum(((dat$beta.exposure)^2 *pi_bern)/(se_beta)^2)
+  
+  sigma <- sigma_optim
+  
+  g <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,0, sqrt(sigma^2 + se_beta^2)) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,0, sqrt(sigma^2 + se_beta^2)))
+  g[g ==0] <- 1e-300
+  
+  t <- 0
+  while (length(gamma) == 1 ||  abs( gamma[length(gamma)] - gamma[length(gamma)-1]) >1e-5) {
+    
+    t <- t+1
+   
+    g_1 <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,gamma[t]*dat$beta.exposure, se_beta) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,gamma[t]*dat$beta.exposure, se_beta))
+    g_1[g_1 ==0] <- 1e-300
+    
+    p <- pi_bern*g_1/((1-pi_bern)* g+ pi_bern*g_1)
+    
+    gamma[t+1] <- sum(beta_hat * p * dat$beta.exposure/(se_beta)^2) / sum(((dat$beta.exposure)^2 *p)/(se_beta)^2)
+    
+  }
+  
+  results <- list(p,gamma)
+  names(results) <- c("p","gamma")
+  return(results)
+}
+
+
+LRT_test <- function(se_beta_dat,EM_results,sigma_optim, beta_hat) {
+  
+  t_z <-5.45
+  qval_results <- qvalue(dat$pval.exposure,pi0 = 1)
+  pi_bern <- 1 - qval_results$lfdr
+  se_beta <- se_beta_dat
+  
+  g <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,0, sqrt(sigma_results["sigma_final"]^2 + se_beta^2)) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,0, sqrt(sigma_results["sigma_final"]^2 + se_beta^2)))
+  g[g ==0] <- 1e-300
+  
+  g_1 <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,0*dat$beta.exposure, se_beta) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,0*dat$beta.exposure, se_beta))
+  g_1[g_1 ==0] <- 1e-300
+  log_lik_0 <- sum(log((1-pi_bern)*g + pi_bern *g_1))
+  
+  gamma_f <- EM_results$gamma[length(EM_results$gamma)]
+  g_1 <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,gamma_f*dat$beta.exposure, se_beta) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,gamma_f*dat$beta.exposure, se_beta))
+  g_1[g_1 ==0] <- 1e-300
+  log_lik_1 <- sum(log((1-pi_bern)*g + pi_bern *dnorm(beta_hat,mean = gamma_f*dat$beta.exposure,sd = se_beta)))
+  
+  LRT <- 2*(log_lik_1-log_lik_0)
+  
+  pval <- pchisq(LRT,df = 1, lower.tail = F)
+  
+  EM_results[[length(EM_results)+1]] <- pval
+  names(EM_results)[length(EM_results)]  <- "pval_LRT"
+  
+  EM_results[[length(EM_results)+1]] <- LRT
+  names(EM_results)[length(EM_results)]  <- "LRT"
+  
+  return(EM_results)
+}
+
+
+```
+
+## Results
+
+### EM algorithm summary table
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/EM_SUM_new_turn_func_g.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
