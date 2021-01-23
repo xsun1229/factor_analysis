@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2021-01-22" />
+
+<title>EM_algorithm_pliercanon_trunc</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">EM_algorithm_pliercanon_trunc</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2021-01-22</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2021-01-23
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div class="panel-group" id="workflowr-checks">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/EM_SUM_new_turn_func_g.rdata
+</td>
+<td style="text-align:left;">
+output/EM_SUM_new_turn_func_g.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee1ce9b5637b2674793bca1d14b2a7a4cedbb7516targetblanke1ce9b5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/e1ce9b5637b2674793bca1d14b2a7a4cedbb7516" target="_blank">e1ce9b5</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee1ce9b5637b2674793bca1d14b2a7a4cedbb7516targetblanke1ce9b5a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/e1ce9b5637b2674793bca1d14b2a7a4cedbb7516" target="_blank">e1ce9b5</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/EM_algorithm_pliercanon_trunc.Rmd</code>) and HTML (<code>docs/EM_algorithm_pliercanon_trunc.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/e1ce9b5637b2674793bca1d14b2a7a4cedbb7516/analysis/EM_algorithm_pliercanon_trunc.Rmd" target="_blank">e1ce9b5</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-01-23
+</td>
+<td>
+wflow_publish(“analysis/EM_algorithm_pliercanon_trunc.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/9c46b0fddd98abe52dadd0a23f9fb5e04c0e0317/analysis/EM_algorithm_pliercanon_trunc.Rmd" target="_blank">9c46b0f</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-01-23
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This part contains the results of the latest model – modeling both non-IV and IV variants using Truncated Normal distritution.</p>
+</div>
+<div id="codes" class="section level2">
+<h2>Codes</h2>
+<div id="em-function" class="section level3">
+<h3>EM function</h3>
+<pre class="r"><code>EM &lt;- function(beta_hat,se_beta_dat, sigma_optim) {
+  
+  ### fixed values
+  t_z &lt;-5.45
+  qval_results &lt;- qvalue(dat$pval.exposure,pi0 = 1)
+  pi_bern &lt;- 1 - qval_results$lfdr
+  se_beta &lt;- se_beta_dat   ######
+  
+  gamma &lt;- c()
+  
+  gamma[1] &lt;- sum(beta_hat * pi_bern * dat$beta.exposure/(se_beta)^2) / sum(((dat$beta.exposure)^2 *pi_bern)/(se_beta)^2)
+  
+  sigma &lt;- sigma_optim
+  
+  g &lt;- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,0, sqrt(sigma^2 + se_beta^2)) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,0, sqrt(sigma^2 + se_beta^2)))
+  g[g ==0] &lt;- 1e-300
+  
+  t &lt;- 0
+  while (length(gamma) == 1 ||  abs( gamma[length(gamma)] - gamma[length(gamma)-1]) &gt;1e-5) {
+    
+    t &lt;- t+1
+   
+    g_1 &lt;- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,gamma[t]*dat$beta.exposure, se_beta) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,gamma[t]*dat$beta.exposure, se_beta))
+    g_1[g_1 ==0] &lt;- 1e-300
+    
+    p &lt;- pi_bern*g_1/((1-pi_bern)* g+ pi_bern*g_1)
+    
+    gamma[t+1] &lt;- sum(beta_hat * p * dat$beta.exposure/(se_beta)^2) / sum(((dat$beta.exposure)^2 *p)/(se_beta)^2)
+    
+  }
+  
+  results &lt;- list(p,gamma)
+  names(results) &lt;- c(&quot;p&quot;,&quot;gamma&quot;)
+  return(results)
+}</code></pre>
+</div>
+<div id="lrt-test-function" class="section level3">
+<h3>LRT test function</h3>
+<pre class="r"><code>LRT_test &lt;- function(se_beta_dat,EM_results,sigma_optim, beta_hat) {
+  
+  t_z &lt;-5.45
+  qval_results &lt;- qvalue(dat$pval.exposure,pi0 = 1)
+  pi_bern &lt;- 1 - qval_results$lfdr
+  se_beta &lt;- se_beta_dat
+  
+  g &lt;- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,0, sqrt(sigma_results[&quot;sigma_final&quot;]^2 + se_beta^2)) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,0, sqrt(sigma_results[&quot;sigma_final&quot;]^2 + se_beta^2)))
+  g[g ==0] &lt;- 1e-300
+  
+  g_1 &lt;- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,0*dat$beta.exposure, se_beta) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,0*dat$beta.exposure, se_beta))
+  g_1[g_1 ==0] &lt;- 1e-300
+  log_lik_0 &lt;- sum(log((1-pi_bern)*g + pi_bern *g_1))
+  
+  gamma_f &lt;- EM_results$gamma[length(EM_results$gamma)]
+  g_1 &lt;- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,gamma_f*dat$beta.exposure, se_beta) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,gamma_f*dat$beta.exposure, se_beta))
+  g_1[g_1 ==0] &lt;- 1e-300
+  log_lik_1 &lt;- sum(log((1-pi_bern)*g + pi_bern *dnorm(beta_hat,mean = gamma_f*dat$beta.exposure,sd = se_beta)))
+  
+  LRT &lt;- 2*(log_lik_1-log_lik_0)
+  
+  pval &lt;- pchisq(LRT,df = 1, lower.tail = F)
+  
+  EM_results[[length(EM_results)+1]] &lt;- pval
+  names(EM_results)[length(EM_results)]  &lt;- &quot;pval_LRT&quot;
+  
+  EM_results[[length(EM_results)+1]] &lt;- LRT
+  names(EM_results)[length(EM_results)]  &lt;- &quot;LRT&quot;
+  
+  return(EM_results)
+}</code></pre>
+</div>
+<div id="beta_hat-simulation" class="section level3">
+<h3>Beta_hat simulation</h3>
+<pre class="r"><code>beta_hat_simulation &lt;- function(gamma_set,se_beta,sigma_optim) {
+  
+  ### fixed values
+  t_z &lt;-5.45
+  qval_results &lt;- qvalue(dat$pval.exposure,pi0 = 1)
+  pi_bern &lt;- 1 - qval_results$lfdr
+  
+  beta_hat &lt;- c()
+  sign &lt;-c()
+  
+  sigma &lt;- sigma_optim
+  
+  se_median &lt;- median(se_beta)
+  
+  Z &lt;- rbinom(length(pi_bern),1,pi_bern)   ### Z_j = 0/ Z_j = 1
+  
+  sign[Z == 0] &lt;-rbinom(sum(Z == 0),1,0.5)  ### 0 -- negative 1 -- positive 
+  sign[is.na(sign)] &lt;- rbinom(sum(is.na(sign)),1,0.5) + 3    ### 3 negative 4 -- positive
+  
+  beta_hat[sign == 0] &lt;- rtruncnorm(sum(sign == 0),a=-Inf,b=-t_z*se_median,0,sqrt(sigma^2 + se_median^2))
+  beta_hat[sign == 1] &lt;- rtruncnorm(sum(sign == 1),a=t_z*se_median,b=Inf,0,sqrt(sigma^2 + se_median^2))
+  beta_hat[sign == 3] &lt;- rtruncnorm(sum(sign == 3),a=-Inf, b = -t_z* se_median,gamma_set*dat$beta.exposure[sign == 3], se_median)
+  beta_hat[sign == 4] &lt;- rtruncnorm(sum(sign == 4),a=t_z* se_median, b =Inf ,gamma_set*dat$beta.exposure[sign == 4], se_median)
+  
+  return(beta_hat)
+  
+}</code></pre>
+</div>
+</div>
+<div id="results" class="section level2">
+<h2>Results</h2>
+<div id="em-algorithm-summary-table" class="section level3">
+<h3>EM algorithm summary table</h3>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["asthma_2_lv88","asthma_2_lv91","bmi_lv27","bmi_lv30","bmi_lv76","bmi_lv90","eo_lv106","eo_lv125","EUR.CD_lv126","EUR.IBD_lv98","EUR.UC_lv108","EUR.UC_lv23","EUR.UC_lv24","LDL_lv113","LDL_lv117","LDL_lv125","LDL_lv23","LDL_lv79","lymph_lv123","lymph_lv23","lymph_lv26","lymph_lv37","lymph_lv65","myeloid_wbc_lv119","myeloid_wbc_lv65","myeloid_wbc_lv94","neut_lv6","neut_lv95","plt_lv49","plt_lv97","rbc_lv20","rbc_lv82","T2D_2_lv38","T2D_lv1","ukb.allasthma_lv21","ukb.allasthma_lv36","ukb.allasthma_lv39","wbc_lv119","wbc_lv6","WHR_lv1","WHR_lv106","WHR_lv82"],[9.75415245515535,6.31469308764865,0.484677110837958,-0.347456088319525,0.516705757440832,0.847418952837598,0.257107170564333,-0.108570717856702,2.39396761118466,-1.35668244924515,-0.0112858489252608,1.29355590877626,-0.409944430271831,-0.220404885614582,-0.0810648308515773,-0.426567677947165,-0.587529947890768,-0.0241536348201991,0.54277636993971,-0.191567351826037,-0.0658384845828947,-0.0123848322914587,-0.0149367940464905,-0.156867467304411,0.0385904945067729,-0.168881291724567,0.122236744527984,-0.0590986457244129,-0.0843029536055058,0.105542556047019,-0.631790085339419,-0.165569428950476,19.9085138678396,-2.55282460406553,0.053801065562173,0.120921893027568,0.844032690817198,-0.267823697026209,0.056333529245265,0.0825980004093711,-0.0462470078493612,-0.985450841289805],[9.88519197247432,13.3549935979513,0.375244088562428,-0.287401221887585,0.516688267224435,0.78534245661,0.378827169716949,0.515000548469307,4.90989266737604,-0.158995742149941,1.04660956809405,2.47326037125574,-0.177148826789491,0.313166842616819,-0.341245205505998,0.765815687953873,-0.48162875479229,-0.829216748685805,1.03564414653742,-0.0929337428827256,-0.0936257408325784,0.186551332560827,0.0473280950414265,-0.360117474948923,-0.0262979460235554,-0.396260836841607,0.251126518846127,0.000292917129880094,-0.034200178283547,0.155227979245331,-0.403801411762113,0.143153871702102,19.9085138678396,-5.71461541264937,0.174623331724715,-0.154904598804327,0.331032175754587,-0.437475966645468,-0.0090054406486713,0.392298733602903,0.375309610403714,-1.30470203651785],[0.775646459793516,0.775646459793516,0.032801945963977,0.032801945963977,0.032801945963977,0.032801945963977,0.048296349101232,0.048296349101232,0.303223115197603,0.259981196252142,0.310920270869737,0.310920270869737,0.310920270869737,0.0893850411883067,0.0893850411883067,0.0893850411883067,0.0893850411883067,0.0893850411883067,0.0494664926679524,0.0494664926679524,0.0494664926679524,0.0494664926679524,0.0494664926679524,0.0516991968484048,0.0516991968484048,0.0516991968484048,0.0517647076878563,0.0517647076878563,0.0562560096280646,0.0562560096280646,0.0540479353251335,0.0540479353251335,0.162941707368003,0.16228720951495,0.0773423674500861,0.0773423674500861,0.0773423674500861,0.0503874182145585,0.0503874182145585,0.02717274415092,0.02717274415092,0.02717274415092],[0.964902778452412,0.964902778452412,0.0258754342974849,0.0258754342974849,0.0258754342974849,0.0258754342974849,0.0390891821253716,0.0390891821253716,0.254412660600997,0.205076485346741,-0.248490741085977,-0.248490741085977,-0.248490741085977,0.0778658621203794,0.0778658621203794,0.0778658621203794,0.0778658621203794,0.0778658621203794,0.0401777879885162,0.0401777879885162,0.0401777879885162,0.0401777879885162,0.0401777879885162,0.0401160395838856,0.0401160395838856,0.0401160395838856,0.0398658326244025,0.0398658326244025,0.0459050139867812,0.0459050139867812,0.0439679496712396,0.0439679496712396,0.268257817412651,-0.132507009827785,0.0622275609920154,0.0622275609920154,0.0622275609920154,-0.038965244057209,-0.038965244057209,0.0222331150003967,0.0222331150003967,0.0222331150003967],[4,3,8,12,3,12,79,7,10,12,10,9,16,47,12,24,7,20,7,12,10,3,12,10,9,7,16,12,17,11,12,25,2,10,20,16,42,8,12,6,11,10],[3.87048679599827e-05,0.0037580216712357,2.0918306055934e-05,1,1,0.00365681631821469,1,0.0185276044781479,0.0312667039554268,1,1,0.029440201983711,1,1,0,6.04842898226463e-306,0.00147534297832089,5.09722566796937e-304,1,1,1,0.0167733248856309,1,0.00455518813694331,1,1,0.0124260698059869,1,1,1,0.000206727689947888,1,0,1,0,8.13028090418486e-289,0,1.49800917223808e-06,1,1,1,0.044819719787584],[16.9338661045892,8.39718668709924,18.1038044444276,-18.746271430743,-3.85347523071778,8.44682328963381,-23.1903627792822,5.54556217839172,4.63825914782386,-31.4683347102159,-4.36836429253508,4.74168622119728,-18.3266892486329,-30.5373907254657,2687.4144595546,1397.88675198147,10.1091586846014,1389.02496643143,-9.44531486858523,-35.4005166593415,-27.1306908059287,5.71993777354601,-40.7219334333522,8.04808098133822,-47.8992441626965,-0.178215278700236,6.24903908587271,-69.54602839673,-49.3152707110658,-51.7732678016059,13.7689240527034,-83.3299356770528,5499.75034195,-4.21650056061069,4040.81857133497,1319.06521813732,2659.17272562894,23.1505427430689,-60.1924561356641,-22.6296753559286,-4.89120185328238,4.02541018064176],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>gamma_initial<\/th>\n      <th>gamma_final<\/th>\n      <th>sigma_init<\/th>\n      <th>sigma_final<\/th>\n      <th>iteration_times<\/th>\n      <th>LRT_p<\/th>\n      <th>LRT_stat<\/th>\n      <th>pval_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5        rstudioapi_0.11   whisker_0.3-2     knitr_1.30       
+ [5] magrittr_1.5      R6_2.4.1          rlang_0.4.8       highr_0.8        
+ [9] stringr_1.4.0     tools_3.6.1       DT_0.15           xfun_0.18        
+[13] git2r_0.26.1      crosstalk_1.1.0.1 htmltools_0.5.0   ellipsis_0.3.1   
+[17] rprojroot_1.3-2   yaml_2.2.1        digest_0.6.25     tibble_3.0.3     
+[21] lifecycle_0.2.0   crayon_1.3.4      later_1.1.0.1     htmlwidgets_1.5.2
+[25] vctrs_0.3.4       promises_1.1.1    fs_1.5.0          glue_1.4.2       
+[29] evaluate_0.14     rmarkdown_1.13    stringi_1.5.3     compiler_3.6.1   
+[33] pillar_1.4.6      backports_1.1.10  jsonlite_1.7.1    httpuv_1.5.1     
+[37] pkgconfig_2.0.3  </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
