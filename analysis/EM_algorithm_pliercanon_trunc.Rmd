@@ -77,7 +77,7 @@ LRT_test <- function(se_beta_dat,EM_results,sigma_optim, beta_hat) {
   gamma_f <- EM_results$gamma[length(EM_results$gamma)]
   g_1 <- 0.5*(dtruncnorm(beta_hat,a=-Inf, b = -t_z* se_beta,gamma_f*dat$beta.exposure, sqrt(sigma^2 + se_beta^2)) + dtruncnorm(beta_hat,a=t_z* se_beta, b =Inf ,gamma_f*dat$beta.exposure, sqrt(sigma^2 + se_beta^2)))
   g_1[g_1 ==0] <- 1e-300
-  log_lik_1 <- sum(log((1-pi_bern)*g + pi_bern *dnorm(beta_hat,mean = gamma_f*dat$beta.exposure,sd = se_beta)))
+  log_lik_1 <- sum(log((1-pi_bern)*g + pi_bern *g_1))
   
   LRT <- 2*(log_lik_1-log_lik_0)
   
@@ -139,3 +139,130 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/EM_SUM_new_turn_func_g
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
+## Diagnosis -- RBC-LV82
+
+
+### SNP-based details
+
+** the estimated gamma is -0.1617596, the estimated sigma is 0.044
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_EM_trun_details_g.rdata")
+DT::datatable(summary_snp, options = list(pageLength =20))
+```
+
+### EM plots
+
+The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
+
+p_j >= 0.8  "orange"  marked as "1"
+
+0.5 =< p_j < 0.8  "red"  marked as "2"
+
+0 =< p_j < 0.5  "blue"  marked as "3" 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_emp_trun_g.jpeg" width="40%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_emp_top_trun_g.jpeg" width="40%">
+</figure>
+
+### Simulation
+
+#### gamma == 0
+
+The estimated gamma is -0.1384110
+
+The LRT statistics is -0.06619376, p-value is 1
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_gamma_0_details_g_simu.rdata")
+DT::datatable(summary_snp, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_0_g.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_0_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_0_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv82_rbc_0_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv82_rbc_0_g.jpeg" width="50%">
+</figure>
+
+
+#### gamma == 0.520976 (effectsize from asthma-LV36)
+
+The estimated gamma is 0.1523016
+
+The LRT statistics is 0.8239529, p-value is 0.364027
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_gamma_0.520976_details_g_simu.rdata")
+DT::datatable(summary_snp, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_0.520976_g.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_0.520976_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_0.520976_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv82_rbc_0.520976_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv82_rbc_0.520976_g.jpeg" width="50%">
+</figure>
+
+
+#### gamma == -2.03006 (effectsize from LDL-LV125)
+
+The estimated gamma is -0.7870377
+
+The LRT statistics is 25.39615, p-value is 4.668488e-07
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_gamma_-2.03006_details_g_simu.rdata")
+DT::datatable(summary_snp, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_-2.03006_g.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_-2.03006_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_-2.03006_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv82_rbc_-2.03006_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv82_rbc_-2.03006_g.jpeg" width="50%">
+</figure>
+
+
+#### gamma == -0.5561661 (effectsize from RBC-LV82)
+
+The estimated gamma is -0.3802768
+
+The LRT statistics is 6.254894, p-value is 0.01238507
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc_lv82_gamma_-0.556166109909909_details_g_simu.rdata")
+DT::datatable(summary_snp, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_-0.556166109909909_g.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv82_rbc_-0.556166109909909_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv82_rbc_-0.556166109909909_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv82_rbc_-0.556166109909909_g.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv82_rbc_-0.556166109909909_g.jpeg" width="50%">
+</figure>
