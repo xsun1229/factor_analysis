@@ -144,6 +144,14 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/EM_SUM_new_turn_func_g
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
+### Resampling summary table 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/resampling_sum_g.rdata")
+DT::datatable(sum, options = list(pageLength =20))
+```
+
+
 ## Diagnosis -- RBC-LV82
 
 
