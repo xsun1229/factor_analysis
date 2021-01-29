@@ -20,6 +20,8 @@ In this part, I considered the traits separately. I selected the SNPs with pval 
 
 - T2D. I first used data from our lab collaction *Morris et al. Large-scale association analysis provides insights into the genetic architecture and pathophysiology of type 2 diabetes. Nat Genet. 2012 Sep;44(9):981-90. doi: 10.1038/ng.2383. Epub 2012 Aug 12. PMID: 22885922; PMCID: PMC3442244.* but it doesn't contain MAF info of variants.So I added this from [GWAS Catalog](https://www.ebi.ac.uk/gwas/home): *Wood AR et al. Variants in the FTO and CDKAL1 loci have recessive effects on risk of obesity and type 2 diabetes, respectively. Diabetologia. 2016 Jun;59(6):1214-21. doi: 10.1007/s00125-016-3908-5. Epub 2016 Mar 10. PMID: 26961502; PMCID: PMC4869698.*.
 
+- T1D data are also from lab collection: *Onengut-Gumuscu S et al. Fine mapping of type 1 diabetes susceptibility loci and evidence for colocalization of causal variants with lymphoid gene enhancers. Nat Genet. 2015 Apr;47(4):381-6. doi: 10.1038/ng.3245. Epub 2015 Mar 9. PMID: 25751624; PMCID: PMC4380767.*
+
 - Asthma. I first used data from our lab collaction *Zhu et al, Shared Genetics of Asthma and Mental Health Disorders: A Large-Scale Genome-Wide Cross-Trait Analysis. European Respiratory Journal, 2019 (PMID: 31619474)* but it doesn't contain MAF info of variants.So I added this from [GWAS Catalog](https://www.ebi.ac.uk/gwas/home): *Manuel A.R. et al. Genetic Architectures of Childhood- and Adult-Onset Asthma Are Partly Distinct,The American Journal of Human Genetics,Volume 104, Issue 4,2019,Pages 665-684,ISSN 0002-9297,https://doi.org/10.1016/j.ajhg.2019.02.022.*.
 
 - IBD,Ulcerative colitist(UC),Crohn's disease(CD) data are from lab collection *Liu, van Sommeren et al, Nature Genetics, 2015*
@@ -28,8 +30,15 @@ In this part, I considered the traits separately. I selected the SNPs with pval 
 
 - BMI data are also from lab collection: *Locke AE, Kahali B, Berndt SI, Justice AE, Pers TH, Day FR, Powell C, Vedantam S, Buchkovich ML, Yang J, Croteau-Chonka DC, Esko T et al. (2015). Genetic studies of body mass index yield new insights for obesity biology. Nature 518, 197-206*
 
-- HDL & LDL data are downloaded from [GWAS Catalog](https://www.ebi.ac.uk/gwas/home).  *Global Lipids Genetics Consortium., Willer, C., Schmidt, E. et al. Discovery and refinement of loci associated with lipid levels. Nat Genet 45, 12741283 (2013). https://doi.org/10.1038/ng.2797*
+- HDL & LDL & TG &TC data are downloaded from [GWAS Catalog](https://www.ebi.ac.uk/gwas/home).  *Global Lipids Genetics Consortium., Willer, C., Schmidt, E. et al. Discovery and refinement of loci associated with lipid levels. Nat Genet 45, 12741283 (2013). https://doi.org/10.1038/ng.2797*
 
+- Height data are from lab collection: *Yengo L, Sidorenko J, Kemper KE, et al. Meta-analysis of genome-wide association studies for height and body mass index in <700000 individuals of European ancestry. Hum Mol Genet. 2018;27(20):3641-3649. doi:10.1093/hmg/ddy271*
+
+- Schizophrenia data are from lab collection: *Schizophrenia Working Group of the Psychiatric Genomics Consortium., Ripke, S., Neale, B. et al. Biological insights from 108 schizophrenia-associated genetic loci. Nature 511, 421427 (2014). https://doi.org/10.1038/nature13595*
+
+- Vitiligo data are from lab collection: *Jin Y et al. Genome-wide association studies of autoimmune vitiligo identify 23 new risk loci and highlight key pathways and regulatory variants. Nat Genet. 2016 Nov;48(11):1418-1424. doi: 10.1038/ng.3680. Epub 2016 Oct 10. PMID: 27723757; PMCID: PMC5120758.*
+
+- Allergy data are from lab collection: *Ferreira MA et al. Shared genetic origin of asthma, hay fever and eczema elucidates allergic disease biology. Nat Genet. 2017 Dec;49(12):1752-1757. doi: 10.1038/ng.3985. Epub 2017 Oct 30. PMID: 29083406; PMCID: PMC5989923.*
 
 2. Filtered the SNPs using pval < 5e-8 as cut off from the GWAS Catalog data. 
 
@@ -92,6 +101,20 @@ HDL trait contains 227 SNPs with pval<5e-8.
 LDL trait contains 204 SNPs with pval<5e-8.
 
 WHR trait contains 36 SNPs with pval<5e-8.
+
+TC trait contains 250 SNPs with pval<5e-8.
+
+TG trait contains 155 SNPs with pval<5e-8.
+
+Height trait contains 5846 SNPs with pval<5e-8.
+
+SCZ trait contains 135 SNPs with pval<5e-8.
+
+Vitiligo trait contains 101 SNPs with pval<5e-8.
+
+T1D trait contains 69 SNPs with pval<5e-8.
+
+Allergy trait contains 158 SNPs with pval<5e-8.
 
 ## Results - pval < 5e-8 & association test covariants: 10 PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
 
@@ -232,6 +255,83 @@ For all pairs , I did resampling. I resampled the SNPs without replacement and f
 
 I made a histogram to show the rsquared distribution from resampling. The red line in the plots are the rsquared in the origin analysis. The r_mean values in the plots are the mean values of rsquared in point fitting. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).
 
+#### Allergy
+
+LV33
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv33_allergy_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_33_allergy.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv33_allergy_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_33_allergy_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv33_allergy_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_33_allergy_fdr05.jpeg" width="30%">
+</figure>
+
+LV74
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_allergy_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_allergy.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_allergy_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_allergy_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv74_allergy_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_74_allergy_fdr05.jpeg" width="30%">
+</figure>
+
+
+LV110
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_allergy_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_110_allergy.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_allergy_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_110_allergy_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv110_allergy_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_110_allergy_fdr05.jpeg" width="30%">
+</figure>
 
 #### Asthma_2 
 
@@ -582,6 +682,215 @@ fdr0.5
 </figure>
 
 
+#### HDL
+
+LV3
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_HDL_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_3_HDL.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_HDL_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_3_HDL_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv3_HDL_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_3_HDL_fdr05.jpeg" width="30%">
+</figure>
+
+
+LV28
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_HDL_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_28_HDL.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_HDL_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_28_HDL_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv28_HDL_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_28_HDL_fdr05.jpeg" width="30%">
+</figure>
+
+LV69
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv69_HDL_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_69_HDL.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv69_HDL_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_69_HDL_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv69_HDL_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_69_HDL_fdr05.jpeg" width="30%">
+</figure>
+
+
+LV72
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_HDL_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_72_HDL.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_HDL_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_72_HDL_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv72_HDL_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_72_HDL_fdr05.jpeg" width="30%">
+</figure>
+
+
+LV101
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv101_HDL_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_101_HDL.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv101_HDL_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_101_HDL_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv101_HDL_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_101_HDL_fdr05.jpeg" width="30%">
+</figure>
+
+
+
+#### Height
+
+LV24
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_height_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_24_height.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_height_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_24_height_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv24_height_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_24_height_fdr05.jpeg" width="30%">
+</figure>
+
+LV87
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv87_height_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_87_height.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv87_height_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_87_height_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv87_height_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_87_height_fdr05.jpeg" width="30%">
+</figure>
+
+LV96
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_height_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_96_height.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_height_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_96_height_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv96_height_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_96_height_fdr05.jpeg" width="30%">
+</figure>
+
 #### LDL
 
 LV23
@@ -713,6 +1022,34 @@ fdr0.5
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_125_LDL_fdr05.jpeg" width="30%">
 </figure>
 
+
+
+#### TG
+
+LV30
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_TG_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_TG.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_TG_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_TG_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_TG_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_TG_fdr05.jpeg" width="30%">
+</figure>
 
 #### granulocyte count(gran)
 
@@ -1143,6 +1480,137 @@ fdr0.5
 </figure>
 
 
+#### SCZ
+
+LV7
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv7_SCZ_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_7_SCZ.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv7_SCZ_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_7_SCZ_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv7_SCZ_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_7_SCZ_fdr05.jpeg" width="30%">
+</figure>
+
+LV98
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_SCZ_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_98_SCZ.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_SCZ_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_98_SCZ_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv98_SCZ_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_98_SCZ_fdr05.jpeg" width="30%">
+</figure>
+
+LV100
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_SCZ_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_100_SCZ.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_SCZ_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_100_SCZ_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv100_SCZ_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_100_SCZ_fdr05.jpeg" width="30%">
+</figure>
+
+LV118
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv118_SCZ_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_118_SCZ.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv118_SCZ_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_118_SCZ_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv118_SCZ_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_118_SCZ_fdr05.jpeg" width="30%">
+</figure>
+
+
+#### T1D
+
+LV30
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_T1D_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_T1D.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_T1D_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_T1D_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_T1D_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_T1D_fdr05.jpeg" width="30%">
+</figure>
+
+
 #### T2D_2
 
 <figure class="half">
@@ -1180,6 +1648,110 @@ fdr0.5
 </figure>
 
 
+
+#### TC
+
+LV20
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_TC_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_20_TC.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_TC_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_20_TC_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv20_TC_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_20_TC_fdr05.jpeg" width="30%">
+</figure>
+
+LV23
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_TC_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_23_TC.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_TC_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_23_TC_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_TC_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_23_TC_fdr05.jpeg" width="30%">
+</figure>
+
+LV125
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_TC_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_125_TC.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_TC_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_125_TC_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_TC_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_125_TC_fdr05.jpeg" width="30%">
+</figure>
+
+#### TG
+
+LV30
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_TG_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_TG.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_TG_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_TG_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv30_TG_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_30_TG_fdr05.jpeg" width="30%">
+</figure>
 
 #### asthma
 
@@ -1312,6 +1884,133 @@ fdr0.5
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_ukb.allasthma_fdr05.jpeg" width="30%">
 </figure>
 
+
+#### Vitiligo
+
+LV35
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_vitiligo_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_vitiligo.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_vitiligo_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_vitiligo_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_vitiligo_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_35_vitiligo_fdr05.jpeg" width="30%">
+</figure>
+
+LV69
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv69_vitiligo_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_69_vitiligo.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv69_vitiligo_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_69_vitiligo_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv69_vitiligo_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_69_vitiligo_fdr05.jpeg" width="30%">
+</figure>
+
+LV82
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_vitiligo_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_vitiligo.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_vitiligo_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_vitiligo_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_vitiligo_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_82_vitiligo_fdr05.jpeg" width="30%">
+</figure>
+
+LV97
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv97_vitiligo_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_97_vitiligo.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv97_vitiligo_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_97_vitiligo_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv97_vitiligo_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_97_vitiligo_fdr05.jpeg" width="30%">
+</figure>
+
+LV109
+
+fdr0.2
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv109_vitiligo_pval5e8_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_109_vitiligo.jpeg" width="30%">
+</figure>
+
+
+fdr0.3 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv109_vitiligo_pval5e8_d1k_ageco_fdr03.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_109_vitiligo_fdr03.jpeg" width="30%">
+</figure>
+
+
+fdr0.5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv109_vitiligo_pval5e8_d1k_ageco_fdr05.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/resampling_hist_pliercanon_109_vitiligo_fdr05.jpeg" width="30%">
+</figure>
 
 #### wbc
 
@@ -1491,7 +2190,7 @@ To summarize the results above, I made a scatter plot of all trait-LV pairs. The
 
 [Summary Table](https://docs.google.com/spreadsheets/d/e/2PACX-1vSR12eEGl_7UKoQYVrpVOTWrz_foBJ4_jLWrZEUw-4sazkyXEc84kOl01WS4BN4ahaSX3TRi_4qGwY7/pubhtml#)
 
-### Effect size plots - checking the reverse causality
+### Effect size plots - checking the reverse causality (19 traits)
 
 To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits(pval<5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
 
@@ -1593,7 +2292,7 @@ Some pair show p < 0.05, the result may be driven by the possible causal effect 
 </figure>
 
 
-### QQplots
+### QQplots (19 traits)
 
 #### BMI 
 
@@ -1664,7 +2363,7 @@ LV47
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_WHR_pliercanon_d1k_ageco.jpeg" width="30%">
 </figure>
 
-### Colocalization -- 500kb
+### Colocalization -- 500kb (19 traits)
 
 The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
 
