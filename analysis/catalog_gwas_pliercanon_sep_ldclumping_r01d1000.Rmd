@@ -147,103 +147,6 @@ DT::datatable(final_full, options = list(pageLength =20))
 ```
 
 
-### Enrichment analysis (19 traits)
-
-For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,  WBC-LV119, Lymphocyte-LV23, LV78), I did enrichment analysis with WebGestalt. The analysis are under different settings:
-
-1. ORA: For each factor, I sorted the genes that have non-zero loadings by their loadings, taking the top 25% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.01 are listed.
-
-
-**BMI-LV27**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv27top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**BMI-LV76**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv76top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**BMI-LV90**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv90top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**PLT-LV49**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv49top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**RBC-LV82**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv82top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**Asthma-LV36**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv36top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**Asthma-LV39**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv39top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**WBC-LV6**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv6top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**WBC-LV119**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv119top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**Lymphocyte-LV23**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv23top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**Lymphocyte-LV26**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv26top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**LDL-LV125**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv125top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-**WHR**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv47top025_pliercanon.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
 
 ### Effect size plots & Resampling (26 traits)
 
@@ -2188,181 +2091,7 @@ To summarize the results above, I made a scatter plot of all trait-LV pairs. The
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.5_pliercanon.jpeg" width="60%">
 </figure>
 
-[Summary Table](https://docs.google.com/spreadsheets/d/e/2PACX-1vSR12eEGl_7UKoQYVrpVOTWrz_foBJ4_jLWrZEUw-4sazkyXEc84kOl01WS4BN4ahaSX3TRi_4qGwY7/pubhtml#)
-
-### Effect size plots - checking the reverse causality (19 traits)
-
-To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits(pval<5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
-
-Some pair show p < 0.05, the result may be driven by the possible causal effect of LV -> trait. To test this, I removed the SNPs that are associated with LVs at FDR < 0.2 and made the plots again.
-
-#### BMI 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-
-#### LDL
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-
-#### lymphocyte count(lymph)
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-#### platelet count (plt) 
-
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-#### red blood cell count(wbc) 
-
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-
-#### asthma
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-#### white blood cell count
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-#### WHR
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
-</figure>
-
-
-### QQplots (19 traits)
-
-#### BMI 
-
-LV27, LV76 and LV90
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv27_bmi_pliercanon_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv76_bmi_pliercanon_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_bmi_pliercanon_d1k_ageco.jpeg" width="30%">
-</figure>
-
-
-#### LDL
-
-LV125
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_LDL_pliercanon_d1k_ageco.jpeg" width="30%">\
-</figure>
-
-
-
-#### platelet count (plt) 
-
-LV49
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv49_plt_pliercanon_d1k_ageco.jpeg" width="30%">
-</figure>
-
-
-
-#### red blood cell count(wbc) 
-
-LV82
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv82_rbc_pliercanon_d1k_ageco.jpeg" width="30%">
-</figure>
-
-
-
-#### asthma
-
-LV36 and LV79
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv36_ukb.allasthma_pliercanon_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv79_ukb.allasthma_pliercanon_d1k_ageco.jpeg" width="30%">
-</figure>
-
-
-#### white blood cell count
-
-LV6 and LV119
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv6_wbc_pliercanon_d1k_ageco.jpeg" width="30%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv119_wbc_pliercanon_d1k_ageco.jpeg" width="30%">
-</figure>
-
-
-#### WHR
-
-LV47
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_WHR_pliercanon_d1k_ageco.jpeg" width="30%">
-</figure>
-
+[Summary Table](https://drive.google.com/file/d/1CTK2pwSTkhDHREYJ71PWjL5YZpHy84IP/view?usp=sharing)
 ### Colocalization -- 500kb (26 traits)
 
 The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
@@ -2370,7 +2099,7 @@ The colocalization analysis was performed using the approximate Bayes factor tes
 SNP selection: 1. Chose the SNPs in the info table.  2. For each SNP, the region used in colocalization analysis is between [pos-500kb, pos+500kb]. 3. All SNPs in this region are included in alalysis.
 
 
-[Summary Table](https://docs.google.com/spreadsheets/d/e/2PACX-1vSAZ81jk5r0ubcT4EKnH6rxVNXJc-JTOa1ZkHWTnzLOXcw6443h3Y9LZX_JE4X5NR_qHdeF6D1yKtzg/pubhtml)
+[Summary Table](https://drive.google.com/file/d/1KU0eiDuiyXS_qQZexTBcniLDWN0ub4zr/view?usp=sharing)
 
 #### Allergy
 
@@ -2894,6 +2623,279 @@ knitr::kable(pval, caption = "PPs in coloclization")
 
 
 
+
+
+
+### Enrichment analysis (19 traits)
+
+For some promising trait-factor pairs (i.e. BMI-LV3, LV27, RBC-LV82, AsthmaLV68,  WBC-LV119, Lymphocyte-LV23, LV78), I did enrichment analysis with WebGestalt. The analysis are under different settings:
+
+1. ORA: For each factor, I sorted the genes that have non-zero loadings by their loadings, taking the top 25% as the gene set. The function database here are Reactome pathway; Disgenet + GLAD4U + OMIM disease dataset; geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.01 are listed.
+
+
+**BMI-LV27**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv27top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**BMI-LV76**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv76top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**BMI-LV90**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv90top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**PLT-LV49**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv49top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**RBC-LV82**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv82top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Asthma-LV36**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv36top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Asthma-LV39**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv39top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**WBC-LV6**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv6top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**WBC-LV119**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv119top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Lymphocyte-LV23**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv23top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**Lymphocyte-LV26**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv26top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**LDL-LV125**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv125top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+**WHR**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv47top025_pliercanon.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+### Effect size plots - checking the reverse causality (19 traits)
+
+To check if the effect size correlation is due to reverse causality: i.e. trait -> LV (trait causally affect LV), instead of LV -> trait (which is what we like to see). I used all SNPs associated with traits(pval<5E-8). The x-axis is the effects of these SNPs on trait, and y-axis is the effects on LV. 
+
+Some pair show p < 0.05, the result may be driven by the possible causal effect of LV -> trait. To test this, I removed the SNPs that are associated with LVs at FDR < 0.2 and made the plots again.
+
+#### BMI 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv27_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv76_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv90_bmi_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+
+#### LDL
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv125_LDL_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+
+#### lymphocyte count(lymph)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv23_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv26_lymph_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+#### platelet count (plt) 
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv49_plt_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+#### red blood cell count(wbc) 
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv82_rbc_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+
+#### asthma
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv36_ukb.allasthma_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv39_ukb.allasthma_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+#### white blood cell count
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv6_wbc_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv119_wbc_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+#### WHR
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_pval5e8_d1k_ageco_reverse.jpeg" width="30%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv47_WHR_pval5e8_d1k_ageco_reverse_remove.jpeg" width="30%">
+</figure>
+
+
+### QQplots (19 traits)
+
+#### BMI 
+
+LV27, LV76 and LV90
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv27_bmi_pliercanon_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv76_bmi_pliercanon_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv90_bmi_pliercanon_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### LDL
+
+LV125
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv125_LDL_pliercanon_d1k_ageco.jpeg" width="30%">\
+</figure>
+
+
+
+#### platelet count (plt) 
+
+LV49
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv49_plt_pliercanon_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+
+#### red blood cell count(wbc) 
+
+LV82
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv82_rbc_pliercanon_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+
+#### asthma
+
+LV36 and LV79
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv36_ukb.allasthma_pliercanon_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv79_ukb.allasthma_pliercanon_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### white blood cell count
+
+LV6 and LV119
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv6_wbc_pliercanon_d1k_ageco.jpeg" width="30%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv119_wbc_pliercanon_d1k_ageco.jpeg" width="30%">
+</figure>
+
+
+#### WHR
+
+LV47
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv47_WHR_pliercanon_d1k_ageco.jpeg" width="30%">
+</figure>
 
 
 ## Results - pval < 5e-8 & association test covariants: 10 PCs
