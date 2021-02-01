@@ -9,7 +9,10 @@ editor_options:
 
 ## Introduction
 
-The analysis in this part is the same with [PLIER-Canonical](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html). But in this part, I used muscle skeletal expression data. It contains 706 samples. 
+The analysis in this part is the same with [PLIER-Canonical](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html). 
+
+In this part, I used muscle skeletal expression data. It contains 706 samples. I used PLIER with Canonical Pathway and inferred 124 LVs first. And used these 124 LVs to do the following analysis. 
+
 
 ## Material and Methods
 
@@ -104,9 +107,9 @@ To summarize the results above, I made a scatter plot of all trait-LV pairs. The
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_pliercanon_mus.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.3_pliercanon_mus.jpeg" width="60%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.5_pliercanon_mus.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_mus.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_mus.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_mus.jpeg" width="60%">
 </figure>
 
 [Summary Table](https://drive.google.com/file/d/14o_XdHk-0Bccbmcq5ksZQ6Jv7PY1M9_m/view?usp=sharing)
@@ -123,7 +126,7 @@ SNP selection: 1. Chose the SNPs in the info table.  2. For each SNP, the region
 
 
 
-## Analysis based on EM algorith
+## Analysis based on EM algorithm
 
 ### EM algorithm summary table
 

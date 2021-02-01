@@ -2092,7 +2092,8 @@ To summarize the results above, I made a scatter plot of all trait-LV pairs. The
 </figure>
 
 [Summary Table](https://drive.google.com/file/d/1CTK2pwSTkhDHREYJ71PWjL5YZpHy84IP/view?usp=sharing)
-### Colocalization -- 500kb (26 traits)
+
+### Colocalization -- 1000kb (26 traits)
 
 The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
 
