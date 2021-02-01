@@ -1,0 +1,140 @@
+---
+title: "catalog_gwas_pliercanon_sep_ldclumping_r01d1000_muscle"
+author: "XSun"
+date: "2021-01-30"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+The analysis in this part is the same with [PLIER-Canonical](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html). But in this part, I used muscle skeletal expression data. It contains 706 samples. 
+
+## Material and Methods
+
+This part is the same with [PLIER-Canonical](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html).
+
+## Snps after filter
+
+After filtering by 'pval < 5e-8' and LD Clumping, for each trait, I got :
+
+platelet count (plt) trait contains 685 SNPs with pval<5e-8. 
+
+white blood cell count(wbc)trait contains 367 SNPs with pval<5e-8. 
+
+myeloid white cell count (myeloid wbc) trait contains 317 SNPs with pval<5e-8. 
+
+lymphocyte count(lymph) trait contains 441 SNPs with pval<5e-8. 
+
+red blood cell count(wbc) trait contains 465 SNPs with pval<5e-8. 
+
+granulocyte count(gran) trait contains 307 SNPs with pval<5e-8. 
+
+eosinophil count(eo) trait contains 491 SNPs with pval<5e-8. 
+
+neutrophil count (neut) trait contains 314 SNPs with pval<5e-8. 
+
+IBD trait contains 117 SNPs with pval<5e-8. 
+
+Ulcerative colitist(UC) trait contains 75 SNPs with pval<5e-8. 
+
+Crohn's disease(CD) trait contains 97 SNPs with pval<5e-8. 
+
+BMI trait contains 104 SNPs with pval<5e-8. 
+
+T2D contains 14 SNPs with pval<5e-8. T2D_2 contains 4 SNPs with pval<5e-8.
+
+Asthma trait contains 190 SNPs with pval<5e-8. Asthma_2 trait contains 115 SNPs with pval<5e-8.
+
+HDL trait contains 228 SNPs with pval<5e-8.
+
+LDL trait contains 200 SNPs with pval<5e-8.
+
+WHR trait contains 37 SNPs with pval<5e-8.
+
+TC trait contains 253 SNPs with pval<5e-8.
+
+TG trait contains 154 SNPs with pval<5e-8.
+
+Height trait contains 5877 SNPs with pval<5e-8.
+
+SCZ trait contains 134 SNPs with pval<5e-8.
+
+Vitiligo trait contains 102 SNPs with pval<5e-8.
+
+T1D trait contains 68 SNPs with pval<5e-8.
+
+Allergy trait contains 116 SNPs with pval<5e-8.
+
+
+## Analysis based on FDR cutoff
+
+### Summary table (26 traits)
+
+I used 'qvalue' R package to compute the fdr from p-values for each SNP and made a table to show the number of SNPs that pass the threshold. The thresholds are 'fdr < 0.1','fdr < 0.2','pval < 5e-8'. The 'num_significant_pairs' indicates the number of significant pairs under each threshold. If a trait~factor pair has as least 1 significant SNP, we named it as 'significant pair'. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_pliercanon_wgpc_ldcl_d1k_ageco_mus.rdata")
+knitr::kable(sum, caption = "number of significant trait-LV associations across all traits")
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_sep_tog_pval_pliercanon_wgpc_ldcl_d1k_ageco_mus.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+
+### Info table (26 traits)
+
+For each trait, I made a table to show the info of snps with fdr>0.2 in the factor ~ SNP + genotype pcs association test. For each trait,The LVs have more than one significant SNPs with FDR<0.2 are included. 
+
+The suffix '_assoc' here means that results are from factor ~ SNP + genotype pcs association test. The suffix '_gwas' here means results are from original GWAS results files. For EUR.CD, EUR.IBD, EUR.UC,T2D, asthma, the effectsize_gwas here means 'ln(OR)', for others, it means 'beta'. 
+
+'snp_ld' here means the snps that in LD with the snp in each line.'ld_r2' means the LD r-squared which is corresponding to the 'snp_ld' column. 'cis-eqtl' column indicates whether the snp is a cis-eqtl according to GTEx data. 'cis_gene_hgnc' and 'cis_gene_hgnc' is the genes that the snp influence when it act as cis-eqtl. 'func' and 'func_gene' are obtained from ANNOVAR, which indicating the snp function within the genes.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_pval5e8_pliercanon_ld_d1k_ageco_mus.rdata")
+DT::datatable(final_full, options = list(pageLength =20))
+```
+
+### Effectsize summary (26 traits)
+
+To summarize the results above, I made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. Below are plots for three FDR cutoffs, 0.2, 0.3 and 0.5. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_pliercanon_mus.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.3_pliercanon_mus.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.5_pliercanon_mus.jpeg" width="60%">
+</figure>
+
+[Summary Table](https://drive.google.com/file/d/14o_XdHk-0Bccbmcq5ksZQ6Jv7PY1M9_m/view?usp=sharing)
+
+### Colocalization -- 1000kb (26 traits)
+
+The colocalization analysis was performed using the approximate Bayes factor test implemented in the Coloc package. Coloc computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization. We visualized the colocalization of factor - QTLs and GWAS associations using the [LocusCompareR package](https://github.com/boxiangliu/locuscomparer).
+
+SNP selection: 1. Chose the SNPs in the info table.  2. For each SNP, the region used in colocalization analysis is between [pos-1000kb, pos+1000kb]. 3. All SNPs in this region are included in alalysis.
+
+
+[Summary Table](https://drive.google.com/file/d/1E6FAPdIoP6MFiZ9pRFb_X9VwjyWWy-vu/view?usp=sharing)
+
+
+
+
+## Analysis based on EM algorith
+
+### EM algorithm summary table
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/EM_SUM_new_turn_func_g_mus.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+## Resampling summary table (summary of the above analyses) 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/resampling_sum_g_mus.rdata")
+DT::datatable(sum, options = list(pageLength =20))
+```
