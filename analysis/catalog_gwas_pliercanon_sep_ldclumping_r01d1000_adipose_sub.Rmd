@@ -131,16 +131,16 @@ DT::datatable(summary_snp, options = list(pageLength =5))
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_LDL_lv35_0_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_0_adp.jpeg" width="50%">
 </figure>
 
 I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_LDL_lv35_0_adp.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_LDL_lv35_0_adp.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_LDL_lv35_0_adp.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_LDL_lv35_0_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv35_LDL_0_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv35_LDL_0_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv35_LDL_0_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv35_LDL_0_adp.jpeg" width="50%">
 </figure>
 
 ### gamma = 0.520976 (effectsize from earlier asthma-LV36)
@@ -155,16 +155,16 @@ DT::datatable(summary_snp, options = list(pageLength =5))
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_LDL_lv35_0.520976_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_0.520976_adp.jpeg" width="50%">
 </figure>
 
 I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_LDL_lv35_0.520976_adp.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_LDL_lv35_0.520976_adp.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_LDL_lv35_0.520976_adp.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_LDL_lv35_0.520976_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv35_LDL_0.520976_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv35_LDL_0.520976_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv35_LDL_0.520976_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv35_LDL_0.520976_adp.jpeg" width="50%">
 </figure>
  
 ### gamma = -2.03006 (effectsize from  earlier LDL-LV125)
@@ -180,16 +180,16 @@ DT::datatable(summary_snp, options = list(pageLength =5))
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_LDL_lv35_-2.03006_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_-2.03006_adp.jpeg" width="50%">
 </figure>
 
 I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_LDL_lv35_-2.03006_adp.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_LDL_lv35_-2.03006_adp.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_LDL_lv35_-2.03006_adp.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_LDL_lv35_-2.03006_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv35_LDL_-2.03006_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv35_LDL_-2.03006_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv35_LDL_-2.03006_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv35_LDL_-2.03006_adp.jpeg" width="50%">
 </figure>
 
 
@@ -205,16 +205,16 @@ DT::datatable(summary_snp, options = list(pageLength =5))
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_LDL_lv35_0.218580685231433.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_lv35_LDL_0.218580685231433.jpeg" width="50%">
 </figure>
 
 I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_LDL_lv35_0.218580685231433.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_LDL_lv35_0.218580685231433.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_LDL_lv35_0.218580685231433.jpeg" width="50%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_LDL_lv35_-0.5561661.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_lv35_LDL_0.218580685231433.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_lv35_LDL_0.218580685231433.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_lv35_LDL_0.218580685231433.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_lv35_LDL_-0.5561661.jpeg" width="50%">
 </figure>
 
 
