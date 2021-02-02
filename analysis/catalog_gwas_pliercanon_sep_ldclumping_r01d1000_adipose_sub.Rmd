@@ -104,6 +104,122 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/EM_SUM_new_turn_func_g
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
+### Simulation  -- LDL-LV35
+
+The sigma estimated from LDL-LV35 is 0.07770127 
+
+The se_median is 0.0049
+
+The effectsize plots below show alpha vs simulated beta. The fitted slope (gamma, from real data, based on FDR < 0.2 cutoff) are shown in each plot. The dots are colored according to p_j (posterior estimate):
+
+p_j >= 0.8  "orange"  marked as "1"
+
+0.5 =< p_j < 0.8  "red"  marked as "2"
+
+0 =< p_j < 0.5  "blue"  marked as "3" 
+
+
+### gamma = 0 
+
+The estimated gamma is -0.1645214
+
+The LRT statistics is -0.7801801, p-value is 1
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_lv35_gamma_0_details_g_simu_adp.rdata")
+DT::datatable(summary_snp, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_LDL_lv35_0_adp.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_LDL_lv35_0_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_LDL_lv35_0_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_LDL_lv35_0_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_LDL_lv35_0_adp.jpeg" width="50%">
+</figure>
+
+### gamma = 0.520976 (effectsize from earlier asthma-LV36)
+
+The estimated gamma is 0.2159714
+
+The LRT statistics is 2.001665 , p-value is 0.1571265
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_lv35_gamma_0.520976_details_g_simu_adp.rdata")
+DT::datatable(summary_snp, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_LDL_lv35_0.520976_adp.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_LDL_lv35_0.520976_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_LDL_lv35_0.520976_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_LDL_lv35_0.520976_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_LDL_lv35_0.520976_adp.jpeg" width="50%">
+</figure>
+ 
+### gamma = -2.03006 (effectsize from  earlier LDL-LV125)
+
+The estimated gamma is -1.200997
+
+The LRT statistics is 62.7011, p-value is 2.40581e-15
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_lv35_gamma_-2.03006_details_g_simu_adp.rdata")
+DT::datatable(summary_snp, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_LDL_lv35_-2.03006_adp.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_LDL_lv35_-2.03006_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_LDL_lv35_-2.03006_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_LDL_lv35_-2.03006_adp.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_LDL_lv35_-2.03006_adp.jpeg" width="50%">
+</figure>
+
+
+### gamma = 0.218581 (effectsize from current LDL-LV35)
+
+The estimated gamma is 0.1120688
+
+The LRT statistics is -0.4410155, p-value is 1
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/LDL_lv35_gamma_0.218580685231433_details_g_simu_adp.rdata")
+DT::datatable(summary_snp, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_LDL_lv35_0.218580685231433.jpeg" width="50%">
+</figure>
+
+I did 1000 times simulation for beta_hat, estimated the gamma and compute LRT accordingly, the results are shown below. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/gamma_e_hist_LDL_lv35_0.218580685231433.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_qqplot_LDL_lv35_0.218580685231433.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_p_hist_LDL_lv35_0.218580685231433.jpeg" width="50%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/LRT_LDL_lv35_-0.5561661.jpeg" width="50%">
+</figure>
+
+
+
+
 ## Resampling summary table (summary of the above analyses) 
 
 ```{r echo=FALSE}
