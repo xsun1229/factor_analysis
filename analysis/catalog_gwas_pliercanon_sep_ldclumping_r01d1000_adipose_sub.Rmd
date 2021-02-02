@@ -73,7 +73,7 @@ DT::datatable(final_full, options = list(pageLength =20))
 ```
 
 
-### Effectsize summary (26 traits)
+### Effectsize summary 
 
 To summarize the results above, I made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. Below are plots for three FDR cutoffs, 0.2, 0.3 and 0.5. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
 
