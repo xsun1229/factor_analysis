@@ -121,7 +121,7 @@ The colocalization analysis was performed using the approximate Bayes factor tes
 SNP selection: 1. Chose the SNPs in the info table.  2. For each SNP, the region used in colocalization analysis is between [pos-1000kb, pos+1000kb]. 3. All SNPs in this region are included in alalysis.
 
 
-[Summary Table](https://drive.google.com/file/d/1E6FAPdIoP6MFiZ9pRFb_X9VwjyWWy-vu/view?usp=sharing)
+[Summary Table](https://drive.google.com/file/d/17wsG1dJSYVP2M6GY1htcjA_DbucpBmMH/view?usp=sharing)
 
 
 
