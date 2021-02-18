@@ -1,0 +1,55 @@
+---
+title: "Susie_results"
+author: "XSun"
+date: "2021-02-18"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In this part, we use SuSiE to compute the posterior probability that a SNP to be causal for both LVs and traits.
+
+## PIP comparison under different settings for LVs/traits
+
+### Method 
+
+1. LV 
+
+We used individual data(GTEx, 670 samples) to compute the PIPs for SNPs. We tried L = 10/ L = 1.
+
+2. GWAS
+
+In this part, we used summary statistics. The LD reference panel was the same with LV part and corrected by the sample size(670). We also tried L = 10/ L = 1.
+
+### Results
+
+We tested 156 regions in total. 
+
+This figure shows the number of regions have at least 1 high/median/low pip SNPs in each setting. For example, in LV susie results (under L = 1 setting), 9 regions have at least 1 SNP that has high pip, 5 regions have at least 1 SNP that has median pip.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/barplot_susie_L1_L10.jpeg" width="100%">
+</figure>
+
+This figure shows the number of regions have more than 1 high/median/low pip SNPs in each setting. For example, in LV susie results (under L = 1 setting), no region have >1 SNPs that have high pip, no region have > 1 SNP that has median pip.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/barplot_n2_susie_L1_L10.jpeg" width="100%">
+</figure>
+
+From the plots above, we can find that most regions usually have only one SNP that has high/median pip.
+
+## Grouped results
+
+### Methods
+
+In this part, we grouped the SNPs according their pip(high/median/low) from LV susie results. For the SNPs in each group, we computed their pip related to the traits. And made a boxplot for each region. 
+
+Susie can be run in the region containing >1 SNPs. Since most of regions do not contain >1 SNPs for high and median pip group(see the second plot in last part), most boxplots only contain one box. 
+
+[Boxplots under L =1 setting](https://drive.google.com/drive/folders/1Nl5IzKC3UO4OUCFzojF1KbkYGdwBZfKK?usp=sharing)
+[Boxplots under L =10 setting](https://drive.google.com/drive/folders/1zBZU8MZQB3O5qJw4sNLsyQvDLyq6JQBM?usp=sharing)
+
+
