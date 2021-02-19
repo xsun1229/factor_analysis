@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Introduction
+# **Introduction**
 
 In this part, we're trying to answer the questions below:
 
@@ -16,7 +16,7 @@ In this part, we're trying to answer the questions below:
 - What are the SNPs and genes controlling expression factors?
 
 
-# **1.Factor evaluation**
+# **Factor evaluation**
 
 I first evaluated the heritability of factors using [GCTA](
 https://cnsgenomics.com/software/gcta/#GREML) and made histogrames to show the distribution of the heritabilities.
@@ -45,7 +45,7 @@ When computing heritability, I used GTEx genotype data(the variants with maf >0.
 
   [For more details](https://xsun1229.github.io/factor_analysis/eval_kegg.html)
 
-# **2.Prediction models for factors**
+# **Prediction models for factors**
 
 In this part, I tried to train prediction models for factors ~ genotype using Lasso and Elastic-net. I used 670 samples from GTEx. I used two groups of variants to train models. The first group contains all variants provided by GTEx with maf > 0.01(10,403,249 variants) and maf > 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR > 0.05).
 
@@ -61,7 +61,7 @@ The workflow:
 
 5. For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx samples(670 samples). In the association tests, first 10 genotype pcs were included as covariants.
 
-## **Training models with all variants**
+## Training models with all variants
 
 There are some missing values in our dataset. I used mean imputation (substitue the missing values with mean value of the corresponding variants) to impute the missing value. 
 
@@ -86,22 +86,20 @@ The missing data pattern of our dataset. x-axis represents the proportion of mis
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/train_peer.html)
 
 
-## **Training models with cis-eQTLs**
+## Training models with cis-eQTLs
 
 ### PLIER
 
   [Results for plier-canonicalPathways factors](https://xsun1229.github.io/factor_analysis/train_plier_canon_ciseqtl.html)
 
 
-## **Making the prediction models better**
+## Making the prediction models better
 
-### ***Finding functional SNPs***
+### *Finding functional SNPs  - LD Score Regression *
 
-  In step 6, the GWAS power of some factors is low. So I tried to find functional SNPs to increase the GWAS power and reduce the testing burden.
-  
-### LD Score Regression 
+The GWAS power of some factors is low. So we tried to find functional SNPs to increase the GWAS power and reduce the testing burden.
 
-I adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software I used here is [ldsc](https://github.com/bulik/ldsc).
+We adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software we used here is [ldsc](https://github.com/bulik/ldsc).
 
 The ldsc material and methods of my project can be found [here](https://xsun1229.github.io/factor_analysis/ldsc.html)
 
@@ -120,7 +118,7 @@ The ldsc material and methods of my project can be found [here](https://xsun1229
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/ldsc_peer.html)
   
 
-### ***Finding functional cis-genes***  
+### *Finding functional cis-genes* 
   
   After preliminary [rough calculations](https://xsun1229.github.io/factor_analysis/gwas_power.html), we found that there might be overfitting issue. So we tried one/two sample settings to test and eliminate the overfitting issue. 
   
@@ -142,7 +140,7 @@ The ldsc material and methods of my project can be found [here](https://xsun1229
   
   [One Sample Setting- only cis-eQTLs](https://xsun1229.github.io/factor_analysis/cg-onesample-ciseqtls.html)
   
-### ***Dealing with weak IV bias***
+### *Dealing with weak IV bias*
 
   Apart from using external weights([Two Sample Setting](https://xsun1229.github.io/factor_analysis/cg-twosample.html)), I tried other methods to eliminate the weak IV bias issue (divide the cis-eQTLS into different groups according to the p-values). 
   
