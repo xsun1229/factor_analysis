@@ -7,14 +7,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Introduction
+# **Introduction**
 
 We'd like to show that the factors have a causal effect on outcome(traits), but it's difficult to establish.  
 So we state a weaker hypothesis first: GWAS variants of a trait often converge to a relatively small number of processes, which can be represented as expression factors.
 
 Then we strengthen hypothesis: if the effects of SNPs on LV is correlated with their effects on trait when there is a causal effect of LV on trait.
 
-# Tests based on FDR cutoff for different factors under different settings 
+# **Tests based on FDR cutoff for different factors under different settings**
 
 To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the [Catalog of Published GWAS](https://www.ebi.ac.uk/gwas/). I selected the SNPs with fdr < 0.05/ fdr < 0.01/ pval < 5e-8. Then, I did association tests for the factors with the SNPs.
 
@@ -40,13 +40,13 @@ Each setting below contains effectsize analysis&resampling, colocalization analy
 
 [Threshold: pval<5e-8 & consider traits separately & perform ld clumping (r2 cutoff 0.1, physical dist 1Mb) ](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.html)
 
-# SuSiE analysis 
+# **SuSiE analysis** 
 
 We used SuSiE to test if our colocalization results are reliable. 
 
 [For more details](https://xsun1229.github.io/factor_analysis/susie_results.html)
 
-# EM algorithm - PLIER-Canonical factors
+# **EM algorithm - PLIER-Canonical factors**
 
 [Real data](https://xsun1229.github.io/factor_analysis/EM_algorithm_pliercanon.html)
 
