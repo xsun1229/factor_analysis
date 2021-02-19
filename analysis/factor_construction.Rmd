@@ -7,12 +7,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Introduction
+# **Introduction**
 
 
   We used three softwares, [PLIER](https://github.com/wgmao/PLIER), [FLASH]( https://github.com/stephenslab/flashr), and [PEER](https://github.com/PMBio/peer/) to construct factors from GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). Genes on chrX were excluded when extracting factors using these softwares.
 
-# PLIER
+# **Factors**
+
+## PLIER
 
   PLIER(pathway-level information extractor) is a broadly applicable method to accurately infer relevant biological insights, such as variation in cell-type proportion or pathway activity, from global gene expression studies. It approximates the expression pattern of every gene as a linear combination of eigengene-like latent variables (LVs).
 
@@ -24,15 +26,16 @@ editor_options:
   
   I used 'PLIER' package(with default settings) to construct factors related to all pathways provided by the software and got 96 factors. [For more details](https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html)
   
-# FLASH
+
+## FLASH
   
   Using 'FLASH', I obtained 100 factors from our GTEx expression matrix.
 
-# PEER
+## PEER
 
   Using 'PEER', I obtained 60 factors from the GTEx expression matrix.
   
-# Principal Component
+## Principal Component
 
   I used PCA to infer several PCs for some special cases.
   
