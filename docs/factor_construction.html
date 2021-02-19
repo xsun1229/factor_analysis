@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1907e0e3e63e25edc3db228518a33845a7c237d6targetblank1907e0ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/1907e0e3e63e25edc3db228518a33845a7c237d6" target="_blank">1907e0e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreec469e1c9cc651d4a8a53c6f4721d058786ecfd0etargetblankc469e1ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/c469e1c9cc651d4a8a53c6f4721d058786ecfd0e" target="_blank">c469e1c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1907e0e3e63e25edc3db228518a33845a7c237d6targetblank1907e0ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreec469e1c9cc651d4a8a53c6f4721d058786ecfd0etargetblankc469e1ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/1907e0e3e63e25edc3db228518a33845a7c237d6" target="_blank">1907e0e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/c469e1c9cc651d4a8a53c6f4721d058786ecfd0e" target="_blank">c469e1c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -539,6 +539,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/c469e1c9cc651d4a8a53c6f4721d058786ecfd0e/analysis/factor_construction.Rmd" target="_blank">c469e1c</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-02-19
+</td>
+<td>
+wflow_publish(“analysis/factor_construction.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/fa63c4513463c7b592b6506b8af36f93e7a2b5a0/docs/factor_construction.html" target="_blank">fa63c45</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-02-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/xsun1229/factor_analysis/blob/1907e0e3e63e25edc3db228518a33845a7c237d6/analysis/factor_construction.Rmd" target="_blank">1907e0e</a>
 </td>
 <td>
@@ -559,11 +593,13 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 </div>
 <div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<h1><strong>Introduction</strong></h1>
 <p>We used three softwares, <a href="https://github.com/wgmao/PLIER">PLIER</a>, <a href="https://github.com/stephenslab/flashr">FLASH</a>, and <a href="https://github.com/PMBio/peer/">PEER</a> to construct factors from GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). Genes on chrX were excluded when extracting factors using these softwares.</p>
 </div>
-<div id="plier" class="section level1">
-<h1>PLIER</h1>
+<div id="factors" class="section level1">
+<h1><strong>Factors</strong></h1>
+<div id="plier" class="section level2">
+<h2>PLIER</h2>
 <p>PLIER(pathway-level information extractor) is a broadly applicable method to accurately infer relevant biological insights, such as variation in cell-type proportion or pathway activity, from global gene expression studies. It approximates the expression pattern of every gene as a linear combination of eigengene-like latent variables (LVs).</p>
 <ul>
 <li>plier-canonicalPathways</li>
@@ -574,17 +610,18 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </ul>
 <p>I used ‘PLIER’ package(with default settings) to construct factors related to all pathways provided by the software and got 96 factors. <a href="https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html">For more details</a></p>
 </div>
-<div id="flash" class="section level1">
-<h1>FLASH</h1>
+<div id="flash" class="section level2">
+<h2>FLASH</h2>
 <p>Using ‘FLASH’, I obtained 100 factors from our GTEx expression matrix.</p>
 </div>
-<div id="peer" class="section level1">
-<h1>PEER</h1>
+<div id="peer" class="section level2">
+<h2>PEER</h2>
 <p>Using ‘PEER’, I obtained 60 factors from the GTEx expression matrix.</p>
 </div>
-<div id="principal-component" class="section level1">
-<h1>Principal Component</h1>
+<div id="principal-component" class="section level2">
+<h2>Principal Component</h2>
 <p>I used PCA to infer several PCs for some special cases.</p>
+</div>
 </div>
 
 
