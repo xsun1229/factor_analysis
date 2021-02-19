@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1907e0e3e63e25edc3db228518a33845a7c237d6targetblank1907e0ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/1907e0e3e63e25edc3db228518a33845a7c237d6" target="_blank">1907e0e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree88051cf0b1fe50134742018c598e73e1b31a1ab8targetblank88051cfa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/88051cf0b1fe50134742018c598e73e1b31a1ab8" target="_blank">88051cf</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1907e0e3e63e25edc3db228518a33845a7c237d6targetblank1907e0ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree88051cf0b1fe50134742018c598e73e1b31a1ab8targetblank88051cfa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/1907e0e3e63e25edc3db228518a33845a7c237d6" target="_blank">1907e0e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/88051cf0b1fe50134742018c598e73e1b31a1ab8" target="_blank">88051cf</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -539,6 +539,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/88051cf0b1fe50134742018c598e73e1b31a1ab8/analysis/variants_factors.Rmd" target="_blank">88051cf</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-02-19
+</td>
+<td>
+wflow_publish(“analysis/variants_factors.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/fa63c4513463c7b592b6506b8af36f93e7a2b5a0/docs/variants_factors.html" target="_blank">fa63c45</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-02-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/xsun1229/factor_analysis/blob/1907e0e3e63e25edc3db228518a33845a7c237d6/analysis/variants_factors.Rmd" target="_blank">1907e0e</a>
 </td>
 <td>
@@ -559,7 +593,7 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 </div>
 <div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<h1><strong>Introduction</strong></h1>
 <p>In this part, we’re trying to answer the questions below:</p>
 <ul>
 <li><p>Are expression factors genetically determined? Can we build prediction model of expression factors using genetic variants?</p></li>
@@ -567,7 +601,7 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </ul>
 </div>
 <div id="factor-evaluation" class="section level1">
-<h1><strong>1.Factor evaluation</strong></h1>
+<h1><strong>Factor evaluation</strong></h1>
 <p>I first evaluated the heritability of factors using <a href="https://cnsgenomics.com/software/gcta/#GREML">GCTA</a> and made histogrames to show the distribution of the heritabilities.</p>
 <p>When computing heritability, I used GTEx genotype data(the variants with maf &gt;0.05 and maf &gt;0.01 were selected, variants on chrX are excluded). 6,568,202 variants have maf &gt;0.05 and 10,403,249 variants have maf &gt;0.01.</p>
 <div id="plier" class="section level2">
@@ -595,7 +629,7 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 </div>
 <div id="prediction-models-for-factors" class="section level1">
-<h1><strong>2.Prediction models for factors</strong></h1>
+<h1><strong>Prediction models for factors</strong></h1>
 <p>In this part, I tried to train prediction models for factors ~ genotype using Lasso and Elastic-net. I used 670 samples from GTEx. I used two groups of variants to train models. The first group contains all variants provided by GTEx with maf &gt; 0.01(10,403,249 variants) and maf &gt; 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR &gt; 0.05).</p>
 <p>The workflow:</p>
 <ol style="list-style-type: decimal">
@@ -606,7 +640,7 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 <li><p>For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx samples(670 samples). In the association tests, first 10 genotype pcs were included as covariants.</p></li>
 </ol>
 <div id="training-models-with-all-variants" class="section level2">
-<h2><strong>Training models with all variants</strong></h2>
+<h2>Training models with all variants</h2>
 <p>There are some missing values in our dataset. I used mean imputation (substitue the missing values with mean value of the corresponding variants) to impute the missing value.</p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ms_snp.jpeg" width="50%">
@@ -627,21 +661,18 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 </div>
 <div id="training-models-with-cis-eqtls" class="section level2">
-<h2><strong>Training models with cis-eQTLs</strong></h2>
+<h2>Training models with cis-eQTLs</h2>
 <div id="plier-2" class="section level3">
 <h3>PLIER</h3>
 <p><a href="https://xsun1229.github.io/factor_analysis/train_plier_canon_ciseqtl.html">Results for plier-canonicalPathways factors</a></p>
 </div>
 </div>
 <div id="making-the-prediction-models-better" class="section level2">
-<h2><strong>Making the prediction models better</strong></h2>
-<div id="finding-functional-snps" class="section level3">
-<h3><strong><em>Finding functional SNPs</em></strong></h3>
-<p>In step 6, the GWAS power of some factors is low. So I tried to find functional SNPs to increase the GWAS power and reduce the testing burden.</p>
-</div>
-<div id="ld-score-regression" class="section level3">
-<h3>LD Score Regression</h3>
-<p>I adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software I used here is <a href="https://github.com/bulik/ldsc">ldsc</a>.</p>
+<h2>Making the prediction models better</h2>
+<div id="finding-functional-snps---ld-score-regression" class="section level3">
+<h3><em>Finding functional SNPs - LD Score Regression </em></h3>
+<p>The GWAS power of some factors is low. So we tried to find functional SNPs to increase the GWAS power and reduce the testing burden.</p>
+<p>We adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software we used here is <a href="https://github.com/bulik/ldsc">ldsc</a>.</p>
 <p>The ldsc material and methods of my project can be found <a href="https://xsun1229.github.io/factor_analysis/ldsc.html">here</a></p>
 <div id="plier-3" class="section level4">
 <h4>PLIER</h4>
@@ -658,7 +689,7 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 </div>
 <div id="finding-functional-cis-genes" class="section level3">
-<h3><strong><em>Finding functional cis-genes</em></strong></h3>
+<h3><em>Finding functional cis-genes</em></h3>
 <p>After preliminary <a href="https://xsun1229.github.io/factor_analysis/gwas_power.html">rough calculations</a>, we found that there might be overfitting issue. So we tried one/two sample settings to test and eliminate the overfitting issue.</p>
 <p>The rought process are below, it differs slightly in different settings.</p>
 <ol style="list-style-type: decimal">
@@ -673,7 +704,7 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 <p><a href="https://xsun1229.github.io/factor_analysis/cg-onesample-ciseqtls.html">One Sample Setting- only cis-eQTLs</a></p>
 </div>
 <div id="dealing-with-weak-iv-bias" class="section level3">
-<h3><strong><em>Dealing with weak IV bias</em></strong></h3>
+<h3><em>Dealing with weak IV bias</em></h3>
 <p>Apart from using external weights(<a href="https://xsun1229.github.io/factor_analysis/cg-twosample.html">Two Sample Setting</a>), I tried other methods to eliminate the weak IV bias issue (divide the cis-eQTLS into different groups according to the p-values).</p>
 <p><a href="https://xsun1229.github.io/factor_analysis/weak_bias.html">For more details</a></p>
 </div>
