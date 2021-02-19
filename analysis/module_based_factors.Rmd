@@ -1,0 +1,35 @@
+---
+title: "Module based factors"
+author: "XSun"
+date: "2021-02-19"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+We used WGCNA to find modules in GTEx expression data. Then inferred some expression factors in each module with the expectation that these factor can capture the biological processes better. 
+
+## Module construction - WGCNA
+
+ [For more details](https://xsun1229.github.io/factor_analysis/wgcna_module.html)
+
+
+## Factor analysis
+
+When employing CanonicalPathway to run PLIER, only the first 3 modules can be used in the software and get the factors. Others cannot be used correctly in PLIER because the datasets are small. The table below shows the number of genes and factors in module.
+
+| Module             | 1    | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11 | 12 | 13 | 14 |
+|--------------------|------|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|----|----|----|
+| genes per module   | 1888 | 774 | 431 | 328 | 245 | 226 | 204 | 156 | 114 | 103 | 58 | 36 | 34 | 33 |
+| factors per module | 120   | 114  | 118  | -  | -  | -  | -  | -  | -  | -  | - | - | - | -  |
+
+
+The websites below contain 'factor construction', 'factor evaluation', 'prediction models' and 'ldsc' parts.
+
+-  [Factors from Module 1](https://xsun1229.github.io/factor_analysis/modu1_factor_pliercanon.html)
+
+-  [Factors from Module 2](https://xsun1229.github.io/factor_analysis/modu2_factor_pliercanon.html)
+
+-  [Factors from Module 3](https://xsun1229.github.io/factor_analysis/modu3_factor_pliercanon.html)

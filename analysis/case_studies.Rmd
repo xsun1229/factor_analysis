@@ -1,0 +1,33 @@
+---
+title: "Case Studies"
+author: "XSun"
+date: "2021-02-19"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# Introduction
+
+Some special cases and our motivating examples are here.
+
+# IDIN
+
+In [Bayesian detection of expression quantitative trait [Genetics, 2011]](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3241411/), authors used HESS to analyze the larger IDIN(IRF7-driven inflammatory network) and found two SNPs, [rs9557207](https://www.ncbi.nlm.nih.gov/snp/rs9557207) and [rs11616269](https://www.ncbi.nlm.nih.gov/snp/rs11616269),which are detected as hotspots for the IDIN expression. 
+
+I extracted sevral factors from IDIN gene expression matrix (GTEx whole blood data)/part of IDIN gene expression matrix and performed factor analysis to find if any factor associates with the two SNPs.
+
+  - [PLIER factors](https://xsun1229.github.io/factor_analysis/idin_plier_allpathway.html)
+  
+  - [FLASH factors](https://xsun1229.github.io/factor_analysis/idin_flash.html) contains association test for:
+      
+      Factors ~ rs11616269/rs9557207.
+      
+      Expression data of SNP associated genes ~ SNPs
+      
+      Factors ~ EBI2 expression
+
+# T1D-PC5
+
+From [PC&PEER from KEGG pathways](https://xsun1229.github.io/factor_analysis/eval_kegg.html), I found that the 5th PC of Type I diabetes mellitus pathway has the heritability over 0.99. So I did further analysis for this factor. [For more details](https://xsun1229.github.io/factor_analysis/T1D.html)
+
