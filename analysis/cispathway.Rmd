@@ -1,0 +1,26 @@
+---
+title: "GWAS convergence on pathways using cis-eQTLs"
+author: "XSun"
+date: "2021-02-22"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# **Testing the effect of cis-eQTLs on factors**
+
+## Methods 
+
+1. Find the genes have non-zero loading for factors. 
+
+2. Find the top cis-eQTLs for each gene from our data. Some genes have more than one top cis-eQTLs(some SNPs have the same lowest p-value). We keep all those cis-eQTL.
+
+3. Filter all top cis-eQTLs again by their GWAS p-values. 
+
+4. We made scatter plots to compare their GWAS effect with their gene effect*sign of the gene loading. We also fitted the points with intercept = 0. The p-values, r-squareds, and fitting slopes are also shown in the plots. 
+
+
+## Results
+
+We juse focused on the LV-trait pairs that have more than 2 SNPs with FDR < 0.2. We have 68 pairs in total.In 61 of them, some cis-eQTLs have p-values < 5e-7 in GWAS. The scatter plots are [here](https://drive.google.com/drive/folders/1ELyqIUKm9Cad1-Q9Tk0PHFnJCE1C1-Jw?usp=sharing)
+

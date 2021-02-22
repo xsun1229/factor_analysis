@@ -7,13 +7,13 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+# **Introduction**
 
 In this part, we use SuSiE to compute the posterior probability that a SNP to be causal for both LVs and traits.
 
-## PIP comparison under different settings for LVs/traits
+# **PIP comparison under different settings for LVs/traits**
 
-### Method 
+## Method 
 
 1. LV 
 
@@ -23,7 +23,7 @@ We used individual data(GTEx, 670 samples) to compute the PIPs for SNPs. We trie
 
 In this part, we used summary statistics. The LD reference panel was the same with LV part and corrected by the sample size(670). We also tried L = 10/ L = 1.
 
-### Results
+## Results
 
 We tested 156 regions in total. 
 
@@ -41,9 +41,9 @@ This figure shows the number of regions have more than 1 high/median/low pip SNP
 
 From the plots above, we can find that most regions usually have only one SNP that has high/median pip.
 
-## Grouped results
+# **Grouped results**
 
-### Methods
+## Methods
 
 In this part, we grouped the SNPs according their pip(high/median/low) from LV susie results. For the SNPs in each group, we computed their pip related to the traits. And made a boxplot for each region. 
 
