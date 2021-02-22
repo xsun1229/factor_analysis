@@ -17,10 +17,17 @@ editor_options:
 
 3. Filter all top cis-eQTLs again by their GWAS p-values. 
 
-4. We made scatter plots to compare their GWAS effect with their gene effect*sign of the gene loading. We also fitted the points with intercept = 0. The p-values, r-squareds, and fitting slopes are also shown in the plots. 
+4. We did binomial tests to test if the signs of SNPs' GWAS effects match the sign of their gene effects*sign of the gene loadings. Our hypothesis is: the matching probability is 0.5. 
 
 
 ## Results
 
-We juse focused on the LV-trait pairs that have more than 2 SNPs with FDR < 0.2. We have 68 pairs in total.In 61 of them, some cis-eQTLs have p-values < 5e-7 in GWAS. The scatter plots are [here](https://drive.google.com/drive/folders/1ELyqIUKm9Cad1-Q9Tk0PHFnJCE1C1-Jw?usp=sharing)
+We juse focused on the LV-trait pairs that have more than 2 SNPs with FDR < 0.2. We have 68 pairs in total.In 61 of them, some cis-eQTLs have p-values < 5e-7 in GWAS.
+
+We made a table to show the binomial test results. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/binom_results.rdata")
+DT::datatable(results, options = list(pageLength =20))
+```
 
