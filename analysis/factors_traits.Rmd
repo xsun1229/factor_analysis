@@ -31,10 +31,9 @@ Each setting below contains effectsize analysis&resampling, colocalization analy
 
 - [Adipose Subcutaneous](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_adipose_sub.html)
 
+- [Skeletal muscle](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_muscle.html)
 
 - [GEUVADIS](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.html)
-
-
 
 
 ### PEER 
