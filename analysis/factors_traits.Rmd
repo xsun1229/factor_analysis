@@ -19,7 +19,7 @@ Then we strengthen hypothesis: if the effects of SNPs on LV is correlated with t
 
 ## *1. Effect size & Colocalization tests based on FDR cutoff for different factors*
 
-To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the [Catalog of Published GWAS](https://www.ebi.ac.uk/gwas/). I selected the SNPs with fdr < 0.05/ fdr < 0.01/ pval < 5e-8. Then, I did association tests for the factors with the SNPs.
+To address issues with respect to computational time and multiple testing, I confined our analysis to those SNPs present in the [Catalog of Published GWAS](https://www.ebi.ac.uk/gwas/). I selected the SNPs with pval < 5e-8/5e-7. Then, I did association tests for the factors with the SNPs.
 
 Each setting below contains effectsize analysis&resampling, colocalization analysis, enrichment analysis.
 
@@ -27,11 +27,15 @@ Each setting below contains effectsize analysis&resampling, colocalization analy
 
 - [Whole Blood](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html)
 
+- [Whole Blood, filtered by pval<5e-7](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_pval5e7.html)
 
 - [Adipose Subcutaneous](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_adipose_sub.html)
 
 
 - [GEUVADIS](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.html)
+
+
+
 
 ### PEER 
 
@@ -65,4 +69,4 @@ We used SuSiE to test if our colocalization results are reliable.
 
 # **GWAS convergence on pathways using cis-eQTLs**
 
-
+[For more details](https://xsun1229.github.io/factor_analysis/cispathway.html)
