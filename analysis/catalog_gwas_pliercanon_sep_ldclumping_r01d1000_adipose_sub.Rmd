@@ -1,5 +1,5 @@
 ---
-title: "catalog_gwas_pliercanon_sep_ldclumping_r01d1000_adipose_sub"
+title: "Effectsize & Colocalization & Enrichment Analysis for PLIER_Canonical factors(adipose_sub)"
 author: "XSun"
 date: "2020-11-19"
 output: workflowr::wflow_html

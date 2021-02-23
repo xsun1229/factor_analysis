@@ -1,5 +1,5 @@
 ---
-title: "catalog_gwas_peer_sep_ldclumping_r01d1000"
+title: "Effectsize & Colocalization & Enrichment Analysis for PEER factors(whole blood)"
 author: "XSun"
 date: "2020-10-19"
 output: workflowr::wflow_html
