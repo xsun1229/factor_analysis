@@ -11,9 +11,9 @@ editor_options:
 
 In this part, we use SuSiE to compute the posterior probability that a SNP to be causal for both LVs and traits.
 
-# **PIP comparison under different settings for LVs/traits**
+# **PIP comparison: Trying L=1, L=10 for both LV-Susie-L10, GWAS-Susie**
 
-## Method 
+## Compute PIP with Susie 
 
 1. LV 
 
@@ -23,7 +23,7 @@ We used individual data(GTEx, 670 samples) to compute the PIPs for SNPs. We trie
 
 In this part, we used summary statistics. The LD reference panel was the same with LV part and corrected by the sample size(670). We also tried L = 10/ L = 1.
 
-## Results
+## Count the SNPs have high/median/low PIP.
 
 We tested 156 regions in total. 
 
@@ -41,9 +41,7 @@ This figure shows the number of regions have more than 1 high/median/low pip SNP
 
 From the plots above, we can find that most regions usually have only one SNP that has high/median pip.
 
-# **Grouped results**
-
-## Methods
+## Group the SNPs according to their pip(high/median/low) in LV-susie results
 
 In this part, we grouped the SNPs according their pip(high/median/low) from LV susie results. For the SNPs in each group, we computed their pip related to the traits. And made a boxplot for each region. 
 
@@ -52,4 +50,18 @@ Susie can be run in the region containing >1 SNPs. Since most of regions do not 
 [Boxplots under L =1 setting](https://drive.google.com/drive/folders/1Nl5IzKC3UO4OUCFzojF1KbkYGdwBZfKK?usp=sharing)
 [Boxplots under L =10 setting](https://drive.google.com/drive/folders/1zBZU8MZQB3O5qJw4sNLsyQvDLyq6JQBM?usp=sharing)
 
+# **PIP comparison: LV-Susie-L10, GWAS-Susie-L1**
 
+We have 15 of 156 regions with credible sets from LV fine-mapping(under L=10 setting). In these regions, we do GWAS fine-mapping and obtain GWAS PIPs. Then group all SNPs in these regions by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_cs_boxplot.jpeg" width="30%">
+</figure>
+
+
+We also make a summary table to show PIPs of all SNPs in regions with credible sets. The table below shows the number of SNPs under different cutoff.
+
+|            | pip > 0.75 | 0.75 > pip > 0.5 | 0.5 > pip >0.25 | 0.25 > pip > 0 |
+|------------|------------|------------------|-----------------|----------------|
+| LV-SuSiE   | 12         | 7                | 12              | 14718          |
+| GWAS-SuSiE | 7          | 8                | 4               | 14734          |
