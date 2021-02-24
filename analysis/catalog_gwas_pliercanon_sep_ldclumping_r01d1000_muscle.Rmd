@@ -1,5 +1,5 @@
 ---
-title: "catalog_gwas_pliercanon_sep_ldclumping_r01d1000_muscle"
+title: "Effectsize & Colocalization &for PLIER_Canonical factors(muscle)"
 author: "XSun"
 date: "2021-01-30"
 output: workflowr::wflow_html
