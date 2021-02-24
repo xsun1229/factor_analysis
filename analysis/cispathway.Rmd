@@ -15,19 +15,37 @@ editor_options:
 
 2. Find the top cis-eQTLs for each gene from our data. Some genes have more than one top cis-eQTLs(some SNPs have the same lowest p-value). We keep all those cis-eQTL.
 
-3. Filter all top cis-eQTLs again by their GWAS p-values. 
+3. Filter all top cis-eQTLs again by their GWAS p-values(5e-7/5e-6). 
 
 4. We did binomial tests to test if the signs of SNPs' GWAS effects match the sign of their gene effects*sign of the gene loadings. Our hypothesis is: the matching probability is 0.5. 
 
 
-## Results
+## Results -- filter top cis-eQTLs by GWAS p-values = 5e-7
 
 We juse focused on the LV-trait pairs that have more than 2 SNPs with FDR < 0.2. We have 68 pairs in total.In 61 of them, some cis-eQTLs have p-values < 5e-7 in GWAS.
 
 We made a table to show the binomial test results. 
 
+"num_same_sign" means the number of top cis-eqtls whose  GWAS effects signs match the signs of their gene effects*sign of the gene loadings
+
+"num_top_eqtls"  means the total number of top cis-eqtls that pass the GWAS threshold.
+
+"num_genes_with_loadings"  means the number of genes with loading in each LV
+
+"num_cis_eqtls_in_genes" means number of cis-eQTLs in these genes
+
+"num_ciseqtl_under_gwascutoff" means number of cis-eQTLs with GWAS p-values < threshold
+
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/binom_results.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/binom_results_count.rdata")
 DT::datatable(results, options = list(pageLength =20))
 ```
 
+## Results -- filter top cis-eQTLs by GWAS p-values = 5e-6
+
+We juse focused on the LV-trait pairs that have more than 2 SNPs with FDR < 0.2. We have 68 pairs in total.In 65 of them, some cis-eQTLs have p-values < 5e-6 in GWAS.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/binom_results_count_pval5e6.rdata")
+DT::datatable(results, options = list(pageLength =20))
+```
