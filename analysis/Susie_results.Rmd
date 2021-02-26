@@ -50,7 +50,7 @@ Susie can be run in the region containing >1 SNPs. Since most of regions do not 
 [Boxplots under L =1 setting](https://drive.google.com/drive/folders/1Nl5IzKC3UO4OUCFzojF1KbkYGdwBZfKK?usp=sharing)
 [Boxplots under L =10 setting](https://drive.google.com/drive/folders/1zBZU8MZQB3O5qJw4sNLsyQvDLyq6JQBM?usp=sharing)
 
-# **PIP comparison: LV-Susie-L10, GWAS-Susie-L1**
+# **PIP comparison for regions with credible set: LV-Susie-L10, GWAS-Susie-L1**
 
 We have 15 of 156 regions with credible sets from LV fine-mapping(under L=10 setting). In these regions, we do GWAS fine-mapping and obtain GWAS PIPs. Then group all SNPs in these regions by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.
 
@@ -65,3 +65,19 @@ We also make a summary table to show PIPs of all SNPs in regions with credible s
 |------------|------------|------------------|-----------------|----------------|
 | LV-SuSiE   | 12         | 7                | 12              | 14718          |
 | GWAS-SuSiE | 7          | 8                | 4               | 14734          |
+
+# **PIP comparison for all regions: LV-Susie-L10, GWAS-Susie-L1**
+
+We do GWAS fine-mapping and obtain GWAS PIPs for all regions. Then group all SNPs by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion.jpeg" width="30%">
+</figure>
+
+
+We also make a summary table to show PIPs of all SNPs in regions with credible sets. The table below shows the number of SNPs under different cutoff.
+
+|            | pip > 0.75 | 0.75 > pip > 0.5 | 0.5 > pip >0.25 | 0.25 > pip > 0 |
+|------------|------------|------------------|-----------------|----------------|
+| LV-SuSiE   | 16         | 11               | 24              | 176246         |
+| GWAS-SuSiE | 67         | 33               | 49              | 176148         |
