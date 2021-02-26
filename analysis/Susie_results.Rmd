@@ -74,10 +74,15 @@ We do GWAS fine-mapping and obtain GWAS PIPs for all regions. Then group all SNP
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion.jpeg" width="30%">
 </figure>
 
-
 We also make a summary table to show PIPs of all SNPs in regions with credible sets. The table below shows the number of SNPs under different cutoff.
 
 |            | pip > 0.75 | 0.75 > pip > 0.5 | 0.5 > pip >0.25 | 0.25 > pip > 0 |
 |------------|------------|------------------|-----------------|----------------|
 | LV-SuSiE   | 16         | 11               | 24              | 176246         |
 | GWAS-SuSiE | 67         | 33               | 49              | 176148         |
+
+
+|                                  | gwaspip > 0.9 | 0.9 > gwaspip > 0.8 | 0.8 > gwaspip >0.7 | 0.7 > gwaspip > 0.6 | 0.6 > gwaspip > 0.5 | 0.5 > gwaspip > 0.4 | 0.4 > gwaspip > 0.3 | 0.3 > gwaspip > 0.2 | 0.2 > gwaspip > 0.1 | 0.1 > gwaspip > 0 |
+|----------------------------------|---------------|---------------------|--------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|-------------------|
+| lvpip > 0.25 (total num :51)     | 0             | 0                   | 0                  | 0                   | 0                   | 0                   | 0                   | 0                   | 0                   | 51                |
+| lvpip < 0.25 (total num: 176246) | 56            | 3                   | 15                 | 11                  | 15                  | 14                  | 20                  | 48                  | 92                  | 175972            |
