@@ -446,7 +446,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-02-24
+<strong>Last updated:</strong> 2021-02-26
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1cc1278662a22b8347a7c8baff6e1f951c4ee750targetblank1cc1278a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/1cc1278662a22b8347a7c8baff6e1f951c4ee750" target="_blank">1cc1278</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree969a85582e67ef2bb5901534fb4f8affdc9005f3targetblank969a855a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/969a85582e67ef2bb5901534fb4f8affdc9005f3" target="_blank">969a855</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1cc1278662a22b8347a7c8baff6e1f951c4ee750targetblank1cc1278a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree969a85582e67ef2bb5901534fb4f8affdc9005f3targetblank969a855a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/1cc1278662a22b8347a7c8baff6e1f951c4ee750" target="_blank">1cc1278</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/969a85582e67ef2bb5901534fb4f8affdc9005f3" target="_blank">969a855</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -496,15 +496,6 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    analysis/.Rhistory
-
-Untracked files:
-    Untracked:  output/binom_results.rdata
-    Untracked:  output/binom_results_count.rdata
-    Untracked:  output/binom_results_count_pval5e6.rdata
-    Untracked:  output/snp_cs_boxplot.jpeg
-
-Unstaged changes:
-    Modified:   analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_muscle.Rmd
 
 </code></pre>
 <p>
@@ -543,6 +534,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/969a85582e67ef2bb5901534fb4f8affdc9005f3/analysis/Susie_results.Rmd" target="_blank">969a855</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-02-26
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/4fbc581efa1c28bea26663048ca5994238b65d15/docs/Susie_results.html" target="_blank">4fbc581</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-02-24
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -672,8 +697,8 @@ update
 <p><a href="https://drive.google.com/drive/folders/1Nl5IzKC3UO4OUCFzojF1KbkYGdwBZfKK?usp=sharing">Boxplots under L =1 setting</a> <a href="https://drive.google.com/drive/folders/1zBZU8MZQB3O5qJw4sNLsyQvDLyq6JQBM?usp=sharing">Boxplots under L =10 setting</a></p>
 </div>
 </div>
-<div id="pip-comparison-lv-susie-l10-gwas-susie-l1" class="section level1">
-<h1><strong>PIP comparison: LV-Susie-L10, GWAS-Susie-L1</strong></h1>
+<div id="pip-comparison-for-regions-with-credible-set-lv-susie-l10-gwas-susie-l1" class="section level1">
+<h1><strong>PIP comparison for regions with credible set: LV-Susie-L10, GWAS-Susie-L1</strong></h1>
 <p>We have 15 of 156 regions with credible sets from LV fine-mapping(under L=10 setting). In these regions, we do GWAS fine-mapping and obtain GWAS PIPs. Then group all SNPs in these regions by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.</p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_cs_boxplot.jpeg" width="30%">
@@ -703,6 +728,41 @@ update
 <td>8</td>
 <td>4</td>
 <td>14734</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="pip-comparison-for-all-regions-lv-susie-l10-gwas-susie-l1" class="section level1">
+<h1><strong>PIP comparison for all regions: LV-Susie-L10, GWAS-Susie-L1</strong></h1>
+<p>We do GWAS fine-mapping and obtain GWAS PIPs for all regions. Then group all SNPs by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion.jpeg" width="30%">
+</figure>
+<p>We also make a summary table to show PIPs of all SNPs in regions with credible sets. The table below shows the number of SNPs under different cutoff.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>pip &gt; 0.75</th>
+<th>0.75 &gt; pip &gt; 0.5</th>
+<th>0.5 &gt; pip &gt;0.25</th>
+<th>0.25 &gt; pip &gt; 0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LV-SuSiE</td>
+<td>16</td>
+<td>11</td>
+<td>24</td>
+<td>176246</td>
+</tr>
+<tr class="even">
+<td>GWAS-SuSiE</td>
+<td>67</td>
+<td>33</td>
+<td>49</td>
+<td>176148</td>
 </tr>
 </tbody>
 </table>
