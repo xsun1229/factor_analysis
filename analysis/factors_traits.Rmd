@@ -9,7 +9,7 @@ editor_options:
 
 
 
-# **Studying effects of factos on phenotypes with Mendelian Randomization**
+# **Studying effects of factors on phenotypes with Mendelian Randomization : factors are inferred from expression matrix**
 
 We'd like to show that the factors have a causal effect on outcome(traits), but it's difficult to establish.  
 So we state a weaker hypothesis first: GWAS variants of a trait often converge to a relatively small number of processes, which can be represented as expression factors.
@@ -66,6 +66,20 @@ We used SuSiE to test if our colocalization results are reliable.
 - [Using truncated normal distribution for IV and Non-IV variables](https://xsun1229.github.io/factor_analysis/EM_algorithm_pliercanon_trunc.html)
 
 
+# **Studying effects of factors on phenotypes with Mendelian Randomization : factors are inferred from known pathways**
+
+- KEGG pathways
+
+We have 332 human pathways from KEGG. For each pathway, we inferred 5 PCs and 5 PEER factors from the gene expression matrix. We obtained 1646 PCs and 1634 PEER factors in total. 
+
+[PCs](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits.html)
+
+[PEER](https://xsun1229.github.io/factor_analysis/kegg_peer_factor_traits.html)
+
+
+
 # **GWAS convergence on pathways using cis-eQTLs**
 
 [For more details](https://xsun1229.github.io/factor_analysis/cispathway.html)
+
+

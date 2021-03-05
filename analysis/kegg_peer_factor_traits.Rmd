@@ -1,0 +1,83 @@
+---
+title: "kegg_peer_factor_traits"
+author: "XSun"
+date: "2021-03-05"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## *Introduction*
+
+In this part, we inferred 1634 PCs from 332 KEGG pathways and studied the effects of these PCs on phenotype.
+
+The data we used in this part are the same with [earlier analyses](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html).
+
+
+## *Association tests*
+
+We did association tests for PEER factors and SNPs have p-value < 5E-8 in each trait-GWAS. The association tests were corrected by 10 whole genome PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
+
+We used 'qvalue' R package to compute the fdr from p-values for each SNP.
+
+ The 'num_significant_pairs' indicates the number of significant pairs under each threshold. If a trait~factor pair has as least 1 significant SNP, we named it as 'significant pair'. The thresholds are 'fdr < 0.1','fdr < 0.2'.
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_kegg_peer_sig_pairs.rdata")
+knitr::kable(sum, caption = "number of significant trait-LV associations across all traits")
+```
+
+## *Effectsize analysis*
+
+For the pairs have more than 2 SNPs with FDR <0.2 (830 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 125 pairs show sign consistency (have p-values < 0.05 in resampling). We just focused on these pairs in the following analysis 
+
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_kegg_peer.txt", header = T)
+DT::datatable(sum, options = list(pageLength =20))
+```
+
+
+To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_keeg_peer.jpeg" width="60%">
+</figure>
+
+
+## *Colocalization analysis*
+
+We tested 599 regions in the colocalization analysis using Coloc package. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization.
+
+SNP selection: 1. Chose the SNPs in the info table. 2. For each SNP, the region used in colocalization analysis is between [pos-250kb, pos+250kb]. 3. All SNPs in this region are included in alalysis.
+
+There're 22 regions have PP4 > 0.9, 61 regions have PP4 > 0.8.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_table_kegg_pcs.rdata")
+DT::datatable(table, options = list(pageLength =20))
+```
+
+## *SuSiE study*
+
+We do GWAS fine-mapping and obtain GWAS PIPs for all 599 regions. Then group all SNPs by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion_kegg_pcs.jpeg" width="80%">
+</figure>
+
+
+|                                  | gwaspip > 0.9 | 0.9 > gwaspip > 0.8 | 0.8 > gwaspip >0.7 | 0.7 > gwaspip > 0.6 | 0.6 > gwaspip > 0.5 | 0.5 > gwaspip > 0.4 | 0.4 > gwaspip > 0.3 | 0.3 > gwaspip > 0.2 | 0.2 > gwaspip > 0.1 | 0.1 > gwaspip > 0.05 | 0.05 > gwaspip > 0 |
+|----------------------------------|---------------|---------------------|--------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|-------------------|-------------------|
+| lvpip > 0.25 (total num :3239)     | 5             | 0                   | 0                  | 0                   | 1                   | 2                   | 0                   | 5                   | 2                   | 0                | 3224                |
+| 0.25 > lvpip > 0.1 (total num: 0) | 0            | 0                   | 0                 | 0                  | 0                  | 0                  | 0                  | 0                 | 0                  | 0            | 0            |
+| 0.1 > lvpip > 0 (total num: 1607309) | 319            | 56                   | 17                 | 35                  | 104                  | 103                  | 158                  | 153                  | 184                  | 274            | 1605906           |
+
+
