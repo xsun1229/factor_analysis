@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2021-03-04" />
+
+<title>Studying effects of PCs on phenotypes (KEGG)</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Studying effects of PCs on phenotypes (KEGG)</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2021-03-04</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2021-03-05
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div class="panel-group" id="workflowr-checks">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/sum_kegg_pcs_sig_pairs.rdata
+</td>
+<td style="text-align:left;">
+output/sum_kegg_pcs_sig_pairs.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_kegg_pc.txt
+</td>
+<td style="text-align:left;">
+output/simple_sum_kegg_pc.txt
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/coloc_table_kegg_pcs.rdata
+</td>
+<td style="text-align:left;">
+output/coloc_table_kegg_pcs.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree17cfa842350dfa127cde0777f5fa257abae8ce38targetblank17cfa84a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/17cfa842350dfa127cde0777f5fa257abae8ce38" target="_blank">17cfa84</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree17cfa842350dfa127cde0777f5fa257abae8ce38targetblank17cfa84a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/17cfa842350dfa127cde0777f5fa257abae8ce38" target="_blank">17cfa84</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+
+Untracked files:
+    Untracked:  output/coloc_table_kegg_peer.rdata
+
+Unstaged changes:
+    Modified:   analysis/kegg_peer_factor_traits.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/kegg_pcs_factor_traits.Rmd</code>) and HTML (<code>docs/kegg_pcs_factor_traits.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/17cfa842350dfa127cde0777f5fa257abae8ce38/analysis/kegg_pcs_factor_traits.Rmd" target="_blank">17cfa84</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-03-05
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2><em>Introduction</em></h2>
+<p>In this part, we inferred 1646 PCs from 332 KEGG pathways and studied the effects of these PCs on phenotype.</p>
+<p>The data we used in this part are the same with <a href="https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html">earlier analyses</a>.</p>
+</div>
+<div id="association-tests" class="section level2">
+<h2><em>Association tests</em></h2>
+<p>We did association tests for PCs and SNPs have p-value &lt; 5E-8 in each trait-GWAS. The association tests were corrected by 10 whole genome PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE</p>
+<p>We used ‘qvalue’ R package to compute the fdr from p-values for each SNP.</p>
+<p>The ‘num_significant_pairs’ indicates the number of significant pairs under each threshold. If a trait~factor pair has as least 1 significant SNP, we named it as ‘significant pair’. The thresholds are ‘fdr &lt; 0.1’,‘fdr &lt; 0.2’.</p>
+<table>
+<caption>number of significant trait-LV associations across all traits</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">num_sigpairs_fdr010</td>
+<td align="right">1380</td>
+</tr>
+<tr class="even">
+<td align="left">num_sigpairs_fdr020</td>
+<td align="right">4116</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="effectsize-analysis" class="section level2">
+<h2><em>Effectsize analysis</em></h2>
+<p>For the pairs have more than 2 SNPs with FDR &lt;0.2 (830 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.</p>
+<p>To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The ‘p-value from resampling’ is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.</p>
+<p>There are 125 pairs show sign consistency (have p-values &lt; 0.05 in resampling). We just focused on these pairs in the following analysis</p>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268","269","270","271","272","273","274","275","276","277","278","279","280","281","282","283","284","285","286","287","288","289","290","291","292","293","294","295","296","297","298","299","300","301","302","303","304","305","306","307","308","309","310","311","312","313","314","315","316","317","318","319","320","321","322","323","324","325","326","327","328","329","330","331","332","333","334","335","336","337","338","339","340","341","342","343","344","345","346","347","348","349","350","351","352","353","354","355","356","357","358","359","360","361","362","363","364","365","366","367","368","369","370","371","372","373","374","375","376","377","378","379","380","381","382","383","384","385","386","387","388","389","390","391","392","393","394","395","396","397","398","399","400","401","402","403","404","405","406","407","408","409","410","411","412","413","414","415","416","417","418","419","420","421","422","423","424","425","426","427","428","429","430","431","432","433","434","435","436","437","438","439","440","441","442","443","444","445","446","447","448","449","450","451","452","453","454","455","456","457","458","459","460","461","462","463","464","465","466","467","468","469","470","471","472","473","474","475","476","477","478","479","480","481","482","483","484","485","486","487","488","489","490","491","492","493","494","495","496","497","498","499","500","501","502","503","504","505","506","507","508","509","510","511","512","513","514","515","516","517","518","519","520","521","522","523","524","525","526","527","528","529","530","531","532","533","534","535","536","537","538","539","540","541","542","543","544","545","546","547","548","549","550","551","552","553","554","555","556","557","558","559","560","561","562","563","564","565","566","567","568","569","570","571","572","573","574","575","576","577","578","579","580","581","582","583","584","585","586","587","588","589","590","591","592","593","594","595","596","597","598","599","600","601","602","603","604","605","606","607","608","609","610","611","612","613","614","615","616","617","618","619","620","621","622","623","624","625","626","627","628","629","630","631","632","633","634","635","636","637","638","639","640","641","642","643","644","645","646","647","648","649","650","651","652","653","654","655","656","657","658","659","660","661","662","663","664","665","666","667","668","669","670","671","672","673","674","675","676","677","678","679","680","681","682","683","684","685","686","687","688","689","690","691","692","693","694","695","696","697","698","699","700","701","702","703","704","705","706","707","708","709","710","711","712","713","714","715","716","717","718","719","720","721","722","723","724","725","726","727","728","729","730","731","732","733","734","735","736","737","738","739","740","741","742","743","744","745","746","747","748","749","750","751","752","753","754","755","756","757","758","759","760","761","762","763","764","765","766","767","768","769","770","771","772","773","774","775","776","777","778","779","780","781","782","783","784","785","786","787","788","789","790","791","792","793","794","795","796","797","798","799","800","801","802","803","804","805","806","807","808","809","810","811","812","813","814","815","816","817","818","819","820","821","822","823","824","825","826","827","828","829","830"],["pwy110_pc3","pwy131_pc4","pwy15_pc3","pwy175_pc2","pwy193_pc4","pwy193_pc5","pwy196_pc4","pwy238_pc3","pwy238_pc5","pwy26_pc4","pwy310_pc3","pwy320_pc3","pwy321_pc5","pwy324_pc4","pwy325_pc3","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy327_pc3","pwy33_pc5","pwy331_pc5","pwy35_pc1","pwy39_pc4","pwy45_pc3","pwy76_pc3","pwy77_pc4","pwy80_pc4","pwy82_pc5","pwy95_pc4","pwy97_pc4","pwy99_pc4","pwy185_pc5","pwy186_pc5","pwy193_pc4","pwy193_pc5","pwy21_pc3","pwy238_pc3","pwy238_pc4","pwy238_pc5","pwy279_pc5","pwy320_pc3","pwy321_pc3","pwy321_pc5","pwy325_pc3","pwy325_pc4","pwy325_pc5","pwy326_pc3","pwy326_pc4","pwy331_pc5","pwy50_pc4","pwy64_pc3","pwy99_pc3","pwy107_pc4","pwy131_pc3","pwy134_pc3","pwy146_pc4","pwy15_pc5","pwy165_pc5","pwy167_pc5","pwy170_pc4","pwy224_pc4","pwy277_pc5","pwy320_pc2","pwy325_pc3","pwy326_pc3","pwy329_pc5","pwy58_pc2","pwy71_pc3","pwy74_pc2","pwy110_pc4","pwy114_pc4","pwy136_pc3","pwy139_pc3","pwy153_pc5","pwy154_pc4","pwy169_pc4","pwy178_pc3","pwy178_pc4","pwy185_pc5","pwy186_pc4","pwy188_pc4","pwy193_pc4","pwy193_pc5","pwy202_pc5","pwy203_pc3","pwy206_pc3","pwy211_pc3","pwy216_pc4","pwy231_pc5","pwy235_pc4","pwy238_pc5","pwy242_pc3","pwy261_pc4","pwy262_pc3","pwy273_pc2","pwy284_pc3","pwy288_pc4","pwy289_pc4","pwy294_pc4","pwy298_pc4","pwy301_pc3","pwy313_pc4","pwy315_pc4","pwy320_pc3","pwy321_pc5","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy331_pc5","pwy47_pc3","pwy58_pc2","pwy60_pc3","pwy108_pc4","pwy164_pc2","pwy172_pc5","pwy18_pc4","pwy141_pc2","pwy15_pc4","pwy175_pc3","pwy193_pc5","pwy238_pc5","pwy246_pc5","pwy26_pc2","pwy279_pc5","pwy320_pc3","pwy321_pc5","pwy322_pc4","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy326_pc5","pwy328_pc5","pwy329_pc5","pwy330_pc4","pwy66_pc5","pwy87_pc3","pwy90_pc3","pwy120_pc5","pwy140_pc4","pwy146_pc4","pwy15_pc5","pwy156_pc2","pwy193_pc4","pwy193_pc5","pwy22_pc4","pwy238_pc3","pwy238_pc4","pwy238_pc5","pwy24_pc4","pwy26_pc2","pwy28_pc4","pwy282_pc5","pwy290_pc5","pwy292_pc4","pwy320_pc3","pwy321_pc3","pwy321_pc5","pwy322_pc4","pwy325_pc3","pwy325_pc4","pwy325_pc5","pwy326_pc3","pwy326_pc4","pwy331_pc5","pwy43_pc2","pwy45_pc2","pwy5_pc3","pwy55_pc5","pwy101_pc4","pwy103_pc2","pwy136_pc4","pwy138_pc3","pwy16_pc2","pwy176_pc3","pwy178_pc3","pwy180_pc4","pwy19_pc2","pwy193_pc5","pwy197_pc5","pwy20_pc4","pwy202_pc5","pwy203_pc4","pwy222_pc3","pwy231_pc3","pwy234_pc4","pwy238_pc5","pwy253_pc5","pwy258_pc4","pwy259_pc5","pwy261_pc4","pwy273_pc5","pwy283_pc3","pwy284_pc4","pwy285_pc3","pwy301_pc3","pwy301_pc4","pwy306_pc5","pwy311_pc3","pwy320_pc3","pwy321_pc5","pwy322_pc4","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy328_pc2","pwy331_pc4","pwy34_pc5","pwy40_pc2","pwy44_pc3","pwy47_pc3","pwy64_pc3","pwy70_pc1","pwy85_pc4","pwy88_pc4","pwy93_pc2","pwy97_pc3","pwy97_pc4","pwy99_pc4","pwy99_pc5","pwy101_pc1","pwy105_pc1","pwy106_pc1","pwy111_pc1","pwy113_pc1","pwy114_pc1","pwy116_pc1","pwy121_pc1","pwy124_pc1","pwy125_pc1","pwy125_pc5","pwy126_pc1","pwy130_pc1","pwy131_pc1","pwy134_pc1","pwy136_pc1","pwy137_pc1","pwy139_pc1","pwy142_pc1","pwy143_pc1","pwy144_pc1","pwy145_pc1","pwy151_pc1","pwy152_pc1","pwy153_pc1","pwy154_pc1","pwy155_pc1","pwy157_pc1","pwy159_pc1","pwy160_pc1","pwy160_pc4","pwy163_pc1","pwy165_pc1","pwy167_pc1","pwy169_pc1","pwy17_pc1","pwy170_pc1","pwy171_pc1","pwy180_pc1","pwy182_pc2","pwy183_pc1","pwy185_pc1","pwy185_pc4","pwy186_pc1","pwy187_pc1","pwy189_pc1","pwy193_pc1","pwy194_pc1","pwy195_pc1","pwy198_pc1","pwy199_pc1","pwy2_pc1","pwy201_pc1","pwy202_pc1","pwy203_pc1","pwy204_pc1","pwy205_pc1","pwy206_pc1","pwy209_pc1","pwy210_pc1","pwy213_pc1","pwy214_pc1","pwy218_pc1","pwy22_pc3","pwy223_pc1","pwy227_pc1","pwy231_pc1","pwy232_pc2","pwy236_pc1","pwy24_pc1","pwy240_pc1","pwy241_pc1","pwy243_pc1","pwy244_pc1","pwy244_pc2","pwy245_pc1","pwy25_pc2","pwy25_pc3","pwy257_pc1","pwy259_pc1","pwy267_pc1","pwy268_pc1","pwy270_pc1","pwy271_pc1","pwy274_pc1","pwy276_pc1","pwy279_pc1","pwy28_pc1","pwy285_pc1","pwy288_pc1","pwy289_pc1","pwy290_pc1","pwy292_pc1","pwy293_pc1","pwy294_pc1","pwy295_pc1","pwy299_pc1","pwy301_pc1","pwy304_pc1","pwy307_pc1","pwy312_pc1","pwy314_pc1","pwy315_pc1","pwy316_pc1","pwy317_pc1","pwy318_pc1","pwy319_pc1","pwy321_pc1","pwy322_pc1","pwy323_pc2","pwy325_pc5","pwy326_pc5","pwy327_pc1","pwy328_pc1","pwy329_pc1","pwy330_pc1","pwy331_pc1","pwy36_pc1","pwy4_pc4","pwy43_pc1","pwy44_pc1","pwy45_pc1","pwy46_pc1","pwy47_pc1","pwy53_pc1","pwy6_pc1","pwy61_pc1","pwy61_pc3","pwy64_pc3","pwy67_pc1","pwy74_pc1","pwy8_pc1","pwy83_pc1","pwy87_pc1","pwy9_pc1","pwy91_pc1","pwy92_pc1","pwy93_pc1","pwy96_pc5","pwy97_pc1","pwy97_pc4","pwy98_pc1","pwy99_pc1","pwy99_pc4","pwy127_pc3","pwy142_pc4","pwy145_pc4","pwy167_pc2","pwy171_pc5","pwy184_pc5","pwy193_pc2","pwy193_pc5","pwy199_pc4","pwy214_pc3","pwy22_pc4","pwy224_pc3","pwy236_pc3","pwy238_pc5","pwy268_pc3","pwy277_pc3","pwy30_pc5","pwy305_pc4","pwy320_pc3","pwy321_pc5","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy4_pc2","pwy76_pc2","pwy77_pc2","pwy90_pc3","pwy11_pc1","pwy185_pc4","pwy189_pc5","pwy193_pc5","pwy238_pc5","pwy250_pc3","pwy320_pc3","pwy321_pc5","pwy322_pc4","pwy323_pc2","pwy325_pc4","pwy326_pc4","pwy43_pc4","pwy57_pc5","pwy62_pc4","pwy62_pc5","pwy69_pc5","pwy79_pc4","pwy172_pc4","pwy193_pc5","pwy21_pc1","pwy238_pc5","pwy250_pc3","pwy253_pc1","pwy297_pc3","pwy320_pc3","pwy321_pc5","pwy324_pc5","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy326_pc5","pwy34_pc3","pwy66_pc5","pwy98_pc5","pwy99_pc4","pwy102_pc2","pwy104_pc2","pwy12_pc1","pwy132_pc2","pwy133_pc1","pwy14_pc5","pwy146_pc1","pwy167_pc5","pwy178_pc1","pwy193_pc5","pwy196_pc2","pwy197_pc5","pwy202_pc5","pwy222_pc3","pwy238_pc5","pwy242_pc3","pwy258_pc2","pwy258_pc4","pwy259_pc5","pwy273_pc5","pwy28_pc4","pwy283_pc3","pwy284_pc4","pwy301_pc3","pwy310_pc1","pwy311_pc3","pwy320_pc3","pwy320_pc5","pwy321_pc5","pwy322_pc4","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy328_pc2","pwy330_pc2","pwy331_pc4","pwy34_pc3","pwy34_pc5","pwy44_pc3","pwy47_pc3","pwy52_pc2","pwy7_pc1","pwy85_pc4","pwy88_pc4","pwy90_pc5","pwy93_pc2","pwy97_pc3","pwy97_pc4","pwy99_pc5","pwy103_pc1","pwy176_pc3","pwy176_pc5","pwy193_pc5","pwy20_pc4","pwy203_pc4","pwy222_pc3","pwy234_pc4","pwy238_pc5","pwy244_pc5","pwy253_pc5","pwy259_pc5","pwy273_pc5","pwy283_pc3","pwy284_pc4","pwy301_pc3","pwy305_pc5","pwy306_pc5","pwy311_pc3","pwy320_pc3","pwy321_pc5","pwy322_pc4","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy331_pc4","pwy40_pc2","pwy44_pc3","pwy47_pc3","pwy64_pc3","pwy85_pc4","pwy88_pc4","pwy90_pc5","pwy93_pc2","pwy97_pc3","pwy97_pc4","pwy99_pc5","pwy115_pc5","pwy141_pc4","pwy182_pc4","pwy193_pc5","pwy208_pc2","pwy226_pc4","pwy238_pc5","pwy250_pc5","pwy264_pc3","pwy316_pc5","pwy320_pc3","pwy321_pc5","pwy325_pc4","pwy326_pc4","pwy328_pc4","pwy330_pc4","pwy46_pc4","pwy60_pc3","pwy78_pc4","pwy84_pc2","pwy95_pc2","pwy103_pc2","pwy11_pc1","pwy111_pc2","pwy113_pc2","pwy114_pc2","pwy124_pc2","pwy135_pc2","pwy141_pc2","pwy142_pc2","pwy149_pc5","pwy156_pc3","pwy166_pc1","pwy175_pc4","pwy18_pc2","pwy183_pc2","pwy186_pc2","pwy186_pc5","pwy189_pc2","pwy193_pc4","pwy206_pc2","pwy21_pc4","pwy221_pc2","pwy222_pc2","pwy229_pc2","pwy230_pc5","pwy231_pc2","pwy231_pc5","pwy238_pc5","pwy251_pc5","pwy259_pc2","pwy280_pc3","pwy297_pc4","pwy301_pc2","pwy304_pc2","pwy305_pc2","pwy308_pc2","pwy310_pc2","pwy313_pc2","pwy314_pc2","pwy315_pc2","pwy316_pc2","pwy317_pc2","pwy318_pc2","pwy320_pc3","pwy321_pc5","pwy325_pc4","pwy326_pc4","pwy37_pc3","pwy40_pc3","pwy41_pc4","pwy54_pc2","pwy61_pc2","pwy61_pc4","pwy62_pc5","pwy71_pc1","pwy72_pc5","pwy78_pc4","pwy88_pc2","pwy97_pc4","pwy99_pc4","pwy100_pc1","pwy106_pc4","pwy107_pc1","pwy128_pc1","pwy170_pc3","pwy186_pc5","pwy193_pc5","pwy203_pc4","pwy21_pc1","pwy238_pc5","pwy252_pc3","pwy253_pc5","pwy27_pc2","pwy29_pc5","pwy3_pc4","pwy320_pc3","pwy321_pc5","pwy325_pc4","pwy326_pc4","pwy60_pc5","pwy72_pc1","pwy84_pc3","pwy85_pc2","pwy85_pc3","pwy85_pc5","pwy10_pc4","pwy11_pc5","pwy14_pc5","pwy180_pc5","pwy187_pc5","pwy21_pc4","pwy211_pc4","pwy297_pc3","pwy332_pc3","pwy68_pc4","pwy77_pc4","pwy84_pc3","pwy97_pc4","pwy99_pc4","pwy108_pc5","pwy13_pc4","pwy179_pc4","pwy232_pc3","pwy243_pc5","pwy4_pc5","pwy62_pc1","pwy103_pc5","pwy110_pc5","pwy188_pc5","pwy213_pc5","pwy229_pc4","pwy279_pc4","pwy140_pc4","pwy144_pc5","pwy156_pc2","pwy174_pc3","pwy174_pc5","pwy185_pc4","pwy198_pc2","pwy238_pc5","pwy24_pc5","pwy244_pc2","pwy295_pc5","pwy320_pc3","pwy321_pc5","pwy322_pc4","pwy325_pc4","pwy326_pc3","pwy326_pc4","pwy33_pc3","pwy60_pc3","pwy62_pc5","pwy69_pc5","pwy97_pc4","pwy99_pc4","pwy100_pc2","pwy13_pc1","pwy134_pc1","pwy14_pc1","pwy141_pc1","pwy15_pc1","pwy153_pc4","pwy153_pc5","pwy154_pc1","pwy168_pc5","pwy169_pc1","pwy171_pc5","pwy193_pc5","pwy194_pc1","pwy197_pc1","pwy198_pc1","pwy209_pc1","pwy215_pc3","pwy218_pc1","pwy223_pc1","pwy226_pc1","pwy236_pc1","pwy238_pc3","pwy238_pc5","pwy242_pc1","pwy29_pc2","pwy298_pc5","pwy314_pc5","pwy317_pc4","pwy320_pc3","pwy321_pc5","pwy323_pc4","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy326_pc5","pwy328_pc1","pwy329_pc1","pwy329_pc4","pwy35_pc1","pwy40_pc5","pwy43_pc1","pwy46_pc1","pwy56_pc1","pwy57_pc1","pwy58_pc1","pwy59_pc1","pwy61_pc1","pwy74_pc1","pwy81_pc3","pwy83_pc4","pwy87_pc1","pwy12_pc1","pwy130_pc1","pwy147_pc1","pwy148_pc1","pwy152_pc2","pwy156_pc2","pwy164_pc5","pwy170_pc1","pwy183_pc1","pwy193_pc5","pwy209_pc4","pwy21_pc1","pwy21_pc3","pwy217_pc1","pwy22_pc1","pwy225_pc1","pwy23_pc1","pwy238_pc3","pwy238_pc5","pwy243_pc1","pwy249_pc1","pwy253_pc1","pwy260_pc1","pwy264_pc3","pwy29_pc1","pwy30_pc1","pwy304_pc1","pwy305_pc1","pwy308_pc1","pwy309_pc1","pwy312_pc1","pwy313_pc1","pwy320_pc3","pwy321_pc5","pwy325_pc3","pwy325_pc4","pwy326_pc3","pwy326_pc4","pwy327_pc3","pwy33_pc1","pwy34_pc1","pwy39_pc1","pwy43_pc3","pwy47_pc4","pwy49_pc2","pwy52_pc1","pwy61_pc5","pwy68_pc1","pwy72_pc1","pwy76_pc3","pwy78_pc1","pwy89_pc1","pwy139_pc3","pwy167_pc5","pwy174_pc5","pwy193_pc5","pwy197_pc5","pwy200_pc3","pwy222_pc3","pwy238_pc5","pwy242_pc3","pwy247_pc3","pwy266_pc4","pwy273_pc5","pwy279_pc5","pwy28_pc5","pwy29_pc3","pwy301_pc3","pwy311_pc3","pwy32_pc2","pwy320_pc3","pwy321_pc5","pwy325_pc4","pwy325_pc5","pwy326_pc4","pwy331_pc4","pwy34_pc5","pwy36_pc2","pwy44_pc5","pwy47_pc3","pwy60_pc3","pwy74_pc4","pwy84_pc4","pwy85_pc4","pwy85_pc5","pwy86_pc5","pwy90_pc5","pwy97_pc3","pwy97_pc4","pwy99_pc5","pwy108_pc2","pwy117_pc3","pwy127_pc4","pwy148_pc3","pwy18_pc5","pwy198_pc2","pwy204_pc2","pwy21_pc5","pwy223_pc4","pwy234_pc5","pwy254_pc4","pwy28_pc2","pwy285_pc3","pwy287_pc3","pwy325_pc3","pwy42_pc3","pwy48_pc3","pwy64_pc2","pwy83_pc2","pwy93_pc2"],[2,2,2,2,2,11,2,2,10,3,2,11,9,3,2,9,2,11,2,2,3,2,2,2,2,2,2,2,2,2,3,2,2,2,23,2,2,3,27,3,27,4,27,6,25,10,3,29,2,3,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,3,2,10,2,2,2,2,2,2,3,10,3,2,2,3,3,2,2,2,2,3,4,2,7,6,8,2,8,2,2,3,2,2,3,2,2,2,2,2,4,6,2,2,2,6,5,2,5,6,6,2,4,3,3,2,2,3,3,2,2,2,2,2,12,2,3,2,13,3,2,3,2,2,2,14,4,12,3,4,12,6,3,13,2,2,2,2,3,2,2,2,2,2,2,2,2,2,9,2,2,2,2,2,2,2,9,2,2,2,2,2,2,2,2,2,2,2,3,10,10,3,9,5,10,2,3,2,2,2,2,2,2,2,2,2,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,4,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,4,2,2,3,2,2,2,7,2,2,2,2,2,11,2,3,2,2,10,8,8,3,11,2,2,2,2,2,2,2,2,3,2,3,3,2,2,3,3,2,2,2,2,2,2,2,6,2,10,2,2,2,8,7,2,7,5,8,2,3,2,2,2,2,2,2,2,2,2,2,2,2,8,2,2,2,2,10,2,3,2,2,2,2,2,2,2,2,2,8,2,10,3,9,6,8,2,2,3,2,2,2,2,2,2,2,2,2,2,3,3,2,2,2,2,7,2,2,2,2,10,2,2,2,2,2,2,2,3,2,2,9,9,3,8,4,9,3,2,2,2,2,2,2,3,2,3,3,2,2,2,2,3,2,2,4,2,2,2,4,2,3,3,2,2,2,2,2,2,3,2,2,3,2,2,2,3,2,2,3,2,2,3,2,3,2,2,2,2,2,2,2,3,2,2,3,2,2,2,2,2,3,2,3,4,3,3,3,4,3,3,2,3,2,2,3,2,3,3,3,2,2,2,4,2,3,2,2,2,3,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,3,2,2,2,2,3,2,2,3,3,2,2,2,2,2,2,2,2,2,2,2,2,4,2,2,2,2,2,2,2,2,2,3,2,3,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,3,5,3,2,2,2,2,2,2,2,2,2,4,2,2,2,2,2,5,4,2,5,2,4,4,3,2,3,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,3,3,2,2,2,3,2,5,2,2,2,2,2,2,2,2,6,2,3,2,2,2,2,2,2,2,2,2,2,3,6,6,2,6,2,6,2,2,2,3,2,2,2,2,2,2,2,3,2,2,2,2,2,9,3,2,2,13,2,2,2,2,3,2,3,2,2,2,11,11,10,4,12,4,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,4,3,3,2,2,2,2,2,2,2,3,2,3,2,2,2,2,2],[0.002,0.006,0.068,0.767,0.265,0.003,0.034,0.236,0.004,0.111,0.048,0.002,0.008,0.936,0.239,0.006,0.331,0.002,0.045,0.009,0.054,0.096,0.997,0.426,0.985,0.038,0.1,0.607,0.062,0.041,0,0.011,0.003,0.144,0.04,0.18,0.091,0.481,0.015,0.013,0.038,0.995,0.006,0.36,0.009,0.266,0.577,0.021,0.889,0.568,0.885,0.051,0.949,0.858,0.32,0.747,0.101,0.399,0.928,0.396,0.114,0.04,0.637,0.703,0.738,0.647,0.287,0.05,0.901,0.327,0.021,0.897,0.097,0.054,0.914,0,0.172,0.93,0.736,0.03,0.064,0.861,0.914,0.443,0.105,0.11,0.159,0.986,0.063,0.556,0.672,0.84,0.606,0.031,0.252,0.573,0.095,0.882,0.096,0.085,0.41,0.279,0.046,0.094,0.043,0.067,0.12,0.068,0.877,0.001,0.885,0.114,0.747,0.31,0.854,0.016,0.045,0.071,0.832,0.139,0.037,0.014,0.977,0.874,0.047,0.036,0.023,0.039,0.02,0.038,0.769,0.799,0.001,0.61,0.012,0.537,0.594,0.281,0.298,0.003,0.071,0.072,0.172,0,0.45,0.026,0.947,0,0.498,0.1,0.361,0.257,0.032,0.008,0,0.621,0,0.075,0.726,0,0.006,0.699,0,0.02,0.49,0.593,0.598,0.042,0.018,0.737,0.941,0.124,0.046,0.52,0.093,0.258,0.247,0.001,0.113,0.223,0.754,0.103,0.951,0.04,0.143,0.001,0.148,0.058,0.072,0.119,0.991,0.025,0.018,0.07,0.123,0.026,0.107,0.698,0.001,0.004,0.094,0.001,0.652,0,0.007,0.082,0.055,0.582,0.043,0.064,0.959,0.119,0.828,0.146,0.829,0.509,0.014,0.021,0.066,0.88,0.843,0.866,0.861,0.867,0.886,0.885,0.861,0.87,0.879,0.155,0.879,0.872,0.876,0.862,0.869,0.871,0.887,0.88,0.872,0.878,0.862,0.873,0.22,0.899,0.876,0.891,0.865,0.872,0.865,0.726,0.87,0.883,0.833,0.889,0.101,0.882,0.872,0.891,0.616,0.862,0.832,0.006,0.831,0.835,0,0.19,0.866,0.908,0.88,0.879,0.887,0.9,0.893,0.879,0.911,0.898,0.942,0.885,0.878,0.881,0.889,0.892,0.939,0.88,0.908,0.857,0.08,0.885,0.872,0.876,0.903,0.11,0.881,0.966,0.891,0.09,0.045,0.858,0.874,0.878,0.875,0.882,0.889,0.883,0.877,0.848,0.871,0.862,0.866,0.863,0.876,0.853,0.863,0.877,0.862,0.857,0.88,0.872,0.862,0.848,0.88,0.886,0.871,0.876,0.838,0.843,0.219,0.838,0.986,0.144,0.016,0.798,0.894,0.858,0.903,0.862,0.079,0.024,0.905,0.833,0.545,0.84,0.87,0.842,0.86,0.872,0.725,0.982,0.864,0.904,0.857,0.834,0.867,0.847,0.866,0.852,0.841,0.023,0.874,0.665,0.852,0.864,0.669,0.48,0.085,0.081,0.072,0.844,0.002,0.083,0.015,0.142,0.722,0.865,0.589,0.721,0.033,0.641,0.003,0.189,0.076,0.136,0.007,0.008,0.132,0.09,0.132,0.016,0.082,0.006,0.003,0.758,0.931,0.244,0.373,0.057,0.286,0.367,0.355,0.059,0.38,0.349,0.935,0.153,0.205,0.146,0.154,0.92,0.105,0.649,0.02,0.17,0.129,0.033,0.113,0.292,0.274,0.076,0.557,0.748,0.27,0.086,0.542,0.898,0.078,0.085,0.951,0.928,0.104,0.903,0.974,0.05,0.891,0.085,0.92,0,0.919,0.146,0.775,0.912,0,0.814,0.726,0.046,0.071,0.991,0.682,0.028,0.021,0.109,0.906,0.96,0.001,0.535,0.001,0.097,0,0.514,0,0.016,0.015,0.084,0.978,0.055,0.128,0.148,0.904,0.804,0.838,0.132,0.284,0.821,0.59,0.022,0.047,0.861,0.542,0.124,0.004,0.237,0.09,0.959,0.214,0.001,0.122,0.151,0.068,0.966,0.012,0.005,0.127,0.879,0.093,0.948,0.003,0.003,0.078,0.002,0.885,0.002,0.087,0.607,0.075,0.092,0.967,0.775,0.148,0.101,0.887,0.05,0.004,0.077,0.217,0.109,0.033,0.267,0.923,0.324,0.129,0,0.075,0.96,0.135,0.982,0.669,0.697,0.897,0.859,0.069,0.085,0.004,0.077,0.052,0.898,0.773,0.653,0.99,0.011,0.008,0.781,0.095,0.945,0.559,0.057,0.811,0.709,0.012,0.63,0.02,0.12,0.938,0.448,0.014,0.046,0.973,0.634,0.112,0.934,0.642,0.568,0.965,0.021,0.984,0.519,0.003,0.91,0.592,0.867,0.628,0.646,0.594,0.916,0.618,0.64,0.001,0.749,0.933,0.16,0.82,0.957,0.75,0.554,0.541,0.013,0.034,0.078,0.007,0.039,0.162,0.346,0.895,0.937,0.9,0.704,0.039,0.7,0.711,0.148,0.024,0.178,0.032,0.702,0.758,0.008,0.036,0.041,0.898,0.014,0.768,0.779,0.785,0.763,0.377,0.569,0.011,0.036,0.045,0.047,0.388,0.878,0.025,0.032,0.74,0.078,0.913,0.075,0.813,0.106,0.35,0.259,0.078,0.079,0.641,0.464,0.516,0.507,0.554,0.844,0.66,0.776,0.069,0.682,0.088,0.05,0.057,0.346,0.718,0.009,0.107,0.071,0.421,0.146,0.195,0.694,0.963,0.183,0.271,0.239,0.808,0.231,0.013,0.212,0.6,0.086,0.191,0.956,0.058,0.06,0.052,0.98,0.318,0.138,0.381,0.408,0.004,0.055,0.484,0.028,0.503,0.013,0.131,0.395,0.474,0.119,0.48,0.899,0.48,0.48,0.496,0.483,0.123,0.213,0.465,0.065,0.007,0.04,0.108,0.113,0.251,0.131,0.151,0.055,0.214,0.168,0.398,0.478,0.374,0.421,0.108,0.382,0.48,0.395,0.423,0.407,0.442,0.4,0.393,0.181,0.028,0.472,0.969,0.997,0.747,0.787,0.905,0.106,0,0.544,0.91,0.467,0.623,0.041,0.101,0.9,0.119,0.217,0.078,0.047,0.597,0.092,0.488,0.088,0.867,0.725,0.1,0.071,0.873,0.894,0.891,0.881,0.89,0.54,0.345,0.573,0.055,0.564,0.069,0.543,0.182,0.013,0.024,0.838,0.036,0.758,0.969,0.116,0.057,0.093,0.72,0.7,0.077,0.884,0.145,0.127,0.045,0.002,0.211,0.908,0.86,0,0.786,0.82,0.079,0.895,0.799,1,0.488,0.082,0.85,0.034,0.001,0.009,0.002,0.116,0,0.041,0.057,0.11,0.968,0.111,0.163,0.737,0.748,0.873,0.075,0.77,0.287,0.147,0.298,0.045,0.069,0.013,0.83,0.036,0.771,0.086,0.912,0.058,0.911,0.105,0.031,0.69,0.023,0.228,0.727,0.682,0.098,0.042,0.043,0.012],[-0.081,-0.062,-0.154,0.048,0.189,-0.084,-0.051,0.179,0.075,-0.077,0.086,0.075,0.076,0.009,0.177,0.075,-0.126,-0.073,-0.101,0.164,0.132,-0.151,0.001,-0.074,0.006,-0.157,-0.353,-0.283,0.061,0.088,-0.118,-2.157,-2.03,-1.881,0.493,-1.334,-2.587,1.583,-0.513,-2.717,-0.426,0.014,-0.632,1.174,-0.574,0.789,-1.061,0.478,0.479,-1.057,-0.812,-2.894,-0.009,-0.007,-0.154,0.051,0.091,-0.073,0.005,-0.097,-0.056,-0.088,0.052,0.038,-0.027,-0.031,-0.141,-0.128,0.011,-0.042,0.051,0.006,-0.037,-0.057,-0.008,-0.061,0.074,-0.009,0.023,0.072,-0.093,0.02,-0.003,0.063,0.074,-0.071,-0.065,0.001,-0.084,0.025,0.01,-0.012,0.07,0.063,-0.037,0.02,-0.039,0.008,-0.028,0.051,0.051,-0.045,0.036,0.035,0.046,0.042,-0.123,-0.04,0.019,0.07,-0.009,0.073,0.24,-0.349,0.117,0.439,0.171,-0.403,0.114,0.32,-0.325,-0.346,-0.009,-0.083,-0.303,-0.37,-0.66,-0.351,0.823,0.315,-0.147,0.053,0.366,-0.149,0.424,-0.312,-0.132,0.304,-0.475,0.361,0.764,0.382,-0.77,0.353,0.518,-0.563,0.049,-0.344,0.244,0.324,0.315,-0.618,-0.342,0.246,-0.333,0.166,-0.372,-0.526,-0.099,-0.359,0.731,-0.096,0.333,-0.892,-0.217,0.13,0.186,1.332,-0.035,0.035,0.004,-0.053,0.033,-0.048,0.061,-0.068,-0.17,-0.048,0.062,-0.061,0.021,-0.054,0.004,-0.067,-0.104,0.044,-0.069,-0.034,0.073,-0.131,-0.001,0.038,0.037,-0.045,0.09,-0.063,0.12,0.019,0.043,0.045,0.082,0.047,-0.021,-0.043,-0.047,-0.07,0.145,-0.035,-0.049,0.048,-0.007,-0.069,0.018,-0.108,0.019,-0.033,-0.07,0.084,0.101,0.007,-0.015,0.013,-0.006,-0.006,-0.006,-0.007,-0.008,-0.008,-0.007,0.104,-0.008,-0.01,-0.007,-0.015,-0.007,-0.007,-0.005,-0.007,-0.005,-0.008,-0.008,-0.006,-0.041,-0.006,-0.009,-0.006,-0.013,-0.006,-0.01,-0.049,-0.008,-0.006,-0.009,-0.007,-0.068,-0.01,-0.009,-0.006,0.05,-0.008,-0.009,0.053,-0.009,-0.009,0.027,-0.024,0.015,-0.007,-0.01,-0.007,0.012,-0.007,-0.007,-0.009,-0.008,-0.006,0.003,-0.017,-0.008,0.01,-0.008,0.008,0.014,-0.007,0.007,-0.013,0.058,-0.007,0.012,-0.014,-0.01,0.067,-0.015,-0.004,0.009,-0.192,0.14,0.013,-0.009,-0.011,-0.009,-0.005,-0.005,-0.007,-0.007,-0.009,0.019,-0.008,-0.005,-0.006,-0.006,-0.007,-0.006,-0.004,0.008,0.008,-0.009,-0.009,-0.012,-0.011,-0.007,-0.006,-0.008,-0.011,-0.012,-0.009,-0.032,-0.011,0.001,-0.117,0.115,-0.016,0.009,0.013,0.008,-0.011,0.067,0.215,0.006,0.019,-0.018,-0.021,-0.012,-0.016,-0.016,-0.014,0.044,0.003,-0.015,-0.013,-0.019,0.013,-0.015,0.017,-0.01,-0.019,-0.011,-0.094,-0.009,-0.045,0.019,-0.012,0.055,0.008,-0.031,0.032,0.019,0.006,0.023,0.023,0.025,0.034,0.032,-0.011,-0.043,0.024,-0.018,-0.022,-0.027,0.048,0.039,-0.014,-0.026,-0.025,0.054,0.015,-0.031,0.053,-0.042,0.022,0.085,0.06,-0.012,0.05,-0.033,-0.096,-0.036,-0.037,-0.167,-0.04,-0.034,0.033,-0.011,-0.088,-0.184,0.147,0.185,0.014,-0.08,-0.019,0.041,0.04,0.093,-0.037,0.077,0.034,0.03,0.057,0.021,0.021,-0.035,0.118,0.066,0.018,0.083,0.249,-0.003,0.006,0.047,0.016,0.002,0.144,0.005,-0.061,0.004,-0.047,-0.003,0.057,0.018,0.007,0.045,0.034,-0.005,-0.033,0.075,0.001,-0.047,0.037,0.037,0.086,0.004,0.004,0.042,0.075,0.044,0.082,0.046,-0.03,-0.042,-0.046,-0.045,-0.067,-0.004,0.156,-0.047,0.046,0.011,-0.055,0.016,-0.103,-0.169,0.02,-0.028,-0.076,0.098,-0.02,-0.045,0.087,-0.044,-0.054,-0.054,0.003,-0.09,0.051,-0.095,-0.061,0.072,-0.003,0.04,0.039,0.085,0.017,0.112,-0.004,0.049,0.051,0.08,0.053,-0.007,-0.049,-0.069,-0.034,-0.043,0.043,-0.006,0.024,-0.101,-0.166,0.011,-0.063,-0.057,0.103,0.069,-0.05,-0.067,0.062,0.007,-0.161,-0.065,0.107,0.11,0.004,-0.064,-0.002,-0.026,0.022,0.016,-0.016,0.1,-0.08,0.067,0.064,0.023,-0.008,0.028,0.008,0,0.027,-0.032,-0.01,0.035,-0.003,0.032,-0.064,0.008,-0.031,0.042,-0.012,-0.041,-0.12,-0.005,-0.08,-0.048,0.082,0.001,-0.015,-0.048,0.009,-0.016,-0.051,-0.004,-0.076,0.001,0.032,-0.103,-0.006,-0.016,-0.004,0.016,-0.013,-0.016,0.002,-0.011,-0.011,-0.045,0.009,-0.007,0.074,0.014,0.004,0.031,-0.034,0.028,0.035,0.048,-0.079,-0.158,0.072,-0.084,-0.078,-0.007,0.008,-0.01,-0.032,-0.212,-0.047,-0.02,0.172,-0.2,-0.172,0.145,0.047,0.058,0.257,-0.433,-0.196,-0.067,0.315,0.053,0.06,0.054,-0.055,-0.278,0.151,-0.144,-0.153,-0.185,0.24,0.311,-0.206,0.662,0.359,0.167,0.514,0.035,0.44,0.051,-0.582,-0.485,0.297,-0.597,0.755,0.153,0.129,-0.218,-0.131,0.626,0.346,0.119,-0.187,0.468,-0.359,-0.519,0.482,-0.315,0.059,-0.02,-0.06,-0.068,0.08,0.05,-0.04,0.058,0.062,-0.003,0.038,0.058,0.061,-0.048,0.058,0.088,-0.057,-0.029,0.117,0.13,-0.009,0.073,-0.093,0.082,0.002,0.089,-0.076,0.115,0.173,-0.04,0.049,0.092,0.063,0.071,-0.078,0.045,-0.106,0.101,-0.038,0.176,-0.019,-0.087,0.07,0.106,0.071,-0.115,-0.038,-0.123,0.054,0.043,-0.06,0.066,-0.041,-0.044,0.066,-0.044,0.08,0.038,0.086,-0.08,-0.116,0.048,0.28,0.115,-0.172,0.161,0.097,0.14,0.135,0.18,0.145,0.134,0.134,0.066,0.141,-0.005,0,0.017,0.021,0.01,0.084,0.16,-0.043,0.006,-0.046,0.173,-0.097,0.203,0.008,0.084,-0.118,0.076,0.197,0.03,0.118,-0.046,0.079,0.02,0.078,-0.09,-0.116,0.012,0.009,0.011,0.015,0.01,-0.039,0.051,0.035,0.186,0.034,-0.184,-0.033,-0.204,-0.099,0.152,-0.012,0.19,0.045,0.008,0.121,0.146,-0.106,-0.13,0.077,0.084,0.01,-0.047,-0.075,0.065,-0.049,0.048,-0.007,0.011,0.052,0.035,-0.019,-0.068,0.013,0.015,0,-0.045,0.077,0.025,0.113,0.049,0.046,0.049,-0.088,-0.05,-0.057,0.143,-0.076,-0.005,0.047,0.072,-0.051,0.034,0.01,0.074,0.035,-0.149,-0.062,-0.104,0.091,0.05,0.042,0.008,-0.116,0.015,0.052,-0.009,-0.149,-0.012,0.094,0.079,-0.041,-0.061,-0.063,0.036,-0.043,-0.155,-0.104,-0.053,0.035],[0.006,0.002,0.155,0.639,0.445,0.004,0.087,0.428,0.002,0.153,0.098,0.003,0.015,0.926,0.43,0.013,0.453,0.004,0.023,0.022,0.077,0.217,0.991,0.416,0.97,0.013,0.26,0.496,0.149,0.108,0,0.076,0.026,0.104,0.067,0.673,0.122,0.125,0.035,0.09,0.051,1,0.017,0.256,0.028,0.328,0.206,0.035,0.724,0.848,0.57,0.359,0.858,0.673,0.474,0.564,0.252,0.493,0.845,0.467,0.277,0.091,0.606,0.569,0.571,0.563,0.453,0.083,0.756,0.32,0.027,0.793,0.19,0.098,0.827,0.001,0.328,0.859,0.637,0.041,0.163,0.74,0.903,0.414,0.172,0.205,0.284,0.974,0.055,0.461,0.676,0.868,0.555,0.036,0.24,0.487,0.184,0.77,0.186,0.134,0.313,0.238,0.099,0.076,0.039,0.086,0.21,0.085,0.763,0,0.889,0.183,0.631,0.318,0.732,0.013,0.068,0.158,0.752,0.133,0.065,0.007,0.946,0.745,0.085,0.054,0.055,0.055,0.028,0.067,0.645,0.817,0,0.643,0.028,0.548,0.616,0.282,0.438,0.007,0.089,0.144,0.276,0,0.493,0.043,0.941,0,0.384,0.188,0.358,0.38,0.075,0.01,0,0.66,0,0.141,0.752,0,0.012,0.813,0,0.037,0.555,0.564,0.668,0.061,0.021,0.62,0.88,0.202,0.046,0.496,0.187,0.183,0.338,0.002,0.086,0.23,0.647,0.13,0.906,0.098,0.264,0.002,0.108,0.121,0.155,0.188,0.984,0.028,0.021,0.143,0.235,0.063,0.162,0.733,0,0.003,0.09,0.002,0.652,0,0.003,0.041,0.12,0.547,0.048,0.058,0.9,0.163,0.695,0.283,0.686,0.427,0.054,0.082,0.139,0.801,0.722,0.774,0.764,0.778,0.82,0.819,0.764,0.78,0.796,0.207,0.795,0.785,0.789,0.765,0.779,0.785,0.821,0.797,0.785,0.795,0.765,0.785,0.196,0.843,0.789,0.827,0.773,0.785,0.774,0.631,0.78,0.812,0.7,0.825,0.177,0.806,0.785,0.827,0.512,0.765,0.7,0.007,0.7,0.705,0,0.125,0.774,0.864,0.801,0.795,0.823,0.843,0.831,0.797,0.866,0.84,0.959,0.817,0.793,0.801,0.825,0.831,0.91,0.797,0.864,0.757,0.122,0.817,0.785,0.789,0.848,0.195,0.801,0.95,0.827,0.142,0.073,0.757,0.785,0.793,0.789,0.801,0.825,0.812,0.79,0.736,0.783,0.765,0.775,0.769,0.789,0.752,0.769,0.789,0.765,0.757,0.8,0.785,0.765,0.738,0.797,0.82,0.783,0.789,0.71,0.722,0.137,0.712,0.988,0.224,0.02,0.65,0.833,0.757,0.849,0.766,0.152,0.054,0.842,0.702,0.487,0.714,0.783,0.718,0.763,0.785,0.63,0.972,0.772,0.852,0.757,0.702,0.777,0.734,0.774,0.75,0.717,0.05,0.786,0.597,0.75,0.772,0.597,0.478,0.162,0.156,0.154,0.714,0.002,0.158,0.025,0.289,0.565,0.739,0.515,0.564,0.032,0.515,0.014,0.279,0.148,0.141,0.01,0.01,0.215,0.104,0.256,0.027,0.029,0.013,0.007,0.683,0.87,0.385,0.351,0.09,0.307,0.358,0.482,0.082,0.363,0.338,0.846,0.199,0.364,0.281,0.292,0.829,0.213,0.671,0.042,0.174,0.224,0.061,0.18,0.269,0.288,0.114,0.544,0.769,0.251,0.187,0.497,0.849,0.098,0.183,0.906,0.843,0.145,0.805,0.953,0.096,0.771,0.09,0.83,0.001,0.829,0.115,0.647,0.806,0,0.688,0.754,0.112,0.137,0.981,0.669,0.034,0.026,0.199,0.808,0.928,0.002,0.522,0.003,0.104,0.001,0.497,0.001,0.004,0.003,0.039,0.952,0.132,0.113,0.118,0.805,0.666,0.734,0.242,0.228,0.691,0.556,0.08,0.118,0.74,0.523,0.199,0.002,0.249,0.088,0.923,0.341,0,0.237,0.113,0.157,0.912,0.012,0.005,0.244,0.897,0.133,0.9,0.001,0.002,0.08,0,0.875,0,0.036,0.596,0.064,0.073,0.92,0.676,0.28,0.079,0.785,0.12,0.019,0.156,0.333,0.159,0.055,0.269,0.854,0.451,0.101,0.002,0.132,0.927,0.107,0.965,0.675,0.708,0.827,0.803,0.109,0.112,0.003,0.125,0.086,0.816,0.704,0.644,0.984,0.025,0.018,0.804,0.184,0.871,0.508,0.118,0.722,0.688,0.027,0.613,0.046,0.079,0.858,0.435,0.031,0.103,0.951,0.613,0.237,0.884,0.636,0.566,0.931,0.025,0.973,0.521,0.011,0.822,0.583,0.859,0.625,0.652,0.583,0.916,0.621,0.652,0.003,0.767,0.853,0.268,0.838,0.912,0.764,0.51,0.493,0.027,0.07,0.072,0.02,0.085,0.119,0.31,0.807,0.919,0.879,0.599,0.143,0.599,0.599,0.358,0.016,0.354,0.111,0.599,0.771,0.033,0.021,0.151,0.695,0.028,0.786,0.792,0.801,0.772,0.379,0.556,0.046,0.12,0.19,0.152,0.398,0.792,0.04,0.063,0.611,0.128,0.85,0.118,0.845,0.247,0.313,0.134,0.184,0.185,null,0,null,null,0.75,0.5,null,0.604,0.198,0.495,0.242,0.088,0.088,0.331,0.662,0.016,0.215,0.122,0.446,0.229,0.242,0.603,0.93,0.211,0.26,0.258,0.666,0.258,0.024,0.251,0.572,0.14,0.326,0.922,0.104,0.105,0.1,0.96,0.291,0.237,0.368,0.394,0.006,0.09,0.464,0.03,0.474,0.019,0.144,0.355,0.457,0.206,0.461,0.834,0.461,0.461,0.47,0.464,0.182,0.228,0.454,0.11,0.005,0.05,0.17,0.13,0.258,0.219,0.166,0.06,0.233,0.182,0.359,0.461,0.382,0.412,0.162,0.368,0.461,0.382,0.413,0.394,0.433,0.389,0.355,0.29,0.052,0.457,0.934,0.99,0.799,0.841,0.809,0.203,0.001,0.5,0.825,0.507,0.543,0.093,0.151,0.806,0.234,0.366,0.173,0.102,0.614,0.179,0.418,0.19,0.757,0.647,0.191,0.159,0.763,0.796,0.791,0.777,0.79,0.491,0.348,0.589,0.125,0.578,0.148,0.561,0.328,0.028,0.056,0.835,0.052,0.615,0.926,0.255,0.115,0.193,0.559,0.687,0.146,0.78,0.261,0.143,0.092,0.003,0.204,0.804,0.738,0,0.656,0.697,0.111,0.787,0.831,0.999,0.386,0.151,0.733,0.07,0.003,0.009,0.003,0.112,0,0.028,0.122,0.212,0.926,0.086,0.224,0.605,0.607,0.89,0.094,0.625,0.212,0.26,0.44,0.104,0.21,0.025,0.749,0.207,0.831,0.281,0.846,0.206,0.694,0.357,0.084,0.514,0.038,0.468,0.741,0.537,0.354,0.092,0.048,0.016]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>factor<\/th>\n      <th>num_snp_fdr.0.2<\/th>\n      <th>pval_in_fitting<\/th>\n      <th>slope_in_fitting<\/th>\n      <th>pval_in_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<p>To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_keeg_pc.jpeg" width="60%">
+</figure>
+</div>
+<div id="colocalization-analysis" class="section level2">
+<h2><em>Colocalization analysis</em></h2>
+<p>We tested 698 regions in the colocalization analysis using Coloc package. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization.</p>
+<p>SNP selection: 1. Chose the SNPs in the info table. 2. For each SNP, the region used in colocalization analysis is between [pos-250kb, pos+250kb]. 3. All SNPs in this region are included in alalysis.</p>
+<p>There’re 22 regions have PP4 &gt; 0.9, 61 regions have PP4 &gt; 0.8.</p>
+<div id="htmlwidget-cfefb73e51b4928e765c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfefb73e51b4928e765c">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268","269","270","271","272","273","274","275","276","277","278","279","280","281","282","283","284","285","286","287","288","289","290","291","292","293","294","295","296","297","298","299","300","301","302","303","304","305","306","307","308","309","310","311","312","313","314","315","316","317","318","319","320","321","322","323","324","325","326","327","328","329","330","331","332","333","334","335","336","337","338","339","340","341","342","343","344","345","346","347","348","349","350","351","352","353","354","355","356","357","358","359","360","361","362","363","364","365","366","367","368","369","370","371","372","373","374","375","376","377","378","379","380","381","382","383","384","385","386","387","388","389","390","391","392","393","394","395","396","397","398","399","400","401","402","403","404","405","406","407","408","409","410","411","412","413","414","415","416","417","418","419","420","421","422","423","424","425","426","427","428","429","430","431","432","433","434","435","436","437","438","439","440","441","442","443","444","445","446","447","448","449","450","451","452","453","454","455","456","457","458","459","460","461","462","463","464","465","466","467","468","469","470","471","472","473","474","475","476","477","478","479","480","481","482","483","484","485","486","487","488","489","490","491","492","493","494","495","496","497","498","499","500","501","502","503","504","505","506","507","508","509","510","511","512","513","514","515","516","517","518","519","520","521","522","523","524","525","526","527","528","529","530","531","532","533","534","535","536","537","538","539","540","541","542","543","544","545","546","547","548","549","550","551","552","553","554","555","556","557","558","559","560","561","562","563","564","565","566","567","568","569","570","571","572","573","574","575","576","577","578","579","580","581","582","583","584","585","586","587","588","589","590","591","592","593","594","595","596","597","598","599","600","601","602","603","604","605","606","607","608","609","610","611","612","613","614","615","616","617","618","619","620","621","622","623","624","625","626","627","628","629","630","631","632","633","634","635","636","637","638","639","640","641","642","643","644","645","646","647","648","649","650","651","652","653","654","655","656","657","658","659","660","661","662","663","664","665","666","667","668","669","670","671","672","673","674","675","676","677","678","679","680","681","682","683","684","685","686","687","688","689","690","691","692","693","694","695","696","697","698"],["allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","allergy","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","asthma_2","eo","eo","eo","eo","eo","eo","eo","eo","eo","eo","eo","eo","eo","eo","eo","eo","EUR.CD","EUR.CD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.IBD","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","EUR.UC","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","gran","HDL","HDL","HDL","HDL","HDL","HDL","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","height","LDL","LDL","lymph","lymph","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","neut","plt","plt","plt","plt","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","T1D","T1D","T2D_2","T2D_2","T2D_2","TC","TC","TC","TC","TC","TG","TG","TG","TG","TG","TG","TG","TG","TG","ukb.allasthma","ukb.allasthma","ukb.allasthma","ukb.allasthma","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","WHR","WHR","WHR","WHR","WHR","WHR","WHR","WHR","WHR"],["pwy110_pc3","pwy110_pc3","pwy131_pc4","pwy131_pc4","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy327_pc3","pwy327_pc3","pwy33_pc5","pwy33_pc5","pwy77_pc4","pwy77_pc4","pwy99_pc4","pwy99_pc4","pwy99_pc4","pwy186_pc5","pwy186_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy114_pc4","pwy114_pc4","pwy169_pc4","pwy169_pc4","pwy186_pc4","pwy186_pc4","pwy262_pc3","pwy262_pc3","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy47_pc3","pwy47_pc3","pwy18_pc4","pwy18_pc4","pwy246_pc5","pwy246_pc5","pwy325_pc5","pwy325_pc5","pwy325_pc5","pwy325_pc5","pwy325_pc5","pwy325_pc5","pwy329_pc5","pwy329_pc5","pwy329_pc5","pwy66_pc5","pwy66_pc5","pwy146_pc4","pwy146_pc4","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy238_pc3","pwy238_pc3","pwy238_pc3","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy292_pc4","pwy292_pc4","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc5","pwy325_pc5","pwy325_pc5","pwy325_pc5","pwy325_pc5","pwy325_pc5","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy331_pc5","pwy331_pc5","pwy101_pc4","pwy101_pc4","pwy16_pc2","pwy16_pc2","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy283_pc3","pwy283_pc3","pwy284_pc4","pwy284_pc4","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy328_pc2","pwy328_pc2","pwy331_pc4","pwy331_pc4","pwy331_pc4","pwy44_pc3","pwy44_pc3","pwy185_pc4","pwy185_pc4","pwy189_pc1","pwy189_pc1","pwy326_pc5","pwy326_pc5","pwy184_pc5","pwy184_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy277_pc3","pwy277_pc3","pwy277_pc3","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy76_pc2","pwy76_pc2","pwy77_pc2","pwy77_pc2","pwy90_pc3","pwy90_pc3","pwy11_pc1","pwy11_pc1","pwy21_pc1","pwy21_pc1","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy283_pc3","pwy283_pc3","pwy284_pc4","pwy284_pc4","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy328_pc2","pwy328_pc2","pwy330_pc2","pwy330_pc2","pwy331_pc4","pwy331_pc4","pwy331_pc4","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy283_pc3","pwy283_pc3","pwy284_pc4","pwy284_pc4","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy331_pc4","pwy331_pc4","pwy331_pc4","pwy97_pc4","pwy97_pc4","pwy97_pc4","pwy250_pc5","pwy250_pc5","pwy78_pc4","pwy78_pc4","pwy114_pc2","pwy114_pc2","pwy124_pc2","pwy124_pc2","pwy18_pc2","pwy18_pc2","pwy186_pc2","pwy186_pc2","pwy206_pc2","pwy206_pc2","pwy251_pc5","pwy251_pc5","pwy297_pc4","pwy297_pc4","pwy297_pc4","pwy317_pc2","pwy317_pc2","pwy54_pc2","pwy54_pc2","pwy62_pc5","pwy62_pc5","pwy62_pc5","pwy62_pc5","pwy186_pc5","pwy186_pc5","pwy252_pc3","pwy252_pc3","pwy253_pc5","pwy253_pc5","pwy3_pc4","pwy3_pc4","pwy84_pc3","pwy84_pc3","pwy14_pc5","pwy14_pc5","pwy13_pc4","pwy13_pc4","pwy13_pc4","pwy156_pc2","pwy156_pc2","pwy326_pc3","pwy326_pc3","pwy326_pc3","pwy153_pc4","pwy153_pc4","pwy168_pc5","pwy168_pc5","pwy171_pc5","pwy171_pc5","pwy171_pc5","pwy298_pc5","pwy298_pc5","pwy164_pc5","pwy164_pc5","pwy33_pc1","pwy33_pc1","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy193_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy238_pc5","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy320_pc3","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy321_pc5","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy325_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy326_pc4","pwy331_pc4","pwy331_pc4","pwy331_pc4","pwy331_pc4","pwy117_pc3","pwy117_pc3","pwy285_pc3","pwy285_pc3","pwy285_pc3","pwy83_pc2","pwy83_pc2","pwy93_pc2","pwy93_pc2"],["chr6_29896110_G_A_b38","chr6_32609237_C_T_b38","chr5_132694722_T_A_b38","chr6_32694922_A_T_b38","chr10_9056017_C_T_b38","chr6_32213405_G_A_b38","chr6_32242779_G_A_b38","chr6_32343682_G_A_b38","chr6_32421478_C_A_b38","chr6_32625688_A_T_b38","chr6_32658626_A_G_b38","chr6_32659122_G_T_b38","chr6_32694922_A_T_b38","chr6_32813180_C_T_b38","chr6_33033799_A_C_b38","chr10_9056017_C_T_b38","chr6_32213405_G_A_b38","chr6_32242779_G_A_b38","chr6_32421478_C_A_b38","chr6_32625688_A_T_b38","chr6_32658626_A_G_b38","chr6_32659122_G_T_b38","chr6_32694922_A_T_b38","chr6_32813180_C_T_b38","chr6_33033799_A_C_b38","chr10_9056017_C_T_b38","chr6_32213405_G_A_b38","chr6_32242779_G_A_b38","chr6_32343682_G_A_b38","chr6_32421478_C_A_b38","chr6_32625688_A_T_b38","chr6_32658626_A_G_b38","chr6_32659122_G_T_b38","chr6_32694922_A_T_b38","chr6_32813180_C_T_b38","chr6_33033799_A_C_b38","chr10_9056017_C_T_b38","chr6_32242779_G_A_b38","chr6_32421478_C_A_b38","chr6_32625688_A_T_b38","chr6_32658626_A_G_b38","chr6_32659122_G_T_b38","chr6_32694922_A_T_b38","chr6_32813180_C_T_b38","chr6_33033799_A_C_b38","chr10_9056017_C_T_b38","chr6_32242779_G_A_b38","chr6_32421478_C_A_b38","chr6_32625688_A_T_b38","chr6_32658626_A_G_b38","chr6_32659122_G_T_b38","chr6_32694922_A_T_b38","chr6_32813180_C_T_b38","chr6_33033799_A_C_b38","chr10_9056017_C_T_b38","chr6_32213405_G_A_b38","chr6_32242779_G_A_b38","chr6_32343682_G_A_b38","chr6_32421478_C_A_b38","chr6_32625688_A_T_b38","chr6_32658626_A_G_b38","chr6_32659122_G_T_b38","chr6_32694922_A_T_b38","chr6_32813180_C_T_b38","chr6_33033799_A_C_b38","chr5_132694722_T_A_b38","chr6_32609237_C_T_b38","chr1_151829204_G_A_b38","chr8_80382467_C_T_b38","chr6_29896110_G_A_b38","chr6_31446550_T_G_b38","chr12_57141483_C_T_b38","chr6_29896110_G_A_b38","chr6_32609237_C_T_b38","chr6_32423918_T_C_b38","chr6_32629054_T_C_b38","chr10_9012377_A_C_b38","chr10_9069863_C_T_b38","chr6_31252541_G_T_b38","chr6_31468214_C_T_b38","chr6_32038820_C_T_b38","chr6_32207180_T_C_b38","chr6_32235570_G_A_b38","chr6_32248752_T_A_b38","chr6_32389044_G_T_b38","chr6_32405601_A_T_b38","chr6_32408399_C_T_b38","chr6_32422974_T_C_b38","chr6_32473778_A_G_b38","chr6_32486978_T_A_b38","chr6_32540767_A_G_b38","chr6_32589486_T_A_b38","chr6_32616605_A_G_b38","chr6_32629054_T_C_b38","chr6_32632808_G_A_b38","chr6_32641768_C_T_b38","chr6_32659200_T_C_b38","chr6_32660412_A_G_b38","chr6_32714617_T_G_b38","chr6_32755075_A_G_b38","chr6_32846670_T_C_b38","chr6_32850253_T_C_b38","chr6_32885500_C_T_b38","chr10_9012377_A_C_b38","chr10_9069863_C_T_b38","chr6_31252541_G_T_b38","chr6_31468214_C_T_b38","chr6_31525184_A_G_b38","chr6_32038820_C_T_b38","chr6_32207180_T_C_b38","chr6_32235570_G_A_b38","chr6_32248752_T_A_b38","chr6_32405601_A_T_b38","chr6_32408399_C_T_b38","chr6_32422974_T_C_b38","chr6_32473778_A_G_b38","chr6_32486978_T_A_b38","chr6_32540767_A_G_b38","chr6_32589486_T_A_b38","chr6_32616605_A_G_b38","chr6_32629054_T_C_b38","chr6_32632808_G_A_b38","chr6_32641768_C_T_b38","chr6_32659200_T_C_b38","chr6_32660412_A_G_b38","chr6_32714617_T_G_b38","chr6_32755075_A_G_b38","chr6_32846670_T_C_b38","chr6_32850253_T_C_b38","chr6_32885500_C_T_b38","chr10_9012377_A_C_b38","chr10_9069863_C_T_b38","chr6_31252541_G_T_b38","chr6_32038820_C_T_b38","chr6_32207180_T_C_b38","chr6_32235570_G_A_b38","chr6_32248752_T_A_b38","chr6_32405601_A_T_b38","chr6_32408399_C_T_b38","chr6_32422974_T_C_b38","chr6_32473778_A_G_b38","chr6_32486978_T_A_b38","chr6_32540767_A_G_b38","chr6_32589486_T_A_b38","chr6_32616605_A_G_b38","chr6_32629054_T_C_b38","chr6_32632808_G_A_b38","chr6_32641768_C_T_b38","chr6_32659200_T_C_b38","chr6_32660412_A_G_b38","chr6_32714617_T_G_b38","chr6_32755075_A_G_b38","chr6_32846670_T_C_b38","chr6_32850253_T_C_b38","chr6_32885500_C_T_b38","chr10_9012377_A_C_b38","chr10_9069863_C_T_b38","chr6_31252541_G_T_b38","chr6_31352761_C_T_b38","chr6_31468214_C_T_b38","chr6_32038820_C_T_b38","chr6_32207180_T_C_b38","chr6_32235570_G_A_b38","chr6_32248752_T_A_b38","chr6_32389044_G_T_b38","chr6_32405601_A_T_b38","chr6_32408399_C_T_b38","chr6_32422974_T_C_b38","chr6_32423918_T_C_b38","chr6_32473778_A_G_b38","chr6_32486978_T_A_b38","chr6_32540767_A_G_b38","chr6_32589486_T_A_b38","chr6_32616605_A_G_b38","chr6_32629054_T_C_b38","chr6_32632808_G_A_b38","chr6_32641768_C_T_b38","chr6_32659200_T_C_b38","chr6_32660412_A_G_b38","chr6_32714617_T_G_b38","chr6_32755075_A_G_b38","chr6_32846670_T_C_b38","chr6_32850253_T_C_b38","chr6_32885500_C_T_b38","chr11_308314_T_C_b38","chr12_111330006_CAG_C_b38","chr11_308314_T_C_b38","chr12_111330006_CAG_C_b38","chr11_308314_T_C_b38","chr12_111330006_CAG_C_b38","chr1_87286317_A_T_b38","chr17_7839283_G_A_b38","chr6_32308392_A_G_b38","chr6_32450578_A_AC_b38","chr6_32635883_T_C_b38","chr6_32665006_A_C_b38","chr6_32666313_T_C_b38","chr6_32742395_GATA_G_b38","chr17_7839283_G_A_b38","chr3_42835237_C_T_b38","chr16_50884751_A_C_b38","chr5_40594636_A_T_b38","chr12_40430996_T_C_b38","chr2_43316416_C_A_b38","chr22_21561877_T_C_b38","chr6_31497141_A_C_b38","chr6_32077057_G_C_b38","chr6_32279268_T_G_b38","chr6_32594151_C_A_b38","chr6_32610350_A_G_b38","chr6_111519617_G_A_b38","chr6_14721666_T_C_b38","chr6_31384163_G_T_b38","chr22_21561877_T_C_b38","chr6_14721666_T_C_b38","chr6_31124215_A_G_b38","chr6_32570019_T_G_b38","chr6_31124215_A_G_b38","chr6_31748659_A_G_b38","chr6_32390682_G_T_b38","chr6_32483933_A_T_b38","chr6_32533311_A_G_b38","chr6_32574724_T_A_b38","chr6_32576131_T_A_b38","chr6_32636617_T_C_b38","chr6_32641008_T_C_b38","chr6_32641768_C_T_b38","chr6_32829016_G_A_b38","chr6_32849181_G_A_b38","chr6_32570019_T_G_b38","chr6_32636617_T_C_b38","chr6_32829016_G_A_b38","chr6_31124215_A_G_b38","chr6_31497141_A_C_b38","chr6_31748659_A_G_b38","chr6_32390682_G_T_b38","chr6_32483933_A_T_b38","chr6_32533311_A_G_b38","chr6_32570019_T_G_b38","chr6_32574724_T_A_b38","chr6_32576131_T_A_b38","chr6_32636617_T_C_b38","chr6_32641008_T_C_b38","chr6_32641768_C_T_b38","chr6_32849181_G_A_b38","chr6_31124215_A_G_b38","chr6_32570019_T_G_b38","chr6_31124215_A_G_b38","chr6_31497141_A_C_b38","chr6_31748659_A_G_b38","chr6_32390682_G_T_b38","chr6_32483933_A_T_b38","chr6_32533311_A_G_b38","chr6_32570019_T_G_b38","chr6_32574724_T_A_b38","chr6_32576131_T_A_b38","chr6_32636617_T_C_b38","chr6_32641008_T_C_b38","chr6_32641768_C_T_b38","chr6_32829016_G_A_b38","chr6_32849181_G_A_b38","chr6_31124215_A_G_b38","chr6_31748659_A_G_b38","chr6_32390682_G_T_b38","chr6_32483933_A_T_b38","chr6_32533311_A_G_b38","chr6_32570019_T_G_b38","chr6_32574724_T_A_b38","chr6_32576131_T_A_b38","chr6_32636617_T_C_b38","chr6_32641008_T_C_b38","chr6_32641768_C_T_b38","chr6_32849181_G_A_b38","chr6_31124215_A_G_b38","chr6_31748659_A_G_b38","chr6_32390682_G_T_b38","chr6_32483933_A_T_b38","chr6_32533311_A_G_b38","chr6_32570019_T_G_b38","chr6_32574724_T_A_b38","chr6_32576131_T_A_b38","chr6_32636617_T_C_b38","chr6_32641008_T_C_b38","chr6_32641768_C_T_b38","chr6_32849181_G_A_b38","chr6_31124215_A_G_b38","chr6_31497141_A_C_b38","chr6_31957902_G_A_b38","chr6_32390682_G_T_b38","chr6_32574724_T_A_b38","chr6_32636617_T_C_b38","chr6_31124215_A_G_b38","chr6_31497141_A_C_b38","chr6_31748659_A_G_b38","chr6_32390682_G_T_b38","chr6_32483933_A_T_b38","chr6_32533311_A_G_b38","chr6_32570019_T_G_b38","chr6_32574724_T_A_b38","chr6_32576131_T_A_b38","chr6_32636617_T_C_b38","chr6_32641008_T_C_b38","chr6_32641768_C_T_b38","chr6_32849181_G_A_b38","chr6_32390682_G_T_b38","chr6_32636617_T_C_b38","chr1_161514334_A_C_b38","chr17_40491805_C_T_b38","chr17_39982781_G_A_b38","chr5_157050529_G_A_b38","chr6_31276269_G_GC_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_32758800_G_T_b38","chr6_31276269_G_GC_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_32758800_G_T_b38","chr1_161514334_A_C_b38","chr17_40491805_C_T_b38","chr1_161514334_A_C_b38","chr17_40491805_C_T_b38","chr6_31276269_G_GC_b38","chr6_31358545_T_G_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_32758800_G_T_b38","chr1_113834946_A_G_b38","chr6_31276269_G_GC_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_32758800_G_T_b38","chr6_31276269_G_GC_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_32758800_G_T_b38","chr6_31276269_G_GC_b38","chr6_31358545_T_G_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_32758800_G_T_b38","chr17_40017384_C_T_b38","chr17_40151991_C_T_b38","chr10_63250912_T_C_b38","chr17_40017384_C_T_b38","chr17_40151991_C_T_b38","chr17_7839283_G_A_b38","chr3_42854959_T_C_b38","chr18_49665924_C_A_b38","chr19_44825957_T_G_b38","chr18_49656308_A_T_b38","chr5_56564954_A_G_b38","chr22_21574627_T_G_b38","chr8_19718937_C_T_b38","chr5_52801055_C_A_b38","chr5_73362610_T_C_b38","chr6_31140127_C_G_b38","chr6_31758911_C_A_b38","chr6_31979683_G_T_b38","chr6_32608815_A_C_b38","chr6_32666233_G_A_b38","chr6_32819105_T_C_b38","chr6_32842071_G_A_b38","chr6_29758419_T_C_b38","chr6_31139410_G_A_b38","chr6_31140127_C_G_b38","chr6_31758911_C_A_b38","chr6_31883577_G_A_b38","chr6_31979683_G_T_b38","chr6_32608815_A_C_b38","chr6_32666233_G_A_b38","chr6_32819105_T_C_b38","chr6_32836910_T_C_b38","chr6_32842071_G_A_b38","chr10_60708921_G_A_b38","chr11_31403276_T_C_b38","chr2_18401745_T_C_b38","chr6_31139410_G_A_b38","chr6_31140127_C_G_b38","chr6_31758911_C_A_b38","chr6_31979683_G_T_b38","chr6_32608815_A_C_b38","chr6_32666233_G_A_b38","chr6_32819105_T_C_b38","chr6_32842071_G_A_b38","chr6_31139410_G_A_b38","chr6_31140127_C_G_b38","chr6_31758911_C_A_b38","chr6_31979683_G_T_b38","chr6_32608815_A_C_b38","chr6_32666233_G_A_b38","chr6_32819105_T_C_b38","chr6_32842071_G_A_b38","chr1_40899773_G_T_b38","chr16_20905435_T_G_b38","chr1_218438670_C_T_b38","chr5_32995497_A_C_b38","chr11_68317006_G_A_b38","chr12_3251780_G_T_b38","chr20_17867091_T_C_b38","chr6_26092913_G_A_b38","chr17_2980294_C_A_b38","chr9_88978375_T_C_b38","chr6_31256712_A_C_b38","chr6_31773882_C_T_b38","chr6_31896897_T_C_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_31256712_A_C_b38","chr6_31306603_T_C_b38","chr6_31358512_G_A_b38","chr6_31773882_C_T_b38","chr6_31896897_T_C_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr1_161514334_A_C_b38","chr17_40491805_C_T_b38","chr1_161514334_A_C_b38","chr17_40491805_C_T_b38","chr6_31256712_A_C_b38","chr6_31773882_C_T_b38","chr6_31896897_T_C_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr1_113834946_A_G_b38","chr6_31256712_A_C_b38","chr6_31358512_G_A_b38","chr6_31773882_C_T_b38","chr6_31896897_T_C_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_31256712_A_C_b38","chr6_31358512_G_A_b38","chr6_31773882_C_T_b38","chr6_31896897_T_C_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_31256712_A_C_b38","chr6_31773882_C_T_b38","chr6_31896897_T_C_b38","chr6_32294629_A_G_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr17_40017384_C_T_b38","chr17_40151991_C_T_b38","chr17_40017384_C_T_b38","chr17_40151991_C_T_b38","chr10_63250912_T_C_b38","chr17_40017384_C_T_b38","chr17_40151991_C_T_b38","chr6_31276269_G_GC_b38","chr6_31625043_C_T_b38","chr6_32308523_G_A_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_30908122_A_G_b38","chr6_31276269_G_GC_b38","chr6_31625043_C_T_b38","chr6_31638751_G_A_b38","chr6_32308523_G_A_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr7_28724492_T_C_b38","chr1_161514334_A_C_b38","chr17_40491805_C_T_b38","chr1_161514334_A_C_b38","chr17_40491805_C_T_b38","chr6_31276269_G_GC_b38","chr6_31358545_T_G_b38","chr6_31625043_C_T_b38","chr6_31638751_G_A_b38","chr6_32308523_G_A_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr1_113834946_A_G_b38","chr6_31276269_G_GC_b38","chr6_31625043_C_T_b38","chr6_31638751_G_A_b38","chr6_32308523_G_A_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_31276269_G_GC_b38","chr6_31625043_C_T_b38","chr6_31638751_G_A_b38","chr6_32308523_G_A_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_31276269_G_GC_b38","chr6_31358545_T_G_b38","chr6_31625043_C_T_b38","chr6_31638751_G_A_b38","chr6_32308523_G_A_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr10_63250912_T_C_b38","chr17_40017384_C_T_b38","chr17_40151991_C_T_b38","chr1_161514334_A_C_b38","chr12_111446804_T_C_b38","chr12_112468611_A_G_b38","chr10_63543162_A_G_b38","chr4_110020946_G_C_b38","chr11_118918948_C_T_b38","chr6_135282602_T_C_b38","chr11_31403276_T_C_b38","chr6_31149298_C_A_b38","chr11_31403276_T_C_b38","chr6_31149298_C_A_b38","chr6_164057356_C_A_b38","chr6_31149298_C_A_b38","chr11_31403276_T_C_b38","chr6_31149298_C_A_b38","chr11_31403276_T_C_b38","chr6_31149298_C_A_b38","chr4_15654098_A_G_b38","chr6_109279711_T_C_b38","chr11_31403276_T_C_b38","chr16_28857641_C_G_b38","chr16_67890263_T_C_b38","chr11_31403276_T_C_b38","chr6_31149298_C_A_b38","chr11_31403276_T_C_b38","chr6_31149298_C_A_b38","chr9_133186024_AC_A_b38","chr9_133255801_C_T_b38","chr9_133274295_A_T_b38","chr9_133466757_A_C_b38","chr10_103300139_T_C_b38","chr19_19367213_G_T_b38","chr16_13659527_G_A_b38","chr2_145682377_G_A_b38","chr6_28338894_T_C_b38","chr6_32536308_A_C_b38","chr1_72812932_G_T_b38","chr3_180905467_G_A_b38","chr22_41944840_T_C_b38","chr22_42175022_G_A_b38","chr1_113276758_C_T_b38","chr21_42434957_A_C_b38","chr14_63485893_G_C_b38","chr6_937063_T_A_b38","chr8_141795579_C_T_b38","chr1_62876798_C_T_b38","chr2_168973645_G_A_b38","chr17_47361586_C_T_b38","chr19_11281755_C_T_b38","chr6_32373621_A_G_b38","chr16_15036083_C_T_b38","chr8_8421952_T_G_b38","chr10_5212884_A_G_b38","chr8_8421952_T_G_b38","chr10_5212884_A_G_b38","chr2_27232413_C_T_b38","chr8_8421952_T_G_b38","chr10_5212884_A_G_b38","chr8_8421952_T_G_b38","chr12_94202054_T_C_b38","chr7_20416355_A_T_b38","chr2_102602754_A_G_b38","chr3_196632439_G_A_b38","chr6_31256712_A_C_b38","chr6_31375271_TATAC_T_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32588188_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_30908122_A_G_b38","chr6_31256712_A_C_b38","chr6_31357979_G_A_b38","chr6_31375271_TATAC_T_b38","chr6_31632329_C_A_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32588188_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_32762615_C_T_b38","chr6_31256712_A_C_b38","chr6_31357979_G_A_b38","chr6_31375271_TATAC_T_b38","chr6_31632329_C_A_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32588188_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr1_113834946_A_G_b38","chr6_31256712_A_C_b38","chr6_31357979_G_A_b38","chr6_31375271_TATAC_T_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32588188_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_31256712_A_C_b38","chr6_31357979_G_A_b38","chr6_31375271_TATAC_T_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32588188_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_31256712_A_C_b38","chr6_31357979_G_A_b38","chr6_31375271_TATAC_T_b38","chr6_31632329_C_A_b38","chr6_31701719_C_T_b38","chr6_31773882_C_T_b38","chr6_32476421_G_T_b38","chr6_32529149_T_G_b38","chr6_32588188_T_G_b38","chr6_32660643_C_T_b38","chr6_32661723_C_A_b38","chr6_32762615_C_T_b38","chr10_63250912_T_C_b38","chr17_40017384_C_T_b38","chr17_40151991_C_T_b38","chr6_32660643_C_T_b38","chr19_45698914_C_T_b38","chr20_52365406_T_C_b38","chr16_53775335_G_A_b38","chr2_164672114_G_T_b38","chr6_127060811_T_C_b38","chr12_53955989_G_A_b38","chr6_6742916_T_G_b38","chr12_53955989_G_A_b38","chr6_6742916_T_G_b38"],["rs144530872","rs188053776","rs11242126","rs114052356","rs9424038","rs206016","rs17201875","rs3132954","rs3135365","rs9271718","rs34004019","rs4713571","rs114052356","rs41258084","rs116136354","rs9424038","rs206016","rs17201875","rs3135365","rs9271718","rs34004019","rs4713571","rs114052356","rs41258084","rs116136354","rs9424038","rs206016","rs17201875","rs3132954","rs3135365","rs9271718","rs34004019","rs4713571","rs114052356","rs41258084","rs116136354","rs9424038","rs17201875","rs3135365","rs9271718","rs34004019","rs4713571","rs114052356","rs41258084","rs116136354","rs9424038","rs17201875","rs3135365","rs9271718","rs34004019","rs4713571","rs114052356","rs41258084","rs116136354","rs9424038","rs206016","rs17201875","rs3132954","rs3135365","rs9271718","rs34004019","rs4713571","rs114052356","rs41258084","rs116136354","rs11242126","rs188053776","rs4845604","rs2221641","rs144530872","rs2516466","rs1799986","rs144530872","rs188053776","rs28895026","rs9271935","rs1775554","rs72784452","rs3095257","rs2523676","rs6462","rs3130290","rs508445","rs6914780","rs115797804","rs3806155","rs3763311","rs146003472","rs7739203","rs148967059","rs116648531","rs28366213","rs1281934","rs9271935","rs13214992","rs34965214","rs9273386","rs9273489","rs3997848","rs6933763","rs6457684","rs113206908","rs7767732","rs1775554","rs72784452","rs3095257","rs2523676","rs3093987","rs6462","rs3130290","rs508445","rs6914780","rs3806155","rs3763311","rs146003472","rs7739203","rs148967059","rs116648531","rs28366213","rs1281934","rs9271935","rs13214992","rs34965214","rs9273386","rs9273489","rs3997848","rs6933763","rs6457684","rs113206908","rs7767732","rs1775554","rs72784452","rs3095257","rs6462","rs3130290","rs508445","rs6914780","rs3806155","rs3763311","rs146003472","rs7739203","rs148967059","rs116648531","rs28366213","rs1281934","rs9271935","rs13214992","rs34965214","rs9273386","rs9273489","rs3997848","rs6933763","rs6457684","rs113206908","rs7767732","rs1775554","rs72784452","rs3095257","rs2442719","rs2523676","rs6462","rs3130290","rs508445","rs6914780","rs115797804","rs3806155","rs3763311","rs146003472","rs28895026","rs7739203","rs148967059","rs116648531","rs28366213","rs1281934","rs9271935","rs13214992","rs34965214","rs9273386","rs9273489","rs3997848","rs6933763","rs6457684","rs113206908","rs7767732","rs14408","rs111875400","rs14408","rs111875400","rs14408","rs111875400","rs6684992","rs74480102","rs540926","rs9281828","rs1391373","rs1140310","rs28746839","rs5875402","rs74480102","rs9878145","rs145126485","rs9292782","rs140892874","rs34549634","rs5754100","rs3828906","rs9267798","rs145568234","rs17804379","rs9271176","rs34190331","rs9370774","rs114607072","rs5754100","rs9370774","rs3094204","rs117126012","rs3094204","rs116043458","rs115303880","rs114765062","rs116070749","rs9269476","rs35638976","rs9272347","rs28383426","rs34965214","rs4148876","rs4148882","rs117126012","rs9272347","rs4148876","rs3094204","rs3828906","rs116043458","rs115303880","rs114765062","rs116070749","rs117126012","rs9269476","rs35638976","rs9272347","rs28383426","rs34965214","rs4148882","rs3094204","rs117126012","rs3094204","rs3828906","rs116043458","rs115303880","rs114765062","rs116070749","rs117126012","rs9269476","rs35638976","rs9272347","rs28383426","rs34965214","rs4148876","rs4148882","rs3094204","rs116043458","rs115303880","rs114765062","rs116070749","rs117126012","rs9269476","rs35638976","rs9272347","rs28383426","rs34965214","rs4148882","rs3094204","rs116043458","rs115303880","rs114765062","rs116070749","rs117126012","rs9269476","rs35638976","rs9272347","rs28383426","rs34965214","rs4148882","rs3094204","rs3828906","rs114969413","rs115303880","rs9269476","rs9272347","rs3094204","rs3828906","rs116043458","rs115303880","rs114765062","rs116070749","rs117126012","rs9269476","rs35638976","rs9272347","rs28383426","rs34965214","rs4148882","rs115303880","rs9272347","rs438228","rs1037321","rs148989834","rs1393209","rs35777809","rs1266071","rs707930","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs3213483","rs35777809","rs1266071","rs707930","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs3213483","rs438228","rs1037321","rs438228","rs1037321","rs35777809","rs2523597","rs1266071","rs707930","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs3213483","rs2476601","rs35777809","rs1266071","rs707930","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs3213483","rs35777809","rs1266071","rs707930","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs3213483","rs35777809","rs2523597","rs1266071","rs707930","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs3213483","rs146890554","rs10852939","rs10995477","rs146890554","rs10852939","rs74480102","rs9872440","rs882617","rs10402271","rs1540036","rs3936511","rs181360","rs10085966","rs1499280","rs2972210","rs2233942","rs707939","rs389883","rs646984","rs3830058","rs3763355","rs9357155","rs1633062","rs1265093","rs2233942","rs707939","rs3869145","rs389883","rs646984","rs3830058","rs3763355","rs17583244","rs9357155","rs1596197","rs6484504","rs3761715","rs1265093","rs2233942","rs707939","rs389883","rs646984","rs3830058","rs3763355","rs9357155","rs1265093","rs2233942","rs707939","rs389883","rs646984","rs3830058","rs3763355","rs9357155","rs12120974","rs3815020","rs10482827","rs1533015","rs7116604","rs12371422","rs2745865","rs1800562","rs17762452","rs62551476","rs9264272","rs707930","rs2844456","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs9264272","rs9264942","rs9378248","rs707930","rs2844456","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs438228","rs1037321","rs438228","rs1037321","rs9264272","rs707930","rs2844456","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs2476601","rs9264272","rs9378248","rs707930","rs2844456","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs9264272","rs9378248","rs707930","rs2844456","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs9264272","rs707930","rs2844456","rs6457535","rs12194148","rs113556768","rs9273505","rs28724248","rs146890554","rs10852939","rs146890554","rs10852939","rs10995477","rs146890554","rs10852939","rs35777809","rs3135044","rs484302","rs12194148","rs113556768","rs9273505","rs28724248","rs1264309","rs35777809","rs3135044","rs190452998","rs484302","rs12194148","rs113556768","rs9273505","rs28724248","rs2066979","rs438228","rs1037321","rs438228","rs1037321","rs35777809","rs2523597","rs3135044","rs190452998","rs484302","rs12194148","rs113556768","rs9273505","rs28724248","rs2476601","rs35777809","rs3135044","rs190452998","rs484302","rs12194148","rs113556768","rs9273505","rs28724248","rs35777809","rs3135044","rs190452998","rs484302","rs12194148","rs113556768","rs9273505","rs28724248","rs35777809","rs2523597","rs3135044","rs190452998","rs484302","rs12194148","rs113556768","rs9273505","rs28724248","rs10995477","rs146890554","rs10852939","rs438228","rs3184504","rs11066320","rs11592315","rs7698924","rs12294466","rs56192178","rs6484504","rs1265115","rs6484504","rs1265115","rs381500","rs1265115","rs6484504","rs1265115","rs6484504","rs1265115","rs6414767","rs1341270","rs6484504","rs62037365","rs12448131","rs6484504","rs1265115","rs6484504","rs1265115","rs377101017","rs8176749","rs115478735","rs28660186","rs11191648","rs2905426","rs8055219","rs6430095","rs13217619","rs79364663","rs35998080","rs34796896","rs1023500","rs760648","rs736202","rs1893592","rs74743854","rs150058853","rs145664379","rs6587998","rs2287623","rs6504872","rs376642","rs9391858","rs3198697","rs2976940","rs1832007","rs2976940","rs1832007","rs6747264","rs2976940","rs1832007","rs2976940","rs4761592","rs2390314","rs873625","rs1684466","rs9264272","rs10692097","rs1266071","rs707930","rs12194148","rs113556768","rs9270187","rs9273505","rs28724248","rs1264309","rs9264272","rs9266247","rs10692097","rs41273264","rs1266071","rs707930","rs12194148","rs113556768","rs9270187","rs9273505","rs28724248","rs11759423","rs9264272","rs9266247","rs10692097","rs41273264","rs1266071","rs707930","rs12194148","rs113556768","rs9270187","rs9273505","rs28724248","rs2476601","rs9264272","rs9266247","rs10692097","rs1266071","rs707930","rs12194148","rs113556768","rs9270187","rs9273505","rs28724248","rs9264272","rs9266247","rs10692097","rs1266071","rs707930","rs12194148","rs113556768","rs9270187","rs9273505","rs28724248","rs9264272","rs9266247","rs10692097","rs41273264","rs1266071","rs707930","rs12194148","rs113556768","rs9270187","rs9273505","rs28724248","rs11759423","rs10995477","rs146890554","rs10852939","rs9273505","rs2287019","rs16996700","rs1121980","rs1128249","rs2745359","rs10783615","rs1294421","rs10783615","rs1294421"],["0.23515304996226","0.0528702964740836","0.0253114770830888","0.113147289385794","0.10057559337167","1.19077492667023e-07","7.15220108460592e-08","0.000109112731270264","2.84639070684359e-17","2.84639070684359e-17","2.84639070684359e-17","2.84639070684359e-17","2.84639070684359e-17","2.84639070684359e-17","0.00151772058559659","0.0391961785142455","1.08898829667731e-07","6.15459490075253e-08","2.79828170833344e-17","2.79828170833344e-17","2.79828170833344e-17","2.79828170833344e-17","2.79828170833344e-17","2.79828170833344e-17","0.00339360593718","0.0372443338811499","1.08894493391703e-07","6.6995067147768e-08","0.000120738157437954","3.53806559312006e-17","3.53806559312006e-17","3.53806559312006e-17","3.53806559312006e-17","3.53806559312006e-17","3.53806559312006e-17","0.00240766982880689","0.0680376315318034","7.88370318883986e-08","2.45878965341672e-17","2.45878965341672e-17","2.45878965341672e-17","2.45878965341672e-17","2.45878965341672e-17","2.45878965341672e-17","0.00374565876286155","0.0686303894862552","6.91275675148058e-08","2.48800970193222e-17","2.48800970193222e-17","2.48800970193222e-17","2.48800970193222e-17","2.48800970193222e-17","2.48800970193222e-17","0.00338161471414812","0.0306094690685041","1.06290316834929e-07","6.06590887759929e-08","0.000122903023085694","2.75666877327415e-17","2.75666877327415e-17","2.75666877327415e-17","2.75666877327415e-17","2.75666877327415e-17","2.75666877327415e-17","0.0030353874899724","0.0110801095937397","0.42648198730778","0.0603953003124035","0.729211141976076","0.150766077043542","0.126941931671864","0.0610459829772375","0.140527506754408","0.0256593571226567","0.00102628259597935","0.000737671282247832","0.903728313468245","0.903698553547299","8.0972775261482e-06","1.6128923384748e-11","0.0035869432926701","3.27814735090401e-10","1.22152528507113e-11","1.22152528507113e-11","0.962157367715291","0.878433767133728","0.876963970163935","0.561917085216875","0.561917085216875","0.561917085216875","0.561917085216875","0.561917085216875","0.561917085216875","0.561917085217099","0.561917085217099","0.561917085217099","0.561917085217099","0.561917085217099","0.56191708521729","0.56191708521729","0.56191708521729","0.56191708521729","0.562246774638826","0.687159462022064","0.68759510830965","0.00013277950773938","3.46499220875824e-09","2.97716356247026e-09","0.0109152337262148","1.30867888291243e-08","1.28743978896985e-11","1.28743978896985e-11","0.946078300770501","0.945329616601685","0.661033332283255","0.661033332283255","0.661033332283255","0.661033332283255","0.661033332283255","0.661033332283255","0.661033332283481","0.661033332283481","0.661033332283481","0.661033332283481","0.661033332283481","0.661033332283631","0.661033332283631","0.661033332283631","0.661033332283631","0.661333586218418","0.914075348726011","0.914228195294565","6.08346877734136e-05","0.0524589208932484","6.76742935114646e-09","1.1980916704282e-11","1.1980916704282e-11","0.957075966715997","0.956627065493158","0.764016452927197","0.764016452927197","0.764016452927197","0.764016452927197","0.764016452927197","0.764016452927197","0.764016452927371","0.764016452927371","0.764016452927371","0.764016452927371","0.764016452927371","0.764016452927501","0.764016452927501","0.764016452927544","0.764016452927544","0.764258327782381","0.838142229391617","0.838149480654108","5.2902013361268e-05","3.21576432705784e-05","1.0050520820176e-10","0.0242968200459857","1.34657359540624e-08","1.22162840135667e-11","1.22162840135667e-11","0.505682325118698","0.871152345373558","0.869525071745203","0.534076414311533","0.534076414311533","0.534076414311533","0.534076414311533","0.534076414311533","0.534076414311533","0.534076414311533","0.534076414311775","0.534076414311775","0.534076414311775","0.534076414311775","0.534076414311775","0.534076414311958","0.534076414311958","0.534076414311958","0.534076414311958","0.53440965003174","0.922622219694106","0.0393609922420342","0.853082448722613","0.0301548845445814","0.917066772723715","0.0790714051339596","0.872573012931175","0.766418422326201","1.79067055076916e-24","9.73332601054865e-44","9.73332601247405e-44","9.73332601247405e-44","9.73332601247405e-44","1.4754997371898e-28","0.589818696605129","0.0565095300933416","0.0600732185698601","0.0146928856287547","0.266319963398378","0.114867730346153","0.619260790107146","0.0727248098048155","0.0596000308660879","0.0759362564790072","0.340431896386864","0.340431896383927","0.353312428084187","0.489343686603197","0.0690344489148936","0.833819857581286","0.894068751696263","0.0699996730088621","0.219181388254636","0.0311676497525125","8.77305538185888e-09","0.334823263163903","9.03611082135176e-05","9.03611082135176e-05","9.03611082135176e-05","9.03611082135176e-05","9.03611082135176e-05","9.03611082135176e-05","9.03611082135176e-05","9.03611085952009e-05","9.08398598751884e-05","0.854129036153944","0.850784911394922","0.863151569487757","1.73213660192055e-05","1.5775722381848e-05","3.63880338656999e-11","0.0155366654666231","1.82155656530844e-06","1.82155656530844e-06","1.82155656530844e-06","1.82155656530844e-06","1.82155656530844e-06","1.82155656530844e-06","1.82155656530844e-06","1.82155656530844e-06","1.83120840432974e-06","0.0772240496245242","0.161141187343032","0.00628048567896961","0.00138118311428374","8.37835630393126e-10","0.237727673228936","0.000171537593553595","0.000171537593553595","0.000171537593553595","0.000171537593553595","0.000171537593553595","0.000171537593553595","0.000171537593553595","0.000171537593553595","0.000171537594278107","0.000172446360853503","0.000165553593649444","9.8598194522923e-10","1.94927340260946e-07","1.29330278000362e-10","1.29330278000362e-10","1.29330278000362e-10","1.29330278000362e-10","1.29330278000362e-10","1.29330278000362e-10","1.29330278000362e-10","1.29330278000362e-10","1.30015558312034e-10","0.000119549090956903","1.20477524235562e-10","0.00110273232486052","8.47627011750495e-07","8.47627011750495e-07","8.47627011750495e-07","8.47627011750495e-07","8.47627011750495e-07","8.47627011750495e-07","8.47627011750495e-07","8.47627011750495e-07","8.52118317429113e-07","0.0480342357895297","0.0727511736386787","0.0953426709895774","0.836252682294578","0.747034238181969","0.747034238176385","0.000113817870196828","8.12450352195543e-05","8.53980679568567e-11","0.0490029508831177","0.000348440126369979","0.000348440126369979","0.000348440126369979","0.000348440126369979","0.000348440126369979","0.000348440126369979","0.000348440126369979","0.000348440126369979","0.000350285755190249","0.808011502404631","0.770746069375465","0.0978624921640693","0.0581493789776594","0.0702188963898599","0.717529577657049","0.802183615758056","1.79546373640712e-06","1.79546373726244e-06","2.05223207241154e-19","1.18223625519967e-34","1.18223625519967e-34","1.18223625519967e-34","1.18223625519967e-34","5.38204303909463e-13","0.978229844831424","2.21843214026955e-11","2.21843214026961e-11","1.37554358979316e-19","4.59198435673857e-44","4.59198435673857e-44","4.59198435673857e-44","4.59198435673857e-44","2.39902219634779e-22","0.0915413378290016","0.121006464155238","0.109175207300257","0.142223311713145","0.799312737859467","0.799369060061954","4.95205094734834e-09","4.95205094735875e-09","1.36148143074428e-19","6.20803393186062e-45","6.20803393186062e-45","6.20803393186062e-45","6.20803393186062e-45","3.24333775022653e-23","0.792122892053204","0.244090759648729","2.22301734562326e-09","2.22301734562661e-09","1.49929281845617e-19","7.21637257277684e-41","7.21637257277684e-41","7.21637257277684e-41","7.21637257277684e-41","3.77007647489085e-19","0.696692864501414","3.02667510622895e-10","3.02667510622955e-10","1.51164098636417e-19","1.75317576814871e-39","1.75317576814871e-39","1.75317576814871e-39","1.75317576814871e-39","9.15898322022707e-18","0.960930855412367","0.960931380270976","9.47286930101035e-11","9.47286930101089e-11","1.39251729884079e-19","2.53870276315709e-43","2.53870276315709e-43","2.53870276315709e-43","2.53870276315709e-43","1.3263261195597e-21","0.0321730178095614","0.0312327779881359","0.731558250413772","0.0379074380183335","0.0378500163615668","0.486841290779502","0.918495104399077","0.0387523567420093","0.0527734298715467","0.03805554717973","0.742499866107934","0.866691209671721","0.14311694594734","0.646329609163253","0.0441155946248111","0.0475483009617948","0.973698520159833","0.06862078878714","6.93163852324023e-40","6.93163852324023e-40","6.93163852324023e-40","6.93163852324023e-40","0.192960612502792","0.000311645654369737","0.000311645654369737","0.991413167477176","0.158019420674235","0.158019420674235","6.93163852025752e-40","6.93163852025752e-40","6.93163852025752e-40","6.93163852025752e-40","6.93163852025752e-40","0.47860511070828","0.643419105201051","0.900436114322198","0.000453883876579197","0.000453883876579197","0.314750965444945","0.0546046896746746","6.93471385782899e-40","6.93471385782899e-40","6.93471385782899e-40","6.93471385782899e-40","0.000701354011626576","0.000701354011626576","0.237558472212458","0.0331817863338423","6.93163858309354e-40","6.93163858309354e-40","6.93163858309354e-40","6.93163858309354e-40","0.0691349874602455","0.853239472789836","0.0457305504575912","0.0112091122024616","0.0667258675245431","0.0694038650479758","0.571760274854064","0.880423508541608","0.030646767032739","0.142158398907464","0.0279610922201117","1.78789147267764e-06","2.63276950791375e-06","2.69316117823453e-22","1.33688962429952e-37","1.33688962429952e-37","1.33688962429952e-37","1.33688962429952e-37","0.0133294424560058","0.0133298163971141","0.0133298091588449","2.18890488944738e-11","5.72125853802918e-11","1.76137765137828e-22","5.13372257146319e-47","5.13372257146319e-47","5.13372257146319e-47","5.13372257146319e-47","0.0687394431922263","0.127105898985061","0.0815089478801097","0.142827365059065","0.0148976966120862","4.89421518636384e-09","9.2790677195111e-09","1.7513551225363e-22","6.94030727952806e-48","6.94030727952806e-48","6.94030727952806e-48","6.94030727952806e-48","0.792159698506142","0.00030540213591107","0.000305403937297331","2.20479012635195e-09","5.40622044920709e-09","1.93758768299755e-22","8.09770844062875e-44","8.09770844062875e-44","8.09770844062875e-44","8.09770844062875e-44","0.00114909954676441","0.00114912170275674","2.99620795953805e-10","7.07374455281647e-10","1.93751709712778e-22","1.96895954791391e-42","1.96895954791391e-42","1.96895954791391e-42","1.96895954791391e-42","0.00827680991476611","9.34777665369566e-11","2.32668055131635e-10","1.77757309127636e-22","2.84493141843248e-46","2.84493141843248e-46","2.84493141843248e-46","2.84493141843248e-46","0.0321742702521302","0.0312338591787245","0.0342323907618955","0.0332618575162737","0.734291295862184","0.0379499483303129","0.0378924530293158","0.791311294067581","1.8357386315409e-06","5.83353709337026e-16","3.15472427303493e-31","3.15472427303493e-31","3.15472427303493e-31","3.15472427303493e-31","0.000687217675737978","0.97664930124327","2.21501136039348e-11","2.21501136040645e-11","9.09699120456202e-18","1.21520263361838e-40","1.21520263361838e-40","1.21520263361838e-40","1.21520263361838e-40","0.0684002981774102","0.0564084079421467","0.0935652180867787","0.0655828768668614","0.147957118012384","0.788734237511053","0.788792729523794","4.96582720794427e-09","4.96582720940405e-09","2.38015091185882e-17","1.64300201504101e-41","1.64300201504101e-41","1.64300201504101e-41","1.64300201504101e-41","0.792143975938121","0.232438526811499","2.22125352557406e-09","2.2212535330258e-09","3.83243034762732e-17","1.91070342125327e-37","1.91070342125327e-37","1.91070342125327e-37","1.91070342125327e-37","0.682838277696649","3.02057922183643e-10","3.02057922217069e-10","2.14412115054702e-17","4.64251610096348e-36","4.64251610096348e-36","4.64251610096348e-36","4.64251610096348e-36","0.958246673884263","0.958247232337322","9.48812505212957e-11","9.48812505223407e-11","4.02691085033817e-18","6.72065052292278e-40","6.72065052292278e-40","6.72065052292278e-40","6.72065052292278e-40","0.723814580516377","0.0378919248645755","0.0378345257837661","0.0644073015606905","0.835419294899348","0.671464039601956","0.0343104871457909","0.827563933664941","0.704633374304038","0.157321994298607","0.888065237036024","0.0497278304036977","0.817548148141477","0.0428064154146238","0.809459298145642","0.0369859852598805","0.845061172706313","0.0405579141687355","0.871993255374635","0.0399203092616732","0.771595649113887","0.32499729264337","0.670151173042766","0.772906786639583","0.471051023526199","0.764941699360305","0.0264463597883362","0.864914512227712","0.0426628102369326","0.88551259008549","0.885511644895815","0.88551096666017","0.885781950591414","0.119027153410894","0.72136244061068","0.851056592680632","0.816060578401381","0.602356601801049","0.0337170332031212","0.765484833300257","0.510267936301087","0.123288844140024","0.104822292000776","0.0539130575397604","0.0571808539343492","0.117947160844494","0.116310901977399","0.0943887743259736","0.0900724212849069","0.830357745660028","0.759732367958221","0.0499345347127953","0.787269878664347","0.821578737999703","0.707770047956394","0.767709043912566","0.724646183806289","0.748030509619342","0.0352695500673777","0.772479895884943","0.827144508427748","0.697232718050514","0.916285409808196","0.297266281030597","0.0888062827005846","0.890551205237425","0.0258147538951236","8.35411346246296e-06","1.76258902828482e-06","1.76258902912448e-06","1.44094190595887e-52","1.44094190595887e-52","1.44094190595887e-52","1.44094190595887e-52","1.44094190595887e-52","0.000726722366090165","0.000418670072524054","0.000418681741013648","9.34844232206109e-11","8.42098197721859e-12","2.09230232059486e-11","2.09230232059491e-11","3.67145684579053e-69","3.67145684579053e-69","3.67145684579053e-69","3.67145684579053e-69","3.67145684579053e-69","1.87579688588354e-38","0.0131800589307805","0.0132048726300601","1.74332944929645e-08","2.24492140526035e-09","4.7067148802493e-09","4.7067148802592e-09","4.96325988468704e-70","4.96325988468704e-70","4.96325988468704e-70","4.96325988468704e-70","4.96325988468704e-70","0.792396782159057","0.000197805828456051","0.000197806995320882","6.49440068261049e-09","2.14459509404662e-09","2.14459509404991e-09","1.75116865267005e-52","1.75116865267005e-52","1.75116865267005e-52","1.75116865267005e-52","1.75116865267005e-52","0.000420530171547884","0.000420538285773223","1.13314138745991e-09","2.89496575372604e-10","2.89496575372662e-10","7.84731378348302e-58","7.84731378348302e-58","7.84731378348302e-58","7.84731378348302e-58","7.84731378348302e-58","0.000959945484550705","0.000960039769324708","2.82237821102119e-10","3.28916570677095e-11","8.93996657290198e-11","8.93996657290224e-11","2.00181451266702e-68","2.00181451266702e-68","2.00181451266702e-68","2.00181451266702e-68","2.00181451266702e-68","1.02294916059284e-37","0.769332245568869","0.0382521467981851","0.0381942236891282","0.0893287459956026","0.527966721765118","0.477612847282066","0.722451360087032","0.445628930739452","0.132637954188055","0.805059635951929","0.581020839169697","0.800388234305096","0.762324213975369"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>trait<\/th>\n      <th>lv<\/th>\n      <th>snp_gtex<\/th>\n      <th>snp_rs<\/th>\n      <th>pp4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="susie-study" class="section level2">
+<h2><em>SuSiE study</em></h2>
+<p>We do GWAS fine-mapping and obtain GWAS PIPs for all 698 regions. Then group all SNPs by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion_kegg_pcs.jpeg" width="80%">
+</figure>
+<table style="width:100%;">
+<colgroup>
+<col width="13%" />
+<col width="5%" />
+<col width="8%" />
+<col width="7%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>gwaspip &gt; 0.9</th>
+<th>0.9 &gt; gwaspip &gt; 0.8</th>
+<th>0.8 &gt; gwaspip &gt;0.7</th>
+<th>0.7 &gt; gwaspip &gt; 0.6</th>
+<th>0.6 &gt; gwaspip &gt; 0.5</th>
+<th>0.5 &gt; gwaspip &gt; 0.4</th>
+<th>0.4 &gt; gwaspip &gt; 0.3</th>
+<th>0.3 &gt; gwaspip &gt; 0.2</th>
+<th>0.2 &gt; gwaspip &gt; 0.1</th>
+<th>0.1 &gt; gwaspip &gt; 0.05</th>
+<th>0.05 &gt; gwaspip &gt; 0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>lvpip &gt; 0.25 (total num :3239)</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>5</td>
+<td>2</td>
+<td>0</td>
+<td>3224</td>
+</tr>
+<tr class="even">
+<td>0.25 &gt; lvpip &gt; 0.1 (total num: 0)</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0.1 &gt; lvpip &gt; 0 (total num: 1607309)</td>
+<td>319</td>
+<td>56</td>
+<td>17</td>
+<td>35</td>
+<td>104</td>
+<td>103</td>
+<td>158</td>
+<td>153</td>
+<td>184</td>
+<td>274</td>
+<td>1605906</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5        rstudioapi_0.11   whisker_0.3-2     knitr_1.30       
+ [5] magrittr_1.5      R6_2.4.1          rlang_0.4.8       highr_0.8        
+ [9] stringr_1.4.0     tools_3.6.1       DT_0.15           xfun_0.18        
+[13] git2r_0.26.1      crosstalk_1.1.0.1 htmltools_0.5.0   ellipsis_0.3.1   
+[17] rprojroot_1.3-2   yaml_2.2.1        digest_0.6.25     tibble_3.0.3     
+[21] lifecycle_0.2.0   crayon_1.3.4      later_1.1.0.1     htmlwidgets_1.5.2
+[25] vctrs_0.3.4       promises_1.1.1    fs_1.5.0          glue_1.4.2       
+[29] evaluate_0.14     rmarkdown_1.13    stringi_1.5.3     compiler_3.6.1   
+[33] pillar_1.4.6      backports_1.1.10  jsonlite_1.7.1    httpuv_1.5.1     
+[37] pkgconfig_2.0.3  </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
