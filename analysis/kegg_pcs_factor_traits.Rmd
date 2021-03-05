@@ -7,14 +7,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-## *Introduction*
+## **Introduction**
 
 In this part, we inferred 1646 PCs from 332 KEGG pathways and studied the effects of these PCs on phenotype.
 
 The data we used in this part are the same with [earlier analyses](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html).
 
 
-## *Association tests*
+## **Association tests**
 
 We did association tests for PCs and SNPs have p-value < 5E-8 in each trait-GWAS. The association tests were corrected by 10 whole genome PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
 
@@ -28,7 +28,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/sum_kegg_pcs_sig_pairs
 knitr::kable(sum, caption = "number of significant trait-LV associations across all traits")
 ```
 
-## *Effectsize analysis*
+## **Effectsize analysis**
 
 For the pairs have more than 2 SNPs with FDR <0.2 (830 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
 
@@ -51,7 +51,7 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 </figure>
 
 
-## *Colocalization analysis*
+## **Colocalization analysis**
 
 We tested 698 regions in the colocalization analysis using Coloc package. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization.
 
@@ -64,7 +64,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_table_kegg_pcs.r
 DT::datatable(table, options = list(pageLength =20))
 ```
 
-## *SuSiE study*
+## **SuSiE study**
 
 We do GWAS fine-mapping and obtain GWAS PIPs for all 698 regions. Then group all SNPs by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.
 
