@@ -446,7 +446,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-02-23
+<strong>Last updated:</strong> 2021-03-05
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed8628015b38f897442bb0b2b7d7762dc59daa032targetblankd862801a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/d8628015b38f897442bb0b2b7d7762dc59daa032" target="_blank">d862801</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree047f6672d6757ca378957e244d9b1c3499e358fbtargetblank047f667a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/047f6672d6757ca378957e244d9b1c3499e358fb" target="_blank">047f667</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed8628015b38f897442bb0b2b7d7762dc59daa032targetblankd862801a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree047f6672d6757ca378957e244d9b1c3499e358fbtargetblank047f667a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/d8628015b38f897442bb0b2b7d7762dc59daa032" target="_blank">d862801</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/047f6672d6757ca378957e244d9b1c3499e358fb" target="_blank">047f667</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -498,10 +498,10 @@ Ignored files:
     Ignored:    analysis/.Rhistory
 
 Untracked files:
-    Untracked:  output/binom_results.rdata
+    Untracked:  output/coloc_table_kegg_peer.rdata
 
 Unstaged changes:
-    Modified:   analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_muscle.Rmd
+    Modified:   analysis/kegg_peer_factor_traits.Rmd
 
 </code></pre>
 <p>
@@ -540,6 +540,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/17cfa842350dfa127cde0777f5fa257abae8ce38/analysis/factors_traits.Rmd" target="_blank">17cfa84</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-03-05
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/b0fb96efbf0227b2fb6dbd7898a6f02ba4557527/docs/factors_traits.html" target="_blank">b0fb96e</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-02-23
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -734,8 +768,8 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 </div>
 </div>
-<div id="studying-effects-of-factos-on-phenotypes-with-mendelian-randomization" class="section level1">
-<h1><strong>Studying effects of factos on phenotypes with Mendelian Randomization</strong></h1>
+<div id="studying-effects-of-factors-on-phenotypes-with-mendelian-randomization-factors-are-inferred-from-expression-matrix" class="section level1">
+<h1><strong>Studying effects of factors on phenotypes with Mendelian Randomization : factors are inferred from expression matrix</strong></h1>
 <p>We’d like to show that the factors have a causal effect on outcome(traits), but it’s difficult to establish.<br />
 So we state a weaker hypothesis first: GWAS variants of a trait often converge to a relatively small number of processes, which can be represented as expression factors.</p>
 <p>Then we strengthen hypothesis: if the effects of SNPs on LV is correlated with their effects on trait when there is a causal effect of LV on trait.</p>
@@ -782,6 +816,15 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 <li><p><a href="https://xsun1229.github.io/factor_analysis/EM_algorithm_pliercanon_trunc.html">Using truncated normal distribution for IV and Non-IV variables</a></p></li>
 </ul>
 </div>
+</div>
+<div id="studying-effects-of-factors-on-phenotypes-with-mendelian-randomization-factors-are-inferred-from-known-pathways" class="section level1">
+<h1><strong>Studying effects of factors on phenotypes with Mendelian Randomization : factors are inferred from known pathways</strong></h1>
+<ul>
+<li>KEGG pathways</li>
+</ul>
+<p>We have 332 human pathways from KEGG. For each pathway, we inferred 5 PCs and 5 PEER factors from the gene expression matrix. We obtained 1646 PCs and 1634 PEER factors in total.</p>
+<p><a href="https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits.html">PCs</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/kegg_peer_factor_traits.html">PEER</a></p>
 </div>
 <div id="gwas-convergence-on-pathways-using-cis-eqtls" class="section level1">
 <h1><strong>GWAS convergence on pathways using cis-eQTLs</strong></h1>
