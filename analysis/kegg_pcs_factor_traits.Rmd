@@ -73,6 +73,13 @@ We do GWAS fine-mapping and obtain GWAS PIPs for all 698 regions. Then group all
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion_kegg_pcs.jpeg" width="80%">
 </figure>
 
+snp_num :1610548
+
+|            | pip > 0.75 | 0.75 > pip > 0.5 | 0.5 > pip >0.25 | 0.25 > pip > 0 |
+|------------|------------|------------------|-----------------|----------------|
+| LV-SuSiE   | 1859       | 369              | 1011            |1598309         |
+| GWAS-SuSiE | 394        | 143              | 292             |1609719         |
+
 
 |                                  | gwaspip > 0.9 | 0.9 > gwaspip > 0.8 | 0.8 > gwaspip >0.7 | 0.7 > gwaspip > 0.6 | 0.6 > gwaspip > 0.5 | 0.5 > gwaspip > 0.4 | 0.4 > gwaspip > 0.3 | 0.3 > gwaspip > 0.2 | 0.2 > gwaspip > 0.1 | 0.1 > gwaspip > 0.05 | 0.05 > gwaspip > 0 |
 |----------------------------------|---------------|---------------------|--------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|-------------------|-------------------|
