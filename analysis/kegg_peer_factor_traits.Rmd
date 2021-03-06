@@ -1,5 +1,5 @@
 ---
-title: "kegg_peer_factor_traits"
+title: "Studying effects of PEER factors on phenotypes (KEGG)"
 author: "XSun"
 date: "2021-03-05"
 output: workflowr::wflow_html
@@ -7,14 +7,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-## *Introduction*
+## **Introduction**
 
 In this part, we inferred 1634 PCs from 332 KEGG pathways and studied the effects of these PCs on phenotype.
 
 The data we used in this part are the same with [earlier analyses](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html).
 
 
-## *Association tests*
+## **Association tests**
 
 We did association tests for PEER factors and SNPs have p-value < 5E-8 in each trait-GWAS. The association tests were corrected by 10 whole genome PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
 
@@ -28,13 +28,13 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/sum_kegg_peer_sig_pair
 knitr::kable(sum, caption = "number of significant trait-LV associations across all traits")
 ```
 
-## *Effectsize analysis*
+## **Effectsize analysis**
 
-For the pairs have more than 2 SNPs with FDR <0.2 (830 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+For the pairs have more than 2 SNPs with FDR <0.2 (774 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
 
 To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
 
-There are 125 pairs show sign consistency (have p-values < 0.05 in resampling). We just focused on these pairs in the following analysis 
+There are 115 pairs show sign consistency (have p-values < 0.05 in resampling). We just focused on these pairs in the following analysis 
 
 
 ```{r echo=FALSE}
@@ -51,33 +51,41 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 </figure>
 
 
-## *Colocalization analysis*
+## **Colocalization analysis**
 
 We tested 599 regions in the colocalization analysis using Coloc package. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization.
 
 SNP selection: 1. Chose the SNPs in the info table. 2. For each SNP, the region used in colocalization analysis is between [pos-250kb, pos+250kb]. 3. All SNPs in this region are included in alalysis.
 
-There're 22 regions have PP4 > 0.9, 61 regions have PP4 > 0.8.
+There're 15 regions have PP4 > 0.9, 58 regions have PP4 > 0.8.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_table_kegg_pcs.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_table_kegg_peer.rdata")
 DT::datatable(table, options = list(pageLength =20))
 ```
 
-## *SuSiE study*
+## **SuSiE study**
 
 We do GWAS fine-mapping and obtain GWAS PIPs for all 599 regions. Then group all SNPs by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion_kegg_pcs.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion_kegg_peer.jpeg" width="80%">
 </figure>
+
+
+snp_num :897554
+
+|            | pip > 0.75 | 0.75 > pip > 0.5 | 0.5 > pip >0.25 | 0.25 > pip > 0 |
+|------------|------------|------------------|-----------------|----------------|
+| LV-SuSiE   | 1286       | 309              | 792            |895167         |
+| GWAS-SuSiE | 260        | 71              | 331             |896807        |
 
 
 |                                  | gwaspip > 0.9 | 0.9 > gwaspip > 0.8 | 0.8 > gwaspip >0.7 | 0.7 > gwaspip > 0.6 | 0.6 > gwaspip > 0.5 | 0.5 > gwaspip > 0.4 | 0.4 > gwaspip > 0.3 | 0.3 > gwaspip > 0.2 | 0.2 > gwaspip > 0.1 | 0.1 > gwaspip > 0.05 | 0.05 > gwaspip > 0 |
 |----------------------------------|---------------|---------------------|--------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|-------------------|-------------------|
-| lvpip > 0.25 (total num :3239)     | 5             | 0                   | 0                  | 0                   | 1                   | 2                   | 0                   | 5                   | 2                   | 0                | 3224                |
+| lvpip > 0.25 (total num :2387)     | 0             | 0                   | 0                  | 0                   | 0                   | 0                   | 0                   | 3                   | 1                   | 0                | 2383                |
 | 0.25 > lvpip > 0.1 (total num: 0) | 0            | 0                   | 0                 | 0                  | 0                  | 0                  | 0                  | 0                 | 0                  | 0            | 0            |
-| 0.1 > lvpip > 0 (total num: 1607309) | 319            | 56                   | 17                 | 35                  | 104                  | 103                  | 158                  | 153                  | 184                  | 274            | 1605906           |
+| 0.1 > lvpip > 0 (total num: 983068) | 194            | 52                   | 23                 | 33                  | 112                  | 120                  | 158                  | 164                  | 203                  | 360            | 891649           |
 
 
