@@ -38,10 +38,16 @@ There are 125 pairs show sign consistency (have p-values < 0.05 in resampling). 
 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_kegg_pc.txt", header = T)
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_kegg_pcs.txt", header = T)
 DT::datatable(sum, options = list(pageLength =20))
 ```
 
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got the summary table below:
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_kegg_pcs.txt", header = T)
+DT::datatable(sum, options = list(pageLength =20))
+```
 
 To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
 
