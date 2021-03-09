@@ -28,7 +28,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/sum_kegg_pcs_sig_pairs
 knitr::kable(sum, caption = "number of significant trait-LV associations across all traits")
 ```
 
-## **Effectsize analysis**
+## **Effectsize analysis -- effect size fitting**
 
 For the pairs have more than 2 SNPs with FDR <0.2 (830 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
 
@@ -54,6 +54,48 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_keeg_pc.jpeg" width="60%">
+</figure>
+
+
+
+## **Effectsize analysis -- resampling using IVW estimator**
+
+For the SNPs have FDR < 0.2 in the pairs have more than 2 SNPs at FDR <0.2 (830 pairs), I computed the IVW estimator. And also did resampling to test the reliability of the results. 
+
+In the resampling part, We resampled the beta.outcome from all SNPs in the trait-factor pair, and fixed the beta.exposure, se.exposure, se.outcome.
+
+We used 'MendelianRandomization' R package to compute the IVW estimator and p-values. 
+
+There are 77 pairs show sign consistency (have p-values < 0.05 in resampling). We just focused on these pairs in the following analysis 
+
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_fit_ivw_pcs.txt", header = T)
+DT::datatable(sum, options = list(pageLength =20))
+```
+
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got the summary table below:
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_fit_ivw_noMHC_pcs.txt", header = T)
+DT::datatable(sum, options = list(pageLength =20))
+```
+
+
+## **Comparing R2 and IVW estimator**
+
+We compared the pvalues from resampling obtained from two methods above. 
+
+SNPs in MHC area are included:
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_pcs.jpeg" width="60%">
+</figure>
+
+SNPs in MHC area are excluded:
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_noMHC_pcs.jpeg" width="60%">
 </figure>
 
 
