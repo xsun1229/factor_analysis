@@ -89,13 +89,13 @@ We compared the pvalues from resampling obtained from two methods above.
 SNPs in MHC area are included:
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_pc.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_peer.jpeg" width="60%">
 </figure>
 
 SNPs in MHC area are excluded:
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_noMHC_pc.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_peer.jpeg" width="60%">
 </figure>
 
 

@@ -95,7 +95,7 @@ SNPs in MHC area are included:
 SNPs in MHC area are excluded:
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_noMHC_pcs.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pcs.jpeg" width="60%">
 </figure>
 
 
