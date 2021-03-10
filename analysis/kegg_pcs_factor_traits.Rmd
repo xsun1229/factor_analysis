@@ -36,18 +36,7 @@ To make our results more reliable, we did resampling. We resampled the SNPs with
 
 There are 125 pairs show sign consistency (have p-values < 0.05 in resampling). We just focused on these pairs in the following analysis 
 
-
-```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_kegg_pcs.txt", header = T)
-DT::datatable(sum, options = list(pageLength =20))
-```
-
-After deleting the pairs whose 'num_snp_noMHC' == 0, we got the summary table below:
-
-```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_kegg_pcs.txt", header = T)
-DT::datatable(sum, options = list(pageLength =20))
-```
+We have a summary table below(together with the IVW part).
 
 To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
 
@@ -84,6 +73,9 @@ DT::datatable(sum, options = list(pageLength =20))
 
 ## **Comparing R2 and IVW estimator**
 
+
+### Scatter plot for the p-values from two resampling parts
+
 We compared the pvalues from resampling obtained from two methods above. 
 
 SNPs in MHC area are included:
@@ -93,6 +85,22 @@ SNPs in MHC area are included:
 </figure>
 
 SNPs in MHC area are excluded:
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pcs.jpeg" width="60%">
+</figure>
+
+### Debug for a special case
+
+For the IBD - pwy329_pc5 pair, we have resampling p-value = 0 using R2 but the resampling p-value = 0.196 using IVW estimator. So we do some diagnosis to find out why they are different. 
+
+```{r eval=FALSE, echo=T}
+ivw_input <- mr_input(bx =dat$beta.exposure, bxse = dat$se.exposure, by = dat$beta.outcome, byse = dat$se.outcome, snps = dat$gtexid )
+ivw_out <- mr_ivw(ivw_input)      
+
+ivw_est <- ivw_out$Estimate      
+ivw_pval <- ivw_out$Pvalue
+```
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pcs.jpeg" width="60%">
