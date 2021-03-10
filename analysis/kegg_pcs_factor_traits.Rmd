@@ -103,7 +103,7 @@ ivw_pval <- ivw_out$Pvalue
 ```
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pcs.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc.jpeg" width="60%">
 </figure>
 
 
