@@ -73,8 +73,25 @@ DT::datatable(sum, options = list(pageLength =20))
 
 ## **Comparing R2 and IVW estimator**
 
+### **All 830 pairs**
 
-### Scatter plot for the p-values from two resampling parts
+**- Origin results from effectsize fitting and IVW estimating**
+
+#### Scatter plot for the estimate/p-values from fitting and IVW
+
+We made a scatter plot to check if the estimate from fitting and IVW are similar.  
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/estimate_compare_allpair_pc.jpeg" width="60%">
+</figure>
+
+We also made a scatter plot for the p-values from the fitting and IVW estimate. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_org_compare_allpair_pc.jpeg" width="60%">
+</figure>
+
+**- Resamping: Scatter plot for the p-values from two resampling criterion**
 
 We compared the pvalues from resampling obtained from two methods above. 
 
@@ -90,21 +107,9 @@ SNPs in MHC area are excluded:
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pcs.jpeg" width="60%">
 </figure>
 
-### Scatter plot for the estimate/p-values from fitting and IVW
 
-We made a scatter plot to check if the estimate from fitting and IVW are similar.  
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/estimate_compare_allpair_pc.jpeg" width="60%">
-</figure>
-
-We also made a scatter plot for the p-values from the fitting and IVW estimate. 
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_org_compare_allpair_pc.jpeg" width="60%">
-</figure>
-
-### Debug for a special case
+### **A special case**
 
 For the IBD - pwy329_pc5 pair, we have resampling p-value = 0 using R2 but the resampling p-value = 0.196 using IVW estimator. So we do some diagnosis to find out why they are different. 
 
@@ -116,11 +121,13 @@ ivw_est <- ivw_out$Estimate
 ivw_pval <- ivw_out$Pvalue
 ```
 
+**- Original fitting and IVW estimating results**
+
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc.jpeg" width="60%">
 </figure>
 
-To study the resampling results for this case deepling, we made several other plots to read the results.
+To study the resampling results for this case deeply, we made several other plots to read the results.
 
 This plot shows the slope in fitting vs IVW estimate results from 1000 times resampling. The points are near the y=x line. 
 
@@ -128,10 +135,7 @@ This plot shows the slope in fitting vs IVW estimate results from 1000 times res
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_resampling_estimate.jpeg" width="60%">
 </figure>
 
-It means that the slope and IVW estimates are similar and the reasons why the resampling p-values differ a lot do not come from the estimators. 
-
 We also made a plot to show the IVW estimators vs their p-values. The p-value associated with the estimate (calculated as Estimate/StdError as per Wald test) using a normal distribution.
-
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_pval_est.jpeg" width="60%">
