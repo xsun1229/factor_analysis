@@ -593,16 +593,16 @@ output/coloc_table_kegg_pcs.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree03a548d94851b2ada0c8aa664f455c7348a08f2ftargetblank03a548da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/03a548d94851b2ada0c8aa664f455c7348a08f2f" target="_blank">03a548d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1f5a4d768fba2026d3e17fe49c7dc4e538a8a7eetargetblank1f5a4d7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/1f5a4d768fba2026d3e17fe49c7dc4e538a8a7ee" target="_blank">1f5a4d7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree03a548d94851b2ada0c8aa664f455c7348a08f2ftargetblank03a548da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1f5a4d768fba2026d3e17fe49c7dc4e538a8a7eetargetblank1f5a4d7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/03a548d94851b2ada0c8aa664f455c7348a08f2f" target="_blank">03a548d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/1f5a4d768fba2026d3e17fe49c7dc4e538a8a7ee" target="_blank">1f5a4d7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -650,6 +650,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/1f5a4d768fba2026d3e17fe49c7dc4e538a8a7ee/analysis/kegg_pcs_factor_traits.Rmd" target="_blank">1f5a4d7</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-03-11
+</td>
+<td>
+wflow_publish(“analysis/kegg_pcs_factor_traits.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/5b6185f5b31fe8b941a444c24cc50b0467545019/docs/kegg_pcs_factor_traits.html" target="_blank">5b6185f</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1001,8 +1035,20 @@ update
 </div>
 <div id="comparing-r2-and-ivw-estimator" class="section level2">
 <h2><strong>Comparing R2 and IVW estimator</strong></h2>
-<div id="scatter-plot-for-the-p-values-from-two-resampling-parts" class="section level3">
-<h3>Scatter plot for the p-values from two resampling parts</h3>
+<div id="all-830-pairs" class="section level3">
+<h3><strong>All 830 pairs</strong></h3>
+<p><strong>- Origin results from effectsize fitting and IVW estimating</strong></p>
+<div id="scatter-plot-for-the-estimatep-values-from-fitting-and-ivw" class="section level4">
+<h4>Scatter plot for the estimate/p-values from fitting and IVW</h4>
+<p>We made a scatter plot to check if the estimate from fitting and IVW are similar.</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/estimate_compare_allpair_pc.jpeg" width="60%">
+</figure>
+<p>We also made a scatter plot for the p-values from the fitting and IVW estimate.</p>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_org_compare_allpair_pc.jpeg" width="60%">
+</figure>
+<p><strong>- Resamping: Scatter plot for the p-values from two resampling criterion</strong></p>
 <p>We compared the pvalues from resampling obtained from two methods above.</p>
 <p>SNPs in MHC area are included:</p>
 <figure class="half">
@@ -1013,34 +1059,24 @@ update
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pcs.jpeg" width="60%">
 </figure>
 </div>
-<div id="scatter-plot-for-the-estimatep-values-from-fitting-and-ivw" class="section level3">
-<h3>Scatter plot for the estimate/p-values from fitting and IVW</h3>
-<p>We made a scatter plot to check if the estimate from fitting and IVW are similar.</p>
-<figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/estimate_compare_allpair_pc.jpeg" width="60%">
-</figure>
-<p>We also made a scatter plot for the p-values from the fitting and IVW estimate.</p>
-<figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_org_compare_allpair_pc.jpeg" width="60%">
-</figure>
 </div>
-<div id="debug-for-a-special-case" class="section level3">
-<h3>Debug for a special case</h3>
+<div id="a-special-case" class="section level3">
+<h3><strong>A special case</strong></h3>
 <p>For the IBD - pwy329_pc5 pair, we have resampling p-value = 0 using R2 but the resampling p-value = 0.196 using IVW estimator. So we do some diagnosis to find out why they are different.</p>
 <pre class="r"><code>ivw_input &lt;- mr_input(bx =dat$beta.exposure, bxse = dat$se.exposure, by = dat$beta.outcome, byse = dat$se.outcome, snps = dat$gtexid )
 ivw_out &lt;- mr_ivw(ivw_input)      
 
 ivw_est &lt;- ivw_out$Estimate      
 ivw_pval &lt;- ivw_out$Pvalue</code></pre>
+<p><strong>- Original fitting and IVW estimating results</strong></p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc.jpeg" width="60%">
 </figure>
-<p>To study the resampling results for this case deepling, we made several other plots to read the results.</p>
+<p>To study the resampling results for this case deeply, we made several other plots to read the results.</p>
 <p>This plot shows the slope in fitting vs IVW estimate results from 1000 times resampling. The points are near the y=x line.</p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_resampling_estimate.jpeg" width="60%">
 </figure>
-<p>It means that the slope and IVW estimates are similar and the reasons why the resampling p-values differ a lot do not come from the estimators.</p>
 <p>We also made a plot to show the IVW estimators vs their p-values. The p-value associated with the estimate (calculated as Estimate/StdError as per Wald test) using a normal distribution.</p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_pval_est.jpeg" width="60%">
