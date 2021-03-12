@@ -1,0 +1,143 @@
+---
+title: "Studying effects of PCs on phenotypes (KEGG) -- After regressing out the GTEx PEER factors"
+author: "XSun"
+date: "2021-03-10"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## **Introduction**
+
+The factors in this part are the [PCs](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits.html) after regressing out the GTEx PEER factors. There're 1646 factors in total.
+
+
+## **Association tests**
+
+We did association tests for PCs and SNPs have p-value < 5E-8 in each trait-GWAS. The association tests were corrected by 10 whole genome PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
+
+We used 'qvalue' R package to compute the fdr from p-values for each SNP.
+
+ The 'num_significant_pairs' indicates the number of significant pairs under each threshold. If a trait~factor pair has as least 1 significant SNP, we named it as 'significant pair'. The thresholds are 'fdr < 0.1','fdr < 0.2'.
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/sum_kegg_pcs_sig_pairs_reg.rdata")
+knitr::kable(sum, caption = "number of significant trait-LV associations across all traits")
+```
+
+## **Effectsize analysis -- effect size fitting**
+
+For the pairs have more than 2 SNPs with FDR <0.2 (1244 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 272 pairs show sign consistency (have p-values < 0.05 in resampling). There are 110 pairs at p-value < 0.01). We just focused on these 272 pairs in the following analysis 
+
+We have a summary table below(together with the IVW part).
+
+To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_keeg_pc_reg.jpeg" width="60%">
+</figure>
+
+
+
+## **Effectsize analysis -- resampling using IVW estimator**
+
+For the SNPs have FDR < 0.2 in the pairs have more than 2 SNPs at FDR <0.2 (830 pairs), I computed the IVW estimator. And also did resampling to test the reliability of the results. 
+
+In the resampling part, We resampled the beta.outcome from all SNPs in the trait-factor pair, and fixed the beta.exposure, se.exposure, se.outcome.
+
+We used 'MendelianRandomization' R package to compute the IVW estimator and p-values. 
+
+There are 77 pairs show sign consistency (have p-values < 0.05 in resampling). We just focused on these pairs in the following analysis 
+
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_fit_ivw_pcs_reg.txt", header = T)
+DT::datatable(sum, options = list(pageLength =20))
+```
+
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got the summary table below:
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_fit_ivw_noMHC_pcs_reg.txt", header = T)
+DT::datatable(sum, options = list(pageLength =20))
+```
+
+
+## **Comparing R2 and IVW estimator**
+
+
+### Scatter plot for the p-values from two resampling parts
+
+We compared the pvalues from resampling obtained from two methods above. 
+
+SNPs in MHC area are included:
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_pc_reg.jpeg" width="60%">
+</figure>
+
+SNPs in MHC area are excluded:
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pc_reg.jpeg" width="60%">
+</figure>
+
+<!-- ### Debug for a special case -->
+
+<!-- For the allergy_pwy292_pc5 pair, we have resampling p-value = 0 using R2 but the resampling p-value = 0.247 using IVW estimator. So we do some diagnosis to find out why they are different.  -->
+
+<!-- ```{r eval=FALSE, echo=T} -->
+<!-- ivw_input <- mr_input(bx =dat$beta.exposure, bxse = dat$se.exposure, by = dat$beta.outcome, byse = dat$se.outcome, snps = dat$gtexid ) -->
+<!-- ivw_out <- mr_ivw(ivw_input)       -->
+
+<!-- ivw_est <- ivw_out$Estimate       -->
+<!-- ivw_pval <- ivw_out$Pvalue -->
+<!-- ``` -->
+
+<!-- <figure class="half"> -->
+<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_reg.jpeg" width="60%"> -->
+<!-- </figure> -->
+
+
+## **Colocalization analysis**
+
+We tested 698 regions in the colocalization analysis using Coloc package. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization.
+
+SNP selection: 1. Chose the SNPs in the info table. 2. For each SNP, the region used in colocalization analysis is between [pos-250kb, pos+250kb]. 3. All SNPs in this region are included in alalysis.
+
+There're 22 regions have PP4 > 0.9, 61 regions have PP4 > 0.8.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_table_kegg_pcs_reg.rdata")
+DT::datatable(table, options = list(pageLength =20))
+```
+
+## **SuSiE study**
+
+We do GWAS fine-mapping and obtain GWAS PIPs for all 1250 regions. Then group all SNPs by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion_kegg_pcs_reg.jpeg" width="80%">
+</figure>
+
+snp_num :376,622
+
+|            | pip > 0.75 | 0.75 > pip > 0.5 | 0.5 > pip >0.25 | 0.25 > pip > 0 |
+|------------|------------|------------------|-----------------|----------------|
+| LV-SuSiE   | 289       | 72              | 231            |376417         |
+| GWAS-SuSiE | 100       | 42              | 183            |376030         |
+
+
+|                                  | gwaspip > 0.9 | 0.9 > gwaspip > 0.8 | 0.8 > gwaspip >0.7 | 0.7 > gwaspip > 0.6 | 0.6 > gwaspip > 0.5 | 0.5 > gwaspip > 0.4 | 0.4 > gwaspip > 0.3 | 0.3 > gwaspip > 0.2 | 0.2 > gwaspip > 0.1 | 0.1 > gwaspip > 0.05 | 0.05 > gwaspip > 0 |
+|----------------------------------|---------------|---------------------|--------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|-------------------|-------------------|
+| lvpip > 0.25 (total num :592)     | 0             | 0                   | 0                  | 0                   | 1                   | 0                   | 0                   | 0                   | 0                   | 0                | 592                |
+| 0.25 > lvpip > 0.1 (total num: 0) | 0            | 0                   | 0                 | 0                  | 0                  | 0                  | 0                  | 0                 | 0                  | 0            | 0            |
+| 0.1 > lvpip > 0 (total num: 376030) | 68            | 30                  | 2                 | 14                  | 28                  | 19                  | 21                  | 38                  | 60                  | 158            | 375592           |
+
