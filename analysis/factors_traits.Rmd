@@ -74,8 +74,13 @@ We have 332 human pathways from KEGG. For each pathway, we inferred 5 PCs and 5 
 
 [PCs](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits.html)
 
+[PCs_regress out GTEx PEER factors](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress.html)
+
 [PEER](https://xsun1229.github.io/factor_analysis/kegg_peer_factor_traits.html)
 
+[PEER_regress out GTEx PEER factors](https://xsun1229.github.io/factor_analysis/kegg_peer_factor_traits_regress.html)
+
+[Compare factors & factors after regressing out GTEx PEER factors](https://xsun1229.github.io/factor_analysis/compare_regress.html)
 
 
 # **GWAS convergence on pathways using cis-eQTLs**

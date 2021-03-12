@@ -42,7 +42,7 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_keeg_pc.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_keeg_pc.jpeg" width="50%">
 </figure>
 
 
@@ -82,13 +82,13 @@ DT::datatable(sum, options = list(pageLength =20))
 We made a scatter plot to check if the estimate from fitting and IVW are similar.  
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/estimate_compare_allpair_pc.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/estimate_compare_allpair_pc.jpeg" width="50%">
 </figure>
 
 We also made a scatter plot for the p-values from the fitting and IVW estimate. 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_org_compare_allpair_pc.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_org_compare_allpair_pc.jpeg" width="50%">
 </figure>
 
 **- Resamping: Scatter plot for the p-values from two resampling criterion**
@@ -98,13 +98,13 @@ We compared the pvalues from resampling obtained from two methods above.
 SNPs in MHC area are included:
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_pcs.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_pcs.jpeg" width="50%">
 </figure>
 
 SNPs in MHC area are excluded:
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pcs.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pcs.jpeg" width="50%">
 </figure>
 
 
@@ -124,7 +124,7 @@ ivw_pval <- ivw_out$Pvalue
 **- Original fitting and IVW estimating results**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc.jpeg" width="50%">
 </figure>
 
 To study the resampling results for this case deeply, we made several other plots to read the results.
@@ -132,13 +132,13 @@ To study the resampling results for this case deeply, we made several other plot
 This plot shows the slope in fitting vs IVW estimate results from 1000 times resampling. The points are near the y=x line. 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_resampling_estimate.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_resampling_estimate.jpeg" width="50%">
 </figure>
 
 We also made a plot to show the IVW estimators vs their p-values. The p-value associated with the estimate (calculated as Estimate/StdError as per Wald test) using a normal distribution.
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_pval_est.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_pval_est.jpeg" width="50%">
 </figure>
 
 ## **Colocalization analysis**

@@ -70,49 +70,13 @@ DT::datatable(sum, options = list(pageLength =20))
 ```
 
 
-## **Comparing R2 and IVW estimator**
-
-
-### Scatter plot for the p-values from two resampling parts
-
-We compared the pvalues from resampling obtained from two methods above. 
-
-SNPs in MHC area are included:
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_peer_reg.jpeg" width="60%">
-</figure>
-
-SNPs in MHC area are excluded:
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_peer_reg.jpeg" width="60%">
-</figure>
-
-<!-- ### Debug for a special case -->
-
-<!-- For the allergy_pwy292_pc5 pair, we have resampling p-value = 0 using R2 but the resampling p-value = 0.247 using IVW estimator. So we do some diagnosis to find out why they are different.  -->
-
-<!-- ```{r eval=FALSE, echo=T} -->
-<!-- ivw_input <- mr_input(bx =dat$beta.exposure, bxse = dat$se.exposure, by = dat$beta.outcome, byse = dat$se.outcome, snps = dat$gtexid ) -->
-<!-- ivw_out <- mr_ivw(ivw_input)       -->
-
-<!-- ivw_est <- ivw_out$Estimate       -->
-<!-- ivw_pval <- ivw_out$Pvalue -->
-<!-- ``` -->
-
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_reg.jpeg" width="60%"> -->
-<!-- </figure> -->
-
-
 ## **Colocalization analysis**
 
-We tested 698 regions in the colocalization analysis using Coloc package. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization.
+We tested 1100 regions in the colocalization analysis using Coloc package. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization.
 
 SNP selection: 1. Chose the SNPs in the info table. 2. For each SNP, the region used in colocalization analysis is between [pos-250kb, pos+250kb]. 3. All SNPs in this region are included in alalysis.
 
-There're 22 regions have PP4 > 0.9, 61 regions have PP4 > 0.8.
+There're 54 regions have PP4 > 0.9, 112 regions have PP4 > 0.8.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_table_kegg_peer_reg.rdata")
@@ -121,25 +85,25 @@ DT::datatable(table, options = list(pageLength =20))
 
 ## **SuSiE study**
 
-We do GWAS fine-mapping and obtain GWAS PIPs for all 1250 regions. Then group all SNPs by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.
+We do GWAS fine-mapping and obtain GWAS PIPs for all 1100 regions. Then group all SNPs by LV PIPs using 0.25 as threshold. We compare the GWAS PIPs of the two sets.
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion_kegg_pcs_reg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_boxplot_allregion_kegg_peer_reg.jpeg" width="80%">
 </figure>
 
-snp_num :376,622
+snp_num :1784493
 
 |            | pip > 0.75 | 0.75 > pip > 0.5 | 0.5 > pip >0.25 | 0.25 > pip > 0 |
 |------------|------------|------------------|-----------------|----------------|
-| LV-SuSiE   | 289       | 72              | 231            |376417         |
-| GWAS-SuSiE | 100       | 42              | 183            |376030         |
+| LV-SuSiE   | 1711       | 534              | 1191            |1781057         |
+| GWAS-SuSiE | 507        | 84               | 594             |1783126         |
 
 
 |                                  | gwaspip > 0.9 | 0.9 > gwaspip > 0.8 | 0.8 > gwaspip >0.7 | 0.7 > gwaspip > 0.6 | 0.6 > gwaspip > 0.5 | 0.5 > gwaspip > 0.4 | 0.4 > gwaspip > 0.3 | 0.3 > gwaspip > 0.2 | 0.2 > gwaspip > 0.1 | 0.1 > gwaspip > 0.05 | 0.05 > gwaspip > 0 |
 |----------------------------------|---------------|---------------------|--------------------|---------------------|---------------------|---------------------|---------------------|---------------------|---------------------|-------------------|-------------------|
-| lvpip > 0.25 (total num :592)     | 0             | 0                   | 0                  | 0                   | 1                   | 0                   | 0                   | 0                   | 0                   | 0                | 592                |
+| lvpip > 0.25 (total num :3436)     | 0             | 0                   | 0                  | 0                   | 1                   | 0                   | 3                   | 4                   | 1                   | 0                | 3428               |
 | 0.25 > lvpip > 0.1 (total num: 0) | 0            | 0                   | 0                 | 0                  | 0                  | 0                  | 0                  | 0                 | 0                  | 0            | 0            |
-| 0.1 > lvpip > 0 (total num: 376030) | 68            | 30                  | 2                 | 14                  | 28                  | 19                  | 21                  | 38                  | 60                  | 158            | 375592           |
+| 0.1 > lvpip > 0 (total num: 1781057) | 395            | 96                  | 35                 | 53                  | 194                  | 215                  | 294                  | 245                  | 402                  | 691            | 1778437           |
 
 

@@ -69,42 +69,6 @@ DT::datatable(sum, options = list(pageLength =20))
 ```
 
 
-## **Comparing R2 and IVW estimator**
-
-
-### Scatter plot for the p-values from two resampling parts
-
-We compared the pvalues from resampling obtained from two methods above. 
-
-SNPs in MHC area are included:
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_allpair_pc_reg.jpeg" width="60%">
-</figure>
-
-SNPs in MHC area are excluded:
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_compare_noMHC_pc_reg.jpeg" width="60%">
-</figure>
-
-<!-- ### Debug for a special case -->
-
-<!-- For the allergy_pwy292_pc5 pair, we have resampling p-value = 0 using R2 but the resampling p-value = 0.247 using IVW estimator. So we do some diagnosis to find out why they are different.  -->
-
-<!-- ```{r eval=FALSE, echo=T} -->
-<!-- ivw_input <- mr_input(bx =dat$beta.exposure, bxse = dat$se.exposure, by = dat$beta.outcome, byse = dat$se.outcome, snps = dat$gtexid ) -->
-<!-- ivw_out <- mr_ivw(ivw_input)       -->
-
-<!-- ivw_est <- ivw_out$Estimate       -->
-<!-- ivw_pval <- ivw_out$Pvalue -->
-<!-- ``` -->
-
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_pc_reg.jpeg" width="60%"> -->
-<!-- </figure> -->
-
-
 ## **Colocalization analysis**
 
 We tested 698 regions in the colocalization analysis using Coloc package. We ran Coloc with the default parameters and used PP4 to assess evidence of colocalization.
