@@ -1,0 +1,44 @@
+---
+title: "Compare factors & factors after regressing out GTEx PEER factors"
+author: "XSun"
+date: "2021-03-12"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## **Introduction**
+
+In earlier [PC results](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits.html), we found many associations are driven by PC4/PC5. We guess that the top few PCs may largely capture the batch/technical effects, and may not be biologically interesting. So we regress out the 60 PEER factors provided by GTEx and use the residuals to do the association test again.
+
+## **Results comparison**
+
+This table shows the pc distribution for all pairs. "bf" here means "before regressing out PEER factors", "af" here means "after regressing out PEER factors"
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/kegg_pc_sum.rdata")
+pc_sum1 <- pc_sum
+colnames(pc_sum1)[2:3] <- c("n_bf","percent_bf")
+load("/project2/xinhe/xsun/website/factor_analysis/output/kegg_pc_sum_reg.rdata")
+colnames(pc_sum)[2:3] <- c("n_af","percent_af")
+
+sum <- merge(pc_sum1,pc_sum, by = "pc")
+
+DT::datatable(sum, options = list(pageLength =20))
+```
+
+
+This table shows the pc distribution for significant pairs (p_values < 0.05 in resampling).
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/kegg_pc_sum_top.rdata")
+pc_sum1 <- pc_sum
+colnames(pc_sum1)[2:3] <- c("n_bf","percent_bf")
+load("/project2/xinhe/xsun/website/factor_analysis/output/kegg_pc_sum_top_reg.rdata")
+colnames(pc_sum)[2:3] <- c("n_af","percent_af")
+
+sum <- merge(pc_sum1,pc_sum, by = "pc")
+
+DT::datatable(sum, options = list(pageLength =20))
+```
