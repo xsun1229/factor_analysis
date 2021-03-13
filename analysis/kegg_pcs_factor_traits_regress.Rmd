@@ -47,13 +47,13 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 
 ## **Effectsize analysis -- resampling using IVW estimator**
 
-For the SNPs have FDR < 0.2 in the pairs have more than 2 SNPs at FDR <0.2 (830 pairs), I computed the IVW estimator. And also did resampling to test the reliability of the results. 
+For the SNPs have FDR < 0.2 in the pairs have more than 2 SNPs at FDR <0.2 (1244 pairs), I computed the IVW estimator. And also did resampling to test the reliability of the results. 
 
 In the resampling part, We resampled the beta.outcome from all SNPs in the trait-factor pair, and fixed the beta.exposure, se.exposure, se.outcome.
 
 We used 'MendelianRandomization' R package to compute the IVW estimator and p-values. 
 
-There are 77 pairs show sign consistency (have p-values < 0.05 in resampling). We just focused on these pairs in the following analysis 
+There are 192 pairs show sign consistency (have p-values < 0.05 in resampling). We just focused on these pairs in the following analysis 
 
 
 ```{r echo=FALSE}
