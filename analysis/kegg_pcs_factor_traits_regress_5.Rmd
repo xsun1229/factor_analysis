@@ -32,7 +32,7 @@ sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_su
 DT::datatable(sum, options = list(pageLength =20))
 ```
 
-After deleting the pairs whose 'num_snp_noMHC' == 0, we got 747 pairs. There are 134 pairs show sign consistency (have p-values < 0.05 in resampling). There are 38 pairs at p-value < 0.01).  
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got 759 pairs. There are 134 pairs show sign consistency (have p-values < 0.05 in resampling). There are 38 pairs at p-value < 0.01).  
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5.txt", header = T)
