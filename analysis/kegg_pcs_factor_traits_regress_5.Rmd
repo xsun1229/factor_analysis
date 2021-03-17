@@ -1,0 +1,49 @@
+---
+title: "Studying effects of PCs on phenotypes (KEGG) -- After regressing out 5 GTEx PEER factors"
+author: "XSun"
+date: "2021-03-17"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## **Introduction**
+
+The factors in this part are the [PCs](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits.html) after regressing out 5 GTEx PEER factors. There're 1646 factors in total.
+
+
+## **Association tests**
+
+We did association tests for PCs and SNPs have p-value < 5E-8 in each trait-GWAS. The association tests were corrected by 10 whole genome PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
+
+We used 'qvalue' R package to compute the fdr from p-values for each SNP.
+
+
+## **Effectsize analysis -- effect size fitting**
+
+For the pairs have more than 2 SNPs with FDR <0.2 (1064 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 218 pairs show sign consistency (have p-values < 0.05 in resampling). There are 81 pairs at p-value < 0.01). 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5.txt", header = T)
+DT::datatable(sum, options = list(pageLength =20))
+```
+
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got 747 pairs. There are 134 pairs show sign consistency (have p-values < 0.05 in resampling). There are 38 pairs at p-value < 0.01).  
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5.txt", header = T)
+DT::datatable(sum, options = list(pageLength =20))
+```
+
+
+To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_keeg_pc_reg_5.jpeg" width="60%">
+</figure>
+

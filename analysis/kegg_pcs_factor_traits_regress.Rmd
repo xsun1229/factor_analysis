@@ -34,7 +34,7 @@ To make our results more reliable, we did resampling. We resampled the SNPs with
 
 There are 272 pairs show sign consistency (have p-values < 0.05 in resampling). There are 110 pairs at p-value < 0.01). We just focused on these 272 pairs in the following analysis 
 
-We have a summary table below(together with the IVW part).
+**We have a summary table below(together with the IVW part).**
 
 To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
 
