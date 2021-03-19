@@ -29,6 +29,7 @@ There are 218 pairs show sign consistency (have p-values < 0.05 in resampling). 
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5.txt", header = T)
+sum <- sum[complete.cases(sum$pval_in_resampling),]
 DT::datatable(sum, options = list(pageLength =20))
 ```
 
@@ -36,6 +37,7 @@ After deleting the pairs whose 'num_snp_noMHC' == 0, we got 759 pairs. There are
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5.txt", header = T)
+sum <- sum[complete.cases(sum$pval_in_resampling),]
 DT::datatable(sum, options = list(pageLength =20))
 ```
 
