@@ -64,11 +64,13 @@ There are too many SNPs in MHC area in the table above. We deleted the pairs tha
 
 We found 5 SNPs drive different pathways:
 
+```{r echo=T, eval=FALSE}
 chr10_102727686_G_A_b38 : row 11 and row 18
 chr3_141286732_A_C_b38 : row 23 ,row 25 and row 27
 chr19_1026478_G_T_b38 : row 24 and row 26
 chr6_26463347_G_T_b38: row 1 and row 28
 chr6_27873148_T_C_b38: row 6 and row 29
+```
 
 There are 11 pathways in this table: 
 
