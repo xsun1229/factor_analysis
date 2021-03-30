@@ -48,3 +48,45 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_pc_reg_5.jpeg" width="60%">
 </figure>
 
+## **Detailed results for White Blood Cell Count **
+
+The WBC trait has significant effect size correlations in most pathways (p-value < 0.05 in resampling). For this trait, we studied the details of the driving SNPs(SNPs have FDR < 0.2 in association tests). 
+
+The table below shows the SNP details. The snp in 'gtexid' is in LD with the snp in ‘snp_ld’. ’ld_r2’ is the LD r-squared which is corresponding to the ‘snp_ld’ column. ‘cis-eqtl’ column indicates whether the snp is a cis-eqtl according to GTEx data. ‘cis_gene_hgnc’ and ‘cis_gene_ensembl’ is the genes that the snp influence when it act as cis-eqtl. ‘func’ and ‘func_gene’ are obtained from ANNOVAR, which indicating the snp function within the genes. 
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_MHC_kegg_pc_reg_5.rdata")
+DT::datatable(final_full, options = list(pageLength =20))
+```
+
+There are too many SNPs in MHC area in the table above. We deleted the pairs that only have SNPs in MHC area, the MHC-excluded table is below. The MHC area is chr6: 28,477,797-33,448,354. (The last SNP in this table is in MHC area. This SNP is included, because this pair does not only have SNPs in MHC area)
+
+We found 5 SNPs drive different pathways:
+
+chr10_102727686_G_A_b38 : row 11 and row 18
+chr3_141286732_A_C_b38 : row 23 ,row 25 and row 27
+chr19_1026478_G_T_b38 : row 24 and row 26
+chr6_26463347_G_T_b38: row 1 and row 28
+chr6_27873148_T_C_b38: row 6 and row 29
+
+There are 11 pathways in this table: 
+
+```{r echo=T, eval=FALSE}
+ [1] "Circadian rhythm"                                   
+ [2] "Drug metabolism - cytochrome P450"                  
+ [3] "Glyoxylate and dicarboxylate metabolism"            
+ [4] "Malaria"                                            
+ [5] "Metabolism of xenobiotics by cytochrome P450"       
+ [6] "Mineral absorption"                                 
+ [7] "Pantothenate and CoA biosynthesis"                  
+ [8] "Phenylalanine, tyrosine and tryptophan biosynthesis"
+ [9] "Phosphonate and phosphinate metabolism"             
+[10] "RNA transport"                                      
+[11] "Terpenoid backbone biosynthesis"    
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5.rdata")
+DT::datatable(final_full, options = list(pageLength =20))
+```
