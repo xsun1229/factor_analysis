@@ -56,8 +56,8 @@ The table below shows the SNP details. The snp in 'gtexid' is in LD with the snp
 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_MHC_kegg_pc_reg_5.rdata")
-DT::datatable(final_full, options = list(pageLength =20))
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_MHC_kegg_pc_reg_5_wbc.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 There are too many SNPs in MHC area in the table above. We deleted the pairs that only have SNPs in MHC area, the MHC-excluded table is below. The MHC area is chr6: 28,477,797-33,448,354. (The last SNP in this table is in MHC area. This SNP is included, because this pair does not only have SNPs in MHC area)
@@ -89,6 +89,85 @@ There are 11 pathways in this table:
 ```
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5.rdata")
-DT::datatable(final_full, options = list(pageLength =20))
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_wbc.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
 ```
+
+
+### Effectsize plots
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy74_pc4_wbc_pval5e8_kegg_pc_reg_5.jpeg" width="60%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy194_pc1_wbc_pval5e8_kegg_pc_reg_5.jpeg" width="60%">
+</figure>
+
+## **Detailed results for ukb.allasthma **
+
+
+The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
+
+We found 3 SNPs drive different pathways:
+
+```{r echo=T, eval=FALSE}
+chr10_102727686_G_A_b38 : row 5, row 7
+chr1_152313385_G_A_b38 : row 2, row 10
+chr7_20547220_A_G_b38 : row 11, row 9
+```
+
+There are 6 pathways in this table: 
+
+```{r echo=T, eval=FALSE}
+[1] "Arrhythmogenic right ventricular cardiomyopathy"
+[2] "Bile secretion"                                 
+[3] "Calcium signaling pathway"                      
+[4] "Fatty acid biosynthesis"                        
+[5] "Malaria"                                        
+[6] "Proximal tubule bicarbonate reclamation"    
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_ukb.allasthma.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+## **Detailed results for Type I Diabetes **
+
+The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
+
+We found 7 SNPs drive different pathways:
+
+```{r echo=T, eval=FALSE}
+chr1_113611678_T_C_b38 : row 2, row 6, row 9, row 23, row 31,
+chr1_113276758_C_T_b38 : row 22, row 25, row 30
+chr1_113623939_A_G_b38: row 24, row 32
+chr10_6086584_G_T_b38 : row 11, row 14
+chr18_12809341_A_G_b38: row 16, row 27
+chr19_48702851_C_G_b38: row 19, row 29
+chr22_30135102_C_T_b38: row 18, row 28
+```
+
+There are 10 pathways in this table: 
+
+```{r echo=T, eval=FALSE}
+ [1] "Chemical carcinogenesis"                   
+ [2] "Cholesterol metabolism"                    
+ [3] "ECM-receptor interaction"                  
+ [4] "Hippo signaling pathway - multiple species"
+ [5] "Inositol phosphate metabolism"             
+ [6] "Protein export"                            
+ [7] "Sulfur relay system"                       
+ [8] "T cell receptor signaling pathway"         
+ [9] "Transcriptional misregulation in cancer"   
+[10] "Tyrosine metabolism"    
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_T1D.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
