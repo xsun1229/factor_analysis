@@ -107,15 +107,15 @@ chr7_20547220_A_G_b38 : row 5,14,18
 There are 9 pathways in this table: 
 
 ```{r echo=T, eval=FALSE}
-[1] "Circadian rhythm"                                      
-[2] "Ether lipid metabolism"                                
-[3] "Fatty acid biosynthesis"                               
+[1] "Circadian rhythm"   related paper: [1](https://pubmed.ncbi.nlm.nih.gov/23704227/), [2](https://pubmed.ncbi.nlm.nih.gov/8494197/)                                   
+[2] "Ether lipid metabolism"      related paper: [some lipids related to asthma but did not mention ether lipid](https://www.sciencedirect.com/science/article/pii/S1388198120302456?via%3Dihub)      
+[3] "Fatty acid biosynthesis"   related paper:  [fatty acid metabolism](https://onlinelibrary.wiley.com/doi/abs/10.1111/all.13180)                            
 [4] "Glycosylphosphatidylinositol (GPI)-anchor biosynthesis"
-[5] "Lysine degradation"                                    
-[6] "Pyruvate metabolism"                                   
-[7] "Regulation of actin cytoskeleton"                      
-[8] "Ribosome"                                              
-[9] "Steroid hormone biosynthesis"   
+[5] "Lysine degradation"    related paper: [the second paragraph containing 'lysine degradation'](https://e-aair.org/DOIx.php?id=10.4168/aair.2021.13.1.56)                   
+[6] "Pyruvate metabolism"    related paper : [We recognize that mild lactemia or relative functional impairment of the pyruvate dehydrogenase (PDH) complex is not the cause but rather a feature of asthma](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3289274/)         
+[7] "Regulation of actin cytoskeleton" related paper : [somewhat related](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4628321/)                     
+[8] "Ribosome"     related paper: [Ribosomal protein S3 gene silencing protects against experimental allergic asthma](https://pubmed.ncbi.nlm.nih.gov/28093718/)                    
+[9] "Steroid hormone biosynthesis"  related paper : [Endogenous and exogenous sex steroid hormones in asthma and allergy in females: A systematic review and meta-analysis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5883329/)  
 ```
 
 ```{r echo=FALSE}
@@ -144,29 +144,29 @@ chr5_131126137_G_T_b38: row 19,44
 There are 26 pathways in this table: 
 
 ```{r echo=T, eval=FALSE}
- [1] "Alcoholism"                              
+ [1] "Alcoholism"    paper: [Alcohol consumption is a potential trigger for flare in Inflammatory Bowel Disease (IBD) flare ](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3708696/)                          
  [2] "Amyotrophic lateral sclerosis"           
  [3] "Axon guidance"                           
- [4] "Bacterial invasion of epithelial cells"  
- [5] "Basal transcription factors"             
- [6] "beta-Alanine metabolism"                 
- [7] "Cardiac muscle contraction"              
- [8] "Complement and coagulation cascades"     
- [9] "Dilated cardiomyopathy"                  
-[10] "Fatty acid degradation"                  
-[11] "Human immunodeficiency virus 1 infection"
-[12] "Hypertrophic cardiomyopathy"             
+ [4] "Bacterial invasion of epithelial cells"  paper: [The epithelial layer is essential for the proper functioning of the gastrointestinal tract, and its increased permeability to the luminal antigens may lead to the inflammatory processes and mucosal damage observed in IBD](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2604805/) 
+ [5] "Basal transcription factors"   paper: [Genome-wide association studies (GWAS) have detected single-nucleotide polymorphisms(SNPs) in genes encoding cytokines or transcription factors that control cytokine-mediated activationof immune cells associated with the pathogenesis of IBD](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiTptulluTvAhWBsJ4KHc41C9IQFjABegQIAhAD&url=https%3A%2F%2Fwww.mdpi.com%2F1422-0067%2F21%2F9%2F3207%2Fpdf&usg=AOvVaw0WoX2S3bSMdIymOtAy6p1E)          
+ [6] "beta-Alanine metabolism" paper : [the most impacted by IBD pathways are: glycine, serine and threonine metabolism, taurine and hypotaurine metabolism, alanine, aspartate and glutamate metabolism, arginine and proline metabolism, glycerophospholipid metabolism, pyruvate metabolism, aminoacyl-tRNA biosynthesis, phenylalanine metabolism, sulphur metabolism, primary bile acid biosynthesis, and beta-alanine metabolism](https://www.sciencedirect.com/science/article/pii/S1896112619300264)                
+ [7] "Cardiac muscle contraction"  [IBD may relates to Cardiovascular diseases](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6348818/)            
+ [8] "Complement and coagulation cascades"   paper : [We review the evidence base for the role and potential therapeutic manipulation of the complement cascade in inflammatory bowel disease](https://pubmed.ncbi.nlm.nih.gov/24831561/)  
+ [9] "Dilated cardiomyopathy"   paper :same with [7]               
+[10] "Fatty acid degradation"  paper: [1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4100336/) [2](https://www.sciencedirect.com/science/article/pii/S0925443905001870)            
+[11] "Human immunodeficiency virus 1 infection"  paper: [Human immunodeficiency virus infection, the acquired immunodeficiency syndrome, and inflammatory bowel disease ](https://pubmed.ncbi.nlm.nih.gov/8835895/)
+[12] "Hypertrophic cardiomyopathy"     paper :same with [7]         
 [13] "Malaria"                                 
-[14] "Mitophagy - animal"                      
+[14] "Mitophagy - animal"  paper : [Inflammatory Bowel Disease at the Intersection of Autophagy and Immunity: Insights from Human Genetics](https://link.springer.com/chapter/10.1007/978-3-030-28703-0_14)           
 [15] "Non-small cell lung cancer"              
 [16] "Other glycan degradation"                
-[17] "Pancreatic cancer"                       
-[18] "Parkinson disease"                       
-[19] "Pertussis"                               
+[17] "Pancreatic cancer"   paper : [People with IBD had a 3.36-fold higher risk of pancreatic cancer](https://www.webmd.com/ibd-crohns-disease/news/20100505/ibd-may-raise-risk-of-pancreatic-cancer)                    
+[18] "Parkinson disease"  paper : [Inflammatory bowel disease and Parkinson’s disease: common pathophysiological links](https://gut.bmj.com/content/70/2/408)     
+[19] "Pertussis"   paper : [Many Inflammatory Bowel Disease Patients Are Not Immune to Measles or Pertussis](https://pubmed.ncbi.nlm.nih.gov/27557706/)                 
 [20] "Phosphonate and phosphinate metabolism"  
 [21] "Porphyrin and chlorophyll metabolism"    
 [22] "Renal cell carcinoma"                    
-[23] "Renin-angiotensin system"                
+[23] "Renin-angiotensin system"   paper : [Upregulation of circulating  components of the alternative  renin-angiotensin system in inflammatory bowel disease: A pilot study](https://journals.sagepub.com/doi/pdf/10.1177/1470320314521086)             
 [24] "Ribosome"                                
 [25] "RNA transport"                           
 [26] "Viral carcinogenesis"  
