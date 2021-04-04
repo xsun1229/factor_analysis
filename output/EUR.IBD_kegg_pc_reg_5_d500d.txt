@@ -1,0 +1,47 @@
+SNP	pathway
+chr2_43226582_G_A_b38	Pancreatic cancer
+	Non-small cell lung cancer
+chr3_48717444_G_T_b38	Mitophagy - animal
+	Renin-angiotensin system
+	Complement and coagulation cascades
+	Parkinson disease
+	Bacterial invasion of epithelial cells
+	Pertussis
+	Human immunodeficiency virus 1 infection
+	Renal cell carcinoma
+	Non-small cell lung cancer
+	beta-Alanine metabolism
+	Other glycan degradation
+	Ribosome
+chr5_135109292_C_A_b38	Pancreatic cancer
+	Non-small cell lung cancer
+	Porphyrin and chlorophyll metabolism
+chr5_131126137_G_T_b38	Bacterial invasion of epithelial cells
+	Phosphonate and phosphinate metabolism
+chr6_14721666_T_C_b38	Fatty acid degradation
+	Mitophagy - animal
+	Complement and coagulation cascades
+	Renin-angiotensin system
+	Parkinson disease
+	Bacterial invasion of epithelial cells
+	Pertussis
+	Malaria
+	Human immunodeficiency virus 1 infection
+	Renal cell carcinoma
+	beta-Alanine metabolism
+	Other glycan degradation
+	Ribosome
+	Basal transcription factors
+chr12_40430996_T_C_b38	Axon guidance
+	Alcoholism
+	Viral carcinogenesis
+chr16_81883307_A_G_b38	Cardiac muscle contraction
+	Amyotrophic lateral sclerosis
+	Hypertrophic cardiomyopathy
+	Dilated cardiomyopathy
+chr22_21561877_T_C_b38	Axon guidance
+	Hypertrophic cardiomyopathy
+	Dilated cardiomyopathy
+	RNA transport
+	Basal transcription factors
+

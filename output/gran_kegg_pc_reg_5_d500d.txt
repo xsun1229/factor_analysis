@@ -1,0 +1,12 @@
+SNP	pathway
+chr3_128603030_AG_A_b38	Circadian rhythm
+	Ribosome
+chr8_8237348_G_A_b38	Steroid hormone biosynthesis
+	Lysine degradation
+	Ether lipid metabolism
+	Fatty acid biosynthesis
+chr8_9061626_G_A_b38	Steroid hormone biosynthesis
+	Ether lipid metabolism
+chr11_108378047_C_G_b38	Steroid hormone biosynthesis
+	Lysine degradation
+

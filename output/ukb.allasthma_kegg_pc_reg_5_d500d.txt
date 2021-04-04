@@ -1,0 +1,15 @@
+SNP	pathway
+chr1_152313385_G_A_b38	Calcium signaling pathway
+	Cardiac muscle contraction
+	Adrenergic signaling in cardiomyocytes
+	Hypertrophic cardiomyopathy
+	Arrhythmogenic right ventricular cardiomyopathy
+	Dilated cardiomyopathy
+chr5_119355086_C_G_b38	Cardiac muscle contraction
+	Adrenergic signaling in cardiomyocytes
+	Hypertrophic cardiomyopathy
+	Dilated cardiomyopathy
+chr7_20547220_A_G_b38	Cardiac muscle contraction
+	Arrhythmogenic right ventricular cardiomyopathy
+	Fatty acid biosynthesis
+
