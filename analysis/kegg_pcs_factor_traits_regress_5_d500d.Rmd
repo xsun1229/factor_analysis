@@ -64,11 +64,17 @@ The table below shows the SNP details. We deleted the pairs that only have SNPs 
 We found 3 SNPs drive different pathways:
 
 ```{r echo=T, eval=FALSE}
-chr11_108378047_C_G_b38 : row 1,18
+chr3_128603030_AG_A_b38 : row 4,29
 chr8_8237348_G_A_b38 : row 2,19,22,26
 chr8_9061626_G_A_b38 : row 3,23
-chr3_128603030_AG_A_b38 : row 4,29
+chr11_108378047_C_G_b38 : row 1,18
 ```
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/gran_kegg_pc_reg_5_d500d.txt", header = T, fill = T, sep = "\t")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
 
 There are 9 pathways in this table: 
 
@@ -111,6 +117,13 @@ chr5_119355086_C_G_b38 : row 6,8,12,16
 chr7_20547220_A_G_b38 : row 5,14,18
 ```
 
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allasthma_kegg_pc_reg_5_d500d.txt", header = T, fill = T, sep = "\t")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+
 There are 9 pathways in this table: 
 
 
@@ -146,18 +159,22 @@ The table below shows the SNP details. We deleted the pairs that only have SNPs 
 We found 3 SNPs drive different pathways:
 
 ```{r echo=T, eval=FALSE}
-chr6_14721666_T_C_b38 : row 2,3,9,11,13,20,22,25,26,30,41,45,49,51,57
-chr3_48717444_G_T_b38 : row 4,10,12,14,21,23,27,31,36,42,46,50,52
-chr16_81883307_A_G_b38 : row 6,15,37,39
-chr12_40430996_T_C_b38 : row 7,17,28
 chr2_43226582_G_A_b38 : row 32,34
+chr3_48717444_G_T_b38 : row 4,10,12,14,21,23,27,31,36,42,46,50,52
 chr5_135109292_C_A_b38: row 33,35,47
-chr22_21561877_T_C_b38: row 8,38,40,54,56
 chr5_131126137_G_T_b38: row 19,44
+chr6_14721666_T_C_b38 : row 2,3,9,11,13,20,22,25,26,30,41,45,49,51,57
+chr12_40430996_T_C_b38 : row 7,17,28
+chr16_81883307_A_G_b38 : row 6,15,37,39
+chr22_21561877_T_C_b38: row 8,38,40,54,56
+```
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/EUR.IBD_kegg_pc_reg_5_d500d.txt", header = T, fill = T, sep = "\t")
+DT::datatable(sum, options = list(pageLength =5))
 ```
 
 There are 26 pathways in this table: 
-
 
  [1] "Alcoholism"    paper: [Alcohol consumption is a potential trigger for flare in Inflammatory Bowel Disease (IBD) flare ](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3708696/)                          
  
