@@ -52,7 +52,7 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_pc_reg_5_d500d.jpeg" width="60%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_pc_reg_5_d500d.jpeg" width="80%">
 </figure>
 
 granulocyte count
