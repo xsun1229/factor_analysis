@@ -7,14 +7,13 @@ editor_options:
   chunk_output_type: console
 ---
 
-## **Introduction**
+## Introduction
 
 The factors in this part are the [PCs](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits.html) after regressing out 5 GTEx PEER factors. There're 1646 factors in total.
 
-
 ## **Association tests**
 
-We did association tests for PCs and SNPs have p-value < 5E-8 in each trait-GWAS. The association tests were corrected by 10 whole genome PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
+We did association tests for PCs and SNPs in each trait-GWAS. The association tests were corrected by 10 whole genome PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
 
 We used 'qvalue' R package to compute the fdr from p-values for each SNP.
 

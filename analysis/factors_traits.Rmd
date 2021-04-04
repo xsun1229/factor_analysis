@@ -75,11 +75,10 @@ We have 332 human pathways from KEGG. For each pathway, we inferred 5 PCs and 5 
 
 [PCs_regress out 5 GTEx PEER factors](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5.html)
 
-[PCs_regress out 60 GTEx PEER factors](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress.html)
+[PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d.html)
 
 [PEER](https://xsun1229.github.io/factor_analysis/kegg_peer_factor_traits.html)
 
-[PEER_regress out GTEx PEER factors](https://xsun1229.github.io/factor_analysis/kegg_peer_factor_traits_regress.html)
 
 [Compare factors & factors after regressing out GTEx PEER factors](https://xsun1229.github.io/factor_analysis/compare_regress.html)
 

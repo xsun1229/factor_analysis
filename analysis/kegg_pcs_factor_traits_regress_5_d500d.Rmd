@@ -1,0 +1,179 @@
+---
+title: "Studying effects of PCs on phenotypes (KEGG) – After regressing out 5 GTEx PEER factors, 'AND' LD Clumping "
+author: "XSun"
+date: "2021-04-02"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+
+## **Introduction**
+
+In this part, we inferred 1646 PCs from 332 KEGG pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set. 
+
+## **Candidate SNPs**
+
+The candidate SNPs in this part are trait-related SNPs. We first filtered the SNPs using pval < 5e-8 as cut off. Then we did LD Clumping for those SNPs.The PLINK LD Clumping patameters are:
+
+– clump-p1 0.0001 Significance threshold for index SNPs
+
+– clump-p2 0.01 Secondary significance threshold for clumped SNPs
+
+– clump-r2 0.1 LD threshold for clumping
+
+– clump-kb 500 Physical distance threshold for clumping
+
+After LD Clumping, we removed SNPs that are too close (within 500kb).
+
+## **Effectsize analysis -- effect size fitting**
+
+For the pairs have more than 2 SNPs with FDR <0.2 (920 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 215 pairs show sign consistency (have p-values < 0.05 in resampling, 4.67 fold enrichment). There are 75 pairs at p-value < 0.01, 8.3 fold enrichment). 
+
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d500d.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got 735 pairs. We used extended MHC area here ([chr6:25726063-33400644](https://www.nature.com/articles/nrg1489)) There are 135 pairs show sign consistency (have p-values < 0.05 in resampling, 3.67 fold enrichment). There are 33 pairs at p-value < 0.01, 4.49 fold enrichment).  
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5_extend_d500d.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_pc_reg_5_d500d.jpeg" width="60%">
+</figure>
+
+granulocyte count
+
+## **Detailed results for granulocyte count **
+
+The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
+
+We found 3 SNPs drive different pathways:
+
+```{r echo=T, eval=FALSE}
+chr11_108378047_C_G_b38 : row 1,18
+chr8_8237348_G_A_b38 : row 2,19,22,26
+chr8_9061626_G_A_b38 : row 3,23
+chr3_128603030_AG_A_b38 : row 4,29
+```
+
+There are 9 pathways in this table: 
+
+```{r echo=T, eval=FALSE}
+[1] "Adrenergic signaling in cardiomyocytes"         
+[2] "Arrhythmogenic right ventricular cardiomyopathy"
+[3] "Calcium signaling pathway"                      
+[4] "Cardiac muscle contraction"                     
+[5] "Dilated cardiomyopathy"                         
+[6] "Fatty acid biosynthesis"                        
+[7] "Hypertrophic cardiomyopathy"                    
+[8] "Necroptosis"                                    
+[9] "Tight junction"  
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_d500d_gran.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+
+## **Detailed results for ukb.allasthma **
+
+The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
+
+We found 3 SNPs drive different pathways:
+
+```{r echo=T, eval=FALSE}
+chr1_152313385_G_A_b38 : row 2,7,9,13,15,17
+chr5_119355086_C_G_b38 : row 6,8,12,16
+chr7_20547220_A_G_b38 : row 5,14,18
+```
+
+There are 9 pathways in this table: 
+
+```{r echo=T, eval=FALSE}
+[1] "Circadian rhythm"                                      
+[2] "Ether lipid metabolism"                                
+[3] "Fatty acid biosynthesis"                               
+[4] "Glycosylphosphatidylinositol (GPI)-anchor biosynthesis"
+[5] "Lysine degradation"                                    
+[6] "Pyruvate metabolism"                                   
+[7] "Regulation of actin cytoskeleton"                      
+[8] "Ribosome"                                              
+[9] "Steroid hormone biosynthesis"   
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_d500d_ukb.allasthma.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+## **Detailed results for EUR.IBD **
+
+The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
+
+We found 3 SNPs drive different pathways:
+
+```{r echo=T, eval=FALSE}
+chr6_14721666_T_C_b38 : row 2,3,9,11,13,20,22,25,26,30,41,45,49,51,57
+chr3_48717444_G_T_b38 : row 4,10,12,14,21,23,27,31,36,42,46,50,52
+chr16_81883307_A_G_b38 : row 6,15,37,39
+chr12_40430996_T_C_b38 : row 7,17,28
+chr2_43226582_G_A_b38 : row 32,34
+chr5_135109292_C_A_b38: row 33,35,47
+chr22_21561877_T_C_b38: row 8,38,40,54,56
+chr5_131126137_G_T_b38: row 19,44
+```
+
+There are 26 pathways in this table: 
+
+```{r echo=T, eval=FALSE}
+ [1] "Alcoholism"                              
+ [2] "Amyotrophic lateral sclerosis"           
+ [3] "Axon guidance"                           
+ [4] "Bacterial invasion of epithelial cells"  
+ [5] "Basal transcription factors"             
+ [6] "beta-Alanine metabolism"                 
+ [7] "Cardiac muscle contraction"              
+ [8] "Complement and coagulation cascades"     
+ [9] "Dilated cardiomyopathy"                  
+[10] "Fatty acid degradation"                  
+[11] "Human immunodeficiency virus 1 infection"
+[12] "Hypertrophic cardiomyopathy"             
+[13] "Malaria"                                 
+[14] "Mitophagy - animal"                      
+[15] "Non-small cell lung cancer"              
+[16] "Other glycan degradation"                
+[17] "Pancreatic cancer"                       
+[18] "Parkinson disease"                       
+[19] "Pertussis"                               
+[20] "Phosphonate and phosphinate metabolism"  
+[21] "Porphyrin and chlorophyll metabolism"    
+[22] "Renal cell carcinoma"                    
+[23] "Renin-angiotensin system"                
+[24] "Ribosome"                                
+[25] "RNA transport"                           
+[26] "Viral carcinogenesis"  
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_d500d_EUR.IBD.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
