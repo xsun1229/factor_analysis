@@ -66,13 +66,9 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-<<<<<<< HEAD
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy211_pc3_eo_pval5e8_d500d.jpeg" width="80%">
 </figure>
-=======
-![](https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy211_pc3_eo_pval5e8_d500d.jpeg)
->>>>>>> 8d321c96ac8958e047f2ca1ac2f5d72d7f7823ff
 
 
 ## **Detailed results for 'TG_pwy211_pc2' **
@@ -87,13 +83,10 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-<<<<<<< HEAD
+
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy13_pc2_TG_pval5e8_d500d.jpeg" width="80%">
 </figure>
-=======
-![](https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy13_pc2_TG_pval5e8_d500d.jpeg)
->>>>>>> 8d321c96ac8958e047f2ca1ac2f5d72d7f7823ff
 
 
 ## **Detailed results for granulocyte count **
