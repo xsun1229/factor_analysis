@@ -40,7 +40,7 @@ sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_su
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-After deleting the pairs whose 'num_snp_noMHC' == 0, we got 735 pairs. We used extended MHC area here ([chr6:25726063-33400644](https://www.nature.com/articles/nrg1489)) There are 135 pairs show sign consistency (have p-values < 0.05 in resampling, 3.67 fold enrichment). There are 33 pairs at p-value < 0.01, 4.49 fold enrichment).  
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got 824 pairs. We used extended MHC area here ([chr6:25726063-33400644](https://www.nature.com/articles/nrg1489)) There are 163 pairs show sign consistency (have p-values < 0.05 in resampling, 3.95 fold enrichment). There are 45 pairs at p-value < 0.01, 5.46 fold enrichment).  
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5_extend_d500d.txt", header = T)
@@ -58,11 +58,35 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 ![](https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_pc_reg_5_d500d.jpeg)
 
 
+## **Detailed results for 'eo_pwy211_pc3' **
+
+The related pathway is : Regulation of actin cytoskeleton [ several reports have examined the role of the actin cytoskeleton in activation of human eosinophils](https://www.jacionline.org/article/S0091-6749(03)01249-1/fulltext)
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_d500d_eo.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+## **Detailed results for 'TG_pwy211_pc2' **
+
+The related pathway is : Primary bile acid biosynthesis 
+
+It seems that this pathway is nort biological plausible.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_d500d_TG.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
 ## **Detailed results for granulocyte count **
 
 The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
 
-We found 3 SNPs drive different pathways:
+We found 4 SNPs drive different pathways:
 
 ```{r echo=T, eval=FALSE}
 chr3_128603030_AG_A_b38 : row 4,29
@@ -79,23 +103,23 @@ DT::datatable(sum, options = list(pageLength =5))
 
 There are 9 pathways in this table: 
 
-[1] "Adrenergic signaling in cardiomyocytes"         
+[1] "Circadian rhythm"  [Circadian rhythms are present in many cellular and humoral components of the immune system. Granulocytes and monocytes exhibit circadian oscillations in their numbers in blood, both in humans and mice ](https://www.frontiersin.org/articles/10.3389/fimmu.2020.00576/full)                                     
 
-[2] "Arrhythmogenic right ventricular cardiomyopathy"
+[2] "Ether lipid metabolism"                                
 
-[3] "Calcium signaling pathway"                      
+[3] "Fatty acid biosynthesis"                               
 
-[4] "Cardiac muscle contraction"                     
+[4] "Glycosylphosphatidylinositol (GPI)-anchor biosynthesis"
 
-[5] "Dilated cardiomyopathy"                         
+[5] "Lysine degradation"                                    
 
-[6] "Fatty acid biosynthesis"                        
+[6] "Pyruvate metabolism"                                   
 
-[7] "Hypertrophic cardiomyopathy"                    
+[7] "Regulation of actin cytoskeleton"                      
 
-[8] "Necroptosis"                                    
+[8] "Ribosome"                                              
 
-[9] "Tight junction"  
+[9] "Steroid hormone biosynthesis"   [may be related through some other mediator: These findings implicate GM-CSF as a local mediator of steroid-driven remodeling events in the cycling and preimplantation endometrium, possibly acting through the recruitment and behavioral regulation of granulocytes and macrophages. ](https://pubmed.ncbi.nlm.nih.gov/8838016/)   
 
 
 ```{r echo=FALSE}
@@ -103,7 +127,6 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_
 
 DT::datatable(final_full, options = list(pageLength =5))
 ```
-
 
 
 ## **Detailed results for ukb.allasthma **
@@ -123,28 +146,25 @@ sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allas
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-
-
 There are 9 pathways in this table: 
 
 
-[1] "Circadian rhythm"   related paper: [1](https://pubmed.ncbi.nlm.nih.gov/23704227/), [2](https://pubmed.ncbi.nlm.nih.gov/8494197/)                                   
+[1] "Adrenergic signaling in cardiomyocytes"        
 
-[2] "Ether lipid metabolism"      related paper: [some lipids related to asthma but did not mention ether lipid](https://www.sciencedirect.com/science/article/pii/S1388198120302456?via%3Dihub)      
+[2] "Arrhythmogenic right ventricular cardiomyopathy"   asthma related to Right ventricular diastolic dysfunction but not exactly ARVC : [Asthmatic patients develop right heart affection from early stages through different mechanisms. The current study was performed aiming to assess the right ventricular diastolic dysfunction in different asthmatic stages.](https://www.sciencedirect.com/science/article/pii/S0422763813002094)
+ 
+[3] "Calcium signaling pathway"   [Ca2+ signaling pathways part in paper : 'Targeting cell signaling in allergic asthma'](https://www.nature.com/articles/s41392-019-0079-0)                  
+[4] "Cardiac muscle contraction"  [no paper shows the direct relationship, but I'm considering the Ca2+ may acts as a cofounder in it.]
 
-[3] "Fatty acid biosynthesis"   related paper:  [fatty acid metabolism](https://onlinelibrary.wiley.com/doi/abs/10.1111/all.13180)                            
+[5] "Dilated cardiomyopathy"   [A statistically significant, independent association was observed between idiopathic DCM and a history of asthma ](https://pubmed.ncbi.nlm.nih.gov/2801484/)        
 
-[4] "Glycosylphosphatidylinositol (GPI)-anchor biosynthesis"
+[6] "Fatty acid biosynthesis"      [fatty acid metabolism](https://onlinelibrary.wiley.com/doi/abs/10.1111/all.13180)
 
-[5] "Lysine degradation"    related paper: [the second paragraph containing 'lysine degradation'](https://e-aair.org/DOIx.php?id=10.4168/aair.2021.13.1.56)                   
+[7] "Hypertrophic cardiomyopathy"    [not related: Mistakes and delays in diagnosisabound. Hypertrophic cardiomyopathy commonly“masquerades”as asthma](https://www.amjmed.com/article/S0002-9343(15)00771-8/pdf)      
 
-[6] "Pyruvate metabolism"    related paper : [We recognize that mild lactemia or relative functional impairment of the pyruvate dehydrogenase (PDH) complex is not the cause but rather a feature of asthma](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3289274/)         
+[8] "Necroptosis"   [Finally, the human and murine necroptosis inhibitor, GW806742X, blocked necroptosis and IL-33 release in vitro and reduced eosinophilia in Aspergillus fumigatus extract-induced asthma in vivo, an allergic inflammation model that is highly dependent on IL-33](https://pubmed.ncbi.nlm.nih.gov/30576068/)  
 
-[7] "Regulation of actin cytoskeleton" related paper : [somewhat related](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4628321/)                     
-
-[8] "Ribosome"     related paper: [Ribosomal protein S3 gene silencing protects against experimental allergic asthma](https://pubmed.ncbi.nlm.nih.gov/28093718/)                    
-
-[9] "Steroid hormone biosynthesis"  related paper : [Endogenous and exogenous sex steroid hormones in asthma and allergy in females: A systematic review and meta-analysis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5883329/)  
+[9] "Tight junction" 
 
 
 ```{r echo=FALSE}
@@ -157,7 +177,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
 
-We found 3 SNPs drive different pathways:
+We found 8 SNPs drive different pathways:
 
 ```{r echo=T, eval=FALSE}
 chr2_43226582_G_A_b38 : row 32,34
