@@ -55,8 +55,6 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_pc_reg_5_d500d.jpeg" width="80%">
 </figure>
 
-![](https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_pc_reg_5_d500d.jpeg)
-
 
 ## **Detailed results for 'eo_pwy211_pc3' **
 
@@ -68,18 +66,26 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy211_pc3_eo_pval5e8_d500d.jpeg" width="80%">
+</figure>
+
 
 ## **Detailed results for 'TG_pwy211_pc2' **
 
 The related pathway is : Primary bile acid biosynthesis 
 
-It seems that this pathway is nort biological plausible.
+It seems that this pathway is not biological plausible.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_d500d_TG.rdata")
 
 DT::datatable(final_full, options = list(pageLength =5))
 ```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy13_pc2_TG_pval5e8_d500d.jpeg" width="80%">
+</figure>
 
 
 ## **Detailed results for granulocyte count **
