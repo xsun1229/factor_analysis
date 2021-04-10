@@ -1,0 +1,104 @@
+---
+title: "Studying effects of PCs on phenotypes (KEGG) – After regressing out 5 GTEx PEER factors, 'AND' LD Clumping, liver eQTLs "
+author: "XSun"
+date: "2021-04-09"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction 
+
+In this part, we inferred 1652 PCs from 332 KEGG pathways. The pipeline is the same with [whole blood data](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d.html). The only differences are: 1.we used liver data in this part, 2.the traits are Total Cholesterol(TC),High Density Lipoprotein(HDL), Low Density Lipoprotein (LDL),Triglycerides(TG)
+
+
+## **Effectsize analysis -- effect size fitting**
+
+For the pairs have more than 2 SNPs with FDR <0.2 (120 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 7 pairs show sign consistency (have p-values < 0.05 in resampling, 1.16 fold enrichment). There are 3 pairs at p-value < 0.01, 2.5 fold enrichment). 
+
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d500d_liver.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got 119 pairs. We used extended MHC area here ([chr6:25726063-33400644](https://www.nature.com/articles/nrg1489)). There are 7 pairs show sign consistency (have p-values < 0.05 in resampling, 1.16 fold enrichment). There are 3 pairs at p-value < 0.01, 2.5 fold enrichment). 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5_extend_d500d_liver.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
+
+
+**For the pair have p-value == 0 in resampling, we set the p-value = 0.001 to make the plot**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_pc_reg_5_d500d_liver.jpeg" width="80%">
+</figure>
+
+
+## **Detailed results for HDL **
+
+HDL has 4 factors have p-value < 0.05 in resampling. The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
+
+We found 5 SNPs drive different pathways:
+
+```{r echo=T, eval=FALSE}
+chr11_48526997_G_T_b38 : row 5,10
+chr11_50136924_G_T_b38 : row 6,12
+chr11_54823403_T_C_b38 : row 7,13
+chr11_56176998_G_A_b38 : row 8,14
+chr11_126348646_A_G_b38 : row 1,15
+```
+
+There are 4 pathways in this table: 
+
+[1] "Butanoate metabolism"   
+
+[2] "Cushing syndrome"    not related : [ In Cushing’s syndrome, there is an increase of triglyceride and total cholesterol levels whereas HDL can be at variable levels.](https://www.karger.com/Article/Fulltext/314213)     
+
+[3] "Ribosome biogenesis in eukaryotes"
+
+[4] "Terpenoid backbone biosynthesis"
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_liver_HDL.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+For the pairs have relatively more SNPs, we made effectsize plots.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy68_pc4_HDL_pval5e8_kegg_reg_5_d500d_liver.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy80_pc3_HDL_pval5e8_kegg_reg_5_d500d_liver.jpeg" width="80%">
+</figure>
+
+
+## **Detailed results for TG **
+
+TG has 1 factor has p-value < 0.05 in resampling. The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
+
+The pathway 'Inositol phosphate metabolism' is not related to TG
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_liver_TG.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy54_pc5_TG_pval5e8_kegg_reg_5_d500d_liver.jpeg" width="80%">
+</figure>
+
