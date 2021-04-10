@@ -40,7 +40,7 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 **For the pair have p-value == 0 in resampling, we set the p-value = 0.001 to make the plot**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_pc_reg_5_d500d_liver.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_reg_5_d500d_liver.jpeg" width="80%">
 </figure>
 
 
