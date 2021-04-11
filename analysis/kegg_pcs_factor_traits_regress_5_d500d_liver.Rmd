@@ -14,7 +14,7 @@ In this part, we inferred 1652 PCs from 332 KEGG pathways. The pipeline is the s
 
 ## **Effectsize analysis -- effect size fitting**
 
-For the pairs have more than 2 SNPs with FDR <0.2 (120 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+For the pairs have more than 2 SNPs with FDR <0.2 (98 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
 
 To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
 
