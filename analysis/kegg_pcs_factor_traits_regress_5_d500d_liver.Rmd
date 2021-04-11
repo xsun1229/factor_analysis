@@ -37,7 +37,6 @@ DT::datatable(sum, options = list(pageLength =5))
 To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
 
 
-**For the pair have p-value == 0 in resampling, we set the p-value = 0.001 to make the plot**
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_reg_5_d500d_liver.jpeg" width="80%">
@@ -46,9 +45,9 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 
 ## **Detailed results for HDL **
 
-HDL has 4 factors have p-value < 0.05 in resampling. The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
+HDL has 5 factors have p-value < 0.05 in resampling. The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
 
-We found 5 SNPs drive different pathways:
+We found 3 SNPs drive different pathways:
 
 ```{r echo=T, eval=FALSE}
 chr11_49317519_T_C_b38 : row 1,8,14
