@@ -18,18 +18,18 @@ For the pairs have more than 2 SNPs with FDR <0.2 (120 pairs), we also tested th
 
 To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
 
-There are 7 pairs show sign consistency (have p-values < 0.05 in resampling, 1.16 fold enrichment). There are 3 pairs at p-value < 0.01, 2.5 fold enrichment). 
+There are 8 pairs show sign consistency (have p-values < 0.05 in resampling, 1.63 fold enrichment). There are 1 pairs at p-value < 0.01, 1 fold enrichment). 
 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d500d_liver.txt", header = T)
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d500d_kegg_reg_5_d500d_liver.txt", header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-After deleting the pairs whose 'num_snp_noMHC' == 0, we got 119 pairs. We used extended MHC area here ([chr6:25726063-33400644](https://www.nature.com/articles/nrg1489)). There are 7 pairs show sign consistency (have p-values < 0.05 in resampling, 1.16 fold enrichment). There are 3 pairs at p-value < 0.01, 2.5 fold enrichment). 
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got 97 pairs. We used extended MHC area here ([chr6:25726063-33400644](https://www.nature.com/articles/nrg1489)). There are 8 pairs show sign consistency (have p-values < 0.05 in resampling). There are 1 pairs at p-value < 0.01. 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5_extend_d500d_liver.txt", header = T)
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5_extend_d500d_kegg_reg_5_d500d_liver.txt", header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -51,22 +51,27 @@ HDL has 4 factors have p-value < 0.05 in resampling. The table below shows the S
 We found 5 SNPs drive different pathways:
 
 ```{r echo=T, eval=FALSE}
-chr11_48526997_G_T_b38 : row 5,10
-chr11_50136924_G_T_b38 : row 6,12
-chr11_54823403_T_C_b38 : row 7,13
-chr11_56176998_G_A_b38 : row 8,14
-chr11_126348646_A_G_b38 : row 1,15
+chr11_49317519_T_C_b38 : row 1,8,14
+chr11_48526997_G_T_b38 : row 3,9,11,15
+chr11_50136924_G_T_b38 : row 4,10,12,16
 ```
 
-There are 4 pathways in this table: 
+```{r echo=FALSE}
+sum <- read.csv("/project2/xinhe/xsun/website/factor_analysis/output/common_snp_detail_HDL_kegg_reg_5_d500d_liver.csv", header = T, fill=T)
+DT::datatable(sum, options = list(pageLength =5))
+```
 
-[1] "Butanoate metabolism"   
+There are 5 pathways in this table: 
 
-[2] "Cushing syndrome"    not related : [ In Cushing’s syndrome, there is an increase of triglyceride and total cholesterol levels whereas HDL can be at variable levels.](https://www.karger.com/Article/Fulltext/314213)     
+[1] "Butanoate metabolism"         
 
-[3] "Ribosome biogenesis in eukaryotes"
+[2] "Non-small cell lung cancer"   [Abnormal triglyceride (TG) and high-density lipoprotein cholesterol (HDL-C) levels showed statistically significant coexistence with NSCLC compared with controls](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6284307/)
 
-[4] "Terpenoid backbone biosynthesis"
+[3] "Porphyrin and chlorophyll metabolism"
+
+[4] "Protein export"                      
+
+[5] "Type II diabetes mellitus" [Low levels of HDL cholesterol are consistently associated with increased risk of type 2 diabetes in epidemiological studies (1,2). Therefore plasma HDL cholesterol increasing has been suggested as a novel therapeutic option to reduce risk of type 2 diabetes](https://diabetes.diabetesjournals.org/content/64/9/3328)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_liver_HDL.rdata")
@@ -74,31 +79,10 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-For the pairs have relatively more SNPs, we made effectsize plots.
+For the pair have relatively more SNPs, we made effectsize plots.
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy68_pc4_HDL_pval5e8_kegg_reg_5_d500d_liver.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy103_pc4_HDL_pval5e8_kegg_reg_5_d500d_liver.jpeg" width="80%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy80_pc3_HDL_pval5e8_kegg_reg_5_d500d_liver.jpeg" width="80%">
-</figure>
-
-
-## **Detailed results for TG **
-
-TG has 1 factor has p-value < 0.05 in resampling. The table below shows the SNP details. We deleted the pairs that only have SNPs in MHC area.
-
-The pathway 'Inositol phosphate metabolism' is not related to TG
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_liver_TG.rdata")
-
-DT::datatable(final_full, options = list(pageLength =5))
-```
-
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy54_pc5_TG_pval5e8_kegg_reg_5_d500d_liver.jpeg" width="80%">
-</figure>
 
