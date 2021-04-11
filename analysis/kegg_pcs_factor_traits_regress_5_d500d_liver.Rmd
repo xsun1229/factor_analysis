@@ -18,7 +18,7 @@ For the pairs have more than 2 SNPs with FDR <0.2 (98 pairs), we also tested the
 
 To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
 
-There are 8 pairs show sign consistency (have p-values < 0.05 in resampling, 1.63 fold enrichment). There are 1 pairs at p-value < 0.01, 1 fold enrichment). 
+There are 8 pairs show sign consistency (have p-values < 0.05 in resampling, 1.63 fold enrichment). There is 1 pair at p-value < 0.01, 1 fold enrichment). 
 
 
 ```{r echo=FALSE}
@@ -26,7 +26,7 @@ sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_su
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-After deleting the pairs whose 'num_snp_noMHC' == 0, we got 97 pairs. We used extended MHC area here ([chr6:25726063-33400644](https://www.nature.com/articles/nrg1489)). There are 8 pairs show sign consistency (have p-values < 0.05 in resampling). There are 1 pairs at p-value < 0.01. 
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got 97 pairs. We used extended MHC area here ([chr6:25726063-33400644](https://www.nature.com/articles/nrg1489)). There are 8 pairs show sign consistency (have p-values < 0.05 in resampling). There is 1 pair at p-value < 0.01. 
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5_extend_d500d_kegg_reg_5_d500d_liver.txt", header = T)
