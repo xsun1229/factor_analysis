@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction 
+## **Introduction** 
 
 In this part, we inferred 1652 PCs from 332 KEGG pathways. The pipeline is the same with [whole blood data](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d.html). The only differences are: 1.we used liver data in this part, 2.the traits are Total Cholesterol(TC),High Density Lipoprotein(HDL), Low Density Lipoprotein (LDL),Triglycerides(TG)
 
