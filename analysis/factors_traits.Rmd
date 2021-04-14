@@ -32,6 +32,8 @@ Each setting below contains effectsize analysis&resampling, colocalization analy
 
 - [Skeletal muscle](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_muscle.html)
 
+- [Liver](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d500d_liver.html)
+
 - [GEUVADIS](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000_geu.html)
 
 
@@ -84,6 +86,15 @@ We have 332 human pathways from KEGG. For each pathway, we inferred 5 PCs and 5 
 
 
 [Compare factors & factors after regressing out GTEx PEER factors](https://xsun1229.github.io/factor_analysis/compare_regress.html)
+
+
+- Reactome pathways
+
+We have 1866 Reactome pathways. Combining with our GTEx data, some of them have less than 5 genes that have expression data. Since we will infer 5 PCs for each pathway, we just use the pathways have more than 5 genes. The number of pathways we use is 1221 for whole blood is 1221, the number for liver is 1262. 
+
+[Whole Blood: PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d500d.html)
+
+[Liver: PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d500d_liver.html)
 
 
 # **GWAS convergence on pathways using cis-eQTLs**

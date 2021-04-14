@@ -1,0 +1,43 @@
+---
+title: "Studying effects of PCs on phenotypes (REACTOME) – After regressing out 5 GTEx PEER factors, 'AND' LD Clumping, Whole blood "
+author: "XSun"
+date: "2021-04-13"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## **Introduction**
+
+In this part, we inferred 6105 PCs from 1221 KEGG pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set. 
+
+The candidate SNPs are the same with [Whole blood PCs](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d.html)
+
+## **Effectsize analysis -- effect size fitting**
+
+For the pairs have more than 2 SNPs with FDR <0.2 (3139 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 608 pairs show sign consistency (have p-values < 0.05 in resampling, 3.87 fold enrichment). There are 274 pairs at p-value < 0.01, 8.72 fold enrichment). 
+
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d500d_reactome_wb.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+After deleting the pairs whose 'num_snp_noMHC' == 0, we got 2932 pairs. We used extended MHC area here ([chr6:25726063-33400644](https://www.nature.com/articles/nrg1489)) There are 494 pairs show sign consistency (have p-values < 0.05 in resampling, 3.36 fold enrichment). There are 197 pairs at p-value < 0.01, 6.7 fold enrichment).  
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_noMHC_pcs_reg_5_extend_d500d_reactome_wb.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
+
+For the pairs have p-value = 0 in resampling, we set the p-value = 0.001 in the plot below.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_reactome_wb.jpeg" width="80%">
+</figure>
