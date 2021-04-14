@@ -41,3 +41,59 @@ For the pairs have p-value = 0 in resampling, we set the p-value = 0.001 in the 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_reactome_wb.jpeg" width="80%">
 </figure>
+
+## **Detailed results for EUR.IBD **
+
+EUR.IBD has 4 factors have p-value == 0  in resampling. The table below shows the SNP details of these 4 factors. We deleted the pairs that only have SNPs in MHC area.
+
+We found 3 SNPs drive different pathways:
+
+```{r echo=T, eval=FALSE}
+chr8_125523895_C_G_b38 : row 3,5 : Maturation of spike protei & Negative regulation of MET activity
+chr6_14721666_T_C_b38 : row 2,8 : Loss of function of MECP2 in Rett syndrome & Pervasive developmental disorders
+chr18_12775852_G_T_b38 : row 1,7 : Loss of function of MECP2 in Rett syndrome & Pervasive developmental disorders
+```
+
+The 4 pathways in this table are: 
+
+[1] "Loss of function of MECP2 in Rett syndrome"
+
+[2] "Maturation of spike protein"               
+
+[3] "Negative regulation of MET activity"       
+
+[4] "Pervasive developmental disorders"
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_wb_EUR.IBD.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+## **Detailed results for ukb.allasthma **
+
+EUR.IBD has 4 factors have p-value == 0  in resampling. The table below shows the SNP details of these 4 factors. We deleted the pairs that only have SNPs in MHC area.
+
+We found 3 SNPs drive different pathways:
+
+```{r echo=T, eval=FALSE}
+chr7_20547220_A_G_b38 : row 1,4,8,11 : Cardiac conduction & Ion homeostasis & Ion transport by P-type ATPases
+chr5_119355086_C_G_b38 : row 2,5 : Cardiac conduction & Ion homeostasis
+chr18_12775852_G_T_b38 : row 3,6,9,12 : Cardiac conduction & Ion homeostasis & Ion transport by P-type ATPases & Muscle contraction
+```
+
+The 4 pathways in this table are: 
+
+[1] "Cardiac conduction"             
+
+[2] "Ion homeostasis"                
+
+[3] "Ion transport by P-type ATPases"
+
+[4] "Muscle contraction" 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_wb_ukb.allasthma.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```

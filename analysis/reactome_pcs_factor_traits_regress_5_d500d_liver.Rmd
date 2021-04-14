@@ -43,3 +43,26 @@ For the pairs have p-value = 0 in resampling, we set the p-value = 0.001 in the 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_reactome_liver.jpeg" width="80%">
 </figure>
+
+## **Detailed results for HDL **
+
+EUR.IBD has 4 factors have p-value close to in resampling. The table below shows the SNP details of these 4 factors. We deleted the pairs that only have SNPs in MHC area.
+
+We also find a lot of SNPs on chr11.
+
+The 4 pathways in this table are: 
+
+[1] "Cytokine Signaling in Immune system"  
+
+[2] "Interleukin-1 family signaling"   
+
+[3] "Intrinsic Pathway of Fibrin Clot Formation"
+
+[4] "PIWI-interacting RNA (piRNA) biogenesis"   
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_liver_HDL.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
