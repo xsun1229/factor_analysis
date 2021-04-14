@@ -9,7 +9,7 @@ editor_options:
 
 ## **Introduction**
 
-In this part, we inferred 6105 PCs from 1221 KEGG pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set. 
+In this part, we inferred 6105 PCs from 1221 REACTOME pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set. 
 
 The candidate SNPs are the same with [Whole blood PCs](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d.html)
 
@@ -44,7 +44,7 @@ For the pairs have p-value = 0 in resampling, we set the p-value = 0.001 in the 
 
 ## **Detailed results for EUR.IBD **
 
-EUR.IBD has 4 factors have p-value == 0  in resampling. The table below shows the SNP details of these 4 factors. We deleted the pairs that only have SNPs in MHC area.
+EUR.IBD has 4 factors have p-value == 0  in resampling. The table below shows the SNP details of these 4 factors.
 
 We found 3 SNPs drive different pathways:
 
@@ -72,7 +72,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 ## **Detailed results for ukb.allasthma **
 
-EUR.IBD has 4 factors have p-value == 0  in resampling. The table below shows the SNP details of these 4 factors. We deleted the pairs that only have SNPs in MHC area.
+ukb.allasthma has 4 factors have p-value == 0  in resampling. The table below shows the SNP details of these 4 factors.
 
 We found 3 SNPs drive different pathways:
 
