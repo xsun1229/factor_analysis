@@ -593,16 +593,16 @@ output/info_table_annot_pval_reactome_pc_reg_5_wb_ukb.allasthma.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeb1ce3403c5e728b2177965274060fc3120780276targetblankb1ce340a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/b1ce3403c5e728b2177965274060fc3120780276" target="_blank">b1ce340</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree3c98342ab578e959a74643c921919c7b3ced8aadtargetblank3c98342a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/3c98342ab578e959a74643c921919c7b3ced8aad" target="_blank">3c98342</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeb1ce3403c5e728b2177965274060fc3120780276targetblankb1ce340a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree3c98342ab578e959a74643c921919c7b3ced8aadtargetblank3c98342a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/b1ce3403c5e728b2177965274060fc3120780276" target="_blank">b1ce340</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/3c98342ab578e959a74643c921919c7b3ced8aad" target="_blank">3c98342</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -651,6 +651,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/d33e6241facdc8f6cce73f1c1de4a46f8d3fa5b4/analysis/reactome_pcs_factor_traits_regress_5_d500d.Rmd" target="_blank">d33e624</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-04-14
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/1b0a3602dfb85f676c2598b6bb29314f906c6113/docs/reactome_pcs_factor_traits_regress_5_d500d.html" target="_blank">1b0a360</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-04-14
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -728,7 +762,7 @@ update
 </div>
 <div id="introduction" class="section level2">
 <h2><strong>Introduction</strong></h2>
-<p>In this part, we inferred 6105 PCs from 1221 KEGG pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set.</p>
+<p>In this part, we inferred 6105 PCs from 1221 REACTOME pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set.</p>
 <p>The candidate SNPs are the same with <a href="https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d.html">Whole blood PCs</a></p>
 </div>
 <div id="effectsize-analysis-effect-size-fitting" class="section level2">
@@ -749,7 +783,7 @@ update
 </div>
 <div id="detailed-results-for-eur.ibd" class="section level2">
 <h2><strong>Detailed results for EUR.IBD </strong></h2>
-<p>EUR.IBD has 4 factors have p-value == 0 in resampling. The table below shows the SNP details of these 4 factors. We deleted the pairs that only have SNPs in MHC area.</p>
+<p>EUR.IBD has 4 factors have p-value == 0 in resampling. The table below shows the SNP details of these 4 factors.</p>
 <p>We found 3 SNPs drive different pathways:</p>
 <pre class="r"><code>chr8_125523895_C_G_b38 : row 3,5 : Maturation of spike protei &amp; Negative regulation of MET activity
 chr6_14721666_T_C_b38 : row 2,8 : Loss of function of MECP2 in Rett syndrome &amp; Pervasive developmental disorders
@@ -764,7 +798,7 @@ chr18_12775852_G_T_b38 : row 1,7 : Loss of function of MECP2 in Rett syndrome &a
 </div>
 <div id="detailed-results-for-ukb.allasthma" class="section level2">
 <h2><strong>Detailed results for ukb.allasthma </strong></h2>
-<p>EUR.IBD has 4 factors have p-value == 0 in resampling. The table below shows the SNP details of these 4 factors. We deleted the pairs that only have SNPs in MHC area.</p>
+<p>ukb.allasthma has 4 factors have p-value == 0 in resampling. The table below shows the SNP details of these 4 factors.</p>
 <p>We found 3 SNPs drive different pathways:</p>
 <pre class="r"><code>chr7_20547220_A_G_b38 : row 1,4,8,11 : Cardiac conduction &amp; Ion homeostasis &amp; Ion transport by P-type ATPases
 chr5_119355086_C_G_b38 : row 2,5 : Cardiac conduction &amp; Ion homeostasis
