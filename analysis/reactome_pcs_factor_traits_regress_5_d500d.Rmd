@@ -42,6 +42,45 @@ For the pairs have p-value = 0 in resampling, we set the p-value = 0.001 in the 
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_reactome_wb.jpeg" width="80%">
 </figure>
 
+
+## **Detailed results for HDL_pwy1077_pc4 **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_wb_HDL.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy1077_pc4_HDL_pval5e8_reactome_wb.jpeg" width="80%">
+</figure>
+
+
+## **Detailed results for plt_pwy1035_pc3 **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_wb_plt.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy1035_pc3_plt_pval5e8_reactome_wb.jpeg" width="80%">
+</figure>
+
+
+## **Detailed results for eo_pwy728_pc2 **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_wb_eo.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy728_pc2_eo_pval5e8_reactome_wb.jpeg" width="80%">
+</figure>
+
 ## **Detailed results for EUR.IBD **
 
 EUR.IBD has 4 factors have p-value == 0  in resampling. The table below shows the SNP details of these 4 factors.
