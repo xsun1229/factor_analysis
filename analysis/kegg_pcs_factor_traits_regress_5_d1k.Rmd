@@ -33,8 +33,7 @@ sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_su
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-There are 5 pair have 'num_snp_noMHC' == 0. 
-
+There are 5 pairs have 'num_snp_noMHC' == 0. 
 
 To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
 
@@ -47,7 +46,7 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_kegg_d1k_eo.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_d1k_eo.rdata")
 
 DT::datatable(final_full, options = list(pageLength =5))
 ```
@@ -60,7 +59,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 ## **Detailed results for 'TG_pwy13_pc2' **
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_kegg_d1k_TG.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_d1k_TG.rdata")
 
 DT::datatable(final_full, options = list(pageLength =5))
 ```
