@@ -1,0 +1,43 @@
+---
+title: "Studying effects of PCs on phenotypes (KEGG) – After regressing out 5 GTEx PEER factors, 'AND' LD Clumping(r2 = 0.1, d= 1Mb)"
+author: "XSun"
+date: "2021-04-17"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## **Introduction**
+
+In this part, we inferred 1646 PCs from 332 KEGG pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set. 
+
+## **Candidate SNPs**
+
+1: Use PLINK to do the preliminary filter: in 1Mb block,the SNPs have LD R2 > 0.1 will be filtered by their p-values
+
+2: Use my own codes to filter the SNPs in a block by their p-values.
+
+3: We need to compute the LD R2 for the remaining SNPs, for the SNP pairs have R2 > 0.1, filter them again according their p-values. 
+
+## **Effectsize analysis -- effect size fitting**
+
+For the pairs have more than 2 SNPs with FDR <0.2 (595 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 68 pairs show sign consistency (have p-values < 0.05 in resampling, 2.28 fold enrichment). There are 19 pairs at p-value < 0.01, 3.19 fold enrichment). 
+
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_kegg_wb.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+There are 5 pair have 'num_snp_noMHC' == 0. 
+
+
+To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_wb_d1k.jpeg" width="80%">
+</figure>
