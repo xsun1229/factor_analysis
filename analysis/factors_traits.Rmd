@@ -79,6 +79,9 @@ We have 332 human pathways from KEGG. For each pathway, we inferred 5 PCs and 5 
 
 [PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d.html)
 
+[PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping(r2 = 0.1, d= 1Mb)](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d1k.html)
+
+
 [PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping Liver eqtls](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d_liver.html)
 
 
@@ -94,7 +97,11 @@ We have 1866 Reactome pathways. Combining with our GTEx data, some of them have 
 
 [Whole Blood: PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d500d.html)
 
+[Whole Blood: PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping (r2 = 0.1, d= 1Mb)](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d1k.html)
+
 [Liver: PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d500d_liver.html)
+
+[Liver: PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping(r2 = 0.1, d= 1Mb)](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d1k_liver.html)
 
 
 # **GWAS convergence on pathways using cis-eQTLs**
