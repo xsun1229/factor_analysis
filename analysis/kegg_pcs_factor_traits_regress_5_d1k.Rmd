@@ -41,3 +41,33 @@ To summarize the results, We made a scatter plot of all trait-LV pairs. The x-ax
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_kegg_wb_d1k.jpeg" width="80%">
 </figure>
+
+
+## **Detailed results for 'eo_pwy292_pc3' **
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_kegg_d1k_eo.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy292_pc3_eo_pval5e8_kegg_d1k.jpeg" width="80%">
+</figure>
+
+## **Detailed results for 'TG_pwy13_pc2' **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_kegg_d1k_TG.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy13_pc2_eo_pval5e8_kegg_d1k.jpeg" width="80%">
+</figure>
+
+
