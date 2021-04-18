@@ -54,7 +54,6 @@ DT::datatable(final_full, options = list(pageLength =5))
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy594_pc1_ukb.allasthma_pval5e8_reactome_wb_d1k.jpeg" width="80%">
 </figure>
 
-
 ## **Detailed results for wbc_pwy897_pc2**
 
 ```{r echo=FALSE}
@@ -70,6 +69,8 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 ## **Detailed results for TC_pwy34_pc5**
 
+Total Cholesterol
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_wb_TC_d1k.rdata")
 
@@ -81,6 +82,8 @@ DT::datatable(final_full, options = list(pageLength =5))
 </figure>
 
 ## **Detailed results for lymph_pwy143_pc3 **
+
+ lymphocyte count
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_wb_lymph_d1k.rdata")
