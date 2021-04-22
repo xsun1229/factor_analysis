@@ -1,0 +1,27 @@
+SNPs,factor,pwy
+chr22_39604308_T_C_b38,SCZ_pwy544_pc3,Metabolism of cofactors
+,SCZ_pwy919_pc3,RUNX1 regulates transcription of genes involved in BCR signaling
+chr12_630843_C_G_b38,plt_pwy699_pc2,Organic cation transport
+,plt_pwy700_pc2,Organic cation/anion/zwitterion transport
+chr11_8730342_C_G_b38,plt_pwy699_pc2,Organic cation transport
+,plt_pwy700_pc2,Organic cation/anion/zwitterion transport
+chr14_55430820_A_G_b38,plt_pwy699_pc2,Organic cation transport
+,plt_pwy700_pc2,Organic cation/anion/zwitterion transport
+chr1_152313385_G_A_b38,ukb.allasthma_pwy194_pc2,Cardiac conduction
+,ukb.allasthma_pwy362_pc4,HSF1-dependent transactivation
+,ukb.allasthma_pwy467_pc3,Ion transport by P-type ATPases
+,ukb.allasthma_pwy467_pc5,Ion transport by P-type ATPases
+,ukb.allasthma_pwy594_pc1,Muscle contraction
+,ukb.allasthma_pwy594_pc2,Muscle contraction
+,ukb.allasthma_pwy650_pc4,Nephrin family interactions
+chr5_119355086_C_G_b38,ukb.allasthma_pwy194_pc2,Cardiac conduction
+,ukb.allasthma_pwy362_pc4,HSF1-dependent transactivation
+,ukb.allasthma_pwy467_pc3,Ion transport by P-type ATPases
+,ukb.allasthma_pwy594_pc2,Muscle contraction
+chr7_20547220_A_G_b38,ukb.allasthma_pwy194_pc2,Cardiac conduction
+,ukb.allasthma_pwy467_pc5,Ion transport by P-type ATPases
+,ukb.allasthma_pwy594_pc1,Muscle contraction
+,ukb.allasthma_pwy594_pc2,Muscle contraction
+,ukb.allasthma_pwy650_pc4,Nephrin family interactions
+chr11_111620598_A_G_b38,ukb.allasthma_pwy362_pc4,HSF1-dependent transactivation
+,ukb.allasthma_pwy467_pc3,Ion transport by P-type ATPases
