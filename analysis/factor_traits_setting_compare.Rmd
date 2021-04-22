@@ -36,9 +36,9 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 For SCZ, there is 1 SNP shared by 2 factors
 
-For plt, there is 3 SNP shared by 2 factors
+For plt, there are 3 SNPs shared by 2 factors
 
-For ukb.allasthma, there is 8 SNP shared by 7 factors
+For ukb.allasthma, there are 8 SNPs shared by 7 factors
 
 ```{r echo=FALSE}
 shared <- read.csv("/project2/xinhe/xsun/website/factor_analysis/output/sharedsnps_reactome_3snps_allpwy.csv",fill = T, header = T)
