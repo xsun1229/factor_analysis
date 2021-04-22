@@ -1,0 +1,47 @@
+---
+title: "Comparing the enrichments under different settings"
+author: "XSun"
+date: "2021-04-22"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Comparison under different settings
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/enrichment_compare.png" width="100%">
+</figure>
+
+## SNP details for KEGG & all pwy & 3SNPs & pval < 0.01
+
+The 6 pairs belong to 6 different traits. They are not driven by the same SNPs.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_d1k_allpval001.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+## SNP details for REACTOME & all pwy & 3SNPs & pval < 0.01
+
+These 20 pairs belong to 7 different traits. 
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_d1k_allpval001.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+For SCZ, there is 1 SNP shared by 2 factors
+
+For plt, there is 3 SNP shared by 2 factors
+
+For ukb.allasthma, there is 1 SNP shared by 7 factors
+
+```{r echo=FALSE}
+shared <- read.csv("/project2/xinhe/xsun/website/factor_analysis/output/sharedsnps_reactome_3snps_allpwy.csv",fill = T, header = T)
+
+DT::datatable(shared, options = list(pageLength =5))
+```

@@ -104,6 +104,10 @@ We have 1866 Reactome pathways. Combining with our GTEx data, some of them have 
 [Liver: PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping(r2 = 0.1, d= 1Mb)](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d1k_liver.html)
 
 
+- Comparing the enrichments under different settings
+
+[details](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare.html)
+
 # **GWAS convergence on pathways using cis-eQTLs**
 
 [For more details](https://xsun1229.github.io/factor_analysis/cispathway.html)
