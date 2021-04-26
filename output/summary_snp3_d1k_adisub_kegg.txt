@@ -1,0 +1,31 @@
+factor	pwy	pwy_name	pwy_gene_num	num_snp_fdr.0.2	num_snp_noMHC	pval_in_fitting	slope_in_fitting	rsq_in_fitting	pval_in_resampling
+T2Dbmiadj_pwy101_pc3	03040	Spliceosome	74	3	3	0.838	-0.028	0.026	0.879
+T2Dbmiadj_pwy127_pc5	04080	Neuroactive ligand-receptor interaction	32	4	4	0.35	0.112	0.289	0.328
+T2Dbmiadj_pwy219_pc2	04917	Prolactin signaling pathway	31	3	3	0.992	-0.002	0	0.997
+T2Dbmiadj_pwy227_pc3	04925	Aldosterone synthesis and secretion	37	3	3	0.31	0.141	0.477	0.268
+T2Dbmiadj_pwy273_pc5	05134	Legionellosis	34	3	3	0.965	0.009	0.001	0.966
+T2Dbmiadj_pwy70_pc4	00730	Thiamine metabolism	34	3	3	0.013	0.351	0.975	0.065
+T2Dbmiadj_pwy95_pc4	03013	RNA transport	30	3	3	0.881	0.025	0.014	0.909
+T2Dbmiadj_pwy97_pc5	03018	RNA degradation	25	5	5	0.627	-0.062	0.065	0.643
+T2Dunadj_pwy122_pc5	04066	HIF-1 signaling pathway	34	3	3	0.446	0.068	0.307	0.408
+T2Dunadj_pwy127_pc5	04080	Neuroactive ligand-receptor interaction	44	3	3	0.534	0.096	0.217	0.454
+T2Dunadj_pwy138_pc1	04142	Lysosome	11	3	3	0.589	-0.033	0.169	0.549
+T2Dunadj_pwy168_pc3	04520	Adherens junction	22	3	3	0.006	-0.134	0.988	0.02
+T2Dunadj_pwy219_pc2	04917	Prolactin signaling pathway	18	3	3	0.786	0.065	0.046	0.781
+T2Dunadj_pwy224_pc5	04922	Glucagon signaling pathway	11	3	3	0.227	0.161	0.598	0.268
+T2Dunadj_pwy266_pc4	05100	Bacterial invasion of epithelial cells	76	4	4	0.625	-0.059	0.089	0.623
+T2Dunadj_pwy97_pc4	03018	RNA degradation	157	3	3	0.772	-0.057	0.052	0.748
+T2Dunadj_pwy97_pc5	03018	RNA degradation	22	6	6	0.679	0.037	0.037	0.687
+WHR_pwy1_pc3	00010	Glycolysis / Gluconeogenesis	137	3	3	0.671	0.026	0.109	0.661
+WHR_pwy72_pc2	00750	Vitamin B6 metabolism	5	3	3	0.699	-0.044	0.091	0.683
+bmi_pwy149_pc2	04216	Ferroptosis	57	3	3	0.166	-0.086	0.696	0.161
+bmi_pwy24_pc4	00280	Valine, leucine and isoleucine degradation	37	3	3	0.005	0.115	0.991	0.019
+bmi_pwy36_pc3	00450	Selenocompound metabolism	41	3	3	0.018	0.123	0.964	0.067
+bmi_pwy4_pc1	00040	Pentose and glucuronate interconversions	52	3	3	0.708	0.048	0.085	0.731
+fastingglu_pwy110_pc3	03460	Fanconi anemia pathway	50	3	3	0.275	-0.212	0.525	0.185
+fastingglu_pwy16_pc3	00190	Oxidative phosphorylation	4	3	3	0.8	0.025	0.04	0.748
+fastingglu_pwy256_pc3	05012	Parkinson disease	67	3	3	0.795	-0.027	0.042	0.748
+fastingglu_pwy310_pc3	05220	Chronic myeloid leukemia	51	3	3	0.768	-0.06	0.054	0.748
+fastingglu_pwy33_pc5	00410	beta-Alanine metabolism	24	3	3	0.26	-0.209	0.548	0.469
+fastingglu_pwy40_pc4	00500	Starch and sucrose metabolism	39	3	3	0.866	-0.049	0.018	0.818
+fastingglu_pwy97_pc5	03018	RNA degradation	18	3	3	0.778	-0.034	0.049	0.731

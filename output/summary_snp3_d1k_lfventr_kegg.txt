@@ -1,0 +1,6 @@
+factor	pwy	pwy_name	pwy_gene_num	num_snp_fdr.0.2	num_snp_noMHC	pval_in_fitting	slope_in_fitting	rsq_in_fitting	pval_in_resampling
+aFib_pwy206_pc1	04730	Long-term depression	74	4	4	0.586	-0.083	0.11	0.58
+aFib_pwy231_pc1	04929	GnRH secretion	32	4	4	0.899	0.033	0.006	0.878
+aFib_pwy270_pc1	05131	Shigellosis	31	4	4	0.012	-0.313	0.909	0.061
+aFib_pwy290_pc3	05167	Kaposi sarcoma-associated herpesvirus infection	37	3	3	0.739	0.072	0.068	0.759
+aFib_pwy29_pc1	00350	Tyrosine metabolism	34	3	3	0.49	0.179	0.261	0.426

@@ -1,0 +1,10 @@
+factor	pwy	pwy_name	pwy_gene_num	num_snp_fdr.0.2	num_snp_noMHC	pval_in_fitting	slope_in_fitting	rsq_in_fitting	pval_in_resampling
+ukb.allasthma_pwy115_pc3	R-HSA-445717	Aquaporin-mediated transport	7	3	3	0.514	-0.126	0.236	0.51
+ukb.allasthma_pwy295_pc2	R-HSA-2564830	Cytosolic iron-sulfur cluster assembly	23	3	2	0.939	-0.023	0.004	0.95
+ukb.allasthma_pwy440_pc2	R-HSA-177243	Interactions of Rev with host cellular proteins	70	3	3	0.61	0.112	0.152	0.58
+ukb.allasthma_pwy464_pc5	R-HSA-9008059	Interleukin-37 signaling	15	3	3	0.961	-0.009	0.002	0.958
+ukb.allasthma_pwy528_pc2	R-HSA-110056	MAPK3 (ERK1) activation	95	3	3	0.858	-0.045	0.02	0.83
+ukb.allasthma_pwy584_pc3	R-HSA-211958	Miscellaneous substrates	76	3	3	0.616	0.096	0.148	0.597
+ukb.allasthma_pwy824_pc3	R-HSA-1912420	Pre-NOTCH Processing in Golgi	21	3	3	0.05	-0.302	0.902	0.119
+ukb.allasthma_pwy852_pc5	R-HSA-6794362	Protein-protein interactions at synapses	17	3	2	0.473	0.117	0.278	0.516
+ukb.allasthma_pwy866_pc5	R-HSA-9013149	RAC1 GTPase cycle	14	3	3	0.274	-0.096	0.527	0.264

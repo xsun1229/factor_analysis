@@ -1,0 +1,419 @@
+factor	pwy	pwy_name	pwy_gene_num	num_snp_fdr.0.2	num_snp_noMHC	pval_in_fitting	slope_in_fitting	rsq_in_fitting	pval_in_resampling
+EUR.CD_pwy1029_pc4	R-HSA-177504	Retrograde neurotrophin signalling	7	3	3	0.661	-0.406	0.115	0.67
+EUR.CD_pwy329_pc1	R-HSA-5083636	Defective GALNT12 causes colorectal cancer 1 (CRCS1)	19	3	3	0.004	1.099	0.992	0.019
+EUR.CD_pwy413_pc4	R-HSA-2995383	Initiation of Nuclear Envelope (NE) Reformation	66	3	3	0.201	-0.846	0.638	0.266
+EUR.CD_pwy482_pc3	R-HSA-8964038	LDL clearance	13	3	3	0.677	-0.356	0.104	0.68
+EUR.CD_pwy501_pc2	R-HSA-9005891	Loss of function of MECP2 in Rett syndrome	90	3	3	0.507	0.899	0.243	0.387
+EUR.CD_pwy501_pc5	R-HSA-9005891	Loss of function of MECP2 in Rett syndrome	78	3	2	0.813	0.235	0.035	0.786
+EUR.CD_pwy64_pc4	R-HSA-8866907	Activation of the TFAP2 (AP-2) family of transcription factors	22	4	4	0.922	0.116	0.004	0.906
+EUR.CD_pwy741_pc2	R-HSA-8857538	PTK6 promotes HIF1A stabilization	18	3	3	0.566	-0.578	0.188	0.438
+EUR.CD_pwy755_pc2	R-HSA-9005895	Pervasive developmental disorders	14	3	3	0.507	0.899	0.243	0.387
+EUR.CD_pwy755_pc5	R-HSA-9005895	Pervasive developmental disorders	9	3	2	0.813	0.235	0.035	0.786
+EUR.CD_pwy931_pc5	R-HSA-8951936	RUNX3 regulates p14-ARF	7	3	3	0.777	-0.233	0.05	0.842
+EUR.IBD_pwy1034_pc3	R-HSA-72702	Ribosomal scanning and start codon recognition	13	3	3	0.557	0.195	0.196	0.407
+EUR.IBD_pwy1038_pc4	R-HSA-69242	S Phase	27	3	3	0.701	0.172	0.089	0.707
+EUR.IBD_pwy1059_pc1	R-HSA-5669034	TNFs bind their physiological receptors	88	3	3	0.307	1.18	0.48	0.273
+EUR.IBD_pwy1064_pc4	R-HSA-6796648	TP53 Regulates Transcription of DNA Repair Genes	25	4	4	0.897	-0.057	0.007	0.87
+EUR.IBD_pwy1071_pc5	R-HSA-918233	TRAF3-dependent IRF activation pathway	66	3	3	0.396	-0.446	0.364	0.326
+EUR.IBD_pwy1082_pc4	R-HSA-167243	Tat-mediated HIV elongation arrest and recovery	74	3	3	0.755	-0.142	0.06	0.79
+EUR.IBD_pwy1083_pc4	R-HSA-167246	Tat-mediated elongation of the HIV-1 transcript	74	4	4	0.476	-0.28	0.181	0.497
+EUR.IBD_pwy1117_pc4	R-HSA-167172	Transcription of the HIV genome	72	4	4	0.47	0.242	0.185	0.476
+EUR.IBD_pwy1118_pc4	R-HSA-6781827	Transcription-Coupled Nucleotide Excision Repair (TC-NER)	7	3	3	0.379	0.283	0.386	0.336
+EUR.IBD_pwy1136_pc3	R-HSA-72649	Translation initiation complex formation	6	3	3	0.566	0.189	0.188	0.435
+EUR.IBD_pwy1174_pc3	R-HSA-5689603	UCH proteinases	26	4	4	0.15	0.589	0.553	0.144
+EUR.IBD_pwy1210_pc3	R-HSA-381038	XBP1(S) activates chaperone genes	10	3	3	0.786	0.108	0.046	0.78
+EUR.IBD_pwy198_pc2	R-HSA-200425	Carnitine metabolism	11	3	3	0.616	-0.409	0.148	0.548
+EUR.IBD_pwy233_pc2	R-HSA-73886	Chromosome Maintenance	52	3	3	0.662	-0.139	0.114	0.646
+EUR.IBD_pwy283_pc4	R-HSA-69202	Cyclin E associated events during G1/S transition 	71	3	3	0.706	0.181	0.087	0.713
+EUR.IBD_pwy305_pc3	R-HSA-73894	DNA Repair	13	3	3	0.071	-0.935	0.862	0.116
+EUR.IBD_pwy310_pc4	R-HSA-69190	DNA strand elongation	9	3	3	0.72	-0.325	0.078	0.739
+EUR.IBD_pwy32_pc4	R-HSA-167242	Abortive elongation of HIV-1 transcript in the absence of Tat	17	3	3	0.738	-0.2	0.069	0.745
+EUR.IBD_pwy34_pc3	R-HSA-399997	Acetylcholine regulates insulin secretion	38	3	3	0.318	-0.465	0.465	0.298
+EUR.IBD_pwy356_pc4	R-HSA-167169	HIV Transcription Elongation	22	4	4	0.476	-0.28	0.181	0.497
+EUR.IBD_pwy357_pc4	R-HSA-167161	HIV Transcription Initiation	23	4	4	0.39	0.322	0.251	0.346
+EUR.IBD_pwy358_pc4	R-HSA-167287	HIV elongation arrest and recovery	13	3	3	0.755	0.142	0.06	0.79
+EUR.IBD_pwy361_pc3	R-HSA-3371511	HSF1 activation	10	4	4	0.129	1.781	0.59	0.168
+EUR.IBD_pwy364_pc4	R-HSA-5610787	Hedgehog off state	31	3	3	0.771	-0.109	0.052	0.791
+EUR.IBD_pwy376_pc2	R-HSA-5693538	Homology Directed Repair	8	3	3	0.378	-0.385	0.387	0.329
+EUR.IBD_pwy378_pc3	R-HSA-450520	HuR (ELAVL1) binds and stabilizes mRNA	6	3	3	0.168	-0.597	0.693	0.133
+EUR.IBD_pwy390_pc3	R-HSA-381070	IRE1alpha activates chaperones	6	3	3	0.59	0.229	0.168	0.553
+EUR.IBD_pwy409_pc4	R-HSA-9670095	Inhibition of DNA recombination at telomere	53	3	3	0.677	-0.303	0.105	0.663
+EUR.IBD_pwy462_pc2	R-HSA-109606	Intrinsic Pathway for Apoptosis	22	3	3	0.196	1.242	0.647	0.2
+EUR.IBD_pwy480_pc3	R-HSA-156827	L13a-mediated translational silencing of Ceruloplasmin expression	75	3	3	0.529	-0.231	0.221	0.407
+EUR.IBD_pwy482_pc3	R-HSA-8964038	LDL clearance	38	3	3	0.634	0.368	0.134	0.543
+EUR.IBD_pwy501_pc5	R-HSA-9005891	Loss of function of MECP2 in Rett syndrome	15	3	3	0.055	0.82	0.893	0.158
+EUR.IBD_pwy560_pc1	R-HSA-5689901	Metalloprotease DUBs	31	3	3	0.215	-0.712	0.616	0.245
+EUR.IBD_pwy564_pc4	R-HSA-203927	MicroRNA (miRNA) biogenesis	6	3	3	0.71	0.212	0.084	0.721
+EUR.IBD_pwy62_pc1	R-HSA-451326	Activation of kainate receptors upon glutamate binding	7	3	3	0.588	0.513	0.17	0.521
+EUR.IBD_pwy64_pc4	R-HSA-8866907	Activation of the TFAP2 (AP-2) family of transcription factors	18	7	7	0.881	-0.073	0.004	0.893
+EUR.IBD_pwy65_pc3	R-HSA-72662	Activation of the mRNA upon binding of the cap-binding complex and eIFs, and subsequent binding to 43S	28	3	3	0.566	-0.21	0.188	0.441
+EUR.IBD_pwy683_pc4	R-HSA-5696398	Nucleotide Excision Repair	105	3	3	0.761	-0.118	0.057	0.772
+EUR.IBD_pwy697_pc4	R-HSA-1852241	Organelle biogenesis and maintenance	19	3	3	0.754	0.161	0.061	0.804
+EUR.IBD_pwy714_pc5	R-HSA-5654695	PI-3K cascade:FGFR2	26	3	3	0.702	-0.247	0.089	0.696
+EUR.IBD_pwy716_pc5	R-HSA-5654720	PI-3K cascade:FGFR4	63	3	3	0.118	0.711	0.777	0.092
+EUR.IBD_pwy722_pc3	R-HSA-6811555	PI5P Regulates TP53 Acetylation	8	3	3	0.504	0.455	0.246	0.374
+EUR.IBD_pwy746_pc4	R-HSA-167290	Pausing and recovery of HIV elongation	68	3	3	0.755	0.142	0.06	0.79
+EUR.IBD_pwy747_pc4	R-HSA-167238	Pausing and recovery of Tat-mediated HIV elongation	7	3	3	0.755	-0.142	0.06	0.79
+EUR.IBD_pwy755_pc5	R-HSA-9005895	Pervasive developmental disorders	9	3	3	0.055	0.82	0.893	0.158
+EUR.IBD_pwy78_pc1	R-HSA-400042	Adrenaline,noradrenaline inhibits insulin secretion	9	3	3	0.827	-0.187	0.03	0.777
+EUR.IBD_pwy819_pc5	R-HSA-169893	Prolonged ERK activation events	7	3	3	0.317	-1.773	0.466	0.237
+EUR.IBD_pwy824_pc2	R-HSA-8876725	Protein methylation	14	3	3	0.594	0.5	0.165	0.524
+EUR.IBD_pwy837_pc4	R-HSA-71406	Pyruvate metabolism and Citric Acid (TCA) cycle	105	3	3	0.292	-1.133	0.502	0.271
+EUR.IBD_pwy881_pc4	R-HSA-77075	RNA Pol II CTD phosphorylation and interaction with CE	42	3	3	0.294	0.552	0.498	0.287
+EUR.IBD_pwy882_pc4	R-HSA-167160	RNA Pol II CTD phosphorylation and interaction with CE during HIV infection	24	3	3	0.294	0.552	0.498	0.287
+EUR.IBD_pwy889_pc4	R-HSA-167162	RNA Polymerase II HIV Promoter Escape	9	4	4	0.39	0.322	0.251	0.346
+EUR.IBD_pwy890_pc1	R-HSA-674695	RNA Polymerase II Pre-transcription Events	7	3	3	0.544	0.367	0.208	0.46
+EUR.IBD_pwy890_pc4	R-HSA-674695	RNA Polymerase II Pre-transcription Events	56	4	4	0.496	0.204	0.166	0.502
+EUR.IBD_pwy891_pc4	R-HSA-73776	RNA Polymerase II Promoter Escape	6	4	4	0.39	0.322	0.251	0.346
+EUR.IBD_pwy894_pc4	R-HSA-75953	RNA Polymerase II Transcription Initiation	32	4	4	0.39	0.322	0.251	0.346
+EUR.IBD_pwy895_pc4	R-HSA-76042	RNA Polymerase II Transcription Initiation And Promoter Clearance	6	4	4	0.39	0.322	0.251	0.346
+EUR.IBD_pwy896_pc4	R-HSA-73779	RNA Polymerase II Transcription Pre-Initiation And Promoter Opening	18	4	4	0.39	0.322	0.251	0.346
+EUR.UC_pwy1174_pc3	R-HSA-5689603	UCH proteinases	20	3	3	0.009	1.16	0.983	0.021
+EUR.UC_pwy175_pc4	R-HSA-199920	CREB phosphorylation	10	3	2	0.419	0.826	0.337	0.325
+EUR.UC_pwy199_pc5	R-HSA-140534	Caspase activation via Death Receptors in the presence of ligand	9	4	4	0.196	-1.426	0.478	0.163
+EUR.UC_pwy305_pc3	R-HSA-73894	DNA Repair	14	3	3	0.027	-0.807	0.947	0.071
+EUR.UC_pwy361_pc3	R-HSA-3371511	HSF1 activation	789	3	3	0.029	1.984	0.943	0.089
+EUR.UC_pwy3_pc4	R-HSA-5619084	ABC transporter disorders	7	4	4	0.006	-0.772	0.945	0.065
+EUR.UC_pwy462_pc2	R-HSA-109606	Intrinsic Pathway for Apoptosis	10	3	3	0.035	2.172	0.931	0.062
+EUR.UC_pwy5_pc4	R-HSA-382556	ABC-family proteins mediated transport	23	3	3	0.003	0.794	0.995	0.03
+EUR.UC_pwy633_pc1	R-HSA-164940	Nef mediated downregulation of MHC class I complex cell surface expression	24	3	2	0.59	0.63	0.168	0.477
+EUR.UC_pwy819_pc5	R-HSA-169893	Prolonged ERK activation events	13	3	3	0.011	-2.378	0.978	0.028
+EUR.UC_pwy915_pc1	R-HSA-8877330	RUNX1 and FOXP3 control the development of regulatory T lymphocytes (Tregs)	16	3	3	0.394	1.345	0.367	0.36
+EUR.UC_pwy998_pc4	R-HSA-450531	Regulation of mRNA stability by proteins that bind AU-rich elements	36	3	3	0.006	0.571	0.988	0.054
+HDL_pwy764_pc3	R-HSA-8850843	Phosphate bond hydrolysis by NTPDase proteins	8	3	3	0.007	0.248	0.986	0.021
+LDL_pwy1051_pc5	R-HSA-9013973	TICAM1-dependent activation of IRF3/IRF7	6	3	3	0.028	0.224	0.945	0.058
+LDL_pwy1076_pc5	R-HSA-937072	TRAF6-mediated induction of TAK1 complex within TLR4 complex	10	4	4	0.261	-0.478	0.389	0.209
+LDL_pwy1092_pc3	R-HSA-1663150	The activation of arylsulfatases	13	3	2	0.731	0.062	0.073	0.73
+LDL_pwy15_pc4	R-HSA-174048	APC/C:Cdc20 mediated degradation of Cyclin B	28	3	3	0.684	-0.154	0.1	0.718
+LDL_pwy33_pc3	R-HSA-264642	Acetylcholine Neurotransmitter Release Cycle	51	4	4	0.325	0.163	0.314	0.313
+LDL_pwy388_pc5	R-HSA-975163	IRAK2 mediated activation of TAK1 complex upon TLR7/8 or 9 stimulation	94	4	4	0.28	-0.431	0.365	0.223
+LDL_pwy432_pc3	R-HSA-909733	Interferon alpha/beta signaling	94	4	4	0.207	0.126	0.462	0.163
+LDL_pwy474_pc3	R-HSA-2022857	Keratan sulfate degradation	88	3	3	0.543	-0.134	0.209	0.532
+LDL_pwy50_pc5	R-HSA-936964	Activation of IRF3/IRF7 mediated by TBK1/IKK epsilon	9	3	3	0.023	0.23	0.955	0.06
+LDL_pwy520_pc1	R-HSA-8851805	MET activates RAS signaling	96	3	3	0.684	0.216	0.1	0.696
+LDL_pwy53_pc3	R-HSA-2980767	Activation of NIMA Kinases NEK9, NEK6, NEK7	9	3	3	0.53	-0.293	0.221	0.512
+LDL_pwy718_pc4	R-HSA-1963642	PI3K events in ERBB2 signaling	186	4	4	0.395	0.556	0.246	0.393
+SCZ_pwy1044_pc3	R-HSA-202403	TCR signaling	25	3	3	0.008	0.328	0.984	0.055
+SCZ_pwy104_pc4	R-HSA-111465	Apoptotic cleavage of cellular proteins	90	3	3	0.55	0.137	0.202	0.547
+SCZ_pwy105_pc5	R-HSA-75153	Apoptotic execution phase	101	4	4	0.128	-0.219	0.592	0.102
+SCZ_pwy1070_pc3	R-HSA-6803205	TP53 regulates transcription of several additional cell death genes whose specific roles in p53-dependent apoptosis remain uncertain	284	3	3	0.57	0.255	0.185	0.373
+SCZ_pwy1117_pc1	R-HSA-167172	Transcription of the HIV genome	41	3	3	0.895	-0.043	0.011	0.927
+SCZ_pwy1158_pc4	R-HSA-425393	Transport of inorganic cations/anions and amino acids/oligopeptides	79	3	3	0.268	0.214	0.535	0.256
+SCZ_pwy1174_pc5	R-HSA-5689603	UCH proteinases	169	3	3	0	-0.267	1	0.002
+SCZ_pwy117_pc1	R-HSA-68867	Assembly of the pre-replicative complex	13	3	3	0.009	0.275	0.982	0.037
+SCZ_pwy1194_pc1	R-HSA-180585	Vif-mediated degradation of APOBEC3G	8	3	3	0.012	0.309	0.976	0.036
+SCZ_pwy122_pc1	R-HSA-174084	Autodegradation of Cdh1 by Cdh1:APC/C	33	3	3	0.011	0.295	0.977	0.036
+SCZ_pwy14_pc1	R-HSA-174143	APC/C-mediated degradation of cell cycle proteins	47	3	3	0.009	0.261	0.983	0.034
+SCZ_pwy165_pc1	R-HSA-69017	CDK-mediated phosphorylation and removal of Cdc6	19	3	3	0.011	0.293	0.979	0.039
+SCZ_pwy166_pc1	R-HSA-68827	CDT1 association with the CDC6:ORC:origin complex	38	3	3	0.024	0.281	0.952	0.041
+SCZ_pwy16_pc1	R-HSA-174154	APC/C:Cdc20 mediated degradation of Securin	47	3	3	0.013	0.297	0.974	0.042
+SCZ_pwy17_pc1	R-HSA-176409	APC/C:Cdc20 mediated degradation of mitotic proteins	7	3	3	0.013	0.288	0.975	0.039
+SCZ_pwy18_pc1	R-HSA-174178	APC/C:Cdh1 mediated degradation of Cdc20 and other APC/C:Cdh1 targeted proteins in late mitosis/early G1	281	3	3	0.01	0.285	0.98	0.036
+SCZ_pwy19_pc1	R-HSA-179419	APC:Cdc20 mediated degradation of cell cycle proteins prior to satisfation of the cell cycle checkpoint	8	3	3	0.014	0.29	0.972	0.039
+SCZ_pwy203_pc1	R-HSA-174184	Cdc20:Phospho-APC/C mediated degradation of Cyclin A	16	3	3	0.015	0.292	0.97	0.04
+SCZ_pwy216_pc1	R-HSA-9711123	Cellular response to chemical stress	32	7	7	0.22	0.164	0.238	0.217
+SCZ_pwy218_pc1	R-HSA-1234174	Cellular response to hypoxia	17	3	3	0.013	0.289	0.975	0.034
+SCZ_pwy272_pc1	R-HSA-389958	Cooperation of Prefoldin and TriC/CCT  in actin and tubulin folding	47	4	4	0.64	-0.109	0.082	0.573
+SCZ_pwy276_pc5	R-HSA-8949613	Cristae formation	6	3	3	0.745	0.119	0.065	0.726
+SCZ_pwy287_pc1	R-HSA-9707564	Cytoprotection by HMOX1	66	4	4	0.733	0.063	0.045	0.697
+SCZ_pwy294_pc5	R-HSA-2424491	DAP12 signaling	37	3	3	0.029	0.343	0.942	0.195
+SCZ_pwy299_pc5	R-HSA-73893	DNA Damage Bypass	61	3	3	0.952	0.014	0.002	0.972
+SCZ_pwy354_pc1	R-HSA-162906	HIV Infection	7	3	3	0.011	-0.321	0.977	0.036
+SCZ_pwy39_pc3	R-HSA-5625886	Activated PKN1 stimulates transcription of AR (androgen receptor) regulated genes KLK2 and KLK3	24	3	3	0.656	0.178	0.118	0.691
+SCZ_pwy404_pc3	R-HSA-5663205	Infectious disease	65	3	3	0.99	0.001	0	0.997
+SCZ_pwy41_pc1	R-HSA-176814	Activation of APC/C and APC/C:Cdc20 mediated degradation of mitotic proteins	49	3	3	0.012	0.285	0.977	0.036
+SCZ_pwy439_pc3	R-HSA-447115	Interleukin-12 family signaling	135	3	3	0.376	-0.277	0.39	0.296
+SCZ_pwy540_pc3	R-HSA-8953854	Metabolism of RNA	457	3	3	0.962	-0.009	0.001	0.98
+SCZ_pwy544_pc3	R-HSA-8978934	Metabolism of cofactors	7	3	3	0	0.46	1	0.006
+SCZ_pwy600_pc4	R-HSA-3785653	Myoclonic epilepsy of Lafora	78	3	3	0.487	-0.245	0.263	0.325
+SCZ_pwy616_pc3	R-HSA-9013507	NOTCH3 Activation and Transmission of Signal to the Nucleus	23	5	5	0.168	-0.366	0.413	0.156
+SCZ_pwy696_pc1	R-HSA-68949	Orc1 removal from chromatin	9	3	3	0.009	0.258	0.983	0.033
+SCZ_pwy705_pc1	R-HSA-1234176	Oxygen-dependent proline hydroxylation of Hypoxia-inducible Factor Alpha	27	3	3	0.012	0.302	0.977	0.033
+SCZ_pwy708_pc1	R-HSA-4086400	PCP/CE pathway	82	3	3	0.011	0.379	0.978	0.078
+SCZ_pwy750_pc3	R-HSA-209952	Peptide hormone biosynthesis	54	4	4	0.501	0.161	0.163	0.492
+SCZ_pwy782_pc3	R-HSA-418360	Platelet calcium homeostasis	25	3	3	0.799	0.094	0.04	0.737
+SCZ_pwy803_pc1	R-HSA-389957	Prefoldin mediated transfer of substrate  to CCT/TriC	6	5	5	0.691	-0.079	0.044	0.678
+SCZ_pwy818_pc4	R-HSA-1170546	Prolactin receptor signaling	137	4	4	0.446	0.206	0.203	0.507
+SCZ_pwy865_pc5	R-HSA-9013422	RHOBTB1 GTPase cycle	16	3	3	0.005	0.361	0.991	0.108
+SCZ_pwy919_pc3	R-HSA-8939245	RUNX1 regulates transcription of genes involved in BCR signaling	9	3	3	0.002	0.659	0.995	0.003
+SCZ_pwy922_pc3	R-HSA-8939246	RUNX1 regulates transcription of genes involved in differentiation of myeloid cells	9	3	3	0.395	-0.312	0.366	0.27
+SCZ_pwy937_pc1	R-HSA-388844	Receptor-type tyrosine-protein phosphatases	10	3	3	0.236	-0.324	0.583	0.224
+SCZ_pwy951_pc1	R-HSA-176408	Regulation of APC/C activators between G1/S and early anaphase	32	3	3	0.01	0.271	0.981	0.036
+SCZ_pwy964_pc5	R-HSA-9022692	Regulation of MECP2 expression and activity	114	3	3	0.738	-0.08	0.069	0.832
+SCZ_pwy979_pc2	R-HSA-6804760	Regulation of TP53 Activity through Methylation	10	3	3	0.652	-0.24	0.121	0.616
+SCZ_pwy999_pc1	R-HSA-453276	Regulation of mitotic cell cycle	162	3	3	0.009	0.261	0.983	0.034
+T1D_pwy1044_pc3	R-HSA-202403	TCR signaling	15	3	3	0.268	-1.954	0.536	0.251
+T1D_pwy1083_pc1	R-HSA-167246	Tat-mediated elongation of the HIV-1 transcript	6	3	3	0.567	1.487	0.188	0.494
+T1D_pwy1117_pc1	R-HSA-167172	Transcription of the HIV genome	7	3	3	0.783	-0.508	0.047	0.806
+T1D_pwy1124_pc2	R-HSA-2173793	Transcriptional activity of SMAD2/SMAD3:SMAD4 heterotrimer	17	3	3	0.504	0.519	0.246	0.432
+T1D_pwy1162_pc1	R-HSA-382551	Transport of small molecules	70	3	3	0.917	-0.076	0.007	0.954
+T1D_pwy134_pc4	R-HSA-77346	Beta oxidation of decanoyl-CoA to octanoyl-CoA-CoA	10	4	4	0.711	-0.358	0.052	0.739
+T1D_pwy198_pc1	R-HSA-200425	Carnitine metabolism	15	3	3	0.579	-0.688	0.177	0.54
+T1D_pwy347_pc2	R-HSA-1614558	Degradation of cysteine and homocysteine	20	3	3	0.003	1.141	0.995	0.01
+T1D_pwy347_pc3	R-HSA-1614558	Degradation of cysteine and homocysteine	28	3	3	0.386	-0.509	0.377	0.278
+T1D_pwy356_pc1	R-HSA-167169	HIV Transcription Elongation	18	3	3	0.567	1.487	0.188	0.494
+T1D_pwy357_pc1	R-HSA-167161	HIV Transcription Initiation	11	3	3	0.525	-1.341	0.225	0.424
+T1D_pwy556_pc1	R-HSA-8957322	Metabolism of steroids	123	3	3	0.031	-0.971	0.94	0.103
+T1D_pwy58_pc5	R-HSA-9619229	Activation of RAC1 downstream of NMDARs	11	3	3	0.993	-0.01	0	0.988
+T1D_pwy748_pc5	R-HSA-71336	Pentose phosphate pathway	9	3	3	0.479	-2.055	0.272	0.355
+T1D_pwy762_pc5	R-HSA-156580	Phase II - Conjugation of compounds	19	3	3	0.598	0.214	0.162	0.576
+T1D_pwy78_pc5	R-HSA-400042	Adrenaline,noradrenaline inhibits insulin secretion	67	3	3	0.219	0.932	0.61	0.22
+T1D_pwy805_pc3	R-HSA-112308	Presynaptic depolarization and calcium channel opening	33	3	3	0.961	0.034	0.002	0.976
+T1D_pwy838_pc3	R-HSA-5365859	RA biosynthesis pathway	23	3	3	0.494	-0.361	0.256	0.41
+T1D_pwy889_pc1	R-HSA-167162	RNA Polymerase II HIV Promoter Escape	11	3	3	0.525	-1.341	0.225	0.424
+T1D_pwy891_pc1	R-HSA-73776	RNA Polymerase II Promoter Escape	141	3	3	0.525	-1.341	0.225	0.424
+T1D_pwy894_pc1	R-HSA-75953	RNA Polymerase II Transcription Initiation	11	3	3	0.525	-1.341	0.225	0.424
+T1D_pwy895_pc1	R-HSA-76042	RNA Polymerase II Transcription Initiation And Promoter Clearance	72	3	3	0.525	-1.341	0.225	0.424
+T1D_pwy896_pc1	R-HSA-73779	RNA Polymerase II Transcription Pre-Initiation And Promoter Opening	56	3	3	0.525	-1.341	0.225	0.424
+T1D_pwy974_pc1	R-HSA-5686938	Regulation of TLR by endogenous ligand	7	3	3	0.472	0.499	0.279	0.338
+T1D_pwy989_pc2	R-HSA-9010553	Regulation of expression of SLITs and ROBOs	11	3	3	0.933	0.021	0.005	0.921
+T1D_pwy9_pc5	R-HSA-198323	AKT phosphorylates targets in the cytosol	95	5	5	0.292	0.833	0.269	0.248
+T2Dbmiadj_pwy1001_pc3	R-HSA-350562	Regulation of ornithine decarboxylase (ODC)	6	3	3	0.455	-0.278	0.297	0.327
+T2Dbmiadj_pwy1025_pc3	R-HSA-76005	Response to elevated platelet cytosolic Ca2+	90	3	3	0.956	-0.011	0.002	0.972
+T2Dbmiadj_pwy1178_pc3	R-HSA-75815	Ubiquitin-dependent degradation of Cyclin D	48	4	4	0.759	0.109	0.036	0.74
+T2Dbmiadj_pwy1189_pc2	R-HSA-5218921	VEGFR2 mediated cell proliferation	95	3	3	0.726	-0.175	0.075	0.736
+T2Dbmiadj_pwy123_pc3	R-HSA-349425	Autodegradation of the E3 ubiquitin ligase COP1	65	3	3	0.418	-0.33	0.338	0.258
+T2Dbmiadj_pwy237_pc1	R-HSA-400253	Circadian Clock	6	3	3	0.058	0.434	0.888	0.14
+T2Dbmiadj_pwy264_pc2	R-HSA-1236382	Constitutive Signaling by Ligand-Responsive EGFR Cancer Variants	21	3	3	0.028	-0.615	0.945	0.054
+T2Dbmiadj_pwy340_pc2	R-HSA-9651496	Defects of contact activation system (CAS) and kallikrein/kinin system (KKS)	8	3	3	0.745	0.115	0.065	0.769
+T2Dbmiadj_pwy366_pc3	R-HSA-5358346	Hedgehog ligand biogenesis	8	3	3	0.63	-0.145	0.137	0.635
+T2Dbmiadj_pwy372_pc3	R-HSA-5387390	Hh mutants abrogate ligand secretion	7	3	3	0.607	0.155	0.154	0.613
+T2Dbmiadj_pwy3_pc3	R-HSA-5619084	ABC transporter disorders	14	4	4	0.545	-0.152	0.134	0.532
+T2Dbmiadj_pwy456_pc4	R-HSA-1266695	Interleukin-7 signaling	10	3	3	0.74	0.08	0.068	0.764
+T2Dbmiadj_pwy484_pc3	R-HSA-9664535	LTC4-CYSLTR mediated IL4 production	21	3	3	0.017	0.397	0.967	0.078
+T2Dbmiadj_pwy579_pc3	R-HSA-5389840	Mitochondrial translation elongation	6	3	3	0.347	-0.214	0.426	0.317
+T2Dbmiadj_pwy645_pc3	R-HSA-9604323	Negative regulation of NOTCH4 signaling	30	3	3	0.269	0.338	0.535	0.212
+T2Dbmiadj_pwy691_pc2	R-HSA-8983711	OAS antiviral response	57	3	3	0.63	0.26	0.137	0.609
+T2Dbmiadj_pwy783_pc3	R-HSA-114608	Platelet degranulation 	28	3	3	0.956	-0.011	0.002	0.971
+T2Dbmiadj_pwy910_pc2	R-HSA-9010642	ROBO receptors bind AKAP5	10	3	3	0.026	0.564	0.949	0.095
+T2Dbmiadj_pwy984_pc3	R-HSA-211733	Regulation of activated PAK-2p34 by proteasome mediated degradation	9	4	4	0.754	0.086	0.038	0.765
+T2Dunadj_pwy1036_pc1	R-HSA-2730905	Role of LAT2/NTAL/LAB on calcium mobilization	6	3	3	0.59	0.017	0.168	0.536
+T2Dunadj_pwy1037_pc1	R-HSA-2029485	Role of phospholipids in phagocytosis	28	3	3	0.043	0.049	0.915	0.156
+T2Dunadj_pwy1193_pc5	R-HSA-5653656	Vesicle-mediated transport	26	4	4	0.263	-0.041	0.387	0.188
+T2Dunadj_pwy141_pc1	R-HSA-2173782	Binding and Uptake of Ligands by Scavenger Receptors	113	3	3	0.036	0.049	0.93	0.143
+T2Dunadj_pwy159_pc1	R-HSA-5690714	CD22 mediated BCR regulation	31	3	3	0.041	0.053	0.919	0.154
+T2Dunadj_pwy210_pc3	R-HSA-202733	Cell surface interactions at the vascular wall	85	3	3	0.03	0.218	0.941	0.125
+T2Dunadj_pwy244_pc1	R-HSA-173623	Classical antibody-mediated complement activation	31	3	3	0.04	-0.048	0.921	0.154
+T2Dunadj_pwy257_pc1	R-HSA-166658	Complement cascade	84	3	3	0.04	0.05	0.922	0.153
+T2Dunadj_pwy264_pc3	R-HSA-1236382	Constitutive Signaling by Ligand-Responsive EGFR Cancer Variants	47	3	3	0.842	0.078	0.025	0.858
+T2Dunadj_pwy275_pc1	R-HSA-166786	Creation of C4 and C2 activators	12	3	3	0.04	0.048	0.922	0.153
+T2Dunadj_pwy397_pc1	R-HSA-198933	Immunoregulatory interactions between a Lymphoid and a non-Lymphoid cell	16	3	3	0.582	0.021	0.174	0.528
+T2Dunadj_pwy404_pc5	R-HSA-5663205	Infectious disease	8	3	3	0.472	0.029	0.279	0.333
+T2Dunadj_pwy412_pc1	R-HSA-166663	Initial triggering of complement	24	3	3	0.039	0.048	0.923	0.15
+T2Dunadj_pwy490_pc2	R-HSA-9658195	Leishmania infection	12	4	4	0.259	-0.042	0.391	0.181
+T2Dunadj_pwy491_pc1	R-HSA-9664433	Leishmania parasite growth and survival	71	3	3	0.591	0.019	0.167	0.539
+T2Dunadj_pwy492_pc2	R-HSA-9664417	Leishmania phagocytosis	658	3	3	0.478	-0.061	0.273	0.34
+T2Dunadj_pwy662_pc3	R-HSA-196807	Nicotinate metabolism	284	3	2	0.33	0.183	0.449	0.312
+T2Dunadj_pwy744_pc2	R-HSA-9664407	Parasite infection	533	3	3	0.478	-0.061	0.273	0.34
+T2Dunadj_pwy74_pc5	R-HSA-1280218	Adaptive Immune System	65	3	3	0.606	0.018	0.155	0.559
+T2Dunadj_pwy781_pc5	R-HSA-76002	Platelet activation, signaling and aggregation	69	3	3	0.471	0.102	0.28	0.332
+T2Dunadj_pwy856_pc1	R-HSA-5663213	RHO GTPases Activate WASPs and WAVEs	25	4	4	0.002	0.348	0.976	0.013
+T2Dunadj_pwy910_pc2	R-HSA-9010642	ROBO receptors bind AKAP5	194	3	3	0.035	0.498	0.931	0.114
+T2Dunadj_pwy94_pc1	R-HSA-9662851	Anti-inflammatory response favouring Leishmania parasite infection	104	3	3	0.591	0.019	0.167	0.539
+T2Dunadj_pwy954_pc1	R-HSA-977606	Regulation of Complement cascade	46	3	3	0.04	-0.05	0.922	0.153
+T2Dunadj_pwy983_pc1	R-HSA-2029482	Regulation of actin dynamics for phagocytic cup formation	16	3	3	0.042	0.052	0.917	0.155
+T2Dunadj_pwy983_pc2	R-HSA-2029482	Regulation of actin dynamics for phagocytic cup formation	178	3	3	0.488	-0.062	0.262	0.352
+TC_pwy1010_pc2	R-HSA-9682706	Replication of the SARS-CoV-1 genome	14	3	2	0.27	0.234	0.533	0.23
+TC_pwy1011_pc2	R-HSA-9694686	Replication of the SARS-CoV-2 genome	145	3	2	0.27	0.234	0.533	0.23
+TC_pwy1051_pc5	R-HSA-9013973	TICAM1-dependent activation of IRF3/IRF7	95	4	4	0.667	0.091	0.07	0.686
+TC_pwy1060_pc2	R-HSA-5628897	TP53 Regulates Metabolic Genes	70	4	3	0.946	-0.012	0.002	0.936
+TC_pwy1076_pc5	R-HSA-937072	TRAF6-mediated induction of TAK1 complex within TLR4 complex	147	3	3	0.404	-0.395	0.356	0.399
+TC_pwy1079_pc2	R-HSA-2562578	TRIF-mediated programmed cell death	644	3	2	0.323	0.224	0.458	0.269
+TC_pwy1083_pc5	R-HSA-167246	Tat-mediated elongation of the HIV-1 transcript	631	4	4	0.249	0.587	0.404	0.226
+TC_pwy1092_pc3	R-HSA-1663150	The activation of arylsulfatases	80	3	2	0.434	0.117	0.32	0.371
+TC_pwy1117_pc5	R-HSA-167172	Transcription of the HIV genome	9	3	3	0.151	0.699	0.721	0.19
+TC_pwy1195_pc5	R-HSA-168325	Viral Messenger RNA Synthesis	18	3	3	0.122	0.944	0.772	0.147
+TC_pwy199_pc2	R-HSA-140534	Caspase activation via Death Receptors in the presence of ligand	82	3	3	0.979	-0.007	0	0.985
+TC_pwy209_pc2	R-HSA-9664424	Cell recruitment (pro-inflammatory response)	47	3	3	0.566	0.118	0.188	0.492
+TC_pwy285_pc3	R-HSA-111461	Cytochrome c-mediated apoptotic response	14	3	3	0.329	0.199	0.451	0.321
+TC_pwy34_pc5	R-HSA-399997	Acetylcholine regulates insulin secretion	22	5	5	0.004	0.267	0.898	0.03
+TC_pwy354_pc5	R-HSA-162906	HIV Infection	14	3	3	0.127	-0.48	0.763	0.152
+TC_pwy356_pc5	R-HSA-167169	HIV Transcription Elongation	39	4	4	0.249	0.587	0.404	0.226
+TC_pwy388_pc5	R-HSA-975163	IRAK2 mediated activation of TAK1 complex upon TLR7/8 or 9 stimulation	241	3	3	0.438	-0.341	0.316	0.421
+TC_pwy429_pc4	R-HSA-176033	Interactions of Vpr with host cellular proteins	241	3	3	0.667	-0.153	0.111	0.674
+TC_pwy432_pc3	R-HSA-909733	Interferon alpha/beta signaling	126	5	4	0.528	0.065	0.106	0.552
+TC_pwy459_pc5	R-HSA-6811438	Intra-Golgi traffic	8	3	3	0.508	0.384	0.242	0.466
+TC_pwy477_pc5	R-HSA-74182	Ketone body metabolism	9	3	3	0.282	0.906	0.516	0.271
+TC_pwy484_pc1	R-HSA-9664535	LTC4-CYSLTR mediated IL4 production	190	3	3	0.536	-0.115	0.215	0.451
+TC_pwy50_pc5	R-HSA-936964	Activation of IRF3/IRF7 mediated by TBK1/IKK epsilon	69	3	3	0.061	0.224	0.881	0.131
+TC_pwy519_pc4	R-HSA-8875555	MET activates RAP1 and RAC1	21	3	3	0.292	0.264	0.501	0.246
+TC_pwy594_pc3	R-HSA-397014	Muscle contraction	192	3	3	0.749	-0.053	0.063	0.786
+TC_pwy656_pc1	R-HSA-168799	Neurotoxicity of clostridium toxins	59	3	3	0.548	0.08	0.204	0.48
+TC_pwy718_pc4	R-HSA-1963642	PI3K events in ERBB2 signaling	9	3	3	0.29	-0.456	0.504	0.259
+TC_pwy792_pc1	R-HSA-426496	Post-transcriptional silencing by small RNAs	350	3	2	0.331	0.193	0.447	0.299
+TC_pwy832_pc2	R-HSA-9660826	Purinergic signaling in leishmaniasis infection	21	3	3	0.566	0.118	0.188	0.492
+TC_pwy881_pc1	R-HSA-77075	RNA Pol II CTD phosphorylation and interaction with CE	82	3	3	0.265	0.739	0.541	0.272
+TC_pwy882_pc1	R-HSA-167160	RNA Pol II CTD phosphorylation and interaction with CE during HIV infection	123	3	3	0.265	0.739	0.541	0.272
+TC_pwy961_pc1	R-HSA-877312	Regulation of IFNG signaling	46	3	3	0.024	0.239	0.953	0.065
+TG_pwy1037_pc4	R-HSA-2029485	Role of phospholipids in phagocytosis	52	3	3	0.964	0.006	0.001	0.966
+TG_pwy1065_pc2	R-HSA-6803211	TP53 Regulates Transcription of Death Receptors and Ligands	21	3	3	0.397	0.249	0.363	0.315
+TG_pwy130_pc2	R-HSA-1368108	BMAL1:CLOCK,NPAS2 activates circadian gene expression	8	3	3	0.993	0.002	0	0.994
+TG_pwy174_pc3	R-HSA-204005	COPII-mediated vesicle transport	8	3	3	0.751	0.084	0.062	0.821
+TG_pwy182_pc4	R-HSA-389513	CTLA4 inhibitory signaling	51	3	3	0.644	0.123	0.126	0.657
+TG_pwy472_pc5	R-HSA-450604	KSRP (KHSRP) binds and destabilizes mRNA	31	4	4	0.76	0.034	0.036	0.763
+TG_pwy661_pc3	R-HSA-197264	Nicotinamide salvaging	50	3	3	0.121	0.571	0.772	0.145
+TG_pwy786_pc4	R-HSA-156711	Polo-like kinase mediated events	69	3	3	0.787	-0.056	0.046	0.833
+TG_pwy825_pc4	R-HSA-5676934	Protein repair	20	3	3	0.403	0.406	0.356	0.328
+TG_pwy921_pc2	R-HSA-8939242	RUNX1 regulates transcription of genes involved in differentiation of keratinocytes	11	3	3	0.715	-0.044	0.081	0.698
+WHR_pwy239_pc2	R-HSA-373076	Class A/1 (Rhodopsin-like receptors)	118	3	3	0.6	0.042	0.16	0.476
+allergy_pwy11_pc1	R-HSA-163680	AMPK inhibits chREBP transcriptional activation activity	49	3	3	0.342	0.358	0.433	0.298
+allergy_pwy423_pc2	R-HSA-163685	Integration of energy metabolism	12	3	3	0.885	-0.064	0.013	0.908
+allergy_pwy479_pc1	R-HSA-983189	Kinesins	58	3	3	0.863	-0.02	0.019	0.87
+asthma_2_pwy330_pc2	NA	NA	NA	3	3	0.701	-1.778	0.09	0.788
+asthma_2_pwy569_pc5	NA	NA	NA	3	3	0.52	1.799	0.23	0.72
+asthma_2_pwy84_pc3	NA	NA	NA	4	4	0.972	0.259	0	0.972
+asthma_2_pwy888_pc5	NA	NA	NA	3	3	0.879	-0.389	0.015	0.997
+bmi_pwy1202_pc3	R-HSA-180910	Vpr-mediated nuclear import of PICs	16	3	3	0.556	0.07	0.197	0.468
+bmi_pwy216_pc2	R-HSA-9711123	Cellular response to chemical stress	54	4	4	0.439	-0.06	0.209	0.437
+bmi_pwy429_pc3	R-HSA-176033	Interactions of Vpr with host cellular proteins	54	3	3	0.558	0.069	0.195	0.473
+bmi_pwy649_pc2	R-HSA-936440	Negative regulators of DDX58/IFIH1 signaling	7	3	3	0.81	0.018	0.036	0.814
+bmi_pwy709_pc2	R-HSA-389948	PD-1 signaling	11	3	3	0.007	0.087	0.986	0.045
+bmi_pwy76_pc5	R-HSA-170670	Adenylate cyclase inhibitory pathway	22	4	4	0.64	-0.042	0.082	0.587
+eo_pwy1073_pc1	R-HSA-975110	TRAF6 mediated IRF7 activation in TLR7/8 or 9 signaling	34	3	3	0.983	0.004	0	0.982
+eo_pwy1083_pc5	R-HSA-167246	Tat-mediated elongation of the HIV-1 transcript	29	3	3	0.338	0.107	0.438	0.344
+eo_pwy1093_pc1	R-HSA-2453902	The canonical retinoid cycle in rods (twilight vision)	74	3	3	0.925	-0.013	0.006	0.919
+eo_pwy154_pc1	R-HSA-8851680	Butyrophilin (BTN) family interactions	6	3	3	0.012	-0.169	0.976	0.02
+eo_pwy229_pc3	R-HSA-2022870	Chondroitin sulfate biosynthesis	86	4	4	0.365	0.109	0.274	0.334
+eo_pwy287_pc2	R-HSA-9707564	Cytoprotection by HMOX1	27	3	3	0.143	0.279	0.734	0.122
+eo_pwy311_pc2	R-HSA-376172	DSCAM interactions	7	4	4	0.162	-0.148	0.532	0.159
+eo_pwy329_pc1	R-HSA-5083636	Defective GALNT12 causes colorectal cancer 1 (CRCS1)	47	3	3	0.427	0.133	0.328	0.286
+eo_pwy356_pc5	R-HSA-167169	HIV Transcription Elongation	15	3	3	0.338	0.107	0.438	0.344
+eo_pwy433_pc2	R-HSA-877300	Interferon gamma signaling	25	3	3	0.816	-0.018	0.034	0.804
+eo_pwy639_pc4	R-HSA-5654732	Negative regulation of FGFR3 signaling	85	4	4	0.982	-0.003	0	0.971
+eo_pwy68_pc1	R-HSA-1482798	Acyl chain remodeling of CL	46	3	3	0.339	-0.166	0.436	0.322
+eo_pwy758_pc3	R-HSA-5576893	Phase 2 - plateau phase	82	3	3	0.304	0.134	0.484	0.302
+eo_pwy76_pc5	R-HSA-170670	Adenylate cyclase inhibitory pathway	43	3	3	0.261	0.126	0.546	0.266
+eo_pwy854_pc4	R-HSA-5627117	RHO GTPases Activate ROCKs	12	3	3	0.36	0.117	0.409	0.333
+eo_pwy893_pc2	R-HSA-75955	RNA Polymerase II Transcription Elongation	624	3	3	0	0.191	0.999	0.001
+eo_pwy93_pc4	R-HSA-193048	Androgen biosynthesis	116	3	3	0.078	-0.211	0.85	0.171
+gran_pwy1023_pc2	R-HSA-9633012	Response of EIF2AK4 (GCN2) to amino acid deficiency	13	3	3	0.413	0.055	0.345	0.326
+gran_pwy1196_pc2	R-HSA-192823	Viral mRNA Translation	63	3	3	0.43	0.052	0.325	0.34
+gran_pwy337_pc5	R-HSA-3323169	Defects in biotin (Btn) metabolism	20	3	3	0.572	0.1	0.183	0.508
+gran_pwy526_pc4	R-HSA-6791226	Major pathway of rRNA processing in the nucleolus and cytosol	25	3	3	0.502	0.1	0.248	0.373
+gran_pwy620_pc3	R-HSA-9029558	NR1H2 & NR1H3 regulate gene expression linked to lipogenesis	34	3	3	0.058	0.299	0.887	0.152
+gran_pwy669_pc2	R-HSA-975956	Nonsense Mediated Decay (NMD) independent of the Exon Junction Complex (EJC)	39	3	3	0.436	0.052	0.318	0.337
+gran_pwy719_pc4	R-HSA-1250342	PI3K events in ERBB4 signaling	28	4	4	0.53	0.187	0.143	0.54
+gran_pwy749_pc2	R-HSA-156902	Peptide chain elongation	22	3	3	0.441	0.051	0.313	0.34
+gran_pwy808_pc5	R-HSA-9636383	Prevention of phagosomal-lysosomal fusion	13	3	3	0.485	0.135	0.265	0.351
+gran_pwy904_pc2	R-HSA-76071	RNA Polymerase III Transcription Initiation From Type 3 Promoter	66	3	3	0.418	0.125	0.339	0.364
+gran_pwy99_pc3	R-HSA-6803157	Antimicrobial peptides	7	3	3	0.767	-0.024	0.054	0.767
+height_pwy1023_pc4	R-HSA-9633012	Response of EIF2AK4 (GCN2) to amino acid deficiency	47	3	3	0.774	-0.017	0.051	0.761
+height_pwy1136_pc1	R-HSA-72649	Translation initiation complex formation	36	3	3	0.711	-0.01	0.084	0.719
+height_pwy1163_pc2	R-HSA-159230	Transport of the SLBP Dependant Mature mRNA	8	3	3	0.567	0.073	0.187	0.537
+height_pwy1164_pc2	R-HSA-159227	Transport of the SLBP independent Mature mRNA	68	3	3	0.562	0.073	0.192	0.53
+height_pwy125_pc2	R-HSA-422475	Axon guidance	68	3	3	0.735	-0.011	0.07	0.741
+height_pwy139_pc1	R-HSA-425381	Bicarbonate transporters	159	3	3	0.555	0.055	0.198	0.534
+height_pwy182_pc4	R-HSA-389513	CTLA4 inhibitory signaling	320	3	3	0.073	-0.082	0.86	0.176
+height_pwy251_pc5	R-HSA-1650814	Collagen biosynthesis and modifying enzymes	126	3	3	0.1	0.065	0.81	0.176
+height_pwy355_pc3	R-HSA-162587	HIV Life Cycle	81	6	6	0.887	-0.01	0.004	0.87
+height_pwy432_pc3	R-HSA-909733	Interferon alpha/beta signaling	50	3	3	0.642	0.028	0.128	0.616
+height_pwy487_pc3	R-HSA-162599	Late Phase of HIV Life Cycle	7	6	6	0.601	0.036	0.059	0.608
+height_pwy503_pc4	R-HSA-71064	Lysine catabolism	32	3	3	0.703	0.028	0.088	0.703
+height_pwy575_pc3	R-HSA-1362409	Mitochondrial iron-sulfur cluster biogenesis	8	3	3	0.809	0.016	0.037	0.812
+height_pwy627_pc4	R-HSA-442660	Na+/Cl- dependent neurotransmitter transporters	39	4	4	0.303	-0.043	0.339	0.298
+height_pwy65_pc1	R-HSA-72662	Activation of the mRNA upon binding of the cap-binding complex and eIFs, and subsequent binding to 43S	26	3	3	0.703	-0.01	0.088	0.707
+height_pwy665_pc4	R-HSA-3000171	Non-integrin membrane-ECM interactions	57	3	3	0.667	-0.036	0.111	0.667
+height_pwy833_pc4	R-HSA-73621	Pyrimidine catabolism	127	4	4	0.328	0.055	0.312	0.307
+height_pwy917_pc2	R-HSA-8931987	RUNX1 regulates estrogen receptor mediated transcription	58	3	3	0.673	0.121	0.107	0.653
+height_pwy95_pc3	R-HSA-983170	Antigen Presentation: Folding, assembly and peptide loading of class I MHC	16	3	3	0.445	-0.033	0.308	0.36
+lymph_pwy115_pc3	R-HSA-2022090	Assembly of collagen fibrils and other multimeric structures	13	5	5	0.548	0.05	0.097	0.529
+lymph_pwy1213_pc2	R-HSA-1606322	ZBP1(DAI) mediated induction of type I IFNs	21	3	3	0.046	0.269	0.911	0.072
+lymph_pwy1215_pc5	R-HSA-435354	Zinc transporters	13	3	3	0.445	-0.084	0.308	0.332
+lymph_pwy143_pc3	R-HSA-211859	Biological oxidations	6	4	4	0	-0.123	0.991	0.004
+lymph_pwy262_pc5	R-HSA-2219530	Constitutive Signaling by Aberrant PI3K in Cancer	13	3	3	0.001	0.08	0.998	0.003
+lymph_pwy51_pc2	R-HSA-1592389	Activation of Matrix Metalloproteinases	6	3	3	0.653	-0.029	0.121	0.627
+lymph_pwy612_pc1	R-HSA-168638	NOD1/2 Signaling Pathway	57	3	3	0.002	-0.357	0.996	0.008
+lymph_pwy638_pc1	R-HSA-5654727	Negative regulation of FGFR2 signaling	7	3	3	0.446	-0.117	0.307	0.335
+lymph_pwy639_pc1	R-HSA-5654732	Negative regulation of FGFR3 signaling	7	3	3	0.436	-0.123	0.319	0.335
+lymph_pwy711_pc4	R-HSA-381042	PERK regulates gene expression	10	3	3	0.1	-0.176	0.81	0.04
+lymph_pwy721_pc3	R-HSA-198203	PI3K/AKT activation	10	3	3	0.442	0.167	0.312	0.311
+lymph_pwy952_pc3	R-HSA-169911	Regulation of Apoptosis	6	3	3	0.006	0.19	0.988	0.016
+myeloid_wbc_pwy1127_pc2	NA	NA	NA	3	3	0.639	0.055	0.13	0.639
+myeloid_wbc_pwy130_pc5	NA	NA	NA	3	3	0.494	-0.064	0.256	0.376
+myeloid_wbc_pwy281_pc3	NA	NA	NA	3	3	0.786	-0.05	0.046	0.837
+myeloid_wbc_pwy283_pc3	NA	NA	NA	3	3	0.792	-0.048	0.043	0.844
+myeloid_wbc_pwy449_pc3	NA	NA	NA	3	3	0.249	0.131	0.563	0.247
+myeloid_wbc_pwy526_pc4	NA	NA	NA	3	3	0.468	0.123	0.283	0.337
+myeloid_wbc_pwy620_pc3	NA	NA	NA	3	3	0.046	0.312	0.91	0.133
+myeloid_wbc_pwy904_pc2	NA	NA	NA	3	3	0.423	0.139	0.333	0.326
+myeloid_wbc_pwy99_pc3	NA	NA	NA	3	3	0.819	-0.019	0.033	0.835
+neut_pwy1023_pc2	R-HSA-9633012	Response of EIF2AK4 (GCN2) to amino acid deficiency	22	3	3	0.385	0.068	0.378	0.307
+neut_pwy1065_pc3	R-HSA-6803211	TP53 Regulates Transcription of Death Receptors and Ligands	14	3	3	0.001	-0.119	0.998	0.008
+neut_pwy1196_pc2	R-HSA-192823	Viral mRNA Translation	13	3	3	0.403	0.064	0.356	0.313
+neut_pwy1217_pc5	R-HSA-2046104	alpha-linolenic (omega3) and linoleic (omega6) acid metabolism	52	4	4	0.833	0.023	0.017	0.82
+neut_pwy1218_pc5	R-HSA-2046106	alpha-linolenic acid (ALA) metabolism	53	4	4	0.833	0.023	0.017	0.82
+neut_pwy23_pc3	R-HSA-381183	ATF6 (ATF6-alpha) activates chaperone genes	56	3	3	0.527	0.123	0.224	0.435
+neut_pwy337_pc5	R-HSA-3323169	Defects in biotin (Btn) metabolism	55	3	3	0.544	0.111	0.208	0.455
+neut_pwy526_pc4	R-HSA-6791226	Major pathway of rRNA processing in the nucleolus and cytosol	83	3	3	0.516	0.093	0.235	0.411
+neut_pwy620_pc3	R-HSA-9029558	NR1H2 & NR1H3 regulate gene expression linked to lipogenesis	13	3	3	0.057	0.305	0.888	0.157
+neut_pwy669_pc2	R-HSA-975956	Nonsense Mediated Decay (NMD) independent of the Exon Junction Complex (EJC)	108	3	3	0.408	0.064	0.35	0.314
+neut_pwy719_pc4	R-HSA-1250342	PI3K events in ERBB4 signaling	15	3	3	0.704	0.166	0.088	0.726
+neut_pwy749_pc2	R-HSA-156902	Peptide chain elongation	61	3	3	0.412	0.063	0.346	0.319
+neut_pwy778_pc4	R-HSA-8963899	Plasma lipoprotein remodeling	46	3	3	0.517	0.06	0.233	0.421
+neut_pwy808_pc5	R-HSA-9636383	Prevention of phagosomal-lysosomal fusion	52	3	3	0.491	0.132	0.259	0.365
+plt_pwy143_pc5	R-HSA-211859	Biological oxidations	22	3	2	0.65	-0.031	0.123	0.661
+plt_pwy185_pc5	R-HSA-4086398	Ca2+ pathway	221	4	4	0.948	-0.005	0.002	0.93
+plt_pwy290_pc4	R-HSA-156584	Cytosolic sulfonation of small molecules	145	3	3	0.056	0.151	0.891	0.125
+plt_pwy415_pc2	R-HSA-8875360	InlB-mediated entry of Listeria monocytogenes into host cell	42	3	3	0.578	0.123	0.178	0.536
+plt_pwy503_pc4	R-HSA-71064	Lysine catabolism	44	3	3	0.582	-0.085	0.175	0.534
+plt_pwy548_pc5	R-HSA-556833	Metabolism of lipids	32	3	3	0.724	0.018	0.076	0.732
+plt_pwy692_pc5	R-HSA-381753	Olfactory Signaling Pathway	20	3	3	0.756	-0.076	0.06	0.782
+plt_pwy699_pc2	R-HSA-549127	Organic cation transport	16	3	3	0.002	0.2	0.995	0.007
+plt_pwy700_pc2	R-HSA-549132	Organic cation/anion/zwitterion transport	26	3	3	0.002	0.2	0.995	0.007
+plt_pwy753_pc3	R-HSA-390918	Peroxisomal lipid metabolism	34	3	3	0.104	0.26	0.803	0.208
+plt_pwy756_pc5	R-HSA-9664873	Pexophagy	50	4	4	0.42	0.105	0.225	0.388
+plt_pwy762_pc5	R-HSA-156580	Phase II - Conjugation of compounds	100	3	3	0.066	-0.093	0.873	0.123
+plt_pwy764_pc3	R-HSA-8850843	Phosphate bond hydrolysis by NTPDase proteins	74	3	3	0.715	-0.041	0.081	0.729
+plt_pwy779_pc1	R-HSA-75892	Platelet Adhesion to exposed collagen	57	4	4	0.813	-0.04	0.022	0.794
+plt_pwy944_pc5	R-HSA-159418	Recycling of bile acids and salts	13	3	3	0.457	0.112	0.295	0.405
+rbc_pwy1006_pc4	R-HSA-111457	Release of apoptotic factors from the mitochondria	13	3	3	0.747	-0.038	0.064	0.783
+rbc_pwy1021_pc2	R-HSA-163200	Respiratory electron transport, ATP synthesis by chemiosmotic coupling, and heat production by uncoupling proteins.	46	3	3	0.057	0.244	0.89	0.161
+rbc_pwy1082_pc2	R-HSA-167243	Tat-mediated HIV elongation arrest and recovery	603	4	4	0.02	-0.261	0.873	0.015
+rbc_pwy1131_pc4	R-HSA-452723	Transcriptional regulation of pluripotent stem cells	39	3	3	0.032	0.196	0.938	0.123
+rbc_pwy1178_pc2	R-HSA-75815	Ubiquitin-dependent degradation of Cyclin D	54	3	3	0.014	0.204	0.971	0.076
+rbc_pwy118_pc3	R-HSA-390471	Association of TriC/CCT with target proteins during biosynthesis	52	3	3	0.436	-0.114	0.319	0.313
+rbc_pwy32_pc2	R-HSA-167242	Abortive elongation of HIV-1 transcript in the absence of Tat	7	3	3	0.072	0.275	0.862	0.046
+rbc_pwy342_pc2	R-HSA-4641257	Degradation of AXIN	43	3	3	0.013	-0.224	0.975	0.057
+rbc_pwy396_pc3	R-HSA-168256	Immune System	131	4	4	0.793	0.012	0.027	0.784
+rbc_pwy413_pc1	R-HSA-2995383	Initiation of Nuclear Envelope (NE) Reformation	125	3	3	0.461	-0.109	0.29	0.358
+rbc_pwy438_pc5	R-HSA-6783783	Interleukin-10 signaling	11	3	3	0.811	0.019	0.036	0.876
+rbc_pwy508_pc2	R-HSA-5674135	MAP2K and MAPK activation	16	3	3	0.763	-0.051	0.056	0.8
+rbc_pwy526_pc4	R-HSA-6791226	Major pathway of rRNA processing in the nucleolus and cytosol	12	3	3	0.708	-0.049	0.085	0.736
+rbc_pwy722_pc3	R-HSA-6811555	PI5P Regulates TP53 Acetylation	6	3	3	0.625	0.062	0.14	0.607
+rbc_pwy747_pc2	R-HSA-167238	Pausing and recovery of Tat-mediated HIV elongation	40	4	4	0.02	-0.261	0.873	0.015
+rbc_pwy968_pc5	R-HSA-8943723	Regulation of PTEN mRNA translation	22	3	3	0.035	0.197	0.932	0.123
+rbc_pwy972_pc2	R-HSA-8939902	Regulation of RUNX2 expression and activity	15	3	3	0.029	0.164	0.943	0.092
+rbc_pwy981_pc4	R-HSA-6804757	Regulation of TP53 Degradation	12	3	3	0.716	-0.055	0.081	0.735
+rbc_pwy982_pc4	R-HSA-6806003	Regulation of TP53 Expression and Degradation	12	3	3	0.012	0.16	0.975	0.057
+ukb.allasthma_pwy194_pc2	R-HSA-5576891	Cardiac conduction	9	3	3	0.001	-0.096	0.999	0.003
+ukb.allasthma_pwy292_pc3	R-HSA-1489509	DAG and IP3 signaling	14	3	3	0.003	-0.164	0.995	0.024
+ukb.allasthma_pwy362_pc4	R-HSA-3371571	HSF1-dependent transactivation	18	3	3	0.002	-0.213	0.996	0.006
+ukb.allasthma_pwy427_pc2	R-HSA-445095	Interaction between L1 and Ankyrins	49	3	3	0.561	0.104	0.193	0.526
+ukb.allasthma_pwy467_pc3	R-HSA-936837	Ion transport by P-type ATPases	13	3	3	0.002	-0.157	0.997	0.006
+ukb.allasthma_pwy467_pc5	R-HSA-936837	Ion transport by P-type ATPases	36	3	3	0.001	-0.198	0.999	0.002
+ukb.allasthma_pwy519_pc2	R-HSA-8875555	MET activates RAP1 and RAC1	39	4	4	0.193	0.301	0.482	0.202
+ukb.allasthma_pwy594_pc1	R-HSA-397014	Muscle contraction	72	3	3	0	0.123	1	0
+ukb.allasthma_pwy594_pc2	R-HSA-397014	Muscle contraction	6	3	3	0.001	0.06	0.998	0.002
+ukb.allasthma_pwy650_pc4	R-HSA-373753	Nephrin family interactions	1843	4	4	0.014	0.203	0.899	0.008
+ukb.allasthma_pwy729_pc3	R-HSA-111931	PKA-mediated phosphorylation of CREB	199	3	3	0	0.211	0.999	0.001
+ukb.allasthma_pwy964_pc1	R-HSA-9022692	Regulation of MECP2 expression and activity	22	3	3	0.405	0.328	0.354	0.329
+wbc_pwy1053_pc2	R-HSA-5676594	TNF receptor superfamily (TNFSF) members mediating non-canonical NF-kB pathway	6	4	4	0.311	0.112	0.33	0.311
+wbc_pwy1083_pc5	R-HSA-167246	Tat-mediated elongation of the HIV-1 transcript	26	3	3	0.513	0.075	0.237	0.451
+wbc_pwy1203_pc3	R-HSA-180534	Vpu mediated degradation of CD4	22	3	3	0.699	0.041	0.091	0.744
+wbc_pwy123_pc3	R-HSA-349425	Autodegradation of the E3 ubiquitin ligase COP1	14	3	3	0.043	0.173	0.916	0.166
+wbc_pwy157_pc4	R-HSA-9662834	CD163 mediating an anti-inflammatory response	25	3	3	0.508	0.098	0.242	0.439
+wbc_pwy170_pc4	R-HSA-5660668	CLEC7A/inflammasome pathway	831	4	4	0.969	0.007	0.001	0.956
+wbc_pwy23_pc3	R-HSA-381183	ATF6 (ATF6-alpha) activates chaperone genes	21	3	3	0.572	0.105	0.183	0.539
+wbc_pwy356_pc5	R-HSA-167169	HIV Transcription Elongation	149	3	3	0.513	0.075	0.237	0.451
+wbc_pwy526_pc4	R-HSA-6791226	Major pathway of rRNA processing in the nucleolus and cytosol	131	3	3	0.492	0.106	0.258	0.381
+wbc_pwy531_pc2	R-HSA-9694548	Maturation of spike protein	18	4	4	0.737	-0.035	0.043	0.687
+wbc_pwy539_pc5	R-HSA-2022377	Metabolism of Angiotensinogen to Angiotensins	58	3	3	0.003	0.161	0.994	0.01
+wbc_pwy541_pc1	R-HSA-209776	Metabolism of amine-derived hormones	11	3	3	0.616	-0.052	0.147	0.556
+wbc_pwy582_pc5	R-HSA-5205647	Mitophagy	22	3	3	0.681	0.032	0.102	0.674
+wbc_pwy721_pc3	R-HSA-198203	PI3K/AKT activation	93	3	3	0.509	0.12	0.241	0.363
+wbc_pwy776_pc5	R-HSA-174824	Plasma lipoprotein assembly, remodeling, and clearance	18	3	3	0.93	-0.006	0.005	0.944
+wbc_pwy848_pc3	R-HSA-6802953	RAS signaling downstream of NF1 loss-of-function variants	9	3	3	0.007	-0.143	0.987	0.046
+wbc_pwy897_pc2	R-HSA-73856	RNA Polymerase II Transcription Termination	11	3	3	0.001	0.222	0.998	0
+wbc_pwy904_pc2	R-HSA-76071	RNA Polymerase III Transcription Initiation From Type 3 Promoter	994	3	3	0.899	-0.026	0.01	0.93
+wbc_pwy984_pc3	R-HSA-211733	Regulation of activated PAK-2p34 by proteasome mediated degradation	43	3	3	0.644	0.048	0.127	0.668
+wbc_pwy987_pc4	R-HSA-428542	Regulation of commissural axon pathfinding by SLIT and ROBO	21	3	3	0.002	0.164	0.997	0.005

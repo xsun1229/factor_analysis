@@ -1,0 +1,44 @@
+factor pwy pwy_name pwy_gene_num num_snp_fdr.0.2 num_snp_noMHC pval_in_fitting slope_in_fitting rsq_in_fitting pval_in_resampling
+T2Dbmiadj_pwy1036_pc4 R-HSA-9634600 Regulation of glycolysis by fructose 2,6-bisphosphate metabolism 7 3 3 0.654 -0.078 0.12 0.673
+T2Dbmiadj_pwy1097_pc1 R-HSA-9013957 TLR3-mediated TICAM1-dependent programmed cell death 24 3 3 0.161 0.273 0.704 0.239
+T2Dbmiadj_pwy1124_pc1 R-HSA-2562578 TRIF-mediated programmed cell death 75 3 3 0.517 0.124 0.233 0.572
+T2Dbmiadj_pwy1175_pc5 R-HSA-8878159 Transcriptional regulation by RUNX3 17 3 3 0.018 0.129 0.965 0.064
+T2Dbmiadj_pwy1216_pc4 R-HSA-163560 Triglyceride catabolism 102 4 4 0.255 0.181 0.396 0.268
+T2Dbmiadj_pwy1254_pc5 R-HSA-3238698 WNT ligand biogenesis and trafficking 94 3 3 0.242 -0.195 0.574 0.251
+T2Dbmiadj_pwy280_pc5 R-HSA-2691232 Constitutive Signaling by NOTCH1 HD Domain Mutants 22 3 3 0.836 -0.04 0.027 0.864
+T2Dbmiadj_pwy310_pc2 R-HSA-180024 DARPP-32 events 19 3 3 0.286 -0.196 0.509 0.227
+T2Dbmiadj_pwy416_pc1 R-HSA-5603029 IkBA variant leads to EDA-ID 14 3 3 0.011 0.25 0.977 0.048
+T2Dbmiadj_pwy82_pc5 R-HSA-170660 Adenylate cyclase activating pathway 10 3 3 0.05 0.312 0.903 0.151
+T2Dbmiadj_pwy847_pc4 R-HSA-112308 Presynaptic depolarization and calcium channel opening 8 3 3 0.942 0.016 0.003 0.962
+T2Dbmiadj_pwy859_pc4 R-HSA-5357801 Programmed Cell Death 14 3 3 0.961 -0.007 0.001 0.98
+T2Dbmiadj_pwy920_pc1 R-HSA-1810476 RIP-mediated NFkB activation via ZBP1 27 3 3 0.858 0.041 0.02 0.882
+T2Dunadj_pwy1051_pc4 R-HSA-159782 Removal of aminoterminal propeptides from gamma-carboxylated proteins 90 3 3 0.266 -0.095 0.539 0.27
+T2Dunadj_pwy1198_pc2 R-HSA-72202 Transport of Mature Transcript to Cytoplasm 25 3 3 0.786 -0.028 0.046 0.811
+T2Dunadj_pwy1205_pc4 R-HSA-159763 Transport of gamma-carboxylated protein precursors from the endoplasmic reticulum to the Golgi apparatus 68 3 3 0.266 -0.095 0.539 0.27
+T2Dunadj_pwy1209_pc3 R-HSA-879518 Transport of organic anions 76 4 4 0.842 0.028 0.015 0.803
+T2Dunadj_pwy1216_pc2 R-HSA-163560 Triglyceride catabolism 76 3 3 0.712 -0.069 0.083 0.75
+T2Dunadj_pwy143_pc3 R-HSA-1461957 Beta defensins 74 3 3 0.004 -0.179 0.993 0.023
+T2Dunadj_pwy310_pc3 R-HSA-180024 DARPP-32 events 7 3 3 0.594 0.07 0.165 0.557
+T2Dunadj_pwy331_pc4 R-HSA-5607761 Dectin-1 mediated noncanonical NF-kB signaling 7 3 3 0.009 0.123 0.982 0.058
+T2Dunadj_pwy645_pc4 R-HSA-5676590 NIK-->noncanonical NF-kB signaling 27 3 3 0.954 -0.006 0.002 0.964
+T2Dunadj_pwy75_pc5 R-HSA-1482798 Acyl chain remodeling of CL 10 3 3 0.648 0.099 0.124 0.636
+T2Dunadj_pwy82_pc5 R-HSA-170660 Adenylate cyclase activating pathway 12 5 5 0.085 0.152 0.564 0.081
+WHR_pwy173_pc5 R-HSA-389359 CD28 dependent Vav1 pathway 54 3 3 0.043 0.141 0.915 0.206
+bmi_pwy103_pc2 R-HSA-983170 Antigen Presentation: Folding, assembly and peptide loading of class I MHC 74 3 3 0.955 0.003 0.002 0.97
+bmi_pwy1101_pc4 R-HSA-5357786 TNFR1-induced proapoptotic signaling 14 3 3 0.027 0.146 0.946 0.104
+bmi_pwy1214_pc3 R-HSA-948021 Transport to the Golgi and subsequent modification 9 4 4 0.847 -0.007 0.015 0.804
+bmi_pwy159_pc2 R-HSA-446193 Biosynthesis of the N-glycan precursor (dolichol lipid-linked oligosaccharide, LLO) and transfer to a nascent protein 17 3 3 0.554 -0.033 0.199 0.499
+bmi_pwy179_pc3 R-HSA-5607763 CLEC7A (Dectin-1) induces NFAT activation 38 3 3 0.824 -0.027 0.031 0.853
+bmi_pwy185_pc3 R-HSA-204005 COPII-mediated vesicle transport 22 3 3 0.504 -0.039 0.246 0.424
+bmi_pwy234_pc2 R-HSA-380287 Centrosome maturation 23 4 4 0.088 0.111 0.676 0.148
+bmi_pwy276_pc2 R-HSA-5674400 Constitutive Signaling by AKT1 E17K in Cancer 16 3 3 0.612 0.036 0.15 0.555
+bmi_pwy317_pc3 R-HSA-2559586 DNA Damage/Telomere Stress Induced Senescence 11 3 3 0.004 0.069 0.991 0.019
+bmi_pwy472_pc3 R-HSA-9020956 Interleukin-27 signaling 32 3 3 0.039 0.135 0.923 0.145
+bmi_pwy746_pc2 R-HSA-4086400 PCP/CE pathway 6 3 3 0.512 -0.026 0.238 0.411
+bmi_pwy751_pc4 R-HSA-5654689 PI-3K cascade:FGFR1 11 3 3 0.852 0.011 0.022 0.836
+bmi_pwy777_pc4 R-HSA-8849473 PTK6 Expression 7 3 3 0.681 0.062 0.102 0.667
+bmi_pwy963_pc4 R-HSA-8939236 RUNX1 regulates transcription of genes involved in differentiation of HSCs 7 5 5 0.812 0.005 0.016 0.801
+bmi_pwy972_pc5 R-HSA-8951430 RUNX3 regulates WNT signaling 9 3 3 0.566 -0.043 0.188 0.499
+bmi_pwy985_pc2 R-HSA-380320 Recruitment of NuMA to mitotic centrosomes 6 4 4 0.093 -0.106 0.664 0.148
+bmi_pwy986_pc2 R-HSA-380270 Recruitment of mitotic centrosome proteins and complexes 8 4 4 0.088 0.111 0.676 0.148
+fastingglu_pwy929_pc2 R-HSA-73762 RNA Polymerase I Transcription Initiation 41 3 3 0.922 0.012 0.006 0.902
