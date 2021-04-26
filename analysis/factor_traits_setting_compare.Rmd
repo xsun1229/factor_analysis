@@ -7,13 +7,15 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Comparison under different settings
+## **Comparison under different settings**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/enrichment_compare.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/enrichment_compare_more.jpeg" width="100%">
 </figure>
 
-## SNP details for KEGG & all pwy & 3SNPs & pval < 0.01
+## **SNP details for several settings** 
+
+### Whole blood : KEGG & all pwy & 3SNPs & pval < 0.01
 
 The 6 pairs belong to 6 different traits. They are not driven by the same SNPs.
 
@@ -23,10 +25,9 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-## SNP details for REACTOME & all pwy & 3SNPs & pval < 0.01
+### Whole blood : REACTOME & all pwy & 3SNPs & pval < 0.01
 
 These 20 pairs belong to 7 different traits. 
-
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_d1k_allpval001.rdata")
@@ -42,6 +43,123 @@ For ukb.allasthma, there are 8 SNPs shared by 7 factors
 
 ```{r echo=FALSE}
 shared <- read.csv("/project2/xinhe/xsun/website/factor_analysis/output/sharedsnps_reactome_3snps_allpwy.csv",fill = T, header = T)
-
+ 
 DT::datatable(shared, options = list(pageLength =5))
 ```
+
+### Muscle Skeletal : REACTOME & all pwy & 2SNPs & pval < 0.05
+
+To comfirm the correlation between ukb.allasthma and 'Muscle contraction' pathway in REACTOME, we did analyses using muscle Skeletal eQTLs.
+
+We found 9 pairs at the p-value < 0.05 cutoff. But none of them is 'Muscle contraction'
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_mus_ukb.allasthma_d1k.rdata")
+
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+## **Pathway details for the pairs have > 3 SNPs**
+
+### Whole blood -- KEGG and REACTOME, 25 traits, 670 samples
+
+- KEGG 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_wb_kegg.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+- REACTOME 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_wb_reactome.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+### Liver -- REACTOME, 5 traits, 208 samples
+
+- REACTOME
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_liver_reactome.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+### Adipose - Subcutaneous -- KEGG and REACTOME, 4 traits, 581 samples
+
+- KEGG
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_adisub_kegg.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+- REACTOME
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_adisub_reactome.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+### Adipose - Visceral (Omentum) -- KEGG and REACTOME, 4 traits, 469 samples
+
+- KEGG
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_adivis_kegg.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+- REACTOME
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_adivis_reactome.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+### Left Ventricle -- KEGG and REACTOME, 1 trait, 386 samples
+
+- KEGG
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_lfventr_kegg.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+- REACTOME
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_lfventr_reactome.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+
+### Muscle -- REACTOME, 1 trait, 706 samples
+
+
+- REACTOME
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_muscle_reactome.txt",fill = T, header = T, sep ="\t")
+
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
