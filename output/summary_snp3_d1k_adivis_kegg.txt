@@ -1,10 +1,10 @@
-factor pwy pwy_name pwy_gene_num num_snp_fdr.0.2 num_snp_noMHC pval_in_fitting slope_in_fitting rsq_in_fitting pval_in_resampling
-T2Dbmiadj_pwy212_pc5 04910 Insulin signaling pathway 74 3 3 0.525 -0.054 0.226 0.417
-T2Dbmiadj_pwy225_pc4 04923 Regulation of lipolysis in adipocytes 32 3 3 0.489 0.121 0.262 0.346
-T2Dbmiadj_pwy331_pc5 05416 Viral myocarditis 31 3 2 0.368 0.111 0.399 0.307
-T2Dunadj_pwy217_pc1 04915 Estrogen signaling pathway 37 3 3 0.771 0.053 0.052 0.784
-WHR_pwy117_pc2 04024 cAMP signaling pathway 34 3 3 0.88 -0.015 0.014 0.937
-WHR_pwy118_pc1 04060 Cytokine-cytokine receptor interaction 34 3 3 0.659 0.023 0.116 0.605
-WHR_pwy121_pc1 04064 NF-kappa B signaling pathway 30 3 3 0.721 -0.023 0.078 0.785
-bmi_pwy151_pc2 04218 Cellular senescence 25 3 3 0.495 -0.038 0.255 0.37
-bmi_pwy275_pc4 05140 Leishmaniasis 34 3 3 0.034 0.187 0.934 0.131
+factor	pwy	pwy_name	pwy_gene_num	num_snp_fdr.0.2	num_snp_noMHC	pval_in_fitting	slope_in_fitting	rsq_in_fitting	pval_in_resampling
+T2Dbmiadj_pwy212_pc5	04910	Insulin signaling pathway	74	3	3	0.525	-0.054	0.226	0.417
+T2Dbmiadj_pwy225_pc4	04923	Regulation of lipolysis in adipocytes	32	3	3	0.489	0.121	0.262	0.346
+T2Dbmiadj_pwy331_pc5	05416	Viral myocarditis	31	3	2	0.368	0.111	0.399	0.307
+T2Dunadj_pwy217_pc1	04915	Estrogen signaling pathway	37	3	3	0.771	0.053	0.052	0.784
+WHR_pwy117_pc2	04024	cAMP signaling pathway	34	3	3	0.88	-0.015	0.014	0.937
+WHR_pwy118_pc1	04060	Cytokine-cytokine receptor interaction	34	3	3	0.659	0.023	0.116	0.605
+WHR_pwy121_pc1	04064	NF-kappa B signaling pathway	30	3	3	0.721	-0.023	0.078	0.785
+bmi_pwy151_pc2	04218	Cellular senescence	25	3	3	0.495	-0.038	0.255	0.37
+bmi_pwy275_pc4	05140	Leishmaniasis	34	3	3	0.034	0.187	0.934	0.131
