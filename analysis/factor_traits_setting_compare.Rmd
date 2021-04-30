@@ -76,9 +76,8 @@ DT::datatable(sum, options = list(pageLength =5))
 - REACTOME 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_wb_reactome.txt",fill = T, header = T, sep ="\t")
-
-DT::datatable(sum, options = list(pageLength =5))
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_wb_reactome.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
@@ -91,6 +90,7 @@ sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/summary_s
 
 DT::datatable(sum, options = list(pageLength =5))
 ```
+
 
 ### Adipose - Subcutaneous -- KEGG and REACTOME, 4 traits, 581 samples
 
