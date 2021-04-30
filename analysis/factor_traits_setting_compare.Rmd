@@ -10,7 +10,9 @@ editor_options:
 ## **Comparison under different settings**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/enrichment_compare_more.jpg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/enrichment_compare_1.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/enrichment_compare_2.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/enrichment_compare_3.png" width="100%">
 </figure>
 
 ## **SNP details for several settings** 

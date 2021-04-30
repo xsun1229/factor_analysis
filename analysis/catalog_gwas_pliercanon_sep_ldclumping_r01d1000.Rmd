@@ -18,7 +18,7 @@ In this part, I considered the traits separately. I selected the SNPs with pval 
 
 - platelet count (plt), white blood cell count, myeloid white cell count (myeloid wbc), lymphocyte count, red blood cell count(wbc), granulocyte count(gran), eosinophil count(eo), neutrophil count (neut) from *Astle WJ, Elding H, Jiang T, et al. The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease. Cell. 2016;167(5):1415-1429.e19. doi:10.1016/j.cell.2016.10.042*. 
 
-- T2D. I first used data from our lab collaction *Morris et al. Large-scale association analysis provides insights into the genetic architecture and pathophysiology of type 2 diabetes. Nat Genet. 2012 Sep;44(9):981-90. doi: 10.1038/ng.2383. Epub 2012 Aug 12. PMID: 22885922; PMCID: PMC3442244.* but it doesn't contain MAF info of variants.So I added this from [GWAS Catalog](https://www.ebi.ac.uk/gwas/home): *Wood AR et al. Variants in the FTO and CDKAL1 loci have recessive effects on risk of obesity and type 2 diabetes, respectively. Diabetologia. 2016 Jun;59(6):1214-21. doi: 10.1007/s00125-016-3908-5. Epub 2016 Mar 10. PMID: 26961502; PMCID: PMC4869698.*.
+- T2D. *New genetic loci implicated in fasting glucose homeostasis and their impact on type 2 diabetes risk  fasting glucose*
 
 - T1D data are also from lab collection: *Onengut-Gumuscu S et al. Fine mapping of type 1 diabetes susceptibility loci and evidence for colocalization of causal variants with lymphoid gene enhancers. Nat Genet. 2015 Apr;47(4):381-6. doi: 10.1038/ng.3245. Epub 2015 Mar 9. PMID: 25751624; PMCID: PMC4380767.*
 
@@ -64,57 +64,90 @@ For each trait, I got a subset of SNPs that are not in LD with each other.
 
 8. Resampling. For some promising trait-factor pairs, I did resampling. I resampled the SNPs without replacement, I fitted the points with intercept = 0 again and recorded the pvalues and r-squared. The resampling was repeated 1000 times. The following plots are the resampling results.
 
-## Snps after filter
+<!-- ## Snps after filter -->
 
-After filtering by 'pval < 5e-8' and LD Clumping, for each trait, I got :
+<!-- After filtering by 'pval < 5e-8' and LD Clumping, for each trait, I got : -->
 
-platelet count (plt) trait contains 688 SNPs with pval<5e-8. 
+<!-- platelet count (plt) trait contains 688 SNPs with pval<5e-8.  -->
 
-white blood cell count(wbc)trait contains 368 SNPs with pval<5e-8. 
+<!-- white blood cell count(wbc)trait contains 368 SNPs with pval<5e-8.  -->
 
-myeloid white cell count (myeloid wbc) trait contains 319 SNPs with pval<5e-8. 
+<!-- myeloid white cell count (myeloid wbc) trait contains 319 SNPs with pval<5e-8.  -->
 
-lymphocyte count(lymph) trait contains 436 SNPs with pval<5e-8. 
+<!-- lymphocyte count(lymph) trait contains 436 SNPs with pval<5e-8.  -->
 
-red blood cell count(wbc) trait contains 466 SNPs with pval<5e-8. 
+<!-- red blood cell count(wbc) trait contains 466 SNPs with pval<5e-8.  -->
 
-granulocyte count(gran) trait contains 316 SNPs with pval<5e-8. 
+<!-- granulocyte count(gran) trait contains 316 SNPs with pval<5e-8.  -->
 
-eosinophil count(eo) trait contains 491 SNPs with pval<5e-8. 
+<!-- eosinophil count(eo) trait contains 491 SNPs with pval<5e-8.  -->
 
-neutrophil count (neut) trait contains 317 SNPs with pval<5e-8. 
+<!-- neutrophil count (neut) trait contains 317 SNPs with pval<5e-8.  -->
 
-IBD trait contains 116 SNPs with pval<5e-8. 
+<!-- IBD trait contains 116 SNPs with pval<5e-8.  -->
 
-Ulcerative colitist(UC) trait contains 73 SNPs with pval<5e-8. 
+<!-- Ulcerative colitist(UC) trait contains 73 SNPs with pval<5e-8.  -->
 
-Crohn's disease(CD) trait contains 96 SNPs with pval<5e-8. 
+<!-- Crohn's disease(CD) trait contains 96 SNPs with pval<5e-8.  -->
 
-BMI trait contains 104 SNPs with pval<5e-8. 
+<!-- BMI trait contains 104 SNPs with pval<5e-8.  -->
 
-T2D contains 14 SNPs with pval<5e-8. T2D_2 contains 4 SNPs with pval<5e-8.
+<!-- T2D contains 14 SNPs with pval<5e-8. T2D_2 contains 4 SNPs with pval<5e-8. -->
 
-Asthma trait contains 186 SNPs with pval<5e-8. Asthma_2 trait contains 112 SNPs with pval<5e-8.
+<!-- Asthma trait contains 186 SNPs with pval<5e-8. Asthma_2 trait contains 112 SNPs with pval<5e-8. -->
 
-HDL trait contains 227 SNPs with pval<5e-8.
+<!-- HDL trait contains 227 SNPs with pval<5e-8. -->
 
-LDL trait contains 204 SNPs with pval<5e-8.
+<!-- LDL trait contains 204 SNPs with pval<5e-8. -->
 
-WHR trait contains 36 SNPs with pval<5e-8.
+<!-- WHR trait contains 36 SNPs with pval<5e-8. -->
 
-TC trait contains 250 SNPs with pval<5e-8.
+<!-- TC trait contains 250 SNPs with pval<5e-8. -->
 
-TG trait contains 155 SNPs with pval<5e-8.
+<!-- TG trait contains 155 SNPs with pval<5e-8. -->
 
-Height trait contains 5846 SNPs with pval<5e-8.
+<!-- Height trait contains 5846 SNPs with pval<5e-8. -->
 
-SCZ trait contains 135 SNPs with pval<5e-8.
+<!-- SCZ trait contains 135 SNPs with pval<5e-8. -->
 
-Vitiligo trait contains 101 SNPs with pval<5e-8.
+<!-- Vitiligo trait contains 101 SNPs with pval<5e-8. -->
 
-T1D trait contains 69 SNPs with pval<5e-8.
+<!-- T1D trait contains 69 SNPs with pval<5e-8. -->
 
-Allergy trait contains 158 SNPs with pval<5e-8.
+<!-- Allergy trait contains 158 SNPs with pval<5e-8. -->
+
+## Results - pval < 5e-8 & 3-step LD Clumping (r=0.1, d=1Mb)  &association test covariants: 10 PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
+
+### Candidate SNPs
+
+1: Use PLINK to do the preliminary filter: in 1Mb block,the SNPs have LD R2 > 0.1 will be filtered by their p-values
+
+2: Use my own codes to filter the SNPs in a block by their p-values.
+
+3: We need to compute the LD R2 for the remaining SNPs, for the SNP pairs have R2 > 0.1, filter them again according their p-values. 
+
+## **Effectsize analysis -- effect size fitting**
+
+For the pairs have more than 2 SNPs with FDR <0.2 (28 pairs), we also tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 4 pairs show sign consistency (have p-values < 0.05 in resampling, 2.86 fold enrichment). There are 1 pairs at p-value < 0.01, 3.57 fold enrichment). 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_plier_wb.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+To summarize the results, We made a scatter plot of all trait-LV pairs. The x-axis shows the R2 in fitting, and the y-axis show the -log10-p values from resampling. To make the plot more informative, Each point represent a trait-LV pair. Different colors show the number of SNPs passing the FDR threshold for each pair.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_pliercanon_wb.jpeg" width="80%">
+</figure>
+
+
 
 ## Results - pval < 5e-8 & association test covariants: 10 PCs + GTEx:Sequencing platform,Sequencing protocol,Sex + AGE
 
