@@ -4,9 +4,13 @@ aFib_pwy115_pc4	R-HSA-2142753	Arachidonic acid metabolism	24	3	3	0.826	-0.065	0.
 aFib_pwy177_pc1	R-HSA-5660668	CLEC7A/inflammasome pathway	71	4	4	0.781	-0.061	0.03	0.746
 aFib_pwy288_pc1	R-HSA-69273	Cyclin A/B1/B2 associated events during G2/M transition	15	3	3	0.382	0.119	0.382	0.274
 aFib_pwy292_pc4	R-HSA-211897	Cytochrome P450 - arranged by substrate type	96	3	3	0.543	0.106	0.209	0.531
-aFib_pwy47_pc4	R-HSA-176187	Activation of ATR in response to replication stress	82	4	4	0.99	-0.001	0	0.993
-aFib_pwy525_pc3	R-HSA-5683057	MAPK family signaling cascades	22	3	3	0.59	0.069	0.168	0.599
-aFib_pwy53_pc1	R-HSA-991365	Activation of GABAB receptors	18	4	4	0.631	0.119	0.087	0.579
-aFib_pwy709_pc3	R-HSA-168643	Nucleotide-binding domain, leucine rich repeat containing receptor (NLR) signaling pathways	14	3	3	0.684	-0.067	0.1	0.736
-aFib_pwy797_pc5	R-HSA-176417	Phosphorylation of Emi1	10	3	3	0.027	-0.338	0.947	0.078
-aFib_pwy942_pc5	R-HSA-8931987	RUNX1 regulates estrogen receptor mediated transcription	8	3	3	0.008	0.361	0.985	0.033
+aFib_pwy300_pc3	R-HSA-1489509	DAG and IP3 signaling	82	2	2	0	0.236	1	0
+aFib_pwy3_pc1	R-HSA-5619084	ABC transporter disorders	22	2	2	0.005	0.115	1	0.003
+aFib_pwy47_pc4	R-HSA-176187	Activation of ATR in response to replication stress	18	4	4	0.99	-0.001	0	0.993
+aFib_pwy525_pc3	R-HSA-5683057	MAPK family signaling cascades	14	3	3	0.59	0.069	0.168	0.599
+aFib_pwy53_pc1	R-HSA-991365	Activation of GABAB receptors	10	4	4	0.631	0.119	0.087	0.579
+aFib_pwy709_pc3	R-HSA-168643	Nucleotide-binding domain, leucine rich repeat containing receptor (NLR) signaling pathways	8	3	3	0.684	-0.067	0.1	0.736
+aFib_pwy797_pc5	R-HSA-176417	Phosphorylation of Emi1	14	3	3	0.027	-0.338	0.947	0.078
+aFib_pwy876_pc1	R-HSA-9012999	RHO GTPase cycle	26	2	2	0.004	-0.235	1	0.004
+aFib_pwy901_pc2	R-HSA-9013420	RHOU GTPase cycle	88	2	2	0.001	-0.213	1	0.003
+aFib_pwy942_pc5	R-HSA-8931987	RUNX1 regulates estrogen receptor mediated transcription	25	3	3	0.008	0.361	0.985	0.033

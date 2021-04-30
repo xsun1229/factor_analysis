@@ -4,115 +4,127 @@ T2Dbmiadj_pwy1014_pc5	R-HSA-6804758	Regulation of TP53 Activity through Acetylat
 T2Dbmiadj_pwy1023_pc4	R-HSA-1655829	Regulation of cholesterol biosynthesis by SREBP (SREBF)	73	4	4	0.331	-0.131	0.308	0.314
 T2Dbmiadj_pwy1033_pc2	R-HSA-400206	Regulation of lipid metabolism by PPARalpha	17	3	3	0.061	-0.211	0.882	0.213
 T2Dbmiadj_pwy1118_pc5	R-HSA-3295583	TRP channels	100	3	3	0.003	0.256	0.994	0.021
-T2Dbmiadj_pwy1148_pc5	R-HSA-168181	Toll Like Receptor 7/8 (TLR7/8) Cascade	94	3	3	0.609	-0.076	0.153	0.589
-T2Dbmiadj_pwy1159_pc1	R-HSA-6781827	Transcription-Coupled Nucleotide Excision Repair (TC-NER)	22	3	3	0.499	0.148	0.251	0.413
-T2Dbmiadj_pwy1159_pc3	R-HSA-6781827	Transcription-Coupled Nucleotide Excision Repair (TC-NER)	18	3	3	0.512	0.076	0.238	0.451
-T2Dbmiadj_pwy1164_pc4	R-HSA-2151201	Transcriptional activation of mitochondrial biogenesis	14	3	3	0.925	-0.017	0.006	0.929
-T2Dbmiadj_pwy1174_pc4	R-HSA-381340	Transcriptional regulation of white adipocyte differentiation	10	5	5	0.222	-0.134	0.343	0.195
-T2Dbmiadj_pwy1184_pc3	R-HSA-5655862	Translesion synthesis by POLK	8	3	3	0.089	1.963	0.831	0.067
-T2Dbmiadj_pwy1195_pc2	R-HSA-168271	Transport of Ribonucleoproteins into the Host Nucleus	14	3	3	0.014	0.204	0.972	0.059
-T2Dbmiadj_pwy1195_pc4	R-HSA-168271	Transport of Ribonucleoproteins into the Host Nucleus	27	4	4	0.487	0.13	0.172	0.501
-T2Dbmiadj_pwy1205_pc4	R-HSA-159230	Transport of the SLBP Dependant Mature mRNA	89	3	3	0.625	0.089	0.14	0.597
-T2Dbmiadj_pwy1237_pc4	R-HSA-168325	Viral Messenger RNA Synthesis	25	3	3	0.024	0.225	0.952	0.095
-T2Dbmiadj_pwy169_pc5	R-HSA-389356	CD28 co-stimulation	67	3	3	0.681	-0.1	0.101	0.673
-T2Dbmiadj_pwy199_pc4	R-HSA-419812	Calcitonin-like ligand receptors	75	3	3	0.695	-0.133	0.093	0.711
-T2Dbmiadj_pwy242_pc2	R-HSA-3247509	Chromatin modifying enzymes	75	3	3	0.054	-0.154	0.896	0.201
-T2Dbmiadj_pwy243_pc2	R-HSA-4839726	Chromatin organization	73	3	3	0.054	-0.154	0.896	0.201
-T2Dbmiadj_pwy302_pc3	R-HSA-1834949	Cytosolic sensors of pathogen-associated DNA 	7	3	3	0.324	0.159	0.457	0.286
-T2Dbmiadj_pwy327_pc4	R-HSA-429914	Deadenylation-dependent mRNA decay	7	3	3	0.542	0.086	0.21	0.492
-T2Dbmiadj_pwy373_pc4	R-HSA-162587	HIV Life Cycle	26	3	3	0.479	-0.105	0.272	0.411
-T2Dbmiadj_pwy387_pc3	R-HSA-9707616	Heme signaling	10	4	4	0.917	-0.015	0.004	0.921
-T2Dbmiadj_pwy449_pc3	R-HSA-177243	Interactions of Rev with host cellular proteins	12	3	3	0.797	-0.049	0.041	0.834
-T2Dbmiadj_pwy449_pc5	R-HSA-177243	Interactions of Rev with host cellular proteins	53	3	3	0.613	-0.113	0.15	0.567
-T2Dbmiadj_pwy450_pc5	R-HSA-176033	Interactions of Vpr with host cellular proteins	74	3	3	0.764	0.061	0.056	0.789
-T2Dbmiadj_pwy47_pc3	R-HSA-176187	Activation of ATR in response to replication stress	14	4	4	0.903	0.018	0.006	0.891
-T2Dbmiadj_pwy510_pc3	R-HSA-69109	Leading Strand Synthesis	9	3	3	0.673	-0.145	0.107	0.687
-T2Dbmiadj_pwy524_pc1	R-HSA-9022537	Loss of MECP2 binding ability to the NCoR/SMRT complex	17	5	5	0.529	0.126	0.106	0.51
-T2Dbmiadj_pwy526_pc1	R-HSA-9005891	Loss of function of MECP2 in Rett syndrome	38	4	4	0.247	-0.233	0.407	0.184
-T2Dbmiadj_pwy529_pc4	R-HSA-432720	Lysosome Vesicle Biogenesis	22	3	3	0.803	-0.054	0.039	0.827
-T2Dbmiadj_pwy547_pc2	R-HSA-8875555	MET activates RAP1 and RAC1	23	3	3	0.574	0.192	0.181	0.524
-T2Dbmiadj_pwy552_pc1	R-HSA-165159	MTOR signalling	16	3	3	0.852	-0.061	0.022	0.877
-T2Dbmiadj_pwy578_pc3	R-HSA-194441	Metabolism of non-coding RNA	11	3	3	0.626	-0.114	0.14	0.637
-T2Dbmiadj_pwy587_pc5	R-HSA-425410	Metal ion SLC transporters	32	3	3	0.263	0.146	0.543	0.222
-T2Dbmiadj_pwy617_pc5	R-HSA-69618	Mitotic Spindle Checkpoint	6	3	3	0.032	-0.206	0.936	0.126
-T2Dbmiadj_pwy622_pc1	R-HSA-2206281	Mucopolysaccharidoses	10	3	3	0.066	-0.324	0.872	0.223
-T2Dbmiadj_pwy638_pc3	R-HSA-168333	NEP/NS2 Interacts with the Cellular Export Machinery	6	3	3	0.014	0.2	0.971	0.06
-T2Dbmiadj_pwy653_pc3	R-HSA-9024446	NR1H2 and NR1H3-mediated signaling	6	3	3	0	0.302	0.999	0.002
-T2Dbmiadj_pwy706_pc2	R-HSA-350054	Notch-HLH transcription pathway	8	3	3	0.613	0.093	0.15	0.569
-T2Dbmiadj_pwy711_pc4	R-HSA-3301854	Nuclear Pore Complex (NPC) Disassembly	6	4	4	0.744	0.045	0.041	0.736
-T2Dbmiadj_pwy741_pc1	R-HSA-5651801	PCNA-Dependent Long Patch Base Excision Repair	8	3	3	0.127	-1.191	0.761	0.102
-T2Dbmiadj_pwy778_pc4	R-HSA-6802955	Paradoxical activation of RAF signaling by kinase inactive BRAF	35	3	3	0.576	-0.13	0.18	0.488
-T2Dbmiadj_pwy790_pc1	R-HSA-9005895	Pervasive developmental disorders	12	4	4	0.247	-0.233	0.407	0.184
-T2Dbmiadj_pwy795_pc3	R-HSA-5576890	Phase 3 - rapid repolarisation	25	3	3	0.367	-0.161	0.4	0.282
-T2Dbmiadj_pwy823_pc3	R-HSA-69091	Polymerase switching	76	3	3	0.673	-0.145	0.107	0.687
-T2Dbmiadj_pwy832_pc2	R-HSA-9615933	Postmitotic nuclear pore complex (NPC) reformation	38	3	3	0.795	-0.058	0.042	0.825
-T2Dbmiadj_pwy860_pc3	R-HSA-8876725	Protein methylation	15	4	4	0.562	-0.109	0.123	0.556
-T2Dbmiadj_pwy884_pc2	R-HSA-6802953	RAS signaling downstream of NF1 loss-of-function variants	31	3	3	0.648	0.129	0.124	0.644
-T2Dbmiadj_pwy888_pc5	R-HSA-5663220	RHO GTPases Activate Formins	7	3	3	0.596	0.119	0.163	0.568
-T2Dbmiadj_pwy895_pc4	R-HSA-5625970	RHO GTPases activate KTN1	10	3	3	0.01	-0.39	0.979	0.055
-T2Dbmiadj_pwy941_pc5	R-HSA-73980	RNA Polymerase III Transcription Termination	24	3	3	0.033	0.281	0.935	0.109
-T2Dbmiadj_pwy947_pc3	R-HSA-1368082	RORA activates gene expression	36	4	4	0.258	0.203	0.393	0.192
-T2Dunadj_pwy1033_pc2	R-HSA-400206	Regulation of lipid metabolism by PPARalpha	91	3	3	0.063	-0.191	0.878	0.197
-T2Dunadj_pwy1072_pc5	R-HSA-428890	Role of ABL in ROBO-SLIT signaling	19	4	4	0.628	-0.108	0.088	0.581
-T2Dunadj_pwy1156_pc4	R-HSA-1362277	Transcription of E2F targets under negative control by DREAM complex	32	3	3	0.841	-0.035	0.025	0.864
-T2Dunadj_pwy1161_pc3	R-HSA-8986944	Transcriptional Regulation by MECP2	65	3	3	0.527	0.085	0.224	0.411
-T2Dunadj_pwy1164_pc4	R-HSA-2151201	Transcriptional activation of mitochondrial biogenesis	8	5	5	0.72	-0.043	0.036	0.715
-T2Dunadj_pwy1174_pc4	R-HSA-381340	Transcriptional regulation of white adipocyte differentiation	88	4	4	0.904	-0.015	0.006	0.891
-T2Dunadj_pwy1201_pc2	R-HSA-83936	Transport of nucleosides and free purine and pyrimidine bases across the plasma membrane	10	3	3	0.047	0.266	0.908	0.135
-T2Dunadj_pwy139_pc1	R-HSA-1368108	BMAL1:CLOCK,NPAS2 activates circadian gene expression	9	3	3	0.889	0.037	0.012	0.909
-T2Dunadj_pwy169_pc5	R-HSA-389356	CD28 co-stimulation	12	3	3	0.453	-0.133	0.299	0.418
-T2Dunadj_pwy199_pc4	R-HSA-419812	Calcitonin-like ligand receptors	7	4	4	0.54	0.124	0.137	0.509
-T2Dunadj_pwy242_pc2	R-HSA-3247509	Chromatin modifying enzymes	17	3	3	0.053	-0.14	0.896	0.19
-T2Dunadj_pwy243_pc2	R-HSA-4839726	Chromatin organization	6	3	3	0.053	-0.14	0.896	0.19
-T2Dunadj_pwy248_pc1	R-HSA-400253	Circadian Clock	91	3	3	0.593	0.106	0.166	0.574
+T2Dbmiadj_pwy111_pc4	R-HSA-351906	Apoptotic cleavage of cell adhesion  proteins	94	2	2	0.006	-0.258	1	0.005
+T2Dbmiadj_pwy1148_pc5	R-HSA-168181	Toll Like Receptor 7/8 (TLR7/8) Cascade	22	3	3	0.609	-0.076	0.153	0.589
+T2Dbmiadj_pwy1159_pc1	R-HSA-6781827	Transcription-Coupled Nucleotide Excision Repair (TC-NER)	18	3	3	0.499	0.148	0.251	0.413
+T2Dbmiadj_pwy1159_pc3	R-HSA-6781827	Transcription-Coupled Nucleotide Excision Repair (TC-NER)	14	3	3	0.512	0.076	0.238	0.451
+T2Dbmiadj_pwy1164_pc4	R-HSA-2151201	Transcriptional activation of mitochondrial biogenesis	10	3	3	0.925	-0.017	0.006	0.929
+T2Dbmiadj_pwy1174_pc4	R-HSA-381340	Transcriptional regulation of white adipocyte differentiation	8	5	5	0.222	-0.134	0.343	0.195
+T2Dbmiadj_pwy1184_pc3	R-HSA-5655862	Translesion synthesis by POLK	14	3	3	0.089	1.963	0.831	0.067
+T2Dbmiadj_pwy1195_pc2	R-HSA-168271	Transport of Ribonucleoproteins into the Host Nucleus	27	3	3	0.014	0.204	0.972	0.059
+T2Dbmiadj_pwy1195_pc4	R-HSA-168271	Transport of Ribonucleoproteins into the Host Nucleus	89	4	4	0.487	0.13	0.172	0.501
+T2Dbmiadj_pwy1197_pc5	R-HSA-190872	Transport of connexons to the plasma membrane	25	2	2	0.001	-0.222	1	0
+T2Dbmiadj_pwy1205_pc4	R-HSA-159230	Transport of the SLBP Dependant Mature mRNA	67	3	3	0.625	0.089	0.14	0.597
+T2Dbmiadj_pwy1237_pc4	R-HSA-168325	Viral Messenger RNA Synthesis	75	3	3	0.024	0.225	0.952	0.095
+T2Dbmiadj_pwy169_pc5	R-HSA-389356	CD28 co-stimulation	75	3	3	0.681	-0.1	0.101	0.673
+T2Dbmiadj_pwy199_pc4	R-HSA-419812	Calcitonin-like ligand receptors	73	3	3	0.695	-0.133	0.093	0.711
+T2Dbmiadj_pwy242_pc2	R-HSA-3247509	Chromatin modifying enzymes	7	3	3	0.054	-0.154	0.896	0.201
+T2Dbmiadj_pwy243_pc2	R-HSA-4839726	Chromatin organization	7	3	3	0.054	-0.154	0.896	0.201
+T2Dbmiadj_pwy302_pc3	R-HSA-1834949	Cytosolic sensors of pathogen-associated DNA 	26	3	3	0.324	0.159	0.457	0.286
+T2Dbmiadj_pwy327_pc4	R-HSA-429914	Deadenylation-dependent mRNA decay	10	3	3	0.542	0.086	0.21	0.492
+T2Dbmiadj_pwy373_pc4	R-HSA-162587	HIV Life Cycle	12	3	3	0.479	-0.105	0.272	0.411
+T2Dbmiadj_pwy387_pc3	R-HSA-9707616	Heme signaling	53	4	4	0.917	-0.015	0.004	0.921
+T2Dbmiadj_pwy432_pc4	R-HSA-166663	Initial triggering of complement	74	2	2	0.007	-0.236	1	0.005
+T2Dbmiadj_pwy449_pc3	R-HSA-177243	Interactions of Rev with host cellular proteins	14	3	3	0.797	-0.049	0.041	0.834
+T2Dbmiadj_pwy449_pc5	R-HSA-177243	Interactions of Rev with host cellular proteins	9	3	3	0.613	-0.113	0.15	0.567
+T2Dbmiadj_pwy450_pc5	R-HSA-176033	Interactions of Vpr with host cellular proteins	17	3	3	0.764	0.061	0.056	0.789
+T2Dbmiadj_pwy451_pc5	R-HSA-499943	Interconversion of nucleotide di- and triphosphates	38	2	2	0.011	0.224	1	0.003
+T2Dbmiadj_pwy47_pc3	R-HSA-176187	Activation of ATR in response to replication stress	22	4	4	0.903	0.018	0.006	0.891
+T2Dbmiadj_pwy510_pc3	R-HSA-69109	Leading Strand Synthesis	23	3	3	0.673	-0.145	0.107	0.687
+T2Dbmiadj_pwy524_pc1	R-HSA-9022537	Loss of MECP2 binding ability to the NCoR/SMRT complex	16	5	5	0.529	0.126	0.106	0.51
+T2Dbmiadj_pwy526_pc1	R-HSA-9005891	Loss of function of MECP2 in Rett syndrome	11	4	4	0.247	-0.233	0.407	0.184
+T2Dbmiadj_pwy529_pc4	R-HSA-432720	Lysosome Vesicle Biogenesis	32	3	3	0.803	-0.054	0.039	0.827
+T2Dbmiadj_pwy547_pc2	R-HSA-8875555	MET activates RAP1 and RAC1	6	3	3	0.574	0.192	0.181	0.524
+T2Dbmiadj_pwy552_pc1	R-HSA-165159	MTOR signalling	10	3	3	0.852	-0.061	0.022	0.877
+T2Dbmiadj_pwy578_pc3	R-HSA-194441	Metabolism of non-coding RNA	6	3	3	0.626	-0.114	0.14	0.637
+T2Dbmiadj_pwy587_pc5	R-HSA-425410	Metal ion SLC transporters	6	3	3	0.263	0.146	0.543	0.222
+T2Dbmiadj_pwy617_pc5	R-HSA-69618	Mitotic Spindle Checkpoint	8	3	3	0.032	-0.206	0.936	0.126
+T2Dbmiadj_pwy622_pc1	R-HSA-2206281	Mucopolysaccharidoses	6	3	3	0.066	-0.324	0.872	0.223
+T2Dbmiadj_pwy638_pc3	R-HSA-168333	NEP/NS2 Interacts with the Cellular Export Machinery	8	3	3	0.014	0.2	0.971	0.06
+T2Dbmiadj_pwy653_pc3	R-HSA-9024446	NR1H2 and NR1H3-mediated signaling	35	3	3	0	0.302	0.999	0.002
+T2Dbmiadj_pwy706_pc2	R-HSA-350054	Notch-HLH transcription pathway	12	3	3	0.613	0.093	0.15	0.569
+T2Dbmiadj_pwy711_pc4	R-HSA-3301854	Nuclear Pore Complex (NPC) Disassembly	25	4	4	0.744	0.045	0.041	0.736
+T2Dbmiadj_pwy741_pc1	R-HSA-5651801	PCNA-Dependent Long Patch Base Excision Repair	76	3	3	0.127	-1.191	0.761	0.102
+T2Dbmiadj_pwy778_pc4	R-HSA-6802955	Paradoxical activation of RAF signaling by kinase inactive BRAF	38	3	3	0.576	-0.13	0.18	0.488
+T2Dbmiadj_pwy790_pc1	R-HSA-9005895	Pervasive developmental disorders	15	4	4	0.247	-0.233	0.407	0.184
+T2Dbmiadj_pwy795_pc3	R-HSA-5576890	Phase 3 - rapid repolarisation	31	3	3	0.367	-0.161	0.4	0.282
+T2Dbmiadj_pwy823_pc3	R-HSA-69091	Polymerase switching	7	3	3	0.673	-0.145	0.107	0.687
+T2Dbmiadj_pwy832_pc2	R-HSA-9615933	Postmitotic nuclear pore complex (NPC) reformation	10	3	3	0.795	-0.058	0.042	0.825
+T2Dbmiadj_pwy860_pc3	R-HSA-8876725	Protein methylation	24	4	4	0.562	-0.109	0.123	0.556
+T2Dbmiadj_pwy884_pc2	R-HSA-6802953	RAS signaling downstream of NF1 loss-of-function variants	36	3	3	0.648	0.129	0.124	0.644
+T2Dbmiadj_pwy888_pc5	R-HSA-5663220	RHO GTPases Activate Formins	91	3	3	0.596	0.119	0.163	0.568
+T2Dbmiadj_pwy895_pc4	R-HSA-5625970	RHO GTPases activate KTN1	19	3	3	0.01	-0.39	0.979	0.055
+T2Dbmiadj_pwy941_pc5	R-HSA-73980	RNA Polymerase III Transcription Termination	32	3	3	0.033	0.281	0.935	0.109
+T2Dbmiadj_pwy947_pc3	R-HSA-1368082	RORA activates gene expression	65	4	4	0.258	0.203	0.393	0.192
+T2Dunadj_pwy1033_pc2	R-HSA-400206	Regulation of lipid metabolism by PPARalpha	8	3	3	0.063	-0.191	0.878	0.197
+T2Dunadj_pwy1072_pc5	R-HSA-428890	Role of ABL in ROBO-SLIT signaling	88	4	4	0.628	-0.108	0.088	0.581
+T2Dunadj_pwy1156_pc4	R-HSA-1362277	Transcription of E2F targets under negative control by DREAM complex	10	3	3	0.841	-0.035	0.025	0.864
+T2Dunadj_pwy1161_pc3	R-HSA-8986944	Transcriptional Regulation by MECP2	9	3	3	0.527	0.085	0.224	0.411
+T2Dunadj_pwy1164_pc4	R-HSA-2151201	Transcriptional activation of mitochondrial biogenesis	12	5	5	0.72	-0.043	0.036	0.715
+T2Dunadj_pwy1174_pc4	R-HSA-381340	Transcriptional regulation of white adipocyte differentiation	7	4	4	0.904	-0.015	0.006	0.891
+T2Dunadj_pwy1197_pc5	R-HSA-190872	Transport of connexons to the plasma membrane	17	2	2	0.019	-0.186	0.999	0.009
+T2Dunadj_pwy1201_pc2	R-HSA-83936	Transport of nucleosides and free purine and pyrimidine bases across the plasma membrane	6	3	3	0.047	0.266	0.908	0.135
+T2Dunadj_pwy1204_pc3	R-HSA-382551	Transport of small molecules	91	2	2	0.001	0.222	1	0.002
+T2Dunadj_pwy139_pc1	R-HSA-1368108	BMAL1:CLOCK,NPAS2 activates circadian gene expression	6	3	3	0.889	0.037	0.012	0.909
+T2Dunadj_pwy169_pc5	R-HSA-389356	CD28 co-stimulation	43	3	3	0.453	-0.133	0.299	0.418
+T2Dunadj_pwy199_pc4	R-HSA-419812	Calcitonin-like ligand receptors	27	4	4	0.54	0.124	0.137	0.509
+T2Dunadj_pwy242_pc2	R-HSA-3247509	Chromatin modifying enzymes	10	3	3	0.053	-0.14	0.896	0.19
+T2Dunadj_pwy243_pc2	R-HSA-4839726	Chromatin organization	11	3	3	0.053	-0.14	0.896	0.19
+T2Dunadj_pwy248_pc1	R-HSA-400253	Circadian Clock	59	3	3	0.593	0.106	0.166	0.574
 T2Dunadj_pwy270_pc5	R-HSA-2514853	Condensation of Prometaphase Chromosomes	6	3	3	0.402	-0.228	0.358	0.348
-T2Dunadj_pwy327_pc4	R-HSA-429914	Deadenylation-dependent mRNA decay	43	4	4	0.255	0.1	0.397	0.224
-T2Dunadj_pwy387_pc5	R-HSA-9707616	Heme signaling	27	3	3	0.498	0.115	0.252	0.382
-T2Dunadj_pwy443_pc2	R-HSA-163685	Integration of energy metabolism	10	3	3	0.914	0.019	0.007	0.907
-T2Dunadj_pwy519_pc5	R-HSA-9613354	Lipophagy	11	4	4	0.777	-0.068	0.031	0.74
-T2Dunadj_pwy524_pc1	R-HSA-9022537	Loss of MECP2 binding ability to the NCoR/SMRT complex	59	4	4	0.291	0.178	0.352	0.223
-T2Dunadj_pwy526_pc1	R-HSA-9005891	Loss of function of MECP2 in Rett syndrome	6	3	3	0.028	-0.328	0.944	0.138
-T2Dunadj_pwy529_pc4	R-HSA-432720	Lysosome Vesicle Biogenesis	34	3	3	0.555	0.12	0.198	0.486
-T2Dunadj_pwy581_pc4	R-HSA-189445	Metabolism of porphyrins	7	3	3	0.372	-0.152	0.395	0.273
-T2Dunadj_pwy58_pc5	R-HSA-2980767	Activation of NIMA Kinases NEK9, NEK6, NEK7	21	3	3	0.007	0.328	0.987	0.014
-T2Dunadj_pwy617_pc5	R-HSA-69618	Mitotic Spindle Checkpoint	23	4	4	0.298	-0.114	0.344	0.24
-T2Dunadj_pwy622_pc1	R-HSA-2206281	Mucopolysaccharidoses	13	3	3	0.066	-0.295	0.872	0.203
-T2Dunadj_pwy790_pc1	R-HSA-9005895	Pervasive developmental disorders	12	3	3	0.028	-0.328	0.944	0.138
-T2Dunadj_pwy814_pc5	R-HSA-8963899	Plasma lipoprotein remodeling	17	3	3	0.71	-0.071	0.084	0.694
-T2Dunadj_pwy883_pc1	R-HSA-9648002	RAS processing	798	3	3	0.009	-0.279	0.981	0.03
-T2Dunadj_pwy888_pc5	R-HSA-5663220	RHO GTPases Activate Formins	9	5	5	0.498	-0.075	0.121	0.474
-T2Dunadj_pwy952_pc3	R-HSA-8939243	RUNX1 interacts with co-factors whose precise effect on RUNX1 targets is not known	12	3	3	0.515	0.151	0.235	0.433
-T2Dunadj_pwy965_pc2	R-HSA-8941856	RUNX3 regulates NOTCH signaling	31	3	3	0.53	-0.129	0.221	0.42
-T2Dunadj_pwy984_pc4	R-HSA-418359	Reduction of cytosolic Ca++ levels	25	3	3	0.879	-0.028	0.015	0.891
-WHR_pwy1128_pc4	R-HSA-977068	Termination of O-glycan biosynthesis	9	3	3	0.009	-0.128	0.982	0.11
-WHR_pwy452_pc5	R-HSA-913531	Interferon Signaling	13	3	3	0.631	-0.023	0.136	0.593
-WHR_pwy454_pc4	R-HSA-877300	Interferon gamma signaling	16	3	3	0.741	0.021	0.067	0.795
-WHR_pwy552_pc1	R-HSA-165159	MTOR signalling	39	3	3	0.367	-0.109	0.4	0.28
-WHR_pwy69_pc3	R-HSA-451326	Activation of kainate receptors upon glutamate binding	6	3	3	0.009	0.164	0.982	0.09
-WHR_pwy815_pc3	R-HSA-75892	Platelet Adhesion to exposed collagen	11	3	3	0.709	-0.029	0.085	0.747
-bmi_pwy1255_pc1	R-HSA-2032785	YAP1- and WWTR1 (TAZ)-stimulated gene expression	25	3	3	0.042	0.213	0.917	0.065
-bmi_pwy589_pc4	R-HSA-5661231	Metallothioneins bind metals	8	4	4	0.169	-0.103	0.521	0.154
-fastingglu_pwy1097_pc3	R-HSA-5669034	TNFs bind their physiological receptors	35	3	3	0.895	0.023	0.011	0.804
-fastingglu_pwy109_pc4	R-HSA-109581	Apoptosis	54	3	3	0.795	0.04	0.042	0.741
-fastingglu_pwy1134_pc4	R-HSA-1428517	The citric acid (TCA) cycle and respiratory electron transport	96	3	3	0.764	-0.028	0.056	0.731
-fastingglu_pwy1186_pc4	R-HSA-110313	Translesion synthesis by Y family DNA polymerases bypasses lesions on DNA template	96	3	3	0.616	-0.115	0.148	0.556
-fastingglu_pwy326_pc5	R-HSA-429947	Deadenylation of mRNA	73	3	3	0.565	0.103	0.189	0.654
-fastingglu_pwy327_pc4	R-HSA-429914	Deadenylation-dependent mRNA decay	15	3	3	0.776	0.027	0.05	0.734
-fastingglu_pwy453_pc5	R-HSA-909733	Interferon alpha/beta signaling	100	3	3	0.693	0.066	0.094	0.703
-fastingglu_pwy462_pc1	R-HSA-8983432	Interleukin-15 signaling	10	3	3	0.502	-0.193	0.248	0.423
-fastingglu_pwy560_pc3	R-HSA-1500620	Meiosis	179	3	3	0.385	-0.1	0.378	0.171
-fastingglu_pwy562_pc4	R-HSA-1221632	Meiotic synapsis	26	3	3	0.333	0.106	0.445	0.154
-fastingglu_pwy603_pc1	R-HSA-1362409	Mitochondrial iron-sulfur cluster biogenesis	77	3	3	0.67	0.064	0.109	0.699
-fastingglu_pwy604_pc1	R-HSA-1268020	Mitochondrial protein import	106	3	3	0.789	0.033	0.045	0.748
-fastingglu_pwy606_pc1	R-HSA-5368287	Mitochondrial translation	303	3	3	0.757	0.026	0.059	0.748
-fastingglu_pwy607_pc1	R-HSA-5389840	Mitochondrial translation elongation	42	3	3	0.733	0.03	0.071	0.745
-fastingglu_pwy608_pc1	R-HSA-5368286	Mitochondrial translation initiation	80	3	3	0.744	0.029	0.066	0.745
-fastingglu_pwy609_pc1	R-HSA-5419276	Mitochondrial translation termination	177	3	3	0.737	0.029	0.069	0.745
-fastingglu_pwy615_pc5	R-HSA-68877	Mitotic Prometaphase	12	3	3	0.387	0.093	0.376	0.255
-fastingglu_pwy616_pc3	R-HSA-68875	Mitotic Prophase	11	3	3	0.861	-0.017	0.019	0.92
-fastingglu_pwy621_pc2	R-HSA-947581	Molybdenum cofactor biosynthesis	39	3	3	0.789	-0.07	0.045	0.748
-fastingglu_pwy789_pc5	R-HSA-9033241	Peroxisomal protein import	52	3	3	0.754	0.061	0.06	0.734
-fastingglu_pwy917_pc1	R-HSA-77075	RNA Pol II CTD phosphorylation and interaction with CE	20	3	3	0.742	-0.067	0.067	0.745
-fastingglu_pwy918_pc1	R-HSA-167160	RNA Pol II CTD phosphorylation and interaction with CE during HIV infection	43	3	3	0.742	-0.067	0.067	0.745
-fastingglu_pwy941_pc5	R-HSA-73980	RNA Polymerase III Transcription Termination	52	3	3	0.712	0.066	0.083	0.734
+T2Dunadj_pwy327_pc4	R-HSA-429914	Deadenylation-dependent mRNA decay	34	4	4	0.255	0.1	0.397	0.224
+T2Dunadj_pwy387_pc5	R-HSA-9707616	Heme signaling	7	3	3	0.498	0.115	0.252	0.382
+T2Dunadj_pwy443_pc2	R-HSA-163685	Integration of energy metabolism	21	3	3	0.914	0.019	0.007	0.907
+T2Dunadj_pwy519_pc5	R-HSA-9613354	Lipophagy	23	4	4	0.777	-0.068	0.031	0.74
+T2Dunadj_pwy524_pc1	R-HSA-9022537	Loss of MECP2 binding ability to the NCoR/SMRT complex	13	4	4	0.291	0.178	0.352	0.223
+T2Dunadj_pwy526_pc1	R-HSA-9005891	Loss of function of MECP2 in Rett syndrome	12	3	3	0.028	-0.328	0.944	0.138
+T2Dunadj_pwy529_pc4	R-HSA-432720	Lysosome Vesicle Biogenesis	17	3	3	0.555	0.12	0.198	0.486
+T2Dunadj_pwy581_pc4	R-HSA-189445	Metabolism of porphyrins	798	3	3	0.372	-0.152	0.395	0.273
+T2Dunadj_pwy58_pc5	R-HSA-2980767	Activation of NIMA Kinases NEK9, NEK6, NEK7	9	3	3	0.007	0.328	0.987	0.014
+T2Dunadj_pwy617_pc5	R-HSA-69618	Mitotic Spindle Checkpoint	12	4	4	0.298	-0.114	0.344	0.24
+T2Dunadj_pwy622_pc1	R-HSA-2206281	Mucopolysaccharidoses	31	3	3	0.066	-0.295	0.872	0.203
+T2Dunadj_pwy633_pc5	R-HSA-975576	N-glycan antennae elongation in the medial/trans-Golgi	25	2	2	0.005	-0.197	1	0.002
+T2Dunadj_pwy790_pc1	R-HSA-9005895	Pervasive developmental disorders	9	3	3	0.028	-0.328	0.944	0.138
+T2Dunadj_pwy801_pc3	R-HSA-2393930	Phosphate bond hydrolysis by NUDT proteins	13	2	2	0	0.201	1	0
+T2Dunadj_pwy814_pc5	R-HSA-8963899	Plasma lipoprotein remodeling	16	3	3	0.71	-0.071	0.084	0.694
+T2Dunadj_pwy883_pc1	R-HSA-9648002	RAS processing	39	3	3	0.009	-0.279	0.981	0.03
+T2Dunadj_pwy888_pc5	R-HSA-5663220	RHO GTPases Activate Formins	6	5	5	0.498	-0.075	0.121	0.474
+T2Dunadj_pwy92_pc4	R-HSA-375280	Amine ligand-binding receptors	11	2	2	0.003	-0.247	1	0.003
+T2Dunadj_pwy952_pc3	R-HSA-8939243	RUNX1 interacts with co-factors whose precise effect on RUNX1 targets is not known	25	3	3	0.515	0.151	0.235	0.433
+T2Dunadj_pwy965_pc2	R-HSA-8941856	RUNX3 regulates NOTCH signaling	8	3	3	0.53	-0.129	0.221	0.42
+T2Dunadj_pwy984_pc4	R-HSA-418359	Reduction of cytosolic Ca++ levels	35	3	3	0.879	-0.028	0.015	0.891
+WHR_pwy1128_pc4	R-HSA-977068	Termination of O-glycan biosynthesis	54	3	3	0.009	-0.128	0.982	0.11
+WHR_pwy452_pc5	R-HSA-913531	Interferon Signaling	96	3	3	0.631	-0.023	0.136	0.593
+WHR_pwy454_pc4	R-HSA-877300	Interferon gamma signaling	96	3	3	0.741	0.021	0.067	0.795
+WHR_pwy552_pc1	R-HSA-165159	MTOR signalling	73	3	3	0.367	-0.109	0.4	0.28
+WHR_pwy69_pc3	R-HSA-451326	Activation of kainate receptors upon glutamate binding	15	3	3	0.009	0.164	0.982	0.09
+WHR_pwy815_pc3	R-HSA-75892	Platelet Adhesion to exposed collagen	100	3	3	0.709	-0.029	0.085	0.747
+bmi_pwy1255_pc1	R-HSA-2032785	YAP1- and WWTR1 (TAZ)-stimulated gene expression	10	3	3	0.042	0.213	0.917	0.065
+bmi_pwy589_pc4	R-HSA-5661231	Metallothioneins bind metals	179	4	4	0.169	-0.103	0.521	0.154
+bmi_pwy833_pc4	R-HSA-1296071	Potassium Channels	26	2	2	0.001	0.07	1	0.004
+fastingglu_pwy1097_pc3	R-HSA-5669034	TNFs bind their physiological receptors	77	3	3	0.895	0.023	0.011	0.804
+fastingglu_pwy109_pc4	R-HSA-109581	Apoptosis	106	3	3	0.795	0.04	0.042	0.741
+fastingglu_pwy1134_pc4	R-HSA-1428517	The citric acid (TCA) cycle and respiratory electron transport	303	3	3	0.764	-0.028	0.056	0.731
+fastingglu_pwy1186_pc4	R-HSA-110313	Translesion synthesis by Y family DNA polymerases bypasses lesions on DNA template	42	3	3	0.616	-0.115	0.148	0.556
+fastingglu_pwy326_pc5	R-HSA-429947	Deadenylation of mRNA	80	3	3	0.565	0.103	0.189	0.654
+fastingglu_pwy327_pc4	R-HSA-429914	Deadenylation-dependent mRNA decay	177	3	3	0.776	0.027	0.05	0.734
+fastingglu_pwy453_pc5	R-HSA-909733	Interferon alpha/beta signaling	12	3	3	0.693	0.066	0.094	0.703
+fastingglu_pwy462_pc1	R-HSA-8983432	Interleukin-15 signaling	11	3	3	0.502	-0.193	0.248	0.423
+fastingglu_pwy560_pc3	R-HSA-1500620	Meiosis	39	3	3	0.385	-0.1	0.378	0.171
+fastingglu_pwy562_pc4	R-HSA-1221632	Meiotic synapsis	52	3	3	0.333	0.106	0.445	0.154
+fastingglu_pwy603_pc1	R-HSA-1362409	Mitochondrial iron-sulfur cluster biogenesis	20	3	3	0.67	0.064	0.109	0.699
+fastingglu_pwy604_pc1	R-HSA-1268020	Mitochondrial protein import	43	3	3	0.789	0.033	0.045	0.748
+fastingglu_pwy606_pc1	R-HSA-5368287	Mitochondrial translation	52	3	3	0.757	0.026	0.059	0.748
+fastingglu_pwy607_pc1	R-HSA-5389840	Mitochondrial translation elongation	7	3	3	0.733	0.03	0.071	0.745
+fastingglu_pwy608_pc1	R-HSA-5368286	Mitochondrial translation initiation	294	3	3	0.744	0.029	0.066	0.745
+fastingglu_pwy609_pc1	R-HSA-5419276	Mitochondrial translation termination	10	3	3	0.737	0.029	0.069	0.745
+fastingglu_pwy615_pc5	R-HSA-68877	Mitotic Prometaphase	16	3	3	0.387	0.093	0.376	0.255
+fastingglu_pwy616_pc3	R-HSA-68875	Mitotic Prophase	39	3	3	0.861	-0.017	0.019	0.92
+fastingglu_pwy621_pc2	R-HSA-947581	Molybdenum cofactor biosynthesis	17	3	3	0.789	-0.07	0.045	0.748
+fastingglu_pwy741_pc1	R-HSA-5651801	PCNA-Dependent Long Patch Base Excision Repair	58	2	2	0.001	0.283	1	0
+fastingglu_pwy769_pc3	R-HSA-163767	PP2A-mediated dephosphorylation of key metabolic factors	6	2	2	0.002	-0.234	1	0
+fastingglu_pwy789_pc5	R-HSA-9033241	Peroxisomal protein import	67	3	3	0.754	0.061	0.06	0.734
+fastingglu_pwy917_pc1	R-HSA-77075	RNA Pol II CTD phosphorylation and interaction with CE	38	3	3	0.742	-0.067	0.067	0.745
+fastingglu_pwy918_pc1	R-HSA-167160	RNA Pol II CTD phosphorylation and interaction with CE during HIV infection	6	3	3	0.742	-0.067	0.067	0.745
+fastingglu_pwy941_pc5	R-HSA-73980	RNA Polymerase III Transcription Termination	63	3	3	0.712	0.066	0.083	0.734
 fastingglu_pwy998_pc4	R-HSA-877312	Regulation of IFNG signaling	7	3	3	0.749	-0.069	0.063	0.745

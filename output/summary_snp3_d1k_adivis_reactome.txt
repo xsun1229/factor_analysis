@@ -23,22 +23,24 @@ T2Dunadj_pwy331_pc4	R-HSA-5607761	Dectin-1 mediated noncanonical NF-kB signaling
 T2Dunadj_pwy645_pc4	R-HSA-5676590	NIK-->noncanonical NF-kB signaling	27	3	3	0.954	-0.006	0.002	0.964
 T2Dunadj_pwy75_pc5	R-HSA-1482798	Acyl chain remodeling of CL	10	3	3	0.648	0.099	0.124	0.636
 T2Dunadj_pwy82_pc5	R-HSA-170660	Adenylate cyclase activating pathway	12	5	5	0.085	0.152	0.564	0.081
-WHR_pwy173_pc5	R-HSA-389359	CD28 dependent Vav1 pathway	54	3	3	0.043	0.141	0.915	0.206
-bmi_pwy103_pc2	R-HSA-983170	Antigen Presentation: Folding, assembly and peptide loading of class I MHC	74	3	3	0.955	0.003	0.002	0.97
-bmi_pwy1101_pc4	R-HSA-5357786	TNFR1-induced proapoptotic signaling	14	3	3	0.027	0.146	0.946	0.104
-bmi_pwy1214_pc3	R-HSA-948021	Transport to the Golgi and subsequent modification	9	4	4	0.847	-0.007	0.015	0.804
-bmi_pwy159_pc2	R-HSA-446193	Biosynthesis of the N-glycan precursor (dolichol lipid-linked oligosaccharide, LLO) and transfer to a nascent protein	17	3	3	0.554	-0.033	0.199	0.499
-bmi_pwy179_pc3	R-HSA-5607763	CLEC7A (Dectin-1) induces NFAT activation	38	3	3	0.824	-0.027	0.031	0.853
-bmi_pwy185_pc3	R-HSA-204005	COPII-mediated vesicle transport	22	3	3	0.504	-0.039	0.246	0.424
-bmi_pwy234_pc2	R-HSA-380287	Centrosome maturation	23	4	4	0.088	0.111	0.676	0.148
-bmi_pwy276_pc2	R-HSA-5674400	Constitutive Signaling by AKT1 E17K in Cancer	16	3	3	0.612	0.036	0.15	0.555
-bmi_pwy317_pc3	R-HSA-2559586	DNA Damage/Telomere Stress Induced Senescence	11	3	3	0.004	0.069	0.991	0.019
-bmi_pwy472_pc3	R-HSA-9020956	Interleukin-27 signaling	32	3	3	0.039	0.135	0.923	0.145
-bmi_pwy746_pc2	R-HSA-4086400	PCP/CE pathway	6	3	3	0.512	-0.026	0.238	0.411
-bmi_pwy751_pc4	R-HSA-5654689	PI-3K cascade:FGFR1	11	3	3	0.852	0.011	0.022	0.836
+WHR_pwy138_pc4	R-HSA-111453	BH3-only proteins associate with and inactivate anti-apoptotic BCL-2 members	54	2	2	0.003	0.098	1	0.005
+WHR_pwy173_pc5	R-HSA-389359	CD28 dependent Vav1 pathway	74	3	3	0.043	0.141	0.915	0.206
+bmi_pwy103_pc2	R-HSA-983170	Antigen Presentation: Folding, assembly and peptide loading of class I MHC	14	3	3	0.955	0.003	0.002	0.97
+bmi_pwy1101_pc4	R-HSA-5357786	TNFR1-induced proapoptotic signaling	9	3	3	0.027	0.146	0.946	0.104
+bmi_pwy1214_pc3	R-HSA-948021	Transport to the Golgi and subsequent modification	17	4	4	0.847	-0.007	0.015	0.804
+bmi_pwy159_pc2	R-HSA-446193	Biosynthesis of the N-glycan precursor (dolichol lipid-linked oligosaccharide, LLO) and transfer to a nascent protein	38	3	3	0.554	-0.033	0.199	0.499
+bmi_pwy179_pc3	R-HSA-5607763	CLEC7A (Dectin-1) induces NFAT activation	22	3	3	0.824	-0.027	0.031	0.853
+bmi_pwy185_pc3	R-HSA-204005	COPII-mediated vesicle transport	23	3	3	0.504	-0.039	0.246	0.424
+bmi_pwy234_pc2	R-HSA-380287	Centrosome maturation	16	4	4	0.088	0.111	0.676	0.148
+bmi_pwy276_pc2	R-HSA-5674400	Constitutive Signaling by AKT1 E17K in Cancer	11	3	3	0.612	0.036	0.15	0.555
+bmi_pwy317_pc3	R-HSA-2559586	DNA Damage/Telomere Stress Induced Senescence	32	3	3	0.004	0.069	0.991	0.019
+bmi_pwy472_pc3	R-HSA-9020956	Interleukin-27 signaling	6	3	3	0.039	0.135	0.923	0.145
+bmi_pwy746_pc2	R-HSA-4086400	PCP/CE pathway	11	3	3	0.512	-0.026	0.238	0.411
+bmi_pwy751_pc4	R-HSA-5654689	PI-3K cascade:FGFR1	7	3	3	0.852	0.011	0.022	0.836
 bmi_pwy777_pc4	R-HSA-8849473	PTK6 Expression	7	3	3	0.681	0.062	0.102	0.667
-bmi_pwy963_pc4	R-HSA-8939236	RUNX1 regulates transcription of genes involved in differentiation of HSCs	7	5	5	0.812	0.005	0.016	0.801
-bmi_pwy972_pc5	R-HSA-8951430	RUNX3 regulates WNT signaling	9	3	3	0.566	-0.043	0.188	0.499
-bmi_pwy985_pc2	R-HSA-380320	Recruitment of NuMA to mitotic centrosomes	6	4	4	0.093	-0.106	0.664	0.148
-bmi_pwy986_pc2	R-HSA-380270	Recruitment of mitotic centrosome proteins and complexes	8	4	4	0.088	0.111	0.676	0.148
-fastingglu_pwy929_pc2	R-HSA-73762	RNA Polymerase I Transcription Initiation	41	3	3	0.922	0.012	0.006	0.902
+bmi_pwy963_pc4	R-HSA-8939236	RUNX1 regulates transcription of genes involved in differentiation of HSCs	9	5	5	0.812	0.005	0.016	0.801
+bmi_pwy972_pc5	R-HSA-8951430	RUNX3 regulates WNT signaling	6	3	3	0.566	-0.043	0.188	0.499
+bmi_pwy985_pc2	R-HSA-380320	Recruitment of NuMA to mitotic centrosomes	8	4	4	0.093	-0.106	0.664	0.148
+bmi_pwy986_pc2	R-HSA-380270	Recruitment of mitotic centrosome proteins and complexes	41	4	4	0.088	0.111	0.676	0.148
+fastingglu_pwy858_pc3	R-HSA-69183	Processive synthesis on the lagging strand	12	2	2	0.003	0.098	1	0
+fastingglu_pwy929_pc2	R-HSA-73762	RNA Polymerase I Transcription Initiation	24	3	3	0.922	0.012	0.006	0.902

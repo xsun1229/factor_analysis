@@ -16,35 +16,38 @@ LDL_pwy1259_pc1	R-HSA-2046106	alpha-linolenic acid (ALA) metabolism	89	3	3	0.083
 LDL_pwy147_pc4	R-HSA-425381	Bicarbonate transporters	25	3	3	0.957	0.004	0.002	0.965
 LDL_pwy2_pc3	R-HSA-1971475	A tetrasaccharide linker sequence is required for GAG synthesis	67	3	3	0.9	0.014	0.01	0.918
 LDL_pwy394_pc1	R-HSA-375281	Hormone ligand-binding receptors	75	3	3	0.912	0.018	0.008	0.926
-LDL_pwy554_pc4	R-HSA-9683673	Maturation of protein 3a	75	3	3	0.086	0.121	0.835	0.133
-LDL_pwy555_pc4	R-HSA-9694719	Maturation of protein 3a	73	3	3	0.086	0.121	0.835	0.133
+LDL_pwy40_pc2	R-HSA-5625886	Activated PKN1 stimulates transcription of AR (androgen receptor) regulated genes KLK2 and KLK3	75	2	2	0.002	-0.091	1	0.004
+LDL_pwy554_pc4	R-HSA-9683673	Maturation of protein 3a	73	3	3	0.086	0.121	0.835	0.133
+LDL_pwy555_pc4	R-HSA-9694719	Maturation of protein 3a	7	3	3	0.086	0.121	0.835	0.133
 LDL_pwy588_pc4	R-HSA-156581	Methylation	7	4	4	0.553	0.041	0.129	0.609
-LDL_pwy648_pc1	R-HSA-9029558	NR1H2 & NR1H3 regulate gene expression linked to lipogenesis	7	3	3	0.639	0.05	0.13	0.679
-LDL_pwy658_pc3	R-HSA-167590	Nef Mediated CD4 Down-regulation	27	3	3	0.033	-0.253	0.935	0.071
-LDL_pwy725_pc1	R-HSA-2559585	Oncogene Induced Senescence	10	3	3	0.065	-0.362	0.874	0.06
-LDL_pwy863_pc5	R-HSA-74259	Purine catabolism	12	3	3	0.519	0.035	0.231	0.498
-TC_pwy1020_pc2	R-HSA-1655829	Regulation of cholesterol biosynthesis by SREBP (SREBF)	53	3	3	0.782	-0.023	0.048	0.781
-TC_pwy1025_pc1	R-HSA-210745	Regulation of gene expression in beta cells	74	3	3	0.428	0.095	0.328	0.368
-TC_pwy1154_pc4	R-HSA-1362277	Transcription of E2F targets under negative control by DREAM complex	14	3	3	0.533	-0.046	0.218	0.507
-TC_pwy147_pc4	R-HSA-425381	Bicarbonate transporters	9	3	3	0.89	0.011	0.012	0.919
-TC_pwy198_pc5	R-HSA-419812	Calcitonin-like ligand receptors	17	3	3	0.534	0.107	0.217	0.463
-TC_pwy2_pc3	R-HSA-1971475	A tetrasaccharide linker sequence is required for GAG synthesis	38	4	4	0.496	0.089	0.166	0.525
-TC_pwy321_pc2	R-HSA-5334118	DNA methylation	22	3	3	0.726	0.022	0.075	0.755
-TC_pwy343_pc3	R-HSA-3656253	Defective EXT1 causes exostoses 1, TRPS2 and CHDS	23	3	3	0.974	-0.003	0.001	0.985
-TC_pwy344_pc3	R-HSA-3656237	Defective EXT2 causes exostoses 2	13	3	3	0.974	-0.003	0.001	0.985
-TC_pwy355_pc3	R-HSA-3296469	Defects in cobalamin (B12) metabolism	11	3	3	0.695	0.052	0.093	0.686
-TC_pwy356_pc4	R-HSA-3296482	Defects in vitamin and cofactor metabolism	31	3	3	0.782	-0.038	0.048	0.826
-TC_pwy394_pc1	R-HSA-375281	Hormone ligand-binding receptors	9	3	3	0.885	0.022	0.013	0.915
-TC_pwy554_pc4	R-HSA-9683673	Maturation of protein 3a	7	3	3	0.095	0.109	0.819	0.098
-TC_pwy555_pc4	R-HSA-9694719	Maturation of protein 3a	6	3	3	0.095	0.109	0.819	0.098
-TC_pwy627_pc4	R-HSA-3785653	Myoclonic epilepsy of Lafora	8	3	3	0.448	0.165	0.305	0.396
-TC_pwy794_pc4	R-HSA-211945	Phase I - Functionalization of compounds	40	3	2	0.029	-0.07	0.943	0.087
-TC_pwy948_pc2	R-HSA-444257	RSK activation	8	3	3	0.798	-0.029	0.041	0.824
-TG_pwy207_pc2	R-HSA-200425	Carnitine metabolism	26	3	3	0.848	-0.008	0.023	0.886
-TG_pwy374_pc2	R-HSA-167161	HIV Transcription Initiation	76	3	3	0.693	-0.052	0.094	0.729
-TG_pwy619_pc5	R-HSA-2206281	Mucopolysaccharidoses	38	3	3	0.439	-0.113	0.314	0.355
-TG_pwy923_pc2	R-HSA-167162	RNA Polymerase II HIV Promoter Escape	15	3	3	0.693	-0.052	0.094	0.729
-TG_pwy925_pc2	R-HSA-73776	RNA Polymerase II Promoter Escape	31	3	3	0.693	-0.052	0.094	0.729
-TG_pwy928_pc2	R-HSA-75953	RNA Polymerase II Transcription Initiation	7	3	3	0.693	-0.052	0.094	0.729
-TG_pwy929_pc2	R-HSA-76042	RNA Polymerase II Transcription Initiation And Promoter Clearance	7	3	3	0.693	-0.052	0.094	0.729
-TG_pwy930_pc2	R-HSA-73779	RNA Polymerase II Transcription Pre-Initiation And Promoter Opening	23	3	3	0.693	-0.052	0.094	0.729
+LDL_pwy648_pc1	R-HSA-9029558	NR1H2 & NR1H3 regulate gene expression linked to lipogenesis	27	3	3	0.639	0.05	0.13	0.679
+LDL_pwy658_pc3	R-HSA-167590	Nef Mediated CD4 Down-regulation	10	3	3	0.033	-0.253	0.935	0.071
+LDL_pwy725_pc1	R-HSA-2559585	Oncogene Induced Senescence	12	3	3	0.065	-0.362	0.874	0.06
+LDL_pwy863_pc5	R-HSA-74259	Purine catabolism	53	3	3	0.519	0.035	0.231	0.498
+TC_pwy1020_pc2	R-HSA-1655829	Regulation of cholesterol biosynthesis by SREBP (SREBF)	74	3	3	0.782	-0.023	0.048	0.781
+TC_pwy1025_pc1	R-HSA-210745	Regulation of gene expression in beta cells	14	3	3	0.428	0.095	0.328	0.368
+TC_pwy1154_pc4	R-HSA-1362277	Transcription of E2F targets under negative control by DREAM complex	9	3	3	0.533	-0.046	0.218	0.507
+TC_pwy147_pc4	R-HSA-425381	Bicarbonate transporters	17	3	3	0.89	0.011	0.012	0.919
+TC_pwy198_pc5	R-HSA-419812	Calcitonin-like ligand receptors	38	3	3	0.534	0.107	0.217	0.463
+TC_pwy2_pc3	R-HSA-1971475	A tetrasaccharide linker sequence is required for GAG synthesis	22	4	4	0.496	0.089	0.166	0.525
+TC_pwy321_pc2	R-HSA-5334118	DNA methylation	23	3	3	0.726	0.022	0.075	0.755
+TC_pwy343_pc3	R-HSA-3656253	Defective EXT1 causes exostoses 1, TRPS2 and CHDS	13	3	3	0.974	-0.003	0.001	0.985
+TC_pwy344_pc3	R-HSA-3656237	Defective EXT2 causes exostoses 2	11	3	3	0.974	-0.003	0.001	0.985
+TC_pwy355_pc3	R-HSA-3296469	Defects in cobalamin (B12) metabolism	31	3	3	0.695	0.052	0.093	0.686
+TC_pwy356_pc4	R-HSA-3296482	Defects in vitamin and cofactor metabolism	9	3	3	0.782	-0.038	0.048	0.826
+TC_pwy394_pc1	R-HSA-375281	Hormone ligand-binding receptors	7	3	3	0.885	0.022	0.013	0.915
+TC_pwy554_pc4	R-HSA-9683673	Maturation of protein 3a	6	3	3	0.095	0.109	0.819	0.098
+TC_pwy555_pc4	R-HSA-9694719	Maturation of protein 3a	8	3	3	0.095	0.109	0.819	0.098
+TC_pwy627_pc4	R-HSA-3785653	Myoclonic epilepsy of Lafora	40	3	3	0.448	0.165	0.305	0.396
+TC_pwy794_pc4	R-HSA-211945	Phase I - Functionalization of compounds	8	3	2	0.029	-0.07	0.943	0.087
+TC_pwy948_pc2	R-HSA-444257	RSK activation	26	3	3	0.798	-0.029	0.041	0.824
+TG_pwy156_pc1	R-HSA-446193	Biosynthesis of the N-glycan precursor (dolichol lipid-linked oligosaccharide, LLO) and transfer to a nascent protein	76	2	1	0.004	0.06	1	0.006
+TG_pwy207_pc2	R-HSA-200425	Carnitine metabolism	38	3	3	0.848	-0.008	0.023	0.886
+TG_pwy374_pc2	R-HSA-167161	HIV Transcription Initiation	15	3	3	0.693	-0.052	0.094	0.729
+TG_pwy389_pc5	R-HSA-5387390	Hh mutants abrogate ligand secretion	31	2	2	0.003	-0.089	1	0.007
+TG_pwy619_pc5	R-HSA-2206281	Mucopolysaccharidoses	7	3	3	0.439	-0.113	0.314	0.355
+TG_pwy923_pc2	R-HSA-167162	RNA Polymerase II HIV Promoter Escape	7	3	3	0.693	-0.052	0.094	0.729
+TG_pwy925_pc2	R-HSA-73776	RNA Polymerase II Promoter Escape	23	3	3	0.693	-0.052	0.094	0.729
+TG_pwy928_pc2	R-HSA-75953	RNA Polymerase II Transcription Initiation	34	3	3	0.693	-0.052	0.094	0.729
+TG_pwy929_pc2	R-HSA-76042	RNA Polymerase II Transcription Initiation And Promoter Clearance	93	3	3	0.693	-0.052	0.094	0.729
+TG_pwy930_pc2	R-HSA-73779	RNA Polymerase II Transcription Pre-Initiation And Promoter Opening	19	3	3	0.693	-0.052	0.094	0.729
