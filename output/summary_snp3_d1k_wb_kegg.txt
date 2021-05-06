@@ -1,105 +1,72 @@
 factor	pwy	pwy_name	pwy_gene_num	num_snp_fdr.0.2	num_snp_noMHC	pval_in_fitting	slope_in_fitting	rsq_in_fitting	pval_in_resampling
-EUR.IBD_pwy131_pc4	04120	Ubiquitin mediated proteolysis	74	3	3	0.299	0.336	0.491	0.288
-EUR.IBD_pwy154_pc3	04270	Vascular smooth muscle contraction	32	3	3	0.646	-0.141	0.125	0.687
-EUR.IBD_pwy159_pc2	04360	Axon guidance	32	3	3	0	-0.81	0.999	0.001
-EUR.IBD_pwy171_pc1	04550	Signaling pathways regulating pluripotency of stem cells	37	3	3	0.493	-0.458	0.257	0.504
-EUR.IBD_pwy218_pc1	04916	Melanogenesis	35	4	4	0.445	-0.558	0.204	0.437
-EUR.IBD_pwy226_pc3	04924	Renin secretion	34	3	3	0.594	-0.212	0.165	0.654
-EUR.IBD_pwy2_pc1	00020	Citrate cycle (TCA cycle)	30	3	3	0.261	1.267	0.546	0.265
-EUR.IBD_pwy307_pc1	05217	Basal cell carcinoma	25	4	4	0.012	-1.039	0.91	0.113
-EUR.IBD_pwy66_pc5	00630	Glyoxylate and dicarboxylate metabolism	34	3	3	0.51	0.256	0.24	0.342
-EUR.IBD_pwy67_pc1	00640	Propanoate metabolism	44	3	3	0.053	-2.872	0.896	0.086
-EUR.IBD_pwy99_pc4	03022	Basal transcription factors	11	4	4	0.41	0.33	0.233	0.408
-EUR.UC_pwy99_pc4	03022	Basal transcription factors	22	3	3	0.003	0.818	0.995	0.012
-HDL_pwy194_pc1	04710	Circadian rhythm	18	3	3	0.014	-0.233	0.972	0.037
-LDL_pwy118_pc3	04060	Cytokine-cytokine receptor interaction	11	3	3	0.551	0.143	0.201	0.527
-LDL_pwy284_pc4	05161	Hepatitis B	74	3	2	0.468	0.098	0.283	0.458
-SCZ_pwy101_pc3	03040	Spliceosome	158	3	3	0.935	-0.017	0.004	0.962
-SCZ_pwy168_pc2	04520	Adherens junction	21	4	4	0.734	0.145	0.044	0.742
-SCZ_pwy183_pc5	04650	Natural killer cell mediated cytotoxicity	137	3	3	0.031	0.266	0.939	0.199
-SCZ_pwy228_pc5	04926	Relaxin signaling pathway	5	3	3	0.004	-0.354	0.993	0.036
-SCZ_pwy255_pc3	05010	Alzheimer disease	57	3	3	0.005	-0.22	0.99	0.067
-SCZ_pwy310_pc5	05220	Chronic myeloid leukemia	36	3	3	0.332	0.203	0.446	0.269
-SCZ_pwy55_pc2	00563	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	40	4	4	0.515	-0.208	0.153	0.536
-SCZ_pwy65_pc4	00620	Pyruvate metabolism	51	3	3	0.987	0.007	0	0.993
-SCZ_pwy90_pc5	01523	Antifolate resistance	50	4	4	0.833	0.05	0.017	0.742
-T1D_pwy10_pc1	00071	Fatty acid degradation	4	5	5	0.104	-1.142	0.523	0.078
-T1D_pwy132_pc3	04122	Sulfur relay system	67	3	3	0.462	0.719	0.29	0.395
-T1D_pwy84_pc1	00980	Metabolism of xenobiotics by cytochrome P450	51	3	3	0.897	-0.051	0.011	0.912
-T2Dbmiadj_pwy102_pc3	03050	Proteasome	24	4	4	0.361	0.21	0.279	0.361
-T2Dbmiadj_pwy106_pc2	03420	Nucleotide excision repair	38	3	3	0.713	0.114	0.082	0.735
-T2Dbmiadj_pwy134_pc3	04136	Autophagy - other	18	3	3	0.629	0.178	0.138	0.603
-T2Dbmiadj_pwy140_pc5	04145	Phagosome	44	3	3	0.005	0.162	0.99	0.035
-T2Dbmiadj_pwy283_pc3	05160	Hepatitis C	5	5	5	0.486	-0.086	0.128	0.491
-T2Dbmiadj_pwy287_pc3	05164	Influenza A	31	3	2	0.009	0.175	0.982	0.037
-T2Dbmiadj_pwy304_pc3	05214	Glioma	13	3	3	0.468	-0.159	0.283	0.365
-T2Dbmiadj_pwy322_pc4	05321	Inflammatory bowel disease	6	3	2	0.197	0.189	0.645	0.22
-T2Dunadj_pwy145_pc3	04210	Apoptosis	18	3	2	0.011	0.308	0.979	0.056
-T2Dunadj_pwy279_pc1	05145	Toxoplasmosis	5	3	3	0.682	-0.09	0.101	0.698
-T2Dunadj_pwy287_pc3	05164	Influenza A	1	4	3	0.001	0.15	0.983	0.003
-T2Dunadj_pwy322_pc4	05321	Inflammatory bowel disease	61	3	2	0.246	0.146	0.569	0.235
-T2Dunadj_pwy36_pc2	00450	Selenocompound metabolism	40	3	3	0.404	0.211	0.355	0.334
-T2Dunadj_pwy3_pc2	00030	Pentose phosphate pathway	53	3	3	0.618	0.149	0.146	0.587
-TC_pwy149_pc3	04216	Ferroptosis	27	3	2	0.783	-0.06	0.047	0.799
-TC_pwy159_pc2	04360	Axon guidance	31	3	3	0.462	-0.265	0.289	0.344
-TC_pwy236_pc2	04934	Cushing syndrome	42	3	3	0.035	-0.356	0.931	0.098
-TC_pwy284_pc4	05161	Hepatitis B	46	3	2	0.557	0.079	0.197	0.518
-TC_pwy3_pc4	00030	Pentose phosphate pathway	24	3	3	0.016	-0.222	0.967	0.077
-TG_pwy13_pc2	00120	Primary bile acid biosynthesis	50	3	2	0.001	-0.144	0.997	0
-TG_pwy147_pc4	04213	Longevity regulating pathway - multiple species	5	3	3	0.811	0.039	0.036	0.861
-TG_pwy23_pc3	00270	Cysteine and methionine metabolism	19	3	3	0.083	-0.276	0.841	0.139
-TG_pwy241_pc5	04961	Endocrine and other factor-regulated calcium reabsorption	21	3	3	0.825	0.034	0.031	0.857
-TG_pwy320_pc3	05310	Asthma	14	3	1	0.351	-0.044	0.421	0.446
-TG_pwy44_pc5	00513	Various types of N-glycan biosynthesis	25	3	3	0.76	-0.042	0.058	0.823
-TG_pwy60_pc5	00592	alpha-Linolenic acid metabolism	71	3	3	0.02	-0.207	0.961	0.077
-WHR_pwy287_pc3	05164	Influenza A	80	3	3	0.002	-0.062	0.995	0.031
-asthma_2_pwy107_pc5	26	26	26	3	3	0.58	1.432	0.177	0.609
-bmi_pwy118_pc2	04060	Cytokine-cytokine receptor interaction	118	3	3	0.502	-0.026	0.248	0.424
-bmi_pwy119_pc2	04061	Viral protein interaction with cytokine and cytokine receptor	49	3	3	0.487	-0.035	0.263	0.419
-eo_pwy174_pc2	04612	Antigen processing and presentation	70	3	3	0.033	0.093	0.935	0.08
-eo_pwy287_pc3	05164	Influenza A	30	3	3	0.047	-0.092	0.907	0.132
-eo_pwy292_pc3	05169	Epstein-Barr virus infection	26	5	5	0.001	0.092	0.951	0.002
-eo_pwy326_pc2	05332	Graft-versus-host disease	57	3	3	0.021	0.103	0.959	0.048
-gran_pwy127_pc2	04080	Neuroactive ligand-receptor interaction	29	6	6	0.996	0	0	0.995
-gran_pwy132_pc2	04122	Sulfur relay system	15	3	3	0.748	-0.05	0.063	0.767
-gran_pwy163_pc1	04390	Hippo signaling pathway	20	3	3	0.614	0.057	0.149	0.587
-gran_pwy251_pc5	04976	Bile secretion	43	3	3	0.606	-0.066	0.156	0.575
-gran_pwy322_pc1	05321	Inflammatory bowel disease	30	3	3	0.668	-0.047	0.11	0.636
-height_pwy126_pc5	04072	Phospholipase D signaling pathway	35	3	3	0.036	0.058	0.93	0.09
-height_pwy260_pc2	05020	Prion disease	29	3	3	0.425	0.031	0.331	0.418
-height_pwy47_pc4	00520	Amino sugar and nucleotide sugar metabolism	22	3	3	0.788	-0.021	0.045	0.8
-lymph_pwy157_pc4	04340	Hedgehog signaling pathway	17	3	3	0.15	-0.21	0.722	0.225
-lymph_pwy157_pc5	04340	Hedgehog signaling pathway	8	5	5	0.998	0	0	0.999
-lymph_pwy203_pc5	04726	Serotonergic synapse	6	3	3	0.398	0.063	0.363	0.334
-lymph_pwy250_pc1	04975	Fat digestion and absorption	39	3	3	0.77	0.013	0.053	0.804
-lymph_pwy271_pc4	05132	Salmonella infection	20	3	3	0.471	-0.138	0.28	0.315
-lymph_pwy282_pc2	05152	Tuberculosis	3	3	3	0.441	-0.109	0.313	0.312
-lymph_pwy291_pc4	05168	Herpes simplex virus 1 infection	4	3	3	0.012	0.092	0.976	0.051
-lymph_pwy52_pc3	00534	Glycosaminoglycan biosynthesis - heparan sulfate / heparin	26	3	3	0.763	-0.037	0.056	0.783
-myeloid_wbc_pwy127_pc2	75	75	75	3	3	0.373	-0.076	0.393	0.305
-myeloid_wbc_pwy132_pc2	47	47	47	3	3	0.643	-0.083	0.128	0.634
-myeloid_wbc_pwy251_pc5	22	22	22	3	3	0.576	-0.076	0.18	0.523
-neut_pwy127_pc2	04080	Neuroactive ligand-receptor interaction	17	6	6	0.91	0.006	0.003	0.908
-plt_pwy104_pc4	03320	PPAR signaling pathway	10	3	3	0.27	0.082	0.533	0.248
-plt_pwy113_pc4	04014	Ras signaling pathway	84	3	3	0.661	0.047	0.115	0.675
-plt_pwy141_pc4	04146	Peroxisome	99	3	2	0.66	-0.03	0.116	0.675
-plt_pwy16_pc2	00190	Oxidative phosphorylation	95	3	3	0.204	-0.253	0.634	0.197
-plt_pwy22_pc3	00260	Glycine, serine and threonine metabolism	85	3	3	0.074	-0.203	0.857	0.173
-plt_pwy23_pc5	00270	Cysteine and methionine metabolism	28	4	3	0.319	-0.067	0.321	0.281
-plt_pwy24_pc4	00280	Valine, leucine and isoleucine degradation	82	3	2	0.51	0.095	0.24	0.44
-plt_pwy82_pc4	00920	Sulfur metabolism	128	3	3	0.573	0.065	0.182	0.534
-plt_pwy87_pc5	01040	Biosynthesis of unsaturated fatty acids	40	3	3	0.545	0.055	0.207	0.517
-rbc_pwy175_pc4	04614	Renin-angiotensin system	76	4	4	0.148	0.099	0.556	0.132
-rbc_pwy176_pc3	04620	Toll-like receptor signaling pathway	63	3	3	0.023	0.145	0.954	0.06
-ukb.allasthma_pwy152_pc2	04260	Cardiac muscle contraction	114	3	3	0.001	-0.15	0.999	0.001
-ukb.allasthma_pwy241_pc3	04961	Endocrine and other factor-regulated calcium reabsorption	171	3	3	0.65	0.099	0.122	0.642
-ukb.allasthma_pwy280_pc5	05146	Amoebiasis	201	3	3	0.349	0.249	0.424	0.269
-ukb.allasthma_pwy307_pc2	05217	Basal cell carcinoma	101	3	3	0.01	0.285	0.98	0.05
-wbc_pwy102_pc3	03050	Proteasome	96	3	3	0.562	0.078	0.192	0.523
-wbc_pwy148_pc3	04215	Apoptosis - multiple species	42	3	3	0	-0.137	1	0.002
-wbc_pwy179_pc2	04623	Cytosolic DNA-sensing pathway	59	4	4	0.854	-0.024	0.013	0.828
-wbc_pwy254_pc4	04979	Cholesterol metabolism	38	3	3	0.914	0.008	0.007	0.937
-wbc_pwy278_pc1	05144	Malaria	184	3	3	0.008	-0.212	0.984	0.049
-wbc_pwy57_pc5	00565	Ether lipid metabolism	64	3	3	0.709	-0.037	0.085	0.746
-wbc_pwy66_pc3	00630	Glyoxylate and dicarboxylate metabolism	23	4	4	0.001	-0.098	0.987	0.013
-wbc_pwy71_pc5	00740	Riboflavin metabolism	82	3	3	0.788	0.043	0.045	0.834
+EUR.CD_pwy164_pc2	04392	Hippo signaling pathway - multiple species	74	2	1	0.018	-0.859	0.999	0.005
+EUR.IBD_pwy131_pc4	04120	Ubiquitin mediated proteolysis	32	3	3	0.299	0.336	0.491	0.288
+EUR.IBD_pwy152_pc1	04260	Cardiac muscle contraction	32	2	2	0.021	-0.353	0.999	0.002
+EUR.IBD_pwy154_pc3	04270	Vascular smooth muscle contraction	37	3	3	0.646	-0.141	0.125	0.687
+EUR.IBD_pwy159_pc2	04360	Axon guidance	35	3	3	0	-0.81	0.999	0.001
+EUR.IBD_pwy171_pc1	04550	Signaling pathways regulating pluripotency of stem cells	34	3	3	0.493	-0.458	0.257	0.504
+EUR.IBD_pwy218_pc1	04916	Melanogenesis	30	4	4	0.445	-0.558	0.204	0.437
+EUR.IBD_pwy226_pc3	04924	Renin secretion	25	3	3	0.594	-0.212	0.165	0.654
+EUR.IBD_pwy296_pc1	05203	Viral carcinogenesis	34	2	2	0.039	0.567	0.996	0.009
+EUR.IBD_pwy2_pc1	00020	Citrate cycle (TCA cycle)	44	3	3	0.261	1.267	0.546	0.265
+EUR.IBD_pwy302_pc2	05212	Pancreatic cancer	11	2	2	0.001	0.932	1	0.001
+EUR.IBD_pwy307_pc1	05217	Basal cell carcinoma	22	4	4	0.012	-1.039	0.91	0.113
+EUR.IBD_pwy328_pc1	05410	Hypertrophic cardiomyopathy	18	2	2	0.018	0.61	0.999	0.007
+EUR.IBD_pwy330_pc1	05414	Dilated cardiomyopathy	11	2	2	0.014	0.523	0.999	0.007
+EUR.IBD_pwy66_pc5	00630	Glyoxylate and dicarboxylate metabolism	74	3	3	0.51	0.256	0.24	0.342
+EUR.IBD_pwy67_pc1	00640	Propanoate metabolism	158	3	3	0.053	-2.872	0.896	0.086
+EUR.IBD_pwy99_pc4	03022	Basal transcription factors	21	4	4	0.41	0.33	0.233	0.408
+EUR.UC_pwy99_pc4	03022	Basal transcription factors	137	3	3	0.003	0.818	0.995	0.012
+T1D_pwy10_pc1	00071	Fatty acid degradation	5	5	5	0.104	-1.142	0.523	0.078
+T1D_pwy132_pc3	04122	Sulfur relay system	57	3	3	0.462	0.719	0.29	0.395
+T1D_pwy84_pc1	00980	Metabolism of xenobiotics by cytochrome P450	36	3	3	0.897	-0.051	0.011	0.912
+eo_pwy174_pc2	04612	Antigen processing and presentation	40	3	3	0.033	0.093	0.935	0.08
+eo_pwy287_pc3	05164	Influenza A	51	3	3	0.047	-0.092	0.907	0.132
+eo_pwy292_pc3	05169	Epstein-Barr virus infection	50	5	5	0.001	0.092	0.951	0.002
+eo_pwy326_pc2	05332	Graft-versus-host disease	4	3	3	0.021	0.103	0.959	0.048
+gran_pwy127_pc2	04080	Neuroactive ligand-receptor interaction	67	6	6	0.996	0	0	0.995
+gran_pwy132_pc2	04122	Sulfur relay system	51	3	3	0.748	-0.05	0.063	0.767
+gran_pwy163_pc1	04390	Hippo signaling pathway	24	3	3	0.614	0.057	0.149	0.587
+gran_pwy251_pc5	04976	Bile secretion	38	3	3	0.606	-0.066	0.156	0.575
+gran_pwy322_pc1	05321	Inflammatory bowel disease	18	3	3	0.668	-0.047	0.11	0.636
+lymph_pwy157_pc4	04340	Hedgehog signaling pathway	44	3	3	0.15	-0.21	0.722	0.225
+lymph_pwy157_pc5	04340	Hedgehog signaling pathway	5	5	5	0.998	0	0	0.999
+lymph_pwy203_pc5	04726	Serotonergic synapse	31	3	3	0.398	0.063	0.363	0.334
+lymph_pwy250_pc1	04975	Fat digestion and absorption	13	3	3	0.77	0.013	0.053	0.804
+lymph_pwy271_pc4	05132	Salmonella infection	6	3	3	0.471	-0.138	0.28	0.315
+lymph_pwy282_pc2	05152	Tuberculosis	18	3	3	0.441	-0.109	0.313	0.312
+lymph_pwy291_pc4	05168	Herpes simplex virus 1 infection	5	3	3	0.012	0.092	0.976	0.051
+lymph_pwy52_pc3	00534	Glycosaminoglycan biosynthesis - heparan sulfate / heparin	1	3	3	0.763	-0.037	0.056	0.783
+myeloid_wbc_pwy127_pc2	61	61	61	3	3	0.373	-0.076	0.393	0.305
+myeloid_wbc_pwy132_pc2	40	40	40	3	3	0.643	-0.083	0.128	0.634
+myeloid_wbc_pwy251_pc5	53	53	53	3	3	0.576	-0.076	0.18	0.523
+neut_pwy127_pc2	04080	Neuroactive ligand-receptor interaction	27	6	6	0.91	0.006	0.003	0.908
+plt_pwy104_pc4	03320	PPAR signaling pathway	31	3	3	0.27	0.082	0.533	0.248
+plt_pwy113_pc4	04014	Ras signaling pathway	42	3	3	0.661	0.047	0.115	0.675
+plt_pwy141_pc4	04146	Peroxisome	46	3	2	0.66	-0.03	0.116	0.675
+plt_pwy16_pc2	00190	Oxidative phosphorylation	24	3	3	0.204	-0.253	0.634	0.197
+plt_pwy22_pc3	00260	Glycine, serine and threonine metabolism	50	3	3	0.074	-0.203	0.857	0.173
+plt_pwy23_pc5	00270	Cysteine and methionine metabolism	5	4	3	0.319	-0.067	0.321	0.281
+plt_pwy24_pc4	00280	Valine, leucine and isoleucine degradation	19	3	2	0.51	0.095	0.24	0.44
+plt_pwy254_pc2	04979	Cholesterol metabolism	21	2	2	0.001	-0.114	1	0.002
+plt_pwy82_pc4	00920	Sulfur metabolism	14	3	3	0.573	0.065	0.182	0.534
+plt_pwy87_pc5	01040	Biosynthesis of unsaturated fatty acids	25	3	3	0.545	0.055	0.207	0.517
+rbc_pwy175_pc4	04614	Renin-angiotensin system	71	4	4	0.148	0.099	0.556	0.132
+rbc_pwy176_pc3	04620	Toll-like receptor signaling pathway	80	3	3	0.023	0.145	0.954	0.06
+ukb.allasthma_pwy115_pc1	04020	Calcium signaling pathway	26	2	2	0.01	-0.302	1	0.005
+ukb.allasthma_pwy152_pc2	04260	Cardiac muscle contraction	118	3	3	0.001	-0.15	0.999	0.001
+ukb.allasthma_pwy153_pc3	04261	Adrenergic signaling in cardiomyocytes	49	2	2	0.028	0.124	0.998	0.009
+ukb.allasthma_pwy241_pc3	04961	Endocrine and other factor-regulated calcium reabsorption	70	3	3	0.65	0.099	0.122	0.642
+ukb.allasthma_pwy280_pc5	05146	Amoebiasis	30	3	3	0.349	0.249	0.424	0.269
+ukb.allasthma_pwy307_pc2	05217	Basal cell carcinoma	26	3	3	0.01	0.285	0.98	0.05
+ukb.allasthma_pwy328_pc2	05410	Hypertrophic cardiomyopathy	57	2	2	0.02	0.112	0.999	0.007
+ukb.allasthma_pwy329_pc3	05412	Arrhythmogenic right ventricular cardiomyopathy	29	2	2	0.017	-0.157	0.999	0.004
+ukb.allasthma_pwy330_pc2	05414	Dilated cardiomyopathy	15	2	2	0.034	0.121	0.997	0.009
+wbc_pwy102_pc3	03050	Proteasome	20	3	3	0.562	0.078	0.192	0.523
+wbc_pwy148_pc3	04215	Apoptosis - multiple species	43	3	3	0	-0.137	1	0.002
+wbc_pwy179_pc2	04623	Cytosolic DNA-sensing pathway	30	4	4	0.854	-0.024	0.013	0.828
+wbc_pwy254_pc4	04979	Cholesterol metabolism	35	3	3	0.914	0.008	0.007	0.937
+wbc_pwy278_pc1	05144	Malaria	29	3	3	0.008	-0.212	0.984	0.049
+wbc_pwy57_pc5	00565	Ether lipid metabolism	22	3	3	0.709	-0.037	0.085	0.746
+wbc_pwy66_pc3	00630	Glyoxylate and dicarboxylate metabolism	17	4	4	0.001	-0.098	0.987	0.013
+wbc_pwy71_pc5	00740	Riboflavin metabolism	8	3	3	0.788	0.043	0.045	0.834
