@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Dataset 
+## **Dataset** 
 
 We used CEDAR genotype and transcriptome dataset from [E-MTAB-6666](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6666/) and [E-MTAB-6667](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6667/)
 
@@ -28,3 +28,8 @@ We used CEDAR genotype and transcriptome dataset from [E-MTAB-6666](https://www.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_sum2.png" width="100%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_sum3.png" width="100%">
 </figure>
+
+
+## **Details for Thymocyte - Reactome**
+
+## **Details for Thymocyte - KEGG**

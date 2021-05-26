@@ -1,0 +1,78 @@
+---
+title: "Studying effects of PCs on phenotypes (REACTOME) – After regressing out 5 GTEx PEER factors, 'AND' LD Clumping(r2 = 0.1, d= 1Mb), CEDAR_thymocyte"
+author: "XSun"
+date: "2021-05-26"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## **Introduction**
+
+The traits here are 14 immune traits: T1D, allergy, ukb.allasthma, platelet count (plt), white blood cell count(wbc), myeloid white cell count (myeloid wbc), lymphocyte count(lymph), red blood cell count(wbc), granulocyte count(gran), eosinophil count(eo), neutrophil count (neut), EUR.CD, EUR.IBD, EUR.UC
+
+## **Candidate SNPs**
+
+1: Use PLINK to do the preliminary filter: in 1Mb block,the SNPs have LD R2 > 0.1 will be filtered by their p-values
+
+2: Use my own codes to filter the SNPs in a block by their p-values.
+
+3: We need to compute the LD R2 for the remaining SNPs, for the SNP pairs have R2 > 0.1, filter them again according their p-values. 
+
+## **REACTOME**
+
+In this part, we inferred 5995 PCs from 1199 REACTOME pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set. 
+
+### Effectsize analysis -- effect size fitting
+
+For the pairs have more than 2 SNPs with FDR <0.2 (1667 pairs), we tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 291 pairs show sign consistency (have p-values < 0.05 in resampling, 3.49 fold enrichment). There are 47 pairs at p-value < 0.01, 2.82 fold enrichment). 
+
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cedar_thy_reactome.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_cedar_thy_reactome.jpeg" width="80%">
+</figure>
+
+### Pathway details for the pairs have > 3 SNPs and the pairs have 2 SNPs && pval < 0.01
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar_thy_reactome.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+## **KEGG**
+
+In this part, we inferred 1655 PCs from 331 KEGG pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set. 
+
+### Effectsize analysis -- effect size fitting
+
+For the pairs have more than 2 SNPs with FDR <0.2 (461 pairs), we tested the effectsize correlation(effect size in GWAS and effect size in factos-association). We fitted the effectsize using: effectsize in GWAS ~ 0 +effectsize in factor-association. We recorded the p-values and r-squareds in the fitting.
+
+To make our results more reliable, we did resampling. We resampled the SNPs without replacement and fitted the points with intercept = 0 again and recorded the r-squareds to compute the p-values in resampling. The 'p-value from resampling' is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+There are 84 pairs show sign consistency (have p-values < 0.05 in resampling, 3.64 fold enrichment). There are 17 pairs at p-value < 0.01, 3.68 fold enrichment). 
+
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cedar_thy_kegg.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_0.2_cedar_thy_kegg.jpeg" width="80%">
+</figure>
+
+### Pathway details for the pairs have > 3 SNPs and the pairs have 2 SNPs && pval < 0.01
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar_thy_kegg.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
