@@ -1,0 +1,30 @@
+---
+title:  "Comparing the enrichments under different settings_ CEADR"
+author: "XSun"
+date: "2021-05-25"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Dataset 
+
+We used CEDAR genotype and transcriptome dataset from [E-MTAB-6666](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6666/) and [E-MTAB-6667](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6667/)
+
+| Cell Type | Sample Size | Gene number | Probe number |
+| --------- | ----------- | ----------- | ------------ |
+| B cell    | 279         | 15774       | 16866        |
+| CD14      | 303         | 16897       | 17915        |
+| CD15      | 285         | 16374       | 17506        |
+| T cell    | 274         | 13905       | 14968        |
+| Thymocyte | 290         | 16646       | 17615        |
+| Platelet  | 240         | 8388        | 9027         |
+
+
+## **Comparison under different settings**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_sum1.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_sum2.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_sum3.png" width="100%">
+</figure>
