@@ -29,7 +29,3 @@ We used CEDAR genotype and transcriptome dataset from [E-MTAB-6666](https://www.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_sum3.png" width="100%">
 </figure>
 
-
-## **Details for Thymocyte - Reactome**
-
-## **Details for Thymocyte - KEGG**
