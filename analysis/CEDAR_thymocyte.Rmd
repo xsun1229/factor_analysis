@@ -48,6 +48,21 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+### Detailed results for EUR.CD
+
+For the EUR.CD factors have p-value_resampling < 0.01, we made a table to show the SNP and pathway details to test if the results are biological plausible. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_reactome_pc_reg_5_EUR.CD_d1k_cedar.rdata")
+
+DT::datatable(snp.list.final, options = list(pageLength =5))
+```
+
+The 4 factors share 2 common SNPs rs13107325 and rs6511698. 
+
+The  Death Receptor Signalling seems to be biological plausible: [Recent studies have shown that activation of DR3 signaling modulates Treg expansion suggesting that stimulation of DR3 represents a potential therapeutic target in human inflammatory diseases, including Crohn's disease (CD)](https://pubmed.ncbi.nlm.nih.gov/29545797/)
+
+
 ## **KEGG**
 
 In this part, we inferred 1655 PCs from 331 KEGG pathways and studied the effects of these PCs on phenotype. We regressed out top 5 PEER factors from the GTEx data set. 
@@ -76,3 +91,23 @@ DT::datatable(sum, options = list(pageLength =5))
 load("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar_thy_kegg.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
+
+### Detailed results for wbc
+
+For the WBC factors have p-value_resampling < 0.01, we made a table to show the SNP and pathway details to test if the results are biological plausible. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_pval_kegg_pc_reg_5_wbc_d1k_cedar.rdata")
+
+DT::datatable(snp.list.final, options = list(pageLength =5))
+```
+
+There are 10 factors in these table. 8 SNPs drive these factors. Only 2 SNPs are not shared by these factors (rs17184313,rs2709828). rs10980800(row 1,7,13,18), rs1358980(row 2,5,8,14,15,19,24), rs3095493(row 4,9,16,20,22,25),rs4807440 (row 6,10,17,21,23,26),rs4074882(row 11,28),rs7036656(row 12,19) are shared by these 10 factors.
+
+Hepatitis C might be biological plausible:
+
+[Hepatitis C also can cause problems with blood itself. You may not make enough white blood cells, which fight infections, or platelets, which help your blood clot](https://www.webmd.com/hepatitis/hepatitis-c-no-treatment)
+[Compared with the control group, the HCV-infected group also showed significantly higher white blood cell counts (WBC), lymphocyte counts, and monocyte counts (MONO)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4564624/)
+
+	
+Prostate cancer is related to WBC count but it seems not to be a pathway -> trait causal relationship : [Our study results showed that patients with prostate cancer had a lower level of lymphocytes, neutrophils and WBCs and a higher level of monocytes with a significant difference in lymphocyte count, compared to healthy controls.](https://pubmed.ncbi.nlm.nih.gov/24083743/)
