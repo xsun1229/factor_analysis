@@ -106,7 +106,14 @@ We have 1866 Reactome pathways. Combining with our GTEx data, some of them have 
 
 - Comparing the enrichments under different settings
 
-[details](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare.html)
+[GTEx](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare.html)
+
+[CEDAR - original genotype](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare_CEDAR.html)
+
+[CEDAR_thymocyte](https://xsun1229.github.io/factor_analysis/CEDAR_thymocyte.html)
+
+[CEDAR - imputed genotype](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare_CEDAR_imputed.html)
+
 
 # **GWAS convergence on pathways using cis-eQTLs**
 

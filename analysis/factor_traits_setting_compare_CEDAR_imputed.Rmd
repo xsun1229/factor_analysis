@@ -23,9 +23,9 @@ Now, we have reasonable SNP numbers when filtering by GWAS p-values.
 ## **Comparison under different settings**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_imputed_1.png" width="100%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_imputed2.png" width="100%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_imputed3.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/cedar_imputed_1.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/cedar_imputed_2.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/cedar_imputed_3.png" width="100%">
 </figure>
 
 
