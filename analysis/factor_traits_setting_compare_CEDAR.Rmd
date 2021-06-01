@@ -1,5 +1,5 @@
 ---
-title:  "Comparing the enrichments under different settings_ CEADR"
+title:  "Comparing the enrichments under different settings_CEADR"
 author: "XSun"
 date: "2021-05-25"
 output: workflowr::wflow_html

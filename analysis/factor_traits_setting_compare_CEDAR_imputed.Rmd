@@ -1,0 +1,32 @@
+---
+title: "Comparing the enrichments under different settings_CEADR"
+author: "XSun"
+date: "2021-05-31"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+In this part, the expression data are the same with [CEDAR_origin](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare_CEDAR.html). The genotype data were imputed using [Michigan Imputation Server](https://imputationserver.sph.umich.edu/index.html#!) 
+
+In the imputation part, we used 1000G Phase 3 V5 as our reference panel. Mixed population was selected. After imputation, we used rsq > 0.8 to filter the SNPs. We obtained 9,571,582 SNPs. Then we filtered the SNPs using MAF > 0.01 and got 7,741,014 variates. 
+
+Now, we have reasonable SNP numbers when filtering by GWAS p-values. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/SNPs_count.png" width="100%">
+</figure>
+
+
+## **Comparison under different settings**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_imputed_1.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_imputed2.png" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_imputed3.png" width="100%">
+</figure>
+
+
+
