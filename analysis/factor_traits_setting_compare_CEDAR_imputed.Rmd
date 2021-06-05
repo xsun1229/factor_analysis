@@ -28,5 +28,79 @@ Now, we have reasonable SNP numbers when filtering by GWAS p-values.
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/cedar_imputed_3.png" width="100%">
 </figure>
 
+## **Pathway details for some cell types**
+
+### B cell - KEGG
+
+The table below shows the pathway details for the pathway have > 40 genes && pairs have p-value < 0.01 in resampling. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar_bcell_kegg.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+1. [Therefore, CLRs, as innate immune receptors, may play vital roles in IBD progression.](https://academic.oup.com/gastro/article/7/5/312/5530700)
+
+2. [In the past few years, studies have revealed the importance of the Hippo pathway in gastrointestinal tract physiology and gastrointestinal diseases, such as colorectal cancer and IBD.](https://www.nature.com/articles/s41419-021-03395-3)
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy106_pc3_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy163_pc5_EUR.UC_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy180_pc1_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+</figure>
+
+
+### CD14 - KEGG
+
+
+The table below shows the pathway details for the pathway have > 40 genes && pairs have p-value < 0.01 in resampling. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar_cd14_kegg.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+1. [Dysregulation in the NF-κβ pathway and factors that regulate it lead to a state of uncontrolled inflammation and altered immunity, as typically observed in IBD](https://www.nature.com/articles/srep04112)
+
+2. [ Classically, IBD was thought to be primarily mediated by Th1 cells in CD or Th2 cells in UC, but it is now known that Th17 cells and their related cytokines are crucial mediators in both conditions.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4005031/)
+
+3. [The present study supports the concept of the Y. enterocolitica infection as a trigger of chronic IBD. ](https://pubmed.ncbi.nlm.nih.gov/15967332/)
+
+7. [ Evidence has implicated both β-catenin-dependent and β-catenin-independent WNT axes with asthma. Its deregulation is important for inflammation, airway remodelling, and airway hyperresponsives](https://www.sciencedirect.com/science/article/pii/S135964461730079X)
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy121_pc1_EUR.IBD_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy186_pc4_EUR.UC_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy274_pc5_EUR.UC_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy91_pc5_EUR.UC_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy279_pc4_allergy_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy294_pc1_lymph_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy155_pc1_ukb.allasthma_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy112_pc2_wbc_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy222_pc1_wbc_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+</figure>
+
+### CD15 -KEGG
+
+The table below shows the pathway details for the pathway have > 40 genes && pairs have p-value < 0.01 in resampling. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar_cd15_kegg.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+1. [Oxytocin may provide new potential insights into the pathogenesis and therapy of IBD](https://portlandpress.com/clinsci/article/133/18/1977/220436)
+
+4. [The pathogenesis of inflammatory bowel diseases (IBD) seems to be associated with alterations of immunoregulation. Several lines of evidence suggest that estrogens play a role in the modulation of immune responses and may be related to the etiology of IBD.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6651503/)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy223_pc5_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy272_pc3_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy256_pc5_EUR.IBD_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy217_pc4_EUR.UC_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+</figure>
 
 
