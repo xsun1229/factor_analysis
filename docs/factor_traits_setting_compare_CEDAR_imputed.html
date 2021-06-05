@@ -15,7 +15,7 @@
 
 <title>Comparing the enrichments under different settings_CEADR</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -27,6 +27,14 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -428,7 +436,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -437,7 +445,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -446,10 +454,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-05-31
+<strong>Last updated:</strong> 2021-06-05
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -461,7 +469,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <hr>
 </div>
 <div id="checks" class="tab-pane fade">
-<div id="workflowr-checks" class="panel-group">
+<div class="panel-group" id="workflowr-checks">
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
@@ -477,16 +485,116 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree2aefc66e05a1c4f6b218d85c260eedebc547caa9targetblank2aefc66a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/2aefc66e05a1c4f6b218d85c260eedebc547caa9" target="_blank">2aefc66</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree2aefc66e05a1c4f6b218d85c260eedebc547caa9targetblank2aefc66a" class="panel-collapse collapse">
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar_bcell_kegg.rdata
+</td>
+<td style="text-align:left;">
+output/summary_snp3_d1k_cedar_bcell_kegg.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar_cd14_kegg.rdata
+</td>
+<td style="text-align:left;">
+output/summary_snp3_d1k_cedar_cd14_kegg.rdata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/summary_snp3_d1k_cedar_cd15_kegg.rdata
+</td>
+<td style="text-align:left;">
+output/summary_snp3_d1k_cedar_cd15_kegg.rdata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree08cbc0b97e49e6dd76e6497c354f20bcc68512fdtargetblank08cbc0ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/08cbc0b97e49e6dd76e6497c354f20bcc68512fd" target="_blank">08cbc0b</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree08cbc0b97e49e6dd76e6497c354f20bcc68512fdtargetblank08cbc0ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/2aefc66e05a1c4f6b218d85c260eedebc547caa9" target="_blank">2aefc66</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/08cbc0b97e49e6dd76e6497c354f20bcc68512fd" target="_blank">08cbc0b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -535,6 +643,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/08cbc0b97e49e6dd76e6497c354f20bcc68512fd/analysis/factor_traits_setting_compare_CEDAR_imputed.Rmd" target="_blank">08cbc0b</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-06-05
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/600864c34081c6265a12b54008f09f898162132a/docs/factor_traits_setting_compare_CEDAR_imputed.html" target="_blank">600864c</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-05-31
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -607,6 +749,91 @@ update
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/cedar_imputed_1.png" width="100%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/cedar_imputed_2.png" width="100%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/cedar_imputed_3.png" width="100%">
 </figure>
+</div>
+<div id="pathway-details-for-some-cell-types" class="section level2">
+<h2><strong>Pathway details for some cell types</strong></h2>
+<div id="b-cell---kegg" class="section level3">
+<h3>B cell - KEGG</h3>
+<p>The table below shows the pathway details for the pathway have &gt; 40 genes &amp;&amp; pairs have p-value &lt; 0.01 in resampling.</p>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","data":[["1","2","3"],["EUR.CD_pwy106_pc3","EUR.CD_pwy180_pc1","EUR.UC_pwy163_pc5"],["03420","04625","04390"],["Nucleotide excision repair","C-type lectin receptor signaling pathway","Hippo signaling pathway"],["41","73","71"],[2,2,2],[2,2,2],[0.083,0.008,0.009],[-0.598,-0.52,-0.318],[0.983,1,1],[0.009,0.009,0.008]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>factor<\/th>\n      <th>pwy<\/th>\n      <th>pwy_name<\/th>\n      <th>pwy_gene_num<\/th>\n      <th>num_snp_fdr.0.2<\/th>\n      <th>num_snp_noMHC<\/th>\n      <th>pval_in_fitting<\/th>\n      <th>slope_in_fitting<\/th>\n      <th>rsq_in_fitting<\/th>\n      <th>pval_in_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://academic.oup.com/gastro/article/7/5/312/5530700">Therefore, CLRs, as innate immune receptors, may play vital roles in IBD progression.</a></p></li>
+<li><p><a href="https://www.nature.com/articles/s41419-021-03395-3">In the past few years, studies have revealed the importance of the Hippo pathway in gastrointestinal tract physiology and gastrointestinal diseases, such as colorectal cancer and IBD.</a></p></li>
+</ol>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy106_pc3_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy163_pc5_EUR.UC_pval5e8_cedar_bcell_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy180_pc1_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+</figure>
+</div>
+<div id="cd14---kegg" class="section level3">
+<h3>CD14 - KEGG</h3>
+<p>The table below shows the pathway details for the pathway have &gt; 40 genes &amp;&amp; pairs have p-value &lt; 0.01 in resampling.</p>
+<div id="htmlwidget-cfefb73e51b4928e765c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfefb73e51b4928e765c">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9"],["EUR.IBD_pwy121_pc1","EUR.UC_pwy186_pc4","EUR.UC_pwy274_pc5","EUR.UC_pwy91_pc5","allergy_pwy279_pc4","lymph_pwy294_pc1","ukb.allasthma_pwy155_pc1","wbc_pwy112_pc2","wbc_pwy222_pc1"],["04064","04659","05135","01524","05145","05200","04310","04012","04920"],["NF-kappa B signaling pathway","Th17 cell differentiation","Yersinia infection","Platinum drug resistance","Toxoplasmosis","Pathways in cancer","Wnt signaling pathway","ErbB signaling pathway","Adipocytokine signaling pathway"],["71","77","92","50","76","290","83","59","47"],[2,2,2,2,2,2,2,2,2],[2,2,2,2,2,2,2,2,2],[0.013,0.002,0.018,0.003,0.002,0.002,0.004,0.001,0.005],[-0.52,0.253,-0.323,-0.345,-0.215,-0.061,-0.207,-0.087,0.147],[1,1,0.999,1,1,1,1,1,1],[0.008,0,0.003,0,0.006,0.008,0.008,0.004,0.007]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>factor<\/th>\n      <th>pwy<\/th>\n      <th>pwy_name<\/th>\n      <th>pwy_gene_num<\/th>\n      <th>num_snp_fdr.0.2<\/th>\n      <th>num_snp_noMHC<\/th>\n      <th>pval_in_fitting<\/th>\n      <th>slope_in_fitting<\/th>\n      <th>rsq_in_fitting<\/th>\n      <th>pval_in_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://www.nature.com/articles/srep04112">Dysregulation in the NF-κβ pathway and factors that regulate it lead to a state of uncontrolled inflammation and altered immunity, as typically observed in IBD</a></p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4005031/">Classically, IBD was thought to be primarily mediated by Th1 cells in CD or Th2 cells in UC, but it is now known that Th17 cells and their related cytokines are crucial mediators in both conditions.</a></p></li>
+<li><p><a href="https://pubmed.ncbi.nlm.nih.gov/15967332/">The present study supports the concept of the Y. enterocolitica infection as a trigger of chronic IBD.</a></p></li>
+<li><p><a href="https://www.sciencedirect.com/science/article/pii/S135964461730079X">Evidence has implicated both β-catenin-dependent and β-catenin-independent WNT axes with asthma. Its deregulation is important for inflammation, airway remodelling, and airway hyperresponsives</a></p></li>
+</ol>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy121_pc1_EUR.IBD_pval5e8_cedar_CD14_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy186_pc4_EUR.UC_pval5e8_cedar_CD14_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy274_pc5_EUR.UC_pval5e8_cedar_CD14_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy91_pc5_EUR.UC_pval5e8_cedar_CD14_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy279_pc4_allergy_pval5e8_cedar_CD14_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy294_pc1_lymph_pval5e8_cedar_CD14_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy155_pc1_ukb.allasthma_pval5e8_cedar_CD14_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy112_pc2_wbc_pval5e8_cedar_CD14_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy222_pc1_wbc_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
+</figure>
+</div>
+<div id="cd15--kegg" class="section level3">
+<h3>CD15 -KEGG</h3>
+<p>The table below shows the pathway details for the pathway have &gt; 40 genes &amp;&amp; pairs have p-value &lt; 0.01 in resampling.</p>
+<div id="htmlwidget-5ba5287ce9a3b08bdb5d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5ba5287ce9a3b08bdb5d">{"x":{"filter":"none","data":[["1","2","3","4"],["EUR.CD_pwy223_pc5","EUR.CD_pwy272_pc3","EUR.IBD_pwy256_pc5","EUR.UC_pwy217_pc4"],["04921","05133","05012","04915"],["Oxytocin signaling pathway","Pertussis","Parkinson disease","Estrogen signaling pathway"],["74","46","79","67"],[2,2,4,2],[2,2,4,2],[0.001,0.116,0.013,0],[0.358,-0.388,0.934,0.516],[1,0.967,0.906,1],[0.009,0.009,0.009,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>factor<\/th>\n      <th>pwy<\/th>\n      <th>pwy_name<\/th>\n      <th>pwy_gene_num<\/th>\n      <th>num_snp_fdr.0.2<\/th>\n      <th>num_snp_noMHC<\/th>\n      <th>pval_in_fitting<\/th>\n      <th>slope_in_fitting<\/th>\n      <th>rsq_in_fitting<\/th>\n      <th>pval_in_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://portlandpress.com/clinsci/article/133/18/1977/220436">Oxytocin may provide new potential insights into the pathogenesis and therapy of IBD</a></p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6651503/">The pathogenesis of inflammatory bowel diseases (IBD) seems to be associated with alterations of immunoregulation. Several lines of evidence suggest that estrogens play a role in the modulation of immune responses and may be related to the etiology of IBD.</a></p></li>
+</ol>
+<figure class="half">
+<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy223_pc5_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy272_pc3_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy256_pc5_EUR.IBD_pval5e8_cedar_bcell_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy217_pc4_EUR.UC_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+</figure>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Scientific Linux 7.4 (Nitrogen)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.2.19-el7-x86_64/lib/libopenblas_haswellp-r0.2.19.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5        rstudioapi_0.11   whisker_0.3-2     knitr_1.30       
+ [5] magrittr_1.5      R6_2.4.1          rlang_0.4.8       highr_0.8        
+ [9] stringr_1.4.0     tools_3.6.1       DT_0.15           xfun_0.18        
+[13] git2r_0.26.1      crosstalk_1.1.0.1 htmltools_0.5.0   ellipsis_0.3.1   
+[17] rprojroot_1.3-2   yaml_2.2.1        digest_0.6.25     tibble_3.0.3     
+[21] lifecycle_0.2.0   crayon_1.3.4      later_1.1.0.1     htmlwidgets_1.5.2
+[25] vctrs_0.3.4       promises_1.1.1    fs_1.5.0          glue_1.4.2       
+[29] evaluate_0.14     rmarkdown_1.13    stringi_1.5.3     compiler_3.6.1   
+[33] pillar_1.4.6      backports_1.1.10  jsonlite_1.7.1    httpuv_1.5.1     
+[37] pkgconfig_2.0.3  </code></pre>
+</div>
+</div>
 </div>
 
 
