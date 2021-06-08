@@ -1,0 +1,53 @@
+---
+title: "Platelet - PLIER - platelet traits"
+author: "XSun"
+date: "2021-06-07"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## **Introduction**
+
+In this part, we performed PLIER analysis to test if we can find the same SNP with the [eLife paper](https://elifesciences.org/articles/58705#s4). 
+
+We used the [PLIER R package](https://github.com/wgmao/PLIER) with the collection of 5546 gene sets as a prior information matrix priorMat available in the package comprising canonical, immune and chemgen pathways from MSigDB (same with the eLife paper)
+
+## **Platelet**
+
+The platelet-related traits used in eLife papaer are mean platelet volume(mpv), platelet count(plt), plateletcrit(pct) and platelet distribution width(pdw). We used the same GWAS data set.
+
+We inferred 132 LVs from platelet expression data. We performed association tests for these LVs and the candidate SNPs(obtained from 'AND' LD Clumping)
+
+The table below shows all SNPs have fdr < 0.2 in the association tests. 
+
+
+**The 'plt' in "factor indicates the data are from platelet cell type"**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/allsnp_plt_cedar.rdata")
+snp.list.final <- as.data.frame(cbind(full_list$trait,full_list$factor,full_list$SNP,full_list$beta.exposure,full_list$beta.outcome,full_list$pval.exposure,full_list$pval.outcome,full_list$fdr,full_list$chr,full_list$bp))
+colnames(snp.list.final) <- c("trait","factor","snp","beta.exposure","beta.outcome","pval.exposure","pval.outcome","fdr.exposure","chr","bp_build37")
+DT::datatable(snp.list.final, options = list(pageLength =5))
+```
+
+The reported SNP 'rs1354034' can be found in plt,pdw,pct related pairs(see the table below)
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_plt_cedar.rdata")
+snp.list.final <- as.data.frame(cbind(list_snp$trait,list_snp$factor,list_snp$SNP,list_snp$beta.exposure,list_snp$beta.outcome,list_snp$pval.exposure,list_snp$pval.outcome,list_snp$fdr,list_snp$chr,list_snp$bp))
+colnames(snp.list.final) <- c("trait","factor","snp","beta.exposure","beta.outcome","pval.exposure","pval.outcome","fdr.exposure","chr","bp_build37")
+DT::datatable(snp.list.final, options = list(pageLength =5))
+```
+
+The SNP and traits are connected through LV19 and LV108. The top 3 pathways related to LV19 are REACTOME_TELOMERE_MAINTENANCE, REACTOME_MEIOTIC_RECOMBINATION and REACTOME_DEPOSITION_OF_NEW_CENPA_CONTAINING_NUCLEOSOMES_AT_THE_CENTROMER. The top 3 pathways related to LV108 are REACTOME_RESPONSE_TO_ELEVATED_PLATELET_CYTOSOLIC_CA2, REACTOME_PLATELET_ACTIVATION_SIGNALING_AND_AGGREGATION and and WIERENGA_STAT5A_TARGETS_DN.
+
+We got 14 trait - factor pairs have >2 SNPs. But none of them show sign consistancy(p-value in resampling < 0.05). 
+
+The pair pct_plt_lv19 and pdw_plt_lv108 contain the target SNP 'rs1354034'.
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_plier_cedar_plt.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+

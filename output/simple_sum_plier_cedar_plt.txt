@@ -1,0 +1,15 @@
+factor num_snp_fdr<0.2 num_snp_noMHC pval_in_fitting slope_in_fitting rsq_in_fitting pval_in_resampling
+mpv_plt_lv62 2 2 0.305 0.365 0.788 0.318
+mpv_plt_lv71 3 3 0.485 0.197 0.265 0.398
+mpv_plt_lv91 2 2 0.087 -0.191 0.981 0.157
+pct_plt_lv126 3 3 0.537 0.148 0.214 0.431
+pct_plt_lv19 2 2 0.11 -0.248 0.97 0.235
+pdw_plt_lv102 2 2 0.075 0.434 0.986 0.157
+pdw_plt_lv108 2 2 0.321 -0.18 0.767 0.466
+pdw_plt_lv126 2 2 0.79 -0.124 0.105 0.616
+pdw_plt_lv2 2 2 0.847 0.033 0.057 0.708
+pdw_plt_lv60 2 2 0.135 0.702 0.955 0.253
+pdw_plt_lv62 2 2 0.18 0.246 0.922 0.209
+plt_plt_lv39 2 2 0.065 -0.315 0.99 0.133
+plt_plt_lv62 2 2 0.22 -0.361 0.885 0.366
+plt_plt_lv71 2 2 0.793 -0.132 0.102 0.646

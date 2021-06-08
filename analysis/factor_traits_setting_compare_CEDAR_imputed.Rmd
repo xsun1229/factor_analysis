@@ -52,7 +52,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 </figure>
 
 
-### CD14 - KEGG
+### Monocyte(CD14+) - KEGG
 
 
 The table below shows the pathway details for the pathway have > 40 genes && pairs have p-value < 0.01 in resampling. 
@@ -83,7 +83,7 @@ DT::datatable(final_full, options = list(pageLength =5))
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy222_pc1_wbc_pval5e8_cedar_CD14_kegg.jpeg" width="80%">
 </figure>
 
-### CD15 -KEGG
+### Leukocyte(CD15+) -KEGG
 
 The table below shows the pathway details for the pathway have > 40 genes && pairs have p-value < 0.01 in resampling. 
 
