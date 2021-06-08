@@ -97,10 +97,10 @@ DT::datatable(final_full, options = list(pageLength =5))
 4. [The pathogenesis of inflammatory bowel diseases (IBD) seems to be associated with alterations of immunoregulation. Several lines of evidence suggest that estrogens play a role in the modulation of immune responses and may be related to the etiology of IBD.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6651503/)
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy223_pc5_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy272_pc3_EUR.CD_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy256_pc5_EUR.IBD_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy217_pc4_EUR.UC_pval5e8_cedar_bcell_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy223_pc5_EUR.CD_pval5e8_cedar_CD15_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy272_pc3_EUR.CD_pval5e8_cedar_CD15_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy256_pc5_EUR.IBD_pval5e8_cedar_CD15_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy217_pc4_EUR.UC_pval5e8_cedar_CD15_kegg.jpeg" width="80%">
 </figure>
 
 
