@@ -22,7 +22,7 @@ We inferred 132 LVs from platelet expression data. We performed association test
 The table below shows all SNPs have fdr < 0.2 in the association tests. 
 
 
-**The 'plt' in "factor indicates the data are from platelet cell type"**
+**The 'plt' in "factor" indicates the data are from platelet cell type**
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/allsnp_plt_cedar.rdata")
@@ -40,7 +40,7 @@ colnames(snp.list.final) <- c("trait","factor","snp","beta.exposure","beta.outco
 DT::datatable(snp.list.final, options = list(pageLength =5))
 ```
 
-The SNP and traits are connected through LV19 and LV108. The top 3 pathways related to LV19 are REACTOME_TELOMERE_MAINTENANCE, REACTOME_MEIOTIC_RECOMBINATION and REACTOME_DEPOSITION_OF_NEW_CENPA_CONTAINING_NUCLEOSOMES_AT_THE_CENTROMER. The top 3 pathways related to LV108 are REACTOME_RESPONSE_TO_ELEVATED_PLATELET_CYTOSOLIC_CA2, REACTOME_PLATELET_ACTIVATION_SIGNALING_AND_AGGREGATION and and WIERENGA_STAT5A_TARGETS_DN.
+The SNP and traits are linked through LV19 and LV108. The top 3 pathways related to LV19 are REACTOME_TELOMERE_MAINTENANCE, REACTOME_MEIOTIC_RECOMBINATION and REACTOME_DEPOSITION_OF_NEW_CENPA_CONTAINING_NUCLEOSOMES_AT_THE_CENTROMER. The top 3 pathways related to LV108 are REACTOME_RESPONSE_TO_ELEVATED_PLATELET_CYTOSOLIC_CA2, REACTOME_PLATELET_ACTIVATION_SIGNALING_AND_AGGREGATION and and WIERENGA_STAT5A_TARGETS_DN.
 
 We got 14 trait - factor pairs have >2 SNPs. But none of them show sign consistancy(p-value in resampling < 0.05). 
 
@@ -50,4 +50,17 @@ The pair pct_plt_lv19 and pdw_plt_lv108 contain the target SNP 'rs1354034'.
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_plier_cedar_plt.txt", header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
+
+##  **Sign consistancy check**
+
+Since some pairs have R2 close to 1, but still large p-values, we double checked the sign consistancy.
+
+lv19_pct and lv108_pdw are the pairs containing SNP 'rs1354034'. lv39_plt is the pair has rsq =0.99, pval_in_fitting =0.065.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plt_lv19_pct_pval5e8_cedar.jpeg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plt_lv108_pdw_pval5e8_cedar.jpeg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plt_lv39_plt_pval5e8_cedar.jpeg" width="100%">
+</figure>
+
 
