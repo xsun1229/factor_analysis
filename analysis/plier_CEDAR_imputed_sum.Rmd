@@ -29,3 +29,48 @@ We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mc
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum.png" width="80%">
 </figure>
+
+
+## Detailed results for 6 cell types
+
+### platelet
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_plt_cedar.txt",header = T)
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+### B cell
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_bcell_cedar.txt",header = T)
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+### T cell(CD4)
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_tcell_cedar.txt",header = T)
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+### T cell(CD8)
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_thy_cedar.txt",header = T)
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+### monocyte CD14
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd14_cedar.txt",header = T)
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+### granulocytes CD15
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd15_cedar.txt",header = T)
+DT::datatable(final_full, options = list(pageLength =5))
+```
