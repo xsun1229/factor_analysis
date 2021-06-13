@@ -22,10 +22,10 @@ We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mc
 | T cell(CD4)    | 146    |
 | T cell(CD8)    | 134    |
 | monocyte CD14  | 88     |
-| leukocyte CD15 | 146    |
+| granulocytes CD15 | 146    |
 
 ## Summary 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum.png" width="80%">
 </figure>
