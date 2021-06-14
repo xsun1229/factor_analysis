@@ -22,7 +22,7 @@ We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mc
 | T cell(CD4)    | 146    |
 | T cell(CD8)    | 134    |
 | monocyte CD14  | 88     |
-| granulocytes CD15 | 146    |
+| neutrophils CD15 | 146    |
 
 ## Summary 
 
@@ -68,7 +68,7 @@ sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_su
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-### granulocytes CD15
+### neutrophils CD15
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd15_cedar.txt",header = T)
