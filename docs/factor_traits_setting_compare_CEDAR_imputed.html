@@ -454,7 +454,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-06-13
+<strong>Last updated:</strong> 2021-06-15
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -577,6 +577,14 @@ output/summary_snp3_d1k_cedar_cd14_kegg.rdata
 output/summary_snp3_d1k_cedar_cd15_kegg.rdata
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+/project2/xinhe/xsun/website/factor_analysis/output/pwy256_kegg_cd15_all_cedar.rdata
+</td>
+<td style="text-align:left;">
+output/pwy256_kegg_cd15_all_cedar.rdata
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -585,16 +593,16 @@ output/summary_snp3_d1k_cedar_cd15_kegg.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0e0e5cfd28967a7c89e2f43f0c9d036ef1d03fb0targetblank0e0e5cfa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/0e0e5cfd28967a7c89e2f43f0c9d036ef1d03fb0" target="_blank">0e0e5cf</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeaf3ac170797f57e5458889f62146c56abca18f00targetblankaf3ac17a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/af3ac170797f57e5458889f62146c56abca18f00" target="_blank">af3ac17</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0e0e5cfd28967a7c89e2f43f0c9d036ef1d03fb0targetblank0e0e5cfa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeaf3ac170797f57e5458889f62146c56abca18f00targetblankaf3ac17a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/0e0e5cfd28967a7c89e2f43f0c9d036ef1d03fb0" target="_blank">0e0e5cf</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/af3ac170797f57e5458889f62146c56abca18f00" target="_blank">af3ac17</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -643,6 +651,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/af3ac170797f57e5458889f62146c56abca18f00/analysis/factor_traits_setting_compare_CEDAR_imputed.Rmd" target="_blank">af3ac17</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-06-15
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/16317cb757437cd31b106abefd7b9a224ca29751/docs/factor_traits_setting_compare_CEDAR_imputed.html" target="_blank">16317cb</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-06-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -875,7 +917,10 @@ update
 <li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6651503/">The pathogenesis of inflammatory bowel diseases (IBD) seems to be associated with alterations of immunoregulation. Several lines of evidence suggest that estrogens play a role in the modulation of immune responses and may be related to the etiology of IBD.</a></p></li>
 </ol>
 <p>We did enrichment analysis for the genes in ‘EUR.IBD_pwy256_pc5’. We tried both ORA and GSEA.</p>
-<p>ORA: We just used the gene name in pwy256, the enrichment categories is geneontology_Biological_Process. The reference list: all mapped entrezgene IDs from the selected platform affy_hugene_2_0_st_v1. We found 190 pathways have fdr &lt; 0.5. But none of them are immune/inflammation pathways. The detailed results are <a href="http://www.webgestalt.org/results/1623581009/#">here</a></p>
+<p>ORA: We just used the gene name in pwy256, the enrichment categories is geneontology_Biological_Process. The reference list: all mapped entrezgene IDs from the selected platform affy_hugene_2_0_st_v1. The detailed results are <a href="http://www.webgestalt.org/results/1623581009/#">here</a></p>
+<p>The fdrs of the pathways is shown in the table below.</p>
+<div id="htmlwidget-0b516daec537d8efb4b6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0b516daec537d8efb4b6">{"x":{"filter":"none","data":[["1","2","3","4"],["EUR.CD_pwy223_pc5","EUR.CD_pwy272_pc3","EUR.IBD_pwy256_pc5","EUR.UC_pwy217_pc4"],["04921","05133","05012","04915"],["Oxytocin signaling pathway","Pertussis","Parkinson disease","Estrogen signaling pathway"],["74","46","79","67"],[2,2,4,2],[2,2,4,2],[0.001,0.116,0.013,0],[0.358,-0.388,0.934,0.516],[1,0.967,0.906,1],[0.009,0.009,0.009,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>factor<\/th>\n      <th>pwy<\/th>\n      <th>pwy_name<\/th>\n      <th>pwy_gene_num<\/th>\n      <th>num_snp_fdr.0.2<\/th>\n      <th>num_snp_noMHC<\/th>\n      <th>pval_in_fitting<\/th>\n      <th>slope_in_fitting<\/th>\n      <th>rsq_in_fitting<\/th>\n      <th>pval_in_resampling<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <p>GSEA: We used gene names and gene loading for pc5. The enrichment categories is geneontology_Biological_Process. The fdrs of the reported pathways are all &gt; 0.5. None of them are immune/inflammation pathways The detailed results are <a href="http://www.webgestalt.org/results/1623552821/#">here</a>.</p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy223_pc5_EUR.CD_pval5e8_cedar_CD15_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy272_pc3_EUR.CD_pval5e8_cedar_CD15_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy256_pc5_EUR.IBD_pval5e8_cedar_CD15_kegg.jpeg" width="80%"> <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy217_pc4_EUR.UC_pval5e8_cedar_CD15_kegg.jpeg" width="80%">
