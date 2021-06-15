@@ -99,7 +99,14 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 We did enrichment analysis for the genes in 'EUR.IBD_pwy256_pc5'. We tried both ORA and GSEA.
 
-ORA: We just used the gene name in pwy256, the enrichment categories is geneontology_Biological_Process. The reference list: all mapped entrezgene IDs from the selected platform affy_hugene_2_0_st_v1. We found 190 pathways have fdr < 0.5. But none of them are immune/inflammation pathways. The detailed results are [here](http://www.webgestalt.org/results/1623581009/#)
+ORA: We just used the gene name in pwy256, the enrichment categories is geneontology_Biological_Process. The reference list: all mapped entrezgene IDs from the selected platform affy_hugene_2_0_st_v1. The detailed results are [here](http://www.webgestalt.org/results/1623581009/#)
+
+The fdrs of the pathways is shown in the table below.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy256_kegg_cd15_all_cedar.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
 
 GSEA: We used gene names and gene loading for pc5. The enrichment categories is geneontology_Biological_Process. The fdrs of the reported pathways are all > 0.5. None of them are immune/inflammation pathways The detailed results are [here](http://www.webgestalt.org/results/1623552821/#).
 

@@ -33,17 +33,117 @@ We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mc
 
 ## Detailed results for 6 cell types
 
-### platelet
+For some interested LVs, we did ORA enrichment analysis. 
+
+We tried to 1) use  all genes have non-zero loadings for each LV 2)sorted the genes that have  non-zero loadings by their loadings, taking the top 25% as the gene set.
+
+The function database is geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.05 are listed. 
+
+
+### neutrophils CD15
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_plt_cedar.txt",header = T)
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd15_cedar.txt",header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
+
+We did enrichment analysis for the genes in 'T1D_cd15_lv41'.
+
+Using all genes have non-zero loadings：
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv41_plier_cd15_all_cedar.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+Using top 25% genes：
+
+No significant gene set is identified based on FDR 0.05. We just found 4 pathways have fdr < 0.2
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv41_plier_cd15_top025_cedar.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+
+1. ER stress seems play a role in T1D: [paper1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4733855/), [paper2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7185224/)
+
+2. [Hyperketonemia and ketosis increase the risk of complications in type 1 diabetes](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4867238/)
+
+4. [Emerging research has revealed that the TGFβ receptor signaling pathway also plays a central role in beta cell proliferation and functions, including glucose stimulated insulin secretion, compensatory beta cell insulin gene transcription.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6212884/)
 
 ### B cell
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_bcell_cedar.txt",header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+	
+lv96：EUR.CD，EUR.IBD
+
+Using all genes have non-zero loadings：
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv96_plier_bcell_all_cedar.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+Using top 25% genes：
+
+No significant gene set is identified based on FDR 0.05.
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv96_plier_bcell_top025_cedar.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+[Oxidative stress plays an important role in IBD because chronic intestinal inflammation is associated with the overproduction of reactive oxygen species (ROS) leading to oxidative stress, which has been implicated in IBD.](https://www.hindawi.com/journals/omcl/2018/7918261/)
+
+
+lv80: EUR.UC
+
+Using all genes have non-zero loadings：
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv80_plier_bcell_all_cedar.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+Using top 25% genes：
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv80_plier_bcell_top025_cedar.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+lv49: EUR.CD
+
+Using all genes have non-zero loadings：
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv49_plier_bcell_all_cedar.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+Using top 25% genes：
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv49_plier_bcell_top025_cedar.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+### T cell(CD8)
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_thy_cedar.txt",header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+### platelet
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_plt_cedar.txt",header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -54,23 +154,9 @@ sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_su
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-### T cell(CD8)
-
-```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_thy_cedar.txt",header = T)
-DT::datatable(sum, options = list(pageLength =5))
-```
-
 ### monocyte CD14
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd14_cedar.txt",header = T)
-DT::datatable(sum, options = list(pageLength =5))
-```
-
-### neutrophils CD15
-
-```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd15_cedar.txt",header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
