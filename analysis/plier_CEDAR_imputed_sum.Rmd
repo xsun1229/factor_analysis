@@ -49,14 +49,14 @@ DT::datatable(sum, options = list(pageLength =5))
 
 We did enrichment analysis for the genes in 'T1D_cd15_lv41'.
 
-Using all genes have non-zero loadings：
+Using all genes have non-zero loadings (3112 genes)：
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv41_plier_cd15_all_cedar.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-Using top 25% genes：
+Using top 25% genes(778 genes)：
 
 No significant gene set is identified based on FDR 0.05. We just found 4 pathways have fdr < 0.2
 
@@ -82,14 +82,14 @@ DT::datatable(sum, options = list(pageLength =5))
 	
 lv96：EUR.CD，EUR.IBD
 
-Using all genes have non-zero loadings：
+Using all genes have non-zero loadings (4458 genes)：
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv96_plier_bcell_all_cedar.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-Using top 25% genes：
+Using top 25% genes(1114 genes)：
 
 No significant gene set is identified based on FDR 0.05.
 
@@ -103,14 +103,14 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 lv80: EUR.UC
 
-Using all genes have non-zero loadings：
+Using all genes have non-zero loadings (5293 genes)：
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv80_plier_bcell_all_cedar.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-Using top 25% genes：
+Using top 25% genes (1323 genes)：
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv80_plier_bcell_top025_cedar.rdata")
@@ -119,14 +119,14 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 lv49: EUR.CD
 
-Using all genes have non-zero loadings：
+Using all genes have non-zero loadings (4978 genes)：
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv49_plier_bcell_all_cedar.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-Using top 25% genes：
+Using top 25% genes(1244 genes)：
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv49_plier_bcell_top025_cedar.rdata")
