@@ -33,19 +33,30 @@ We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mc
 
 ## Detailed results for 6 cell types
 
-For some interested LVs, we did ORA enrichment analysis. 
+1. For some interested LVs, we did ORA enrichment analysis. 
 
 We tried to 1) use  all genes have non-zero loadings for each LV 2)sorted the genes that have  non-zero loadings by their loadings, taking the top 25% as the gene set.
 
 The function database is geneontology biological process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.05 are listed. 
 
+2. For the pairs have p-value < 0.05 in resampling, we checked the effect size correlation could be due to reverse causality.
+
+We first used all SNPs associated with traits(pval<5E-8). We computed the IVW estimator and the p-values of the estimator. When computing the IVW, we exchanged the beta.outcome and beta.exposure. We also fitted the effectsize with beta.exposure ~ 0 + beta.outcome to compare with the IVW results.
+
+Then we removed the SNPs have FDR < 0.2, just used the remaining SNP to compute IVW and do the fitting. 
+
 
 ### neutrophils CD15
+
+
+#### effectsize fitting summary 
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd15_cedar.txt",header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
+
+#### Enrichment analysis
 
 We did enrichment analysis for the genes in 'T1D_cd15_lv41'.
 
@@ -72,13 +83,28 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 4. [Emerging research has revealed that the TGFβ receptor signaling pathway also plays a central role in beta cell proliferation and functions, including glucose stimulated insulin secretion, compensatory beta cell insulin gene transcription.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6212884/)
 
+
+#### Checking the reverse causality
+
+**The first four columns are the results for LV -> traits(using SNPs have fdr < 0.2), the suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2) **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_cd15_plier_cedar.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
 ### B cell
+
+#### effectsize fitting summary 
+
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_bcell_cedar.txt",header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+#### Enrichment analysis
 	
 lv96：EUR.CD，EUR.IBD
 
@@ -133,30 +159,89 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/lv49_plier_bcell_top02
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
+#### Checking the reverse causality
+
+**The first four columns are the results for LV -> traits(using SNPs have fdr < 0.2), the suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2) **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_bcell_plier_cedar.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+
+
 ### T cell(CD8)
+
+#### effectsize fitting summary 
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_thy_cedar.txt",header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+#### Checking the reverse causality
+
+**The first four columns are the results for LV -> traits(using SNPs have fdr < 0.2), the suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2) **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_thy_plier_cedar.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
 ### platelet
+
+#### effectsize fitting summary 
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_plt_cedar.txt",header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+
+#### Checking the reverse causality
+
+**The first four columns are the results for LV -> traits(using SNPs have fdr < 0.2), the suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2) **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_plt_plier_cedar.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
 ### T cell(CD4)
+
+#### effectsize fitting summary 
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_tcell_cedar.txt",header = T)
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+#### Checking the reverse causality
+
+**The first four columns are the results for LV -> traits(using SNPs have fdr < 0.2), the suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2) **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_tcell_plier_cedar.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
 ### monocyte CD14
+
+#### effectsize fitting summary 
 
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd14_cedar.txt",header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+#### Checking the reverse causality
+
+**The first four columns are the results for LV -> traits(using SNPs have fdr < 0.2), the suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2) **
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_cd14_plier_cedar.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
