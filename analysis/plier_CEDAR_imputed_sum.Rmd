@@ -86,12 +86,18 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 #### Checking the reverse causality
 
-**The first four columns are the results for LV -> traits(using SNPs have fdr < 0.2), the suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2) **
+**The first four columns are the results for LV -> traits(using SNPs have fdr < 0.2), the suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_cd15_plier_cedar.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
+
+Since the IVW estimator and the fitting slope differ a lot, we made some scatter plots for some interested pairs.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_T1D_cd15_lv41.jpeg" width="100%">
+</figure>
 
 
 ### B cell
@@ -168,7 +174,14 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_bcell_pl
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+Since the IVW estimator and the fitting slope differ a lot, we made some scatter plots for some interested pairs.
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_EUR.CD_bcell_lv49.jpeg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_EUR.CD_bcell_lv96.jpeg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_EUR.IBD_bcell_lv96.jpeg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ivw_debug_EUR.UC_bcell_lv80.jpeg" width="100%">
+</figure>
 
 
 ### T cell(CD8)
