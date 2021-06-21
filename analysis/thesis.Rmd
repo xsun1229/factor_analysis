@@ -1,0 +1,22 @@
+---
+title: "thesis"
+author: "XSun"
+date: "2021-06-21"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+[predictive models/heritability of factors](https://xsun1229.github.io/factor_analysis/variants_factors.html)
+
+[GTEx - KGEE & REACTOME - summary ](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare.html)
+
+[GTEx - KGEE](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d1k.html)
+
+[GTEx - REACTOME](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d1k.html)
+
+[GTEx - PLIER](https://xsun1229.github.io/factor_analysis/catalog_gwas_pliercanon_sep_ldclumping_r01d1000.html#results_-_pval__5e-8__3-step_ld_clumping_(r=01,_d=1mb)_association_test_covariants:_10_pcs_+_gtex:sequencing_platform,sequencing_protocol,sex_+_age)
+
+[CEDAR - KGEE & REACTOME](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare_CEDAR_imputed.html)
+
+[CEDAR - PLIER](https://xsun1229.github.io/factor_analysis/plier_CEDAR_imputed_sum.html)
