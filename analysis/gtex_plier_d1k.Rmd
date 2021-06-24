@@ -1,0 +1,106 @@
+---
+title: "PLIER analysis summary for GTEx Whole blood data"
+author: "XSun"
+date: "2021-06-24"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## **Introduction**
+
+We used the [PLIER R package](https://github.com/wgmao/PLIER) with the collection of 12999 gene sets as a prior information matrix priorMat available in the package comprising canonical, immune and chemgen pathways from MSigDB (same with the eLife paper)
+
+We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mcv","rdw","ret","baso","plt","pct","pdw","mpv","hct","hgb","ret","mono","T1D", "EUR.IBD","EUR.UC","EUR.CD","ukb.allasthma","eo","wbc","rbc","myeloid_wbc","gran","lymph","neut","allergy"
+
+We got 98 LVs. 
+
+## **Enrichment results**
+
+We have 2548 trait-factor pairs in total. 31 pairs have more than 2 SNPs with FDR <0.2.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_wb_gtex_98lvs.jpeg" width="80%">
+</figure>
+
+There are 4 pairs show sign consistency (have p-values < 0.05 in resampling, 2.58 fold enrichment). There are 1 pairs at p-value < 0.01, 3.23 fold enrichment). 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_d1k_plier_wb_98lvs.txt", header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+## **Reverse causality checking** 
+
+For the pairs have p-value < 0.05 in resampling, we checked the effect size correlation could be due to reverse causality.
+
+We first used all SNPs associated with traits(pval<5E-8). We computed the MBE estimator and the p-values of the estimator. When computing the IVW, we exchanged the beta.outcome and beta.exposure.
+
+Then we removed the SNPs have FDR < 0.2, just used the remaining SNP to compute IVW and do the fitting.
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_plier_wb_mbe_98lvs.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+## **SNP details**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_d1k_plier_wb_98lvs.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+## **Enrichment results**
+
+### EUR.UC_wb_lv46
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv46_plier_wb_all_98lvs.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv46_plier_wb_top025_98lvs.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+
+### rbc_wb_lv32
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv32_plier_wb_all_98lvs.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv32_plier_wb_top025_98lvs.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+
+### ret_wb_lv73
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv73_plier_wb_all_98lvs.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv73_plier_wb_top025_98lvs.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+### ukb.allasthma_wb_lv35
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv35_plier_wb_all_98lvs.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv35_plier_wb_top025_98lvs.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```

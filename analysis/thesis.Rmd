@@ -7,6 +7,13 @@ editor_options:
   chunk_output_type: console
 ---
 
+# New analysis
+
+[GTEx - PLIER - 26 traits - 98 LVs](https://xsun1229.github.io/factor_analysis/gtex_plier_d1k.html)
+
+
+# Earlier analysis
+
 [predictive models/heritability of factors](https://xsun1229.github.io/factor_analysis/variants_factors.html)
 
 [GTEx - KGEE & REACTOME - summary ](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare.html)
