@@ -1,0 +1,5 @@
+traits  factor
+EUR.CD  bcell_lv96
+EUR.UC  bcell_lv80
+EUR.CD  bcell_lv49
+EUR.IBD bcell_lv96
