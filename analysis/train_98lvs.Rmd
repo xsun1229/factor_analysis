@@ -96,7 +96,7 @@ The prediction model result are below. There are several interesting LVs: LV60,7
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted_98lvs_gtex.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
+DT::datatable(sum_sorted, options = list(pageLength =5))
 ```
 
 
