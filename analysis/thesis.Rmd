@@ -7,14 +7,21 @@ editor_options:
   chunk_output_type: console
 ---
 
-# New analysis
+# New analysis 
+
+**CEDAR genotype data are after quality control && GTEx PLIER analysis use the same pathway data set with the CEDAR**
+
+[Heritability & Prediction Models - 98LVs](https://xsun1229.github.io/factor_analysis/train_98lvs.html)
 
 [GTEx - PLIER - 26 traits - 98 LVs](https://xsun1229.github.io/factor_analysis/gtex_plier_d1k.html)
 
+[CEDAR - PLIER - 26 traits - Quality Control](https://xsun1229.github.io/factor_analysis/cedar_plier_26_qc_d1k.html)
+
+[CEDAR - KEGG PCs - 26 traits - Quality Control](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k.html)
 
 # Earlier analysis
 
-[predictive models/heritability of factors](https://xsun1229.github.io/factor_analysis/variants_factors.html)
+[predictive models/heritability of factors -128LVs](https://xsun1229.github.io/factor_analysis/variants_factors.html)
 
 [GTEx - KGEE & REACTOME - summary ](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare.html)
 

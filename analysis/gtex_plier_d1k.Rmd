@@ -25,6 +25,11 @@ We have 2548 trait-factor pairs in total. 31 pairs have more than 2 SNPs with FD
 
 There are 4 pairs show sign consistency (have p-values < 0.05 in resampling, 2.58 fold enrichment). There are 1 pairs at p-value < 0.01, 3.23 fold enrichment). 
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsizesum_plier_gtex_98lv.jpeg" width="80%">
+</figure>
+
+
 ```{r echo=FALSE}
 sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_d1k_plier_wb_98lvs.txt", header = T)
 DT::datatable(sum, options = list(pageLength =5))
@@ -54,6 +59,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ```
 
 ## **Enrichment results**
+
 
 ### EUR.UC_wb_lv46
 

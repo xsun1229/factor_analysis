@@ -1,0 +1,131 @@
+---
+title: "Heritability and Prediction models of PLIER factors"
+author: "XSun"
+date: "2021-06-27"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Factor construction
+
+The factors in this part were inffered from PCA/PLIER
+
+We used the [PLIER R package](https://github.com/wgmao/PLIER) with the collection of 12999 gene sets as a prior information matrix priorMat available in the package comprising canonical, immune and chemgen pathways from MSigDB (same with the eLife paper)
+
+We used GTEx whole blood data in this part. 
+
+
+## PC
+
+We have 331 human pathways from KEGG. For each pathway, 253 of them have > 40 genes.  We use the GTEx gene expression data to generate a expression matrix. We used PCA and inferred 5 PCs for the pathways have >= 5 genes, inferred N PCs for the pathways have N genes(N < 5). 
+
+We got 1646 PCs, 1265 of them are from the pathways have > 40 genes.
+
+
+### Heritability 
+
+We used GCTA software to compute the heritability of the LVs. We made a histogram to show the heritability distribution. We also made a qqplot to show the p-values(zscores = heritability/SE, pval = 1- pnorm(zscores)) of the LV hertitability against normal distribution.
+
+#### PCs from all pathways
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_kegg_pcs_gtex_wb.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_lvpv_wb_kegg_pcs_gtex_wb.jpeg" width="80%">
+</figure>
+
+#### PCs from pathways have > 40genes
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_kegg_pcs_gtex_wb_40.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_lvpv_wb_kegg_pcs_gtex_wb_40.jpeg" width="80%">
+</figure>
+
+
+
+
+
+
+### T1D-PC5 prediction model
+
+#### GWAS result for T1D-PC5
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_T1Dpc5.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_T1Dpc5.jpeg" width="80%">
+</figure>
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_T1Dpc5_noMHC.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_T1Dpc5_noMHC.jpeg" width="80%">
+</figure>
+
+[Prediction model details](https://xsun1229.github.io/factor_analysis/T1D.html)
+
+
+## PLIER
+
+### Heritability 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_H_lv_98lv_gtex_wb.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_lvpv_wb_gtex_98lv.jpeg" width="80%">
+</figure>
+
+### prediction model
+
+Several cases
+
+The prediction model result are below. There are several interesting LVs: LV60,79,3. They have low pval_test in both lasso and elastic models. We made QQ plot and manhatton plot for these LVs. The p-values for the plot are from the GWAS test for all 670 samples. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted_98lvs_gtex.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+
+#### LV60 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv60_98lv.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv60_98lv.jpeg" width="80%">
+</figure>
+
+#### LV79
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv79_98lv.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv79_98lv.jpeg" width="80%">
+</figure>
+
+#### LV3
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_unif_lv3_98lv.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/man_lv3_98lv.jpeg" width="80%">
+</figure>

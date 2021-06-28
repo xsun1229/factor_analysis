@@ -1,0 +1,188 @@
+---
+title: "PLIER analysis summary for 6 cell types from CEDAR dataset"
+author: "XSun"
+date: "2021-06-27"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+We used the [PLIER R package](https://github.com/wgmao/PLIER) with the collection of 5546 gene sets as a prior information matrix priorMat available in the package comprising canonical, immune and chemgen pathways from MSigDB (same with the eLife paper)
+
+We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mcv","rdw","ret","baso","plt","pct","pdw","mpv","hct","hgb","ret","mono","T1D", "EUR.IBD","EUR.UC","EUR.CD","ukb.allasthma","eo","wbc","rbc","myeloid_wbc","gran","lymph","neut","allergy"
+
+The genotype data used in this part were imputed genenotype data. Before imputation, we did quality control for them.
+
+## LV number 
+
+| cell type      | LV num |
+|----------------|--------|
+| platelet       | 132    |
+| B cell         | 136    |
+| T cell(CD4)    | 146    |
+| T cell(CD8)    | 134    |
+| monocyte CD14  | 88     |
+| neutrophils CD15 | 146    |
+
+## Summary 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_plier_qc.png" width="80%">
+</figure>
+
+## Detailed results for 6 cell types
+
+### neutrophils CD15
+
+#### Histogram to show the number of SNPs that each pair contains
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd15_cedar_qc.jpeg" width="80%">
+</figure>
+
+#### effectsize fitting summary 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd15_cedar_qc.txt",header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+#### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plier_cd15_cedar_qc.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+### B cell
+
+#### Histogram to show the number of SNPs that each pair contains
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_bcell_cedar_qc.jpeg" width="80%">
+</figure>
+
+
+#### effectsize fitting summary 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_bcell_cedar_qc.txt",header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+#### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plier_bcell_cedar_qc.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+### T cell(CD8)
+
+#### Histogram to show the number of SNPs that each pair contains
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_thy_cedar_qc.jpeg" width="80%">
+</figure>
+
+
+#### effectsize fitting summary 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_thy_cedar_qc.txt",header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+#### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plier_thy_cedar_qc.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+### T cell(CD4)
+
+#### Histogram to show the number of SNPs that each pair contains
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_tcell_cedar_qc.jpeg" width="80%">
+</figure>
+
+
+#### effectsize fitting summary 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_tcell_cedar_qc.txt",header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+#### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plier_tcell_cedar_qc.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+### platelet
+
+#### Histogram to show the number of SNPs that each pair contains
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc.jpeg" width="80%">
+</figure>
+
+
+#### effectsize fitting summary 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_plt_cedar_qc.txt",header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+#### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plier_plt_cedar_qc.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+### monocyte CD14
+
+#### Histogram to show the number of SNPs that each pair contains
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd14_cedar_qc.jpeg" width="80%">
+</figure>
+
+
+#### effectsize fitting summary 
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd14_cedar_qc.txt",header = T)
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+#### Checking the reverse causality
+
+There is no pair has p-value < 0.05 in resampling.
