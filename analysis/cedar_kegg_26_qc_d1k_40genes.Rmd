@@ -1,5 +1,5 @@
 ---
-title: "KEGG PCs summary for 6 cell types from CEDAR dataset"
+title: "KEGG PCs summary for 6 cell types from CEDAR dataset (pathways have > 40 genes only)"
 author: "XSun"
 date: "2021-06-28"
 output: workflowr::wflow_html
@@ -9,15 +9,12 @@ editor_options:
 
 ## Introduction
 
-We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mcv","rdw","ret","baso","cd14","pct","pdw","mpv","hct","hgb","ret","mono","T1D", "EUR.IBD","EUR.UC","EUR.CD","ukb.allasthma","eo","wbc","rbc","myeloid_wbc","gran","lymph","neut","allergy"
-
-The genotype data used in this part were imputed genenotype data. Before imputation, we did quality control for them.
+In this part, we just used the pathways have > 40 genes.
 
 ## Summary 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_kegg_sum1.png" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_kegg_sum2.png" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_40genes.png" width="80%">
 </figure>
 
 ## Detailed results for 6 cell types
@@ -27,13 +24,13 @@ The genotype data used in this part were imputed genenotype data. Before imputat
 #### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd15_cedar_qc_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd15_cedar_qc_kegg_40genes.jpeg" width="80%">
 </figure>
 
 #### effectsize fitting summary 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd15_cedar_qc_kegg.txt",header = T)
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -43,11 +40,9 @@ DT::datatable(sum, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
-
-
 
 
 ### B cell
@@ -55,14 +50,13 @@ DT::datatable(sum, options = list(pageLength =5))
 #### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_bcell_cedar_qc_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_bcell_cedar_qc_kegg_40genes.jpeg" width="80%">
 </figure>
-
 
 #### effectsize fitting summary 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_bcell_cedar_qc_kegg.txt",header = T)
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -72,7 +66,7 @@ DT::datatable(sum, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_kegg.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -81,14 +75,13 @@ DT::datatable(sum, options = list(pageLength =5))
 #### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_thy_cedar_qc_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_thy_cedar_qc_kegg_40genes.jpeg" width="80%">
 </figure>
-
 
 #### effectsize fitting summary 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_thy_cedar_qc_kegg.txt",header = T)
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -98,7 +91,7 @@ DT::datatable(sum, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -107,14 +100,13 @@ DT::datatable(sum, options = list(pageLength =5))
 #### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_tcell_cedar_qc_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_tcell_cedar_qc_kegg_40genes.jpeg" width="80%">
 </figure>
-
 
 #### effectsize fitting summary 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_tcell_cedar_qc_kegg.txt",header = T)
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -124,23 +116,22 @@ DT::datatable(sum, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_kegg.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-### platelet
+### Platelet 
 
 #### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_40genes.jpeg" width="80%">
 </figure>
-
 
 #### effectsize fitting summary 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_plt_cedar_qc_kegg.txt",header = T)
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -150,7 +141,7 @@ DT::datatable(sum, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -159,14 +150,13 @@ DT::datatable(sum, options = list(pageLength =5))
 #### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd14_cedar_qc_kegg.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd14_cedar_qc_kegg_40genes.jpeg" width="80%">
 </figure>
-
 
 #### effectsize fitting summary 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_pcs_reg_5_d1k_cd14_cedar_qc_kegg.txt",header = T)
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -176,6 +166,6 @@ DT::datatable(sum, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```

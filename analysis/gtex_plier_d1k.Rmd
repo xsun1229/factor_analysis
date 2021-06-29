@@ -63,10 +63,14 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ### EUR.UC_wb_lv46
 
+#### ALL genes have non-zero loadings
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv46_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
+
+#### Top 25% genes 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv46_plier_wb_top025_98lvs.rdata")
@@ -76,10 +80,14 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ### rbc_wb_lv32
 
+#### ALL genes have non-zero loadings
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv32_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
+
+#### Top 25% genes 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv32_plier_wb_top025_98lvs.rdata")
@@ -89,10 +97,14 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ### ret_wb_lv73
 
+#### ALL genes have non-zero loadings
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv73_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
+
+#### Top 25% genes 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv73_plier_wb_top025_98lvs.rdata")
@@ -101,10 +113,14 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ### ukb.allasthma_wb_lv35
 
+#### ALL genes have non-zero loadings
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv35_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
+
+#### Top 25% genes 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv35_plier_wb_top025_98lvs.rdata")
