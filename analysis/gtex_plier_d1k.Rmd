@@ -55,7 +55,7 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_d1k_plier_wb_98lvs.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 ## **Enrichment results**
