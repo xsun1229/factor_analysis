@@ -19,6 +19,9 @@ In this part, we just used the pathways have > 40 genes.
 
 ## Detailed results for 6 cell types
 
+We just listed the pairs show sign consistancy (at p-value < 0.05 in resampling) here
+
+
 ### neutrophils CD15
 
 #### Histogram to show the number of SNPs that each pair contains
@@ -31,7 +34,7 @@ In this part, we just used the pathways have > 40 genes.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
@@ -57,7 +60,7 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
@@ -82,7 +85,7 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
@@ -107,7 +110,7 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
@@ -132,7 +135,7 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
@@ -157,7 +160,7 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
