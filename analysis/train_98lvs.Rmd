@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Factor construction
+## **Factor construction**
 
 The factors in this part were inffered from PCA/PLIER
 
@@ -16,7 +16,7 @@ We used the [PLIER R package](https://github.com/wgmao/PLIER) with the collectio
 We used GTEx whole blood data in this part. 
 
 
-## PC
+## **PC**
 
 We have 331 human pathways from KEGG. For each pathway, 253 of them have > 40 genes.  We use the GTEx gene expression data to generate a expression matrix. We used PCA and inferred 5 PCs for the pathways have >= 5 genes, inferred N PCs for the pathways have N genes(N < 5). 
 
@@ -76,7 +76,7 @@ We used GCTA software to compute the heritability of the LVs. We made a histogra
 [Prediction model details](https://xsun1229.github.io/factor_analysis/T1D.html)
 
 
-## PLIER
+## **PLIER**
 
 ### Heritability 
 
