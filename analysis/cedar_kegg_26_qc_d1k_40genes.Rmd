@@ -21,33 +21,37 @@ In this part, we just used the pathways have > 40 genes.
 
 We just listed the pairs show sign consistancy (at p-value < 0.05 in resampling) here
 
-We did some literature searching for some disease related pairs (p-value < 0.01 in resampling)
+We did some literature searching for some disease related pairs (p-value < 0.01 in resampling) in monocyte and B cell.
 
-### neutrophils CD15
+### monocyte CD14
 
 #### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd15_cedar_qc_kegg_40genes.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd14_cedar_qc_kegg_40genes.jpeg" width="80%">
 </figure>
 
 #### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_40genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+EUR.IBD_pwy121_pc1:  [Dysregulation in the NF-κβ pathway and factors that regulate it lead to a state of uncontrolled inflammation and altered immunity, as typically observed in IBD](https://www.frontiersin.org/articles/10.3389/fped.2018.00317/full)
+
+ukb.allasthma_pwy155_pc1 [Taken together, these findings demonstrate that the Wnt/β-catenin signaling pathway is highly expressed and regulates the development of airway remodeling in chronic asthma](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4686695/)
+
+EUR.UC_pwy97_pc2 [Numerous miRNAs were found to be differentially expressed in IBD and were hypothesized to act as critical mediators in the IBD pathogenesis by regulating proteins in vital regulatory pathways such as in the expression of inflammatory cytokines](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6077315/)
 
 #### Checking the reverse causality
 
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
-
 
 ### B cell
 
@@ -78,30 +82,6 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_keg
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-### T cell(CD8)
-
-#### Histogram to show the number of SNPs that each pair contains
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_thy_cedar_qc_kegg_40genes.jpeg" width="80%">
-</figure>
-
-#### effectsize fitting summary 
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_40genes.rdata")
-DT::datatable(final_full, options = list(pageLength =5))
-```
-
-
-#### Checking the reverse causality
-
-**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
-```
 
 ### T cell(CD4)
 
@@ -128,6 +108,61 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_keg
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+[Together these data support the hypothesis that TNF plays a beneficial role in enhancing Wnt/β-catenin signaling during ulcer healing in IBD.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5568528/)
+
+### neutrophils CD15
+
+#### Histogram to show the number of SNPs that each pair contains
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd15_cedar_qc_kegg_40genes.jpeg" width="80%">
+</figure>
+
+#### effectsize fitting summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_40genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+#### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+
+### T cell(CD8)
+
+#### Histogram to show the number of SNPs that each pair contains
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_thy_cedar_qc_kegg_40genes.jpeg" width="80%">
+</figure>
+
+#### effectsize fitting summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_40genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+#### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
 ### Platelet 
 
 #### Histogram to show the number of SNPs that each pair contains
@@ -153,27 +188,3 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-### monocyte CD14
-
-#### Histogram to show the number of SNPs that each pair contains
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd14_cedar_qc_kegg_40genes.jpeg" width="80%">
-</figure>
-
-#### effectsize fitting summary 
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_40genes.rdata")
-DT::datatable(final_full, options = list(pageLength =5))
-```
-
-
-#### Checking the reverse causality
-
-**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
-```
