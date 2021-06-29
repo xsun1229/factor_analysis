@@ -76,6 +76,16 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_keg
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+We made several plot to find out if the causality is driven by just a few SNPs, or really reflect some trend across many SNPs.
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/mbe_debug_EUR.CD_pwy180_pc1.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/mbe_debug_EUR.CD_pwy42_pc2.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/mbe_debug_T1D_pwy238_pc3.jpeg" width="80%">
+</figure>
+
+
 ### T cell(CD8)
 
 #### Histogram to show the number of SNPs that each pair contains
