@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+## **Introduction**
 
 We used the [PLIER R package](https://github.com/wgmao/PLIER) with the collection of 5546 gene sets as a prior information matrix priorMat available in the package comprising canonical, immune and chemgen pathways from MSigDB (same with the eLife paper)
 
@@ -15,7 +15,7 @@ We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mc
 
 The genotype data used in this part were imputed genenotype data. Before imputation, we did quality control for them.
 
-## LV number 
+## **LV number** 
 
 | cell type      | LV num |
 |----------------|--------|
@@ -26,13 +26,13 @@ The genotype data used in this part were imputed genenotype data. Before imputat
 | monocyte CD14  | 88     |
 | neutrophils CD15 | 146    |
 
-## Summary 
+## **Summary** 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_plier_qc.png" width="80%">
 </figure>
 
-## Detailed results for 6 cell types
+## **Detailed results for 6 cell types**
 
 ### neutrophils CD15
 

@@ -7,20 +7,21 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+## **Introduction**
 
 In this part, we just used the pathways have > 40 genes.
 
-## Summary 
+## **Summary** 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_40genes.png" width="80%">
 </figure>
 
-## Detailed results for 6 cell types
+## **Detailed results for 6 cell types**
 
 We just listed the pairs show sign consistancy (at p-value < 0.05 in resampling) here
 
+We did some literature searching for some disease related pairs (p-value < 0.01 in resampling)
 
 ### neutrophils CD15
 
@@ -62,6 +63,10 @@ DT::datatable(sum, options = list(pageLength =5))
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_40genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
+
+EUR.CD_pwy180_pc1: [Therefore, CLRs, as innate immune receptors, may play vital roles in IBD progression.](https://academic.oup.com/gastro/article/7/5/312/5530700)
+
+EUR.UC_pwy163_pc5: [The role of the Hippo pathway in the pathogenesis of inflammatory bowel disease](https://www.nature.com/articles/s41419-021-03395-3)
 
 
 #### Checking the reverse causality
