@@ -454,7 +454,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-06-28
+<strong>Last updated:</strong> 2021-06-29
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -569,16 +569,16 @@ output/summary_H_le_sorted_98lvs_gtex.rdata
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1f850457bdb8b43504ede8f661f71d1a7c75e9dctargetblank1f85045a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/1f850457bdb8b43504ede8f661f71d1a7c75e9dc" target="_blank">1f85045</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreecc1edff733b8aab1ce896925b889109265e8f779targetblankcc1edffa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/cc1edff733b8aab1ce896925b889109265e8f779" target="_blank">cc1edff</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1f850457bdb8b43504ede8f661f71d1a7c75e9dctargetblank1f85045a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreecc1edff733b8aab1ce896925b889109265e8f779targetblankcc1edffa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/1f850457bdb8b43504ede8f661f71d1a7c75e9dc" target="_blank">1f85045</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/cc1edff733b8aab1ce896925b889109265e8f779" target="_blank">cc1edff</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -589,6 +589,9 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    analysis/.Rhistory
     Ignored:    output/.Rhistory
+
+Unstaged changes:
+    Modified:   analysis/cedar_plier_26_qc_d1k.Rmd
 
 </code></pre>
 <p>
@@ -632,6 +635,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/cc1edff733b8aab1ce896925b889109265e8f779/analysis/train_98lvs.Rmd" target="_blank">cc1edff</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-06-29
+</td>
+<td>
+wflow_publish(c(“analysis/train_98lvs.Rmd”))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/522547578482d9ce8b049bebae73824a33737f68/docs/train_98lvs.html" target="_blank">5225475</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-06-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/xsun1229/factor_analysis/blob/1f850457bdb8b43504ede8f661f71d1a7c75e9dc/analysis/train_98lvs.Rmd" target="_blank">1f85045</a>
 </td>
 <td>
@@ -669,13 +706,13 @@ update
 </div>
 </div>
 <div id="factor-construction" class="section level2">
-<h2>Factor construction</h2>
+<h2><strong>Factor construction</strong></h2>
 <p>The factors in this part were inffered from PCA/PLIER</p>
 <p>We used the <a href="https://github.com/wgmao/PLIER">PLIER R package</a> with the collection of 12999 gene sets as a prior information matrix priorMat available in the package comprising canonical, immune and chemgen pathways from MSigDB (same with the eLife paper)</p>
 <p>We used GTEx whole blood data in this part.</p>
 </div>
 <div id="pc" class="section level2">
-<h2>PC</h2>
+<h2><strong>PC</strong></h2>
 <p>We have 331 human pathways from KEGG. For each pathway, 253 of them have &gt; 40 genes. We use the GTEx gene expression data to generate a expression matrix. We used PCA and inferred 5 PCs for the pathways have &gt;= 5 genes, inferred N PCs for the pathways have N genes(N &lt; 5).</p>
 <p>We got 1646 PCs, 1265 of them are from the pathways have &gt; 40 genes.</p>
 <div id="heritability" class="section level3">
@@ -721,7 +758,7 @@ update
 </div>
 </div>
 <div id="plier" class="section level2">
-<h2>PLIER</h2>
+<h2><strong>PLIER</strong></h2>
 <div id="heritability-1" class="section level3">
 <h3>Heritability</h3>
 <figure class="half">
