@@ -8,6 +8,38 @@ editor_options:
 ---
 
 
+# **Imputation details**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_bcell_cedar_plier.png" width="80%">
+</figure>
+
+It seems that removing 4 samples whose missing variant call > 5% leads to the imputation difference.
+
+When using all 346 samples in the earlier imputation, the imputation sever removed 10 chunks before doing the imputation ( 10 Chunk(s) excluded: at least one sample has a call rate < 50.0%).
+
+```{r,echo=TRUE,eval=FALSE}
+#Chunk	SNPs (#)	Reference Overlap (%)	Low Sample Call Rates (#)
+chunk_1_0000000001_0020000000	5438	0.9906960100196815	1
+chunk_1_0020000001_0040000000	4821	0.9851435454727966	1
+chunk_14_0000000001_0020000000	4	0.5714285714285714	1
+chunk_16_0020000001_0040000000	2517	0.9802055576703465	1
+chunk_16_0080000001_0100000000	4569	0.9957255823893995	1
+chunk_17_0020000001_0040000000	3307	0.9865889212827988	1
+chunk_20_0020000001_0040000000	3203	0.9893971523780672	1
+chunk_20_0040000001_0060000000	6465	0.9920060331825038	1
+chunk_22_0020000001_0040000000	5381	0.9854264123785534	1
+chunk_9_0040000001_0060000000	10	0.6666666666666666	1
+```
+
+After removing the 4 samples, the imputation sever removed 1 chunks before doing the imputation (1 Chunk(s) excluded: < 3 SNPs ). It used 153 to perform the imputation. We got 9,773,426 SNPs finally.
+```{r,echo=TRUE,eval=FALSE}
+#Chunk	SNPs (#)	Reference Overlap (%)	Low Sample Call Rates (#)
+chunk_14_0000000001_0020000000	1	1.0	4
+```
+
+# **B cell** 
+
 For B cell - PLIER, we found 57 pairs using the dataset after quality control, found 69 pairs using the dataset without quality control. The figure below shows the details.
 
 <figure class="half">
