@@ -1,0 +1,50 @@
+---
+title: "qc_debug"
+author: "XSun"
+date: "2021-07-01"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+
+For B cell - PLIER, we found 57 pairs using the dataset after quality control, found 69 pairs using the dataset without quality control. The figure below shows the details.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/overlap_bcell_cedar_plier.png" width="80%">
+</figure>
+
+## Common pairs
+
+For the 38 common pairs shown above, we made a scattor plot to show the p-values in resampling.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/pval_cedar_bcell_plier.jpeg" width="80%">
+</figure>
+
+There is a point that clearly deviates from the y=x. We found it is the LV116. We also made a plot for this LV to show the details. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/compare_cedar_bcell_plier.jpeg" width="80%">
+</figure>
+
+The table below shows the SNP details for this pair. 
+
+| SNP           | beta.exposure | pval.exposure | fdr        |
+|---------------|---------------|---------------|------------|
+| rs921968_qc   | 0.06262       | 0.004396      | 0.24928512 |
+| rs921968_noqc | 0.06747       | 0.0020850     | 0.12688942 |
+
+## A pair in noqc set but not qc set
+
+We found that the pair eo - LV22 has 2 SNPs at FDR < 0.2 in noqc set but only one in qc set. 
+
+For this pair, we made a table below to show the SNP details.
+
+
+| SNP             | beta.exposure | pval.exposure | fdr       |
+|-----------------|---------------|---------------|-----------|
+| rs13023767_noqc | 0.1857        | 0.0004593     | 0.1130009 |
+| rs13023767_qc   | 0.1627        | 0.002643      | 0.3505586 |
+| rs4328821_noqc  | 0.2489        | 0.0007877     | 0.1615998 |
+| rs4328821_qc    | 0.2638        | 0.0004397     | 0.1381524 |
