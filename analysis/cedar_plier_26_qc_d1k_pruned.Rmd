@@ -137,7 +137,7 @@ DT::datatable(sum, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plier_tcell_cedar_qc_pruned.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_plier_cedar_qc_pruned.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
