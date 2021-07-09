@@ -73,10 +73,14 @@ We found that the pair eo - LV22 has 2 SNPs at FDR < 0.2 in noqc set but only on
 
 For this pair, we made a table below to show the SNP details.
 
-
 | SNP             | beta.exposure | pval.exposure | fdr       |
 |-----------------|---------------|---------------|-----------|
 | rs13023767_noqc | 0.1857        | 0.0004593     | 0.1130009 |
 | rs13023767_qc   | 0.1627        | 0.002643      | 0.3505586 |
+| rs13023767_qc_usenoqc genotype pcs as covar   | 0.1801        | 0.0008389      | 0.1723899 |
 | rs4328821_noqc  | 0.2489        | 0.0007877     | 0.1615998 |
 | rs4328821_qc    | 0.2638        | 0.0004397     | 0.1381524 |
+| rs4328821_qc_usenoqc genotype pcs as covar    | 0.2564        | 0.0005736     | 0.136056 |
+
+
+Since the 276 samples have the same the genotype for rs13023767 and rs4328821 in qc dataset and noqc dataset, the only sample size and covariates can make the pvalues different. We used 10 genotype PCs , batch infomation, sex and age as the covariates in the association test. The 10 genotype PCs are different. So we tried to use LV ~ SNP + 10PC_from noqc dataset + batch + set +age to make a comparison. The suffix "_qc_usenoqc genotype pcs" 

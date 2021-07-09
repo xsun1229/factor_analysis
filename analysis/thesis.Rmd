@@ -17,6 +17,8 @@ editor_options:
 
 [CEDAR - PLIER - 26 traits - Quality Control](https://xsun1229.github.io/factor_analysis/cedar_plier_26_qc_d1k.html)
 
+[CEDAR - PLIER - 26 traits - Quality Control - Pruned PCs](https://xsun1229.github.io/factor_analysis/cedar_plier_26_qc_d1k_pruned.html)
+
 [CEDAR - KEGG PCs - 26 traits - Quality Control](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k.html)
 
 [CEDAR - KEGG PCs - 26 traits - Quality Control - >40 genes](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes.html)
