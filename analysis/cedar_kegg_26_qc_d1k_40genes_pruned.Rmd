@@ -39,6 +39,10 @@ DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
+ukb.allasthma_pwy201_pc4 : [these data constitute pharmacological evidence that NMDA glutamate receptors are present in the airways, participate in mediating the acute response to capsaicin and, when activated, enhance airway smooth muscle responsiveness](https://www.cell.com/trends/pharmacological-sciences/fulltext/S0165-6147(98)01275-9)
+
+EUR.UC_pwy115_pc5 : [Impaired intracellular Ca2+ signaling of colonic SM, caused by alteration of Ca2+ handing proteins, contribute to colonic dysmotility in DSS-induced UC.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878164/)
+
 #### Checking the reverse causality
 
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
