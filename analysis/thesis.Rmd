@@ -25,10 +25,10 @@ editor_options:
 
 [CEDAR - KEGG PCs - 26 traits - Quality Control - >40 genes](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes.html)
 
-[CEDAR - KEGG PCs - 26 traits - Quality Control - >40 genes - Pruned PCs](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes.html)
+[CEDAR - KEGG PCs - 26 traits - Quality Control - >40 genes - Pruned PCs](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes_pruned.html)
 
-# Earlier analysis
-
+# Earlier analysis 
+ 
 [predictive models/heritability of factors -128LVs](https://xsun1229.github.io/factor_analysis/variants_factors.html)
 
 [GTEx - KGEE & REACTOME - summary ](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare.html)
