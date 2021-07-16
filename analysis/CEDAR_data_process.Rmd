@@ -62,13 +62,13 @@ The table below shows the sample size and variant number we used in PCA
 The plot below shows the outliers we removed in step 3.
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/outliers.jpeg" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/outliers.jpg" width="100%">
 </figure>
 
 The plot below shows the PVE of each PCs.
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/PVE.jpeg" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/PVE.jpg" width="100%">
 </figure>
 
 
