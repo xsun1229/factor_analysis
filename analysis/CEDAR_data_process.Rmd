@@ -1,0 +1,87 @@
+---
+title: "Overview on CEDAR data set"
+author: "XSun"
+date: "2021-07-15"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## **Introduction**
+
+We used CEDAR data from [IBD risk loci are enriched in multigenic regulatory modules encompassing putative causative genes](https://www.nature.com/articles/s41467-018-04365-8). The data can be downloaded from ArrayExpress under accession codes [E-MTAB-6666](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6666/) and [E-MTAB-6667](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6667/)
+
+
+## **Genotype data** 
+
+### 1. Data processing
+
+1) Using gtc2vcf(https://github.com/freeseek/gtc2vcf) tool to convert the raw .idat files into vcf format.
+
+2) Quality Control
+
+- Aligning the alleles with the 1000 Genomes Phase 3 reference panel and excluding variants that could not be aligned using [Genotype harmonizer](https://link.springer.com/article/10.1186/1756-0500-7-901)v1.4.20 
+
+- Excluding variants with Hardy-Weinberg equilibrium p-value>10−6, missingness >0.05 and MAF <0.01. 
+
+- Excluding samples with more than 95% of the variants missing.
+
+3) Imputation
+
+After quality control, we included 602,849 autosomal genetic variants from 342 individuals for imputation. We used [Michigan Imputation Server](https://www.nature.com/articles/ng.3656) with the 1000 Genomes Phase 3 reference panel to perform phasing and imputation. 
+
+After imputation, We used bcftools v1.9.0 to exclude genetic variants with imputation quality score R2 <0.8 and minor allele frequency (MAF) <0.01. 
+
+We obtained 8,045,943 variants finnally. 
+
+### 2. Genotype PCs
+
+We used [bigsnpr](https://academic.oup.com/bioinformatics/article/36/16/4449/5838185) to do the PCA and obtained 10 genotype PCs. 
+
+1) We first computed the relatedness of the samples using 2^-4.5 as the cutoff to find the second-degree relations.
+
+2) We then compute PCA without using the related individuals and made plots to see if there are outliers. In this part, before doing PCA, the bigsnpr will do LD Pruning with R2 < 0.2 to remove the SNPs in LD.
+
+3) We recomputed PCA without outliers, starting with the previous set of variants kept
+
+4) Finally, we projected the removed samples using the PCA results in step3 and obtained the final 10 PCs.
+
+
+The table below shows the sample size and variant number we used in PCA
+
+|              | sample size - origin | sample size - related removed | sample size - outlier removed | variants number - origin  | variants number - final  |
+|--------------|----------------------|-------------------------------|-------------------------------|---------------------------|--------------------------|
+| B cell       | 276                  | 268                           | 259                           | 8045943                   | 259604                   |
+| CD14         | 282                  | 274                           | 266                           | 8045943                   | 261937                   |
+| CD15         | 270                  | 264                           | 258                           | 8045943                   | 261049                   |
+| T CELL(CD4+) | 299                  | 291                           | 279                           | 8045943                   | 269355                   |
+| T CELL(CD8+) | 286                  | 280                           | 272                           | 8045943                   | 266120                   |
+| Platelet     | 237                  | 235                           | 233                           | 8045943                   | 251819                   |
+
+
+The plot below shows the outliers we removed in step 3.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/outliers.jpeg" width="150%">
+</figure>
+
+The plot below shows the PVE of each PCs.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/PVE.jpeg" width="150%">
+</figure>
+
+
+## Gene expression data
+
+The expression data are from 6 cell types: B cell(15774 genes), T cell (16897 genes),  CD14 positive monocyte (16374 genes), CD15 positive leukocyte(13905 genes), platelet (8388 genes), thymocyte (16646 genes). 
+
+### 1. Data processing
+
+1) Normalization: log2 transformation and RSN normalization to . 
+
+2) The probes presented in more than 75% of our samples for given cell type were kept.
+
+### 2. PEER factors
+
+We used PEER(https://github.com/PMBio/peer/wiki) under default settings to infer PEER factors for each expression data set. For the data set have > 250 samples, we inferred 45 factors. For others, we inferred 30 factors. 
