@@ -8,15 +8,27 @@ editor_options:
   chunk_output_type: console
 ---
 
-This page is about factor analysis. Below are details of analyses. 
+# **1. Introduction**
 
-# **Factor Construction**
+GWAS has found many variants. However, the mechanisms of these variants are often unknown. 
 
-The first part of factor analysis is factor construction. We used 3 software(PLIER/PEER/FLASH) to infer expression factors from the expression matrix. 
+## **1.1 Challenge** 
 
-[For more details](https://xsun1229.github.io/factor_analysis/factor_construction.html)
+(1) Most existing studies of variant functions focus on cis-effects, i.e. immediate gene targets (one gene a time). The results do not immediately suggest common biological processes disrupted in human diseases. 
 
-# **Understanding genetics of expression factors**
+(2) Some studies have looked at trans-effects of variants, i.e. genes whose expression are affected by the disease-associated variants. However, these trans-eQTL studies are often under-powered because of smaller effects of trans-acting eQTLs and multiple testing burdens. 
+
+## **1.2 Approach/Hypothesis**
+
+The effects of GWAS variants of a disease converge a relatively small number of biological processes. 
+
+This hypothesis motivates an approach where we test association of disease-associated variants on expression factors, which capture the expression of a set of related genes in a process. This approach focuses on variants already associated with a disease, as opposed to all variants in the genome, thus increasing the statistical signal. Also by studying a small set of pathways, it has the advantage of reducing the burden of multiple testing. Furthermore, we propose to use MR-type of approach to test causality of expression factors on phenotypes. 
+
+[A motivating example - T1D PC5](https://xsun1229.github.io/factor_analysis/T1D.html)
+
+# **2. Analyses**
+
+## **2.1 Understanding genetics of expression factors**
 
 In this part, we're trying to answer the questions below:
 
@@ -27,7 +39,7 @@ In this part, we're trying to answer the questions below:
 [For more details](https://xsun1229.github.io/factor_analysis/variants_factors.html)
 
 
-# **Genetic relationship between the expression factors and traits**
+## **2.2 Genetic relationship between the expression factors and traits**
 
 We'd like to show that the factors have a causal effect on outcome(traits), but it's difficult to establish.  
 So we state a weaker hypothesis first: GWAS variants of a trait often converge to a relatively small number of processes, which can be represented as expression factors.
@@ -36,14 +48,14 @@ Then we strengthen hypothesis: if the effects of SNPs on LV is correlated with t
 
 [For more details](https://xsun1229.github.io/factor_analysis/factors_traits.html)
 
-# **Module-based factor analysis**
+# **2.3 Module-based factor analysis**
 
 We used WGCNA to find modules in GTEx expression data. Then inferred some expression factors in each module with the expectation that these factor can capture the biological processes better. 
 
 [For more details](https://xsun1229.github.io/factor_analysis/module_based_factors.html)
 
 
-# **Case Studies**
+# **2.4 Case Studies**
 
 Some special cases and our motivating examples are here.
 
