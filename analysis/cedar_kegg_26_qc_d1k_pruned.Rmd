@@ -1,5 +1,5 @@
 ---
-title: "cedar_kegg_pruned_pruned_26_qc_d1k_pruned"
+title: "Results for KEGG PCs from CEDAR data set"
 author: "XSun"
 date: "2021-07-09"
 output: workflowr::wflow_html
@@ -7,39 +7,32 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
 
-In this part, we used new PCs as the covariates in association test. The new PCs are computed using 'bigsnpr' R package. When computing the PCs, the related samples are removed, the outlier samples are removed, the SNPs are thinned with the R2 >0.2.
-
-We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mcv","rdw","ret","baso","cd14","pct","pdw","mpv","hct","hgb","ret","mono","T1D", "EUR.IBD","EUR.UC","EUR.CD","ukb.allasthma","eo","wbc","rbc","myeloid_wbc","gran","lymph","neut","allergy"
-
-The genotype data used in this part were imputed genenotype data. Before imputation, we did quality control for them.
-
-## Summary 
+# **Summary** 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned1.png" width="80%">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned2.png" width="80%">
 </figure>
 
-## Detailed results for 6 cell types
+# **Detailed results for 6 cell types**
 
-### neutrophils CD15
+## neutrophils CD15
 
-#### Histogram to show the number of SNPs that each pair contains
+### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd15_cedar_qc_kegg_pruned.jpeg" width="80%">
 </figure>
 
-#### effectsize fitting summary 
+### effectsize fitting summary 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-#### Checking the reverse causality
+### Checking the reverse causality
 
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
@@ -51,20 +44,16 @@ DT::datatable(sum, options = list(pageLength =5))
 EUR.IBD_pwy322_pc4 : pwy322 is exactly inflammatory bowel disease
 
 
+## B cell
 
-
-
-
-### B cell
-
-#### Histogram to show the number of SNPs that each pair contains
+### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_bcell_cedar_qc_kegg_pruned.jpeg" width="80%">
 </figure>
 
 
-#### effectsize fitting summary 
+### effectsize fitting summary 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned.rdata")
@@ -72,7 +61,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
-#### Checking the reverse causality
+### Checking the reverse causality
 
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
@@ -82,16 +71,16 @@ DT::datatable(sum, options = list(pageLength =5))
 ```
 
 
-### T cell(CD8)
+## T cell(CD8)
 
-#### Histogram to show the number of SNPs that each pair contains
+### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_thy_cedar_qc_kegg_pruned.jpeg" width="80%">
 </figure>
 
 
-#### effectsize fitting summary 
+### effectsize fitting summary 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned.rdata")
@@ -99,7 +88,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
-#### Checking the reverse causality
+### Checking the reverse causality
 
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
@@ -108,16 +97,16 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-### T cell(CD4)
+## T cell(CD4)
 
-#### Histogram to show the number of SNPs that each pair contains
+### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_tcell_cedar_qc_kegg_pruned.jpeg" width="80%">
 </figure>
 
 
-#### effectsize fitting summary 
+### effectsize fitting summary 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned.rdata")
@@ -125,7 +114,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
-#### Checking the reverse causality
+### Checking the reverse causality
 
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
@@ -134,16 +123,16 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_keg
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-### platelet
+## platelet
 
-#### Histogram to show the number of SNPs that each pair contains
+### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_pruned.jpeg" width="80%">
 </figure>
 
 
-#### effectsize fitting summary 
+### effectsize fitting summary 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned.rdata")
@@ -151,7 +140,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
-#### Checking the reverse causality
+### Checking the reverse causality
 
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
@@ -160,16 +149,16 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-### monocyte CD14
+## monocyte CD14
 
-#### Histogram to show the number of SNPs that each pair contains
+### Histogram to show the number of SNPs that each pair contains
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_cd14_cedar_qc_kegg_pruned.jpeg" width="80%">
 </figure>
 
 
-#### effectsize fitting summary 
+### effectsize fitting summary 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned.rdata")
@@ -179,7 +168,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 allergy_pwy206_pc2 : [Findings from the present study support the idea that major depression is associated with an increased risk of developing non-food allergies. An effect in the opposite direction could not be confirmed.](https://link.springer.com/article/10.1186/1751-0759-3-3)
 
 
-#### Checking the reverse causality
+### Checking the reverse causality
 
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 

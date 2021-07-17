@@ -21,7 +21,7 @@ We tried GTEx and CEDAR data set for the analysis in this part.
 
 # **2. Pipeline**
 
-1) We first selected some disease/trait-associated SNPs, using p-values < 5E-8 in GWAS summary statistics as cutoff. The GWAS summary statistics data we used are [here](https://xsun1229.github.io/factor_analysis/GWAS_data.html)
+1) We first selected some disease/trait-associated SNPs, using p-values < 5E-8 in GWAS summary statistics as cutoff. **The GWAS summary statistics data we used are [here](https://xsun1229.github.io/factor_analysis/GWAS_data.html)**
 
 2) Then we did 3-step LD Clumping for the SNPs in step 2 to find independent variants to be used in MR. 
 
@@ -61,6 +61,8 @@ The KEGG contains 332 pathways. We have 1866 Reactome pathways. Combining with o
 ### 3.1.2 Genotype data
 
 GTEx genotype data. The variants have maf >0.01 were selected, variants on chrX were excluded). We have 10,403,249 variants in total.
+
+The genotype PCs used in this part are computed from whole genome, using PLINK1.9.
 
 ## **3.2 Results under different settings**
 
@@ -147,6 +149,18 @@ We compared the enrichment results under different settings(PCs from KEGG and RE
 We tried 2 types of expression factors: 1)PLIER factors 2)PCs from KEGG pathways. 
 
 When using PCs, we regressed out the first 5 PEER factors computed from the GTEx expression data.
+
+**PLIER LV number for 6 cell types**
+
+| cell type      | LV num |
+|----------------|--------|
+| platelet       | 132    |
+| B cell         | 136    |
+| T cell(CD4)    | 146    |
+| T cell(CD8)    | 134    |
+| monocyte CD14  | 88     |
+| neutrophils CD15 | 146  |
+
 
 ## **4.2 Results under different settings**
 
