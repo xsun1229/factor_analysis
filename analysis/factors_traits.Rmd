@@ -37,11 +37,11 @@ We tried GTEx and CEDAR data set for the analysis in this part.
 
 6) To check the reverse causality, we exchanged the beta.outcome and beta.exposure of all SNPs associated with traits(pval<5E-8) to compute the MBE estimator and the p-values of the estimator.
 
-# **2. GTEx**
+# **3. GTEx**
 
-## **2.1 Data**
+## **3.1 Data**
 
-### 2.1.1 Expression factors
+### 3.1.1 Expression factors
 
 We tried four types of expression factors: 1)PLIER factors 2)PCs from KEGG/Reactome pathways 3)PEER factors 4)FLASH factors 5)PEER factors from KEGG/Reactome pathways. They are the same factors with those used in the prediction model training part. 
 
@@ -58,11 +58,11 @@ The KEGG contains 332 pathways. We have 1866 Reactome pathways. Combining with o
 | PEER                       | 60            |
 | FLASH                      | 100           |
 
-### 2.1.2 Genotype data
+### 3.1.2 Genotype data
 
 GTEx genotype data. The variants have maf >0.01 were selected, variants on chrX were excluded). We have 10,403,249 variants in total.
 
-## **2.2 Results under different settings**
+## **3.2 Results under different settings**
 
 ### PLIER-MSigDB factors **(latest results 07/21)**
 
@@ -134,21 +134,21 @@ We compared the enrichment results under different settings(PCs from KEGG and RE
 [Comparison](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare.html)
 
 
-# **3. CEDAR**
+# **4. CEDAR**
 
-## **3.1 Data**
+## **4.1 Data**
 
-### 3.1.1 CEDAR data processing 
+### 4.1.1 CEDAR data processing 
 
 [Data overview](https://xsun1229.github.io/factor_analysis/CEDAR_data_process.html)
 
-### 3.1.2 Expression factors
+### 4.1.2 Expression factors
 
 We tried 2 types of expression factors: 1)PLIER factors 2)PCs from KEGG pathways. 
 
 When using PCs, we regressed out the first 5 PEER factors computed from the GTEx expression data.
 
-## **3.2 Results under different settings**
+## **4.2 Results under different settings**
 
 ### PLIER - MSigDB factors **latest results 07/21**
 
