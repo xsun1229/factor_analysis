@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# **Introduction**
+# **1. Introduction**
 
 In this part, we're trying to answer the questions below:
 
@@ -15,87 +15,104 @@ In this part, we're trying to answer the questions below:
 
 - What are the SNPs and genes controlling expression factors?
 
+# **2. Data**
 
-# **Factor evaluation**
+- Expression data: GTEx whole blood expression data which contains 670 samples and 19,696 genes. Genes on chrX were excluded.
 
-I first evaluated the heritability of factors using [GCTA](
+- Genotype data: GTEx genotype data(the variants with maf >0.05 and maf >0.01 were selected, variants on chrX were excluded). 6,568,202 variants have maf >0.05 and 10,403,249 variants have maf >0.01.
+
+# **3. Analyses**
+
+## **3.1 Factor Construction and evaluation**
+
+- We used 4 methods to infer expression factors from the expression matrix. The [PLIER](https://github.com/wgmao/PLIER), [FLASH]( https://github.com/stephenslab/flashr), and [PEER](https://github.com/PMBio/peer/) worked on GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). PCA worked on KEGG 332 pathways. 
+
+- We evaluated the heritability of factors using [GCTA](
 https://cnsgenomics.com/software/gcta/#GREML) and made histogrames to show the distribution of the heritabilities.
 
-When computing heritability, I used GTEx genotype data(the variants with maf >0.05 and maf >0.01 were selected, variants on chrX are excluded). 6,568,202 variants have maf >0.05 and 10,403,249 variants have maf >0.01.
 
-## PLIER
+**PLIER**
   
-  - plier-canonicalPathways
-
-  [For more details](https://xsun1229.github.io/factor_analysis/eval_plier_canon.html)
-
-  - plier-allpathways
+  [plier - canonicalPathways - factor consruction ](https://xsun1229.github.io/factor_analysis/factor_plier_canon.html)
   
-  [For more details](https://xsun1229.github.io/factor_analysis/eval_plier_allpathway.html)
-
-## FLASH
-
-  [For more details](https://xsun1229.github.io/factor_analysis/eval_flash.html)
-
-## PEER
-
-  [For more details](https://xsun1229.github.io/factor_analysis/eval_peer.html)
+  [plier - canonicalPathways - factor evaluation ](https://xsun1229.github.io/factor_analysis/eval_plier_canon.html)
   
-## PC&PEER from KEGG pathways
+  [plier - allpathways - factor evaluation ](https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html)
+  
+  [plier - allpathways - factor evaluation ](https://xsun1229.github.io/factor_analysis/eval_plier_allpathway.html)
+  
+**FLASH**
 
+  Using 'FLASH', we obtained 100 factors.
+
+  [FLASH - factor evaluation](https://xsun1229.github.io/factor_analysis/eval_flash.html)
+
+**PEER**
+  
+  Using 'PEER', We obtained 60 factors.
+  
+  [PEER - factor evaluation](https://xsun1229.github.io/factor_analysis/eval_peer.html)
+  
+**PC&PEER from KEGG pathways**
+  
+  I used PCA to infer 1-5 PCs for each pathway. We have 1646 PCs in total.
+  
   [For more details](https://xsun1229.github.io/factor_analysis/eval_kegg.html)
 
-# **Prediction models for factors**
 
-In this part, I tried to train prediction models for factors ~ genotype using Lasso and Elastic-net. I used 670 samples from GTEx. I used two groups of variants to train models. The first group contains all variants provided by GTEx with maf > 0.01(10,403,249 variants) and maf > 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR > 0.05).
+## **3.2 Prediction models for factors**
+
+I used two groups of variants to train models. The first group contains all variants have maf > 0.01(10,403,249 variants) and maf > 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR > 0.05).
 
 The workflow: 
 
-1. I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set. 
+1) I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set. 
+2) In the training data, performed association test between the factors and all SNPs using Plink. I corrected the results for genotype PCs (We used Plink to compute 10 PCs and used them as corvariates in association test).
 
-2. In the training data, performed association test between the factors and all SNPs using Plink. I corrected the results for genotype PCs (We used Plink to compute 10 PCs and used them as corvariates in association test).
+3) From 3, we selected all SNPs with p < 1e-02 as candidate variants.
 
-3. From 3, we selected all SNPs with p < 1e-02 as candidate variants.
+4) Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.
 
-4. Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.
+5) For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx samples(670 samples). In the association tests, first 10 genotype pcs were included as covariants.
 
-5. For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx samples(670 samples). In the association tests, first 10 genotype pcs were included as covariants.
+### 3.2.1 Training models with all variants
 
-## Training models with all variants
-
-There are some missing values in our dataset. I used mean imputation (substitue the missing values with mean value of the corresponding variants) to impute the missing value. 
+There are some missing values in our dataset. I used mean imputation (substituing the missing values with mean value of the corresponding variants) to impute the missing value. 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ms_snp.jpeg" width="50%">
 </figure>
+
 The missing data pattern of our dataset. x-axis represents the proportion of missing value for each variant. y-axis represents the number of the variants.
 
 
-### PLIER
+**PLIER**
 
   [Results for plier-canonicalPathways factors](https://xsun1229.github.io/factor_analysis/train_plier_canon.html)
     
   [Results for plier-allpathway factors](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html)
+  
+  [Results for plier- MSigDB pathway factors](https://xsun1229.github.io/factor_analysis/train_98lvs.html)
 
-### FLASH
+**FLASH**
 
   [Results for FLASH factors](https://xsun1229.github.io/factor_analysis/train_flash.html)
 
-### PEER
+**PEER**
 
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/train_peer.html)
 
 
-## Training models with cis-eQTLs
+### 3.2.2 Training models with cis-eQTLs
 
-### PLIER
+**PLIER**
 
   [Results for plier-canonicalPathways factors](https://xsun1229.github.io/factor_analysis/train_plier_canon_ciseqtl.html)
 
 
-## Making the prediction models better
+### 3.2.3 Trying to make the prediction models better
 
-### *Finding functional SNPs  - LD Score Regression *
+#### Finding functional SNPs  - LD Score Regression 
 
 The GWAS power of some factors is low. So we tried to find functional SNPs to increase the GWAS power and reduce the testing burden.
 
@@ -103,22 +120,22 @@ We adopted LD score regression to estimate SNP-based heritability and partation 
 
 The ldsc material and methods of my project can be found [here](https://xsun1229.github.io/factor_analysis/ldsc.html)
 
-#### PLIER
+**PLIER**
 
   [Results for plier-canonicalPathways factors](https://xsun1229.github.io/factor_analysis/ldsc_plier_canon.html)
     
   [Results for plier-allpathway factors](https://xsun1229.github.io/factor_analysis/ldsc_plier_all.html)
 
-#### FLASH
+**FLASH**
 
   [Results for FLASH factors](https://xsun1229.github.io/factor_analysis/ldsc_flash.html)
 
-#### PEER
+**PEER**
 
   [Results for PEER factors](https://xsun1229.github.io/factor_analysis/ldsc_peer.html)
   
 
-### *Finding functional cis-genes* 
+#### Finding functional cis-genes
   
   After preliminary [rough calculations](https://xsun1229.github.io/factor_analysis/gwas_power.html), we found that there might be overfitting issue. So we tried one/two sample settings to test and eliminate the overfitting issue. 
   
@@ -140,7 +157,7 @@ The ldsc material and methods of my project can be found [here](https://xsun1229
   
   [One Sample Setting- only cis-eQTLs](https://xsun1229.github.io/factor_analysis/cg-onesample-ciseqtls.html)
   
-### *Dealing with weak IV bias*
+#### Dealing with weak IV bias
 
   Apart from using external weights([Two Sample Setting](https://xsun1229.github.io/factor_analysis/cg-twosample.html)), I tried other methods to eliminate the weak IV bias issue (divide the cis-eQTLS into different groups according to the p-values). 
   

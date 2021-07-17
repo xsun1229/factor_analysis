@@ -7,35 +7,34 @@ editor_options:
   chunk_output_type: console
 ---
 
-# **Introduction**
-
-
-  We used three softwares, [PLIER](https://github.com/wgmao/PLIER), [FLASH]( https://github.com/stephenslab/flashr), and [PEER](https://github.com/PMBio/peer/) to construct factors from GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). Genes on chrX were excluded when extracting factors using these softwares.
+  The [PLIER](https://github.com/wgmao/PLIER), [FLASH]( https://github.com/stephenslab/flashr), and [PEER](https://github.com/PMBio/peer/) worked on GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). Genes on chrX were excluded when extracting factors using these softwares.
+  
+  PCA worked on KEGG 322 pathways. 
 
 # **Factors**
 
-## PLIER
+## 1. PLIER
 
   PLIER(pathway-level information extractor) is a broadly applicable method to accurately infer relevant biological insights, such as variation in cell-type proportion or pathway activity, from global gene expression studies. It approximates the expression pattern of every gene as a linear combination of eigengene-like latent variables (LVs).
 
   - plier-canonicalPathways
   
-  In this part, I just used canonicalPathways which include KEGG and Reactome pathways to extract factors and obtained 128 factors.  [For more details](https://xsun1229.github.io/factor_analysis/factor_plier_canon.html)
+  In this part, We just used canonicalPathways which include KEGG and Reactome pathways to extract factors and obtained 128 factors.  [For more details](https://xsun1229.github.io/factor_analysis/factor_plier_canon.html)
   
   - plier-allpathways
   
-  I used 'PLIER' package(with default settings) to construct factors related to all pathways provided by the software and got 96 factors. [For more details](https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html)
+  We used 'PLIER' package(with default settings) to construct factors related to all pathways provided by the software and got 96 factors. [For more details](https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html)
   
 
-## FLASH
+## 2. FLASH
   
-  Using 'FLASH', I obtained 100 factors from our GTEx expression matrix.
+  Using 'FLASH', we obtained 100 factors.
 
-## PEER
+## 3. PEER
 
-  Using 'PEER', I obtained 60 factors from the GTEx expression matrix.
+  Using 'PEER', I obtained 60 factors.
   
-## Principal Component
+## 4. Principal Component
 
-  I used PCA to infer several PCs for some special cases.
+  I used PCA to infer 1-5 PCs for each pathway.
   

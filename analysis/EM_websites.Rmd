@@ -1,5 +1,5 @@
 ---
-title: "EM_websites"
+title: "Estimating the causal effects using EM algorithm"
 author: "XSun"
 date: "2021-01-20"
 output: workflowr::wflow_html
@@ -7,10 +7,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+[Theoretical framework](https://www.overleaf.com/project/5fc6d070dbe8f5b9fe43a54b)  
 
-Websites related to EM algorithm:
-
+The factors in this part are the GTEx PLIER - Canonical LVs. 
 
 [Real data](https://xsun1229.github.io/factor_analysis/EM_algorithm_pliercanon.html)
 

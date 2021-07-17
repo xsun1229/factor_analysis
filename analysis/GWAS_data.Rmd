@@ -1,0 +1,41 @@
+---
+title: "GWAS Data"
+author: "XSun"
+date: "2021-07-16"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# **Immune traits and blood cell traits**
+
+The GWAS data are download from [GWAS Catalog](https://www.ebi.ac.uk/gwas/downloads/summary-statistics)
+
+| Traits                                      | Abbreviation  | Source                                                                                                                                                       |   |
+|---------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
+| Eosinophil counts                           | eo            | The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease                                                                |   |
+| Granulocyte   count                         | gran          |                                                                                                                                                              |   |
+| Hematocrit                                  | hct           |                                                                                                                                                              |   |
+| Hemoglobin   concentration                  | hgb           |                                                                                                                                                              |   |
+| Lymphocyte counts                           | lymph         |                                                                                                                                                              |   |
+| Mean   corpuscular hemoglobin               | mch           |                                                                                                                                                              |   |
+| Mean corpuscular hemoglobin   concentration | mchc          |                                                                                                                                                              |   |
+| Mean corpuscular volume                     | mcv           |                                                                                                                                                              |   |
+| Mean platelet volume                        | mpv           |                                                                                                                                                              |   |
+| Monocyte count                              | mono          |                                                                                                                                                              |   |
+| Myeloid   white cell count                  | myeloid_wbc   |                                                                                                                                                              |   |
+| Neutrophil count                            | neut          |                                                                                                                                                              |   |
+| Platelet   count                            | plt           |                                                                                                                                                              |   |
+| Platelet distribution width                 | pdw           |                                                                                                                                                              |   |
+| Plateletcrit                                | pct           |                                                                                                                                                              |   |
+| Red blood cell count                        | rbc           |                                                                                                                                                              |   |
+| Red cell distribution width                 | rdw           |                                                                                                                                                              |   |
+| Reticulocyte count                          | ret           |                                                                                                                                                              |   |
+| White   blood cell count                    | wbc           |                                                                                                                                                              |   |
+| White blood cell count   (basophil)         | baso          |                                                                                                                                                              |   |
+| Type I diabetes                             | T1D           | Onengut-Gumuscu S et al. Fine mapping of type 1 diabetes susceptibility loci and evidence for colocalization of causal variants with lymphoid gene enhancers |   |
+| Asthma                                      | ukb.allasthma | Shared Genetics of Asthma and Mental Health Disorders: A Large-Scale Genome-Wide Cross-Trait Analysis                                                        |   |
+| Inflammatory bowel disease                  | EUR.IBD       | Association analyses identify 38 susceptibility loci for inflammatory bowel disease and highlight shared genetic risk across populations                     |   |
+| Crohn's disease                             | EUR.CD        |                                                                                                                                                              |   |
+| Ulcerative colitis                          | EUR.UC        |                                                                                                                                                              |   |
+| Allergy                                     | allergy       | Shared genetic origin of asthma, hay fever and eczema elucidates allergic disease biology                                                                    |   |

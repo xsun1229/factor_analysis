@@ -72,7 +72,7 @@ The plot below shows the PVE of each PCs.
 </figure>
 
 
-## Gene expression data
+## **Gene expression data**
 
 The expression data are from 6 cell types: B cell(15774 genes), T cell (16897 genes),  CD14 positive monocyte (16374 genes), CD15 positive leukocyte(13905 genes), platelet (8388 genes), thymocyte (16646 genes). 
 
