@@ -446,7 +446,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-02-19
+<strong>Last updated:</strong> 2021-07-17
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree88051cf0b1fe50134742018c598e73e1b31a1ab8targetblank88051cfa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/88051cf0b1fe50134742018c598e73e1b31a1ab8" target="_blank">88051cf</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreec6bd0e4afc6bc2db2838e3f4b6de4da34248929btargetblankc6bd0e4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/c6bd0e4afc6bc2db2838e3f4b6de4da34248929b" target="_blank">c6bd0e4</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree88051cf0b1fe50134742018c598e73e1b31a1ab8targetblank88051cfa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreec6bd0e4afc6bc2db2838e3f4b6de4da34248929btargetblankc6bd0e4a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/88051cf0b1fe50134742018c598e73e1b31a1ab8" target="_blank">88051cf</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/c6bd0e4afc6bc2db2838e3f4b6de4da34248929b" target="_blank">c6bd0e4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -496,6 +496,13 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    analysis/.Rhistory
+    Ignored:    output/.Rhistory
+
+Untracked files:
+    Untracked:  analysis/delete_jul.Rmd
+
+Unstaged changes:
+    Deleted:    analysis/thesis.Rmd.Rmd
 
 </code></pre>
 <p>
@@ -534,6 +541,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/c6bd0e4afc6bc2db2838e3f4b6de4da34248929b/analysis/variants_factors.Rmd" target="_blank">c6bd0e4</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-17
+</td>
+<td>
+wflow_publish(c(“analysis/CEDAR_data_process.Rmd”, “analysis/EM_websites.Rmd”,
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/7350b75d7096a1a0daadb61606cdee8f20935edf/docs/variants_factors.html" target="_blank">7350b75</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-02-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -593,103 +634,92 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 </div>
 <div id="introduction" class="section level1">
-<h1><strong>Introduction</strong></h1>
+<h1><strong>1. Introduction</strong></h1>
 <p>In this part, we’re trying to answer the questions below:</p>
 <ul>
 <li><p>Are expression factors genetically determined? Can we build prediction model of expression factors using genetic variants?</p></li>
 <li><p>What are the SNPs and genes controlling expression factors?</p></li>
 </ul>
 </div>
-<div id="factor-evaluation" class="section level1">
-<h1><strong>Factor evaluation</strong></h1>
-<p>I first evaluated the heritability of factors using <a href="https://cnsgenomics.com/software/gcta/#GREML">GCTA</a> and made histogrames to show the distribution of the heritabilities.</p>
-<p>When computing heritability, I used GTEx genotype data(the variants with maf &gt;0.05 and maf &gt;0.01 were selected, variants on chrX are excluded). 6,568,202 variants have maf &gt;0.05 and 10,403,249 variants have maf &gt;0.01.</p>
-<div id="plier" class="section level2">
-<h2>PLIER</h2>
+<div id="data" class="section level1">
+<h1><strong>2. Data</strong></h1>
 <ul>
-<li>plier-canonicalPathways</li>
+<li><p>Expression data: GTEx whole blood expression data which contains 670 samples and 19,696 genes. Genes on chrX were excluded.</p></li>
+<li><p>Genotype data: GTEx genotype data(the variants with maf &gt;0.05 and maf &gt;0.01 were selected, variants on chrX were excluded). 6,568,202 variants have maf &gt;0.05 and 10,403,249 variants have maf &gt;0.01.</p></li>
 </ul>
-<p><a href="https://xsun1229.github.io/factor_analysis/eval_plier_canon.html">For more details</a></p>
+</div>
+<div id="analyses" class="section level1">
+<h1><strong>3. Analyses</strong></h1>
+<div id="factor-construction-and-evaluation" class="section level2">
+<h2><strong>3.1 Factor Construction and evaluation</strong></h2>
 <ul>
-<li>plier-allpathways</li>
+<li><p>We used 4 methods to infer expression factors from the expression matrix. The <a href="https://github.com/wgmao/PLIER">PLIER</a>, <a href="https://github.com/stephenslab/flashr">FLASH</a>, and <a href="https://github.com/PMBio/peer/">PEER</a> worked on GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). PCA worked on KEGG 332 pathways.</p></li>
+<li><p>We evaluated the heritability of factors using <a href="https://cnsgenomics.com/software/gcta/#GREML">GCTA</a> and made histogrames to show the distribution of the heritabilities.</p></li>
 </ul>
-<p><a href="https://xsun1229.github.io/factor_analysis/eval_plier_allpathway.html">For more details</a></p>
-</div>
-<div id="flash" class="section level2">
-<h2>FLASH</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/eval_flash.html">For more details</a></p>
-</div>
-<div id="peer" class="section level2">
-<h2>PEER</h2>
-<p><a href="https://xsun1229.github.io/factor_analysis/eval_peer.html">For more details</a></p>
-</div>
-<div id="pcpeer-from-kegg-pathways" class="section level2">
-<h2>PC&amp;PEER from KEGG pathways</h2>
+<p><strong>PLIER</strong></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/factor_plier_canon.html">plier - canonicalPathways - factor consruction</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/eval_plier_canon.html">plier - canonicalPathways - factor evaluation</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html">plier - allpathways - factor evaluation</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/eval_plier_allpathway.html">plier - allpathways - factor evaluation</a></p>
+<p><strong>FLASH</strong></p>
+<p>Using ‘FLASH’, we obtained 100 factors.</p>
+<p><a href="https://xsun1229.github.io/factor_analysis/eval_flash.html">FLASH - factor evaluation</a></p>
+<p><strong>PEER</strong></p>
+<p>Using ‘PEER’, We obtained 60 factors.</p>
+<p><a href="https://xsun1229.github.io/factor_analysis/eval_peer.html">PEER - factor evaluation</a></p>
+<p><strong>PC&amp;PEER from KEGG pathways</strong></p>
+<p>I used PCA to infer 1-5 PCs for each pathway. We have 1646 PCs in total.</p>
 <p><a href="https://xsun1229.github.io/factor_analysis/eval_kegg.html">For more details</a></p>
 </div>
-</div>
-<div id="prediction-models-for-factors" class="section level1">
-<h1><strong>Prediction models for factors</strong></h1>
-<p>In this part, I tried to train prediction models for factors ~ genotype using Lasso and Elastic-net. I used 670 samples from GTEx. I used two groups of variants to train models. The first group contains all variants provided by GTEx with maf &gt; 0.01(10,403,249 variants) and maf &gt; 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR &gt; 0.05).</p>
+<div id="prediction-models-for-factors" class="section level2">
+<h2><strong>3.2 Prediction models for factors</strong></h2>
+<p>I used two groups of variants to train models. The first group contains all variants have maf &gt; 0.01(10,403,249 variants) and maf &gt; 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR &gt; 0.05).</p>
 <p>The workflow:</p>
 <ol style="list-style-type: decimal">
-<li><p>I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set.</p></li>
+<li>I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set.</li>
 <li><p>In the training data, performed association test between the factors and all SNPs using Plink. I corrected the results for genotype PCs (We used Plink to compute 10 PCs and used them as corvariates in association test).</p></li>
 <li><p>From 3, we selected all SNPs with p &lt; 1e-02 as candidate variants.</p></li>
 <li><p>Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.</p></li>
 <li><p>For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx samples(670 samples). In the association tests, first 10 genotype pcs were included as covariants.</p></li>
 </ol>
-<div id="training-models-with-all-variants" class="section level2">
-<h2>Training models with all variants</h2>
-<p>There are some missing values in our dataset. I used mean imputation (substitue the missing values with mean value of the corresponding variants) to impute the missing value.</p>
+<div id="training-models-with-all-variants" class="section level3">
+<h3>3.2.1 Training models with all variants</h3>
+<p>There are some missing values in our dataset. I used mean imputation (substituing the missing values with mean value of the corresponding variants) to impute the missing value.</p>
 <figure class="half">
 <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ms_snp.jpeg" width="50%">
 </figure>
 <p>The missing data pattern of our dataset. x-axis represents the proportion of missing value for each variant. y-axis represents the number of the variants.</p>
-<div id="plier-1" class="section level3">
-<h3>PLIER</h3>
+<p><strong>PLIER</strong></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/train_plier_canon.html">Results for plier-canonicalPathways factors</a></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html">Results for plier-allpathway factors</a></p>
-</div>
-<div id="flash-1" class="section level3">
-<h3>FLASH</h3>
+<p><a href="https://xsun1229.github.io/factor_analysis/train_98lvs.html">Results for plier- MSigDB pathway factors</a></p>
+<p><strong>FLASH</strong></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/train_flash.html">Results for FLASH factors</a></p>
-</div>
-<div id="peer-1" class="section level3">
-<h3>PEER</h3>
+<p><strong>PEER</strong></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/train_peer.html">Results for PEER factors</a></p>
 </div>
-</div>
-<div id="training-models-with-cis-eqtls" class="section level2">
-<h2>Training models with cis-eQTLs</h2>
-<div id="plier-2" class="section level3">
-<h3>PLIER</h3>
+<div id="training-models-with-cis-eqtls" class="section level3">
+<h3>3.2.2 Training models with cis-eQTLs</h3>
+<p><strong>PLIER</strong></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/train_plier_canon_ciseqtl.html">Results for plier-canonicalPathways factors</a></p>
 </div>
-</div>
-<div id="making-the-prediction-models-better" class="section level2">
-<h2>Making the prediction models better</h2>
-<div id="finding-functional-snps---ld-score-regression" class="section level3">
-<h3><em>Finding functional SNPs - LD Score Regression </em></h3>
+<div id="trying-to-make-the-prediction-models-better" class="section level3">
+<h3>3.2.3 Trying to make the prediction models better</h3>
+<div id="finding-functional-snps---ld-score-regression" class="section level4">
+<h4>Finding functional SNPs - LD Score Regression</h4>
 <p>The GWAS power of some factors is low. So we tried to find functional SNPs to increase the GWAS power and reduce the testing burden.</p>
 <p>We adopted LD score regression to estimate SNP-based heritability and partation the heritability into seperate categories. The software we used here is <a href="https://github.com/bulik/ldsc">ldsc</a>.</p>
 <p>The ldsc material and methods of my project can be found <a href="https://xsun1229.github.io/factor_analysis/ldsc.html">here</a></p>
-<div id="plier-3" class="section level4">
-<h4>PLIER</h4>
+<p><strong>PLIER</strong></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/ldsc_plier_canon.html">Results for plier-canonicalPathways factors</a></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/ldsc_plier_all.html">Results for plier-allpathway factors</a></p>
-</div>
-<div id="flash-2" class="section level4">
-<h4>FLASH</h4>
+<p><strong>FLASH</strong></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/ldsc_flash.html">Results for FLASH factors</a></p>
-</div>
-<div id="peer-2" class="section level4">
-<h4>PEER</h4>
+<p><strong>PEER</strong></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/ldsc_peer.html">Results for PEER factors</a></p>
 </div>
-</div>
-<div id="finding-functional-cis-genes" class="section level3">
-<h3><em>Finding functional cis-genes</em></h3>
+<div id="finding-functional-cis-genes" class="section level4">
+<h4>Finding functional cis-genes</h4>
 <p>After preliminary <a href="https://xsun1229.github.io/factor_analysis/gwas_power.html">rough calculations</a>, we found that there might be overfitting issue. So we tried one/two sample settings to test and eliminate the overfitting issue.</p>
 <p>The rought process are below, it differs slightly in different settings.</p>
 <ol style="list-style-type: decimal">
@@ -703,10 +733,11 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 <p><a href="https://xsun1229.github.io/factor_analysis/cg-twosample.html">Two Sample Setting</a></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/cg-onesample-ciseqtls.html">One Sample Setting- only cis-eQTLs</a></p>
 </div>
-<div id="dealing-with-weak-iv-bias" class="section level3">
-<h3><em>Dealing with weak IV bias</em></h3>
+<div id="dealing-with-weak-iv-bias" class="section level4">
+<h4>Dealing with weak IV bias</h4>
 <p>Apart from using external weights(<a href="https://xsun1229.github.io/factor_analysis/cg-twosample.html">Two Sample Setting</a>), I tried other methods to eliminate the weak IV bias issue (divide the cis-eQTLS into different groups according to the p-values).</p>
 <p><a href="https://xsun1229.github.io/factor_analysis/weak_bias.html">For more details</a></p>
+</div>
 </div>
 </div>
 </div>

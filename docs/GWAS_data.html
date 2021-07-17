@@ -11,9 +11,9 @@
 
 <meta name="author" content="XSun" />
 
-<meta name="date" content="2021-02-19" />
+<meta name="date" content="2021-07-16" />
 
-<title>Factor Construction</title>
+<title>GWAS Data</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -419,9 +419,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Factor Construction</h1>
+<h1 class="title toc-ignore">GWAS Data</h1>
 <h4 class="author">XSun</h4>
-<h4 class="date">2021-02-19</h4>
+<h4 class="date">2021-07-16</h4>
 
 </div>
 
@@ -517,7 +517,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/factor_construction.Rmd</code>) and HTML (<code>docs/factor_construction.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/GWAS_data.Rmd</code>) and HTML (<code>docs/GWAS_data.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -546,7 +546,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/c6bd0e4afc6bc2db2838e3f4b6de4da34248929b/analysis/factor_construction.Rmd" target="_blank">c6bd0e4</a>
+<a href="https://github.com/xsun1229/factor_analysis/blob/c6bd0e4afc6bc2db2838e3f4b6de4da34248929b/analysis/GWAS_data.Rmd" target="_blank">c6bd0e4</a>
 </td>
 <td>
 XSun
@@ -558,74 +558,6 @@ XSun
 wflow_publish(c(“analysis/CEDAR_data_process.Rmd”, “analysis/EM_websites.Rmd”,
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/71a4b85d017b2f503aa78948837e91b051067259/docs/factor_construction.html" target="_blank">71a4b85</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-02-19
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/c469e1c9cc651d4a8a53c6f4721d058786ecfd0e/analysis/factor_construction.Rmd" target="_blank">c469e1c</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-02-19
-</td>
-<td>
-wflow_publish(“analysis/factor_construction.Rmd”)
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/fa63c4513463c7b592b6506b8af36f93e7a2b5a0/docs/factor_construction.html" target="_blank">fa63c45</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-02-19
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/1907e0e3e63e25edc3db228518a33845a7c237d6/analysis/factor_construction.Rmd" target="_blank">1907e0e</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-02-19
-</td>
-<td>
-wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -633,34 +565,183 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 </div>
 </div>
-<p>The <a href="https://github.com/wgmao/PLIER">PLIER</a>, <a href="https://github.com/stephenslab/flashr">FLASH</a>, and <a href="https://github.com/PMBio/peer/">PEER</a> worked on GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). Genes on chrX were excluded when extracting factors using these softwares.</p>
-<p>PCA worked on KEGG 322 pathways.</p>
-<div id="factors" class="section level1">
-<h1><strong>Factors</strong></h1>
-<div id="plier" class="section level2">
-<h2>1. PLIER</h2>
-<p>PLIER(pathway-level information extractor) is a broadly applicable method to accurately infer relevant biological insights, such as variation in cell-type proportion or pathway activity, from global gene expression studies. It approximates the expression pattern of every gene as a linear combination of eigengene-like latent variables (LVs).</p>
-<ul>
-<li>plier-canonicalPathways</li>
-</ul>
-<p>In this part, We just used canonicalPathways which include KEGG and Reactome pathways to extract factors and obtained 128 factors. <a href="https://xsun1229.github.io/factor_analysis/factor_plier_canon.html">For more details</a></p>
-<ul>
-<li>plier-allpathways</li>
-</ul>
-<p>We used ‘PLIER’ package(with default settings) to construct factors related to all pathways provided by the software and got 96 factors. <a href="https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html">For more details</a></p>
-</div>
-<div id="flash" class="section level2">
-<h2>2. FLASH</h2>
-<p>Using ‘FLASH’, we obtained 100 factors.</p>
-</div>
-<div id="peer" class="section level2">
-<h2>3. PEER</h2>
-<p>Using ‘PEER’, I obtained 60 factors.</p>
-</div>
-<div id="principal-component" class="section level2">
-<h2>4. Principal Component</h2>
-<p>I used PCA to infer 1-5 PCs for each pathway.</p>
-</div>
+<div id="immune-traits-and-blood-cell-traits" class="section level1">
+<h1><strong>Immune traits and blood cell traits</strong></h1>
+<p>The GWAS data are download from <a href="https://www.ebi.ac.uk/gwas/downloads/summary-statistics">GWAS Catalog</a></p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="6%" />
+<col width="71%" />
+<col width="1%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Traits</th>
+<th>Abbreviation</th>
+<th>Source</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Eosinophil counts</td>
+<td>eo</td>
+<td>The Allelic Landscape of Human Blood Cell Trait Variation and Links to Common Complex Disease</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Granulocyte count</td>
+<td>gran</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Hematocrit</td>
+<td>hct</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Hemoglobin concentration</td>
+<td>hgb</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Lymphocyte counts</td>
+<td>lymph</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mean corpuscular hemoglobin</td>
+<td>mch</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Mean corpuscular hemoglobin concentration</td>
+<td>mchc</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mean corpuscular volume</td>
+<td>mcv</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Mean platelet volume</td>
+<td>mpv</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Monocyte count</td>
+<td>mono</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Myeloid white cell count</td>
+<td>myeloid_wbc</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Neutrophil count</td>
+<td>neut</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Platelet count</td>
+<td>plt</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Platelet distribution width</td>
+<td>pdw</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Plateletcrit</td>
+<td>pct</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Red blood cell count</td>
+<td>rbc</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Red cell distribution width</td>
+<td>rdw</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Reticulocyte count</td>
+<td>ret</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>White blood cell count</td>
+<td>wbc</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>White blood cell count (basophil)</td>
+<td>baso</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Type I diabetes</td>
+<td>T1D</td>
+<td>Onengut-Gumuscu S et al. Fine mapping of type 1 diabetes susceptibility loci and evidence for colocalization of causal variants with lymphoid gene enhancers</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Asthma</td>
+<td>ukb.allasthma</td>
+<td>Shared Genetics of Asthma and Mental Health Disorders: A Large-Scale Genome-Wide Cross-Trait Analysis</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Inflammatory bowel disease</td>
+<td>EUR.IBD</td>
+<td>Association analyses identify 38 susceptibility loci for inflammatory bowel disease and highlight shared genetic risk across populations</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Crohn’s disease</td>
+<td>EUR.CD</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Ulcerative colitis</td>
+<td>EUR.UC</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Allergy</td>
+<td>allergy</td>
+<td>Shared genetic origin of asthma, hay fever and eczema elucidates allergic disease biology</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
