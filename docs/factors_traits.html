@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreec6bd0e4afc6bc2db2838e3f4b6de4da34248929btargetblankc6bd0e4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/c6bd0e4afc6bc2db2838e3f4b6de4da34248929b" target="_blank">c6bd0e4</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed57572a2275a64a967b734afc881d3ad61393f98targetblankd57572aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/d57572a2275a64a967b734afc881d3ad61393f98" target="_blank">d57572a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreec6bd0e4afc6bc2db2838e3f4b6de4da34248929btargetblankc6bd0e4a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed57572a2275a64a967b734afc881d3ad61393f98targetblankd57572aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/c6bd0e4afc6bc2db2838e3f4b6de4da34248929b" target="_blank">c6bd0e4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/d57572a2275a64a967b734afc881d3ad61393f98" target="_blank">d57572a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -502,6 +502,7 @@ Untracked files:
     Untracked:  analysis/delete_jul.Rmd
 
 Unstaged changes:
+    Modified:   analysis/cedar_kegg_26_qc_d1k_pruned.Rmd
     Deleted:    analysis/thesis.Rmd.Rmd
 
 </code></pre>
@@ -541,6 +542,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/d57572a2275a64a967b734afc881d3ad61393f98/analysis/factors_traits.Rmd" target="_blank">d57572a</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-17
+</td>
+<td>
+wflow_publish(“analysis/factors_traits.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/0c26bee42ffafb7b89791230015fecf83df4b5d3/docs/factors_traits.html" target="_blank">0c26bee</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1187,11 +1222,11 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 </ol>
 </div>
 <div id="gtex" class="section level1">
-<h1><strong>2. GTEx</strong></h1>
+<h1><strong>3. GTEx</strong></h1>
 <div id="data" class="section level2">
-<h2><strong>2.1 Data</strong></h2>
+<h2><strong>3.1 Data</strong></h2>
 <div id="expression-factors" class="section level3">
-<h3>2.1.1 Expression factors</h3>
+<h3>3.1.1 Expression factors</h3>
 <p>We tried four types of expression factors: 1)PLIER factors 2)PCs from KEGG/Reactome pathways 3)PEER factors 4)FLASH factors 5)PEER factors from KEGG/Reactome pathways. They are the same factors with those used in the prediction model training part.</p>
 <p>When using PCs, we regressed out the first 5 PEER factors computed from the GTEx expression data.</p>
 <p>The KEGG contains 332 pathways. We have 1866 Reactome pathways. Combining with our GTEx data, some of them have less than 5 genes that have expression data. Since we will infer 5 PCs for each pathway, we just use the pathways have more than 5 genes. The number of pathways we use for whole blood is 1221, the number for liver is 1262.</p>
@@ -1231,12 +1266,12 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 </table>
 </div>
 <div id="genotype-data" class="section level3">
-<h3>2.1.2 Genotype data</h3>
+<h3>3.1.2 Genotype data</h3>
 <p>GTEx genotype data. The variants have maf &gt;0.01 were selected, variants on chrX were excluded). We have 10,403,249 variants in total.</p>
 </div>
 </div>
 <div id="results-under-different-settings" class="section level2">
-<h2><strong>2.2 Results under different settings</strong></h2>
+<h2><strong>3.2 Results under different settings</strong></h2>
 <div id="plier-msigdb-factors-latest-results-0721" class="section level3">
 <h3>PLIER-MSigDB factors <strong>(latest results 07/21)</strong></h3>
 <ul>
@@ -1289,21 +1324,21 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 </div>
 </div>
 <div id="cedar" class="section level1">
-<h1><strong>3. CEDAR</strong></h1>
+<h1><strong>4. CEDAR</strong></h1>
 <div id="data-1" class="section level2">
-<h2><strong>3.1 Data</strong></h2>
+<h2><strong>4.1 Data</strong></h2>
 <div id="cedar-data-processing" class="section level3">
-<h3>3.1.1 CEDAR data processing</h3>
+<h3>4.1.1 CEDAR data processing</h3>
 <p><a href="https://xsun1229.github.io/factor_analysis/CEDAR_data_process.html">Data overview</a></p>
 </div>
 <div id="expression-factors-1" class="section level3">
-<h3>3.1.2 Expression factors</h3>
+<h3>4.1.2 Expression factors</h3>
 <p>We tried 2 types of expression factors: 1)PLIER factors 2)PCs from KEGG pathways.</p>
 <p>When using PCs, we regressed out the first 5 PEER factors computed from the GTEx expression data.</p>
 </div>
 </div>
 <div id="results-under-different-settings-1" class="section level2">
-<h2><strong>3.2 Results under different settings</strong></h2>
+<h2><strong>4.2 Results under different settings</strong></h2>
 <div id="plier---msigdb-factors-latest-results-0721" class="section level3">
 <h3>PLIER - MSigDB factors <strong>latest results 07/21</strong></h3>
 <p><a href="https://xsun1229.github.io/factor_analysis/cedar_plier_26_qc_d1k_pruned.html">Details</a></p>
