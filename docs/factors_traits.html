@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed57572a2275a64a967b734afc881d3ad61393f98targetblankd57572aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/d57572a2275a64a967b734afc881d3ad61393f98" target="_blank">d57572a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree46b163e27c78e3a8f8c6cfdab26d6f1c95de3e3etargetblank46b163ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/46b163e27c78e3a8f8c6cfdab26d6f1c95de3e3e" target="_blank">46b163e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed57572a2275a64a967b734afc881d3ad61393f98targetblankd57572aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree46b163e27c78e3a8f8c6cfdab26d6f1c95de3e3etargetblank46b163ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/d57572a2275a64a967b734afc881d3ad61393f98" target="_blank">d57572a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/46b163e27c78e3a8f8c6cfdab26d6f1c95de3e3e" target="_blank">46b163e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -502,7 +502,6 @@ Untracked files:
     Untracked:  analysis/delete_jul.Rmd
 
 Unstaged changes:
-    Modified:   analysis/cedar_kegg_26_qc_d1k_pruned.Rmd
     Deleted:    analysis/thesis.Rmd.Rmd
 
 </code></pre>
@@ -542,6 +541,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/46b163e27c78e3a8f8c6cfdab26d6f1c95de3e3e/analysis/factors_traits.Rmd" target="_blank">46b163e</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-17
+</td>
+<td>
+wflow_publish(c(“analysis/factors_traits.Rmd”, “analysis/cedar_kegg_26_qc_d1k_pruned.Rmd”,
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/4948837a14cc4b1e1dd1917b270ae420d4b883b8/docs/factors_traits.html" target="_blank">4948837</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1206,7 +1239,7 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 <div id="pipeline" class="section level1">
 <h1><strong>2. Pipeline</strong></h1>
 <ol style="list-style-type: decimal">
-<li><p>We first selected some disease/trait-associated SNPs, using p-values &lt; 5E-8 in GWAS summary statistics as cutoff. The GWAS summary statistics data we used are <a href="https://xsun1229.github.io/factor_analysis/GWAS_data.html">here</a></p></li>
+<li><p>We first selected some disease/trait-associated SNPs, using p-values &lt; 5E-8 in GWAS summary statistics as cutoff. <strong>The GWAS summary statistics data we used are <a href="https://xsun1229.github.io/factor_analysis/GWAS_data.html">here</a></strong></p></li>
 <li><p>Then we did 3-step LD Clumping for the SNPs in step 2 to find independent variants to be used in MR.</p></li>
 </ol>
 <ul>
@@ -1268,6 +1301,7 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 <div id="genotype-data" class="section level3">
 <h3>3.1.2 Genotype data</h3>
 <p>GTEx genotype data. The variants have maf &gt;0.01 were selected, variants on chrX were excluded). We have 10,403,249 variants in total.</p>
+<p>The genotype PCs used in this part are computed from whole genome, using PLINK1.9.</p>
 </div>
 </div>
 <div id="results-under-different-settings" class="section level2">
@@ -1335,6 +1369,41 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 <h3>4.1.2 Expression factors</h3>
 <p>We tried 2 types of expression factors: 1)PLIER factors 2)PCs from KEGG pathways.</p>
 <p>When using PCs, we regressed out the first 5 PEER factors computed from the GTEx expression data.</p>
+<p><strong>PLIER LV number for 6 cell types</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>cell type</th>
+<th>LV num</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>platelet</td>
+<td>132</td>
+</tr>
+<tr class="even">
+<td>B cell</td>
+<td>136</td>
+</tr>
+<tr class="odd">
+<td>T cell(CD4)</td>
+<td>146</td>
+</tr>
+<tr class="even">
+<td>T cell(CD8)</td>
+<td>134</td>
+</tr>
+<tr class="odd">
+<td>monocyte CD14</td>
+<td>88</td>
+</tr>
+<tr class="even">
+<td>neutrophils CD15</td>
+<td>146</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="results-under-different-settings-1" class="section level2">
