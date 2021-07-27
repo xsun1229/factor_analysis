@@ -13,7 +13,7 @@
 
 <meta name="date" content="2020-05-14" />
 
-<title>factor_plier_canonical pathway</title>
+<title>Factor construction - PLIER - Canonical Pathways</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -419,7 +419,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">factor_plier_canonical pathway</h1>
+<h1 class="title toc-ignore">Factor construction - PLIER - Canonical Pathways</h1>
 <h4 class="author">XSun</h4>
 <h4 class="date">2020-05-14</h4>
 
@@ -446,7 +446,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-07-08
+<strong>Last updated:</strong> 2021-07-26
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -537,24 +537,26 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0153beecfda6be6b91d2150e3520be96aacb5602targetblank0153beea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/0153beecfda6be6b91d2150e3520be96aacb5602" target="_blank">0153bee</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree21251a02a56c2829ec3d3482cd7a206e61b53b77targetblank21251a0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/21251a02a56c2829ec3d3482cd7a206e61b53b77" target="_blank">21251a0</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0153beecfda6be6b91d2150e3520be96aacb5602targetblank0153beea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree21251a02a56c2829ec3d3482cd7a206e61b53b77targetblank21251a0a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/0153beecfda6be6b91d2150e3520be96aacb5602" target="_blank">0153bee</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/21251a02a56c2829ec3d3482cd7a206e61b53b77" target="_blank">21251a0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    analysis/.Rhistory
+    Ignored:    output/.Rhistory
 
 </code></pre>
 <p>
@@ -593,6 +595,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/afe82a77411332e984c7b7e7d522227f76fbd326/analysis/factor_plier_canon.Rmd" target="_blank">afe82a7</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-26
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/7e16686b1584a3c2790c3fa6a6647cd72e5641ea/docs/factor_plier_canon.html" target="_blank">7e16686</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2020-07-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -670,15 +706,15 @@ first
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>I used ‘PLIER’ package(with default settings) to construct factors related to Canonical Pathways here.</p>
+<p>We used ‘PLIER’ package(with default settings) to construct factors with Canonical Pathways prior.</p>
 </div>
 <div id="results" class="section level2">
 <h2>Results</h2>
 <div id="overview" class="section level3">
 <h3>Overview</h3>
 <pre><code>- The gene expression data from GTEx uses Ensemnl ID. In order to use PLIER R package, we need to convert Ensemnl ID to HGNC Gene Symbol. There are 19,696 genes in GTEx data. After conversion, 16,634 left(not all Ensemnl IDs have a corresponding HGNC Gene Symbol). 5,472 of 16,634 were used in PLIER.
-- I used CanonicalPathways in PLIER R package, which contains 545 curated pathways from Reactome and KEGG.
-- I obtained 128 LVs from PLIER, 39 of them have AUC &gt; 0.70(see figure below).</code></pre>
+- We used CanonicalPathways in PLIER R package, which contains 545 curated pathways from Reactome and KEGG.
+- We obtained 128 LVs from PLIER, 39 of them have AUC &gt; 0.70(see figure below).</code></pre>
 </div>
 <div id="lvs-with-auc0.70" class="section level3">
 <h3>LVs with AUC&gt;0.70</h3>
@@ -716,12 +752,14 @@ other attached packages:
 [1] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.4.6    rprojroot_1.3-2 digest_0.6.25   later_0.8.0    
- [5] R6_2.4.1        backports_1.1.7 git2r_0.26.1    magrittr_1.5   
- [9] evaluate_0.14   stringi_1.4.6   fs_1.3.1        promises_1.0.1 
-[13] whisker_0.3-2   rmarkdown_1.13  tools_3.6.1     stringr_1.4.0  
-[17] glue_1.4.1      httpuv_1.5.1    xfun_0.14       yaml_2.2.1     
-[21] compiler_3.6.1  htmltools_0.3.6 knitr_1.28     </code></pre>
+ [1] Rcpp_1.0.5       rstudioapi_0.11  whisker_0.3-2    knitr_1.30      
+ [5] magrittr_1.5     R6_2.4.1         rlang_0.4.8      stringr_1.4.0   
+ [9] tools_3.6.1      xfun_0.18        git2r_0.26.1     htmltools_0.5.0 
+[13] ellipsis_0.3.1   rprojroot_1.3-2  yaml_2.2.1       digest_0.6.25   
+[17] tibble_3.0.3     lifecycle_0.2.0  crayon_1.3.4     later_1.1.0.1   
+[21] vctrs_0.3.4      promises_1.1.1   fs_1.5.0         glue_1.4.2      
+[25] evaluate_0.14    rmarkdown_1.13   stringi_1.5.3    compiler_3.6.1  
+[29] pillar_1.4.6     backports_1.1.10 httpuv_1.5.1     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 </div>
