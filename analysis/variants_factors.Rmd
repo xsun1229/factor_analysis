@@ -25,10 +25,10 @@ In this part, we're trying to answer the questions below:
 
 ## **3.1 Factor Construction and evaluation**
 
-- We used 4 methods to infer expression factors from the expression matrix. The [PLIER](https://github.com/wgmao/PLIER), [FLASH]( https://github.com/stephenslab/flashr), and [PEER](https://github.com/PMBio/peer/) worked on GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). PCA worked on KEGG 332 pathways. 
+- 4 methods were used to infer expression factors from the expression matrix. The [PLIER](https://github.com/wgmao/PLIER), [FLASH]( https://github.com/stephenslab/flashr), and [PEER](https://github.com/PMBio/peer/) worked on GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). PCA worked on KEGG 332 pathways. 
 
-- We evaluated the heritability of factors using [GCTA](
-https://cnsgenomics.com/software/gcta/#GREML) and made histogrames to show the distribution of the heritabilities.
+- Heritability of factors was computed using [GCTA](
+https://cnsgenomics.com/software/gcta/#GREML) and histograms were made to show the heritability distribution.
 
 
 **PLIER**
@@ -40,6 +40,8 @@ https://cnsgenomics.com/software/gcta/#GREML) and made histogrames to show the d
   [plier - allpathways - factor evaluation ](https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html)
   
   [plier - allpathways - factor evaluation ](https://xsun1229.github.io/factor_analysis/eval_plier_allpathway.html)
+  
+   plier - MSigDB results are in Prediction part below (**latest results 07/21**)
   
 **FLASH**
 
@@ -55,29 +57,34 @@ https://cnsgenomics.com/software/gcta/#GREML) and made histogrames to show the d
   
 **PC&PEER from KEGG pathways**
   
-  I used PCA to infer 1-5 PCs for each pathway. We have 1646 PCs in total.
+  1-5 PCs for each KEGG pathway were calculated by PCA. We have 1646 PCs in total.
   
   [For more details](https://xsun1229.github.io/factor_analysis/eval_kegg.html)
 
 
 ## **3.2 Prediction models for factors**
 
-I used two groups of variants to train models. The first group contains all variants have maf > 0.01(10,403,249 variants) and maf > 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR > 0.05).
+We used two groups of variants to train models. The first group contains all variants have maf > 0.01(10,403,249 variants) and maf > 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR > 0.05).
 
-The workflow: 
+The workflow of the prediction models is described below. The model training and performance evaluation were performed in R (version 4.0.4).
+        
+The model training follows:
+	
+1. The 670 GTEx samples were randomly split into training (80%, 536 samples) and testing (20%, 134 samples) set. Association tests follows: expression factors ~ variant+10 genotype PCs were performed on training set to select candidate variants in model training. 10 genotype PCs were computed by PLINK 1.9 on whole genome data. Variants have p-value less than 0.01 were selected.
+	
+2. The model training was realized by LassoThe outcomes in Lasso models are expression factors while the covariate matrices are the genotype matrix of candidate variants. Ten folds cross validation realized by cv.glmnet() function from glmnet R package were used to train the models. The values of r-squared (rsq on training set), number of variants have non-zero coefficients (num non-zero), at λ =lambda. min (that gives minimum mean cross-validated error lambda in LASSO regression) were recorded.  
 
-1) I splited the data set into training(80%, 536 samples) and test(20%, 134 samples) set. 
-2) In the training data, performed association test between the factors and all SNPs using Plink. I corrected the results for genotype PCs (We used Plink to compute 10 PCs and used them as corvariates in association test).
+The prediction model evaluation follows:
 
-3) From 3, we selected all SNPs with p < 1e-02 as candidate variants.
+1. The LASSO models at λ =lambda.min were applied to testing sets and thus a series predicted expression factors can be obtained.
 
-4) Trained Lasso/Elastic-net models using SNPs from step4 in the training data and evaluated the performance in the testing data.
+2. Linear regression was performed for predicted factors and observed factors following: predicted factor ~ observed factor. The performance of prediction models was evaluated by the p-values of F-statistics from linear regressions (noted as p-values on testing set below) as criterion to evaluate the performance of prediction models. R-squared on testing set was also recorded (rsq on testing set) 
 
-5) For factors with relatively low pval_test_l, I did GWAS analysis using all GTEx samples(670 samples). In the association tests, first 10 genotype pcs were included as covariants.
+For factors with relatively low pval_test_l, we did GWAS analysis using all GTEx samples(670 samples) following: expression factors ~ variant+10 genotype PCs. 
 
 ### 3.2.1 Training models with all variants
 
-There are some missing values in our dataset. I used mean imputation (substituing the missing values with mean value of the corresponding variants) to impute the missing value. 
+There are some missing values in our dataset. We used mean imputation (substituing the missing values with mean value of the corresponding variants) to impute the missing value. 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ms_snp.jpeg" width="50%">
@@ -92,7 +99,7 @@ The missing data pattern of our dataset. x-axis represents the proportion of mis
     
   [Results for plier-allpathway factors](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html)
   
-  [Results for plier- MSigDB pathway factors](https://xsun1229.github.io/factor_analysis/train_98lvs.html)
+  [Results for plier- MSigDB pathway factors](https://xsun1229.github.io/factor_analysis/plier_msigdb.html)
 
 **FLASH**
 

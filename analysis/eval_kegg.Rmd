@@ -1,5 +1,5 @@
 ---
-title: "eval_kegg"
+title: "Factor evaluation(heritability computation) - KEGG PCs"
 author: "XSun"
 date: "2020-03-23"
 output: workflowr::wflow_html
@@ -14,7 +14,8 @@ KEGG is a collection of databases dealing with genomes, biological pathways, dis
 ## Results
 
 ### Histograms and Q-Q plots of heritability.
-We tested 331 pathway for PCs, and 327 pathways for PEER factors.
+
+We tested 332 pathway for PCs, and 327 pathways for PEER factors.
 
 
 <figure class="half">

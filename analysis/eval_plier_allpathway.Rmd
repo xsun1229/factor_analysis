@@ -1,5 +1,5 @@
 ---
-title: "Evaluation of factors - PLIER_allPathways"
+title: "Factor evaluation(heritability computation) - PLIER_allPathways"
 author: "XSun"
 date: "2020-05-25"
 output: workflowr::wflow_html
@@ -7,9 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
-
-Using all pathways in 'PLIER', I obtained 96 factors.
+In this part, we computed the heritability with GCTA for the factors inferred [here](https://xsun1229.github.io/factor_analysis/factor_plier_allpathway.html) 
 
 
 ## Results-maf0.01

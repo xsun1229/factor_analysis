@@ -1,0 +1,55 @@
+---
+title: "delete_jul"
+author: "XSun"
+date: "2021-07-16"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# GTEx
+
+## PCs
+
+[PCs](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits.html)
+
+[PCs_regress out 5 GTEx PEER factors](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5.html)
+
+[PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d.html)
+
+[PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping(r2 = 0.1, d= 1Mb)](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d1k.html)
+
+[PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping Liver eqtls](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d_liver.html)
+
+
+[Compare factors & factors after regressing out GTEx PEER factors](https://xsun1229.github.io/factor_analysis/compare_regress.html)
+
+[PEER](https://xsun1229.github.io/factor_analysis/kegg_peer_factor_traits.html)
+
+
+[Compare factors & factors after regressing out GTEx PEER factors](https://xsun1229.github.io/factor_analysis/compare_regress.html)
+
+[Whole Blood: PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d500d.html)
+
+[Liver: PCs_regress out 5 GTEx PEER factors & candidate SNPs: 'AND' LD Clumping](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d500d_liver.html)
+
+
+**GWAS convergence on pathways using cis-eQTLs**
+
+[For more details](https://xsun1229.github.io/factor_analysis/cispathway.html)
+
+# CEDAR
+
+[Original genotype without imputation  - KEGG & REACTOME](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare_CEDAR.html)
+
+[Imputed genotype - KEGG & REACTOME](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare_CEDAR_imputed.html)
+
+[Imputed genotype - PLIER](https://xsun1229.github.io/factor_analysis/plier_CEDAR_imputed_sum.html)
+
+[PLIER - 26 traits - Quality Control](https://xsun1229.github.io/factor_analysis/cedar_plier_26_qc_d1k.html)
+
+[KEGG PCs - 26 traits - Quality Control](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k.html)
+
+[KEGG PCs - 26 traits - Quality Control - >40 genes](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes.html)
+
+[KEGG PCs - 26 traits - Quality Control - >40 genes - Pruned PCs](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes_pruned.html)

@@ -1,0 +1,48 @@
+---
+title: "Heritability and Prediction models of PLIER factors"
+author: "XSun"
+date: "2021-07-26"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# **Overview**
+
+PLIER analysis was performed using the R package (v.0.99.0; downloaded from https://github.com/wgmao/PLIER). The prior information matrix comprises canonical, immune and chemgen pathways from MSigDB. PLIER was run with 228 iterations. Only the 12999 genes appearing in both gene expression data and the pathway annotation matrix were used as inputs. The other PLIER parameters are all default settings. 98 latent variables (LVs) were inferred.
+
+# **Heritability**
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/heritability_qqplot_plier.jpg" width="80%">
+</figure>
+
+
+# **Prediction models**
+
+Prediction models were trained using LASSO for all LVs. Figure below shows the QQ plot of p-values on testing set against uniform distribution where the observed p-values shift to y-axis.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_prediction_PLIER98.jpeg" width="80%">
+</figure>
+
+Using p-value on testing set as criterion, top 3 LVs have the best prediction performance were listed below. They are LV60, LV79 and LV3. 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted_98lvs_gtex.rdata")
+DT::datatable(sum_sorted, options = list(pageLength =5))
+```
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/lv3_plier_msigdb.jpg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/lv60_plier_msigdb.jpg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/lv79_plier_msigdb.jpg" width="80%">
+</figure>

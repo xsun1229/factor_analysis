@@ -1,5 +1,5 @@
 ---
-title: "factor_plier_allpathway"
+title: "Factor construction - PLIER - all pathways provided by PLIER software"
 author: "XSun"
 date: "2020-05-25"
 output: workflowr::wflow_html
@@ -9,7 +9,7 @@ editor_options:
 
 ## Introduction
 
-I used 'PLIER' package(with default settings) to construct factors related to all pathways provided by the software here. The pathways are shown below
+We used 'PLIER' package(with default settings) to construct factors related to all pathways provided by the software here. The pathways are shown below
 
     
     (1) bloodCellMarkersIRISDMAP - 
