@@ -58,6 +58,13 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_d1k_p
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+
+## **Effectsize plots**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_gtex.jpg" width="100%">
+</figure>
+
 ## **Enrichment results**
 
 

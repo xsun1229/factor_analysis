@@ -8,7 +8,7 @@ editor_options:
 ---
 
 
-# **1. Introduction**
+# **1. Overview**
 
 In this part, we are trying to study effects of factors on phenotypes with Mendelian Randomization. Factors are inferred from expression matrix
 
@@ -17,31 +17,68 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 
 Then we strengthen hypothesis: if the effects of SNPs on LV is correlated with their effects on trait when there is a causal effect of LV on trait.
 
+Another hypothesis in this part is that if expression factors can influence the certain phenotype (trait or disease), the variants of the phenotype should be enriched in the factors.
+
 We tried GTEx and CEDAR data set for the analysis in this part.
 
-# **2. Pipeline**
+# **2. Data**
 
-1) We first selected some disease/trait-associated SNPs, using p-values < 5E-8 in GWAS summary statistics as cutoff. **The GWAS summary statistics data we used are [here](https://xsun1229.github.io/factor_analysis/GWAS_data.html)**
+The GWAS summary statistics data we used are [here](https://xsun1229.github.io/factor_analysis/GWAS_data.html)
 
-2) Then we did 3-step LD Clumping for the SNPs in step 2 to find independent variants to be used in MR. 
+
+# **3. Pipeline**
+
+## **3.1 Ascertaining disease/trait-associated variants**
+
+1) The candidate variants associated with diseases/traits were selected using p-values < 5e-8 in GWAS summary statistics. 
+
+2) Then we did 3-step LD Clumping for the SNPs in step 1) to find independent variants to be used in MR. 
 
 - Use PLINK to do the preliminary filter: in 1Mb block, the SNPs have LD R2 > 0.1 will be filtered by their p-values
 - For the remaining SNPs within 1Mb, keep the one have lowest p-value, remove the others.
 - Compute the LD R2 for the remaining SNPs, for the SNP pairs have R2 > 0.1, filter them again according their p-values.
 
-3) Next, we did association tests for expression factors ~ SNPs + 10 genotype PCs + batch +age +sex 
+After step 1) and 2), for each trait, a subset of variants associated to it was obtained. Each pair from these variants has LD R2 < 0.1 and physical distance > 1Mb.
 
-4) We recorded the trait-factor pairs that have more than one SNPs have FDR<0.2. Fitted beta.outcome ~ beta.exposure + 0 using the SNPs associated to these pairs. Recorded the fitting p-values. 
+## **3.2 Sign consistency checking**
 
-5) To make our results more reliable, we did resampling. We resampled the beta.outcome and beta.exposure from the origin dataset(the data set containing all SNPs) without replacement, made the fitting again and recorded the r-squareds to compute the p-values in resampling. The ‘p-value from resampling’ is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+### 3.2.1 Association tests
 
-6) To check the reverse causality, we exchanged the beta.outcome and beta.exposure of all SNPs associated with traits(pval<5E-8) to compute the MBE estimator and the p-values of the estimator.
+1) we did association tests for expression factors ~ SNPs + 10 genotype PCs + batch covariates +age +sex
 
-# **3. GTEx**
+The 10 genotype PCs were computed using 2 approaches:
 
-## **3.1 Data**
+- Computing PCs on whole genome using PLINK1.9
 
-### 3.1.1 Expression factors
+- Pruning the whole genome first and compute the PCs (annotated as pruned_PCs, details are [here](https://xsun1229.github.io/factor_analysis/CEDAR_data_process.html#2_genotype_pcs))
+
+2) We recorded the trait-factor pairs that have more than one SNPs have FDR<0.2. Fitted beta.outcome ~ beta.exposure + 0 using the SNPs associated to these pairs. Recorded the fitting p-values. 
+
+3) We harmonized the data using TwoSampleMR R package
+
+4) For the trait-factor pairs in step 2), fitting beta.outcome ~ beta.exposure + 0 using the variants associated to these pairs. Recorded the fitting p-values 
+
+### 3.2.2 Resampling
+
+To make our results more reliable, we did resampling. 
+
+1) We resampled the beta.outcome and beta.exposure from the origin dataset(the data set containing all SNPs) without replacement, made the fitting again and recorded the r-squareds to compute the p-values in resampling. 
+
+2) The ‘p-value from resampling’ is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+
+3) We computed the enrichment of the pairs show sign consistency than expect follows: enrichment=num_(pairs show sign consistancy)  /(num_(total pairs)  × threshold)
+
+### 3.2.3 Checking reverse causality
+
+To check the reverse causality, we exchanged the beta.outcome and beta.exposure of all SNPs associated with traits(pval<5E-8) to compute the MBE estimator and the p-values of the estimator.
+
+Weighted mode-based estimate (MBE) was adopted to check the reverse causality. mr_mbe() function from MendelianRandomization R package(version 0.3.0) was used to compute the weighted MBE with default settings. 
+
+# **4. GTEx**
+
+## **4.1 Data**
+
+### 4.1.1 Expression factors
 
 We tried four types of expression factors: 1)PLIER factors 2)PCs from KEGG/Reactome pathways 3)PEER factors 4)FLASH factors 5)PEER factors from KEGG/Reactome pathways. They are the same factors with those used in the prediction model training part. 
 
@@ -58,13 +95,17 @@ The KEGG contains 332 pathways. We have 1866 Reactome pathways. Combining with o
 | PEER                       | 60            |
 | FLASH                      | 100           |
 
-### 3.1.2 Genotype data
+### 4.1.2 Genotype data
 
 GTEx genotype data. The variants have maf >0.01 were selected, variants on chrX were excluded). We have 10,403,249 variants in total.
 
 The genotype PCs used in this part are computed from whole genome, using PLINK1.9.
 
-## **3.2 Results under different settings**
+### 4.1.3 Association test covariates
+
+For GTEx data, the batch covariates were sequencing platform and sequencing protocol. 10 genotype PCs were computed on whole genome using PLINK 1.9. 
+
+## **4.2 Results under different settings**
 
 ### PLIER-MSigDB factors **(latest results 07/21)**
 
@@ -136,15 +177,15 @@ We compared the enrichment results under different settings(PCs from KEGG and RE
 [Comparison](https://xsun1229.github.io/factor_analysis/factor_traits_setting_compare.html)
 
 
-# **4. CEDAR**
+# **5. CEDAR**
 
-## **4.1 Data**
+## **5.1 Data**
 
-### 4.1.1 CEDAR data processing 
+### 5.1.1 CEDAR data processing 
 
 [Data overview](https://xsun1229.github.io/factor_analysis/CEDAR_data_process.html)
 
-### 4.1.2 Expression factors
+### 5.1.2 Expression factors
 
 We tried 2 types of expression factors: 1)PLIER factors 2)PCs from KEGG pathways. 
 
@@ -162,7 +203,7 @@ When using PCs, we regressed out the first 5 PEER factors computed from the GTEx
 | neutrophils CD15 | 146  |
 
 
-## **4.2 Results under different settings**
+## **5.2 Results under different settings**
 
 ### PLIER - MSigDB factors **latest results 07/21**
 

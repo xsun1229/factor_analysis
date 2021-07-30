@@ -99,7 +99,7 @@ The missing data pattern of our dataset. x-axis represents the proportion of mis
     
   [Results for plier-allpathway factors](https://xsun1229.github.io/factor_analysis/train_plier_allpathway.html)
   
-  [Results for plier- MSigDB pathway factors](https://xsun1229.github.io/factor_analysis/plier_msigdb.html)
+  [Results for plier- MSigDB pathway factors](https://xsun1229.github.io/factor_analysis/plier_msigdb.html)(**latest results 07/21**)
 
 **FLASH**
 
