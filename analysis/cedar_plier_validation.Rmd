@@ -1,0 +1,41 @@
+---
+title: "Workflow validation"
+author: "XSun"
+date: "2021-07-30"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+
+# **Overview**
+
+The eLif paper [Co-expression analysis reveals interpretable gene modules controlled by trans-acting genetic variants](https://elifesciences.org/articles/58705) found a platelet trait-associated SNP rs1354034 using factor analysis. We used the same data but our own workflow to test if we can find the same SNP with them.
+
+The platelet traits are mean platelet volume(mpv), platelet count(plt), plateletcrit(pct) and platelet distribution width(pdw).
+
+# **Results**
+
+We have 132 LVs inferred from platelet expression data by PLIER. We performed association tests for these LVs and the candidate SNPs(obtained from ‘AND’ LD Clumping)
+
+The table below shows all SNPs have fdr < 0.2 in the association tests. 
+
+
+**The 'plt' in "factor" indicates the data are from platelet cell type**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/allsnp_plt_cedar_prunedPCs.rdata")
+snp.list.final <- as.data.frame(cbind(full_list$trait,full_list$factor,full_list$SNP,full_list$beta.exposure,full_list$beta.outcome,full_list$pval.exposure,full_list$pval.outcome,full_list$fdr,full_list$chr,full_list$bp))
+colnames(snp.list.final) <- c("trait","factor","snp","beta.exposure","beta.outcome","pval.exposure","pval.outcome","fdr.exposure","chr","bp_build37")
+DT::datatable(snp.list.final, options = list(pageLength =5))
+```
+
+The reported SNP 'rs1354034' can be found in all platelet-related pairs through LV108 and LV105(see the table below)
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_plt_cedar_prunedPCs.rdata")
+snp.list.final <- as.data.frame(cbind(list_snp$trait,list_snp$factor,list_snp$SNP,list_snp$beta.exposure,list_snp$beta.outcome,list_snp$pval.exposure,list_snp$pval.outcome,list_snp$fdr,list_snp$chr,list_snp$bp))
+colnames(snp.list.final) <- c("trait","factor","snp","beta.exposure","beta.outcome","pval.exposure","pval.outcome","fdr.exposure","chr","bp_build37")
+DT::datatable(snp.list.final, options = list(pageLength =5))
+```
+

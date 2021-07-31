@@ -140,10 +140,6 @@ For the factors in this part, we used SuSiE to test if our colocalization result
 - [Whole Blood](https://xsun1229.github.io/factor_analysis/catalog_gwas_flash_sep_ldclumping_r01d1000.html)
 
 
-
-
-
-
 ### PCs - KEGG
 
 [Whole blood](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d1k.html)
@@ -159,17 +155,6 @@ For the factors in this part, we used SuSiE to test if our colocalization result
 [Whole Blood](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d1k.html)
 
 [Liver](https://xsun1229.github.io/factor_analysis/reactome_pcs_factor_traits_regress_5_d1k_liver.html)
-
-
-
-
-
-
-
-
-
-
-
 
 
 We compared the enrichment results under different settings(PCs from KEGG and REACTOME, PLIER - Canonical).
@@ -189,8 +174,6 @@ We compared the enrichment results under different settings(PCs from KEGG and RE
 
 We tried 2 types of expression factors: 1)PLIER factors 2)PCs from KEGG pathways. 
 
-When using PCs, we regressed out the first 5 PEER factors computed from the GTEx expression data.
-
 **PLIER LV number for 6 cell types**
 
 | cell type      | LV num |
@@ -203,19 +186,50 @@ When using PCs, we regressed out the first 5 PEER factors computed from the GTEx
 | neutrophils CD15 | 146  |
 
 
+### 5.1.3 Association test covariates
+
+When using PCs as exposure, we regressed out the 5 or N PEER factors computed from the GTEx expression data 
+
+#### 5 PEER factors
+
+The 5 PEER factors are the first 5 factors computed [here](https://xsun1229.github.io/factor_analysis/CEDAR_data_process.html#2_peer_factors) 
+
+#### N PEER factors
+
+One 'danger' of adjusting for many PEER factors is that the factors may be affected by the genotypes. In other words, we could have this model: genetic variant -> PEER factor -> pathway. We should not adjust for the factor, as it will explain away the variant > pathway association.
+
+So, when testing variant ~ pathway association, we did a association test of variant with a PEER factor, if its p-value is small (< 0.05), we did not adjust that factor. 
+
 ## **5.2 Results under different settings**
 
-### PLIER - MSigDB factors **latest results 07/21**
+The 10 genotype pcs using as covariates in factor ~ SNP association tests are computed from pruned genotype data set with bigsnpr. 
+
+### PLIER - MSigDB factors 
+
+[Workflow validation](https://xsun1229.github.io/factor_analysis/cedar_plier_validation.html)
 
 [Details](https://xsun1229.github.io/factor_analysis/cedar_plier_26_qc_d1k_pruned.html)
 
-### PC - KEGG **latest results 07/21**
+### PC - KEGG 
 
-[Details](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned.html)
+[Details - regress out 5 PEER factors](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned.html)
+
+[Details - regress out 5 PEER factors - only pathways have > 40 genes included](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes_pruned.html)
+
+[Details - regress out N PEER factors](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html)
 
 
+### Earlier results 
+
+The 10 genotype pcs using as covariates in factor ~ SNP association tests are computed from whole genome with PLINK 1.9. 
+
+#### PLIER - MSigDB factors
+
+[Details](https://xsun1229.github.io/factor_analysis/cedar_plier_26_qc_d1k.html)
 
 
+#### PC - KEGG 
 
+[CEDAR - KEGG PCs - 26 traits - Quality Control](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k.html)
 
-
+[CEDAR - KEGG PCs - 26 traits - Quality Control - >40 genes](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes.html)
