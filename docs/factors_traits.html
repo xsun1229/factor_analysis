@@ -446,7 +446,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-07-17
+<strong>Last updated:</strong> 2021-07-31
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree46b163e27c78e3a8f8c6cfdab26d6f1c95de3e3etargetblank46b163ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/46b163e27c78e3a8f8c6cfdab26d6f1c95de3e3e" target="_blank">46b163e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee16ea96987369b741166ebb2c99d6ae60a5a5117targetblanke16ea96a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/e16ea96987369b741166ebb2c99d6ae60a5a5117" target="_blank">e16ea96</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree46b163e27c78e3a8f8c6cfdab26d6f1c95de3e3etargetblank46b163ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee16ea96987369b741166ebb2c99d6ae60a5a5117targetblanke16ea96a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/46b163e27c78e3a8f8c6cfdab26d6f1c95de3e3e" target="_blank">46b163e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/e16ea96987369b741166ebb2c99d6ae60a5a5117" target="_blank">e16ea96</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -497,12 +497,6 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    analysis/.Rhistory
     Ignored:    output/.Rhistory
-
-Untracked files:
-    Untracked:  analysis/delete_jul.Rmd
-
-Unstaged changes:
-    Deleted:    analysis/thesis.Rmd.Rmd
 
 </code></pre>
 <p>
@@ -541,6 +535,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/e16ea96987369b741166ebb2c99d6ae60a5a5117/analysis/factors_traits.Rmd" target="_blank">e16ea96</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-31
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/58fc0835ffe4b77ff4f00d535aae0307f0e66a0c/analysis/factors_traits.Rmd" target="_blank">58fc083</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-29
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/66bed798ba3b1cd0d828c9b672f13a37518ad0e1/docs/factors_traits.html" target="_blank">66bed79</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1228,38 +1273,74 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 </div>
 </div>
-<div id="introduction" class="section level1">
-<h1><strong>1. Introduction</strong></h1>
+<div id="overview" class="section level1">
+<h1><strong>1. Overview</strong></h1>
 <p>In this part, we are trying to study effects of factors on phenotypes with Mendelian Randomization. Factors are inferred from expression matrix</p>
 <p>The hypothesis is that the factors have a causal effect on outcome(traits). But it’s difficult to establish.<br />
 So we state a weaker hypothesis first: GWAS variants of a trait often converge to a relatively small number of processes, which can be represented as expression factors.</p>
 <p>Then we strengthen hypothesis: if the effects of SNPs on LV is correlated with their effects on trait when there is a causal effect of LV on trait.</p>
+<p>Another hypothesis in this part is that if expression factors can influence the certain phenotype (trait or disease), the variants of the phenotype should be enriched in the factors.</p>
 <p>We tried GTEx and CEDAR data set for the analysis in this part.</p>
 </div>
+<div id="data" class="section level1">
+<h1><strong>2. Data</strong></h1>
+<p>The GWAS summary statistics data we used are <a href="https://xsun1229.github.io/factor_analysis/GWAS_data.html">here</a></p>
+</div>
 <div id="pipeline" class="section level1">
-<h1><strong>2. Pipeline</strong></h1>
+<h1><strong>3. Pipeline</strong></h1>
+<div id="ascertaining-diseasetrait-associated-variants" class="section level2">
+<h2><strong>3.1 Ascertaining disease/trait-associated variants</strong></h2>
 <ol style="list-style-type: decimal">
-<li><p>We first selected some disease/trait-associated SNPs, using p-values &lt; 5E-8 in GWAS summary statistics as cutoff. <strong>The GWAS summary statistics data we used are <a href="https://xsun1229.github.io/factor_analysis/GWAS_data.html">here</a></strong></p></li>
-<li><p>Then we did 3-step LD Clumping for the SNPs in step 2 to find independent variants to be used in MR.</p></li>
+<li><p>The candidate variants associated with diseases/traits were selected using p-values &lt; 5e-8 in GWAS summary statistics.</p></li>
+<li><p>Then we did 3-step LD Clumping for the SNPs in step 1) to find independent variants to be used in MR.</p></li>
 </ol>
 <ul>
 <li>Use PLINK to do the preliminary filter: in 1Mb block, the SNPs have LD R2 &gt; 0.1 will be filtered by their p-values</li>
 <li>For the remaining SNPs within 1Mb, keep the one have lowest p-value, remove the others.</li>
 <li>Compute the LD R2 for the remaining SNPs, for the SNP pairs have R2 &gt; 0.1, filter them again according their p-values.</li>
 </ul>
-<ol start="3" style="list-style-type: decimal">
-<li><p>Next, we did association tests for expression factors ~ SNPs + 10 genotype PCs + batch +age +sex</p></li>
+<p>After step 1) and 2), for each trait, a subset of variants associated to it was obtained. Each pair from these variants has LD R2 &lt; 0.1 and physical distance &gt; 1Mb.</p>
+</div>
+<div id="sign-consistency-checking" class="section level2">
+<h2><strong>3.2 Sign consistency checking</strong></h2>
+<div id="association-tests" class="section level3">
+<h3>3.2.1 Association tests</h3>
+<ol style="list-style-type: decimal">
+<li>we did association tests for expression factors ~ SNPs + 10 genotype PCs + batch covariates +age +sex</li>
+</ol>
+<p>The 10 genotype PCs were computed using 2 approaches:</p>
+<ul>
+<li><p>Computing PCs on whole genome using PLINK1.9</p></li>
+<li><p>Pruning the whole genome first and compute the PCs (annotated as pruned_PCs, details are <a href="https://xsun1229.github.io/factor_analysis/CEDAR_data_process.html#2_genotype_pcs">here</a>)</p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
 <li><p>We recorded the trait-factor pairs that have more than one SNPs have FDR&lt;0.2. Fitted beta.outcome ~ beta.exposure + 0 using the SNPs associated to these pairs. Recorded the fitting p-values.</p></li>
-<li><p>To make our results more reliable, we did resampling. We resampled the beta.outcome and beta.exposure from the origin dataset(the data set containing all SNPs) without replacement, made the fitting again and recorded the r-squareds to compute the p-values in resampling. The ‘p-value from resampling’ is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.</p></li>
-<li><p>To check the reverse causality, we exchanged the beta.outcome and beta.exposure of all SNPs associated with traits(pval&lt;5E-8) to compute the MBE estimator and the p-values of the estimator.</p></li>
+<li><p>We harmonized the data using TwoSampleMR R package</p></li>
+<li><p>For the trait-factor pairs in step 2), fitting beta.outcome ~ beta.exposure + 0 using the variants associated to these pairs. Recorded the fitting p-values</p></li>
 </ol>
 </div>
+<div id="resampling" class="section level3">
+<h3>3.2.2 Resampling</h3>
+<p>To make our results more reliable, we did resampling.</p>
+<ol style="list-style-type: decimal">
+<li><p>We resampled the beta.outcome and beta.exposure from the origin dataset(the data set containing all SNPs) without replacement, made the fitting again and recorded the r-squareds to compute the p-values in resampling.</p></li>
+<li><p>The ‘p-value from resampling’ is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.</p></li>
+<li><p>We computed the enrichment of the pairs show sign consistency than expect follows: enrichment=num_(pairs show sign consistancy) /(num_(total pairs) × threshold)</p></li>
+</ol>
+</div>
+<div id="checking-reverse-causality" class="section level3">
+<h3>3.2.3 Checking reverse causality</h3>
+<p>To check the reverse causality, we exchanged the beta.outcome and beta.exposure of all SNPs associated with traits(pval&lt;5E-8) to compute the MBE estimator and the p-values of the estimator.</p>
+<p>Weighted mode-based estimate (MBE) was adopted to check the reverse causality. mr_mbe() function from MendelianRandomization R package(version 0.3.0) was used to compute the weighted MBE with default settings.</p>
+</div>
+</div>
+</div>
 <div id="gtex" class="section level1">
-<h1><strong>3. GTEx</strong></h1>
-<div id="data" class="section level2">
-<h2><strong>3.1 Data</strong></h2>
+<h1><strong>4. GTEx</strong></h1>
+<div id="data-1" class="section level2">
+<h2><strong>4.1 Data</strong></h2>
 <div id="expression-factors" class="section level3">
-<h3>3.1.1 Expression factors</h3>
+<h3>4.1.1 Expression factors</h3>
 <p>We tried four types of expression factors: 1)PLIER factors 2)PCs from KEGG/Reactome pathways 3)PEER factors 4)FLASH factors 5)PEER factors from KEGG/Reactome pathways. They are the same factors with those used in the prediction model training part.</p>
 <p>When using PCs, we regressed out the first 5 PEER factors computed from the GTEx expression data.</p>
 <p>The KEGG contains 332 pathways. We have 1866 Reactome pathways. Combining with our GTEx data, some of them have less than 5 genes that have expression data. Since we will infer 5 PCs for each pathway, we just use the pathways have more than 5 genes. The number of pathways we use for whole blood is 1221, the number for liver is 1262.</p>
@@ -1299,13 +1380,17 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 </table>
 </div>
 <div id="genotype-data" class="section level3">
-<h3>3.1.2 Genotype data</h3>
+<h3>4.1.2 Genotype data</h3>
 <p>GTEx genotype data. The variants have maf &gt;0.01 were selected, variants on chrX were excluded). We have 10,403,249 variants in total.</p>
 <p>The genotype PCs used in this part are computed from whole genome, using PLINK1.9.</p>
 </div>
+<div id="association-test-covariates" class="section level3">
+<h3>4.1.3 Association test covariates</h3>
+<p>For GTEx data, the batch covariates were sequencing platform and sequencing protocol. 10 genotype PCs were computed on whole genome using PLINK 1.9.</p>
+</div>
 </div>
 <div id="results-under-different-settings" class="section level2">
-<h2><strong>3.2 Results under different settings</strong></h2>
+<h2><strong>4.2 Results under different settings</strong></h2>
 <div id="plier-msigdb-factors-latest-results-0721" class="section level3">
 <h3>PLIER-MSigDB factors <strong>(latest results 07/21)</strong></h3>
 <ul>
@@ -1358,17 +1443,16 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 </div>
 </div>
 <div id="cedar" class="section level1">
-<h1><strong>4. CEDAR</strong></h1>
-<div id="data-1" class="section level2">
-<h2><strong>4.1 Data</strong></h2>
+<h1><strong>5. CEDAR</strong></h1>
+<div id="data-2" class="section level2">
+<h2><strong>5.1 Data</strong></h2>
 <div id="cedar-data-processing" class="section level3">
-<h3>4.1.1 CEDAR data processing</h3>
+<h3>5.1.1 CEDAR data processing</h3>
 <p><a href="https://xsun1229.github.io/factor_analysis/CEDAR_data_process.html">Data overview</a></p>
 </div>
 <div id="expression-factors-1" class="section level3">
-<h3>4.1.2 Expression factors</h3>
+<h3>5.1.2 Expression factors</h3>
 <p>We tried 2 types of expression factors: 1)PLIER factors 2)PCs from KEGG pathways.</p>
-<p>When using PCs, we regressed out the first 5 PEER factors computed from the GTEx expression data.</p>
 <p><strong>PLIER LV number for 6 cell types</strong></p>
 <table>
 <thead>
@@ -1405,16 +1489,46 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 </tbody>
 </table>
 </div>
+<div id="association-test-covariates-1" class="section level3">
+<h3>5.1.3 Association test covariates</h3>
+<p>When using PCs as exposure, we regressed out the 5 or N PEER factors computed from the GTEx expression data</p>
+<div id="peer-factors" class="section level4">
+<h4>5 PEER factors</h4>
+<p>The 5 PEER factors are the first 5 factors computed <a href="https://xsun1229.github.io/factor_analysis/CEDAR_data_process.html#2_peer_factors">here</a></p>
+</div>
+<div id="n-peer-factors" class="section level4">
+<h4>N PEER factors</h4>
+<p>One ‘danger’ of adjusting for many PEER factors is that the factors may be affected by the genotypes. In other words, we could have this model: genetic variant -&gt; PEER factor -&gt; pathway. We should not adjust for the factor, as it will explain away the variant &gt; pathway association.</p>
+<p>So, when testing variant ~ pathway association, we did a association test of variant with a PEER factor, if its p-value is small (&lt; 0.05), we did not adjust that factor.</p>
+</div>
+</div>
 </div>
 <div id="results-under-different-settings-1" class="section level2">
-<h2><strong>4.2 Results under different settings</strong></h2>
-<div id="plier---msigdb-factors-latest-results-0721" class="section level3">
-<h3>PLIER - MSigDB factors <strong>latest results 07/21</strong></h3>
+<h2><strong>5.2 Results under different settings</strong></h2>
+<p>The 10 genotype pcs using as covariates in factor ~ SNP association tests are computed from pruned genotype data set with bigsnpr.</p>
+<div id="plier---msigdb-factors" class="section level3">
+<h3>PLIER - MSigDB factors</h3>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_plier_validation.html">Workflow validation</a></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/cedar_plier_26_qc_d1k_pruned.html">Details</a></p>
 </div>
-<div id="pc---kegg-latest-results-0721" class="section level3">
-<h3>PC - KEGG <strong>latest results 07/21</strong></h3>
-<p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned.html">Details</a></p>
+<div id="pc---kegg" class="section level3">
+<h3>PC - KEGG</h3>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned.html">Details - regress out 5 PEER factors</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes_pruned.html">Details - regress out 5 PEER factors - only pathways have &gt; 40 genes included</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html">Details - regress out N PEER factors</a></p>
+</div>
+<div id="earlier-results" class="section level3">
+<h3>Earlier results</h3>
+<p>The 10 genotype pcs using as covariates in factor ~ SNP association tests are computed from whole genome with PLINK 1.9.</p>
+<div id="plier---msigdb-factors-1" class="section level4">
+<h4>PLIER - MSigDB factors</h4>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_plier_26_qc_d1k.html">Details</a></p>
+</div>
+<div id="pc---kegg-1" class="section level4">
+<h4>PC - KEGG</h4>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k.html">CEDAR - KEGG PCs - 26 traits - Quality Control</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes.html">CEDAR - KEGG PCs - 26 traits - Quality Control - &gt;40 genes</a></p>
+</div>
 </div>
 </div>
 </div>
