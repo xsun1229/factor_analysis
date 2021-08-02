@@ -218,6 +218,9 @@ The 10 genotype pcs using as covariates in factor ~ SNP association tests are co
 
 [Details - regress out N PEER factors](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html)
 
+[Details - regress out N PEER factors  > 20 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_20genes.html)
+
+[Details - regress out N PEER factors > 20 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_40genes.html)
 
 ### Earlier results 
 

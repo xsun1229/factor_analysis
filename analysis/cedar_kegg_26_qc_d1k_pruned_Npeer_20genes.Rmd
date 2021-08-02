@@ -1,7 +1,7 @@
 ---
-title: "Results for KEGG PCs from CEDAR data set (all KEGG pathways included)"
+title: "Results for KEGG PCs from CEDAR data set (KEGG pathways have >20 genes included)"
 author: "XSun"
-date: "2021-07-30"
+date: "2021-08-02"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
@@ -9,21 +9,18 @@ editor_options:
 
 # **Overview**
 
-In this part, when doing association test for PCs ~ variants, we added N PEER factors as covariates. The details are described in [5.1.3 N PEER factors](https://xsun1229.github.io/factor_analysis/factors_traits.html#513_association_test_covariates)
-
-The other parts of the workflow are the same as described in [main page](https://xsun1229.github.io/factor_analysis/factors_traits.html#3_pipeline).
+We selected the results for pathways have >20 genes from [here](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html)
 
 # **Enrichment Summary** 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer1.png" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer2.png" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer_20genes.png" width="80%">
 </figure>
 
 # **Barplot to show the number of SNPs have FDR <0.2 that each pair contains**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/all_kegg_hist_snp_all_CEDAR.jpg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/20_kegg_hist_snp_all_CEDAR.jpg" width="80%">
 </figure>
 
 # **Detailed results for 6 cell types**
@@ -33,7 +30,7 @@ The other parts of the workflow are the same as described in [main page](https:/
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -42,7 +39,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -55,7 +52,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -65,7 +62,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -75,7 +72,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -84,7 +81,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -95,7 +92,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -105,7 +102,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -115,7 +112,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -125,7 +122,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_pruned_npeer.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_pruned_npeer_20genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -135,14 +132,14 @@ DT::datatable(sum, options = list(pageLength =5))
 <!-- ### Histogram to show the number of SNPs that each pair contains -->
 
 <!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_pruned_npeer.jpeg" width="80%"> -->
+<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_pruned_npeer_20genes.jpeg" width="80%"> -->
 <!-- </figure> -->
 
 
 <!-- ### effectsize fitting summary  -->
 
 <!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer.rdata") -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer_20genes.rdata") -->
 <!-- DT::datatable(final_full, options = list(pageLength =5)) -->
 <!-- ``` -->
 
@@ -152,7 +149,8 @@ DT::datatable(sum, options = list(pageLength =5))
 <!-- **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)** -->
 
 <!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_npeer.rdata") -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_npeer_20genes.rdata") -->
 <!-- DT::datatable(sum, options = list(pageLength =5)) -->
 <!-- ``` -->
+
 
