@@ -11,9 +11,9 @@
 
 <meta name="author" content="XSun" />
 
-<meta name="date" content="2021-07-15" />
+<meta name="date" content="2021-08-02" />
 
-<title>Overview on CEDAR data set</title>
+<title>The numbers of trait-associated variants for each trait</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -419,9 +419,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Overview on CEDAR data set</h1>
+<h1 class="title toc-ignore">The numbers of trait-associated variants for each trait</h1>
 <h4 class="author">XSun</h4>
-<h4 class="date">2021-07-15</h4>
+<h4 class="date">2021-08-02</h4>
 
 </div>
 
@@ -536,7 +536,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/CEDAR_data_process.Rmd</code>) and HTML (<code>docs/CEDAR_data_process.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/CEDAR_number_variants_each_trait.Rmd</code>) and HTML (<code>docs/CEDAR_number_variants_each_trait.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -565,7 +565,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/d7e4da918908536c4103b2bc43b0f68eb017c5e0/analysis/CEDAR_data_process.Rmd" target="_blank">d7e4da9</a>
+<a href="https://github.com/xsun1229/factor_analysis/blob/d7e4da918908536c4103b2bc43b0f68eb017c5e0/analysis/CEDAR_number_variants_each_trait.Rmd" target="_blank">d7e4da9</a>
 </td>
 <td>
 XSun
@@ -577,108 +577,6 @@ XSun
 wflow_publish(c(“analysis/CEDAR_data_process.Rmd”, “analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_40genes.Rmd”,
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/0c26bee42ffafb7b89791230015fecf83df4b5d3/docs/CEDAR_data_process.html" target="_blank">0c26bee</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-07-17
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/c6bd0e4afc6bc2db2838e3f4b6de4da34248929b/analysis/CEDAR_data_process.Rmd" target="_blank">c6bd0e4</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-07-17
-</td>
-<td>
-wflow_publish(c(“analysis/CEDAR_data_process.Rmd”, “analysis/EM_websites.Rmd”,
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/301cf2b3c4c29332ddaee05587e2f312e99f30da/docs/CEDAR_data_process.html" target="_blank">301cf2b</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-07-15
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/c2939ffcd9832e3634926f7964e72f9d8fa610ed/analysis/CEDAR_data_process.Rmd" target="_blank">c2939ff</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-07-15
-</td>
-<td>
-wflow_publish((c(“analysis/CEDAR_data_process.Rmd”)))
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/9c8b8f101bb073cd859008c2994d1f7590b7d2f1/docs/CEDAR_data_process.html" target="_blank">9c8b8f1</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-07-15
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/5d0127bc77ea5c275160c4afe3daccb6148adcdb/analysis/CEDAR_data_process.Rmd" target="_blank">5d0127b</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2021-07-15
-</td>
-<td>
-update
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -686,186 +584,355 @@ update
 </div>
 </div>
 </div>
-<div id="introduction" class="section level2">
-<h2><strong>Introduction</strong></h2>
-<p>We used CEDAR data from <a href="https://www.nature.com/articles/s41467-018-04365-8">IBD risk loci are enriched in multigenic regulatory modules encompassing putative causative genes</a>. The data can be downloaded from ArrayExpress under accession codes <a href="https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6666/">E-MTAB-6666</a> and <a href="https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6667/">E-MTAB-6667</a></p>
+<div id="gtex" class="section level1">
+<h1>GTEx</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Trait</th>
+<th>Number</th>
+<th>Trait</th>
+<th>Number</th>
+<th>Trait</th>
+<th>Number</th>
+<th>Trait</th>
+<th>Number</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>eo</td>
+<td>158</td>
+<td>mcv</td>
+<td>216</td>
+<td>pct</td>
+<td>225</td>
+<td>ukb.allasthma</td>
+<td>79</td>
+</tr>
+<tr class="even">
+<td>gran</td>
+<td>147</td>
+<td>mpv</td>
+<td>204</td>
+<td>rbc</td>
+<td>174</td>
+<td>EUR.IBD</td>
+<td>59</td>
+</tr>
+<tr class="odd">
+<td>hct</td>
+<td>108</td>
+<td>mono</td>
+<td>179</td>
+<td>rdw</td>
+<td>172</td>
+<td>EUR.CD</td>
+<td>49</td>
+</tr>
+<tr class="even">
+<td>hgb</td>
+<td>120</td>
+<td>myeloid_wbc</td>
+<td>148</td>
+<td>ret</td>
+<td>150</td>
+<td>EUR.UC</td>
+<td>34</td>
+</tr>
+<tr class="odd">
+<td>lymph</td>
+<td>177</td>
+<td>neut</td>
+<td>149</td>
+<td>wbc</td>
+<td>172</td>
+<td>allergy</td>
+<td>70</td>
+</tr>
+<tr class="even">
+<td>mch</td>
+<td>205</td>
+<td>plt</td>
+<td>228</td>
+<td>baso</td>
+<td>71</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>mchc</td>
+<td>73</td>
+<td>pdw</td>
+<td>158</td>
+<td>T1D</td>
+<td>35</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="genotype-data" class="section level2">
-<h2><strong>Genotype data</strong></h2>
-<div id="data-processing" class="section level3">
-<h3>1. Data processing</h3>
-<p>The raw genotype data carried out by Illumina HumanOmniExpress-12 v1_A genotyping arrays were processed follows:</p>
-<ol style="list-style-type: decimal">
-<li>Format Conversion</li>
-</ol>
-<p>The raw IDAT files were converted into VCF format using gtc2vcf tool (<a href="https://github.com/freeseek/gtc2vcf" class="uri">https://github.com/freeseek/gtc2vcf</a>).</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Quality Control</li>
-</ol>
-<ul>
-<li><p>The alleles were aligned with the 1000 Genomes Phase 3 reference panel and excluding variants that could not be aligned using Genotype harmonizer (version 1.4.20).</p></li>
-<li><p>Variants with Hardy-Weinberg equilibrium p-value&gt;10−6, missingness &gt;0.05 and MAF &lt;0.01 were excluded.</p></li>
-<li><p>Samples with more than 95% of the variants missing were excluded.</p></li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Imputation</li>
-</ol>
-<p>After quality control, 602,849 autosomal genetic variants from 323 individuals were included for imputation. Michigan Imputation Server[148] with the 1000 Genomes Phase 3 reference panel was used to perform phasing and imputation.</p>
-<p>Bcftools (version 1.9.0) were used to filter the genetic variants after imputation. 8,045,943 variants on autosomes with imputation quality score R2 &lt; 0.8 and MAF &lt; 0.01 were included finally.</p>
-</div>
-<div id="genotype-pcs" class="section level3">
-<h3>2. Genotype PCs</h3>
-<p>Using whole genome to compute principle components usually captures linkage disequilibrium structure and cannot detect the sample outliers. So, in this chapter, <a href="https://academic.oup.com/bioinformatics/article/36/16/4449/5838185">bigsnpr</a> was employed to compute the 10 PCs using as covariates in association tests to avoid these issues. The computation pipeline follows:</p>
-<ol style="list-style-type: decimal">
-<li><p>The relatedness of the samples using was first computed using 2e-4.5 as the cutoff to find the second-degree relations with snp_plinkKINGQC() function from bigsnpr.</p></li>
-<li><p>After removing the related individuals, the sample outliers was computed using function prob_dist() and visualized by geom_histogram() from ggplot2. Figure below shows, s=1.0 is a reasonable threshold to remove the sample outliers.</p></li>
-<li><p>Before doing PCA, the bigsnpr will do LD Pruning using R2 = 0.2 as threshold to remove the SNPs in LD.</p></li>
-<li><p>Finally, we projected the removed samples using the PCA results in step 3) and obtained the final 10 PCs.</p></li>
-</ol>
-<p>The table below shows the sample size and variant number we used in PCA</p>
+<div id="cedar" class="section level1">
+<h1>CEDAR</h1>
 <table>
 <colgroup>
-<col width="9%" />
 <col width="14%" />
-<col width="20%" />
-<col width="20%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="15%" />
 <col width="17%" />
-<col width="17%" />
+<col width="11%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th>sample size - origin</th>
-<th>sample size - related removed</th>
-<th>sample size - outlier removed</th>
-<th>variants number - origin</th>
-<th>variants number - final</th>
+<th>Traits</th>
+<th>CD4+ Tcells</th>
+<th>CD8+ Tcells</th>
+<th>CD19+ Bcells</th>
+<th>CD14+ monocytes</th>
+<th>CD15+ neutrophils</th>
+<th>platelets</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>B cell</td>
-<td>276</td>
-<td>268</td>
-<td>259</td>
-<td>8045943</td>
-<td>259604</td>
+<td>eo</td>
+<td>151</td>
+<td>152</td>
+<td>152</td>
+<td>150</td>
+<td>eo</td>
+<td>151</td>
 </tr>
 <tr class="even">
-<td>CD14</td>
-<td>282</td>
-<td>274</td>
-<td>266</td>
-<td>8045943</td>
-<td>261937</td>
+<td>gran</td>
+<td>147</td>
+<td>146</td>
+<td>148</td>
+<td>146</td>
+<td>147</td>
+<td>147</td>
 </tr>
 <tr class="odd">
-<td>CD15</td>
-<td>270</td>
-<td>264</td>
-<td>258</td>
-<td>8045943</td>
-<td>261049</td>
+<td>hct</td>
+<td>106</td>
+<td>108</td>
+<td>109</td>
+<td>108</td>
+<td>109</td>
+<td>109</td>
 </tr>
 <tr class="even">
-<td>T CELL(CD4+)</td>
-<td>299</td>
-<td>291</td>
-<td>279</td>
-<td>8045943</td>
-<td>269355</td>
+<td>hgb</td>
+<td>122</td>
+<td>121</td>
+<td>120</td>
+<td>123</td>
+<td>121</td>
+<td>119</td>
 </tr>
 <tr class="odd">
-<td>T CELL(CD8+)</td>
-<td>286</td>
-<td>280</td>
-<td>272</td>
-<td>8045943</td>
-<td>266120</td>
+<td>lymph</td>
+<td>163</td>
+<td>165</td>
+<td>163</td>
+<td>163</td>
+<td>165</td>
+<td>164</td>
 </tr>
 <tr class="even">
-<td>Platelet</td>
-<td>237</td>
-<td>235</td>
-<td>233</td>
-<td>8045943</td>
-<td>251819</td>
+<td>mch</td>
+<td>186</td>
+<td>187</td>
+<td>188</td>
+<td>185</td>
+<td>190</td>
+<td>187</td>
+</tr>
+<tr class="odd">
+<td>mchc</td>
+<td>70</td>
+<td>67</td>
+<td>69</td>
+<td>69</td>
+<td>67</td>
+<td>71</td>
+</tr>
+<tr class="even">
+<td>mcv</td>
+<td>204</td>
+<td>204</td>
+<td>201</td>
+<td>204</td>
+<td>200</td>
+<td>203</td>
+</tr>
+<tr class="odd">
+<td>mpv</td>
+<td>196</td>
+<td>196</td>
+<td>196</td>
+<td>195</td>
+<td>197</td>
+<td>198</td>
+</tr>
+<tr class="even">
+<td>mono</td>
+<td>163</td>
+<td>163</td>
+<td>163</td>
+<td>163</td>
+<td>161</td>
+<td>163</td>
+</tr>
+<tr class="odd">
+<td>myeloid_wbc</td>
+<td>147</td>
+<td>145</td>
+<td>147</td>
+<td>146</td>
+<td>146</td>
+<td>145</td>
+</tr>
+<tr class="even">
+<td>neut</td>
+<td>147</td>
+<td>149</td>
+<td>149</td>
+<td>148</td>
+<td>147</td>
+<td>151</td>
+</tr>
+<tr class="odd">
+<td>plt</td>
+<td>210</td>
+<td>217</td>
+<td>217</td>
+<td>217</td>
+<td>218</td>
+<td>216</td>
+</tr>
+<tr class="even">
+<td>pdw</td>
+<td>155</td>
+<td>157</td>
+<td>155</td>
+<td>154</td>
+<td>157</td>
+<td>153</td>
+</tr>
+<tr class="odd">
+<td>pct</td>
+<td>210</td>
+<td>211</td>
+<td>215</td>
+<td>215</td>
+<td>213</td>
+<td>217</td>
+</tr>
+<tr class="even">
+<td>rbc</td>
+<td>169</td>
+<td>170</td>
+<td>168</td>
+<td>171</td>
+<td>172</td>
+<td>169</td>
+</tr>
+<tr class="odd">
+<td>rdw</td>
+<td>162</td>
+<td>162</td>
+<td>161</td>
+<td>163</td>
+<td>161</td>
+<td>162</td>
+</tr>
+<tr class="even">
+<td>ret</td>
+<td>139</td>
+<td>137</td>
+<td>138</td>
+<td>138</td>
+<td>136</td>
+<td>139</td>
+</tr>
+<tr class="odd">
+<td>wbc</td>
+<td>169</td>
+<td>169</td>
+<td>168</td>
+<td>167</td>
+<td>167</td>
+<td>168</td>
+</tr>
+<tr class="even">
+<td>baso</td>
+<td>68</td>
+<td>68</td>
+<td>67</td>
+<td>66</td>
+<td>67</td>
+<td>70</td>
+</tr>
+<tr class="odd">
+<td>T1D</td>
+<td>35</td>
+<td>33</td>
+<td>32</td>
+<td>34</td>
+<td>31</td>
+<td>36</td>
+</tr>
+<tr class="even">
+<td>ukb.allasthma</td>
+<td>73</td>
+<td>75</td>
+<td>76</td>
+<td>75</td>
+<td>75</td>
+<td>74</td>
+</tr>
+<tr class="odd">
+<td>EUR.IBD</td>
+<td>53</td>
+<td>51</td>
+<td>52</td>
+<td>53</td>
+<td>52</td>
+<td>53</td>
+</tr>
+<tr class="even">
+<td>EUR.CD</td>
+<td>46</td>
+<td>48</td>
+<td>48</td>
+<td>48</td>
+<td>48</td>
+<td>46</td>
+</tr>
+<tr class="odd">
+<td>EUR.UC</td>
+<td>33</td>
+<td>34</td>
+<td>33</td>
+<td>35</td>
+<td>35</td>
+<td>31</td>
+</tr>
+<tr class="even">
+<td>allergy</td>
+<td>69</td>
+<td>71</td>
+<td>71</td>
+<td>69</td>
+<td>68</td>
+<td>68</td>
 </tr>
 </tbody>
 </table>
-<p>The plot below shows the outliers we removed in step 3.</p>
-<figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/outliers.jpg" width="100%">
-</figure>
-<p>The plot below shows the PVE of each PCs.</p>
-<figure class="half">
-<img src="https://github.com/xsun1229/factor_analysis/raw/master/output/PVE.jpg" width="100%">
-</figure>
-</div>
-</div>
-<div id="gene-expression-data" class="section level2">
-<h2><strong>Gene expression data</strong></h2>
-<p>CEDAR gene expression data generated by A-MEXP-2072 - Illumina HumanHT-12_V4_0_R2_15002873_B contain 6 cell types: CD4+ T cells, CD8+ T cells, CD19+ B cells and CD14+ monocytes, CD15+ neutrophils and platelets.</p>
-<div id="data-processing-1" class="section level3">
-<h3>1. Data processing</h3>
-<ol style="list-style-type: decimal">
-<li><p>Normalization: Fluorescence intensities were Log2 transformed and Robust Spline Normalized (RSN) with Lumi.</p></li>
-<li><p>The probes presented in more than 75% of our samples for given cell type were kept.</p></li>
-</ol>
-<p>Table below shows the summary after gene expression data procession.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Cell type</th>
-<th>Sample size</th>
-<th>Number of probes</th>
-<th>Number of genes(gene symbol ID)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CD4+ T cells</td>
-<td>299</td>
-<td>17915</td>
-<td>16897</td>
-</tr>
-<tr class="even">
-<td>CD8+ T cells</td>
-<td>286</td>
-<td>17615</td>
-<td>16646</td>
-</tr>
-<tr class="odd">
-<td>CD19+ B cells</td>
-<td>276</td>
-<td>16866</td>
-<td>15774</td>
-</tr>
-<tr class="even">
-<td>CD14+ monocytes</td>
-<td>282</td>
-<td>17506</td>
-<td>16374</td>
-</tr>
-<tr class="odd">
-<td>CD15+ neutrophils</td>
-<td>270</td>
-<td>14968</td>
-<td>13905</td>
-</tr>
-<tr class="even">
-<td>platelets</td>
-<td>237</td>
-<td>9027</td>
-<td>8388</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="peer-factors" class="section level3">
-<h3>2. PEER factors</h3>
-<p>We used PEER(<a href="https://github.com/PMBio/peer/wiki" class="uri">https://github.com/PMBio/peer/wiki</a>) under default settings to infer PEER factors for each expression data set. For the data set have &gt; 250 samples, we inferred 45 factors. For others, we inferred 30 factors.</p>
-</div>
 </div>
 
 
