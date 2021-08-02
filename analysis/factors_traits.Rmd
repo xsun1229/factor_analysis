@@ -214,15 +214,15 @@ The 10 genotype pcs using as covariates in factor ~ SNP association tests are co
 
 ### PC - KEGG 
 
-[Details - regress out 5 PEER factors](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned.html)
+[Details - regress out 5 PEER factors - all pathways](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned.html)
 
 [Details - regress out 5 PEER factors - only pathways have > 40 genes included](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes_pruned.html)
 
-[Details - regress out N PEER factors](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html)
+[Details - regress out N PEER factors - all pathways](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html)
 
-[Details - regress out N PEER factors  > 20 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_20genes.html)
+[Details - regress out N PEER factors  - pathways> 20 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_20genes.html)
 
-[Details - regress out N PEER factors > 20 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_40genes.html)
+[Details - regress out N PEER factors - pathways> 40 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_40genes.html)
 
 ### Earlier results 
 
