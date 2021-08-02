@@ -233,6 +233,6 @@ The 10 genotype pcs using as covariates in factor ~ SNP association tests are co
 
 #### PC - KEGG 
 
-[CEDAR - KEGG PCs - 26 traits - Quality Control](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k.html)
+[Details - regress out 5 PEER factors](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k.html)
 
-[CEDAR - KEGG PCs - 26 traits - Quality Control - >40 genes](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes.html)
+[Details - regress out 5 PEER factors >40 genes](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes.html)

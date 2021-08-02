@@ -112,8 +112,8 @@ DT::datatable(sum, options = list(pageLength =5))
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_npeer_40genes.rdata")
-DT::datatable(final_full, options = list(pageLength =5))
+# load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+# DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
