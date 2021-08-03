@@ -23,6 +23,8 @@ We selected the results for pathways have >40 genes from [here](https://xsun1229
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/20_kegg_hist_snp_all_CEDAR.jpg" width="150%">
 </figure>
 
+When using p-value < 0.01 && SNP >= 3 as threshold to filter the results, the enrichment results become better. 
+
 # **Detailed results for 6 cell types**
 
 ## B cell
@@ -34,13 +36,22 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_q
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**The table below shows the pairs have >= 3 SNPs.**
+**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
+final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
+
+After sorting by num_snps and p-value in resampling, we found several pairs seems to be bilogical plausible: 
+
+lymph_pwy182_pc1 : [Differences in lymphocyte developmental potential between human embryonic stem cell and umbilical cord blood–derived hematopoietic progenitor cells](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2556609/)
+
+pct_pwy271_pc4 : [Inflammation drives thrombosis after Salmonella infection via CLEC-2 on platelets](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4665792/)
+
+plt_pwy120_pc4 ： [Role of the platelet chemokine platelet factor 4 (PF4) in hemostasis and thrombosis](https://www.sciencedirect.com/science/article/pii/S0049384809005362)
 
 ### SNP details
 
@@ -74,11 +85,12 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**The table below shows the pairs have >= 3 SNPs.**
+**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_npeer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
+final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 ### SNP details
@@ -109,11 +121,12 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**The table below shows the pairs have >= 3 SNPs.**
+**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_npeer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
+final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -146,11 +159,12 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_q
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**The table below shows the pairs have >= 3 SNPs.**
+**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
+final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -182,11 +196,12 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**The table below shows the pairs have >= 3 SNPs.**
+**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_npeer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
+final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -225,11 +240,12 @@ DT::datatable(sum, options = list(pageLength =5))
 <!-- DT::datatable(final_full, options = list(pageLength =5)) -->
 <!-- ``` -->
 
-<!-- **The table below shows the pairs have >= 3 SNPs.** -->
+<!-- **The table below shows the pairs have >= 3 SNPs && p-value < 0.01.** -->
 
 <!-- ```{r echo=FALSE} -->
 <!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata") -->
 <!-- final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,] -->
+<!-- final_full <- final_full[final_full$pval_in_resampling < 0.01,] -->
 <!-- DT::datatable(final_full, options = list(pageLength =5)) -->
 <!-- ``` -->
 
