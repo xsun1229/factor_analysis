@@ -202,6 +202,8 @@ One 'danger' of adjusting for many PEER factors is that the factors may be affec
 
 So, when testing variant ~ pathway association, we did a association test of variant with a PEER factor, if its p-value is small (< 0.05), we did not adjust that factor. 
 
+The first 20 candidate PEER factors are candidates to be regressed out.
+
 ## **5.2 Results under different settings**
 
 The 10 genotype pcs using as covariates in factor ~ SNP association tests are computed from pruned genotype data set with bigsnpr. 
@@ -214,15 +216,23 @@ The 10 genotype pcs using as covariates in factor ~ SNP association tests are co
 
 ### PC - KEGG 
 
-[Details - regress out 5 PEER factors - all pathways](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned.html)
+**regress out 5 PEER factors**
 
-[Details - regress out 5 PEER factors - only pathways have > 40 genes included](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes_pruned.html)
+In this part, when doing association test for PCs ~ variants, we added first 5 PEER factors as covariates.
 
-[Details - regress out N PEER factors - all pathways](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html)
+[Details - all pathways included](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned.html)
 
-[Details - regress out N PEER factors  - pathways> 20 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_20genes.html)
+[Details - only pathways have > 40 genes included](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes_pruned.html)
 
-[Details - regress out N PEER factors - pathways> 40 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_40genes.html)
+**regress out N PEER factors, N <= 20**
+
+In this part, when doing association test for PCs ~ variants, we added first N PEER factors as covariates(N <= 20). The details are described in 5.1.3.
+
+[Details - all pathways](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html)
+
+[Details - pathways> 20 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_20genes.html)
+
+[Details - pathways> 40 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_40genes.html)
 
 ### Earlier results 
 

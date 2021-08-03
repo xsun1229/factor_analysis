@@ -9,7 +9,7 @@ editor_options:
 
 # **Overview**
 
-In this part, when doing association test for PCs ~ variants, we added N PEER factors as covariates. The details are described in [5.1.3 N PEER factors](https://xsun1229.github.io/factor_analysis/factors_traits.html#513_association_test_covariates)
+In this part, when doing association test for PCs ~ variants, we added N PEER factors as covariates(N <= 20). The details are described in [5.1.3 N PEER factors](https://xsun1229.github.io/factor_analysis/factors_traits.html#513_association_test_covariates)
 
 The other parts of the workflow are the same as described in [main page](https://xsun1229.github.io/factor_analysis/factors_traits.html#3_pipeline).
 
