@@ -16,14 +16,14 @@ The other parts of the workflow are the same as described in [main page](https:/
 # **Enrichment Summary** 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer1.png" width="80%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer2.png" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer1.png" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer2.png" width="150%">
 </figure>
 
 # **Barplot to show the number of SNPs have FDR <0.2 that each pair contains**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/all_kegg_hist_snp_all_CEDAR.jpg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/all_kegg_hist_snp_all_CEDAR.jpg" width="150%">
 </figure>
 
 # **Detailed results for 6 cell types**
