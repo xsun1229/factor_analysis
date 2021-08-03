@@ -53,6 +53,12 @@ pct_pwy271_pc4 : [Inflammation drives thrombosis after Salmonella infection via 
 
 plt_pwy120_pc4 ： [Role of the platelet chemokine platelet factor 4 (PF4) in hemostasis and thrombosis](https://www.sciencedirect.com/science/article/pii/S0049384809005362)
 
+rdw_pwy255_pc4 ： rdw is related with Alzheimer disease but it seems there is no causal effect.
+
+ukb.allasthma_pwy311_pc5 [A negative trend of association of asthma with AML was also observed but not causal](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4486841/) 
+
+
+
 ### SNP details
 
 The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
