@@ -38,7 +38,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 3,]
+final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -78,7 +78,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_npeer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 3,]
+final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 ### SNP details
@@ -113,7 +113,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_npeer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 3,]
+final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -150,7 +150,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 3,]
+final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -186,7 +186,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_npeer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 3,]
+final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
@@ -229,7 +229,7 @@ DT::datatable(sum, options = list(pageLength =5))
 
 <!-- ```{r echo=FALSE} -->
 <!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata") -->
-<!-- final_full <- final_full[final_full$num_snp_fdr.0.2 > 3,] -->
+<!-- final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,] -->
 <!-- DT::datatable(final_full, options = list(pageLength =5)) -->
 <!-- ``` -->
 
