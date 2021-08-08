@@ -96,7 +96,7 @@ We will do colocalization for the variants from the pair shows sign consistency,
 4)	The colocalization results were visualized the using the ‘LocusCompareR’ package (version 1.0.0, downloaded from https://github.com/boxiangliu/locuscomparer).  
 
 
-### **3.4 ORA enrichment analysis** 
+## **3.4 ORA enrichment analysis** 
 
 ORA: For each factor, we sorted the genes that have non-zero loadings by their loadings, taking the top 25% or 100% as the gene set. The function database here is geneontology Biological Process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.05 are listed.
 
