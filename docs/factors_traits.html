@@ -446,7 +446,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-08-02
+<strong>Last updated:</strong> 2021-08-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree204f550172763fd8eae3222fb8d306832a00ac45targetblank204f550a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/204f550172763fd8eae3222fb8d306832a00ac45" target="_blank">204f550</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1b1c35256a1da484bdf08edaf89e89ff2a555c95targetblank1b1c352a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/1b1c35256a1da484bdf08edaf89e89ff2a555c95" target="_blank">1b1c352</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree204f550172763fd8eae3222fb8d306832a00ac45targetblank204f550a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1b1c35256a1da484bdf08edaf89e89ff2a555c95targetblank1b1c352a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/204f550172763fd8eae3222fb8d306832a00ac45" target="_blank">204f550</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/1b1c35256a1da484bdf08edaf89e89ff2a555c95" target="_blank">1b1c352</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -498,14 +498,8 @@ Ignored files:
     Ignored:    analysis/.Rhistory
     Ignored:    output/.Rhistory
 
-Untracked files:
-    Untracked:  output/mbe_thy_cedar_qc_kegg_pruned_npeer_40genes.rdata
-    Untracked:  output/pwy_name_thy_cedar_qc_kegg_pruned_npeer_40genes.rdata
-    Untracked:  output/snp_details_cedar_kegg_bcell_pruned_npeer_40genes.rdata
-    Untracked:  output/snp_details_cedar_kegg_cd14_pruned_npeer_40genes.rdata
-    Untracked:  output/snp_details_cedar_kegg_cd15_pruned_npeer_40genes.rdata
-    Untracked:  output/snp_details_cedar_kegg_tcell_pruned_npeer_40genes.rdata
-    Untracked:  output/snp_details_cedar_kegg_thy_pruned_npeer_40genes.rdata
+Unstaged changes:
+    Modified:   analysis/gtex_plier_d1k.Rmd
 
 </code></pre>
 <p>
@@ -544,6 +538,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/1b1c35256a1da484bdf08edaf89e89ff2a555c95/analysis/factors_traits.Rmd" target="_blank">1b1c352</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-08-08
+</td>
+<td>
+wflow_publish(“analysis/factors_traits.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/99de2c5ae8e523b1c6943d386b528cb7b18b8e3c/analysis/factors_traits.Rmd" target="_blank">99de2c5</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-08-08
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/22c057e42e210c7e88cff80145575379b5bfaa73/docs/factors_traits.html" target="_blank">22c057e</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-08-02
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1473,11 +1518,30 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 <li><p>The ‘p-value from resampling’ is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.</p></li>
 <li><p>We computed the enrichment of the pairs show sign consistency than expect follows: enrichment=num_(pairs show sign consistancy) /(num_(total pairs) × threshold)</p></li>
 </ol>
+<ul>
+<li><p>We first tried to do resampling 1000 times for each pair have &gt;2 SNPs at FDR &lt; 0.2</p></li>
+<li><p>We also tried an adaptive method to do the resampling. In the first stage, 10e3 simulations will be performed. If the resulting empirical p value is less than 0.1, 10e4 simulations will be performed. If the empirical p value from 10e4 simulations is less than 0.001, the program will perform 10e6 simulations. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2896770/">reference</a></p></li>
+</ul>
 </div>
 <div id="checking-reverse-causality" class="section level3">
 <h3>3.2.3 Checking reverse causality</h3>
 <p>To check the reverse causality, we exchanged the beta.outcome and beta.exposure of all SNPs associated with traits(pval&lt;5E-8) to compute the MBE estimator and the p-values of the estimator.</p>
 <p>Weighted mode-based estimate (MBE) was adopted to check the reverse causality. mr_mbe() function from MendelianRandomization R package(version 0.3.0) was used to compute the weighted MBE with default settings.</p>
+</div>
+<div id="colocalization-analysis" class="section level3">
+<h3>3.2.4 Colocalization analysis</h3>
+<p>We did colocalization analysis whether factor-association signals and GWAS signals at a locus are consistent with having a shared casual variant. The colocalization analysis was performed using the approximate Bayes factor test implemented by coloc.abf() function in ‘coloc’ R package. ‘coloc’ computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran ‘coloc’ with the default parameters and used PP4 to assess evidence of colocalization.</p>
+<p>We will do colocalization for the variants from the pair shows sign consistency, which are named as factor-QTLs by us. The colocalization was performed follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>For a factor-QTL, the variants less than 500kb were selected to do the analysis</p></li>
+<li><p>Association tests follows 3.3.3.1 were performed for these variants. The p-values were recorded.</p></li>
+<li><p>Colocalization analysis was did for the association signals in step 2) and GWAS signals.</p></li>
+<li><p>The colocalization results were visualized the using the ‘LocusCompareR’ package (version 1.0.0, downloaded from <a href="https://github.com/boxiangliu/locuscomparer" class="uri">https://github.com/boxiangliu/locuscomparer</a>).</p></li>
+</ol>
+</div>
+<div id="ora-enrichment-analysis" class="section level3">
+<h3>3.2.5 ORA enrichment analysis</h3>
+<p>ORA: For each factor, we sorted the genes that have non-zero loadings by their loadings, taking the top 25% or 100% as the gene set. The function database here is geneontology Biological Process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr&lt;0.05 are listed.</p>
 </div>
 </div>
 </div>
@@ -1652,8 +1716,8 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 <div id="n-peer-factors" class="section level4">
 <h4>N PEER factors</h4>
 <p>One ‘danger’ of adjusting for many PEER factors is that the factors may be affected by the genotypes. In other words, we could have this model: genetic variant -&gt; PEER factor -&gt; pathway. We should not adjust for the factor, as it will explain away the variant &gt; pathway association.</p>
-<p>So, when testing variant ~ pathway association, we did a association test of variant with a PEER factor, if its p-value is small (&lt; 0.05), we did not adjust that factor.</p>
-<p>The first 20 candidate PEER factors are candidates to be regressed out.</p>
+<p>So, when testing variant ~ pathway association, we did a association test for variant and a PEER factor, if its p-value is small (&lt; 0.05), we did not adjust that factor. For example, we are testing association of a KEGG pathway with a SNP, and we have 20 PEER factor. We first test association of SNP with each of the 20 PEER factors: if p &lt; 0.05, then we do NOT regress out that factor.</p>
+<p>We tried first 20 and 10 candidate PEER factors as covariates to be regressed out.</p>
 </div>
 </div>
 </div>
@@ -1676,6 +1740,11 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 <p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html">Details - all pathways</a></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_20genes.html">Details - pathways&gt; 20 genes</a></p>
 <p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_40genes.html">Details - pathways&gt; 40 genes</a></p>
+<p><strong>regress out N PEER factors, N &lt;= 10</strong></p>
+<p>In this part, when doing association test for PCs ~ variants, we added first N PEER factors as covariates(N &lt;= 10). The details are described in 5.1.3.</p>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer.html">Details - all pathways</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer_20genes.html">Details - pathways&gt; 20 genes</a></p>
+<p><a href="https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer_40genes.html">Details - pathways&gt; 40 genes</a></p>
 </div>
 <div id="earlier-results" class="section level3">
 <h3>Earlier results</h3>
