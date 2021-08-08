@@ -81,7 +81,7 @@ To check the reverse causality, we exchanged the beta.outcome and beta.exposure 
 
 Weighted mode-based estimate (MBE) was adopted to check the reverse causality. mr_mbe() function from MendelianRandomization R package(version 0.3.0) was used to compute the weighted MBE with default settings. 
 
-### 3.2.4 Colocalization analysis
+## **3.3 Colocalization analysis**
 
 We did colocalization analysis whether factor-association signals and GWAS signals at a locus are consistent with having a shared casual variant. The colocalization analysis was performed using the approximate Bayes factor test implemented by coloc.abf() function in ‘coloc’ R package. ‘coloc’ computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran ‘coloc’ with the default parameters and used PP4 to assess evidence of colocalization. 
 
@@ -96,7 +96,7 @@ We will do colocalization for the variants from the pair shows sign consistency,
 4)	The colocalization results were visualized the using the ‘LocusCompareR’ package (version 1.0.0, downloaded from https://github.com/boxiangliu/locuscomparer).  
 
 
-### 3.2.5 ORA enrichment analysis 
+### **3.4 ORA enrichment analysis** 
 
 ORA: For each factor, we sorted the genes that have non-zero loadings by their loadings, taking the top 25% or 100% as the gene set. The function database here is geneontology Biological Process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr<0.05 are listed.
 
