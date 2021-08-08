@@ -65,7 +65,39 @@ DT::datatable(final_full, options = list(pageLength =5))
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_gtex.jpg" width="100%">
 </figure>
 
-## **Enrichment results**
+## **Colocalization results**
+
+For the SNPs above, we did colocalization analysis.
+
+### +-250kb from the target locus
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_gtex_plier.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+Plot for the locus has the highest PP4: 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_500.coloc.jpeg" width="80%">
+</figure>
+
+### +-500kb from the target locus
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_gtex_plier.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+Plot for the locus has the highest PP4: 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_1000.coloc.jpeg" width="80%">
+</figure>
+
+
+## **ORA Enrichment results**
 
 
 ### EUR.UC_wb_lv46

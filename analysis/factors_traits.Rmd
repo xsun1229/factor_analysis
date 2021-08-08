@@ -70,6 +70,11 @@ To make our results more reliable, we did resampling.
 
 3) We computed the enrichment of the pairs show sign consistency than expect follows: enrichment=num_(pairs show sign consistancy)  /(num_(total pairs)  × threshold)
 
+- We first tried to do resampling 1000 times for each pair have >2 SNPs at FDR < 0.2
+
+- We also tried an adaptive method to do the resampling. In the first stage, 10e3 simulations will be performed. If the resulting empirical p value is less than 0.1, 10e4 simulations will be performed. If the empirical p value from 10e4 simulations is less than 0.001, the program will perform 10e6 simulations. [reference](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2896770/)
+
+
 ### 3.2.3 Checking reverse causality
 
 To check the reverse causality, we exchanged the beta.outcome and beta.exposure of all SNPs associated with traits(pval<5E-8) to compute the MBE estimator and the p-values of the estimator.
@@ -200,9 +205,10 @@ The 5 PEER factors are the first 5 factors computed [here](https://xsun1229.gith
 
 One 'danger' of adjusting for many PEER factors is that the factors may be affected by the genotypes. In other words, we could have this model: genetic variant -> PEER factor -> pathway. We should not adjust for the factor, as it will explain away the variant > pathway association.
 
-So, when testing variant ~ pathway association, we did a association test of variant with a PEER factor, if its p-value is small (< 0.05), we did not adjust that factor. 
+So, when testing variant ~ pathway association, we did a association test for variant and a PEER factor, if its p-value is small (< 0.05), we did not adjust that factor. 
+For example, we are testing association of a KEGG pathway with a SNP, and we have 20 PEER factor.  We first test association of SNP with each of the 20 PEER factors: if p < 0.05, then we do NOT regress out that factor. 
 
-The first 20 candidate PEER factors are candidates to be regressed out.
+We tried first 20 and 10 candidate PEER factors as covariates to be regressed out.
 
 ## **5.2 Results under different settings**
 
@@ -233,6 +239,17 @@ In this part, when doing association test for PCs ~ variants, we added first N P
 [Details - pathways> 20 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_20genes.html)
 
 [Details - pathways> 40 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer_40genes.html)
+
+
+**regress out N PEER factors, N <= 10**
+
+In this part, when doing association test for PCs ~ variants, we added first N PEER factors as covariates(N <= 10). The details are described in 5.1.3.
+
+[Details - all pathways](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer.html)
+
+[Details - pathways> 20 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer_20genes.html)
+
+[Details - pathways> 40 genes ](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer_40genes.html)
 
 ### Earlier results 
 

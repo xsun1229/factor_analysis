@@ -1,0 +1,157 @@
+---
+title: "Results for KEGG PCs from CEDAR data set (KEGG pathways have > 20genes included)"
+author: "XSun"
+date: "2021-08-05"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# **Overview**
+
+We selected the results for pathways have >20 genes from [here](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer.html)
+
+# **Enrichment Summary** 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_10peer_20genes.png" width="150%">
+</figure>
+
+# **Barplot to show the number of SNPs have FDR <0.2 that each pair contains**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/20_kegg_hist_snp_all_CEDAR.jpg" width="150%">
+</figure>
+
+# **Detailed results for 6 cell types**
+
+## B cell
+
+### effectsize fitting summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+
+
+## monocyte CD14
+
+
+### effectsize fitting summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+## neutrophils CD15
+
+### effectsize fitting summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+
+## T cell(CD4)
+
+### effectsize fitting summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+## T cell(CD8)
+
+### effectsize fitting summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_pruned_10peer_20genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+<!-- ## platelet -->
+
+<!-- ### Histogram to show the number of SNPs that each pair contains -->
+
+<!-- <figure class="half"> -->
+<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_pruned_10peer_20genes.jpeg" width="80%"> -->
+<!-- </figure> -->
+
+
+<!-- ### effectsize fitting summary  -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_10peer_20genes.rdata") -->
+<!-- DT::datatable(final_full, options = list(pageLength =5)) -->
+<!-- ``` -->
+
+
+<!-- ### Checking the reverse causality -->
+
+<!-- **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)** -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_10peer_20genes.rdata") -->
+<!-- DT::datatable(sum, options = list(pageLength =5)) -->
+<!-- ``` -->
+
+
+

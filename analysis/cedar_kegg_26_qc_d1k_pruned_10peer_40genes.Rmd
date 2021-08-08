@@ -1,7 +1,7 @@
 ---
-title: "Results for KEGG PCs from CEDAR data set (KEGG pathways have >40 genes included)"
+title: "Results for KEGG PCs from CEDAR data set ( pathways have > 40 genes included)"
 author: "XSun"
-date: "2021-08-02"
+date: "2021-08-05"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
@@ -9,12 +9,12 @@ editor_options:
 
 # **Overview**
 
-We selected the results for pathways have >40 genes from [here](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_Npeer.html)
+We selected the results for pathways have >40 genes from [here](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer.html)
 
 # **Enrichment Summary** 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer_40genes.png" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_10peer_40genes.png" width="150%">
 </figure>
 
 # **Barplot to show the number of SNPs have FDR <0.2 that each pair contains**
@@ -32,14 +32,14 @@ When using p-value < 0.01 && SNP >= 3 as threshold to filter the results, the en
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 **The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
@@ -48,10 +48,6 @@ DT::datatable(final_full, options = list(pageLength =5))
 After sorting by num_snps and p-value in resampling, we found several pairs seems to be bilogical plausible: 
 
 lymph_pwy182_pc1 : [Differences in lymphocyte developmental potential between human embryonic stem cell and umbilical cord blood–derived hematopoietic progenitor cells](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2556609/)
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy182_pc1_lymph_pval5e8_cedar_bcell.jpeg" width="80%">
-</figure>
 
 pct_pwy271_pc4 : [Inflammation drives thrombosis after Salmonella infection via CLEC-2 on platelets](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4665792/)
 
@@ -68,7 +64,7 @@ ukb.allasthma_pwy311_pc5 [A negative trend of association of asthma with AML was
 The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_bcell_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_bcell_pruned_10peer_40genes.rdata")
 DT::datatable(snp.list.final, options = list(pageLength =5))
 ```
 
@@ -78,7 +74,7 @@ DT::datatable(snp.list.final, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -91,14 +87,14 @@ DT::datatable(sum, options = list(pageLength =5))
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 **The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
@@ -108,7 +104,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_cd14_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_cd14_pruned_10peer_40genes.rdata")
 DT::datatable(snp.list.final, options = list(pageLength =5))
 ```
 
@@ -117,7 +113,7 @@ DT::datatable(snp.list.final, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -127,14 +123,14 @@ DT::datatable(sum, options = list(pageLength =5))
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 **The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
@@ -145,7 +141,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_cd15_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_cd15_pruned_10peer_40genes.rdata")
 DT::datatable(snp.list.final, options = list(pageLength =5))
 ```
 
@@ -155,7 +151,7 @@ DT::datatable(snp.list.final, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -165,14 +161,14 @@ DT::datatable(sum, options = list(pageLength =5))
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 **The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
@@ -183,7 +179,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_tcell_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_tcell_pruned_10peer_40genes.rdata")
 DT::datatable(snp.list.final, options = list(pageLength =5))
 ```
 
@@ -192,7 +188,7 @@ DT::datatable(snp.list.final, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -202,14 +198,14 @@ DT::datatable(sum, options = list(pageLength =5))
 ### effectsize fitting summary 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 **The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
 final_full <- final_full[final_full$pval_in_resampling < 0.01,]
 DT::datatable(final_full, options = list(pageLength =5))
@@ -220,7 +216,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_thy_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_thy_pruned_10peer_40genes.rdata")
 DT::datatable(snp.list.final, options = list(pageLength =5))
 ```
 
@@ -229,7 +225,7 @@ DT::datatable(snp.list.final, options = list(pageLength =5))
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -239,21 +235,21 @@ DT::datatable(sum, options = list(pageLength =5))
 <!-- ### Histogram to show the number of SNPs that each pair contains -->
 
 <!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_pruned_npeer_40genes.jpeg" width="80%"> -->
+<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_pruned_10peer_40genes.jpeg" width="80%"> -->
 <!-- </figure> -->
 
 
 <!-- ### effectsize fitting summary -->
 
 <!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata") -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata") -->
 <!-- DT::datatable(final_full, options = list(pageLength =5)) -->
 <!-- ``` -->
 
 <!-- **The table below shows the pairs have >= 3 SNPs && p-value < 0.01.** -->
 
 <!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata") -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata") -->
 <!-- final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,] -->
 <!-- final_full <- final_full[final_full$pval_in_resampling < 0.01,] -->
 <!-- DT::datatable(final_full, options = list(pageLength =5)) -->
@@ -265,7 +261,7 @@ DT::datatable(sum, options = list(pageLength =5))
 <!-- The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs. -->
 
 <!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_plt_pruned_npeer_40genes.rdata") -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_plt_pruned_10peer_40genes.rdata") -->
 <!-- DT::datatable(snp.list.final, options = list(pageLength =5)) -->
 <!-- ``` -->
 
@@ -276,8 +272,6 @@ DT::datatable(sum, options = list(pageLength =5))
 <!-- **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)** -->
 
 <!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata") -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata") -->
 <!-- DT::datatable(sum, options = list(pageLength =5)) -->
 <!-- ``` -->
-
-
