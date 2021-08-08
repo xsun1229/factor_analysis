@@ -69,6 +69,8 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 For the SNPs above, we did colocalization analysis.
 
+The method for colocalization analysis were described in [3.3](https://xsun1229.github.io/factor_analysis/factors_traits.html#33_colocalization_analysis)
+
 ### +-250kb from the target locus
 
 ```{r echo=FALSE}
@@ -99,6 +101,7 @@ Plot for the locus has the highest PP4:
 
 ## **ORA Enrichment results**
 
+The method for ORA were described in [3.4](https://xsun1229.github.io/factor_analysis/factors_traits.html#34_ora_enrichment_analysis)
 
 ### EUR.UC_wb_lv46
 
