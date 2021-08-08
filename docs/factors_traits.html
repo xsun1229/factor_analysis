@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1b1c35256a1da484bdf08edaf89e89ff2a555c95targetblank1b1c352a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/1b1c35256a1da484bdf08edaf89e89ff2a555c95" target="_blank">1b1c352</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree3e4002c3584f83c71918bc30ae8f675e7df01e6ftargetblank3e4002ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/3e4002c3584f83c71918bc30ae8f675e7df01e6f" target="_blank">3e4002c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree1b1c35256a1da484bdf08edaf89e89ff2a555c95targetblank1b1c352a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree3e4002c3584f83c71918bc30ae8f675e7df01e6ftargetblank3e4002ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/1b1c35256a1da484bdf08edaf89e89ff2a555c95" target="_blank">1b1c352</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/3e4002c3584f83c71918bc30ae8f675e7df01e6f" target="_blank">3e4002c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -538,6 +538,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/3e4002c3584f83c71918bc30ae8f675e7df01e6f/analysis/factors_traits.Rmd" target="_blank">3e4002c</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-08-08
+</td>
+<td>
+wflow_publish(“analysis/factors_traits.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/e8c967882f74cc4b58ab13dc9572305559317f62/docs/factors_traits.html" target="_blank">e8c9678</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-08-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1528,8 +1562,9 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 <p>To check the reverse causality, we exchanged the beta.outcome and beta.exposure of all SNPs associated with traits(pval&lt;5E-8) to compute the MBE estimator and the p-values of the estimator.</p>
 <p>Weighted mode-based estimate (MBE) was adopted to check the reverse causality. mr_mbe() function from MendelianRandomization R package(version 0.3.0) was used to compute the weighted MBE with default settings.</p>
 </div>
-<div id="colocalization-analysis" class="section level3">
-<h3>3.2.4 Colocalization analysis</h3>
+</div>
+<div id="colocalization-analysis" class="section level2">
+<h2><strong>3.3 Colocalization analysis</strong></h2>
 <p>We did colocalization analysis whether factor-association signals and GWAS signals at a locus are consistent with having a shared casual variant. The colocalization analysis was performed using the approximate Bayes factor test implemented by coloc.abf() function in ‘coloc’ R package. ‘coloc’ computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran ‘coloc’ with the default parameters and used PP4 to assess evidence of colocalization.</p>
 <p>We will do colocalization for the variants from the pair shows sign consistency, which are named as factor-QTLs by us. The colocalization was performed follows:</p>
 <ol style="list-style-type: decimal">
@@ -1538,9 +1573,8 @@ So we state a weaker hypothesis first: GWAS variants of a trait often converge t
 <li><p>Colocalization analysis was did for the association signals in step 2) and GWAS signals.</p></li>
 <li><p>The colocalization results were visualized the using the ‘LocusCompareR’ package (version 1.0.0, downloaded from <a href="https://github.com/boxiangliu/locuscomparer" class="uri">https://github.com/boxiangliu/locuscomparer</a>).</p></li>
 </ol>
-</div>
 <div id="ora-enrichment-analysis" class="section level3">
-<h3>3.2.5 ORA enrichment analysis</h3>
+<h3><strong>3.4 ORA enrichment analysis</strong></h3>
 <p>ORA: For each factor, we sorted the genes that have non-zero loadings by their loadings, taking the top 25% or 100% as the gene set. The function database here is geneontology Biological Process. The reference set affy hugene 2 0 st v1. Minimum number of genes for a category is 5, maximum number of genes for a category is 2000(default settings). All categories that have fdr&lt;0.05 are listed.</p>
 </div>
 </div>
