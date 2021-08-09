@@ -80,6 +80,8 @@ DT::datatable(summary, options = list(pageLength =5))
 
 Two plots for the locus has the highest PP4: 
 
+#### ret_lv73
+
 **ret_lv73_rs2523990**
 
 <figure class="half">
@@ -91,6 +93,48 @@ Two plots for the locus has the highest PP4:
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_500.coloc.jpeg" width="80%">
+</figure>
+
+#### EUR.UC_lv46
+
+**EUR.UC_lv46_rs1359946**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EUR.UC_lv46_chr13_26962835_G_A_b38_rs1359946_500.coloc.jpeg" width="80%">
+</figure>
+
+**EUR.UC_lv46_rs254559**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_500.coloc.jpeg" width="80%">
+</figure>
+
+#### rbc_lv32
+
+**rbc_lv32_rs17699658**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_lv32_chr3_71207158_C_T_b38_rs17699658_500.coloc.jpeg" width="80%">
+</figure>
+
+**rbc_lv32_rs13103322**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_lv32_chr4_82974079_A_G_b38_rs13103322_500.coloc.jpeg" width="80%">
+</figure>
+
+#### ukb.allasthma_lv35
+
+**ukb.allasthma_lv35_rs61816761**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ukb.allasthma_lv35_chr1_152313385_G_A_b38_rs61816761_500.coloc.jpeg" width="80%">
+</figure>
+
+**ukb.allasthma_lv35_rs35621564**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ukb.allasthma_lv35_chr7_20547220_A_G_b38_rs35621564_500.coloc.jpeg" width="80%">
 </figure>
 
 ### +-500kb from the target locus
@@ -113,6 +157,50 @@ Plots for the locus has the highest PP4:
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_1000.coloc.jpeg" width="80%">
+</figure>
+
+#### EUR.UC_lv46
+
+**EUR.UC_lv46_rs1359946**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/EUR.UC_lv46_chr13_26962835_G_A_b38_rs1359946_1000.coloc.jpeg" width="80%">
+</figure>
+
+**EUR.UC_lv46_rs254559**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_1000.coloc.jpeg" width="80%">
+</figure>
+
+#### rbc_lv32
+
+**rbc_lv32_rs17699658**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_lv32_chr3_71207158_C_T_b38_rs17699658_1000.coloc.jpeg" width="80%">
+</figure>
+
+**rbc_lv32_rs13103322**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_lv32_chr4_82974079_A_G_b38_rs13103322_1000.coloc.jpeg" width="80%">
+</figure>
+
+#### ukb.allasthma_lv35
+
+LV35 has three related pathways reported by PLIER, including CHEMELLO_SOLEUS_VS_EDL_MYOFIBERS_UP, RICKMAN_HEAD_AND_NECK_CANCER_F, and CHEN_LVAD_SUPPORT_OF_FAILING_HEART_UP.
+
+**ukb.allasthma_lv35_rs61816761**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ukb.allasthma_lv35_chr1_152313385_G_A_b38_rs61816761_1000.coloc.jpeg" width="80%">
+</figure>
+
+**ukb.allasthma_lv35_rs35621564**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ukb.allasthma_lv35_chr7_20547220_A_G_b38_rs35621564_1000.coloc.jpeg" width="80%">
 </figure>
 
 
@@ -155,6 +243,8 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 
 ### ret_wb_lv73
+
+LV73 has three related pathways report by PLIER, they are KEGG_VALINE_LEUCINE_AND_ISOLEUCINE_DEGRADATION, MIPS_55S_RIBOSOME_MITOCHONDRIAL, and HSIAO_LIVER_SPECIFIC_GENES.
 
 #### ALL genes have non-zero loadings
 
