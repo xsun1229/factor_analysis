@@ -11,7 +11,7 @@ editor_options:
 
 In this part, the expression factors were inferred from expression matrices for 6 cell types. For each cell type, the number of LVs are shown in the [table](https://xsun1229.github.io/factor_analysis/factors_traits.html#512_expression_factors)
 
-# **Enrichment resutls summary** 
+# **Enrichment results summary** 
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_plier_qc_pruned.png" width="80%">
@@ -47,7 +47,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ### Effect size plot
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_bcell.jpg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_bcell.jpg" width="800%">
 </figure>
 
 ### SNP details 
@@ -75,7 +75,6 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cedar
 DT::datatable(summary, options = list(pageLength =5))
 ```
 
-rs80262450,rs140892874, rs6679677(gran, neut, myeloid_wbc,wbc),rs4599108,are the lead SNPs for two association signals.
 
 ### ORA
 
@@ -260,7 +259,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cedar
 DT::datatable(summary, options = list(pageLength =5))
 ```
 
-rs80262450,rs114165892,rs1501466,rs10131490,rs7626218 are the lead SNPs for two association signals.
+
 
 ### ORA
 
@@ -313,7 +312,7 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
 
-## neutrophils CD15
+## **neutrophils CD15**
 
 
 ### effectsize fitting summary 
@@ -336,7 +335,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ### Effect size plot
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_cd15.jpg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_cd15.jpg" width="800%">
 </figure>
 
 ### SNP details 
@@ -553,7 +552,7 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
 
-## T cell(CD4)
+## **T cell(CD4)**
 
 ### effectsize fitting summary 
 
@@ -574,7 +573,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ### Effect size plot
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_tcell.jpg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_tcell.jpg" width="500%">
 </figure>
 
 ### SNP details 
@@ -719,7 +718,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/lv146_plier_top025_ced
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-## T cell(CD8)
+## **T cell(CD8)**
 
 
 ### effectsize fitting summary 
@@ -742,7 +741,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ### Effect size plot
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_thy.jpg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_thy.jpg" width="800%">
 </figure>
 
 ### SNP details 
@@ -982,7 +981,9 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv122_plier_top025_cedar_thy.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
-## **platelet**
+
+
+## **Platelet**
 
 ### effectsize fitting summary 
 
@@ -1032,8 +1033,6 @@ Only rs10900586 is the lead SNP for two association signals.
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cedar_plt.rdata")
 DT::datatable(summary, options = list(pageLength =5))
 ```
-
-Only rs10900586 is the lead SNP for two association signals.
 
 ### ORA
 
