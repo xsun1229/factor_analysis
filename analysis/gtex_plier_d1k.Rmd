@@ -224,7 +224,6 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/lv46_plier_wb_top025_9
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-
 ### rbc_wb_lv32
 
 #### ALL genes have non-zero loadings
