@@ -934,19 +934,19 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
 
-**LV14**
+**LV118**
 
 #### ALL genes have non-zero loadings
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv14_plier_all_cedar_thy.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv118_plier_all_cedar_thy.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
 #### Top 25% genes 
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv14_plier_top025_cedar_thy.rdata")
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv118_plier_top025_cedar_thy.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
