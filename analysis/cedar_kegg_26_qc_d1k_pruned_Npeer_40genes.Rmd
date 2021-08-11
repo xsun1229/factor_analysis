@@ -234,50 +234,44 @@ DT::datatable(sum, options = list(pageLength =5))
 ```
 
 
-<!-- ## platelet -->
-
-<!-- ### Histogram to show the number of SNPs that each pair contains -->
-
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_pruned_npeer_40genes.jpeg" width="80%"> -->
-<!-- </figure> -->
+## platelet
 
 
-<!-- ### effectsize fitting summary -->
+### effectsize fitting summary
 
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata") -->
-<!-- DT::datatable(final_full, options = list(pageLength =5)) -->
-<!-- ``` -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
 
-<!-- **The table below shows the pairs have >= 3 SNPs && p-value < 0.01.** -->
+**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata") -->
-<!-- final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,] -->
-<!-- final_full <- final_full[final_full$pval_in_resampling < 0.01,] -->
-<!-- DT::datatable(final_full, options = list(pageLength =5)) -->
-<!-- ``` -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
+final_full <- final_full[final_full$pval_in_resampling < 0.01,]
+DT::datatable(final_full, options = list(pageLength =5))
+```
 
 
-<!-- ### SNP details -->
+### SNP details
 
-<!-- The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs. -->
+The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_plt_pruned_npeer_40genes.rdata") -->
-<!-- DT::datatable(snp.list.final, options = list(pageLength =5)) -->
-<!-- ``` -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_plt_pruned_npeer_40genes.rdata")
+DT::datatable(snp.list.final, options = list(pageLength =5))
+```
 
 
 
-<!-- ### Checking the reverse causality -->
+### Checking the reverse causality
 
-<!-- **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)** -->
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata") -->
-<!-- DT::datatable(sum, options = list(pageLength =5)) -->
-<!-- ``` -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_npeer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
 
 
