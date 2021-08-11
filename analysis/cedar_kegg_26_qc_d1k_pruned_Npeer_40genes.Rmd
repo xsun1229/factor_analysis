@@ -20,7 +20,7 @@ We selected the results for pathways have >40 genes from [here](https://xsun1229
 # **Barplot to show the number of SNPs have FDR <0.2 that each pair contains**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/20_kegg_hist_snp_all_CEDAR.jpg" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/40_kegg_hist_snp_all_CEDAR.jpg" width="150%">
 </figure>
 
 When using p-value < 0.01 && SNP >= 3 as threshold to filter the results, the enrichment results become better. 
