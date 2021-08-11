@@ -16,7 +16,7 @@ The other parts of the workflow are the same as described in [main page](https:/
 # **Enrichment Summary** 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer.png" width="200%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer.jpg" width="200%">
 </figure>
 
 # **Barplot to show the number of SNPs have FDR <0.2 that each pair contains**

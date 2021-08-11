@@ -14,7 +14,7 @@ We selected the results for pathways have >20 genes from [here](https://xsun1229
 # **Enrichment Summary** 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer_20genes.png" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_npeer_20genes.jpg" width="150%">
 </figure>
 
 # **Barplot to show the number of SNPs have FDR <0.2 that each pair contains**
