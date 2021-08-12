@@ -9,15 +9,18 @@ editor_options:
 
 # **Overview**
 
-In this part, when doing association test for PCs ~ variants, we added N PEER factors as covariates(N <= 10). The details are described in [5.1.3 N PEER factors](https://xsun1229.github.io/factor_analysis/factors_traits.html#513_association_test_covariates)
+In this part, when doing association test for PCs ~ variants, we added N PEER factors as covariates(N <= **10**). The details are described in [5.1.3 N PEER factors](https://xsun1229.github.io/factor_analysis/factors_traits.html#513_association_test_covariates)
 
 The other parts of the workflow are the same as described in [main page](https://xsun1229.github.io/factor_analysis/factors_traits.html#3_pipeline).
 
+
+
 # **Enrichment Summary** 
 
+**The enrichment results are computed from adaptive resampling**
+
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_10peer1.png" width="150%">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_10peer2.png" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_10peer.jpg" width="150%">
 </figure>
 
 # **Barplot to show the number of SNPs have FDR <0.2 that each pair contains**
@@ -28,7 +31,7 @@ The other parts of the workflow are the same as described in [main page](https:/
 
 # **Detailed results for 6 cell types**
 
-## B cell
+## **B cell**
 
 ### effectsize fitting summary 
 
@@ -46,10 +49,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_keg
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-
-
-
-## monocyte CD14
+## **monocyte CD14**
 
 
 ### effectsize fitting summary 
@@ -70,7 +70,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ```
 
 
-## neutrophils CD15
+## **neutrophils CD15**
 
 ### effectsize fitting summary 
 
@@ -90,7 +90,7 @@ DT::datatable(sum, options = list(pageLength =5))
 
 
 
-## T cell(CD4)
+## **T cell(CD4)**
 
 ### effectsize fitting summary 
 
@@ -110,7 +110,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ```
 
 
-## T cell(CD8)
+## **T cell(CD8)**
 
 ### effectsize fitting summary 
 
@@ -130,30 +130,23 @@ DT::datatable(sum, options = list(pageLength =5))
 ```
 
 
-<!-- ## platelet -->
+## platelet
 
-<!-- ### Histogram to show the number of SNPs that each pair contains -->
+### effectsize fitting summary
 
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_pruned_10peer.jpeg" width="80%"> -->
-<!-- </figure> -->
-
-
-<!-- ### effectsize fitting summary  -->
-
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_10peer.rdata") -->
-<!-- DT::datatable(final_full, options = list(pageLength =5)) -->
-<!-- ``` -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_10peer.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
 
 
-<!-- ### Checking the reverse causality -->
+### Checking the reverse causality
 
-<!-- **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)** -->
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
 
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_10peer.rdata") -->
-<!-- DT::datatable(sum, options = list(pageLength =5)) -->
-<!-- ``` -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_10peer.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
 
 

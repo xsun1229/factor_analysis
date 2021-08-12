@@ -11,57 +11,47 @@ editor_options:
 
 We selected the results for pathways have >40 genes from [here](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer.html)
 
+We added colocalization analysis for the pairs show sign consistency (at p-value < 0.002), the loci are +-250kb/500kb from the reported SNPs. 
+
+We just listed the pairs show sign consistency in the tables below.
+
+'pval_in_resampling_2' in the tables means the p-value from [adaptive resampling](https://xsun1229.github.io/factor_analysis/factors_traits.html#32_sign_consistency_checking). 'pval_in_resampling' in the tables were computed from 1000 times resampling.
+
 # **Enrichment Summary** 
 
+**1000 times resampling**
+
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_10peer_40genes.png" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_10peer_40genes_1000t.jpg" width="150%">
+</figure>
+
+**adaptive resampling**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_10peer_40genes_adap.jpg" width="150%">
 </figure>
 
 # **Barplot to show the number of SNPs have FDR <0.2 that each pair contains**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/20_kegg_hist_snp_all_CEDAR.jpg" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/40_kegg_hist_snp_all_CEDAR_10peer.jpg" width="150%">
 </figure>
 
-When using p-value < 0.01 && SNP >= 3 as threshold to filter the results, the enrichment results become better. 
 
 # **Detailed results for 6 cell types**
 
-## B cell
+## **B cell**
 
 ### effectsize fitting summary 
 
+
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
-
-**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
-final_full <- final_full[final_full$pval_in_resampling < 0.01,]
-DT::datatable(final_full, options = list(pageLength =5))
-```
-
-After sorting by num_snps and p-value in resampling, we found several pairs seems to be bilogical plausible: 
-
-lymph_pwy182_pc1 : [Differences in lymphocyte developmental potential between human embryonic stem cell and umbilical cord blood–derived hematopoietic progenitor cells](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2556609/)
-
-pct_pwy271_pc4 : [Inflammation drives thrombosis after Salmonella infection via CLEC-2 on platelets](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4665792/)
-
-plt_pwy120_pc4 ： [Role of the platelet chemokine platelet factor 4 (PF4) in hemostasis and thrombosis](https://www.sciencedirect.com/science/article/pii/S0049384809005362)
-
-rdw_pwy255_pc4 ： rdw is related with Alzheimer disease but it seems there is no causal effect.
-
-ukb.allasthma_pwy311_pc5 [A negative trend of association of asthma with AML was also observed but not causal](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4486841/) 
-
 
 
 ### SNP details
-
-The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_bcell_pruned_10peer_40genes.rdata")
@@ -78,10 +68,24 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_bcell_cedar_qc_keg
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+### Colocalization results
+
+#### +-250kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+#### +-500kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
 
 
-
-## monocyte CD14
+## **monocyte CD14**
 
 
 ### effectsize fitting summary 
@@ -91,17 +95,9 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
-final_full <- final_full[final_full$pval_in_resampling < 0.01,]
-DT::datatable(final_full, options = list(pageLength =5))
-```
 ### SNP details
 
-The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_cd14_pruned_10peer_40genes.rdata")
@@ -117,8 +113,23 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd14_cedar_qc_kegg
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+### Colocalization results
 
-## neutrophils CD15
+#### +-250kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_cd14_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+#### +-500kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cd14_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+## **neutrophils CD15**
 
 ### effectsize fitting summary 
 
@@ -127,18 +138,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
-final_full <- final_full[final_full$pval_in_resampling < 0.01,]
-DT::datatable(final_full, options = list(pageLength =5))
-```
-
 ### SNP details
-
-The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_cd15_pruned_10peer_40genes.rdata")
@@ -155,8 +155,24 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_cd15_cedar_qc_kegg
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+### Colocalization results
 
-## T cell(CD4)
+#### +-250kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_cd15_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+#### +-500kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cd15_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+## **T cell(CD4)**
 
 ### effectsize fitting summary 
 
@@ -165,18 +181,8 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_q
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
-final_full <- final_full[final_full$pval_in_resampling < 0.01,]
-DT::datatable(final_full, options = list(pageLength =5))
-```
 
 ### SNP details
-
-The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_tcell_pruned_10peer_40genes.rdata")
@@ -192,8 +198,24 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_tcell_cedar_qc_keg
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+### Colocalization results
 
-## T cell(CD8)
+#### +-250kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_tcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+#### +-500kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_tcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+## **T cell(CD8)**
 
 ### effectsize fitting summary 
 
@@ -202,18 +224,8 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**The table below shows the pairs have >= 3 SNPs && p-value < 0.01.**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,]
-final_full <- final_full[final_full$pval_in_resampling < 0.01,]
-DT::datatable(final_full, options = list(pageLength =5))
-```
 
 ### SNP details
-
-The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_thy_pruned_10peer_40genes.rdata")
@@ -229,49 +241,65 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_thy_cedar_qc_kegg_
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
+### Colocalization results
 
-<!-- ## platelet -->
+#### +-250kb from the SNP
 
-<!-- ### Histogram to show the number of SNPs that each pair contains -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_thy_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
 
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_plt_cedar_qc_kegg_pruned_10peer_40genes.jpeg" width="80%"> -->
-<!-- </figure> -->
+#### +-500kb from the SNP
 
-
-<!-- ### effectsize fitting summary -->
-
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata") -->
-<!-- DT::datatable(final_full, options = list(pageLength =5)) -->
-<!-- ``` -->
-
-<!-- **The table below shows the pairs have >= 3 SNPs && p-value < 0.01.** -->
-
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata") -->
-<!-- final_full <- final_full[final_full$num_snp_fdr.0.2 > 2,] -->
-<!-- final_full <- final_full[final_full$pval_in_resampling < 0.01,] -->
-<!-- DT::datatable(final_full, options = list(pageLength =5)) -->
-<!-- ``` -->
-
-
-<!-- ### SNP details -->
-
-<!-- The table below shows the snp details for the pairs have p-value < 0.01 && >= 3 SNPs. -->
-
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_plt_pruned_10peer_40genes.rdata") -->
-<!-- DT::datatable(snp.list.final, options = list(pageLength =5)) -->
-<!-- ``` -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_thy_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
 
 
 
-<!-- ### Checking the reverse causality -->
+## **platelet**
 
-<!-- **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)** -->
+### effectsize fitting summary
 
-<!-- ```{r echo=FALSE} -->
-<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata") -->
-<!-- DT::datatable(sum, options = list(pageLength =5)) -->
-<!-- ``` -->
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+### SNP details
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_plt_pruned_10peer_40genes.rdata")
+DT::datatable(snp.list.final, options = list(pageLength =5))
+```
+
+
+
+### Checking the reverse causality
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+### Colocalization results
+
+#### +-250kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+#### +-500kb from the SNP
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
