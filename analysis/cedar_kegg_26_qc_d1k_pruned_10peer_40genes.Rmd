@@ -50,6 +50,17 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_q
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+EUR.IBD_pwy202_pc2 -	Cholinergic synapse [The intestinal cholinergic anti‐inflammatory pathway](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5063935/)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy202_pc2_EUR.IBD_pval5e8_bcell.jpeg" width="60%">
+</figure>
+
+T1D_pwy151_pc4 - Cellular senescence: [Our findings demonstrate that beta cell senescence is a significant component of the pathogenesis of T1D and indicate that clearance of senescent beta cells could be a new therapeutic approach for T1D](https://pubmed.ncbi.nlm.nih.gov/30799288/)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy151_pc4_T1D_pval5e8_bcell.jpeg" width="60%">
+</figure>
 
 ### SNP details
 
