@@ -9,7 +9,7 @@ editor_options:
 
 # **Overview**
 
-We selected the results for pathways have >40 genes from [here](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer.html)
+We selected the results for pathways have >40 genes from [the results regressing out <= 10 PEER factors](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer.html)
 
 We added colocalization analysis for the pairs show sign consistency (at p-value < 0.002), the loci are +-250kb/500kb from the reported SNPs. 
 
@@ -74,14 +74,14 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 #### +-500kb from the SNP
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 
@@ -119,14 +119,14 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_cd14_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 #### +-500kb from the SNP
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cd14_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 ## **neutrophils CD15**
@@ -161,14 +161,14 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_cd15_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 #### +-500kb from the SNP
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cd15_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 
@@ -204,14 +204,14 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_tcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 #### +-500kb from the SNP
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_tcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 
@@ -247,14 +247,14 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_thy_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 #### +-500kb from the SNP
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_thy_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 
@@ -294,12 +294,12 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 #### +-500kb from the SNP
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_plt_cedar_qc_kegg_pruned_10peer_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
