@@ -34,7 +34,6 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-
 ### Checking the reverse causality
 
 **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
@@ -74,6 +73,19 @@ rs80262450,rs140892874, rs6679677(gran, neut, myeloid_wbc,wbc),rs4599108,are the
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cedar_bcell.rdata")
 DT::datatable(summary, options = list(pageLength =5))
 ```
+
+### Several Cases
+
+#### **EUR.CD_lv36**
+
+**EUR.CD_lv36_rs80262450** has PP4 = 0.87.
+
+LV36 has 3 related pathways reported by PLIER. They are [1.GSE22886_NAIVE_TCELL_VS_MONOCYTE_UP](http://www.gsea-msigdb.org/gsea/msigdb/geneset_page.jsp?geneSetName=GSE22886_NAIVE_TCELL_VS_MONOCYTE_UP&keywords=GSE22886_NAIVE_TCELL_VS_MONOCYTE_UP), [2.GSE36476_YOUNG_VS_OLD_DONOR_MEMORY_CD4_TCELL_DN](http://www.gsea-msigdb.org/gsea/msigdb/geneset_page.jsp?geneSetName=GSE36476_YOUNG_VS_OLD_DONOR_MEMORY_CD4_TCELL_DN&keywords=GSE36476_YOUNG_VS_OLD_DONOR_MEMORY_CD4_TCELL_DN), [3.GSE22886_NAIVE_VS_IGM_MEMORY_BCELL_UP](https://www.gsea-msigdb.org/gsea/msigdb/cards/GSE22886_NAIVE_VS_IGM_MEMORY_BCELL_UP).
+
+These pathways are associated with T cells and B cells. They are biological plausible: 
+[Dissecting the Heterogeneity in T-Cell Mediated Inflammation in IBD](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7016883/), [Targeting B cells for inflammatory bowel disease treatment: back to the future](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7894973/).
+
+The ORA results for top25% genes of LV36 find two pathways: lysosome organization and lytic vacuole organization. It seems to be plausible too: [The Roles of Lysosomes in Inflammation and Autoimmune Diseases](https://www.tandfonline.com/doi/abs/10.3109/08830185.2014.936587?journalCode=iiri20)
 
 
 ### ORA
@@ -601,6 +613,23 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cedar
 DT::datatable(summary, options = list(pageLength =5))
 ```
 
+### Sevaral cases
+
+#### **rbc_lv39**
+
+It has 1 pathway reported by PLIER :GSE22886_NEUTROPHIL_VS_DC_DN. It means ['Genes down-regulated in comparison of neutrophils versus dendritic cells (DC)'](https://www.gsea-msigdb.org/gsea/msigdb/geneset_page.jsp?geneSetName=GSE22886_NEUTROPHIL_VS_DC_DN&keywords=GSE22886_NEUTROPHIL_VS_DC_DN)
+
+We found that neutrophils can take up RBCs under some conditions: [Under homeostatic conditions, neutrophils do not take up RBCs. Yet, when RBCs are immunoglobulin G (IgG) opsonized, which can occur in alloimmunization or autoimmunization reactions, neutrophils can effectively phagocytose RBCs.](https://pubmed.ncbi.nlm.nih.gov/31182561/)
+
+**rbc_lv39_rs4791641** has PP4 =0.6
+
+
+#### **lymph_lv59**
+
+It has 3 pathways reported by PLIER.1.REACTOME_CROSS_PRESENTATION_OF_SOLUBLE_EXOGENOUS_ANTIGENS_ENDOSOMES, 2.REACTOME_INTERFERON_SIGNALING, 3.KEGG_LEISHMANIA_INFECTION. [Lymphadenopathy as the first sign of human cutaneous infection by Leishmania braziliensis](https://pubmed.ncbi.nlm.nih.gov/7573708/)
+
+PP4 of lymph_lv59_rs62449495 is 0.62
+PP4 of lymph_lv59_rs2369391 is 0.59
 
 ### ORA
 
