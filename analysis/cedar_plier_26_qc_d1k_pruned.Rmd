@@ -11,6 +11,8 @@ editor_options:
 
 In this part, the expression factors were inferred from expression matrices for 6 cell types. For each cell type, the number of LVs are shown in the [table](https://xsun1229.github.io/factor_analysis/factors_traits.html#512_expression_factors)
 
+The tables below are based on the adaptive resampling results.
+
 # **Enrichment results summary** 
 
 **Computed from 1000 times resampling**
