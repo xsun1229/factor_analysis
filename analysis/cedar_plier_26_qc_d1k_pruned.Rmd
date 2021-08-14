@@ -13,8 +13,16 @@ In this part, the expression factors were inferred from expression matrices for 
 
 # **Enrichment results summary** 
 
+**Computed from 1000 times resampling**
+
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_plier_qc_pruned.png" width="80%">
+</figure>
+
+**Computed from adaptive resampling**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_plier_qc_pruned_adap.png" width="80%">
 </figure>
 
 # **Barplot showing the number of SNPs that each pair contains**
@@ -323,6 +331,21 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/lv75_plier_top025_ceda
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
+**LV79**
+
+#### ALL genes have non-zero loadings
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv79_plier_all_cedar_cd14.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
+
+#### Top 25% genes 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lv79_plier_top025_cedar_cd14.rdata")
+DT::datatable(ORA_results, options = list(pageLength =5))
+```
 
 ## **neutrophils CD15**
 
@@ -1021,79 +1044,83 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-### Checking the reverse causality
 
-**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plier_plt_cedar_qc_pruned.rdata")
-DT::datatable(sum, options = list(pageLength =5))
-```
+There is no pairs showing sign consistency. 
 
 
+<!-- ### Checking the reverse causality -->
 
-### Effect size plot
+<!-- **The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)** -->
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_plt.jpg" width="100%">
-</figure>
-
-### SNP details 
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_plier_cedar_plt.rdata")
-DT::datatable(snp.list.final, options = list(pageLength =5))
-```
-
-### Colocalization analysis
-
-#### +-250kb from the target SNP
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_cedar_plt.rdata")
-DT::datatable(summary, options = list(pageLength =5))
-```
-
-Only rs10900586 is the lead SNP for two association signals.
-
-#### +-500kb from the target SNP
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cedar_plt.rdata")
-DT::datatable(summary, options = list(pageLength =5))
-```
-
-### ORA
-
-**LV4**
-
-#### ALL genes have non-zero loadings
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv4_plier_all_cedar_plt.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
-
-#### Top 25% genes 
-
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv4_plier_top025_cedar_plt.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/mbe_plier_plt_cedar_qc_pruned.rdata") -->
+<!-- DT::datatable(sum, options = list(pageLength =5)) -->
+<!-- ``` -->
 
 
-**LV68**
 
-#### ALL genes have non-zero loadings
+<!-- ### Effect size plot -->
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv68_plier_all_cedar_plt.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
+<!-- <figure class="half"> -->
+<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_plt.jpg" width="100%"> -->
+<!-- </figure> -->
 
-#### Top 25% genes 
+<!-- ### SNP details  -->
 
-```{r echo=FALSE}
-load("/project2/xinhe/xsun/website/factor_analysis/output/lv68_plier_top025_cedar_plt.rdata")
-DT::datatable(ORA_results, options = list(pageLength =5))
-```
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_plier_cedar_plt.rdata") -->
+<!-- DT::datatable(snp.list.final, options = list(pageLength =5)) -->
+<!-- ``` -->
+
+<!-- ### Colocalization analysis -->
+
+<!-- #### +-250kb from the target SNP -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_cedar_plt.rdata") -->
+<!-- DT::datatable(summary, options = list(pageLength =5)) -->
+<!-- ``` -->
+
+<!-- Only rs10900586 is the lead SNP for two association signals. -->
+
+<!-- #### +-500kb from the target SNP -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_cedar_plt.rdata") -->
+<!-- DT::datatable(summary, options = list(pageLength =5)) -->
+<!-- ``` -->
+
+<!-- ### ORA -->
+
+<!-- **LV4** -->
+
+<!-- #### ALL genes have non-zero loadings -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/lv4_plier_all_cedar_plt.rdata") -->
+<!-- DT::datatable(ORA_results, options = list(pageLength =5)) -->
+<!-- ``` -->
+
+<!-- #### Top 25% genes  -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/lv4_plier_top025_cedar_plt.rdata") -->
+<!-- DT::datatable(ORA_results, options = list(pageLength =5)) -->
+<!-- ``` -->
+
+
+<!-- **LV68** -->
+
+<!-- #### ALL genes have non-zero loadings -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/lv68_plier_all_cedar_plt.rdata") -->
+<!-- DT::datatable(ORA_results, options = list(pageLength =5)) -->
+<!-- ``` -->
+
+<!-- #### Top 25% genes  -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- load("/project2/xinhe/xsun/website/factor_analysis/output/lv68_plier_top025_cedar_plt.rdata") -->
+<!-- DT::datatable(ORA_results, options = list(pageLength =5)) -->
+<!-- ``` -->
