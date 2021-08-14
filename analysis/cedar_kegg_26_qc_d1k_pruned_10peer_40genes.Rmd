@@ -50,17 +50,33 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_q
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-EUR.IBD_pwy202_pc2 -	Cholinergic synapse [The intestinal cholinergic anti‐inflammatory pathway](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5063935/)
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy202_pc2_EUR.IBD_pval5e8_bcell.jpeg" width="60%">
-</figure>
+**T1D_pwy151_pc4 - Cellular senescence**  [Our findings demonstrate that beta cell senescence is a significant component of the pathogenesis of T1D and indicate that clearance of senescent beta cells could be a new therapeutic approach for T1D](https://pubmed.ncbi.nlm.nih.gov/30799288/)
 
-T1D_pwy151_pc4 - Cellular senescence: [Our findings demonstrate that beta cell senescence is a significant component of the pathogenesis of T1D and indicate that clearance of senescent beta cells could be a new therapeutic approach for T1D](https://pubmed.ncbi.nlm.nih.gov/30799288/)
+<!-- <figure class="half"> -->
+<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy151_pc4_T1D_pval5e8_bcell.jpeg" width="60%"> -->
+<!-- </figure> -->
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy151_pc4_T1D_pval5e8_bcell.jpeg" width="60%">
-</figure>
+**lymph_pwy187_pc1 - T cell receptor signaling pathway**
+
+**lymph_pwy270_pc1 - Shigellosis **  [Shigella impairs T lymphocyte dynamics in vivo](https://www.pnas.org/content/110/12/4458)
+
+**lymph_pwy280_pc4 - Amoebiasis ** [Human amoebiasis: the interaction of lymphocyte surface-bound immune complexes and PMNs impairs T cell proliferative responses to E. histolytica mitogen ](https://pubmed.ncbi.nlm.nih.gov/2861159/)
+
+**lymph_pwy283_pc1 - Hepatitis C**  [Hepatitis C virus infection of human T lymphocytes is mediated by CD5 ](https://pubmed.ncbi.nlm.nih.gov/22278227/)
+
+**lymph_pwy291_pc1 - Herpes simplex virus 1 infection** [Immune response of T cells during herpes simplex virus type 1 (HSV-1) infection ](https://pubmed.ncbi.nlm.nih.gov/28378566/)
+
+**mcv_pwy289_pc4 - Human T-cell leukemia virus 1 infection** [Provirus load was inversely correlated with hemoglobin (r = -0.11), mean corpuscular volume (r = -0.15)](https://academic.oup.com/cid/article/45/8/975/347403)
+
+**mpv_pwy176_pc4 - Toll-like receptor signaling pathway** [In addition to their role in hemostasis, platelets participate in innate immunity and inflammation owing to the expression of toll-like receptors (TLR), which recognize inflammatory signals, triggering platelet functional responses](https://www.frontiersin.org/articles/10.3389/fimmu.2020.00705/full)
+
+
+**mpv_pwy224_pc2 - Glucagon signaling pathway** [Glucagon-Like Peptide 1 Receptor Activation Attenuates Platelet Aggregation and Thrombosis](https://diabetes.diabetesjournals.org/content/65/6/1714)
+
+**pct_pwy286_pc5 - Human cytomegalovirus infection** [Human cytomegalovirus infection of endothelial cells triggers platelet adhesion and aggregation ](https://pubmed.ncbi.nlm.nih.gov/15681423/)
+
+**rbc_pwy314_pc3 - Breast cancer** [Red blood cells usually live for about 120 days but breast cancer and treatments may shorten that lifespan, causing anemia. With fewer red blood cells there to carry oxygen, your body may not function as well as it should](https://www.lbbc.org/learn/side-effects/anemia)
 
 ### SNP details
 
@@ -106,6 +122,13 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd14_cedar_qc
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+**EUR.IBD_pwy183_pc5 - Natural killer cell mediated cytotoxicity** [Additionally, NK cells can have a role in the pathogenesis of gut autoimmune inflammatory bowel diseases (IBDs)](https://www.frontiersin.org/articles/10.3389/fimmu.2019.00961/full)
+
+**baso_pwy287_pc1 - Influenza A** [Influenza A virus enhances basophil histamine release and the enhancement is abolished by carbohydrates ](https://pubmed.ncbi.nlm.nih.gov/1700890/)
+
+**mchc_pwy284_pc5 - Hepatitis B** [Chronic hepatitis is associated with increased hemoglobin level in patients with end-stage renal disease](https://onlinelibrary.wiley.com/doi/pdf/10.1002/dat.20173)
+
+**neut_pwy236_pc1 - Cushing syndrome** [Blood cell counts showed that Cushing's syndrome patients had significantly lower lymphocytes, but a higher total white blood cell count. They also had increased numbers of neutrophil cells.](https://cushingsdiseasenews.com/2017/12/22/abnormal-blood-cell-count-in-cushings-syndrome-children-linked-to-infections/)
 
 ### SNP details
 
@@ -148,6 +171,13 @@ DT::datatable(summary, options = list(pageLength =5))
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc_kegg_pruned_10peer_40genes.rdata")
 DT::datatable(final_full, options = list(pageLength =5))
 ```
+
+**hgb_pwy122_pc3 - HIF-1 signaling pathway**  hypoxia-inducible factor  and Hemoglobin concentration
+
+**hgb_pwy233_pc3 - Insulin resistance** and **mch_pwy212_pc4 - Insulin signaling pathway** [Effect of insulin analogs on the decline of hemoglobin in diabetic patients with nephropathy ](https://pubmed.ncbi.nlm.nih.gov/20112184/)
+
+**pct_pwy142_pc2 - mTOR signaling pathway** [ROS Promote Ox-LDL-Induced Platelet Activation by Up-Regulating Autophagy Through the Inhibition of the PI3K/AKT/mTOR Pathway](https://www.karger.com/Article/FullText/494795)
+
 
 ### SNP details
 
@@ -192,6 +222,16 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_tcell_cedar_q
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+**EUR.CD_pwy124_pc1 - Phosphatidylinositol signaling system** [Phosphatidylinositol signaling system](https://www.hindawi.com/journals/jst/2012/358476/)
+
+**EUR.CD_pwy300_pc1 - Colorectal cancer**
+
+**lymph_pwy290_pc5 - Kaposi sarcoma-associated herpesvirus infection** [Primary B Lymphocytes Infected with Kaposi's Sarcoma-Associated Herpesvirus Can Be Expanded In Vitro and Are Recognized by LANA-Specific CD4+ T Cells ](https://pubmed.ncbi.nlm.nih.gov/26819313/)
+
+**mchc_pwy122_pc4 - HIF-1 signaling pathway** 
+
+**plt_pwy115_pc3 - Calcium signaling pathway ** [Agonist-induced elevation in cytosolic Ca2+ concentrations is essential for platelet activation in hemostasis and thrombosis. It occurs through Ca2+ release from intracellular stores and Ca2+ entry through the plasma membrane (PM)](https://pubmed.ncbi.nlm.nih.gov/19422456/).
+
 
 ### SNP details
 
@@ -235,6 +275,19 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_thy_cedar_qc_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+**EUR.IBD_pwy141_pc3 - Peroxisome** [Peroxisome Proliferator-Activated Receptors: Experimental Targeting for the Treatment of Inflammatory Bowel Diseases](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7266982/)
+
+**EUR.UC_pwy18_pc1 - Purine metabolism**  1. [Purine metabolism controls innate lymphoid cell function and protects against intestinal injury ](https://pubmed.ncbi.nlm.nih.gov/29758102/)   2. [Rhein modulates host purine metabolism in intestine through gut microbiota and ameliorates experimental colitis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7482825/)
+
+**lymph_pwy113_pc3 - Ras signaling pathway** [The role of Ras signaling in lupus T lymphocytes: biology and pathogenesis](https://pubmed.ncbi.nlm.nih.gov/17913587/)
+
+**lymph_pwy143_pc4 - PI3K-Akt signaling pathway**  1. [Regulation of PI-3-kinase and Akt signaling in T lymphocytes and other cells by TNFR family molecules](https://www.frontiersin.org/articles/10.3389/fimmu.2013.00139/full), 2. [Role of PI3K/Akt signaling in memory CD8 T cell differentiation](https://www.frontiersin.org/articles/10.3389/fimmu.2013.00020/full)
+
+**lymph_pwy177_pc3 - NOD-like receptor signaling pathway** [Effects of NOD-like receptors in human B lymphocytes and crosstalk between NOD1/NOD2 and Toll-like receptors ](https://pubmed.ncbi.nlm.nih.gov/20844241/)
+
+**plt_pwy116_pc5 - cGMP-PKG signaling pathway** [Novel roles of cAMP/cGMP-dependent signaling in platelets ](https://pubmed.ncbi.nlm.nih.gov/22136590/)
+
+**rbc_pwy217_pc4 - Estrogen signaling pathway** [The results demonstrate that estrogen acts directly on the stem cells to increase their proliferation and the number of red blood cells they generate](https://www.sciencedaily.com/releases/2014/01/140122133419.htm)
 
 ### SNP details
 
@@ -279,6 +332,18 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+**ukb.allasthma_pwy189_pc1 - Fc epsilon RI signaling pathway**: 1. [Roles for the High Affinity IgE Receptor, FcεRI, of Human Basophils in the Pathogenesis and Therapy of Allergic Asthma: Disease Promotion, Protection or Both?](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4090948/) 2. [https://www.karger.com/Article/Fulltext/250436](https://www.karger.com/Article/Fulltext/250436), 3. [Current Strategies to Inhibit High Affinity FcεRI-Mediated Signaling for the Treatment of Allergic Disease](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6374298/)
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy189_pc1_ukb.allasthma_pval5e8_plt_40genes.jpeg" width="60%">
+</figure>
+
+**plt_pwy221_pc2 - Thyroid hormone signaling pathway** : 1. [Relationship between Thyroid Function and Platelet Counts](https://www.karger.com/Article/Pdf/206168), 2. [Sometimes restoring normal thyroid level increases the platelet count.  It is important to check for thyroid levels and anti-thyroid antibodies.](https://www.pdsa.org/low-platelets-other-autoimmune-diseases.html) 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy221_pc2_plt_pval5e8_plt_40genes.jpeg" width="60%">
+</figure>
+
 ### SNP details
 
 
@@ -286,7 +351,6 @@ DT::datatable(final_full, options = list(pageLength =5))
 load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_cedar_kegg_plt_pruned_10peer_40genes.rdata")
 DT::datatable(snp.list.final, options = list(pageLength =5))
 ```
-
 
 
 ### Checking the reverse causality
