@@ -13,7 +13,7 @@ We selected the results for pathways have >40 genes from [the results regressing
 
 We added colocalization analysis for the pairs show sign consistency (at p-value < 0.002), the loci are +-250kb/500kb from the reported SNPs. 
 
-We just listed the pairs show sign consistency in the tables below.
+We just listed the pairs show sign consistency(at p-value < 0.002 from adaptive resampling) in the tables below.
 
 'pval_in_resampling_2' in the tables means the p-value from [adaptive resampling](https://xsun1229.github.io/factor_analysis/factors_traits.html#32_sign_consistency_checking). 'pval_in_resampling' in the tables were computed from 1000 times resampling.
 
@@ -76,7 +76,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 **pct_pwy286_pc5 - Human cytomegalovirus infection** [Human cytomegalovirus infection of endothelial cells triggers platelet adhesion and aggregation ](https://pubmed.ncbi.nlm.nih.gov/15681423/)
 
-**rbc_pwy314_pc3 - Breast cancer** [Red blood cells usually live for about 120 days but breast cancer and treatments may shorten that lifespan, causing anemia. With fewer red blood cells there to carry oxygen, your body may not function as well as it should](https://www.lbbc.org/learn/side-effects/anemia)
+**rbc_pwy314_pc3 - Breast cancer** [Red blood cells usually live for about 120 days but breast cancer and treatments may shorten that lifespan, causing anemia. With fewer red blood cells there to carry oxygen, your body may not function as well as it should](https://www.lbbc.org/learn/side-effects/anemia). **rbc_pwy314_pc3_rs551238 PP4 == 0.65**
 
 ### SNP details
 
@@ -126,7 +126,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 **baso_pwy287_pc1 - Influenza A** [Influenza A virus enhances basophil histamine release and the enhancement is abolished by carbohydrates ](https://pubmed.ncbi.nlm.nih.gov/1700890/)
 
-**mchc_pwy284_pc5 - Hepatitis B** [Chronic hepatitis is associated with increased hemoglobin level in patients with end-stage renal disease](https://onlinelibrary.wiley.com/doi/pdf/10.1002/dat.20173)
+**mchc_pwy284_pc5 - Hepatitis B** [Chronic hepatitis is associated with increased hemoglobin level in patients with end-stage renal disease](https://onlinelibrary.wiley.com/doi/pdf/10.1002/dat.20173) **mchc_pwy284_pc5_rs28687655 PP4 == 0.58, mchc_pwy284_pc5_rs4737010 pp4 ==0.57**
 
 **neut_pwy236_pc1 - Cushing syndrome** [Blood cell counts showed that Cushing's syndrome patients had significantly lower lymphocytes, but a higher total white blood cell count. They also had increased numbers of neutrophil cells.](https://cushingsdiseasenews.com/2017/12/22/abnormal-blood-cell-count-in-cushings-syndrome-children-linked-to-infections/)
 
@@ -172,9 +172,9 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_cd15_cedar_qc
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
-**hgb_pwy122_pc3 - HIF-1 signaling pathway**  hypoxia-inducible factor  and Hemoglobin concentration
+**hgb_pwy122_pc3 - HIF-1 signaling pathway**  hypoxia-inducible factor  and Hemoglobin concentration  **hgb_pwy122_pc3_rs56235845 == 0.77**
 
-**hgb_pwy233_pc3 - Insulin resistance** and **mch_pwy212_pc4 - Insulin signaling pathway** [Effect of insulin analogs on the decline of hemoglobin in diabetic patients with nephropathy ](https://pubmed.ncbi.nlm.nih.gov/20112184/)
+**hgb_pwy233_pc3 - Insulin resistance** and **mch_pwy212_pc4 - Insulin signaling pathway** [Effect of insulin analogs on the decline of hemoglobin in diabetic patients with nephropathy ](https://pubmed.ncbi.nlm.nih.gov/20112184/)  **hgb_pwy233_pc3_rs56235845 PP4 ==0.69**
 
 **pct_pwy142_pc2 - mTOR signaling pathway** [ROS Promote Ox-LDL-Induced Platelet Activation by Up-Regulating Autophagy Through the Inhibition of the PI3K/AKT/mTOR Pathway](https://www.karger.com/Article/FullText/494795)
 
@@ -226,7 +226,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 **EUR.CD_pwy300_pc1 - Colorectal cancer**
 
-**lymph_pwy290_pc5 - Kaposi sarcoma-associated herpesvirus infection** [Primary B Lymphocytes Infected with Kaposi's Sarcoma-Associated Herpesvirus Can Be Expanded In Vitro and Are Recognized by LANA-Specific CD4+ T Cells ](https://pubmed.ncbi.nlm.nih.gov/26819313/)
+**lymph_pwy290_pc5 - Kaposi sarcoma-associated herpesvirus infection** [Primary B Lymphocytes Infected with Kaposi's Sarcoma-Associated Herpesvirus Can Be Expanded In Vitro and Are Recognized by LANA-Specific CD4+ T Cells ](https://pubmed.ncbi.nlm.nih.gov/26819313/)  **lymph_pwy290_pc5_rs2737275 PP4 == 0.54**
 
 **mchc_pwy122_pc4 - HIF-1 signaling pathway** 
 
