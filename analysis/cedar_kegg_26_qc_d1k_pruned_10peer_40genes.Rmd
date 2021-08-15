@@ -328,6 +328,11 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_plt_cedar_qc_
 DT::datatable(final_full, options = list(pageLength =5))
 ```
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy223_pc1_ret_pval5e8_plt_40genes.jpeg" width="60%">
+</figure>
+
+
 <!-- **ukb.allasthma_pwy189_pc1 - Fc epsilon RI signaling pathway**: 1. [Roles for the High Affinity IgE Receptor, FcεRI, of Human Basophils in the Pathogenesis and Therapy of Allergic Asthma: Disease Promotion, Protection or Both?](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4090948/) 2. [https://www.karger.com/Article/Fulltext/250436](https://www.karger.com/Article/Fulltext/250436), 3. [Current Strategies to Inhibit High Affinity FcεRI-Mediated Signaling for the Treatment of Allergic Disease](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6374298/) -->
 
 <!-- <figure class="half"> -->
@@ -336,9 +341,7 @@ DT::datatable(final_full, options = list(pageLength =5))
 
 <!-- **plt_pwy221_pc2 - Thyroid hormone signaling pathway** : 1. [Relationship between Thyroid Function and Platelet Counts](https://www.karger.com/Article/Pdf/206168), 2. [Sometimes restoring normal thyroid level increases the platelet count.  It is important to check for thyroid levels and anti-thyroid antibodies.](https://www.pdsa.org/low-platelets-other-autoimmune-diseases.html)  -->
 
-<!-- <figure class="half"> -->
-<!--     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_pwy221_pc2_plt_pval5e8_plt_40genes.jpeg" width="60%"> -->
-<!-- </figure> -->
+
 
 ### SNP details
 
