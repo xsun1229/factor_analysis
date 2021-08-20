@@ -258,7 +258,7 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_cedar_plier_cd14.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(list, options = list(pageLength =5))
 ```
 
 ### effectsize fitting summary 
@@ -382,7 +382,7 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_cedar_plier_cd15.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(list, options = list(pageLength =5))
 ```
 
 ### effectsize fitting summary 
@@ -628,7 +628,7 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_cedar_plier_tcell.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(list, options = list(pageLength =5))
 ```
 
 ### effectsize fitting summary 
@@ -818,7 +818,7 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_cedar_plier_thy.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(list, options = list(pageLength =5))
 ```
 
 ### effectsize fitting summary 
@@ -1089,7 +1089,7 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_cedar_plier_plt.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(list, options = list(pageLength =5))
 ```
 
 ### effectsize fitting summary 
