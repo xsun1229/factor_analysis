@@ -26,7 +26,7 @@ The enrichment at p-value < 0.01 level is : **31/(2548*0.01) ==1.216641**
 The enrichment at p-value < 0.01 level is : **7/(2548*0.001) ==2.747253**
 
 
-# K-S and ACAT summary 
+# **K-S and ACAT summary** 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_gtex_plier_wb.rdata")
@@ -35,7 +35,7 @@ DT::datatable(list, options = list(pageLength =5))
 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ks_acat_gtex_plier_wb.rdata" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_ks_acta_gtex_plier_wb.jpeg" width="80%">
 </figure>
 
 # **Enrichment results**
