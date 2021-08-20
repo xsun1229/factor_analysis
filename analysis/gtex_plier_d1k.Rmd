@@ -31,7 +31,7 @@ There are 4 pairs show sign consistency (have p-values < 0.05 in resampling, 2.5
 
 
 ```{r echo=FALSE}
-sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/simple_sum_d1k_plier_wb_98lvs.txt", header = T)
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy_gtex_plier_wb.rdata")
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
@@ -210,14 +210,14 @@ The method for ORA were described in [3.4](https://xsun1229.github.io/factor_ana
 
 ### EUR.UC_wb_lv46
 
-#### ALL genes have non-zero loadings
+#### ALL genes have non-zero loadings (5146 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv46_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-#### Top 25% genes 
+#### Top 25% genes (1286 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv46_plier_wb_top025_98lvs.rdata")
@@ -226,14 +226,14 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ### rbc_wb_lv32
 
-#### ALL genes have non-zero loadings
+#### ALL genes have non-zero loadings (6188 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv32_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-#### Top 25% genes 
+#### Top 25% genes (1547 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv32_plier_wb_top025_98lvs.rdata")
@@ -245,14 +245,14 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 LV73 has three related pathways report by PLIER, they are KEGG_VALINE_LEUCINE_AND_ISOLEUCINE_DEGRADATION, MIPS_55S_RIBOSOME_MITOCHONDRIAL, and HSIAO_LIVER_SPECIFIC_GENES.
 
-#### ALL genes have non-zero loadings
+#### ALL genes have non-zero loadings (5619 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv73_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-#### Top 25% genes 
+#### Top 25% genes (1405 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv73_plier_wb_top025_98lvs.rdata")
@@ -261,14 +261,14 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 
 ### ukb.allasthma_wb_lv35
 
-#### ALL genes have non-zero loadings
+#### ALL genes have non-zero loadings (5973 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv35_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-#### Top 25% genes 
+#### Top 25% genes (1493 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv35_plier_wb_top025_98lvs.rdata")

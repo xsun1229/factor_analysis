@@ -54,7 +54,7 @@ We computed both ACAT p-values and K-S p-values. The p-values seem better (qqplo
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_cedar_plier_bcell.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(list, options = list(pageLength =5))
 ```
 
 ### effectsize fitting summary 
