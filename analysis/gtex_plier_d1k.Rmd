@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-## **Introduction**
+# **Overview**
 
 We used the [PLIER R package](https://github.com/wgmao/PLIER) with the collection of 12999 gene sets as a prior information matrix priorMat available in the package comprising canonical, immune and chemgen pathways from MSigDB (same with the eLife paper)
 
@@ -15,7 +15,30 @@ We used 26 immune and blood cell traits in this part, they are: "mch","mchc","mc
 
 We got 98 LVs. 
 
-## **Enrichment results**
+# **Enrichment summary -- computed from ACAT p-values for all pairs**
+
+We computed both ACAT p-values and K-S p-values. The p-values seem better (qqplot below). So the enrichments were computed using p-values.
+
+The enrichment at p-value < 0.05 level is : **129/(2548*0.05) ==1.012559**
+
+The enrichment at p-value < 0.01 level is : **31/(2548*0.01) ==1.216641**
+
+The enrichment at p-value < 0.01 level is : **7/(2548*0.001) ==2.747253**
+
+
+# K-S and ACAT summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_gtex_plier_wb.rdata")
+DT::datatable(list, options = list(pageLength =5))
+```
+
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ks_acat_gtex_plier_wb.rdata" width="80%">
+</figure>
+
+# **Enrichment results**
 
 We have 2548 trait-factor pairs in total. 31 pairs have more than 2 SNPs with FDR <0.2.
 
@@ -36,7 +59,7 @@ DT::datatable(sum, options = list(pageLength =5))
 ```
 
 
-## **Reverse causality checking** 
+# **Reverse causality checking** 
 
 For the pairs have p-value < 0.05 in resampling, we checked the effect size correlation could be due to reverse causality.
 
@@ -51,7 +74,7 @@ load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_plier_wb
 DT::datatable(sum, options = list(pageLength =5))
 ```
 
-## **SNP details**
+# **SNP details**
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/info_table_annot_d1k_plier_wb_98lvs.rdata")
@@ -59,19 +82,19 @@ DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 
-## **Effectsize plots**
+# **Effectsize plots**
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/effectsize_plier_gtex.jpg" width="100%">
 </figure>
 
-## **Colocalization results**
+# **Colocalization results**
 
 For the SNPs above, we did colocalization analysis.
 
 The method for colocalization analysis were described in [3.3](https://xsun1229.github.io/factor_analysis/factors_traits.html#33_colocalization_analysis)
 
-### +-250kb from the target locus
+## +-250kb from the target locus
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_gtex_plier.rdata")
@@ -80,7 +103,7 @@ DT::datatable(summary, options = list(pageLength =5))
 
 Two plots for the locus has the highest PP4: 
 
-#### ret_lv73
+### ret_lv73
 
 **ret_lv73_rs2523990**
 
@@ -95,7 +118,7 @@ Two plots for the locus has the highest PP4:
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_500.coloc.jpeg" width="80%">
 </figure>
 
-#### EUR.UC_lv46
+### EUR.UC_lv46
 
 **EUR.UC_lv46_rs1359946**
 
@@ -109,7 +132,7 @@ Two plots for the locus has the highest PP4:
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_500.coloc.jpeg" width="80%">
 </figure>
 
-#### rbc_lv32
+### rbc_lv32
 
 **rbc_lv32_rs17699658**
 
@@ -123,7 +146,7 @@ Two plots for the locus has the highest PP4:
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_lv32_chr4_82974079_A_G_b38_rs13103322_500.coloc.jpeg" width="80%">
 </figure>
 
-#### ukb.allasthma_lv35
+### ukb.allasthma_lv35
 
 **ukb.allasthma_lv35_rs61816761**
 
@@ -137,7 +160,9 @@ Two plots for the locus has the highest PP4:
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ukb.allasthma_lv35_chr7_20547220_A_G_b38_rs35621564_500.coloc.jpeg" width="80%">
 </figure>
 
-### +-500kb from the target locus
+## +-500kb from the target locus
+
+### ret_lv73
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_1000kb_gtex_plier.rdata")
@@ -159,7 +184,7 @@ Plots for the locus has the highest PP4:
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_1000.coloc.jpeg" width="80%">
 </figure>
 
-#### EUR.UC_lv46
+### EUR.UC_lv46
 
 **EUR.UC_lv46_rs1359946**
 
@@ -173,7 +198,7 @@ Plots for the locus has the highest PP4:
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/ret_lv73_chr5_95826771_G_A_b38_rs10067881_1000.coloc.jpeg" width="80%">
 </figure>
 
-#### rbc_lv32
+### rbc_lv32
 
 **rbc_lv32_rs17699658**
 
@@ -187,7 +212,7 @@ Plots for the locus has the highest PP4:
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rbc_lv32_chr4_82974079_A_G_b38_rs13103322_1000.coloc.jpeg" width="80%">
 </figure>
 
-#### ukb.allasthma_lv35
+### ukb.allasthma_lv35
 
 LV35 has three related pathways reported by PLIER, including CHEMELLO_SOLEUS_VS_EDL_MYOFIBERS_UP, RICKMAN_HEAD_AND_NECK_CANCER_F, and CHEN_LVAD_SUPPORT_OF_FAILING_HEART_UP.
 
@@ -204,36 +229,36 @@ LV35 has three related pathways reported by PLIER, including CHEMELLO_SOLEUS_VS_
 </figure>
 
 
-## **ORA Enrichment results**
+# **ORA Enrichment results**
 
 The method for ORA were described in [3.4](https://xsun1229.github.io/factor_analysis/factors_traits.html#34_ora_enrichment_analysis)
 
-### EUR.UC_wb_lv46
+## EUR.UC_wb_lv46
 
-#### ALL genes have non-zero loadings (5146 genes)
+### ALL genes have non-zero loadings (5146 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv46_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-#### Top 25% genes (1286 genes)
+### Top 25% genes (1286 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv46_plier_wb_top025_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-### rbc_wb_lv32
+## rbc_wb_lv32
 
-#### ALL genes have non-zero loadings (6188 genes)
+### ALL genes have non-zero loadings (6188 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv32_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-#### Top 25% genes (1547 genes)
+### Top 25% genes (1547 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv32_plier_wb_top025_98lvs.rdata")
@@ -241,34 +266,34 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
 
-### ret_wb_lv73
+## ret_wb_lv73
 
 LV73 has three related pathways report by PLIER, they are KEGG_VALINE_LEUCINE_AND_ISOLEUCINE_DEGRADATION, MIPS_55S_RIBOSOME_MITOCHONDRIAL, and HSIAO_LIVER_SPECIFIC_GENES.
 
-#### ALL genes have non-zero loadings (5619 genes)
+### ALL genes have non-zero loadings (5619 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv73_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-#### Top 25% genes (1405 genes)
+### Top 25% genes (1405 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv73_plier_wb_top025_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-### ukb.allasthma_wb_lv35
+## ukb.allasthma_wb_lv35
 
-#### ALL genes have non-zero loadings (5973 genes)
+### ALL genes have non-zero loadings (5973 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv35_plier_wb_all_98lvs.rdata")
 DT::datatable(ORA_results, options = list(pageLength =5))
 ```
 
-#### Top 25% genes (1493 genes)
+### Top 25% genes (1493 genes)
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/lv35_plier_wb_top025_98lvs.rdata")
