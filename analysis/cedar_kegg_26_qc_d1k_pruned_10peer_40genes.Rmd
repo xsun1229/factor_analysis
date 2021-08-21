@@ -56,7 +56,7 @@ We just listed the pairs show sign consistency(at p-value < 0.002 from adaptive 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy_cedar_kegg_bcell.rdata")
-DT::datatable(list, options = list(pageLength =5))
+DT::datatable(summary, options = list(pageLength =5))
 ```
 
 ### effectsize fitting summary 
