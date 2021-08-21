@@ -7,6 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
+
 # **Overview**
 
 In this part, the expression factors were inferred from expression matrices for 6 cell types. For each cell type, the number of LVs are shown in the [table](https://xsun1229.github.io/factor_analysis/factors_traits.html#512_expression_factors)
@@ -17,9 +18,14 @@ The tables below are based on the adaptive resampling results.
 
 We computed both ACAT p-values and K-S p-values. The p-values seem better (qqplot below). So the enrichments were computed using p-values.
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_plier_acat_enrichment.png" width="80%">
-</figure>
+|              | total pairs | num_pval_acat < 0.05 | enrichment  | num_pval_acat < 0.01 | enrichment  | num_pval_acat < 0.001 | enrichment |
+|--------------|-------------|----------------------|-------------|----------------------|-------------|-----------------------|------------|
+| B cell       | 3536        | 225                  | 1.272624434 | 58                   | 1.640271493 | 9                     | 2.54524887 |
+| CD14         | 2288        | 139                  | 1.215034965 | 30                   | 1.311188811 | 3                     | 1.31118881 |
+| CD15         | 3796        | 244                  | 1.285563751 | 58                   | 1.527924131 | 6                     | 1.58061117 |
+| T cell (CD4) | 3796        | 235                  | 1.238145416 | 47                   | 1.238145416 | 7                     | 1.84404636 |
+| T cell (CD8) | 3484        | 214                  | 1.22847302  | 22                   | 0.631458094 | 2                     | 0.57405281 |
+| Platelet     | 3354        | 207                  | 1.234347048 | 58                   | 1.729278473 | 15                    | 4.47227191 |
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_ks_acat_plier_all.jpg" width="80%">
@@ -56,6 +62,10 @@ We computed both ACAT p-values and K-S p-values. The p-values seem better (qqplo
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_cedar_plier_bcell.rdata")
 DT::datatable(list, options = list(pageLength =5))
 ```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_assoc_cedar_plier_bcell.jpeg" width="100%">
+</figure>
 
 ### effectsize fitting summary 
 
@@ -260,6 +270,10 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_cedar_plier_cd14.rdata")
 DT::datatable(list, options = list(pageLength =5))
 ```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_assoc_cedar_plier_cd14.jpeg" width="100%">
+</figure>
 
 ### effectsize fitting summary 
 
@@ -1091,6 +1105,10 @@ DT::datatable(ORA_results, options = list(pageLength =5))
 load("/project2/xinhe/xsun/website/factor_analysis/output/ks_acat_cedar_plier_plt.rdata")
 DT::datatable(list, options = list(pageLength =5))
 ```
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_assoc_cedar_plier_plt.jpeg" width="100%">
+</figure>
 
 ### effectsize fitting summary 
 

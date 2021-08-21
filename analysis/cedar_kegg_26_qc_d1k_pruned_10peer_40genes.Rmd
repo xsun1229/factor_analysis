@@ -17,7 +17,17 @@ We just listed the pairs show sign consistency(at p-value < 0.002 from adaptive 
 
 'pval_in_resampling_2' in the tables means the p-value from [adaptive resampling](https://xsun1229.github.io/factor_analysis/factors_traits.html#32_sign_consistency_checking). 'pval_in_resampling' in the tables were computed from 1000 times resampling.
 
-# **Enrichment Summary** 
+# **Enrichment summary -- computed from ACAT p-values for all pairs**
+
+|        | total pairs | num_pval_acat < 0.05 | enrichment  | num_pval_acat < 0.01 | enrichment  | num_pval_acat < 0.001 | enrichment |
+|--------|-------------|----------------------|-------------|----------------------|-------------|-----------------------|------------|
+| B cell | 20540       | 6117                 | 5.956183057 | 1399                 | 6.811100292 | 170                   | 8.27653359 |
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_acta_cedar_kegg_bcell_40genes.jpeg" width="150%">
+</figure>
+
+# **Enrichment Summary -- computed from resampling p-values for pairs have >=2 SNPs** 
 
 **1000 times resampling**
 
@@ -42,8 +52,14 @@ We just listed the pairs show sign consistency(at p-value < 0.002 from adaptive 
 
 ## **B cell**
 
-### effectsize fitting summary 
+### ACAT summary 
 
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy_cedar_kegg_bcell.rdata")
+DT::datatable(list, options = list(pageLength =5))
+```
+
+### effectsize fitting summary 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwy_name_bcell_cedar_qc_kegg_pruned_10peer_40genes.rdata")
