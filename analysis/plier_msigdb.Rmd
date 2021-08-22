@@ -13,21 +13,43 @@ PLIER analysis was performed using the R package (v.0.99.0; downloaded from http
 
 # **Heritability**
 
+The figure below shows the distribution of h2g and QQ plot of p-values testing if h2g=0. The p-values in QQ plot were computed from the z-scores of h2g follows:
+
+```{r echo=T, eval=FALSE}
+zscore <- Heritability/SE 
+pval <- 1- pnorm(zscore)
+```
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/heritability_qqplot_plier.jpg" width="80%">
 </figure>
 
+The figure below shows the h2g estimate and conf. interval for all LVs.
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_lvpv_wb_gtex_98lv.jpeg" width="80%">
+</figure>
 
 # **Prediction models**
 
-Prediction models were trained using LASSO for all LVs. Figure below shows the QQ plot of p-values on testing set against uniform distribution where the observed p-values shift to y-axis.
+Prediction models were trained using LASSO and Elastic net for all LVs. Figure below shows the QQ plot of p-values on testing set against uniform distribution where the observed p-values shift to y-axis.
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_prediction_PLIER98.jpeg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_prediction_PLIER98_le.jpeg" width="80%">
 </figure>
 
+
+The figure below shows the R2 in testing data for all LVs. 
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rsq_on_testing_hist_gtex_plier_98lv.jpeg" width="80%">
+</figure>
+
+
+
 Using p-value on testing set as criterion, top 3 LVs have the best prediction performance were listed below. They are LV60, LV79 and LV3. 
+
+In this table, there are several NA value. These NA values come from linear regression(lm(y_test ~ predict_l)). In such LVs, predict_l for all samples are the same.
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/summary_H_le_sorted_98lvs_gtex.rdata")
