@@ -1,0 +1,70 @@
+---
+title: "KEGG summary for GTEx Whole blood data (pathways > 40genes included)"
+author: "XSun"
+date: "2021-08-28"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# **Enrichment summary -- computed from ACAT p-values for all pairs**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_acta_gtex_kegg_40genes.jpeg" width="80%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/snp_count_wb_gtex_kegg_40genes.jpeg" width="80%">
+</figure>
+
+
+# **Enrichment results**
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/rsq_hist_con_gtex_kegg_40genes.jpeg" width="80%">
+</figure>
+
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pwyname_gtex_kegg_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+[Glutamate receptors and asthmatic airway disease](https://www.cell.com/trends/pharmacological-sciences/fulltext/S0165-6147(98)01275-9?scriptOff=true&mobileUi=0)
+
+# **Reverse causality checking** 
+
+For the pairs have p-value < 0.05 in resampling, we checked the effect size correlation could be due to reverse causality.
+
+We first used all SNPs associated with traits(pval<5E-8). We computed the MBE estimator and the p-values of the estimator. When computing the IVW, we exchanged the beta.outcome and beta.exposure.
+
+Then we removed the SNPs have FDR < 0.2, just used the remaining SNP to compute IVW and do the fitting.
+
+**The suffix "_reverse" are the results for traits -> LV (using all candidate SNPs after LD Clumping), the suffix "_rremove" are the results for traits -> LV (using all candidate SNPs after LD Clumping but remove the SNPs have fdr < 0.2)**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/reverse_check_plier_wb_mbe_gtex_kegg_40genes.rdata")
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+# **SNP details**
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_kegg_gtex_kegg_40genes.rdata")
+DT::datatable(final_full, options = list(pageLength =5))
+```
+
+
+
+# **Colocalization results**
+
+For the SNPs above, we did colocalization analysis.
+
+The method for colocalization analysis were described in [3.3](https://xsun1229.github.io/factor_analysis/factors_traits.html#33_colocalization_analysis)
+
+## +-250kb from the target locus
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/coloc_sum_500kb_gtex_kegg_40genes.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
