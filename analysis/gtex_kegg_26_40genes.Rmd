@@ -27,7 +27,7 @@ editor_options:
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/pwyname_gtex_kegg_40genes.rdata")
-DT::datatable(sum, options = list(pageLength =5))
+DT::datatable(final_full, options = list(pageLength =5))
 ```
 
 [Glutamate receptors and asthmatic airway disease](https://www.cell.com/trends/pharmacological-sciences/fulltext/S0165-6147(98)01275-9?scriptOff=true&mobileUi=0)
@@ -51,7 +51,7 @@ DT::datatable(sum, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/snp_details_kegg_gtex_kegg_40genes.rdata")
-DT::datatable(final_full, options = list(pageLength =5))
+DT::datatable(snp.list.final, options = list(pageLength =5))
 ```
 
 
