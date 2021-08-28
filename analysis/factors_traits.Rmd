@@ -168,6 +168,8 @@ For the factors in this part, we used SuSiE to test if our colocalization result
 
 ### PCs - KEGG
 
+[Whole blood](https://xsun1229.github.io/factor_analysis/gtex_kegg_26_40genes.html) **Latest results**
+
 [Whole blood](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d1k.html)
 
 [Liver](https://xsun1229.github.io/factor_analysis/kegg_pcs_factor_traits_regress_5_d500d_liver.html)
