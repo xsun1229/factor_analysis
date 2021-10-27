@@ -17,26 +17,13 @@ We just listed the pairs show sign consistency(at p-value < 0.002 from adaptive 
 
 'pval_in_resampling_2' in the tables means the p-value from [adaptive resampling](https://xsun1229.github.io/factor_analysis/factors_traits.html#32_sign_consistency_checking). 'pval_in_resampling' in the tables were computed from 1000 times resampling.
 
-# **Enrichment summary -- computed from ACAT p-values for all pairs**
-
-|              | total pairs | num_pval_acat < 0.05 | enrichment  | num_pval_acat < 0.01 | enrichment  | num_pval_acat < 0.001 | enrichment |
-|--------------|-------------|----------------------|-------------|----------------------|-------------|-----------------------|------------|
-| B cell       | 20540       | 6117                 | 5.956183057 | 1399                 | 6.811100292 | 170                   | 8.27653359 |
-| CD14         | 21320       | 7675                 | 7.199812383 | 1880                 | 8.818011257 | 195                   | 9.14634146 |
-| CD15         | 19110       | 4744                 | 4.964939822 | 1486                 | 7.77603349  | 206                   | 10.7796965 |
-| T cell (CD4) | 21450       | 5706                 | 5.32027972  | 1095                 | 5.104895105 | 89                    | 4.14918415 |
+# **ACAT results**
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_acta_all.jpg" width="80%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_acat_all.jpg" width="80%">
 </figure>
 
-# **Enrichment Summary -- computed from resampling p-values for pairs have >=2 SNPs** 
-
-**1000 times resampling**
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_kegg_qc_pruned_10peer_40genes_1000t.jpg" width="150%">
-</figure>
+# **ECT results** 
 
 **adaptive resampling**
 
@@ -65,13 +52,17 @@ We just listed the pairs show sign consistency(at p-value < 0.002 from adaptive 
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy_cedar_kegg_bcell.rdata")
+summary <- summary[,-10]
+colnames(summary)[10] <- "ECT p"
+colnames(summary)[11] <- "ECT FDR_2SNPs"
+colnames(summary)[12] <- "ECT FDR_3SNPs"
 DT::datatable(summary, options = list(pageLength =5))
 ```
 
 Example: top pathway from B-cell, EUR.IBD_pwy174_pc5, ACAT p = 1E-58, 2 SNPs at FDR < 0.2 (rs142770866 in chr19, rs9271176 in MHC). It is related to Antigen processing and presentation. 
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_bcell_EUR.IBD_pwy174_pc5.jpeg" width="150%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_bcell_EUR.IBD_pwy174_pc5.jpeg" width="50%">
 </figure>
 
 Other three pathways are also driven by these two SNPs: EUR.IBD_pwy182_pc5 -- Hematopoietic cell lineage, EUR.IBD_pwy275_pc5 (another SNP rs35260072 on chr5 also drives this pathway) -- Leishmaniasis and EUR.IBD_pwy331_pc4 -- Viral myocarditis.
@@ -151,6 +142,9 @@ DT::datatable(summary, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy_cedar_kegg_cd14.rdata")
+colnames(summary)[10] <- "ECT p"
+colnames(summary)[11] <- "ECT FDR_2SNPs"
+colnames(summary)[12] <- "ECT FDR_3SNPs"
 DT::datatable(summary, options = list(pageLength =5))
 ```
 
@@ -208,6 +202,9 @@ DT::datatable(summary, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy_cedar_kegg_cd15.rdata")
+colnames(summary)[10] <- "ECT p"
+colnames(summary)[11] <- "ECT FDR_2SNPs"
+colnames(summary)[12] <- "ECT FDR_3SNPs"
 DT::datatable(summary, options = list(pageLength =5))
 ```
 
@@ -265,6 +262,9 @@ DT::datatable(summary, options = list(pageLength =5))
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy_cedar_kegg_tcell.rdata")
+colnames(summary)[10] <- "ECT p"
+colnames(summary)[11] <- "ECT FDR_2SNPs"
+colnames(summary)[12] <- "ECT FDR_3SNPs"
 DT::datatable(summary, options = list(pageLength =5))
 ```
 
@@ -320,6 +320,16 @@ DT::datatable(summary, options = list(pageLength =5))
 
 
 ## **T cell(CD8)**
+
+### ACAT summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy_cedar_kegg_thy.rdata")
+colnames(summary)[10] <- "ECT p"
+colnames(summary)[11] <- "ECT FDR_2SNPs"
+colnames(summary)[12] <- "ECT FDR_3SNPs"
+DT::datatable(summary, options = list(pageLength =5))
+```
 
 ### effectsize fitting summary 
 
@@ -377,6 +387,16 @@ DT::datatable(summary, options = list(pageLength =5))
 
 
 ## **platelet**
+
+### ACAT summary 
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_resampling_pwy_cedar_kegg_plt.rdata")
+colnames(summary)[10] <- "ECT p"
+colnames(summary)[11] <- "ECT FDR_2SNPs"
+colnames(summary)[12] <- "ECT FDR_3SNPs"
+DT::datatable(summary, options = list(pageLength =5))
+```
 
 ### effectsize fitting summary
 
