@@ -1,0 +1,217 @@
+---
+title: "MAGMA results"
+author: "XSun"
+date: "2021-10-26"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# **Overview**
+
+In this part, we used [MAGMA](https://ctg.cncr.nl/software/magma) to do the classical GWAS pathway analysis with cis-variants. Then, we compared the MAGMA results with the candidate pathways from [our methods](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer_40genes.html#effectsize_fitting_summary). 
+
+
+# **Comparision with earlier results**
+
+In earlier analyses for CEDAR KEGG PCs, we found four candidate pathways have ECT FDR < 0.1. Two of them have low MAGMA p-values.
+
+| cell type          | pair                     | pathway ID           | pathway name                                   | num SNPs | ECT p           | ECT FDR      | MAGMA p  | MAGMA FDR  |
+|--------------------|--------------------------|----------------------|------------------------------------------------|----------|-----------------|--------------|----------|------------|
+| Leukocytes (CD15+) |     mch_pwy212_pc4       |     hsa     04910    |     Insulin signaling pathway                  |     5    |     9.00E-05    |     0.090    | 0.013017 | 0.04604608 |
+| T cell (CD4+)      |     EUR.CD_pwy124_pc1    |     hsa     04070    |     Phosphatidylinositol   signaling system    |     3    |     5.00E-07    |     0.001    | 0.044977 | 0.06115232 |
+| T cell (CD4+)      |     rdw_pwy294_pc4       |     hsa     05200    |     Pathways in cancer                         |     6    |     6.00E-06    |     0.007    | 0.10707  | 0.3312010  |
+| Platelet           |     ret_pwy223_pc1       |     hsa 04921        |     Oxytocin   signaling pathway               |     8    |     1.8E-05     |     0.061    | 0.81076  | 0.3022832  |
+
+
+# **MAGMA results**
+
+## wbc
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/wbc.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## allergy
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/allergy.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## baso
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/baso.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## eo
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/eo.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## EUR.CD
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/EUR.CD.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## EUR.IBD
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/EUR.IBD.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## EUR.UC
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/EUR.UC.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## gran
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/gran.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+## hct
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/hct.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+## hgb
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/hgb.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+## lymph
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/lymph.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## mch
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mch.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## mchc
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mchc.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## mcv
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mcv.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## mono
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mono.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## mpv
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/mpv.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## myeloid_wbc
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/myeloid_wbc.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+## neut
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/neut.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+## pct
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pct.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+## pdw
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/pdw.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## plt
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/plt.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## rbc
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rbc.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## rdw
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/rdw.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+## ret
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/ret.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+## T1D
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/T1D.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```
+
+
+## ukb.allasthma
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/ukb.allasthma.sum.magma.rdata")
+DT::datatable(summary, options = list(pageLength =5))
+```

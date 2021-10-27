@@ -1,0 +1,255 @@
+---
+title: "Heritability and of KEGG PCs (from CEDAR dataset)"
+author: "XSun"
+date: "2021-10-25"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# **Heritability of KEGG PCs**
+
+The heritability distribution
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/H_inter_cedar_keggpc.jpeg" width="100%">
+</figure>
+
+P-values of the hertiability
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qqplot_h2g_cedar_keggpc.jpeg" width="100%">
+</figure>
+
+
+# **Heritability details**
+
+## B cell
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/B_cell_hsq_processed.txt",header = T)
+sum <- sum[,-6]
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+## CD14+ monocyte
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/CD14_positive_monocyte_hsq_processed.txt",header = T)
+sum <- sum[,-6]
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+## CD15+ leukocyte
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/CD15_positive_leukocyte_hsq_processed.txt",header = T)
+sum <- sum[,-6]
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+## platelet
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/platelet_hsq_processed.txt",header = T)
+sum <- sum[,-6]
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+## CD4+ T cell
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/T_cell_hsq_processed.txt",header = T)
+sum <- sum[,-6]
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+## CD8+ T cell
+
+```{r echo=FALSE}
+sum <- read.table("/project2/xinhe/xsun/website/factor_analysis/output/thymocyte_hsq_processed.txt",header = T)
+sum <- sum[,-6]
+DT::datatable(sum, options = list(pageLength =5))
+```
+
+
+# **Factor GWAS**
+
+For the factors have heritability p-value <0.05, we did GWAS association tests. 
+
+## B cell
+
+pwy146_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy146_pc5_bcell.jpeg" width="100%">
+</figure>
+
+pwy248_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy248_pc4_bcell.jpeg" width="100%">
+</figure>
+
+pwy281_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy281_pc5_bcell.jpeg" width="100%">
+</figure>
+
+pwy307_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy307_pc5_bcell.jpeg" width="100%">
+</figure>
+
+pwy320_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy320_pc5_bcell.jpeg" width="100%">
+</figure>
+
+pwy331_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy331_pc5_bcell.jpeg" width="100%">
+</figure>
+
+## CD14+ monocyte
+
+pwy71_pc3
+<figure class="half">    
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy71_pc3_cd14.jpeg" width="100%">
+</figure>
+
+pwy72_pc1
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy72_pc1_cd14.jpeg" width="100%">
+</figure>
+
+pwy193_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy193_pc3_cd14.jpeg" width="100%">
+</figure>
+
+pwy22_pc2
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy22_pc2_cd14.jpeg" width="100%">
+</figure>
+
+pwy320_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy320_pc3_cd14.jpeg" width="100%">
+</figure>
+
+
+## CD4+ T cell
+
+pwy7_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy7_pc4_tcell.jpeg" width="100%">
+</figure>
+
+pwy72_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy72_pc3_tcell.jpeg" width="100%">
+</figure>
+
+pwy209_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy209_pc5_tcell.jpeg" width="100%">
+</figure>
+
+pwy238_pc3
+<figure class="half">    
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy238_pc3_tcell.jpeg" width="100%">
+</figure>
+
+pwy238_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy238_pc4_tcell.jpeg" width="100%">
+</figure>
+
+pwy239_pc2
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy239_pc2_tcell.jpeg" width="100%">
+</figure>
+
+pwy247_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy247_pc3_tcell.jpeg" width="100%">
+</figure>
+
+pwy281_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy281_pc4_tcell.jpeg" width="100%">
+</figure>
+
+pwy321_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy321_pc4_tcell.jpeg" width="100%">
+</figure>
+
+pwy322_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy322_pc5_tcell.jpeg" width="100%">
+</figure>
+
+pwy325_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy325_pc4_tcell.jpeg" width="100%">
+</figure>
+
+pwy326_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy326_pc3_tcell.jpeg" width="100%">
+</figure>
+
+pwy326_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy326_pc5_tcell.jpeg" width="100%">
+</figure>
+
+pwy331_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy331_pc4_tcell.jpeg" width="100%">
+</figure>
+
+pwy331_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy331_pc5_tcell.jpeg" width="100%">
+</figure>
+
+
+## CD8+ T cell
+
+pwy21_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy21_pc3_thy.jpeg" width="100%">
+</figure>
+
+pwy92_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy92_pc3_thy.jpeg" width="100%">
+</figure>
+
+pwy113_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy113_pc3_thy.jpeg" width="100%">
+</figure>
+
+pwy149_pc2
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy149_pc2_thy.jpeg" width="100%">
+</figure>
+
+pwy186_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy186_pc4_thy.jpeg" width="100%">
+</figure>
+
+pwy276_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy276_pc4_thy.jpeg" width="100%">
+</figure>
+
+pwy332_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy332_pc3_thy.jpeg" width="100%">
+</figure>
+

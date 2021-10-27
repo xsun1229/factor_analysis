@@ -23,7 +23,9 @@ In this part, we're trying to answer the questions below:
 
 # **3. Analyses**
 
-## **3.1 Factor Construction and evaluation**
+## **3.1 Factor Construction and heritability evaluation**
+
+### **3.1.1 GTEx data**
 
 - 4 methods were used to infer expression factors from the expression matrix. The [PLIER](https://github.com/wgmao/PLIER), [FLASH]( https://github.com/stephenslab/flashr), and [PEER](https://github.com/PMBio/peer/) worked on GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). PCA worked on KEGG 332 pathways. 
 
@@ -62,7 +64,16 @@ https://cnsgenomics.com/software/gcta/#GREML) and histograms were made to show t
   [For more details](https://xsun1229.github.io/factor_analysis/eval_kegg.html)
 
 
-## **3.2 Prediction models for factors**
+### **3.1.2 CEDAR data**
+
+**PCs from KEGG pathways**
+  
+  1-5 PCs for each KEGG pathway were calculated by PCA. We have 1646 PCs in total.
+  
+  [For more details](https://xsun1229.github.io/factor_analysis/eval_kegg_cedar.html)
+
+
+## **3.2 Prediction models for factors(GTEx)**
 
 We used two groups of variants to train models. The first group contains all variants have maf > 0.01(10,403,249 variants) and maf > 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR > 0.05).
 

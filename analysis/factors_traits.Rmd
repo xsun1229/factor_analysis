@@ -286,3 +286,13 @@ The 10 genotype pcs using as covariates in factor ~ SNP association tests are co
 [Details - regress out 5 PEER factors](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k.html)
 
 [Details - regress out 5 PEER factors >40 genes](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_40genes.html)
+# **6. Classical GWAS pathway analysis **
+
+We compared our candidate pathways with the pathways reported by a classical GWAS pathway analysis —— MAGMA.
+
+[Results](https://xsun1229.github.io/factor_analysis/MAGMA_results.html)
+
+
+
+
+
