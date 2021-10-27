@@ -100,9 +100,9 @@ pwy307_pc5
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy307_pc5_bcell.jpeg" width="100%">
 </figure>
 
-pwy320_pc5
+pwy320_pc2
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy320_pc5_bcell.jpeg" width="100%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy320_pc2_bcell.jpeg" width="100%">
 </figure>
 
 pwy331_pc5
