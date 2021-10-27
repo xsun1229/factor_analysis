@@ -446,7 +446,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-07-31
+<strong>Last updated:</strong> 2021-10-26
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee16ea96987369b741166ebb2c99d6ae60a5a5117targetblanke16ea96a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/e16ea96987369b741166ebb2c99d6ae60a5a5117" target="_blank">e16ea96</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree9497e4034339eee118d48e97ae51098bf7532488targetblank9497e40a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/9497e4034339eee118d48e97ae51098bf7532488" target="_blank">9497e40</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee16ea96987369b741166ebb2c99d6ae60a5a5117targetblanke16ea96a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree9497e4034339eee118d48e97ae51098bf7532488targetblank9497e40a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/e16ea96987369b741166ebb2c99d6ae60a5a5117" target="_blank">e16ea96</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/9497e4034339eee118d48e97ae51098bf7532488" target="_blank">9497e40</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -535,6 +535,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/b0da368637512318ce5723191777229fb056909f/analysis/variants_factors.Rmd" target="_blank">b0da368</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-10-26
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/3f6fb22e012a382d091b8ee25497314edf7a6ae6/docs/variants_factors.html" target="_blank">3f6fb22</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2021-07-31
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -712,8 +746,10 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 </div>
 <div id="analyses" class="section level1">
 <h1><strong>3. Analyses</strong></h1>
-<div id="factor-construction-and-evaluation" class="section level2">
-<h2><strong>3.1 Factor Construction and evaluation</strong></h2>
+<div id="factor-construction-and-heritability-evaluation" class="section level2">
+<h2><strong>3.1 Factor Construction and heritability evaluation</strong></h2>
+<div id="gtex-data" class="section level3">
+<h3><strong>3.1.1 GTEx data</strong></h3>
 <ul>
 <li><p>4 methods were used to infer expression factors from the expression matrix. The <a href="https://github.com/wgmao/PLIER">PLIER</a>, <a href="https://github.com/stephenslab/flashr">FLASH</a>, and <a href="https://github.com/PMBio/peer/">PEER</a> worked on GTEx gene expression matrix of whole blood(670 samples, 19,696 genes). PCA worked on KEGG 332 pathways.</p></li>
 <li><p>Heritability of factors was computed using <a href="https://cnsgenomics.com/software/gcta/#GREML">GCTA</a> and histograms were made to show the heritability distribution.</p></li>
@@ -734,8 +770,15 @@ wflow_publish(c(“analysis/index.Rmd”, “analysis/variants_factors.Rmd”,
 <p>1-5 PCs for each KEGG pathway were calculated by PCA. We have 1646 PCs in total.</p>
 <p><a href="https://xsun1229.github.io/factor_analysis/eval_kegg.html">For more details</a></p>
 </div>
-<div id="prediction-models-for-factors" class="section level2">
-<h2><strong>3.2 Prediction models for factors</strong></h2>
+<div id="cedar-data" class="section level3">
+<h3><strong>3.1.2 CEDAR data</strong></h3>
+<p><strong>PCs from KEGG pathways</strong></p>
+<p>1-5 PCs for each KEGG pathway were calculated by PCA. We have 1646 PCs in total.</p>
+<p><a href="https://xsun1229.github.io/factor_analysis/eval_kegg_cedar.html">For more details</a></p>
+</div>
+</div>
+<div id="prediction-models-for-factorsgtex" class="section level2">
+<h2><strong>3.2 Prediction models for factors(GTEx)</strong></h2>
 <p>We used two groups of variants to train models. The first group contains all variants have maf &gt; 0.01(10,403,249 variants) and maf &gt; 0.05(6,568,202 variants). The second group contains all significant cis-eQTLs provided by GTEx (FDR &gt; 0.05).</p>
 <p>The workflow of the prediction models is described below. The model training and performance evaluation were performed in R (version 4.0.4).</p>
 <p>The model training follows:</p>
