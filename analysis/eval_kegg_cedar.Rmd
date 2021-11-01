@@ -82,17 +82,17 @@ For the factors have heritability p-value <0.05, we did GWAS association tests.
 
 ### B cell
 
-pwy281_pc5
+pwy281_pc5 (39 genes)
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy281_pc5_bcell.jpeg" width="100%">
 </figure>
 
-pwy320_pc2
+pwy320_pc2 (19 genes)
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy320_pc2_bcell.jpeg" width="100%">
 </figure>
 
-pwy331_pc5
+pwy331_pc5 (46 genes)
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy331_pc5_bcell.jpeg" width="100%">
 </figure>
@@ -101,19 +101,21 @@ pwy331_pc5
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_bcell.png" width="300%">
 </figure>
 
+The three pathways have 15 overlap genes: "HLA-DMA"  "HLA-DMB"  "HLA-DOA"  "HLA-DOB"  "HLA-DPA1" "HLA-DPB1" "HLA-DQA1" "HLA-DQA2" "HLA-DQB1" "HLA-DRA"  "HLA-DRB1" "HLA-DRB3" "HLA-DRB4" "HLA-DRB5". They are the nearby genes of the top SNPs.
+
 ### CD14+ monocyte
 
-pwy71_pc3
+pwy71_pc3 (6 genes)
 <figure class="half">    
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy71_pc3_cd14.jpeg" width="100%">
 </figure>
 
-pwy193_pc3
+pwy193_pc3 (32 genes)
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy193_pc3_cd14.jpeg" width="100%">
 </figure>
 
-pwy320_pc3
+pwy320_pc3 (19 genes)
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy320_pc3_cd14.jpeg" width="100%">
 </figure>
@@ -121,6 +123,8 @@ pwy320_pc3
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_cd14.png" width="300%">
 </figure>
+
+pwy193 and pwy320 have 16 overlap genes: "CD40"     "CD40LG"   "HLA-DMA"  "HLA-DMB"  "HLA-DOA"  "HLA-DOB"  "HLA-DPA1" "HLA-DPB1" "HLA-DQA1" "HLA-DQB1" "HLA-DRA"  "HLA-DRB1" "HLA-DRB3" "HLA-DRB4" "HLA-DRB5" "IL10"   
 
 ### CD4+ T cell
 
@@ -187,6 +191,9 @@ pwy331_pc5
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_tcell.png" width="300%">
 </figure>
+
+pwy238(30 genes), pwy281(37 genes), pwy321(28 genes), pwy322(44 genes), pwy325(28 genes), pwy326(30 genes), pwy331(45 genes) have 13 overlap genes: "HLA-DMA"  "HLA-DMB"  "HLA-DOA"  "HLA-DOB" 
+ "HLA-DPA1" "HLA-DPB1" "HLA-DQA1" "HLA-DQB1" "HLA-DRA"  "HLA-DRB1" "HLA-DRB3" "HLA-DRB4" "HLA-DRB5"
 
 ### CD8+ T cell
 
