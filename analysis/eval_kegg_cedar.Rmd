@@ -78,26 +78,13 @@ DT::datatable(sum, options = list(pageLength =5))
 
 For the factors have heritability p-value <0.05, we did GWAS association tests. 
 
-## B cell
+## Factors have genomewide significant associations
 
-pwy146_pc5
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy146_pc5_bcell.jpeg" width="100%">
-</figure>
-
-pwy248_pc4
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy248_pc4_bcell.jpeg" width="100%">
-</figure>
+### B cell
 
 pwy281_pc5
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy281_pc5_bcell.jpeg" width="100%">
-</figure>
-
-pwy307_pc5
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy307_pc5_bcell.jpeg" width="100%">
 </figure>
 
 pwy320_pc2
@@ -110,16 +97,15 @@ pwy331_pc5
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy331_pc5_bcell.jpeg" width="100%">
 </figure>
 
-## CD14+ monocyte
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_bcell.jpeg" width="300%">
+</figure>
+
+### CD14+ monocyte
 
 pwy71_pc3
 <figure class="half">    
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy71_pc3_cd14.jpeg" width="100%">
-</figure>
-
-pwy72_pc1
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy72_pc1_cd14.jpeg" width="100%">
 </figure>
 
 pwy193_pc3
@@ -127,18 +113,16 @@ pwy193_pc3
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy193_pc3_cd14.jpeg" width="100%">
 </figure>
 
-pwy22_pc2
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy22_pc2_cd14.jpeg" width="100%">
-</figure>
-
 pwy320_pc3
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy320_pc3_cd14.jpeg" width="100%">
 </figure>
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_cd14.jpeg" width="300%">
+</figure>
 
-## CD4+ T cell
+### CD4+ T cell
 
 pwy7_pc4
 <figure class="half">
@@ -150,11 +134,6 @@ pwy72_pc3
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy72_pc3_tcell.jpeg" width="100%">
 </figure>
 
-pwy209_pc5
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy209_pc5_tcell.jpeg" width="100%">
-</figure>
-
 pwy238_pc3
 <figure class="half">    
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy238_pc3_tcell.jpeg" width="100%">
@@ -163,16 +142,6 @@ pwy238_pc3
 pwy238_pc4
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy238_pc4_tcell.jpeg" width="100%">
-</figure>
-
-pwy239_pc2
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy239_pc2_tcell.jpeg" width="100%">
-</figure>
-
-pwy247_pc3
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy247_pc3_tcell.jpeg" width="100%">
 </figure>
 
 pwy281_pc4
@@ -215,17 +184,15 @@ pwy331_pc5
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy331_pc5_tcell.jpeg" width="100%">
 </figure>
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_tcell.jpeg" width="300%">
+</figure>
 
-## CD8+ T cell
+### CD8+ T cell
 
 pwy21_pc3
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy21_pc3_thy.jpeg" width="100%">
-</figure>
-
-pwy92_pc3
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy92_pc3_thy.jpeg" width="100%">
 </figure>
 
 pwy113_pc3
@@ -238,11 +205,6 @@ pwy149_pc2
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy149_pc2_thy.jpeg" width="100%">
 </figure>
 
-pwy186_pc4
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy186_pc4_thy.jpeg" width="100%">
-</figure>
-
 pwy276_pc4
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy276_pc4_thy.jpeg" width="100%">
@@ -252,4 +214,73 @@ pwy332_pc3
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy332_pc3_thy.jpeg" width="100%">
 </figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_thy.jpeg" width="300%">
+</figure>
+
+## Others
+
+### B cell
+
+pwy146_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy146_pc5_bcell.jpeg" width="100%">
+</figure>
+
+pwy248_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy248_pc4_bcell.jpeg" width="100%">
+</figure>
+
+pwy307_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy307_pc5_bcell.jpeg" width="100%">
+</figure>
+
+
+### CD14+ monocyte
+
+pwy72_pc1
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy72_pc1_cd14.jpeg" width="100%">
+</figure>
+
+pwy22_pc2
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy22_pc2_cd14.jpeg" width="100%">
+</figure>
+
+
+### CD4+ T cell
+
+pwy209_pc5
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy209_pc5_tcell.jpeg" width="100%">
+</figure>
+
+pwy239_pc2
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy239_pc2_tcell.jpeg" width="100%">
+</figure>
+
+pwy247_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy247_pc3_tcell.jpeg" width="100%">
+</figure>
+
+
+### CD8+ T cell
+
+pwy92_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy92_pc3_thy.jpeg" width="100%">
+</figure>
+
+pwy186_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy186_pc4_thy.jpeg" width="100%">
+</figure>
+
+
 
