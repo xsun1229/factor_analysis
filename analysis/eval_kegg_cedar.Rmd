@@ -98,7 +98,7 @@ pwy331_pc5
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_bcell.jpeg" width="300%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_bcell.png" width="300%">
 </figure>
 
 ### CD14+ monocyte
@@ -119,7 +119,7 @@ pwy320_pc3
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_cd14.jpeg" width="300%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_cd14.png" width="300%">
 </figure>
 
 ### CD4+ T cell
@@ -185,7 +185,7 @@ pwy331_pc5
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_tcell.jpeg" width="300%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_tcell.png" width="300%">
 </figure>
 
 ### CD8+ T cell
@@ -216,7 +216,7 @@ pwy332_pc3
 </figure>
 
 <figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_thy.jpeg" width="300%">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_thy.png" width="300%">
 </figure>
 
 ## Others
