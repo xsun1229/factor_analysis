@@ -78,7 +78,83 @@ DT::datatable(sum, options = list(pageLength =5))
 
 For the factors have heritability p-value <0.05, we did GWAS association tests. 
 
-## Factors have genomewide significant associations
+## Summary table
+
+The table below lists the factors have genomewide significant associations (not in MHC area).
+
+
+| cell_type       | factor     | pwy_name                                    | pwy_code | pwy_gene | top_SNP                        | chr_topSNP | bp_topSNP | gwas_p_topSNP | nearby_genes_topSNP   |
+|-----------------|------------|---------------------------------------------|----------|----------|--------------------------------|------------|-----------|---------------|-----------------------|
+| CD14+ monocyte  | pwy71_pc3  | Riboflavin metabolism                       | 00740    | 6        | rs1401008965(19:11694826:TA:T) | 19         | 11694826  | 4.85E-10      | ACP5,ZNF627           |
+| CD4+ T cell     | pwy7_pc4   | Ascorbate and aldarate metabolism           | 00053    | 8        | rs4505015                      | 10         | 125997171 | 1.55E-08      | OAT                   |
+|                 | pwy72_pc3  | Vitamin B6 metabolism                       | 00750    | 5        | rs758463                       | 2          | 170437019 | 1.41E-17      | PPIG,FASTKD1          |
+| CD8+ T cell     | pwy21_pc3  | Alanine, aspartate and glutamate metabolism | 00250    | 15       | rs73355374                     | 10         | 122724991 | 1.52E-09      | MIR5694               |
+|                 | pwy113_pc3 | Ras signaling pathway                       | 04014    | 119      | rs144991212(19:32613277:T:C)   | 19         | 32613277  | 7.61E-09      | LOC101927411          |
+|                 | pwy149_pc2 | Ferroptosis                                 | 04216    | 33       | rs144513905(15:80037422:T:G)   | 15         | 80037422  | 2.85E-08      | MTHFS,ST20-MTHFS,ST20 |
+|                 | pwy276_pc4 | Chagas disease                              | 05142    | 64       | rs11204230                     | 10         | 48478267  | 2.38E-08      | GDF10                 |
+|                 | pwy332_pc3 | Fluid shear stress and atherosclerosis      | 05418    | 90       | rs112600929(12:43163810:T:C)   | 12         | 43163810  | 1.251E-08     | LOC101927058          |
+
+
+## GWAS results and LocusZoom plot (significant but not in MHC area)
+
+The plots below are the factors have genomewide significant associations (not in MHC area).
+
+### CD14+ monocyte 
+
+pwy71_pc3
+<figure class="half">    
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy71_pc3_cd14.jpeg" width="100%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_cd14.png" width="300%">
+</figure>
+
+### CD4+ T cell
+
+pwy7_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy7_pc4_tcell.jpeg" width="100%">
+</figure>
+
+pwy72_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy72_pc3_tcell.jpeg" width="100%">
+</figure>
+
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_tcell.png" width="300%">
+</figure>
+
+### CD8+ T cell
+
+pwy21_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy21_pc3_thy.jpeg" width="100%">
+</figure>
+
+pwy113_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy113_pc3_thy.jpeg" width="100%">
+</figure>
+
+pwy149_pc2
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy149_pc2_thy.jpeg" width="100%">
+</figure>
+
+pwy276_pc4
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy276_pc4_thy.jpeg" width="100%">
+</figure>
+
+pwy332_pc3
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy332_pc3_thy.jpeg" width="100%">
+</figure>
+
+
+## GWAS results (significant and in MHC area)
 
 ### B cell
 
@@ -97,18 +173,9 @@ pwy331_pc5 (46 genes)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy331_pc5_bcell.jpeg" width="100%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_bcell.png" width="300%">
-</figure>
-
 The three pathways have 15 overlap genes: "HLA-DMA"  "HLA-DMB"  "HLA-DOA"  "HLA-DOB"  "HLA-DPA1" "HLA-DPB1" "HLA-DQA1" "HLA-DQA2" "HLA-DQB1" "HLA-DRA"  "HLA-DRB1" "HLA-DRB3" "HLA-DRB4" "HLA-DRB5". They are the nearby genes of the top SNPs.
 
 ### CD14+ monocyte
-
-pwy71_pc3 (6 genes)
-<figure class="half">    
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy71_pc3_cd14.jpeg" width="100%">
-</figure>
 
 pwy193_pc3 (32 genes)
 <figure class="half">
@@ -120,23 +187,10 @@ pwy320_pc3 (19 genes)
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy320_pc3_cd14.jpeg" width="100%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_cd14.png" width="300%">
-</figure>
-
 pwy193 and pwy320 have 16 overlap genes: "CD40"     "CD40LG"   "HLA-DMA"  "HLA-DMB"  "HLA-DOA"  "HLA-DOB"  "HLA-DPA1" "HLA-DPB1" "HLA-DQA1" "HLA-DQB1" "HLA-DRA"  "HLA-DRB1" "HLA-DRB3" "HLA-DRB4" "HLA-DRB5" "IL10"   
 
 ### CD4+ T cell
 
-pwy7_pc4
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy7_pc4_tcell.jpeg" width="100%">
-</figure>
-
-pwy72_pc3
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy72_pc3_tcell.jpeg" width="100%">
-</figure>
 
 pwy238_pc3
 <figure class="half">    
@@ -188,45 +242,10 @@ pwy331_pc5
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy331_pc5_tcell.jpeg" width="100%">
 </figure>
 
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_tcell.png" width="300%">
-</figure>
-
 pwy238(30 genes), pwy281(37 genes), pwy321(28 genes), pwy322(44 genes), pwy325(28 genes), pwy326(30 genes), pwy331(45 genes) have 13 overlap genes: "HLA-DMA"  "HLA-DMB"  "HLA-DOA"  "HLA-DOB" 
  "HLA-DPA1" "HLA-DPB1" "HLA-DQA1" "HLA-DQB1" "HLA-DRA"  "HLA-DRB1" "HLA-DRB3" "HLA-DRB4" "HLA-DRB5"
 
-### CD8+ T cell
-
-pwy21_pc3
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy21_pc3_thy.jpeg" width="100%">
-</figure>
-
-pwy113_pc3
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy113_pc3_thy.jpeg" width="100%">
-</figure>
-
-pwy149_pc2
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy149_pc2_thy.jpeg" width="100%">
-</figure>
-
-pwy276_pc4
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy276_pc4_thy.jpeg" width="100%">
-</figure>
-
-pwy332_pc3
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy332_pc3_thy.jpeg" width="100%">
-</figure>
-
-<figure class="half">
-    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_thy.png" width="300%">
-</figure>
-
-## Others
+## GWAS results (not significant )
 
 ### B cell
 
