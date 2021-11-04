@@ -153,6 +153,9 @@ pwy332_pc3
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/qq_man_pwy332_pc3_thy.jpeg" width="100%">
 </figure>
 
+<figure class="half">
+    <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/locuszoom_thy.png" width="300%">
+</figure>
 
 ## GWAS results (significant and in MHC area)
 
