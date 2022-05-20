@@ -46,11 +46,23 @@ We computed both ACAT p-values and K-S p-values. The p-values seem better (qqplo
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/CEDAR_cell_sum_plier_qc_pruned_adap.png" width="80%">
 </figure>
 
-# **Barplot showing the number of SNPs that each pair contains**
+# **Barplot showing the number of supporting SNPs that each pair contains**
 
 <figure class="half">
     <img src="https://github.com/xsun1229/factor_analysis/raw/master/output/hist_snp_all_plier_cedar.jpg" width="100%">
 </figure>
+
+
+# **Details for the pairs have ECT FDR < 0.2 **
+
+
+We found 32 pairs at FDR < 0.2. 15 of them have ECT FDR < 0.1
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/website/factor_analysis/output/summary_allcelltype.rdata")
+DT::datatable(final, options = list(pageLength =5))
+```
+
 
 # **Detailed results for 6 cell types**
 
