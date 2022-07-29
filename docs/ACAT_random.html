@@ -406,7 +406,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you'll want to first commit it to the Git repo. If you're still working on the analysis, you can ignore this warning. When you're finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you'll want to first commit it to the Git repo. If you're still working on the analysis, you can ignore this warning. When you're finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -473,16 +473,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreedcf4775779b0a4d64df0277cee864a154b1f4889targetblankdcf4775a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/dcf4775779b0a4d64df0277cee864a154b1f4889" target="_blank">dcf4775</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree625b2a6cf2f0f53c2fef76183a3e287ca8a7a041targetblank625b2a6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041" target="_blank">625b2a6</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreedcf4775779b0a4d64df0277cee864a154b1f4889targetblankdcf4775a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree625b2a6cf2f0f53c2fef76183a3e287ca8a7a041targetblank625b2a6a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/dcf4775779b0a4d64df0277cee864a154b1f4889" target="_blank">dcf4775</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041" target="_blank">625b2a6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -494,8 +494,8 @@ Ignored files:
     Ignored:    analysis/.Rhistory
     Ignored:    output/.Rhistory
 
-Untracked files:
-    Untracked:  analysis/ACAT_random.Rmd
+Unstaged changes:
+    Modified:   analysis/ACAT_random.Rmd
 
 </code></pre>
 <p>
@@ -508,9 +508,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in th
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/ACAT_random.Rmd</code>) and HTML (<code>docs/ACAT_random.html</code>) files. If you've configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041/analysis/ACAT_random.Rmd" target="_blank">625b2a6</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-07-29
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041/docs/ACAT_random.html" target="_blank">625b2a6</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-07-29
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -522,6 +582,43 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <div id="original-acat-results" class="section level1">
 <h1>Original ACAT results</h1>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-2-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041/docs/figure/ACAT_random.Rmd/unnamed-chunk-2-1.png" target="_blank">625b2a6</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-07-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="random-acat-results" class="section level1">
 <h1>Random ACAT results</h1>
@@ -533,6 +630,43 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <li><p>Make QQ plot for each cell type.</p></li>
 </ol>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-3-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
+Past versions of unnamed-chunk-3-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-3-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041/docs/figure/ACAT_random.Rmd/unnamed-chunk-3-1.png" target="_blank">625b2a6</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-07-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>The QQ plots shift to y-axis and show strong signal, which is not expected for random SNPs. This could be due to: (1) Even random SNPs tend to be associated with the expression factors. (2) There is really no such trend, but ACAT gave significant p-values, in other words, the ACAT p-values are not calibrated.</p>
 </div>
 <div id="results-checking" class="section level1">
@@ -547,10 +681,84 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <div id="eur.ibd" class="section level2">
 <h2>EUR.IBD</h2>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-5-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
+Past versions of unnamed-chunk-5-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-5-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041/docs/figure/ACAT_random.Rmd/unnamed-chunk-5-1.png" target="_blank">625b2a6</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-07-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div id="pair-1-from-ibd-trait" class="section level3">
 <h3>pair 1 from IBD trait</h3>
 <p>From B cell dataset, pair: pwy203_pc4 - EUR.IBD, ACAT p-value:2.57244e-57</p>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-6-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
+Past versions of unnamed-chunk-6-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041/docs/figure/ACAT_random.Rmd/unnamed-chunk-6-1.png" target="_blank">625b2a6</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-07-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>top snps</p>
 <pre class="r"><code>index &lt;- which.min(as.numeric(as.character(results_linear$P)))
 results_linear[index,]</code></pre>
@@ -565,10 +773,89 @@ results_linear[index,]</code></pre>
      chrpos_vs
 430 6_32570228</code></pre>
 <pre class="r"><code>index_origin &lt;- which(final_map$rs_vs == snp)</code></pre>
+<p>QQ plot for the real data.</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-1">
+Past versions of unnamed-chunk-10-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-10-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041/docs/figure/ACAT_random.Rmd/unnamed-chunk-10-1.png" target="_blank">625b2a6</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-07-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>p_acat &lt;- ACAT(as.numeric(as.character(results_linear$P)))
+p_acat</code></pre>
+<pre><code>[1] 0.9894268</code></pre>
 </div>
 <div id="pair-2-from-ibd-trait" class="section level3">
 <h3>Pair 2 from IBD trait</h3>
-<p>From CD14_positive_monocyte, pair: pwy312_pc3 - EUR.IBD, ACAT p-value:1.604200e-59 <img src="figure/ACAT_random.Rmd/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>From CD14_positive_monocyte, pair: pwy312_pc3 - EUR.IBD, ACAT p-value:1.604200e-59 <img src="figure/ACAT_random.Rmd/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
+Past versions of unnamed-chunk-12-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041/docs/figure/ACAT_random.Rmd/unnamed-chunk-12-1.png" target="_blank">625b2a6</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-07-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>top snps</p>
 <pre class="r"><code>index &lt;- which.min(as.numeric(as.character(results_linear$P)))
 results_linear[index,]</code></pre>
@@ -582,14 +869,56 @@ results_linear[index,]</code></pre>
 430 rs9270832 control1      6 32570228      T      C 0.2744                6544
      chrpos_vs
 430 6_32570228</code></pre>
+<p>QQ plot for the real data.</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-16-1.png" width="384" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>p_acat &lt;- ACAT(as.numeric(as.character(results_linear$P)))
+p_acat</code></pre>
+<pre><code>[1] 0.3482019</code></pre>
 </div>
 </div>
 <div id="rbc" class="section level2">
 <h2>rbc</h2>
-<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-14-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-18-1.png" width="864" style="display: block; margin: auto;" /></p>
 <div id="pair-1-from-rbc" class="section level3">
 <h3>Pair 1 from rbc</h3>
-<p>From T cell (CD8+) dataset, pair: pwy311_pc5 - rbc, ACAT p-value:2.637203e-11 <img src="figure/ACAT_random.Rmd/unnamed-chunk-15-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>From T cell (CD8+) dataset, pair: pwy311_pc5 - rbc, ACAT p-value:2.637203e-11 <img src="figure/ACAT_random.Rmd/unnamed-chunk-19-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-19-1">
+Past versions of unnamed-chunk-19-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-19-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/625b2a6cf2f0f53c2fef76183a3e287ca8a7a041/docs/figure/ACAT_random.Rmd/unnamed-chunk-19-1.png" target="_blank">625b2a6</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-07-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>top snps</p>
 <pre class="r"><code>index1 &lt;- which.min(as.numeric(as.character(results_linear$P)))
 results_linear[index1,]</code></pre>
@@ -615,14 +944,18 @@ results_linear[index2,]</code></pre>
      inLDvariants_LD1_vs  chrpos_vs
 1497                 888 6_32358368</code></pre>
 <p>These two origin variants have LD R2 &lt; 0.1 and physical distance &gt; 1Mb</p>
+<p>QQ plot for the real data. <img src="figure/ACAT_random.Rmd/unnamed-chunk-23-1.png" width="384" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>p_acat &lt;- ACAT(as.numeric(as.character(results_linear$P)))
+p_acat</code></pre>
+<pre><code>[1] 0.05769225</code></pre>
 </div>
 </div>
 <div id="allergy" class="section level2">
 <h2>Allergy</h2>
-<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-19-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-25-1.png" width="864" style="display: block; margin: auto;" /></p>
 <div id="pair-1-from-allergy" class="section level3">
 <h3>Pair 1 from allergy</h3>
-<p>From B cell dataset, pair: pwy236_pc4 - rbc, ACAT p-value:2.1553e-17 <img src="figure/ACAT_random.Rmd/unnamed-chunk-20-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p>From B cell dataset, pair: pwy236_pc4 - rbc, ACAT p-value:2.1553e-17 <img src="figure/ACAT_random.Rmd/unnamed-chunk-26-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>top snps</p>
 <pre class="r"><code>index1 &lt;- which.min(as.numeric(as.character(results_linear$P)))
 results_linear[index1,]</code></pre>
@@ -648,6 +981,10 @@ results_linear[index2,]</code></pre>
     inLDvariants_LD1_vs  chrpos_vs
 694                1288 6_32420952</code></pre>
 <p>These two origin variants have LD R2 &lt; 0.1 and physical distance &gt; 1Mb</p>
+<p>QQ plot for the real data. <img src="figure/ACAT_random.Rmd/unnamed-chunk-30-1.png" width="384" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>p_acat &lt;- ACAT(as.numeric(as.character(results_linear$P)))
+p_acat</code></pre>
+<pre><code>[1] 0.8346754</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -675,7 +1012,7 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] gridExtra_2.3 ggplot2_3.3.5
+[1] ACAT_0.91     gridExtra_2.3 ggplot2_3.3.5
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.8        highr_0.8         pillar_1.6.5      compiler_4.0.4   
@@ -687,10 +1024,10 @@ loaded via a namespace (and not attached):
 [25] knitr_1.31        generics_0.1.0    fs_1.5.0          vctrs_0.3.8      
 [29] sass_0.3.1        tidyselect_1.1.0  rprojroot_2.0.2   grid_4.0.4       
 [33] glue_1.6.2        R6_2.5.0          fansi_0.4.2       rmarkdown_2.7    
-[37] farver_2.1.0      purrr_0.3.4       magrittr_2.0.1    scales_1.1.1     
-[41] promises_1.2.0.1  ellipsis_0.3.2    htmltools_0.5.1.1 assertthat_0.2.1 
-[45] colorspace_2.0-0  httpuv_1.5.5      labeling_0.4.2    utf8_1.2.2       
-[49] stringi_1.5.3     munsell_0.5.0     crayon_1.4.1     </code></pre>
+[37] farver_2.1.0      purrr_0.3.4       magrittr_2.0.1    whisker_0.4      
+[41] scales_1.1.1      promises_1.2.0.1  ellipsis_0.3.2    htmltools_0.5.1.1
+[45] assertthat_0.2.1  colorspace_2.0-0  httpuv_1.5.5      labeling_0.4.2   
+[49] utf8_1.2.2        stringi_1.5.3     munsell_0.5.0     crayon_1.4.1     </code></pre>
 </div>
 </div>
 </div>

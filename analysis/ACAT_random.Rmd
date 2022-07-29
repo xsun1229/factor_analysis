@@ -9,6 +9,7 @@ editor_options:
 ```{r, echo = FALSE}
 suppressMessages(library(ggplot2))
 suppressMessages(library(gridExtra))
+suppressMessages(library(ACAT))
 ```
 
 
@@ -197,6 +198,38 @@ The origin snp:
 final_map[index_origin,]
 index_origin <- which(final_map$rs_vs == snp)
 ```
+
+
+QQ plot for the real data.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+load("~/xsun_xin/CEDAR/4.B_cell_kegg/7.geneset40_peer/gwas_sum/EUR.IBD.rdata")
+results_linear <- gwas_sum[["pwy203_pc4"]]
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(results_linear$P)))),
+                       expected = -log10(ppoints(nrow(results_linear))))
+
+
+ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+```
+```{r echo=T}
+p_acat <- ACAT(as.numeric(as.character(results_linear$P)))
+p_acat
+```
+
+
 ### Pair 2 from IBD trait
 
 From CD14_positive_monocyte, pair: pwy312_pc3 - EUR.IBD, ACAT p-value:1.604200e-59
@@ -237,6 +270,36 @@ index_origin <- which(final_map$rs_vs == snp)
 The origin snp:
 ```{r echo=T}
 final_map[index_origin,]
+```
+
+QQ plot for the real data.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+load("~/xsun_xin/CEDAR/6.CD14_positive_monocyte_kegg/7.geneset40_peer/gwas_sum/EUR.IBD.rdata")
+results_linear <- gwas_sum[["pwy312_pc3"]]
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(results_linear$P)))),
+                       expected = -log10(ppoints(nrow(results_linear))))
+
+
+ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+```
+
+```{r echo=T}
+p_acat <- ACAT(as.numeric(as.character(results_linear$P)))
+p_acat
 ```
 ## rbc
 
@@ -322,6 +385,36 @@ final_map[index_origin2,]
 ```
 
 These two origin variants have LD R2 < 0.1 and physical distance > 1Mb
+
+QQ plot for the real data.
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+load("~/xsun_xin/CEDAR/14.thymocyte_kegg/7.geneset40_peer/gwas_sum/rbc.rdata")
+results_linear <- gwas_sum[["pwy311_pc5"]]
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(results_linear$P)))),
+                       expected = -log10(ppoints(nrow(results_linear))))
+
+
+ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+```
+
+```{r echo=T}
+p_acat <- ACAT(as.numeric(as.character(results_linear$P)))
+p_acat
+```
+
 
 ## Allergy
 
@@ -409,6 +502,33 @@ final_map[index_origin2,]
 
 These two origin variants have LD R2 < 0.1 and physical distance > 1Mb
 
+QQ plot for the real data.
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+load("~/xsun_xin/CEDAR/4.B_cell_kegg/7.geneset40_peer/gwas_sum/allergy.rdata")
+results_linear <- gwas_sum[["pwy236_pc4"]]
 
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(results_linear$P)))),
+                       expected = -log10(ppoints(nrow(results_linear))))
+
+
+ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+```
+
+```{r echo=T}
+p_acat <- ACAT(as.numeric(as.character(results_linear$P)))
+p_acat
+```
 
 
