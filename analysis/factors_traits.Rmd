@@ -66,9 +66,9 @@ To make our results more reliable, we did resampling.
 
 1) We resampled the beta.outcome and beta.exposure from the origin dataset(the data set containing all SNPs) without replacement, made the fitting again and recorded the r-squareds to compute the p-values in resampling. 
 
-2) The ‘p-value from resampling’ is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
+2) The ???p-value from resampling??? is computed by: (number of more extreme values)/(times of resampling).The resampling was repeated 1000 times.
 
-3) We computed the enrichment of the pairs show sign consistency than expect follows: enrichment=num_(pairs show sign consistancy)  /(num_(total pairs)  × threshold)
+3) We computed the enrichment of the pairs show sign consistency than expect follows: enrichment=num_(pairs show sign consistancy)  /(num_(total pairs)  ?? threshold)
 
 - We first tried to do resampling 1000 times for each pair have >2 SNPs at FDR < 0.2
 
@@ -83,7 +83,7 @@ Weighted mode-based estimate (MBE) was adopted to check the reverse causality. m
 
 ## **3.3 Colocalization analysis**
 
-We did colocalization analysis whether factor-association signals and GWAS signals at a locus are consistent with having a shared casual variant. The colocalization analysis was performed using the approximate Bayes factor test implemented by coloc.abf() function in ‘coloc’ R package. ‘coloc’ computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran ‘coloc’ with the default parameters and used PP4 to assess evidence of colocalization. 
+We did colocalization analysis whether factor-association signals and GWAS signals at a locus are consistent with having a shared casual variant. The colocalization analysis was performed using the approximate Bayes factor test implemented by coloc.abf() function in ???coloc??? R package. ???coloc??? computes five posterior probabilities (PP0, PP1, PP2, PP3 and PP4), each corresponding to a hypothesis: H0, no association with either trait; H1, association with trait 1 but not with trait 2; H2, association with trait 2 but not with trait 1; H3, association with trait 1 and trait 2, two independent SNPs; H4, association with trait 1 and trait 2, one shared SNP. We ran ???coloc??? with the default parameters and used PP4 to assess evidence of colocalization. 
 
 We will do colocalization for the variants from the pair shows sign consistency, which are named as factor-QTLs by us. The colocalization was performed follows:
 
@@ -93,7 +93,7 @@ We will do colocalization for the variants from the pair shows sign consistency,
 
 3)	Colocalization analysis was did for the association signals in step 2) and GWAS signals.
 
-4)	The colocalization results were visualized the using the ‘LocusCompareR’ package (version 1.0.0, downloaded from https://github.com/boxiangliu/locuscomparer).  
+4)	The colocalization results were visualized the using the ???LocusCompareR??? package (version 1.0.0, downloaded from https://github.com/boxiangliu/locuscomparer).  
 
 
 ## **3.4 ORA enrichment analysis** 
@@ -289,11 +289,13 @@ The 10 genotype pcs using as covariates in factor ~ SNP association tests are co
 
 # **6. Classical GWAS pathway analysis **
 
-We compared our candidate pathways with the pathways reported by a classical GWAS pathway analysis —— MAGMA.
+We compared our candidate pathways with the pathways reported by a classical GWAS pathway analysis (MAGMA).
 
 [Results](https://xsun1229.github.io/factor_analysis/MAGMA_results.html)
 
 
+# **7. Random ACAT**
 
+[Results](https://xsun1229.github.io/factor_analysis/ACAT_random.html)
 
 

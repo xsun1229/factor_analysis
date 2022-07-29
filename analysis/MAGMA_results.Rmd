@@ -6,13 +6,19 @@ output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
+```{r, echo = FALSE}
+suppressMessages(library(ggplot2))
+library(data.table)
+```
+
 
 # **Overview**
 
 In this part, we used [MAGMA](https://ctg.cncr.nl/software/magma) to do the classical GWAS pathway analysis with cis-variants. Then, we compared the MAGMA results with the candidate pathways from [our methods](https://xsun1229.github.io/factor_analysis/cedar_kegg_26_qc_d1k_pruned_10peer_40genes.html#effectsize_fitting_summary). 
 
 
-# **Comparision with earlier results**
+# **Comparision with ECT results**
+
 
 In earlier analyses for CEDAR KEGG PCs, we found four candidate pathways have ECT FDR < 0.1. Two of them have low MAGMA p-values.
 
@@ -23,8 +29,159 @@ In earlier analyses for CEDAR KEGG PCs, we found four candidate pathways have EC
 | T cell (CD4+)      |     rdw_pwy294_pc4       |     hsa     05200    |     Pathways in cancer                         |     6    |     6.00E-06    |     0.007    | 0.10707  | 0.3312010  |
 | Platelet           |     ret_pwy223_pc1       |     hsa 04921        |     Oxytocin   signaling pathway               |     8    |     1.8E-05     |     0.061    | 0.81076  | 0.3022832  |
 
+Results for pairs have ECT FDR < 0.2
 
-# **MAGMA results**
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/magma/CEDAR_KEGG_compare.rdata")
+DT::datatable(ect, options = list(pageLength =5))
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+load("/project2/xinhe/xsun/magma/CEDAR_KEGG_compare.rdata")
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(ect$magma_p)))),
+                       expected = -log10(ppoints(nrow(ect))))
+#  
+
+qq <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+ # ggtitle("B cell (CD19+)") + theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+qq
+```
+
+# **Random MAGMA results**
+
+We try to compare the our MAGMA results with random results.We binned the 332 pathways by the number of genes and then matched the number of genes in the random pathways vs. ours.
+
+|Number of genes          | group|Number of pathways|
+|-----------|-----------------|-------------|
+|0-40          | 1| 84|
+|41-80          | 2| 97|
+|81-120          | 3| 65|
+|121-200          | 4| 61|
+|201-max          | 5| 25|
+ 
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+load("~/xsun_xin/magma/CEDAR_KEGG_compare.rdata")
+load("/project2/xinhe/xsun/pathways/kegg/pathway_list.rdata") 
+
+num_gene <- c()
+for (i in 1:length(pathway_list)){
+  num_gene[i] <- length(pathway_list[[i]])
+}
+
+group <- c()
+for (i in 1:length(num_gene)){
+  
+  if(num_gene[i] <40) {
+    group[i] <- 1
+  }
+  if(num_gene[i] >= 40 & num_gene[i] < 80) {
+    group[i] <- 2
+  }
+  if(num_gene[i] >= 80 & num_gene[i] < 120) {
+    group[i] <- 3
+  }
+  if(num_gene[i] >= 120 & num_gene[i] < 200) {
+    group[i] <- 4
+  }
+  if(num_gene[i] >= 200) {
+    group[i] <- 5
+  }
+}
+
+pathway_sum <- data.frame(cbind(names(pathway_list), num_gene, group))
+colnames(pathway_sum)[1] <- "ID"
+
+folder_magma_results <- "/project2/xinhe/xsun/magma/genesetanalysis/"
+
+p_random <- c()
+id_random <- c()
+for (i in 1:nrow(ect)){
+  
+  trait <- ect$trait[i]
+  file_trait <- paste0(folder_magma_results,trait,".sum.magma.rdata")
+  load(file_trait)
+  
+  id <- ect$pwy_code[i]
+  group_id <- pathway_sum$group[pathway_sum$ID == id]
+  
+  candi <- which(pathway_sum$group == group_id)
+  index_rm <- which(pathway_sum$ID == id)
+  candi <- candi[-which(candi == index_rm)]
+  
+  random <- sample(1:length(candi),1)
+  index_random <- candi[random]
+  id_select <- pathway_sum$ID[index_random]
+  
+  p_random[i] <- summary$P[summary$codes == id_select]
+  id_random[i] <- id_select
+
+}
+
+random_final <- data.frame(cbind(p_random,id_random))
+
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(p_random)))),
+                       expected = -log10(ppoints(length(p_random))))
+#  
+
+qq <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman"))  
+
+qq
+```
+
+The p_random is totally different from the origin p-values
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+plot(random_final$p_random,ect$magma_p)
+```
+
+
+We ploted two QQ plots in one plot for comparison
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(p_random)))),
+                       expected = -log10(ppoints(length(p_random))),
+                       observed_real = -log10(sort(as.numeric(as.character(ect$magma_p)))) )
+dat.m <- melt(plotdata, id.vars = "expected")
+
+
+ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+  geom_point(shape = 1, size = 1.5) +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) +
+  
+  scale_colour_manual(values = c("red", "steelblue"))
+```
+
+# **MAGMA results for each trait**
 
 ## wbc
 
