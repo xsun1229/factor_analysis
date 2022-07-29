@@ -1,0 +1,414 @@
+---
+title: "ACAT analysis for random SNPs"
+author: "XSun"
+date: "2022-07-26"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+```{r, echo = FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+```
+
+
+# Introduction
+
+It was shown that ACAT p-values deviate significantly from null. One concern is that the GWAS SNPs may be somewhat different from other SNPs, so the results may be due to chance. It would be useful to repeat the analysis with random SNPs that match GWAS SNPs for allele frequency and LD.
+
+
+# Original ACAT results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+setwd("/project2/xinhe/xsun/CEDAR/4.B_cell_kegg/7.geneset40_peer")
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+
+p <- list()
+for (i in 1:length(type)){
+  
+  file <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/7.geneset40_peer/acat.rdata")
+  load(file)
+  
+  plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(list$pval_acat)))),
+                         expected = -log10(ppoints(nrow(list))))
+  #  
+  
+  p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+    geom_point(aes(expected, observed), shape = 1, size = 1.5, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  
+}
+
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+```
+
+# Random ACAT results
+
+We did the analysis follows:
+
+1. Find random SNPs that match GWAS SNPs for allele frequency and LD using [vSampler](http://www.mulinlab.org/vsampler/index.html)
+
+2. For each SNP, do association test PEER ~ SNP, select the PEER factors do not associate with SNP as covariates.
+For each expression factor, fo association test factor ~ SNP + SNP-specific covariates.
+
+3. Aggregate p-values using ACAT.
+
+4. Make QQ plot for each cell type.  
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results.rdata")
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+
+plot <- list()
+for (i in 1:length(type)){
+  
+  p <- acat_allcelltypes[[i]]
+  p[is.na(p)] <- 1
+  plotdata <- data.frame(observed = -log10(sort(p)),
+                         expected = -log10(ppoints(length(p))))
+  #  
+  
+  plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+    geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  
+}
+all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
+
+```
+
+The QQ plots shift to y-axis and show strong signal, which is not expected for random SNPs. This could be due to: (1) Even random SNPs tend to be associated with the expression factors. (2) There is really no such trend, but ACAT gave significant p-values, in other words, the ACAT p-values are not calibrated.
+
+# Results checking
+
+Take random SNPs matching a GWAS trait, say asthma, or IBD, or some blood cell traits. We have p-values of these SNPs with all factors. We show the QQ plots of these p-values. 
+
+Then we chose a pair of trait-factors that have very strong ACAT signal and made QQ plot the p-values from factor ~ SNP association tests. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results.rdata")
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+```
+
+
+## For all traits
+
+Several immune diseases and cell type trait can have strong signals (IBD,rbc,asthma, see below) while others not. 
+
+[All plots are here](https://photos.app.goo.gl/ouXA6kiRXWu2NCio8)
+
+## EUR.IBD
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=6, fig.width=9}
+
+trait <- "EUR.IBD"
+plot <- list()
+for (i in 1:length(acat_allcelltypes)){
+  
+  acat_cell <- acat_allcelltypes[[i]]
+  index <- grep(trait,names(acat_cell))  
+  p <- acat_cell[index]
+  p[is.na(p)] <- 1
+  plotdata <- data.frame(observed = -log10(sort(p)),
+                         expected = -log10(ppoints(length(p))))
+  #  
+  
+  plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+    geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+}
+
+all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
+
+```
+
+### pair 1 from IBD trait
+From B cell dataset, pair: pwy203_pc4 - EUR.IBD, ACAT p-value:2.57244e-57
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+load("~/scratch-midway2/CEDAR/ACAT_randomsnp/assoc/B_cell/EUR.IBD/pwy203_pc4/pwy203_pc4.assoc.rdata")
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(results_linear$P)))),
+                       expected = -log10(ppoints(nrow(results_linear))))
+
+
+ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+```
+
+top snps
+```{r echo=T}
+index <- which.min(as.numeric(as.character(results_linear$P)))
+results_linear[index,]
+```
+```{r echo=F}
+load("~/scratch-midway2/CEDAR/ACAT_randomsnp/genoforvsampler/B_cell/EUR.IBD.rdata")
+snp <- results_linear[index,]$SNP
+index_origin <- which(final_map$rs_vs == snp)
+```
+
+The origin snp:
+```{r echo=T}
+final_map[index_origin,]
+index_origin <- which(final_map$rs_vs == snp)
+```
+### Pair 2 from IBD trait
+
+From CD14_positive_monocyte, pair: pwy312_pc3 - EUR.IBD, ACAT p-value:1.604200e-59
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+load("~/scratch-midway2/CEDAR/ACAT_randomsnp/assoc/CD14_positive_monocyte/EUR.IBD/pwy312_pc3/pwy312_pc3.assoc.rdata")
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(results_linear$P)))),
+                       expected = -log10(ppoints(nrow(results_linear))))
+
+
+ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+```
+
+top snps
+```{r echo=T}
+index <- which.min(as.numeric(as.character(results_linear$P)))
+results_linear[index,]
+```
+
+```{r echo=F}
+load("~/scratch-midway2/CEDAR/ACAT_randomsnp/genoforvsampler/CD14_positive_monocyte/EUR.IBD.rdata")
+snp <- results_linear[index,]$SNP
+index_origin <- which(final_map$rs_vs == snp)
+```
+
+The origin snp:
+```{r echo=T}
+final_map[index_origin,]
+```
+## rbc
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=6, fig.width=9}
+
+trait <- "rbc"
+plot <- list()
+for (i in 1:length(acat_allcelltypes)){
+  
+  acat_cell <- acat_allcelltypes[[i]]
+  index <- grep(trait,names(acat_cell))  
+  p <- acat_cell[index]
+  p[is.na(p)] <- 1
+  plotdata <- data.frame(observed = -log10(sort(p)),
+                         expected = -log10(ppoints(length(p))))
+  #  
+  
+  plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+    geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+}
+
+all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
+
+```
+
+
+### Pair 1 from rbc
+
+From T cell (CD8+) dataset, pair: pwy311_pc5 - rbc, ACAT p-value:2.637203e-11
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=4, fig.width=4}
+load("~/scratch-midway2/CEDAR/ACAT_randomsnp/assoc/thymocyte/rbc/pwy311_pc5/pwy311_pc5.assoc.rdata")
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(results_linear$P)))),
+                       expected = -log10(ppoints(nrow(results_linear))))
+
+
+ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+```
+
+top snps
+```{r echo=T}
+index1 <- which.min(as.numeric(as.character(results_linear$P)))
+results_linear[index1,]
+index2 <- which(as.numeric(as.character(results_linear$P)) == sort(as.numeric(as.character(results_linear$P)))[2])
+results_linear[index2,]
+```
+
+```{r echo=F}
+load("~/scratch-midway2/CEDAR/ACAT_randomsnp/genoforvsampler/thymocyte/rbc.rdata")
+snp <- results_linear[index1,]$SNP
+index_origin1 <- which(final_map$rs_vs == snp)
+snp <- results_linear[index2,]$SNP
+index_origin2 <- which(final_map$rs_vs == snp)
+```
+
+The origin snp:
+```{r echo=T}
+final_map[index_origin1,]
+final_map[index_origin2,]
+```
+
+These two origin variants have LD R2 < 0.1 and physical distance > 1Mb
+
+## Allergy
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=6, fig.width=9}
+
+trait <- "allergy"
+plot <- list()
+for (i in 1:length(acat_allcelltypes)){
+  
+  acat_cell <- acat_allcelltypes[[i]]
+  index <- grep(trait,names(acat_cell))  
+  p <- acat_cell[index]
+  p[is.na(p)] <- 1
+  plotdata <- data.frame(observed = -log10(sort(p)),
+                         expected = -log10(ppoints(length(p))))
+  #  
+  
+  plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+    geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+}
+
+all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
+
+```
+
+### Pair 1 from allergy
+
+From B cell dataset, pair: pwy236_pc4 - rbc, ACAT p-value:2.1553e-17
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=3, fig.width=3}
+load("~/scratch-midway2/CEDAR/ACAT_randomsnp/assoc/B_cell/allergy/pwy236_pc4/pwy236_pc4.assoc.rdata")
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(results_linear$P)))),
+                       expected = -log10(ppoints(nrow(results_linear))))
+
+
+ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+```
+
+top snps
+
+```{r echo=T}
+index1 <- which.min(as.numeric(as.character(results_linear$P)))
+results_linear[index1,]
+index2 <- which(as.numeric(as.character(results_linear$P)) == sort(as.numeric(as.character(results_linear$P)))[2])
+results_linear[index2,]
+```
+
+
+```{r echo=F}
+load("~/scratch-midway2/CEDAR/ACAT_randomsnp/genoforvsampler/B_cell/allergy.rdata")
+snp <- results_linear[index1,]$SNP
+index_origin1 <- which(final_map$rs_vs == snp)
+snp <- results_linear[index2,]$SNP
+index_origin2 <- which(final_map$rs_vs == snp)
+```
+
+The origin snp:
+```{r echo=T}
+final_map[index_origin1,]
+final_map[index_origin2,]
+```
+
+These two origin variants have LD R2 < 0.1 and physical distance > 1Mb
+
+
+
+
