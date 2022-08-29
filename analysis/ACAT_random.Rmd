@@ -532,180 +532,40 @@ p_acat
 ```
 
 
-## ACAT for real data -- MHC removed
+# Comparing ACAT for real data and random data -- MHC removed
+
+We found that the variants in MHC area may lead to the deviation in random ACAT. So we removed the SNPs in MHC area and re-plot the qq plots. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
-
-load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata")
-
-type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
-
-plot <- list()
-for (i in 1:length(type)){
-  
-  p <- acat_allcelltypes[[i]]
-  p[is.na(p)] <- 1
-  plotdata <- data.frame(observed = -log10(sort(p)),
-                         expected = -log10(ppoints(length(p))))
-  #  
-  
-  plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
-    geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
-    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
-    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
-    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
-         y = expression(paste("Observed -log"[10],"(p-value)"))) +
-    
-    theme(axis.title.x = element_text(size = 10),
-          axis.text.x = element_text(size = 8, color = "black"),
-          axis.title.y = element_text(size = 10),
-          axis.text.y = element_text(size = 8, color = "black"),
-          text= element_text(family="Times New Roman")) 
-  
-  
-}
-all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
-
-```
-
-
-## ACAT for random data -- MHC removed
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
-
-load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata")
-
-type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
-
-plot <- list()
-for (i in 1:length(type)){
-  
-  p <- acat_allcelltypes[[i]]
-  p[is.na(p)] <- 1
-  plotdata <- data.frame(observed = -log10(sort(p)),
-                         expected = -log10(ppoints(length(p))))
-  #  
-  
-  plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
-    geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
-    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
-    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
-    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
-         y = expression(paste("Observed -log"[10],"(p-value)"))) +
-    
-    theme(axis.title.x = element_text(size = 10),
-          axis.text.x = element_text(size = 8, color = "black"),
-          axis.title.y = element_text(size = 10),
-          axis.text.y = element_text(size = 8, color = "black"),
-          text= element_text(family="Times New Roman")) 
-  
-  
-}
-all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
-
-```
-
-# Correct original ACAT results with random ones -- All SNPs included
-
-There is still slight deviation from null in the random SNPs after removing SNPs in MHC area. So we correct for real ACAT p-values using the distribution of ACAT p-values from random SNPs as null. In this way, we got empirical ACAT p-values computed from   sum(p_origin[j] < acat_p_random)/length(p_origin).
-
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
-
-setwd("/project2/xinhe/xsun/CEDAR/")
-
-type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
-path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
-
-load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results.rdata")
-
-p_correct_allcelltypes <- list()
-for (i in 1:length(type)){
-  
-  file <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/7.geneset40_peer/acat.rdata")
-  load(file)
-  p_origin <- as.numeric(list$pval_acat)
-  
-  acat_cell_random <- acat_allcelltypes[[i]]
-  acat_cell_random[acat_cell_random == "NaN"] <- 0.00001
-  p_correct <- c()
-  for (j in 1:length(p_origin)) {
-    
-    p_correct[j] <- sum(p_origin[j] < acat_cell_random)/length(p_origin)
-  }
-  
-  p_correct_allcelltypes[[i]] <- p_correct
-  
-}
-
-p <- list()
-for (i in 1:length(p_correct_allcelltypes)){
-  
-  plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(p_correct_allcelltypes[[i]])))),
-                         expected = -log10(ppoints(length(p_correct_allcelltypes[[i]]))))
-  #  
-  
-  p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
-    geom_point(aes(expected, observed), shape = 1, size = 1.5, color= "steelblue") +
-    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
-    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
-    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
-         y = expression(paste("Observed -log"[10],"(p-value)"))) +
-    
-    theme(axis.title.x = element_text(size = 10),
-          axis.text.x = element_text(size = 8, color = "black"),
-          axis.title.y = element_text(size = 10),
-          axis.text.y = element_text(size = 8, color = "black"),
-          text= element_text(family="Times New Roman")) 
-  
-}
-all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
-
-
-```
-
-
-# Correct original ACAT results with random ones -- MHC area removed
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
-
-type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
 
 load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata")
 acat_random <- acat_allcelltypes
 load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata")
 acat_real <- acat_allcelltypes
 
-
-p_correct_allcelltypes <- list()
-for (i in 1:length(acat_real)){
-  
-  p_origin <- as.numeric(as.character(acat_real[[i]]))
-  
-  acat_cell_random <- as.numeric(as.character(acat_random[[i]]))
-  acat_cell_random[acat_cell_random == "NaN"] <- 0.00001
-  p_correct <- c()
-  for (j in 1:length(p_origin)) {
-    
-    p_correct[j] <- sum(p_origin[j] < acat_cell_random)/length(p_origin)
-  }
-  
-  p_correct_allcelltypes[[i]] <- p_correct
-  
-}
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
 
 
 p <- list()
-for (i in 1:length(p_correct_allcelltypes)){
+for (i in 1:length(acat_random)){
   
-  plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(p_correct_allcelltypes[[i]])))),
-                         expected = -log10(ppoints(length(p_correct_allcelltypes[[i]]))))
-  #  
+  p_random <- acat_random[[i]]
+  p_real <- acat_real[[i]]
   
-  p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
-    geom_point(aes(expected, observed), shape = 1, size = 1.5, color= "steelblue") +
+  if (length(p_random) > length(p_real)) {
+    p_real[length(p_real)+1] <- 1
+  }
+  p_random[is.na(p_random)] <- 1
+  
+  plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(p_random)))),
+                         expected = -log10(ppoints(length(p_random))),
+                         observed_real = -log10(sort(as.numeric(as.character(p_real)))) )
+  dat.m <- melt(plotdata, id.vars = "expected")
+  
+  
+  p[[i]]<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+    geom_point(shape = 1, size = 1.5) +
     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
-    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
     labs(x = expression(paste("Expected -log"[10],"(p-value)")),
          y = expression(paste("Observed -log"[10],"(p-value)"))) +
     
@@ -713,10 +573,211 @@ for (i in 1:length(p_correct_allcelltypes)){
           axis.text.x = element_text(size = 8, color = "black"),
           axis.title.y = element_text(size = 10),
           axis.text.y = element_text(size = 8, color = "black"),
-          text= element_text(family="Times New Roman")) 
+          text= element_text(family="Times New Roman")) +
+    
+    scale_colour_manual(values = c("red", "steelblue")) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5))
   
 }
+
 all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
 
 
+
 ```
+
+
+
+
+
+
+
+
+
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
+
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata") -->
+
+<!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
+
+<!-- plot <- list() -->
+<!-- for (i in 1:length(type)){ -->
+
+<!--   p <- acat_allcelltypes[[i]] -->
+<!--   p[is.na(p)] <- 1 -->
+<!--   plotdata <- data.frame(observed = -log10(sort(p)), -->
+<!--                          expected = -log10(ppoints(length(p)))) -->
+<!--   #   -->
+
+<!--   plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--     geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") + -->
+<!--     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--     labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--          y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
+
+<!--     theme(axis.title.x = element_text(size = 10), -->
+<!--           axis.text.x = element_text(size = 8, color = "black"), -->
+<!--           axis.title.y = element_text(size = 10), -->
+<!--           axis.text.y = element_text(size = 8, color = "black"), -->
+<!--           text= element_text(family="Times New Roman"))  -->
+
+
+<!-- } -->
+<!-- all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2) -->
+
+<!-- ``` -->
+
+
+<!-- ## ACAT for random data -- MHC removed -->
+
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
+
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata") -->
+
+<!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
+
+<!-- plot <- list() -->
+<!-- for (i in 1:length(type)){ -->
+
+<!--   p <- acat_allcelltypes[[i]] -->
+<!--   p[is.na(p)] <- 1 -->
+<!--   plotdata <- data.frame(observed = -log10(sort(p)), -->
+<!--                          expected = -log10(ppoints(length(p)))) -->
+<!--   #   -->
+
+<!--   plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--     geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") + -->
+<!--     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--     labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--          y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
+
+<!--     theme(axis.title.x = element_text(size = 10), -->
+<!--           axis.text.x = element_text(size = 8, color = "black"), -->
+<!--           axis.title.y = element_text(size = 10), -->
+<!--           axis.text.y = element_text(size = 8, color = "black"), -->
+<!--           text= element_text(family="Times New Roman"))  -->
+
+
+<!-- } -->
+<!-- all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2) -->
+
+<!-- ``` -->
+
+<!-- # Correct original ACAT results with random ones -- All SNPs included -->
+
+<!-- There is still slight deviation from null in the random SNPs after removing SNPs in MHC area. So we correct for real ACAT p-values using the distribution of ACAT p-values from random SNPs as null. In this way, we got empirical ACAT p-values computed from   sum(p_origin[j] < acat_p_random)/length(p_origin). -->
+
+
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
+
+<!-- setwd("/project2/xinhe/xsun/CEDAR/") -->
+
+<!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
+<!-- path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg") -->
+
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results.rdata") -->
+
+<!-- p_correct_allcelltypes <- list() -->
+<!-- for (i in 1:length(type)){ -->
+
+<!--   file <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/7.geneset40_peer/acat.rdata") -->
+<!--   load(file) -->
+<!--   p_origin <- as.numeric(list$pval_acat) -->
+
+<!--   acat_cell_random <- acat_allcelltypes[[i]] -->
+<!--   acat_cell_random[acat_cell_random == "NaN"] <- 0.00001 -->
+<!--   p_correct <- c() -->
+<!--   for (j in 1:length(p_origin)) { -->
+
+<!--     p_correct[j] <- sum(p_origin[j] < acat_cell_random)/length(p_origin) -->
+<!--   } -->
+
+<!--   p_correct_allcelltypes[[i]] <- p_correct -->
+
+<!-- } -->
+
+<!-- p <- list() -->
+<!-- for (i in 1:length(p_correct_allcelltypes)){ -->
+
+<!--   plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(p_correct_allcelltypes[[i]])))), -->
+<!--                          expected = -log10(ppoints(length(p_correct_allcelltypes[[i]])))) -->
+<!--   #   -->
+
+<!--   p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--     geom_point(aes(expected, observed), shape = 1, size = 1.5, color= "steelblue") + -->
+<!--     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--     labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--          y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
+
+<!--     theme(axis.title.x = element_text(size = 10), -->
+<!--           axis.text.x = element_text(size = 8, color = "black"), -->
+<!--           axis.title.y = element_text(size = 10), -->
+<!--           axis.text.y = element_text(size = 8, color = "black"), -->
+<!--           text= element_text(family="Times New Roman"))  -->
+
+<!-- } -->
+<!-- all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2) -->
+
+
+<!-- ``` -->
+
+
+<!-- # Correct original ACAT results with random ones -- MHC area removed -->
+
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
+
+<!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
+
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata") -->
+<!-- acat_random <- acat_allcelltypes -->
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata") -->
+<!-- acat_real <- acat_allcelltypes -->
+
+
+<!-- p_correct_allcelltypes <- list() -->
+<!-- for (i in 1:length(acat_real)){ -->
+
+<!--   p_origin <- as.numeric(as.character(acat_real[[i]])) -->
+
+<!--   acat_cell_random <- as.numeric(as.character(acat_random[[i]])) -->
+<!--   acat_cell_random[acat_cell_random == "NaN"] <- 0.00001 -->
+<!--   p_correct <- c() -->
+<!--   for (j in 1:length(p_origin)) { -->
+
+<!--     p_correct[j] <- sum(p_origin[j] < acat_cell_random)/length(p_origin) -->
+<!--   } -->
+
+<!--   p_correct_allcelltypes[[i]] <- p_correct -->
+
+<!-- } -->
+
+
+<!-- p <- list() -->
+<!-- for (i in 1:length(p_correct_allcelltypes)){ -->
+
+<!--   plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(p_correct_allcelltypes[[i]])))), -->
+<!--                          expected = -log10(ppoints(length(p_correct_allcelltypes[[i]])))) -->
+<!--   #   -->
+
+<!--   p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--     geom_point(aes(expected, observed), shape = 1, size = 1.5, color= "steelblue") + -->
+<!--     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--     labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--          y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
+
+<!--     theme(axis.title.x = element_text(size = 10), -->
+<!--           axis.text.x = element_text(size = 8, color = "black"), -->
+<!--           axis.title.y = element_text(size = 10), -->
+<!--           axis.text.y = element_text(size = 8, color = "black"), -->
+<!--           text= element_text(family="Times New Roman"))  -->
+
+<!-- } -->
+<!-- all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2) -->
+
+
+<!-- ``` -->
