@@ -382,7 +382,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-08-17
+<strong>Last updated:</strong> 2022-09-02
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -473,16 +473,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee4382dd341f0e01d3d231418c2463ec88777fc6ftargetblanke4382dda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/e4382dd341f0e01d3d231418c2463ec88777fc6f" target="_blank">e4382dd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreef80ea6929a1afd813a43aea04e8529aa29d9f3e7targetblankf80ea69a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/f80ea6929a1afd813a43aea04e8529aa29d9f3e7" target="_blank">f80ea69</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee4382dd341f0e01d3d231418c2463ec88777fc6ftargetblanke4382dda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreef80ea6929a1afd813a43aea04e8529aa29d9f3e7targetblankf80ea69a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/e4382dd341f0e01d3d231418c2463ec88777fc6f" target="_blank">e4382dd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/f80ea6929a1afd813a43aea04e8529aa29d9f3e7" target="_blank">f80ea69</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -492,7 +492,6 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    analysis/.Rhistory
-    Ignored:    analysis/figure/
     Ignored:    output/.Rhistory
 
 Unstaged changes:
@@ -535,6 +534,57 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/f80ea6929a1afd813a43aea04e8529aa29d9f3e7/analysis/ACAT_random.Rmd" target="_blank">f80ea69</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-08-29
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/b1b827a3c736cb2f5d5f1287cf2eef72e169a69e/analysis/ACAT_random.Rmd" target="_blank">b1b827a</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-08-17
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/b1b827a3c736cb2f5d5f1287cf2eef72e169a69e/docs/ACAT_random.html" target="_blank">b1b827a</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-08-17
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1345,8 +1395,10 @@ p_acat</code></pre>
 <pre><code>[1] 0.8346754</code></pre>
 </div>
 </div>
-<div id="acat-for-real-data-mhc-removed" class="section level2">
-<h2>ACAT for real data – MHC removed</h2>
+</div>
+<div id="comparing-acat-for-real-data-and-random-data-mhc-removed" class="section level1">
+<h1>Comparing ACAT for real data and random data – MHC removed</h1>
+<p>We found that the variants in MHC area may lead to the deviation in random ACAT. So we removed the SNPs in MHC area and re-plot the qq plots.</p>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-32-1.png" width="1440" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-32-1">
@@ -1385,9 +1437,12 @@ XSun
 </table>
 </div>
 </div>
-</div>
-<div id="acat-for-random-data-mhc-removed" class="section level2">
-<h2>ACAT for random data – MHC removed</h2>
+<p>We noticed that there is some inflations for random data (Leukocyte (CD15+), Platelet, T cell (CD8+)). We compute genomic inflation factors for all cell types.</p>
+<p><span class="math display">\[ chisq = qchisq(1-pvalue,1)\]</span> <span class="math display">\[ lambda = \frac{median(chisq)}{qchisq(0.5,1)} \]</span> The lambda are 1.103569 1.110509 1.133734 1.179766 1.045502 4.582142 accordingly.</p>
+<p>Then we corrected the p-values with the inflation factor – lambda (devide the chi-squares by inflation factors accoring to <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3133943/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3133943/</a> and compute the p-values):</p>
+<p><span class="math display">\[ chisq_{adjusted} = \frac{chisq}{lambda}\]</span></p>
+<p><span class="math display">\[ pvalue_{adjusted} = 1 - pchisq(chisq_{adjusted}) \]</span></p>
+<p>The adjusted p-values are shown in the qqplots below (comparing unadjusted real p-values).</p>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-33-1.png" width="1440" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-33-1">
@@ -1426,11 +1481,7 @@ XSun
 </table>
 </div>
 </div>
-</div>
-</div>
-<div id="correct-original-acat-results-with-random-ones-all-snps-included" class="section level1">
-<h1>Correct original ACAT results with random ones – All SNPs included</h1>
-<p>There is still slight deviation from null in the random SNPs after removing SNPs in MHC area. So we correct for real ACAT p-values using the distribution of ACAT p-values from random SNPs as null. In this way, we got empirical ACAT p-values computed from sum(p_origin[j] &lt; acat_p_random)/length(p_origin).</p>
+<p>We also compared the adjusted random p-values with adjusted real p-values. The inflation factors for real p-values are 5.775381 6.671074 4.687092 4.605726 5.453085 4.84691.</p>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-34-1.png" width="1440" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-34-1">
@@ -1469,10 +1520,131 @@ XSun
 </table>
 </div>
 </div>
-</div>
-<div id="correct-original-acat-results-with-random-ones-mhc-area-removed" class="section level1">
-<h1>Correct original ACAT results with random ones – MHC area removed</h1>
-<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-35-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata") -->
+<!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
+<!-- plot <- list() -->
+<!-- for (i in 1:length(type)){ -->
+<!--   p <- acat_allcelltypes[[i]] -->
+<!--   p[is.na(p)] <- 1 -->
+<!--   plotdata <- data.frame(observed = -log10(sort(p)), -->
+<!--                          expected = -log10(ppoints(length(p)))) -->
+<!--   #   -->
+<!--   plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--     geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") + -->
+<!--     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--     labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--          y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
+<!--     theme(axis.title.x = element_text(size = 10), -->
+<!--           axis.text.x = element_text(size = 8, color = "black"), -->
+<!--           axis.title.y = element_text(size = 10), -->
+<!--           axis.text.y = element_text(size = 8, color = "black"), -->
+<!--           text= element_text(family="Times New Roman"))  -->
+<!-- } -->
+<!-- all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2) -->
+<!-- ``` -->
+<!-- ## ACAT for random data -- MHC removed -->
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata") -->
+<!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
+<!-- plot <- list() -->
+<!-- for (i in 1:length(type)){ -->
+<!--   p <- acat_allcelltypes[[i]] -->
+<!--   p[is.na(p)] <- 1 -->
+<!--   plotdata <- data.frame(observed = -log10(sort(p)), -->
+<!--                          expected = -log10(ppoints(length(p)))) -->
+<!--   #   -->
+<!--   plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--     geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") + -->
+<!--     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--     labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--          y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
+<!--     theme(axis.title.x = element_text(size = 10), -->
+<!--           axis.text.x = element_text(size = 8, color = "black"), -->
+<!--           axis.title.y = element_text(size = 10), -->
+<!--           axis.text.y = element_text(size = 8, color = "black"), -->
+<!--           text= element_text(family="Times New Roman"))  -->
+<!-- } -->
+<!-- all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2) -->
+<!-- ``` -->
+<!-- # Correct original ACAT results with random ones -- All SNPs included -->
+<!-- There is still slight deviation from null in the random SNPs after removing SNPs in MHC area. So we correct for real ACAT p-values using the distribution of ACAT p-values from random SNPs as null. In this way, we got empirical ACAT p-values computed from   sum(p_origin[j] < acat_p_random)/length(p_origin). -->
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
+<!-- setwd("/project2/xinhe/xsun/CEDAR/") -->
+<!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
+<!-- path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg") -->
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results.rdata") -->
+<!-- p_correct_allcelltypes <- list() -->
+<!-- for (i in 1:length(type)){ -->
+<!--   file <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/7.geneset40_peer/acat.rdata") -->
+<!--   load(file) -->
+<!--   p_origin <- as.numeric(list$pval_acat) -->
+<!--   acat_cell_random <- acat_allcelltypes[[i]] -->
+<!--   acat_cell_random[acat_cell_random == "NaN"] <- 0.00001 -->
+<!--   p_correct <- c() -->
+<!--   for (j in 1:length(p_origin)) { -->
+<!--     p_correct[j] <- sum(p_origin[j] < acat_cell_random)/length(p_origin) -->
+<!--   } -->
+<!--   p_correct_allcelltypes[[i]] <- p_correct -->
+<!-- } -->
+<!-- p <- list() -->
+<!-- for (i in 1:length(p_correct_allcelltypes)){ -->
+<!--   plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(p_correct_allcelltypes[[i]])))), -->
+<!--                          expected = -log10(ppoints(length(p_correct_allcelltypes[[i]])))) -->
+<!--   #   -->
+<!--   p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--     geom_point(aes(expected, observed), shape = 1, size = 1.5, color= "steelblue") + -->
+<!--     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--     labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--          y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
+<!--     theme(axis.title.x = element_text(size = 10), -->
+<!--           axis.text.x = element_text(size = 8, color = "black"), -->
+<!--           axis.title.y = element_text(size = 10), -->
+<!--           axis.text.y = element_text(size = 8, color = "black"), -->
+<!--           text= element_text(family="Times New Roman"))  -->
+<!-- } -->
+<!-- all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2) -->
+<!-- ``` -->
+<!-- # Correct original ACAT results with random ones -- MHC area removed -->
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
+<!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata") -->
+<!-- acat_random <- acat_allcelltypes -->
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata") -->
+<!-- acat_real <- acat_allcelltypes -->
+<!-- p_correct_allcelltypes <- list() -->
+<!-- for (i in 1:length(acat_real)){ -->
+<!--   p_origin <- as.numeric(as.character(acat_real[[i]])) -->
+<!--   acat_cell_random <- as.numeric(as.character(acat_random[[i]])) -->
+<!--   acat_cell_random[acat_cell_random == "NaN"] <- 0.00001 -->
+<!--   p_correct <- c() -->
+<!--   for (j in 1:length(p_origin)) { -->
+<!--     p_correct[j] <- sum(p_origin[j] < acat_cell_random)/length(p_origin) -->
+<!--   } -->
+<!--   p_correct_allcelltypes[[i]] <- p_correct -->
+<!-- } -->
+<!-- p <- list() -->
+<!-- for (i in 1:length(p_correct_allcelltypes)){ -->
+<!--   plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(p_correct_allcelltypes[[i]])))), -->
+<!--                          expected = -log10(ppoints(length(p_correct_allcelltypes[[i]])))) -->
+<!--   #   -->
+<!--   p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--     geom_point(aes(expected, observed), shape = 1, size = 1.5, color= "steelblue") + -->
+<!--     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--     labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--          y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
+<!--     theme(axis.title.x = element_text(size = 10), -->
+<!--           axis.text.x = element_text(size = 8, color = "black"), -->
+<!--           axis.title.y = element_text(size = 10), -->
+<!--           axis.text.y = element_text(size = 8, color = "black"), -->
+<!--           text= element_text(family="Times New Roman"))  -->
+<!-- } -->
+<!-- all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2) -->
+<!-- ``` -->
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1500,22 +1672,23 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ACAT_0.91     gridExtra_2.3 ggplot2_3.3.5
+[1] data.table_1.14.0 ACAT_0.91         gridExtra_2.3     ggplot2_3.3.5    
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8        highr_0.8         pillar_1.6.5      compiler_4.0.4   
- [5] bslib_0.2.4       later_1.1.0.1     jquerylib_0.1.3   git2r_0.28.0     
- [9] workflowr_1.6.2   tools_4.0.4       digest_0.6.27     jsonlite_1.7.2   
-[13] evaluate_0.14     lifecycle_1.0.0   tibble_3.1.6      gtable_0.3.0     
-[17] pkgconfig_2.0.3   rlang_0.4.12      DBI_1.1.1         yaml_2.2.1       
-[21] xfun_0.29         withr_2.4.3       dplyr_1.0.7       stringr_1.4.0    
-[25] knitr_1.31        generics_0.1.0    fs_1.5.0          vctrs_0.3.8      
-[29] sass_0.3.1        tidyselect_1.1.0  rprojroot_2.0.2   grid_4.0.4       
-[33] glue_1.6.2        R6_2.5.0          fansi_0.4.2       rmarkdown_2.7    
-[37] farver_2.1.0      purrr_0.3.4       magrittr_2.0.1    whisker_0.4      
-[41] scales_1.1.1      promises_1.2.0.1  ellipsis_0.3.2    htmltools_0.5.1.1
-[45] assertthat_0.2.1  colorspace_2.0-0  httpuv_1.5.5      labeling_0.4.2   
-[49] utf8_1.2.2        stringi_1.5.3     munsell_0.5.0     crayon_1.4.1     </code></pre>
+ [1] Rcpp_1.0.8        plyr_1.8.6        highr_0.8         pillar_1.6.5     
+ [5] compiler_4.0.4    bslib_0.2.4       later_1.1.0.1     jquerylib_0.1.3  
+ [9] git2r_0.28.0      workflowr_1.6.2   tools_4.0.4       digest_0.6.27    
+[13] jsonlite_1.7.2    evaluate_0.14     lifecycle_1.0.0   tibble_3.1.6     
+[17] gtable_0.3.0      pkgconfig_2.0.3   rlang_0.4.12      DBI_1.1.1        
+[21] yaml_2.2.1        xfun_0.29         withr_2.4.3       dplyr_1.0.7      
+[25] stringr_1.4.0     knitr_1.31        generics_0.1.0    fs_1.5.0         
+[29] vctrs_0.3.8       sass_0.3.1        tidyselect_1.1.0  rprojroot_2.0.2  
+[33] grid_4.0.4        glue_1.6.2        R6_2.5.0          fansi_0.4.2      
+[37] rmarkdown_2.7     reshape2_1.4.4    farver_2.1.0      purrr_0.3.4      
+[41] magrittr_2.0.1    whisker_0.4       scales_1.1.1      promises_1.2.0.1 
+[45] ellipsis_0.3.2    htmltools_0.5.1.1 assertthat_0.2.1  colorspace_2.0-0 
+[49] httpuv_1.5.5      labeling_0.4.2    utf8_1.2.2        stringi_1.5.3    
+[53] munsell_0.5.0     crayon_1.4.1     </code></pre>
 </div>
 </div>
 

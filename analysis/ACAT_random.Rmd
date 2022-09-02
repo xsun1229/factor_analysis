@@ -10,6 +10,7 @@ editor_options:
 suppressMessages(library(ggplot2))
 suppressMessages(library(gridExtra))
 suppressMessages(library(ACAT))
+suppressMessages(library(data.table))
 ```
 
 
@@ -588,11 +589,119 @@ all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
 ```
 
 
+We noticed that there is some inflations for random data (Leukocyte (CD15+), Platelet, T cell (CD8+)). We compute genomic inflation factors for all cell types. 
+
+
+$$ chisq = qchisq(1-pvalue,1)$$
+$$ lambda = \frac{median(chisq)}{qchisq(0.5,1)} $$
+The lambda are 1.103569 1.110509 1.133734 1.179766 1.045502 4.582142 accordingly. 
+
+Then we corrected the p-values with the inflation factor -- lambda (devide the chi-squares by inflation factors accoring to https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3133943/ and compute the p-values):
+
+$$ chisq_{adjusted} = \frac{chisq}{lambda}$$
+
+$$ pvalue_{adjusted} = 1 - pchisq(chisq_{adjusted}) $$
+
+The adjusted p-values are shown in the qqplots below (comparing unadjusted real p-values). 
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/pval_gc_corrected_random_MHCremoved.rdata")
+acat_random <- pval_corrected
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata")
+acat_real <- acat_allcelltypes
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+
+
+p <- list()
+for (i in 1:length(acat_random)){
+  
+  p_random <- acat_random[[i]]
+  p_real <- acat_real[[i]]
+  
+  if (length(p_random) > length(p_real)) {
+    p_real[length(p_real)+1] <- 1
+  }
+  p_random[is.na(p_random)] <- 1
+  
+  plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(p_random)))),
+                         expected = -log10(ppoints(length(p_random))),
+                         observed_real = -log10(sort(as.numeric(as.character(p_real)))) )
+  dat.m <- melt(plotdata, id.vars = "expected")
+  
+  
+  p[[i]]<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+    geom_point(shape = 1, size = 1.5) +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) +
+    
+    scale_colour_manual(values = c("red", "steelblue")) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5))
+  
+}
+
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+```
 
 
 
+We also compared the adjusted random p-values with adjusted real p-values. The inflation factors for real p-values are 5.775381 6.671074 4.687092 4.605726 5.453085 4.84691. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/pval_gc_corrected_random_MHCremoved.rdata")
+acat_random <- pval_corrected
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/pval_gc_corrected_real_MHCremoved.rdata")
+acat_real <- pval_corrected
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
 
 
+p <- list()
+for (i in 1:length(acat_random)){
+  
+  p_random <- acat_random[[i]]
+  p_real <- acat_real[[i]]
+  
+  if (length(p_random) > length(p_real)) {
+    p_real[length(p_real)+1] <- 1
+  }
+  p_random[is.na(p_random)] <- 1
+  
+  plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(p_random)))),
+                         expected = -log10(ppoints(length(p_random))),
+                         observed_real = -log10(sort(as.numeric(as.character(p_real)))) )
+  dat.m <- melt(plotdata, id.vars = "expected")
+  
+  
+  p[[i]]<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+    geom_point(shape = 1, size = 1.5) +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) +
+    
+    scale_colour_manual(values = c("red", "steelblue")) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5))
+  
+}
+
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+```
 
 
 <!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
