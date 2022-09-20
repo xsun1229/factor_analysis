@@ -592,6 +592,11 @@ We pooled all cell types to check if the inflations from random data (Leukocyte 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
 
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata")
+acat_random <- acat_allcelltypes
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata")
+acat_real <- acat_allcelltypes
+
 acat_pool_real <- c()
 for(i in 1:length(acat_real)) {
   
