@@ -707,7 +707,7 @@ all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
 ```
 
 
-# Top pairs from T cell CD8+ (random data)
+# Top pairs from T cell CD8+ 
 
 ## Random ACAT
 
