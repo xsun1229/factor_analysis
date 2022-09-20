@@ -767,7 +767,7 @@ The top pairs are not related to pdw.
 We removed the pairs related to pdw for both real data and random data, then made the qq-plot:
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=12}
 
 load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata")
 acat_random <- acat_allcelltypes
@@ -775,6 +775,7 @@ acat_tcellcd8 <- acat_random$thymocyte
 
 pair_index <- grep("pdw",names(acat_tcellcd8))
 acat_tcellcd8_remove <- acat_tcellcd8[-pair_index]
+acat_tcellcd8_keep <- acat_tcellcd8[pair_index]
 top1_remove <- acat_tcellcd8_remove[order(acat_tcellcd8_remove)][1]
 
 
@@ -784,6 +785,7 @@ acat_tcellcd8_real <- acat_real$thymocyte
 
 pair_index <- grep("pdw",names(acat_tcellcd8_real))
 acat_tcellcd8_remove_real <- acat_tcellcd8_real[-pair_index]
+acat_tcellcd8_keep_real <- acat_tcellcd8_real[pair_index]
 top1_remove_real <- acat_tcellcd8_remove_real[order(acat_tcellcd8_remove_real)][1]
 
 plotdata <- data.frame(observed_random = -log10(sort(acat_tcellcd8_remove)),
@@ -792,7 +794,7 @@ plotdata <- data.frame(observed_random = -log10(sort(acat_tcellcd8_remove)),
 dat.m <- melt(plotdata, id.vars = "expected")
 
 
-p<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+p1<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
   geom_point(shape = 1, size = 1.5) +
   geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
   labs(x = expression(paste("Expected -log"[10],"(p-value)")),
@@ -804,15 +806,39 @@ p<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_
         axis.text.y = element_text(size = 8, color = "black"),
         text= element_text(family="Times New Roman")) +
   
-  scale_colour_manual(values = c("red", "steelblue"))
+  scale_colour_manual(values = c("red", "steelblue")) +
+  ggtitle("pdw removed") + theme(plot.title = element_text(hjust = 0.5))
 
-p
+plotdata <- data.frame(observed_random = -log10(sort(acat_tcellcd8_keep)),
+                       expected = -log10(ppoints(length(acat_tcellcd8_keep))),
+                       observed_real = -log10(sort(acat_tcellcd8_keep_real)) )
+dat.m <- melt(plotdata, id.vars = "expected")
 
-sprintf("The top1 pair of random data  (top 1 dot in red) is %s ", names(top1_remove))
+p2<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+  geom_point(shape = 1, size = 1.5) +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) +
+  
+  scale_colour_manual(values = c("red", "steelblue")) +
+  ggtitle("pdw only") + theme(plot.title = element_text(hjust = 0.5))
+
+all <- grid.arrange(p1,p2, nrow = 1) 
+all
+
+
+sprintf("Left: The top1 pair of random data  (top 1 dot in red) is %s ", names(top1_remove))
 sprintf("p-value = %s ", top1_remove)
 
-sprintf("The top1 pair of real data (top 1 dot in blue) is %s ", names(top1_remove_real))
+sprintf("Left: The top1 pair of real data (top 1 dot in blue) is %s ", names(top1_remove_real))
 sprintf("p-value = %s ", top1_remove_real)
+
 
 ```
 
@@ -937,10 +963,13 @@ acat_leukocyte <- acat_random$CD15_positive_leukocyte
 
 pair_index <- grep("gran",names(acat_leukocyte))
 acat_leukocyte_remove <- acat_leukocyte[-pair_index]
+acat_leukocyte_remove_gran_keep <- acat_leukocyte[pair_index]
 pair_index <- grep("neut",names(acat_leukocyte_remove))
 acat_leukocyte_remove <- acat_leukocyte_remove[-pair_index]
+acat_leukocyte_remove_neut_keep <- acat_leukocyte_remove[pair_index]
 pair_index <- grep("hct",names(acat_leukocyte_remove))
 acat_leukocyte_remove <- acat_leukocyte_remove[-pair_index]
+acat_leukocyte_remove_hct_keep <-acat_leukocyte_remove[pair_index]
 top1_remove <- acat_leukocyte_remove[order(acat_leukocyte_remove)][1]
 
 
@@ -950,10 +979,13 @@ acat_leukocyte_real <- acat_real$CD15_positive_leukocyte
 
 pair_index <- grep("gran",names(acat_leukocyte_real))
 acat_leukocyte_remove_real <- acat_leukocyte_real[-pair_index]
+acat_leukocyte_remove_real_gran_keep <- acat_leukocyte_real[pair_index]
 pair_index <- grep("neut",names(acat_leukocyte_remove_real))
 acat_leukocyte_remove_real <- acat_leukocyte_remove_real[-pair_index]
+acat_leukocyte_remove_real_neut_keep <- acat_leukocyte_remove_real[pair_index]
 pair_index <- grep("hct",names(acat_leukocyte_remove_real))
 acat_leukocyte_remove_real <- acat_leukocyte_remove_real[-pair_index]
+acat_leukocyte_remove_real_hct_keep <- acat_leukocyte_remove_real[pair_index]
 top1_remove_real <- acat_leukocyte_remove_real[order(acat_leukocyte_remove_real)][1]
 
 plotdata <- data.frame(observed_random = -log10(sort(acat_leukocyte_remove)),
@@ -983,7 +1015,77 @@ sprintf("p-value = %s ", top1_remove)
 
 sprintf("The top1 pair of real data (top 1 dot in blue) is %s ", names(top1_remove_real))
 sprintf("p-value = %s ", top1_remove_real)
+```
 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=18}
+plotdata <- data.frame(observed_random = -log10(sort(acat_leukocyte_remove_gran_keep)),
+                       expected = -log10(ppoints(length(acat_leukocyte_remove_gran_keep))),
+                       observed_real = -log10(sort(acat_leukocyte_remove_real_gran_keep)) )
+dat.m <- melt(plotdata, id.vars = "expected")
+
+
+p1<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+  geom_point(shape = 1, size = 1.5) +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) +
+  
+  scale_colour_manual(values = c("red", "steelblue")) +
+  ggtitle("gran only") + theme(plot.title = element_text(hjust = 0.5))
+
+
+plotdata <- data.frame(observed_random = -log10(sort(acat_leukocyte_remove_neut_keep)),
+                       expected = -log10(ppoints(length(acat_leukocyte_remove_neut_keep))),
+                       observed_real = -log10(sort(acat_leukocyte_remove_real_neut_keep)) )
+dat.m <- melt(plotdata, id.vars = "expected")
+
+
+p2<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+  geom_point(shape = 1, size = 1.5) +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) +
+  
+  scale_colour_manual(values = c("red", "steelblue")) +
+  ggtitle("neut only") + theme(plot.title = element_text(hjust = 0.5))
+
+
+plotdata <- data.frame(observed_random = -log10(sort(acat_leukocyte_remove_hct_keep)),
+                       expected = -log10(ppoints(length(acat_leukocyte_remove_hct_keep))),
+                       observed_real = -log10(sort(acat_leukocyte_remove_real_hct_keep)) )
+dat.m <- melt(plotdata, id.vars = "expected")
+
+
+p3<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+  geom_point(shape = 1, size = 1.5) +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) +
+  
+  scale_colour_manual(values = c("red", "steelblue")) +
+  ggtitle("hct only") + theme(plot.title = element_text(hjust = 0.5))
+
+all <- grid.arrange(p1,p2,p3, nrow = 1)
+all
 ```
 
 
