@@ -15,7 +15,8 @@
 
 <title>ACAT analysis for random SNPs</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -36,16 +37,26 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.22/datatables.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
 <style type="text/css">
 div.section {
   padding-top: 12px;
 }
 </style>
+
+
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -74,6 +85,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -94,6 +106,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -306,12 +321,12 @@ div.tocify {
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row">
-<div class="col-sm-12 col-md-4 col-lg-3">
+<div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
 </div>
 
-<div class="toc-content col-sm-12 col-md-8 col-lg-9">
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -319,7 +334,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -341,7 +356,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/xsun1229/factor_analysis">
-    <span class="fas fa-github"></span>
+    <span class="fa fa-github"></span>
      
     Source code
   </a>
@@ -364,7 +379,9 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -373,7 +390,9 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -382,17 +401,27 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-09-02
+<strong>Last updated:</strong> 2022-09-20
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
 </p>
 <p>
-<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
 </p>
 <p>
-This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -401,91 +430,141 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
 </p>
 </div>
 <div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20200623)</code> </a>
 </p>
 </div>
-<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div id="strongSeedstrongcodesetseed20200623code"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20200623)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
 </p>
 </div>
-<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
 </p>
 </div>
 <div id="strongCachestrongnone" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
 </p>
 </div>
 <div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreef80ea6929a1afd813a43aea04e8529aa29d9f3e7targetblankf80ea69a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/f80ea6929a1afd813a43aea04e8529aa29d9f3e7" target="_blank">f80ea69</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree627a691fa68b3c98b5c8b99d9cafa6fc33d0b5a1targetblank627a691a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/xsun1229/factor_analysis/tree/627a691fa68b3c98b5c8b99d9cafa6fc33d0b5a1" target="_blank">627a691</a>
+</a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreef80ea6929a1afd813a43aea04e8529aa29d9f3e7targetblankf80ea69a" class="panel-collapse collapse">
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree627a691fa68b3c98b5c8b99d9cafa6fc33d0b5a1targetblank627a691a"
+class="panel-collapse collapse">
 <div class="panel-body">
 <p>
-Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/f80ea6929a1afd813a43aea04e8529aa29d9f3e7" target="_blank">f80ea69</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version
+<a href="https://github.com/xsun1229/factor_analysis/tree/627a691fa68b3c98b5c8b99d9cafa6fc33d0b5a1" target="_blank">627a691</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
 </p>
 <p>
-Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
 </p>
 <pre><code>
 Ignored files:
@@ -499,7 +578,9 @@ Unstaged changes:
 
 </code></pre>
 <p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
 </p>
 </div>
 </div>
@@ -510,7 +591,12 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/ACAT_random.Rmd</code>) and HTML (<code>docs/ACAT_random.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/ACAT_random.Rmd</code>) and HTML
+(<code>docs/ACAT_random.html</code>) files. If you’ve configured a
+remote Git repository (see <code>?wflow_git_remote</code>), click on the
+hyperlinks in the table below to view the files as they were in that
+past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -534,6 +620,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/627a691fa68b3c98b5c8b99d9cafa6fc33d0b5a1/analysis/ACAT_random.Rmd" target="_blank">627a691</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-02
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/627a691fa68b3c98b5c8b99d9cafa6fc33d0b5a1/docs/ACAT_random.html" target="_blank">627a691</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-02
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -730,7 +850,11 @@ update
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>It was shown that ACAT p-values deviate significantly from null. One concern is that the GWAS SNPs may be somewhat different from other SNPs, so the results may be due to chance. It would be useful to repeat the analysis with random SNPs that match GWAS SNPs for allele frequency and LD.</p>
+<p>It was shown that ACAT p-values deviate significantly from null. One
+concern is that the GWAS SNPs may be somewhat different from other SNPs,
+so the results may be due to chance. It would be useful to repeat the
+analysis with random SNPs that match GWAS SNPs for allele frequency and
+LD.</p>
 </div>
 <div id="original-acat-results" class="section level1">
 <h1>Original ACAT results</h1>
@@ -777,8 +901,13 @@ XSun
 <h1>Random ACAT results</h1>
 <p>We did the analysis follows:</p>
 <ol style="list-style-type: decimal">
-<li><p>Find random SNPs that match GWAS SNPs for allele frequency and LD using <a href="http://www.mulinlab.org/vsampler/index.html">vSampler</a></p></li>
-<li><p>For each SNP, do association test PEER ~ SNP, select the PEER factors do not associate with SNP as covariates. For each expression factor, fo association test factor ~ SNP + SNP-specific covariates.</p></li>
+<li><p>Find random SNPs that match GWAS SNPs for allele frequency and LD
+using <a
+href="http://www.mulinlab.org/vsampler/index.html">vSampler</a></p></li>
+<li><p>For each SNP, do association test PEER ~ SNP, select the PEER
+factors do not associate with SNP as covariates. For each expression
+factor, fo association test factor ~ SNP + SNP-specific
+covariates.</p></li>
 <li><p>Aggregate p-values using ACAT.</p></li>
 <li><p>Make QQ plot for each cell type.</p></li>
 </ol>
@@ -820,16 +949,26 @@ XSun
 </table>
 </div>
 </div>
-<p>The QQ plots shift to y-axis and show strong signal, which is not expected for random SNPs. This could be due to: (1) Even random SNPs tend to be associated with the expression factors. (2) There is really no such trend, but ACAT gave significant p-values, in other words, the ACAT p-values are not calibrated.</p>
+<p>The QQ plots shift to y-axis and show strong signal, which is not
+expected for random SNPs. This could be due to: (1) Even random SNPs
+tend to be associated with the expression factors. (2) There is really
+no such trend, but ACAT gave significant p-values, in other words, the
+ACAT p-values are not calibrated.</p>
 </div>
 <div id="results-checking" class="section level1">
 <h1>Results checking</h1>
-<p>Take random SNPs matching a GWAS trait, say asthma, or IBD, or some blood cell traits. We have p-values of these SNPs with all factors. We show the QQ plots of these p-values.</p>
-<p>Then we chose a pair of trait-factors that have very strong ACAT signal and made QQ plot the p-values from factor ~ SNP association tests.</p>
+<p>Take random SNPs matching a GWAS trait, say asthma, or IBD, or some
+blood cell traits. We have p-values of these SNPs with all factors. We
+show the QQ plots of these p-values.</p>
+<p>Then we chose a pair of trait-factors that have very strong ACAT
+signal and made QQ plot the p-values from factor ~ SNP association
+tests.</p>
 <div id="for-all-traits" class="section level2">
 <h2>For all traits</h2>
-<p>Several immune diseases and cell type trait can have strong signals (IBD,rbc,asthma, see below) while others not.</p>
-<p><a href="https://photos.app.goo.gl/ouXA6kiRXWu2NCio8">All plots are here</a></p>
+<p>Several immune diseases and cell type trait can have strong signals
+(IBD,rbc,asthma, see below) while others not.</p>
+<p><a href="https://photos.app.goo.gl/ouXA6kiRXWu2NCio8">All plots are
+here</a></p>
 </div>
 <div id="eur.ibd" class="section level2">
 <h2>EUR.IBD</h2>
@@ -873,7 +1012,8 @@ XSun
 </div>
 <div id="pair-1-from-ibd-trait" class="section level3">
 <h3>pair 1 from IBD trait</h3>
-<p>From B cell dataset, pair: pwy203_pc4 - EUR.IBD, ACAT p-value:2.57244e-57</p>
+<p>From B cell dataset, pair: pwy203_pc4 - EUR.IBD, ACAT
+p-value:2.57244e-57</p>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-6-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
@@ -982,7 +1122,9 @@ p_acat</code></pre>
 </div>
 <div id="pair-2-from-ibd-trait" class="section level3">
 <h3>Pair 2 from IBD trait</h3>
-<p>From CD14_positive_monocyte, pair: pwy312_pc3 - EUR.IBD, ACAT p-value:1.604200e-59 <img src="figure/ACAT_random.Rmd/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>From CD14_positive_monocyte, pair: pwy312_pc3 - EUR.IBD, ACAT
+p-value:1.604200e-59
+<img src="figure/ACAT_random.Rmd/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
 Past versions of unnamed-chunk-12-1.png
@@ -1130,7 +1272,9 @@ XSun
 </div>
 <div id="pair-1-from-rbc" class="section level3">
 <h3>Pair 1 from rbc</h3>
-<p>From T cell (CD8+) dataset, pair: pwy311_pc5 - rbc, ACAT p-value:2.637203e-11 <img src="figure/ACAT_random.Rmd/unnamed-chunk-19-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>From T cell (CD8+) dataset, pair: pwy311_pc5 - rbc, ACAT
+p-value:2.637203e-11
+<img src="figure/ACAT_random.Rmd/unnamed-chunk-19-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-19-1">
 Past versions of unnamed-chunk-19-1.png
@@ -1203,8 +1347,10 @@ results_linear[index2,]</code></pre>
 1497 rs17423698 control1      6 32358368      T      C  0.159
      inLDvariants_LD1_vs  chrpos_vs
 1497                 888 6_32358368</code></pre>
-<p>These two origin variants have LD R2 &lt; 0.1 and physical distance &gt; 1Mb</p>
-<p>QQ plot for the real data. <img src="figure/ACAT_random.Rmd/unnamed-chunk-23-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>These two origin variants have LD R2 &lt; 0.1 and physical distance
+&gt; 1Mb</p>
+<p>QQ plot for the real data.
+<img src="figure/ACAT_random.Rmd/unnamed-chunk-23-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-23-1">
 Past versions of unnamed-chunk-23-1.png
@@ -1289,7 +1435,8 @@ XSun
 </div>
 <div id="pair-1-from-allergy" class="section level3">
 <h3>Pair 1 from allergy</h3>
-<p>From B cell dataset, pair: pwy236_pc4 - rbc, ACAT p-value:2.1553e-17 <img src="figure/ACAT_random.Rmd/unnamed-chunk-26-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p>From B cell dataset, pair: pwy236_pc4 - rbc, ACAT p-value:2.1553e-17
+<img src="figure/ACAT_random.Rmd/unnamed-chunk-26-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-26-1">
 Past versions of unnamed-chunk-26-1.png
@@ -1351,8 +1498,10 @@ results_linear[index2,]</code></pre>
 694 rs28895129 control1      6 32420952      A      G  0.166
     inLDvariants_LD1_vs  chrpos_vs
 694                1288 6_32420952</code></pre>
-<p>These two origin variants have LD R2 &lt; 0.1 and physical distance &gt; 1Mb</p>
-<p>QQ plot for the real data. <img src="figure/ACAT_random.Rmd/unnamed-chunk-30-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>These two origin variants have LD R2 &lt; 0.1 and physical distance
+&gt; 1Mb</p>
+<p>QQ plot for the real data.
+<img src="figure/ACAT_random.Rmd/unnamed-chunk-30-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-30-1">
 Past versions of unnamed-chunk-30-1.png
@@ -1396,9 +1545,12 @@ p_acat</code></pre>
 </div>
 </div>
 </div>
-<div id="comparing-acat-for-real-data-and-random-data-mhc-removed" class="section level1">
+<div id="comparing-acat-for-real-data-and-random-data-mhc-removed"
+class="section level1">
 <h1>Comparing ACAT for real data and random data – MHC removed</h1>
-<p>We found that the variants in MHC area may lead to the deviation in random ACAT. So we removed the SNPs in MHC area and re-plot the qq plots.</p>
+<p>We found that the variants in MHC area may lead to the deviation in
+random ACAT. So we removed the SNPs in MHC area and re-plot the qq
+plots.</p>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-32-1.png" width="1440" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-32-1">
@@ -1424,6 +1576,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/627a691fa68b3c98b5c8b99d9cafa6fc33d0b5a1/docs/figure/ACAT_random.Rmd/unnamed-chunk-32-1.png" target="_blank">627a691</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-02
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/xsun1229/factor_analysis/blob/cebf58a84c177756602d4318f9d272817c5c979e/docs/figure/ACAT_random.Rmd/unnamed-chunk-32-1.png" target="_blank">cebf58a</a>
 </td>
 <td>
@@ -1437,13 +1600,10 @@ XSun
 </table>
 </div>
 </div>
-<p>We noticed that there is some inflations for random data (Leukocyte (CD15+), Platelet, T cell (CD8+)). We compute genomic inflation factors for all cell types.</p>
-<p><span class="math display">\[ chisq = qchisq(1-pvalue,1)\]</span> <span class="math display">\[ lambda = \frac{median(chisq)}{qchisq(0.5,1)} \]</span> The lambda are 1.103569 1.110509 1.133734 1.179766 1.045502 4.582142 accordingly.</p>
-<p>Then we corrected the p-values with the inflation factor – lambda (devide the chi-squares by inflation factors accoring to <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3133943/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3133943/</a> and compute the p-values):</p>
-<p><span class="math display">\[ chisq_{adjusted} = \frac{chisq}{lambda}\]</span></p>
-<p><span class="math display">\[ pvalue_{adjusted} = 1 - pchisq(chisq_{adjusted}) \]</span></p>
-<p>The adjusted p-values are shown in the qqplots below (comparing unadjusted real p-values).</p>
-<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-33-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p>We pooled all cell types to check if the inflations from random data
+(Leukocyte (CD15+), Platelet, T cell (CD8+)) dominant the whole data
+set.</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-33-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-33-1">
 Past versions of unnamed-chunk-33-1.png
@@ -1468,6 +1628,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/627a691fa68b3c98b5c8b99d9cafa6fc33d0b5a1/docs/figure/ACAT_random.Rmd/unnamed-chunk-33-1.png" target="_blank">627a691</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-02
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/xsun1229/factor_analysis/blob/cebf58a84c177756602d4318f9d272817c5c979e/docs/figure/ACAT_random.Rmd/unnamed-chunk-33-1.png" target="_blank">cebf58a</a>
 </td>
 <td>
@@ -1481,7 +1652,24 @@ XSun
 </table>
 </div>
 </div>
-<p>We also compared the adjusted random p-values with adjusted real p-values. The inflation factors for real p-values are 5.775381 6.671074 4.687092 4.605726 5.453085 4.84691.</p>
+<p>We noticed that there is some inflations for random data (Leukocyte
+(CD15+), Platelet, T cell (CD8+)). We compute genomic inflation factors
+for all cell types.</p>
+<p><span class="math display">\[ chisq = qchisq(1-pvalue,1)\]</span>
+<span class="math display">\[ lambda =
+\frac{median(chisq)}{qchisq(0.5,1)} \]</span> The lambda are 1.103569
+1.110509 1.133734 1.179766 1.045502 4.582142 accordingly.</p>
+<p>Then we corrected the p-values with the inflation factor – lambda
+(devide the chi-squares by inflation factors accoring to <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3133943/"
+class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3133943/</a>
+and compute the p-values):</p>
+<p><span class="math display">\[ chisq_{adjusted} =
+\frac{chisq}{lambda}\]</span></p>
+<p><span class="math display">\[ pvalue_{adjusted} = 1 -
+pchisq(chisq_{adjusted}) \]</span></p>
+<p>The adjusted p-values are shown in the qqplots below (comparing
+unadjusted real p-values).</p>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-34-1.png" width="1440" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-34-1">
@@ -1507,6 +1695,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/627a691fa68b3c98b5c8b99d9cafa6fc33d0b5a1/docs/figure/ACAT_random.Rmd/unnamed-chunk-34-1.png" target="_blank">627a691</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-02
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/xsun1229/factor_analysis/blob/e4382dd341f0e01d3d231418c2463ec88777fc6f/docs/figure/ACAT_random.Rmd/unnamed-chunk-34-1.png" target="_blank">e4382dd</a>
 </td>
 <td>
@@ -1520,6 +1719,286 @@ XSun
 </table>
 </div>
 </div>
+</div>
+<div id="top-pairs-from-t-cell-cd8-random-data" class="section level1">
+<h1>Top pairs from T cell CD8+ (random data)</h1>
+<div id="random-acat" class="section level2">
+<h2>Random ACAT</h2>
+<p>We check several top pairs (top20) that have lowest p-values.</p>
+<pre><code>   pdw_pwy288_pc4    ret_pwy158_pc1    pdw_pwy291_pc1    pdw_pwy102_pc3 
+     1.271423e-06      3.710175e-06      6.523194e-06      7.455455e-06 
+   pdw_pwy289_pc5    pdw_pwy228_pc5    pdw_pwy129_pc4    pdw_pwy165_pc3 
+     8.618332e-06      8.774918e-06      1.122459e-05      1.191599e-05 
+   pdw_pwy202_pc3    pdw_pwy303_pc1     pdw_pwy86_pc4 EUR.CD_pwy259_pc4 
+     1.341401e-05      1.463348e-05      1.549829e-05      1.652491e-05 
+ lymph_pwy284_pc3  lymph_pwy300_pc1    pdw_pwy292_pc1 EUR.CD_pwy131_pc1 
+     1.868668e-05      2.309532e-05      2.353322e-05      2.389009e-05 
+   pdw_pwy137_pc5 EUR.CD_pwy299_pc1    plt_pwy155_pc3    hgb_pwy216_pc2 
+     2.541057e-05      3.095121e-05      3.980136e-05      4.210378e-05 </code></pre>
+<pre><code>traits
+EUR.CD    hgb  lymph    pdw    plt    ret 
+     3      1      2     12      1      1 </code></pre>
+<p>12 of 20 are related to trait pdw (platelet distribution width).</p>
+</div>
+<div id="real-acat" class="section level2">
+<h2>Real ACAT</h2>
+<p>For comparison, we also checked the top 20 pairs from real data</p>
+<pre><code> lymph_pwy212_pc3   mono_pwy284_pc2    wbc_pwy284_pc2    hct_pwy141_pc3 
+     3.407572e-06      5.849411e-06      5.991581e-06      1.092830e-05 
+   hgb_pwy168_pc4   mono_pwy293_pc3    wbc_pwy293_pc3    rbc_pwy141_pc3 
+     1.369486e-05      1.475678e-05      1.512792e-05      1.699808e-05 
+   hct_pwy256_pc2    rbc_pwy256_pc2    hct_pwy154_pc1 EUR.CD_pwy217_pc5 
+     1.727633e-05      2.688218e-05      3.243143e-05      4.113453e-05 
+    hct_pwy16_pc2    pct_pwy322_pc2    hct_pwy167_pc1    hct_pwy139_pc1 
+     4.189620e-05      4.462366e-05      4.656165e-05      4.818949e-05 
+   rbc_pwy154_pc1    hct_pwy210_pc1   mono_pwy125_pc4    hct_pwy273_pc1 
+     5.043930e-05      5.106646e-05      5.317304e-05      5.520883e-05 </code></pre>
+<pre><code>traits_real
+EUR.CD    hct    hgb  lymph   mono    pct    rbc    wbc 
+     1      8      1      1      3      1      3      2 </code></pre>
+<p>The top pairs are not related to pdw.</p>
+<p>We removed the pairs related to pdw for both real data and random
+data, then made the qq-plot:</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-37-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre><code>[1] &quot;The top1 pair of random data  (top 1 dot in red) is ret_pwy158_pc1 &quot;</code></pre>
+<pre><code>[1] &quot;p-value = 3.71017525187992e-06 &quot;</code></pre>
+<pre><code>[1] &quot;The top1 pair of real data (top 1 dot in blue) is lymph_pwy212_pc3 &quot;</code></pre>
+<pre><code>[1] &quot;p-value = 3.40757177707754e-06 &quot;</code></pre>
+</div>
+</div>
+<div id="top-pairs-from-leukocyte-cd15" class="section level1">
+<h1>Top pairs from Leukocyte (CD15+)</h1>
+<div id="random-acat-1" class="section level2">
+<h2>Random ACAT</h2>
+<p>We also check the top 20 pairs from Leukocyte (CD15+).</p>
+<pre><code> wbc_pwy151_pc1 gran_pwy271_pc1 neut_pwy271_pc1  hct_pwy163_pc3 gran_pwy185_pc5 
+   5.269953e-06    8.021516e-06    8.191818e-06    1.999401e-05    2.186851e-05 
+neut_pwy185_pc5  hct_pwy290_pc4  gran_pwy93_pc3  neut_pwy93_pc3  hct_pwy269_pc1 
+   2.233374e-05    2.380974e-05    2.406965e-05    2.457972e-05    3.407876e-05 
+ gran_pwy56_pc3  neut_pwy56_pc3  hct_pwy116_pc4  hct_pwy314_pc4  hct_pwy151_pc5 
+   4.757533e-05    4.859534e-05    5.407810e-05    7.126153e-05    7.663900e-05 
+gran_pwy256_pc4 neut_pwy256_pc4 gran_pwy230_pc5 neut_pwy230_pc5  hct_pwy224_pc1 
+   8.034297e-05    8.206683e-05    9.064552e-05    9.266286e-05    1.046540e-04 </code></pre>
+<pre><code>traits
+gran  hct neut  wbc 
+   6    7    6    1 </code></pre>
+<pre><code>pwy
+pwy116 pwy151 pwy163 pwy185 pwy224 pwy230 pwy256 pwy269 pwy271 pwy290 pwy314 
+     1      2      1      2      1      2      2      1      2      1      1 
+ pwy56  pwy93 
+     2      2 </code></pre>
+<p>There is not a dominant pathway or trait.</p>
+</div>
+<div id="real-acat-1" class="section level2">
+<h2>Real ACAT</h2>
+<p>For comparison, we also checked the top 20 pairs from real data</p>
+<pre><code> lymph_pwy212_pc3   mono_pwy284_pc2    wbc_pwy284_pc2    hct_pwy141_pc3 
+     3.407572e-06      5.849411e-06      5.991581e-06      1.092830e-05 
+   hgb_pwy168_pc4   mono_pwy293_pc3    wbc_pwy293_pc3    rbc_pwy141_pc3 
+     1.369486e-05      1.475678e-05      1.512792e-05      1.699808e-05 
+   hct_pwy256_pc2    rbc_pwy256_pc2    hct_pwy154_pc1 EUR.CD_pwy217_pc5 
+     1.727633e-05      2.688218e-05      3.243143e-05      4.113453e-05 
+    hct_pwy16_pc2    pct_pwy322_pc2    hct_pwy167_pc1    hct_pwy139_pc1 
+     4.189620e-05      4.462366e-05      4.656165e-05      4.818949e-05 
+   rbc_pwy154_pc1    hct_pwy210_pc1   mono_pwy125_pc4    hct_pwy273_pc1 
+     5.043930e-05      5.106646e-05      5.317304e-05      5.520883e-05 </code></pre>
+<pre><code>traits_real
+EUR.CD    hct    hgb  lymph   mono    pct    rbc    wbc 
+     1      8      1      1      3      1      3      2 </code></pre>
+<p>There are three dominant traits in random data (gran, hct and neut),
+hct is also the dominant trait in real data. So we removed gran and neut
+in both random data and real data.</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-40-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre><code>[1] &quot;The top3 pairs of random data  (top 3 dot in red) is wbc_pwy151_pc1,hct_pwy163_pc3,hct_pwy290_pc4 &quot;</code></pre>
+<pre><code>[1] &quot;p-value = 5.26995343553681e-06,1.99940063134465e-05,2.38097448835839e-05 &quot;</code></pre>
+<pre><code>[1] &quot;The top3 pairs of real data (top 1 dot in blue) is hgb_pwy280_pc3,lymph_pwy18_pc4,rdw_pwy210_pc3 &quot;</code></pre>
+<pre><code>[1] &quot;p-value = 1.924151714091e-05,2.1727275875024e-05,2.56802806524958e-05 &quot;</code></pre>
+<p>If we remove the hct as well, we have:</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-41-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre><code>[1] &quot;The top1 pair of random data  (top 1 dot in red) is wbc_pwy151_pc1 &quot;</code></pre>
+<pre><code>[1] &quot;p-value = 5.26995343553681e-06 &quot;</code></pre>
+<pre><code>[1] &quot;The top1 pair of real data (top 1 dot in blue) is hgb_pwy280_pc3 &quot;</code></pre>
+<pre><code>[1] &quot;p-value = 1.924151714091e-05 &quot;</code></pre>
+</div>
+</div>
+<div id="checking-the-top-20-pairs-for-all-cell-types"
+class="section level1">
+<h1>Checking the top 20 pairs for all cell types</h1>
+<div id="random-acat-2" class="section level2">
+<h2>Random ACAT:</h2>
+<pre><code>[1] &quot;The traits included in top pairs, B cell (CD19+) &quot;
+traits
+       EUR.UC           hct           hgb           mcv           mpv 
+            1             2             2             2             1 
+  myeloid_wbc          neut           pct           pdw           rdw 
+            1             1             3             2             3 
+          ret ukb.allasthma 
+            1             1 
+[1] &quot;The pathways included in top pairs, B cell (CD19+) &quot;
+pwy
+pwy114 pwy122 pwy123 pwy124 pwy125 pwy137 pwy162 pwy163 pwy177 pwy186 pwy202 
+     2      1      1      1      1      1      1      1      1      1      1 
+pwy259 pwy268 pwy271 pwy276 pwy284 pwy298 pwy318  pwy89 
+     1      1      1      1      1      1      1      1 
+[1] &quot;The traits included in top pairs, Monocyte (CD14+) &quot;
+traits
+      EUR.IBD          baso           hct          mchc          mono 
+            1             1             2             1             1 
+         neut           plt           rbc           rdw           ret 
+            1             9             1             1             1 
+ukb.allasthma 
+            1 
+[1] &quot;The pathways included in top pairs, Monocyte (CD14+) &quot;
+pwy
+pwy116 pwy118 pwy119 pwy121 pwy122 pwy150 pwy161 pwy173 pwy174 pwy187 pwy236 
+     2      1      1      2      1      1      1      2      1      1      1 
+pwy286 pwy287 pwy290 pwy304  pwy54 
+     1      1      1      2      1 
+[1] &quot;The traits included in top pairs, Leukocyte (CD15+) &quot;
+traits
+gran  hct neut  wbc 
+   6    7    6    1 
+[1] &quot;The pathways included in top pairs, Leukocyte (CD15+) &quot;
+pwy
+pwy116 pwy151 pwy163 pwy185 pwy224 pwy230 pwy256 pwy269 pwy271 pwy290 pwy314 
+     1      2      1      2      1      2      2      1      2      1      1 
+ pwy56  pwy93 
+     2      2 
+[1] &quot;The traits included in top pairs, Platelet &quot;
+traits
+         baso            eo           hct         lymph           mcv 
+            8             1             2             1             1 
+  myeloid_wbc           pdw           plt ukb.allasthma 
+            1             1             4             1 
+[1] &quot;The pathways included in top pairs, Platelet &quot;
+pwy
+pwy116 pwy127 pwy136 pwy150 pwy158 pwy159 pwy177 pwy181 pwy192 pwy200 pwy235 
+     1      1      1      1      1      1      3      1      2      1      1 
+pwy275 pwy294 pwy301 pwy315 pwy316  pwy91 
+     1      1      1      1      1      1 
+[1] &quot;The traits included in top pairs, T cell (CD4+) &quot;
+traits
+EUR.UC    T1D   gran    hgb   mchc   mono    mpv   neut    pct    ret 
+     2      1      1      1      1      1      1      1      1     10 
+[1] &quot;The pathways included in top pairs, T cell (CD4+) &quot;
+pwy
+  pwy1 pwy117 pwy124 pwy131 pwy135 pwy145 pwy151 pwy195 pwy217 pwy222 pwy283 
+     1      1      1      1      1      1      1      2      1      1      2 
+pwy289 pwy292 pwy305  pwy86  pwy94  pwy96 
+     1      1      2      1      1      1 
+[1] &quot;The traits included in top pairs, T cell (CD8+) &quot;
+traits
+EUR.CD    hgb  lymph    pdw    plt    ret 
+     3      1      2     12      1      1 
+[1] &quot;The pathways included in top pairs, T cell (CD8+) &quot;
+pwy
+pwy102 pwy129 pwy131 pwy137 pwy155 pwy158 pwy165 pwy202 pwy216 pwy228 pwy259 
+     1      1      1      1      1      1      1      1      1      1      1 
+pwy284 pwy288 pwy289 pwy291 pwy292 pwy299 pwy300 pwy303  pwy86 
+     1      1      1      1      1      1      1      1      1 </code></pre>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["ukb.allasthma_pwy268_pc5","neut_pwy177_pc3","hgb_pwy137_pc2","myeloid_wbc_pwy276_pc4","hct_pwy202_pc3","rdw_pwy114_pc4","pdw_pwy122_pc2","pdw_pwy114_pc5","mpv_pwy186_pc3","pct_pwy298_pc1","hct_pwy124_pc3","mcv_pwy284_pc2","rdw_pwy162_pc3","rdw_pwy318_pc4","EUR.UC_pwy123_pc4","pct_pwy89_pc1","mcv_pwy271_pc2","pct_pwy259_pc3","hgb_pwy125_pc3","ret_pwy163_pc1"],["plt_pwy173_pc2","plt_pwy286_pc2","plt_pwy116_pc3","ukb.allasthma_pwy116_pc5","plt_pwy54_pc3","plt_pwy122_pc4","EUR.IBD_pwy121_pc3","hct_pwy173_pc4","neut_pwy121_pc3","rdw_pwy287_pc3","mono_pwy304_pc5","mchc_pwy118_pc3","hct_pwy119_pc5","rbc_pwy174_pc4","plt_pwy290_pc3","ret_pwy161_pc4","plt_pwy236_pc2","plt_pwy150_pc2","plt_pwy187_pc3","baso_pwy304_pc3"],["wbc_pwy151_pc1","gran_pwy271_pc1","neut_pwy271_pc1","hct_pwy163_pc3","gran_pwy185_pc5","neut_pwy185_pc5","hct_pwy290_pc4","gran_pwy93_pc3","neut_pwy93_pc3","hct_pwy269_pc1","gran_pwy56_pc3","neut_pwy56_pc3","hct_pwy116_pc4","hct_pwy314_pc4","hct_pwy151_pc5","gran_pwy256_pc4","neut_pwy256_pc4","gran_pwy230_pc5","neut_pwy230_pc5","hct_pwy224_pc1"],["baso_pwy275_pc5","ukb.allasthma_pwy91_pc3","baso_pwy159_pc4","plt_pwy192_pc2","plt_pwy316_pc4","baso_pwy116_pc2","eo_pwy192_pc2","myeloid_wbc_pwy301_pc4","hct_pwy177_pc3","baso_pwy136_pc4","plt_pwy177_pc3","pdw_pwy177_pc3","baso_pwy235_pc1","plt_pwy294_pc3","baso_pwy315_pc5","baso_pwy181_pc4","baso_pwy150_pc4","mcv_pwy200_pc5","hct_pwy158_pc4","lymph_pwy127_pc5"],["ret_pwy86_pc2","ret_pwy151_pc2","ret_pwy217_pc2","gran_pwy283_pc2","ret_pwy305_pc3","ret_pwy289_pc3","EUR.UC_pwy222_pc1","ret_pwy283_pc3","EUR.UC_pwy145_pc5","neut_pwy195_pc2","mono_pwy117_pc5","pct_pwy96_pc5","ret_pwy94_pc2","mpv_pwy135_pc5","ret_pwy131_pc2","hgb_pwy124_pc5","ret_pwy195_pc4","T1D_pwy305_pc4","ret_pwy292_pc3","mchc_pwy1_pc4"],["pdw_pwy288_pc4","ret_pwy158_pc1","pdw_pwy291_pc1","pdw_pwy102_pc3","pdw_pwy289_pc5","pdw_pwy228_pc5","pdw_pwy129_pc4","pdw_pwy165_pc3","pdw_pwy202_pc3","pdw_pwy303_pc1","pdw_pwy86_pc4","EUR.CD_pwy259_pc4","lymph_pwy284_pc3","lymph_pwy300_pc1","pdw_pwy292_pc1","EUR.CD_pwy131_pc1","pdw_pwy137_pc5","EUR.CD_pwy299_pc1","plt_pwy155_pc3","hgb_pwy216_pc2"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B cell (CD19+)<\/th>\n      <th>Monocyte (CD14+)<\/th>\n      <th>Leukocyte (CD15+)<\/th>\n      <th>Platelet<\/th>\n      <th>T cell (CD4+)<\/th>\n      <th>T cell (CD8+)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="real-acat-2" class="section level2">
+<h2>Real ACAT</h2>
+<pre><code>[1] &quot;The traits included in top pairs, B cell (CD19+) &quot;
+traits
+baso   eo  hct  hgb mchc  pct  plt  rbc  rdw  ret 
+   1    2    3    2    3    1    1    2    3    2 
+[1] &quot;The pathways included in top pairs, B cell (CD19+) &quot;
+pwy
+pwy120 pwy150 pwy155 pwy191 pwy266 pwy298 pwy299 pwy300 pwy315  pwy89 
+     3      1      2      1      3      3      1      1      4      1 
+[1] &quot;The traits included in top pairs, Monocyte (CD14+) &quot;
+traits
+     EUR.CD        gran         mch myeloid_wbc        neut         wbc 
+          3           5           1           5           5           1 
+[1] &quot;The pathways included in top pairs, Monocyte (CD14+) &quot;
+pwy
+pwy126 pwy142 pwy143 pwy145 pwy171 pwy230 pwy236 pwy273 pwy299 
+     1      1      3      4      1      3      1      3      3 
+[1] &quot;The traits included in top pairs, Leukocyte (CD15+) &quot;
+traits
+EUR.IBD  EUR.UC allergy    baso      eo     hct     hgb   lymph     mch    mchc 
+      1       2       1       1       3       1       1       1       1       2 
+    mcv    mono     pdw     rdw     ret 
+      1       1       1       2       1 
+[1] &quot;The pathways included in top pairs, Leukocyte (CD15+) &quot;
+pwy
+pwy129 pwy145  pwy16  pwy18 pwy192 pwy205 pwy210 pwy234 pwy255 pwy269 pwy276 
+     1      1      1      1      1      1      3      1      1      1      2 
+pwy280 pwy282 pwy291 pwy296 pwy314 
+     1      1      1      1      2 
+[1] &quot;The traits included in top pairs, Platelet &quot;
+traits
+   eo lymph   mch   mcv   mpv   pct   pdw   plt   rbc   ret 
+    1     1     3     2     1     1     1     1     1     8 
+[1] &quot;The pathways included in top pairs, Platelet &quot;
+pwy
+  pwy1 pwy106 pwy181 pwy202 pwy211 pwy234 pwy271 pwy279 pwy295 pwy301 pwy302 
+     6      1      1      1      1      1      1      1      1      3      2 
+ pwy96 
+     1 
+[1] &quot;The traits included in top pairs, T cell (CD4+) &quot;
+traits
+       EUR.CD       EUR.IBD        EUR.UC          baso          gran 
+            2             1             1             1             2 
+          hgb          mchc           mcv   myeloid_wbc          neut 
+            1             1             1             1             3 
+          pdw           rdw ukb.allasthma           wbc 
+            2             1             2             1 
+[1] &quot;The pathways included in top pairs, T cell (CD4+) &quot;
+pwy
+pwy139 pwy155 pwy163 pwy210 pwy216 pwy224 pwy276 pwy283 pwy302 pwy305 pwy310 
+     1      1      1      4      1      1      1      1      3      1      1 
+pwy313  pwy86  pwy94 
+     1      1      2 
+[1] &quot;The traits included in top pairs, T cell (CD8+) &quot;
+traits
+EUR.CD    hct    hgb  lymph   mono    pct    rbc    wbc 
+     1      8      1      1      3      1      3      2 
+[1] &quot;The pathways included in top pairs, T cell (CD8+) &quot;
+pwy
+pwy125 pwy139 pwy141 pwy154  pwy16 pwy167 pwy168 pwy210 pwy212 pwy217 pwy256 
+     1      1      2      2      1      1      1      1      1      1      2 
+pwy273 pwy284 pwy293 pwy322 
+     1      2      2      1 </code></pre>
+<div id="htmlwidget-cfefb73e51b4928e765c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfefb73e51b4928e765c">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["rdw_pwy315_pc1","mchc_pwy315_pc1","ret_pwy315_pc1","eo_pwy191_pc3","pct_pwy315_pc1","rdw_pwy298_pc1","mchc_pwy298_pc1","hct_pwy120_pc2","baso_pwy89_pc2","hgb_pwy120_pc2","hct_pwy266_pc2","hgb_pwy266_pc2","rbc_pwy120_pc2","ret_pwy298_pc1","plt_pwy299_pc3","mchc_pwy155_pc1","rbc_pwy266_pc2","eo_pwy150_pc5","rdw_pwy155_pc1","hct_pwy300_pc2"],["gran_pwy230_pc5","myeloid_wbc_pwy230_pc5","neut_pwy230_pc5","myeloid_wbc_pwy273_pc5","gran_pwy273_pc5","neut_pwy273_pc5","myeloid_wbc_pwy143_pc5","gran_pwy143_pc5","neut_pwy143_pc5","gran_pwy299_pc5","myeloid_wbc_pwy299_pc5","neut_pwy299_pc5","gran_pwy145_pc4","myeloid_wbc_pwy145_pc4","neut_pwy145_pc4","wbc_pwy145_pc4","EUR.CD_pwy236_pc5","EUR.CD_pwy171_pc5","EUR.CD_pwy142_pc5","mch_pwy126_pc2"],["hgb_pwy280_pc3","lymph_pwy18_pc4","rdw_pwy210_pc3","EUR.UC_pwy314_pc3","mch_pwy210_pc3","mono_pwy296_pc3","ret_pwy269_pc4","EUR.IBD_pwy314_pc3","mchc_pwy291_pc4","mcv_pwy210_pc3","rdw_pwy129_pc3","eo_pwy234_pc2","hct_pwy192_pc2","pdw_pwy205_pc1","baso_pwy276_pc1","mchc_pwy276_pc1","eo_pwy255_pc2","EUR.UC_pwy145_pc3","eo_pwy282_pc5","allergy_pwy16_pc2"],["ret_pwy271_pc5","ret_pwy1_pc1","pdw_pwy1_pc1","lymph_pwy1_pc1","mpv_pwy1_pc1","plt_pwy1_pc1","pct_pwy1_pc1","ret_pwy181_pc3","rbc_pwy301_pc2","mcv_pwy301_pc2","ret_pwy202_pc4","mch_pwy301_pc2","eo_pwy295_pc3","mch_pwy211_pc5","ret_pwy96_pc5","mch_pwy302_pc1","ret_pwy302_pc1","mcv_pwy106_pc5","ret_pwy234_pc4","ret_pwy279_pc5"],["EUR.CD_pwy210_pc5","gran_pwy302_pc4","neut_pwy302_pc4","pdw_pwy283_pc3","wbc_pwy302_pc4","EUR.CD_pwy163_pc4","neut_pwy224_pc4","EUR.UC_pwy155_pc3","ukb.allasthma_pwy139_pc3","rdw_pwy94_pc3","mchc_pwy94_pc2","pdw_pwy305_pc3","EUR.IBD_pwy216_pc4","baso_pwy313_pc4","neut_pwy210_pc3","gran_pwy210_pc3","myeloid_wbc_pwy210_pc3","ukb.allasthma_pwy276_pc2","mcv_pwy86_pc3","hgb_pwy310_pc2"],["lymph_pwy212_pc3","mono_pwy284_pc2","wbc_pwy284_pc2","hct_pwy141_pc3","hgb_pwy168_pc4","mono_pwy293_pc3","wbc_pwy293_pc3","rbc_pwy141_pc3","hct_pwy256_pc2","rbc_pwy256_pc2","hct_pwy154_pc1","EUR.CD_pwy217_pc5","hct_pwy16_pc2","pct_pwy322_pc2","hct_pwy167_pc1","hct_pwy139_pc1","rbc_pwy154_pc1","hct_pwy210_pc1","mono_pwy125_pc4","hct_pwy273_pc1"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B cell (CD19+)<\/th>\n      <th>Monocyte (CD14+)<\/th>\n      <th>Leukocyte (CD15+)<\/th>\n      <th>Platelet<\/th>\n      <th>T cell (CD4+)<\/th>\n      <th>T cell (CD8+)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<!-- We also compared the adjusted random p-values with adjusted real p-values. The inflation factors for real p-values are 5.775381 6.671074 4.687092 4.605726 5.453085 4.84691.  -->
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/pval_gc_corrected_random_MHCremoved.rdata") -->
+<!-- acat_random <- pval_corrected -->
+<!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/pval_gc_corrected_real_MHCremoved.rdata") -->
+<!-- acat_real <- pval_corrected -->
+<!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
+<!-- p <- list() -->
+<!-- for (i in 1:length(acat_random)){ -->
+<!--   p_random <- acat_random[[i]] -->
+<!--   p_real <- acat_real[[i]] -->
+<!--   if (length(p_random) > length(p_real)) { -->
+<!--     p_real[length(p_real)+1] <- 1 -->
+<!--   } -->
+<!--   p_random[is.na(p_random)] <- 1 -->
+<!--   plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(p_random)))), -->
+<!--                          expected = -log10(ppoints(length(p_random))), -->
+<!--                          observed_real = -log10(sort(as.numeric(as.character(p_real)))) ) -->
+<!--   dat.m <- melt(plotdata, id.vars = "expected") -->
+<!--   p[[i]]<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) + -->
+<!--     geom_point(shape = 1, size = 1.5) + -->
+<!--     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--     labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--          y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
+<!--     theme(axis.title.x = element_text(size = 10), -->
+<!--           axis.text.x = element_text(size = 8, color = "black"), -->
+<!--           axis.title.y = element_text(size = 10), -->
+<!--           axis.text.y = element_text(size = 8, color = "black"), -->
+<!--           text= element_text(family="Times New Roman")) + -->
+<!--     scale_colour_manual(values = c("red", "steelblue")) + -->
+<!--     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) -->
+<!-- } -->
+<!-- all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2) -->
+<!-- ``` -->
 <!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
 <!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata") -->
 <!-- type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)") -->
@@ -1648,54 +2127,52 @@ XSun
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
-<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.0.4 (2021-02-15)
+<pre><code>R version 4.2.0 (2022-04-22)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Scientific Linux 7.4 (Nitrogen)
+Running under: CentOS Linux 7 (Core)
 
 Matrix products: default
 BLAS/LAPACK: /software/openblas-0.3.13-el7-x86_64/lib/libopenblas_haswellp-r0.3.13.so
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[1] C
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] data.table_1.14.0 ACAT_0.91         gridExtra_2.3     ggplot2_3.3.5    
+[1] data.table_1.14.2 ACAT_0.91         gridExtra_2.3     ggplot2_3.3.5    
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8        plyr_1.8.6        highr_0.8         pillar_1.6.5     
- [5] compiler_4.0.4    bslib_0.2.4       later_1.1.0.1     jquerylib_0.1.3  
- [9] git2r_0.28.0      workflowr_1.6.2   tools_4.0.4       digest_0.6.27    
-[13] jsonlite_1.7.2    evaluate_0.14     lifecycle_1.0.0   tibble_3.1.6     
-[17] gtable_0.3.0      pkgconfig_2.0.3   rlang_0.4.12      DBI_1.1.1        
-[21] yaml_2.2.1        xfun_0.29         withr_2.4.3       dplyr_1.0.7      
-[25] stringr_1.4.0     knitr_1.31        generics_0.1.0    fs_1.5.0         
-[29] vctrs_0.3.8       sass_0.3.1        tidyselect_1.1.0  rprojroot_2.0.2  
-[33] grid_4.0.4        glue_1.6.2        R6_2.5.0          fansi_0.4.2      
-[37] rmarkdown_2.7     reshape2_1.4.4    farver_2.1.0      purrr_0.3.4      
-[41] magrittr_2.0.1    whisker_0.4       scales_1.1.1      promises_1.2.0.1 
-[45] ellipsis_0.3.2    htmltools_0.5.1.1 assertthat_0.2.1  colorspace_2.0-0 
-[49] httpuv_1.5.5      labeling_0.4.2    utf8_1.2.2        stringi_1.5.3    
-[53] munsell_0.5.0     crayon_1.4.1     </code></pre>
+ [1] tidyselect_1.1.2  xfun_0.30         bslib_0.3.1       reshape2_1.4.4   
+ [5] purrr_0.3.4       colorspace_2.0-3  vctrs_0.4.1       generics_0.1.2   
+ [9] htmltools_0.5.2   yaml_2.3.5        utf8_1.2.2        rlang_1.0.5      
+[13] jquerylib_0.1.4   later_1.3.0       pillar_1.7.0      glue_1.6.2       
+[17] withr_2.5.0       DBI_1.1.2         plyr_1.8.7        lifecycle_1.0.1  
+[21] stringr_1.4.0     munsell_0.5.0     gtable_0.3.0      workflowr_1.7.0  
+[25] htmlwidgets_1.5.4 evaluate_0.15     labeling_0.4.2    knitr_1.39       
+[29] fastmap_1.1.0     crosstalk_1.2.0   httpuv_1.6.5      fansi_1.0.3      
+[33] highr_0.9         Rcpp_1.0.8.3      DT_0.22           promises_1.2.0.1 
+[37] scales_1.2.0      jsonlite_1.8.0    farver_2.1.0      fs_1.5.2         
+[41] digest_0.6.29     stringi_1.7.6     dplyr_1.0.9       grid_4.2.0       
+[45] rprojroot_2.0.3   cli_3.3.0         tools_4.2.0       magrittr_2.0.3   
+[49] sass_0.4.1        tibble_3.1.7      crayon_1.5.1      whisker_0.4      
+[53] pkgconfig_2.0.3   ellipsis_0.3.2    assertthat_0.2.1  rmarkdown_2.14   
+[57] rstudioapi_0.13   R6_2.5.1          git2r_0.30.1      compiler_4.2.0   </code></pre>
+</div>
 </div>
 </div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
-http://docs.mathjax.org/en/latest/configuration.html.  This will make
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
 the presentation more consistent at the cost of the webpage sometimes
 taking slightly longer to load. Note that this only works because the
 footer is added to webpages before the MathJax javascript. -->
@@ -1704,6 +2181,8 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
+
+
 
 
 </div>
@@ -1742,6 +2221,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
