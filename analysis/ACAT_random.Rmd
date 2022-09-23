@@ -1219,6 +1219,94 @@ DT::datatable(acat_top_all, options = list(pageLength =20))
 ```
 
 
+# Calibrate ACAT p-values by trait.
+
+We can get a conclusion that results are driven mostly by some traits, instead of pathways. So we will correct ACAT p-values using random SNPs from the same trait.
+
+That is, for each trait (trait X), use the random ACAT p-values related to trait X (all factor-trait X pairs) as null distribution, then correct the real ACAT p-values. All calibration will be done within each trait.
+In this way, we will not need to make a QQ-plot showing the random ACAT and real ACAT p-values to demonstrate the signal from real ACAT. Showing the QQ-plot of calibrated real ACAT p-values will be enough.
+
+We calibrated p-values according to: 
+
+p_corr[t] <- sum(p_real[t] > p_random)/length(p_random)
+
+For those p_corr == 0, we set p_corr[p_corr == 0] <- 0.5/length(p_random)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=18}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata")
+acat_random <- acat_allcelltypes
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata")
+acat_real <- acat_allcelltypes
+
+traits <- c("EUR.UC","EUR.CD","EUR.IBD","mch","mchc","mcv","rdw","ret","baso","plt","pct","pdw","mpv","hct","hgb","mono","eo","gran","lymph","myeloid_wbc","neut","rbc","wbc","ukb.allasthma","allergy","T1D")
+
+acat_corr_all <- list()
+for (i in 1:length(acat_real)) {
+  
+  acat_corr <- c()
+  for (j in 1:length(traits)) {
+    
+    acat_real_celltype <- acat_real[[i]]
+    acat_random_celltype <- acat_random[[i]]
+    acat_random_celltype[is.na(acat_random_celltype)] <- 1
+    
+    index_trait_real <- grep(traits[j],names(acat_real_celltype))
+    index_trait_random <- grep(traits[j],names(acat_random_celltype))
+    
+    p_real <- acat_real_celltype[index_trait_real]
+    p_random <- acat_random_celltype[index_trait_random]
+    
+    p_corr_tmp <- c()
+    for (t in 1:length(p_real)) {
+      
+      p_corr_tmp[t] <- sum(p_real[t] > p_random)/length(p_real)
+      
+    }
+    p_corr_tmp[p_corr_tmp == 0] <- 0.5/length(p_real)
+    acat_corr <- c(acat_corr,p_corr_tmp)
+    
+  }
+  
+  acat_corr_all[[i]] <- acat_corr
+  
+}
+
+names(acat_corr_all) <- names(acat_real)
+
+##### qqplot
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+plot <- list()
+for (i in 1:length(type)){
+  
+  p <- acat_corr_all[[i]]
+
+  plotdata <- data.frame(observed = -log10(sort(p)),
+                         expected = -log10(ppoints(length(p))))
+  #  
+  
+  plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+    geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  
+}
+all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
+```
+
+There are many pairs have same calibrated p-values, especially for the pairs whose real ACAT p-values are small. The reason is that the number of (p_random < p_real[t]) is small for these pairs. So they are all set to same values. 
+
+
+
 <!-- We also compared the adjusted random p-values with adjusted real p-values. The inflation factors for real p-values are 5.775381 6.671074 4.687092 4.605726 5.453085 4.84691.  -->
 
 <!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
