@@ -1305,6 +1305,40 @@ all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]],
 
 There are many pairs have same calibrated p-values, especially for the pairs whose real ACAT p-values are small. The reason is that the number of (p_random < p_real[t]) is small for these pairs. So they are all set to same values. 
 
+# FDR correction for calibrated ACAT p-values
+
+We computed the FDR using qvalues and lfdr for the calibrated ACAT p-values.
+
+We computed both by traits and by cell types.
+
+## qvalues by cell types
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_qvalues_correct_by_celltype.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+## lfdr by cell types
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_lfdr_correct_by_celltype.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+## qvalues by traits
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_qvalue_correct_by_trait.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+## lfdr by traits
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_fdr_correct_by_trait.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+
 
 
 <!-- We also compared the adjusted random p-values with adjusted real p-values. The inflation factors for real p-values are 5.775381 6.671074 4.687092 4.605726 5.453085 4.84691.  -->

@@ -401,7 +401,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-09-23
+<strong>Last updated:</strong> 2022-09-26
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -535,15 +535,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeea312ee93d191103d58be8abff690cf4fc73afcatargetblankea312eea">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree8dafc35a7210230c61231fd32158734bf74b12b8targetblank8dafc35a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/xsun1229/factor_analysis/tree/ea312ee93d191103d58be8abff690cf4fc73afca" target="_blank">ea312ee</a>
+<a href="https://github.com/xsun1229/factor_analysis/tree/8dafc35a7210230c61231fd32158734bf74b12b8" target="_blank">8dafc35</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeea312ee93d191103d58be8abff690cf4fc73afcatargetblankea312eea"
+id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree8dafc35a7210230c61231fd32158734bf74b12b8targetblank8dafc35a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -553,7 +553,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/xsun1229/factor_analysis/tree/ea312ee93d191103d58be8abff690cf4fc73afca" target="_blank">ea312ee</a>.
+<a href="https://github.com/xsun1229/factor_analysis/tree/8dafc35a7210230c61231fd32158734bf74b12b8" target="_blank">8dafc35</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -620,6 +620,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/8dafc35a7210230c61231fd32158734bf74b12b8/analysis/ACAT_random.Rmd" target="_blank">8dafc35</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-23
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/8dafc35a7210230c61231fd32158734bf74b12b8/docs/ACAT_random.html" target="_blank">8dafc35</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-23
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -2465,10 +2499,73 @@ enough.</p>
 <p>For those p_corr == 0, we set p_corr[p_corr == 0] &lt;-
 0.5/length(p_random)</p>
 <p><img src="figure/ACAT_random.Rmd/unnamed-chunk-45-1.png" width="1728" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-45-1">
+Past versions of unnamed-chunk-45-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-45-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/8dafc35a7210230c61231fd32158734bf74b12b8/docs/figure/ACAT_random.Rmd/unnamed-chunk-45-1.png" target="_blank">8dafc35</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-23
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>There are many pairs have same calibrated p-values, especially for
 the pairs whose real ACAT p-values are small. The reason is that the
 number of (p_random &lt; p_real[t]) is small for these pairs. So they
 are all set to same values.</p>
+</div>
+<div id="fdr-correction-for-calibrated-acat-p-values"
+class="section level1">
+<h1>FDR correction for calibrated ACAT p-values</h1>
+<p>We computed the FDR using qvalues and lfdr for the calibrated ACAT
+p-values.</p>
+<p>We computed both by traits and by cell types.</p>
+<div id="qvalues-by-cell-types" class="section level2">
+<h2>qvalues by cell types</h2>
+<div id="htmlwidget-5ba5287ce9a3b08bdb5d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5ba5287ce9a3b08bdb5d">{"x":{"filter":"none","vertical":false,"data":[["fdr005","perct005","fdr01","perct01","fdr02","perct02","fdr05","perct05","total_pairs"],[" 1781.00000000","    0.08051537"," 9506.00000000","    0.42974684","16261.00000000","    0.73512658","21319.00000000","    0.96378843","22120.00000000"],[" 6240.0000000","    0.2717770","15017.0000000","    0.6540505","19170.0000000","    0.8349303","22960.0000000","    1.0000000","22960.0000000"],[" 1944.00000000","    0.09446064"," 4421.00000000","    0.21482021","11308.00000000","    0.54946550","18568.00000000","    0.90223518","20580.00000000"],[" 1030.0000000","    0.0465663"," 4095.0000000","    0.1851350","10970.0000000","    0.4959537","19410.0000000","    0.8775261","22119.0000000"],["  371.00000000","    0.01606061"," 6908.00000000","    0.29904762","16737.00000000","    0.72454545","22408.00000000","    0.97004329","23100.00000000"],["  291.00000000","    0.01252151","  411.00000000","    0.01768503","  545.00000000","    0.02345095"," 1240.00000000","    0.05335628","23240.00000000"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="lfdr-by-cell-types" class="section level2">
+<h2>lfdr by cell types</h2>
+<div id="htmlwidget-0b516daec537d8efb4b6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0b516daec537d8efb4b6">{"x":{"filter":"none","vertical":false,"data":[["fdr005","perct005","fdr01","perct01","fdr02","perct02","fdr05","perct05","total_pairs"],["  696.00000000","    0.03146474"," 5523.00000000","    0.24968354","10146.00000000","    0.45867993","15155.00000000","    0.68512658","22120.00000000"],[" 2628.0000000","    0.1144599"," 9331.0000000","    0.4064024","13521.0000000","    0.5888937","17195.0000000","    0.7489111","22960.0000000"],["  910.00000000","    0.04421769"," 2051.00000000","    0.09965986"," 6017.00000000","    0.29237123","12204.00000000","    0.59300292","20580.00000000"],["  655.00000000","    0.02961255"," 2016.00000000","    0.09114336"," 5122.00000000","    0.23156562","12680.00000000","    0.57326281","22119.00000000"],["  196.000000000","    0.008484848"," 3617.000000000","    0.156580087","10546.000000000","    0.456536797","16059.000000000","    0.695194805","23100.000000000"],["    0.00000000","    0.00000000","  291.00000000","    0.01252151","  410.00000000","    0.01764200","  506.00000000","    0.02177281","23240.00000000"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="qvalues-by-traits" class="section level2">
+<h2>qvalues by traits</h2>
+<div id="htmlwidget-d0109ea5b7e7d667f148" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d0109ea5b7e7d667f148">{"x":{"filter":"none","vertical":false,"data":[["fdr005","perct005","fdr01","perct01","fdr02","perct02","fdr05","perct05","total_pairs"],[" 5671.0000000","    0.2563743","10160.0000000","    0.4593128","14884.0000000","    0.6728752","19913.0000000","    0.9002260","22120.0000000"],[" 8664.0000000","    0.3773519","13479.0000000","    0.5870645","16943.0000000","    0.7379355","22019.0000000","    0.9590157","22960.0000000"],[" 3048.0000000","    0.1481050"," 6730.0000000","    0.3270165","10726.0000000","    0.5211856","17843.0000000","    0.8670068","20580.0000000"],[" 3406.0000000","    0.1539853"," 6321.0000000","    0.2857724","10364.0000000","    0.4685564","17467.0000000","    0.7896831","22119.0000000"],[" 3829.0000000","    0.1657576"," 8306.0000000","    0.3595671","14473.0000000","    0.6265368","21879.0000000","    0.9471429","23100.0000000"],["  708.00000000","    0.03046472"," 1162.00000000","    0.05000000"," 1804.00000000","    0.07762478"," 6472.00000000","    0.27848537","23240.00000000"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="lfdr-by-traits" class="section level2">
+<h2>lfdr by traits</h2>
+<div id="htmlwidget-7d2b77686a7a668a5a8b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7d2b77686a7a668a5a8b">{"x":{"filter":"none","vertical":false,"data":[["fdr005","perct005","fdr01","perct01","fdr02","perct02","fdr05","perct05","total_pairs"],[" 3193.0000000","    0.1443490"," 6062.0000000","    0.2740506"," 9826.0000000","    0.4442134","14289.0000000","    0.6459765","22120.0000000"],[" 4382.0000000","    0.1908537"," 9119.0000000","    0.3971690","12768.0000000","    0.5560976","17376.0000000","    0.7567944","22960.0000000"],[" 1765.00000000","    0.08576288"," 3544.00000000","    0.17220603"," 6549.00000000","    0.31822157","10921.00000000","    0.53066084","20580.00000000"],[" 1824.00000000","    0.08246304"," 3692.00000000","    0.16691532"," 6216.00000000","    0.28102536","10584.00000000","    0.47850264","22119.00000000"],[" 1624.00000000","    0.07030303"," 4379.00000000","    0.18956710"," 8342.00000000","    0.36112554","13844.00000000","    0.59930736","23100.00000000"],["  462.00000000","    0.01987952","  601.00000000","    0.02586059"," 1073.00000000","    0.04617040"," 3675.00000000","    0.15813253","23240.00000000"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <!-- We also compared the adjusted random p-values with adjusted real p-values. The inflation factors for real p-values are 5.775381 6.671074 4.687092 4.605726 5.453085 4.84691.  -->
 <!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
 <!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/pval_gc_corrected_random_MHCremoved.rdata") -->
@@ -2669,6 +2766,7 @@ loaded via a namespace (and not attached):
 [49] sass_0.4.1        tibble_3.1.7      crayon_1.5.1      whisker_0.4      
 [53] pkgconfig_2.0.3   ellipsis_0.3.2    assertthat_0.2.1  rmarkdown_2.14   
 [57] rstudioapi_0.13   R6_2.5.1          git2r_0.30.1      compiler_4.2.0   </code></pre>
+</div>
 </div>
 </div>
 
