@@ -1307,38 +1307,272 @@ There are many pairs have same calibrated p-values, especially for the pairs who
 
 # FDR correction for calibrated ACAT p-values
 
-We computed the FDR using qvalues and lfdr for the calibrated ACAT p-values.
+We computed the FDR for the calibrated ACAT p-values.
 
 We computed both by traits and by cell types.
 
-## qvalues by cell types
+By cell types means: for each cell type, use all calibrated p-values as inputs to compute FDR. 
+
+By traits means, for each cell type, we calibrated the p-values by traits in last step, we used all p-values within each trait as inputs to compute FDR. 
+
+## Results for 'by cell types'
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_qvalues_correct_by_celltype.rdata")
-DT::datatable(summary, options = list(pageLength =20))
-```
-
-## lfdr by cell types
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_lfdr_correct_by_celltype.rdata")
-DT::datatable(summary, options = list(pageLength =20))
-```
-
-## qvalues by traits
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_qvalue_correct_by_trait.rdata")
-DT::datatable(summary, options = list(pageLength =20))
-```
-
-## lfdr by traits
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_fdr_correct_by_trait.rdata")
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_correctfdr_correct_by_celltype.rdata")
 DT::datatable(summary, options = list(pageLength =20))
 ```
 
 
+## Results for 'by traits'
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/summary_correctfdr_correct_by_trait.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+
+## Try to find out why the results differ a lot
+
+The number of pairs passing the cutoffs differs a lot under two settings. We will try to find out the reasons for it.
+
+We first made a scatter plot showing the fdr computed from 'by cell types' V.S. fdr computed from 'by traits'.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=18}
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/correctfdr_calibrated_acat_real_p_by_celltypes.rdata")
+fdr_bycell <- fdr_calibrated_real_p
+
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/calibrated_fdr/correctfdr_calibrated_acat_real_p_by_trait.rdata")
+fdr_bytraits <- fdr_corr_all
+
+plot <- list()
+for (i in 1:length(fdr_bycell)) {
+  
+  fdr_c <- data.frame(cbind(names(fdr_bycell[[i]]), fdr_bycell[[i]]))
+  colnames(fdr_c) <- c("pair", "p_val_bycell")
+  
+  fdr_t <- data.frame(cbind(names(fdr_bytraits[[i]]), fdr_bytraits[[i]]))
+  colnames(fdr_t) <- c("pair", "p_val_bytrait")
+  
+  fdr_combine <- cbind(fdr_c, fdr_t$p_val_bytrait)
+  colnames(fdr_combine)[3] <- "p_val_bytrait"
+  
+  fdr_combine$p_val_bycell <- as.numeric(fdr_combine$p_val_bycell)
+  fdr_combine$p_val_bytrait <- as.numeric(fdr_combine$p_val_bytrait)
+  
+  plot[[i]] <- ggplot(fdr_combine, aes(x = p_val_bycell,y =p_val_bytrait)) +
+  geom_point(shape = 1, size = 1.5,color = "steelblue") +theme_bw(base_line_size =0.3) +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = "FDR computed from 'by cell types '",
+         y = "FDR computed from 'by traits'") +
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+}
+all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
+
+```
+
+The reason for the large difference is that 1) the FDR computed from 'by traits' are similar for some traits (i.e. trait EUR.UC in B cell and T cell CD8+) 2)the FDR computed from 'by traits' and 'by cell type' are different (i.e. EUR.UC in Platelet, T cell CD4+). See the plots below
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=18}
+
+for (i in 1:length(fdr_bycell)) {
+  
+  fdr_c <- data.frame(cbind(names(fdr_bycell[[i]]), fdr_bycell[[i]]))
+  colnames(fdr_c) <- c("pair", "p_val_bycell")
+  
+  fdr_t <- data.frame(cbind(names(fdr_bytraits[[i]]), fdr_bytraits[[i]]))
+  colnames(fdr_t) <- c("pair", "p_val_bytrait")
+  
+  #fdr_combine <-merge(fdr_c, fdr_t, by = "pair")
+  
+  fdr_combine <- cbind(fdr_c, fdr_t$p_val_bytrait)
+  colnames(fdr_combine)[3] <- "p_val_bytrait"
+  
+  fdr_combine$p_val_bycell <- as.numeric(fdr_combine$p_val_bycell)
+  fdr_combine$p_val_bytrait <- as.numeric(fdr_combine$p_val_bytrait)
+  
+  index <- grep("EUR.UC",fdr_combine$pair)
+  eur.uc <- fdr_combine[index,]
+  plot[[i]] <- ggplot(eur.uc, aes(x = p_val_bycell,y =p_val_bytrait)) +
+  geom_point(shape = 1, size = 1.5,color = "steelblue") +theme_bw(base_line_size =0.3) +
+    ggtitle(paste0("EUR.UC from ", type[i])) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = "FDR computed from 'by cell types '",
+         y = "FDR computed from 'by traits'") +
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+
+
+}
+all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
+
+```
+
+For EUR.UC from B cell, we made a plot showing calibrated ACAT p-values V.S. FDR (by traits) and FDR (by cell types)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=10}
+
+i <- 1
+
+fdr_c <- data.frame(cbind(names(fdr_bycell[[i]]), fdr_bycell[[i]]))
+colnames(fdr_c) <- c("pair", "p_val_bycell")
+  
+fdr_t <- data.frame(cbind(names(fdr_bytraits[[i]]), fdr_bytraits[[i]]))
+colnames(fdr_t) <- c("pair", "p_val_bytrait")
+  
+  #fdr_combine <-merge(fdr_c, fdr_t, by = "pair")
+  
+fdr_combine <- cbind(fdr_c, fdr_t$p_val_bytrait)
+colnames(fdr_combine)[3] <- "p_val_bytrait"
+  
+fdr_combine$p_val_bycell <- as.numeric(fdr_combine$p_val_bycell)
+fdr_combine$p_val_bytrait <- as.numeric(fdr_combine$p_val_bytrait)
+  
+index <- grep("EUR.UC",fdr_combine$pair)
+eur.uc <- fdr_combine[index,]
+
+
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata")
+acat_random <- acat_allcelltypes
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata")
+acat_real <- acat_allcelltypes
+
+acat_real_celltype <- acat_real[[1]]
+acat_random_celltype <- acat_random[[1]]
+acat_random_celltype[is.na(acat_random_celltype)] <- 1
+    
+index_trait_real <- grep("EUR.UC",names(acat_real_celltype))
+index_trait_random <- grep("EUR.UC",names(acat_random_celltype))
+    
+p_real <- acat_real_celltype[index_trait_real]
+p_random <- acat_random_celltype[index_trait_random]
+    
+p_corr_tmp <- c()
+for (t in 1:length(p_real)) {
+  p_corr_tmp[t] <- sum(p_real[t] > p_random)/length(p_real)
+}
+p_corr_tmp[p_corr_tmp == 0] <- 0.5/length(p_real)
+p_calibrated <- p_corr_tmp
+
+df <- data.frame(cbind(p_calibrated,eur.uc$p_val_bycell))
+colnames(df) <- c("p_calibrated", "fdr")
+p1 <- ggplot(df, aes(x = p_calibrated,y =fdr )) +
+  geom_point(shape = 1, size = 1.5,color = "steelblue") +theme_bw(base_line_size =0.3) +
+    ggtitle("p_calibrated vs fdr_by cell") + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = "p_calibrated",
+         y = "FDR computed from 'by cell'") +
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+
+
+df <- data.frame(cbind(p_calibrated,eur.uc$p_val_bytrait))
+colnames(df) <- c("p_calibrated", "fdr")
+p2 <- ggplot(df, aes(x = p_calibrated,y =fdr )) +
+  geom_point(shape = 1, size = 1.5,color = "steelblue") +theme_bw(base_line_size =0.3) +
+    ggtitle("p_calibrated vs fdr_by trait") + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = "p_calibrated",
+         y = "FDR computed from 'by trait'") +
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+
+all <- grid.arrange(p1,p2, nrow =1)
+hist(p_calibrated)
+```
+
+For EUR.UC from T cell CD8+, we also made a plot showing calibrated ACAT p-values V.S. FDR (by traits) and FDR (by cell types)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=10}
+
+i <- 6
+
+fdr_c <- data.frame(cbind(names(fdr_bycell[[i]]), fdr_bycell[[i]]))
+colnames(fdr_c) <- c("pair", "p_val_bycell")
+  
+fdr_t <- data.frame(cbind(names(fdr_bytraits[[i]]), fdr_bytraits[[i]]))
+colnames(fdr_t) <- c("pair", "p_val_bytrait")
+  
+  #fdr_combine <-merge(fdr_c, fdr_t, by = "pair")
+  
+fdr_combine <- cbind(fdr_c, fdr_t$p_val_bytrait)
+colnames(fdr_combine)[3] <- "p_val_bytrait"
+  
+fdr_combine$p_val_bycell <- as.numeric(fdr_combine$p_val_bycell)
+fdr_combine$p_val_bytrait <- as.numeric(fdr_combine$p_val_bytrait)
+  
+index <- grep("EUR.UC",fdr_combine$pair)
+eur.uc <- fdr_combine[index,]
+
+
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_random.rdata")
+acat_random <- acat_allcelltypes
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/ACAT_results_remove_MHC_realdata.rdata")
+acat_real <- acat_allcelltypes
+
+acat_real_celltype <- acat_real[[6]]
+acat_random_celltype <- acat_random[[6]]
+acat_random_celltype[is.na(acat_random_celltype)] <- 1
+    
+index_trait_real <- grep("EUR.UC",names(acat_real_celltype))
+index_trait_random <- grep("EUR.UC",names(acat_random_celltype))
+    
+p_real <- acat_real_celltype[index_trait_real]
+p_random <- acat_random_celltype[index_trait_random]
+    
+p_corr_tmp <- c()
+for (t in 1:length(p_real)) {
+  p_corr_tmp[t] <- sum(p_real[t] > p_random)/length(p_real)
+}
+p_corr_tmp[p_corr_tmp == 0] <- 0.5/length(p_real)
+p_calibrated <- p_corr_tmp
+names(p_calibrated) <- names(p_real)
+
+
+df <- data.frame(cbind(p_calibrated,eur.uc$p_val_bycell))
+colnames(df) <- c("p_calibrated","fdr")
+p1 <- ggplot(df, aes(x = p_calibrated,y =fdr )) +
+  geom_point(shape = 1, size = 1.5,color = "steelblue") +theme_bw(base_line_size =0.3) +
+    ggtitle("p_calibrated vs fdr_by cell") + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = "p_calibrated",
+         y = "FDR computed from 'by cell'") +
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+
+
+df <- data.frame(cbind(p_calibrated,eur.uc$p_val_bytrait))
+colnames(df) <- c("p_calibrated", "fdr")
+p2 <- ggplot(df, aes(x = p_calibrated,y =fdr )) +
+  geom_point(shape = 1, size = 1.5,color = "steelblue") +theme_bw(base_line_size =0.3) +
+    ggtitle("p_calibrated vs fdr_by trait") + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = "p_calibrated",
+         y = "FDR computed from 'by trait'") +
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+
+all <- grid.arrange(p1,p2, nrow =1)
+
+hist(p_calibrated)
+
+```
 
 
 <!-- We also compared the adjusted random p-values with adjusted real p-values. The inflation factors for real p-values are 5.775381 6.671074 4.687092 4.605726 5.453085 4.84691.  -->

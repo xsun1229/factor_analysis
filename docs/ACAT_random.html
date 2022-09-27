@@ -401,7 +401,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-09-26
+<strong>Last updated:</strong> 2022-09-27
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -535,15 +535,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree8dafc35a7210230c61231fd32158734bf74b12b8targetblank8dafc35a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed92c99faae4106e4e28760acedfb68f59728449btargetblankd92c99fa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/xsun1229/factor_analysis/tree/8dafc35a7210230c61231fd32158734bf74b12b8" target="_blank">8dafc35</a>
+<a href="https://github.com/xsun1229/factor_analysis/tree/d92c99faae4106e4e28760acedfb68f59728449b" target="_blank">d92c99f</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree8dafc35a7210230c61231fd32158734bf74b12b8targetblank8dafc35a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreed92c99faae4106e4e28760acedfb68f59728449btargetblankd92c99fa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -553,7 +553,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/xsun1229/factor_analysis/tree/8dafc35a7210230c61231fd32158734bf74b12b8" target="_blank">8dafc35</a>.
+<a href="https://github.com/xsun1229/factor_analysis/tree/d92c99faae4106e4e28760acedfb68f59728449b" target="_blank">d92c99f</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -571,6 +571,7 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    analysis/.Rhistory
+    Ignored:    analysis/figure/
     Ignored:    output/.Rhistory
 
 Unstaged changes:
@@ -620,6 +621,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/d92c99faae4106e4e28760acedfb68f59728449b/analysis/ACAT_random.Rmd" target="_blank">d92c99f</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-26
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/d92c99faae4106e4e28760acedfb68f59728449b/docs/ACAT_random.html" target="_blank">d92c99f</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-09-26
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -2544,28 +2579,43 @@ are all set to same values.</p>
 <div id="fdr-correction-for-calibrated-acat-p-values"
 class="section level1">
 <h1>FDR correction for calibrated ACAT p-values</h1>
-<p>We computed the FDR using qvalues and lfdr for the calibrated ACAT
-p-values.</p>
+<p>We computed the FDR for the calibrated ACAT p-values.</p>
 <p>We computed both by traits and by cell types.</p>
-<div id="qvalues-by-cell-types" class="section level2">
-<h2>qvalues by cell types</h2>
+<p>By cell types means: for each cell type, use all calibrated p-values
+as inputs to compute FDR.</p>
+<p>By traits means, for each cell type, we calibrated the p-values by
+traits in last step, we used all p-values within each trait as inputs to
+compute FDR.</p>
+<div id="results-for-by-cell-types" class="section level2">
+<h2>Results for ‘by cell types’</h2>
 <div id="htmlwidget-5ba5287ce9a3b08bdb5d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5ba5287ce9a3b08bdb5d">{"x":{"filter":"none","vertical":false,"data":[["fdr005","perct005","fdr01","perct01","fdr02","perct02","fdr05","perct05","total_pairs"],[" 1781.00000000","    0.08051537"," 9506.00000000","    0.42974684","16261.00000000","    0.73512658","21319.00000000","    0.96378843","22120.00000000"],[" 6240.0000000","    0.2717770","15017.0000000","    0.6540505","19170.0000000","    0.8349303","22960.0000000","    1.0000000","22960.0000000"],[" 1944.00000000","    0.09446064"," 4421.00000000","    0.21482021","11308.00000000","    0.54946550","18568.00000000","    0.90223518","20580.00000000"],[" 1030.0000000","    0.0465663"," 4095.0000000","    0.1851350","10970.0000000","    0.4959537","19410.0000000","    0.8775261","22119.0000000"],["  371.00000000","    0.01606061"," 6908.00000000","    0.29904762","16737.00000000","    0.72454545","22408.00000000","    0.97004329","23100.00000000"],["  291.00000000","    0.01252151","  411.00000000","    0.01768503","  545.00000000","    0.02345095"," 1240.00000000","    0.05335628","23240.00000000"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-5ba5287ce9a3b08bdb5d">{"x":{"filter":"none","vertical":false,"data":[["num_pairs_pass_fdr&lt;0.05","percentage_pairs_pass_fdr&lt;0.05","num_pairs_pass_fdr&lt;0.1","percentage_pairs_pass_fdr&lt;0.1","num_pairs_pass_fdr&lt;0.2","percentage_pairs_pass_fdr&lt;0.2","num_pairs_pass_fdr&lt;0.5","percentage_pairs_pass_fdr&lt;0.5","total_pairs"],["685","0.0309674502712477","1781","0.0805153707052441","9706","0.43878842676311","17667","0.79868896925859","22120"],["1317","0.0573606271777004","4522","0.196951219512195","13959","0.607970383275261","19585","0.853005226480836","22960"],["617","0.029980563654033","2040","0.0991253644314869","5228","0.254033041788144","14337","0.6966472303207","20580"],["655","0.0296125502961255","1436","0.0649215606492156","5062","0.22885302228853","15021","0.679099416790994","22119"],["0","0","371","0.0160606060606061","7037","0.304632034632035","18546","0.802857142857143","23100"],["291","0.0125215146299484","410","0.0176419965576592","506","0.0217728055077453","1068","0.0459552495697074","23240"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="lfdr-by-cell-types" class="section level2">
-<h2>lfdr by cell types</h2>
+<div id="results-for-by-traits" class="section level2">
+<h2>Results for ‘by traits’</h2>
 <div id="htmlwidget-0b516daec537d8efb4b6" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0b516daec537d8efb4b6">{"x":{"filter":"none","vertical":false,"data":[["fdr005","perct005","fdr01","perct01","fdr02","perct02","fdr05","perct05","total_pairs"],["  696.00000000","    0.03146474"," 5523.00000000","    0.24968354","10146.00000000","    0.45867993","15155.00000000","    0.68512658","22120.00000000"],[" 2628.0000000","    0.1144599"," 9331.0000000","    0.4064024","13521.0000000","    0.5888937","17195.0000000","    0.7489111","22960.0000000"],["  910.00000000","    0.04421769"," 2051.00000000","    0.09965986"," 6017.00000000","    0.29237123","12204.00000000","    0.59300292","20580.00000000"],["  655.00000000","    0.02961255"," 2016.00000000","    0.09114336"," 5122.00000000","    0.23156562","12680.00000000","    0.57326281","22119.00000000"],["  196.000000000","    0.008484848"," 3617.000000000","    0.156580087","10546.000000000","    0.456536797","16059.000000000","    0.695194805","23100.000000000"],["    0.00000000","    0.00000000","  291.00000000","    0.01252151","  410.00000000","    0.01764200","  506.00000000","    0.02177281","23240.00000000"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-0b516daec537d8efb4b6">{"x":{"filter":"none","vertical":false,"data":[["num_pairs_pass_fdr&lt;0.05","percentage_pairs_pass_fdr&lt;0.05","num_pairs_pass_fdr&lt;0.1","percentage_pairs_pass_fdr&lt;0.1","num_pairs_pass_fdr&lt;0.2","percentage_pairs_pass_fdr&lt;0.2","num_pairs_pass_fdr&lt;0.5","percentage_pairs_pass_fdr&lt;0.5","total_pairs"],["1577","0.0712929475587703","4186","0.189240506329114","9455","0.42744122965642","16714","0.755605786618445","22120"],["2854","0.124303135888502","6319","0.275217770034843","12610","0.549216027874564","19174","0.835104529616725","22960"],["1575","0.076530612244898","3040","0.147716229348882","7048","0.342468415937804","12467","0.60578231292517","20580"],["1356","0.0613047606130476","3206","0.144943261449433","5910","0.267191102671911","12729","0.575478095754781","22119"],["754","0.0326406926406926","3430","0.148484848484848","7150","0.30952380952381","17663","0.764632034632035","23100"],["521","0.0224182444061962","639","0.0274956970740103","1000","0.0430292598967298","3007","0.129388984509466","23240"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="qvalues-by-traits" class="section level2">
-<h2>qvalues by traits</h2>
-<div id="htmlwidget-d0109ea5b7e7d667f148" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d0109ea5b7e7d667f148">{"x":{"filter":"none","vertical":false,"data":[["fdr005","perct005","fdr01","perct01","fdr02","perct02","fdr05","perct05","total_pairs"],[" 5671.0000000","    0.2563743","10160.0000000","    0.4593128","14884.0000000","    0.6728752","19913.0000000","    0.9002260","22120.0000000"],[" 8664.0000000","    0.3773519","13479.0000000","    0.5870645","16943.0000000","    0.7379355","22019.0000000","    0.9590157","22960.0000000"],[" 3048.0000000","    0.1481050"," 6730.0000000","    0.3270165","10726.0000000","    0.5211856","17843.0000000","    0.8670068","20580.0000000"],[" 3406.0000000","    0.1539853"," 6321.0000000","    0.2857724","10364.0000000","    0.4685564","17467.0000000","    0.7896831","22119.0000000"],[" 3829.0000000","    0.1657576"," 8306.0000000","    0.3595671","14473.0000000","    0.6265368","21879.0000000","    0.9471429","23100.0000000"],["  708.00000000","    0.03046472"," 1162.00000000","    0.05000000"," 1804.00000000","    0.07762478"," 6472.00000000","    0.27848537","23240.00000000"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="lfdr-by-traits" class="section level2">
-<h2>lfdr by traits</h2>
-<div id="htmlwidget-7d2b77686a7a668a5a8b" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7d2b77686a7a668a5a8b">{"x":{"filter":"none","vertical":false,"data":[["fdr005","perct005","fdr01","perct01","fdr02","perct02","fdr05","perct05","total_pairs"],[" 3193.0000000","    0.1443490"," 6062.0000000","    0.2740506"," 9826.0000000","    0.4442134","14289.0000000","    0.6459765","22120.0000000"],[" 4382.0000000","    0.1908537"," 9119.0000000","    0.3971690","12768.0000000","    0.5560976","17376.0000000","    0.7567944","22960.0000000"],[" 1765.00000000","    0.08576288"," 3544.00000000","    0.17220603"," 6549.00000000","    0.31822157","10921.00000000","    0.53066084","20580.00000000"],[" 1824.00000000","    0.08246304"," 3692.00000000","    0.16691532"," 6216.00000000","    0.28102536","10584.00000000","    0.47850264","22119.00000000"],[" 1624.00000000","    0.07030303"," 4379.00000000","    0.18956710"," 8342.00000000","    0.36112554","13844.00000000","    0.59930736","23100.00000000"],["  462.00000000","    0.01987952","  601.00000000","    0.02586059"," 1073.00000000","    0.04617040"," 3675.00000000","    0.15813253","23240.00000000"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="try-to-find-out-why-the-results-differ-a-lot"
+class="section level2">
+<h2>Try to find out why the results differ a lot</h2>
+<p>The number of pairs passing the cutoffs differs a lot under two
+settings. We will try to find out the reasons for it.</p>
+<p>We first made a scatter plot showing the fdr computed from ‘by cell
+types’ V.S. fdr computed from ‘by traits’.</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-48-1.png" width="1728" style="display: block; margin: auto;" /></p>
+<p>The reason for the large difference is that 1) the FDR computed from
+‘by traits’ are similar for some traits (i.e. trait EUR.UC in B cell and
+T cell CD8+) 2)the FDR computed from ‘by traits’ and ‘by cell type’ are
+different (i.e. EUR.UC in Platelet, T cell CD4+). See the plots
+below</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-49-1.png" width="1728" style="display: block; margin: auto;" /></p>
+<p>For EUR.UC from B cell, we made a plot showing calibrated ACAT
+p-values V.S. FDR (by traits) and FDR (by cell types)</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-50-1.png" width="960" style="display: block; margin: auto;" /><img src="figure/ACAT_random.Rmd/unnamed-chunk-50-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p>For EUR.UC from T cell CD8+, we also made a plot showing calibrated
+ACAT p-values V.S. FDR (by traits) and FDR (by cell types)</p>
+<p><img src="figure/ACAT_random.Rmd/unnamed-chunk-51-1.png" width="960" style="display: block; margin: auto;" /><img src="figure/ACAT_random.Rmd/unnamed-chunk-51-2.png" width="960" style="display: block; margin: auto;" /></p>
 <!-- We also compared the adjusted random p-values with adjusted real p-values. The inflation factors for real p-values are 5.775381 6.671074 4.687092 4.605726 5.453085 4.84691.  -->
 <!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15} -->
 <!-- load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp/pval_gc_corrected_random_MHCremoved.rdata") -->
