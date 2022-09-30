@@ -1,0 +1,79 @@
+---
+title: "The number of PEER factors that need to be regressed out"
+author: "XSun"
+date: "2022-09-30"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+```
+
+
+# Introduction
+
+The factors we used here were computed from 4 settings:
+
+- The first 5 PCs regress out the first 2 PEER factors
+- The first 5 PCs regress out the first 3 PEER factors
+- The first 5 PCs regress out the first 4 PEER factors
+- The first 5 PCs regress out the first 5 PEER factors
+
+
+# Results
+
+For each factor, we did factor ~ SNP + covariates association tests. Then we computed FDR for each SNP.
+After that, we computed the number of SNPs pass FDR < 0.2 for each factor-trait pair.
+
+**Note that the "1" below means 0 and 1**
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=7, fig.width=9}
+
+
+path <- c("2peer","3peer","4peer","5peer")
+
+p <- list()
+for (i in 1:length(path)){
+  
+  folder_path <- paste0("/project2/xinhe/xsun/CEDAR/4.B_cell_kegg/8.regress_out_peer/",path[i],"/2.ECT/")
+
+  load(paste0(folder_path,"results/number_snp_fdr02.rdata"))
+  
+  count_vector <- c()
+  for (t in 1:length(snp_num_fdr02)) {
+    count_vector <- c(count_vector,snp_num_fdr02[[t]])
+  }
+  
+  summary <- as.data.frame(table(count_vector))
+  dat <- rep(1,20540 -sum(summary$Freq))
+  count_vector <- c(count_vector,dat)
+  summary <- as.data.frame(table(count_vector))
+
+  p[[i]] <- ggplot(summary, aes(x = count_vector, y =Freq)) +
+    geom_bar(stat = "identity",fill = "steelblue") +
+    
+    theme_bw(base_line_size =0.3) +
+    
+    ggtitle(path[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = "Number of SNPs pass FDR < 0.2 for each pair",
+         y = "Count") +
+    
+    geom_text(aes(label = Freq), colour = "black",size =2,vjust = -0.1) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+}
+  
+  
+  
+  
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]], nrow = 2)
+
+```

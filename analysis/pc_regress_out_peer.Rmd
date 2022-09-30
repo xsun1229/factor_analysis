@@ -1,0 +1,22 @@
+---
+title: "Analyses using PCs where PEER factors were regressed out"
+author: "XSun"
+date: "2022-09-30"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# Introduction
+
+We re-do our analyses with new PCs where the first severl PEER factors computed from global gene expression matrix were regressed out 
+
+
+# Results
+
+We first determined the number of PEER factors that need to be regressed out
+
+[Details](https://xsun1229.github.io/factor_analysis/num_peer.html)
+
+
+ 
