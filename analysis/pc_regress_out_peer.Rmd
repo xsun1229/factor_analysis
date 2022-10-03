@@ -14,9 +14,23 @@ We re-do our analyses with new PCs where the first severl PEER factors computed 
 
 # Results
 
-We first determined the number of PEER factors that need to be regressed out
+1. We first determined the number of PEER factors that need to be regressed out
 
 [Details](https://xsun1229.github.io/factor_analysis/num_peer.html)
 
+2. We determined to regress out 2 PEER factors before doing PCA on KEGG pathways. Then, we did ECT for these factor-trait pairs. 
 
- 
+[Details](https://xsun1229.github.io/factor_analysis/ECT_2peer.html)
+
+
+3. ACAT
+
+[Details](https://xsun1229.github.io/factor_analysis/acat_2peer.html)
+
+4. MAGMA (TO DO)
+
+[Details]()
+
+5. Heritability (TO DO)
+
+[Details]()
