@@ -284,6 +284,49 @@ DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
 
 
+Effect size plot for mTOR signaling pathway (pwy142_pc3) - plt
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=5}
+
+load("/project2/xinhe/xsun/CEDAR/4.B_cell_kegg/8.regress_out_peer/2peer/2.ECT/results/assoc_results_harmo_2snps.rdata")
+trait <- "plt"
+factor <- "pwy142_pc3"
+fdr_cutoff <- 0.2
+dat <- assoc_harmo_all[[trait]][[factor]]
+snp_select <- dat[dat$fdr < fdr_cutoff,]
+
+fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
+
+eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
+  
+  geom_point() + 
+  
+  geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
+  
+  theme_bw(base_line_size =0.3) +
+  
+  theme(axis.title.x = element_text(size = 12),
+        axis.text.x = element_text(size = 10, color = "black"),
+        axis.title.y = element_text(size = 12),
+        axis.text.y = element_text(size = 10, color = "black"),
+        text= element_text(family="Times New Roman")) + 
+  
+  geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
+  
+  geom_label(aes(x = -0.7, y = -0.03), hjust = 0, 
+             label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
+                           
+                           " \nECT p-value =0.0011"),
+                                   #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
+             color = "black",
+             family = "Times New Roman",
+             size = 3,
+             label.size = NA,
+             alpha = 0)
+eff
+```
+
+
 #### Monocyte (CD14+)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -298,6 +341,50 @@ df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 15,]
 df_sum_15$ECT_fdr_15snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
+Effect size plot for NF-kappa B signaling pathway (pwy121_pc3) - EUR.UC
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=5}
+
+load("/project2/xinhe/xsun/CEDAR/6.CD14_positive_monocyte_kegg/8.regress_out_peer/2peer/2.ECT/results/assoc_results_harmo_2snps.rdata")
+trait <- "EUR.UC"
+factor <- "pwy121_pc3"
+fdr_cutoff <- 0.2
+dat <- assoc_harmo_all[[trait]][[factor]]
+snp_select <- dat[dat$fdr < fdr_cutoff,]
+
+fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
+
+eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
+  
+  geom_point() + 
+  
+  geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
+  
+  theme_bw(base_line_size =0.3) +
+  
+  theme(axis.title.x = element_text(size = 12),
+        axis.text.x = element_text(size = 10, color = "black"),
+        axis.title.y = element_text(size = 12),
+        axis.text.y = element_text(size = 10, color = "black"),
+        text= element_text(family="Times New Roman")) + 
+  
+  geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
+  
+  geom_label(aes(x = -0.25, y = 0.3), hjust = 0, 
+             label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
+                           
+                           " \nECT p-value =0.0010"),
+                                   #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
+             color = "black",
+             family = "Times New Roman",
+             size = 3,
+             label.size = NA,
+             alpha = 0)
+eff
+```
+
+
+
 #### Leukocyte (CD15+)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -327,6 +414,51 @@ df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 15,]
 df_sum_15$ECT_fdr_15snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
+
+Effect size plot for mTOR signaling pathway (pwy142_pc1) - ret
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=5}
+
+load("/project2/xinhe/xsun/CEDAR/16.platelet_kegg/8.regress_out_peer/2peer/2.ECT/results/assoc_results_harmo_2snps.rdata")
+trait <- "ret"
+factor <- "pwy142_pc1"
+fdr_cutoff <- 0.2
+dat <- assoc_harmo_all[[trait]][[factor]]
+snp_select <- dat[dat$fdr < fdr_cutoff,]
+
+fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
+
+eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
+  
+  geom_point() + 
+  
+  geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
+  
+  theme_bw(base_line_size =0.3) +
+  
+  theme(axis.title.x = element_text(size = 12),
+        axis.text.x = element_text(size = 10, color = "black"),
+        axis.title.y = element_text(size = 12),
+        axis.text.y = element_text(size = 10, color = "black"),
+        text= element_text(family="Times New Roman")) + 
+  
+  geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
+  
+  geom_label(aes(x = 0, y = 0.1), hjust = 0, 
+             label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
+                           
+                           " \nECT p-value =0.0027"),
+                                   #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
+             color = "black",
+             family = "Times New Roman",
+             size = 3,
+             label.size = NA,
+             alpha = 0)
+eff
+
+```
+
+
 
 #### T cell (CD4+)
 
