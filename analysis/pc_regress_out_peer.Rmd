@@ -18,10 +18,13 @@ We re-do our analyses with new PCs where the first severl PEER factors computed 
 
 [Details](https://xsun1229.github.io/factor_analysis/num_peer.html)
 
-2. We determined to regress out 2 PEER factors before doing PCA on KEGG pathways. Then, we did ECT for these factor-trait pairs. 
+2. ECT 
 
-[Details](https://xsun1229.github.io/factor_analysis/ECT_2peer.html)
+  We determined to regress out 2 PEER factors before doing PCA on KEGG pathways. Then, we did ECT for these factor-trait pairs. 
 
+  [SNP FDR cutoff: 0.2](https://xsun1229.github.io/factor_analysis/ECT_2peer.html)
+
+  [SNP FDR cutoff: 0.1](https://xsun1229.github.io/factor_analysis/ECT_2peer_fdr01.html)
 
 3. ACAT
 
