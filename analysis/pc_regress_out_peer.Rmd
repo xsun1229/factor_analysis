@@ -9,7 +9,7 @@ editor_options:
 
 # Introduction
 
-We re-do our analyses with new PCs where the first severl PEER factors computed from global gene expression matrix were regressed out 
+We re-do our analyses with new PCs where the first several PEER factors computed from global gene expression matrix were regressed out 
 
 
 # Results
