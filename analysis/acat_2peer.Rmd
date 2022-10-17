@@ -10,84 +10,97 @@ editor_options:
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 suppressMessages(library(ggplot2))
 suppressMessages(library(gridExtra))
+suppressMessages(library(data.table))
 ```
-
 
 # Results
 
-
-## ACAT results from real data
-
+## Comparing ACAT p-values from real and random data (MHC included)
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_regress_peer/results/acat_real.rdata")
+acat_real <- acat_allcelltypes
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_regress_peer/results/acat_random.rdata")
+acat_random <- acat_all
 
 type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
-path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
 
 p <- list()
-for (i in 1:length(type)){
+for (i in 1:length(acat_random)){
   
-  file_acat_results <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/8.regress_out_peer/2peer/2.ECT/results/acat_allpairs.rdata")
-  load(file_acat_results)
+  p_random <- acat_random[[i]]
+  p_real <- acat_real[[i]]
   
-  plotdata <- data.frame(observed = -log10(sort(acat_all)),
-                         expected = -log10(ppoints(length(acat_all))))
+  plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(p_random)))),
+                         expected = -log10(ppoints(length(p_random))),
+                         observed_real = -log10(sort(as.numeric(as.character(p_real)))) )
+  dat.m <- melt(plotdata, id.vars = "expected")
   
-  p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
-    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+  
+  p[[i]]<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+    geom_point(shape = 1, size = 1.5) +
     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
-    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
     labs(x = expression(paste("Expected -log"[10],"(p-value)")),
          y = expression(paste("Observed -log"[10],"(p-value)"))) +
     
-    theme(axis.title.x = element_text(size = 22),
-          axis.text.x = element_text(size = 20, color = "black"),
-          axis.title.y = element_text(size = 22),
-          axis.text.y = element_text(size = 20, color = "black"),
-          text= element_text(family="Times New Roman"))
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) +
+    
+    scale_colour_manual(values = c("red", "steelblue")) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5))
   
 }
 
 all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
-
 ```
 
-## ACAT results from real data (MHC removed)
 
+
+## Comparing ACAT p-values from real and random data (MHC excluded)
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
-
-type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
 load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_regress_peer/results/acat_real_MHCremoved.rdata")
+acat_real <- acat_allcelltypes
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_regress_peer/results/acat_random_MHCremoved.rdata")
+acat_random <- acat_all
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
 
 p <- list()
-for (i in 1:length(type)){
-  acat_all <<- acat_allcelltypes_MHCremoved[[i]]
+for (i in 1:length(acat_random)){
   
-  plotdata <- data.frame(observed = -log10(sort(acat_all)),
-                         expected = -log10(ppoints(length(acat_all))))
+  p_random <- acat_random[[i]]
+  p_real <- acat_real[[i]]
   
-  p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
-    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+  plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(p_random)))),
+                         expected = -log10(ppoints(length(p_random))),
+                         observed_real = -log10(sort(as.numeric(as.character(p_real)))) )
+  dat.m <- melt(plotdata, id.vars = "expected")
+  
+  
+  p[[i]]<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+    geom_point(shape = 1, size = 1.5) +
     geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
-    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
     labs(x = expression(paste("Expected -log"[10],"(p-value)")),
          y = expression(paste("Observed -log"[10],"(p-value)"))) +
     
-    theme(axis.title.x = element_text(size = 22),
-          axis.text.x = element_text(size = 20, color = "black"),
-          axis.title.y = element_text(size = 22),
-          axis.text.y = element_text(size = 20, color = "black"),
-          text= element_text(family="Times New Roman"))
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) +
+    
+    scale_colour_manual(values = c("red", "steelblue")) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5))
   
 }
 
 all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
-
 ```
 
-## ACAT results from random data 
-
-
-## ACAT results from random data (MHC removed)
 
 
 

@@ -36,4 +36,4 @@ We re-do our analyses with new PCs where the first several PEER factors computed
 
 5. Heritability (TO DO)
 
-[Details]()
+[Details](https://xsun1229.github.io/factor_analysis/hsq_pc_regressed.html)
