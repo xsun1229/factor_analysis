@@ -10,6 +10,8 @@ editor_options:
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 suppressMessages(library(ggplot2))
 suppressMessages(library(gridExtra))
+suppressMessages(library(tidyr))
+suppressMessages(library(forcats))
 ```
 
 # Introduction
@@ -69,6 +71,57 @@ all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
 ```
 
 ## ECT results
+### Number of pairs passing different ECT FDR cutoff 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=5}
+
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+
+x <- c()
+y <- c()
+for (i in 1:length(path)){
+  folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/8.regress_out_peer/2peer/2.ECT/")
+  
+  load(paste0(folder_path,"results/ECT_summary_table_fdr01.rdata"))
+  x[i] <- sum(df_sum$fdr_ECT < 0.1)
+  y[i] <- sum(df_sum$fdr_ECT < 0.2) 
+  
+  
+}
+
+type <- c("CD19+","CD14+","CD15+","PLT","CD4+","CD8+")
+
+
+data <- data.frame(x, y,type)
+df <- gather(data, event, total, x:y)
+
+
+bar <- ggplot(df, aes(type, total, fill=event)) +
+  
+  theme_bw(base_line_size =0.3) +
+
+  geom_bar(stat = "identity", position = 'dodge', alpha = 0.2) +
+  scale_fill_manual(name="group", values=c("red", "blue"),labels=c("FDR < 0.1","FDR < 0.2")) +
+  
+  aes(x = fct_inorder(type)) + 
+  
+  labs(x = "Cell types", y = "Count") +
+  
+  geom_text(aes(label = total),position = position_dodge(0.9),
+            color="black",size = 3,vjust = -0.3) +
+  
+  ylim(0,10) +
+  
+  theme(axis.title.x = element_text(size = 12),
+        axis.text.x = element_text(size = 10, color = "black"),
+        axis.title.y = element_text(size = 12),
+        axis.text.y = element_text(size = 10, color = "black"),
+        text= element_text(family="Times New Roman"))
+
+bar
+
+```
+
 
 
 ### Results for all pairs have >=3SNPs

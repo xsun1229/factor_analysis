@@ -11,7 +11,6 @@ editor_options:
 
 We re-do our analyses with new PCs where the first several PEER factors computed from global gene expression matrix were regressed out 
 
-
 # Results
 
 1. We first determined the number of PEER factors that need to be regressed out
@@ -22,18 +21,18 @@ We re-do our analyses with new PCs where the first several PEER factors computed
 
   We determined to regress out 2 PEER factors before doing PCA on KEGG pathways. Then, we did ECT for these factor-trait pairs. 
 
-  [SNP FDR cutoff: 0.2](https://xsun1229.github.io/factor_analysis/ECT_2peer.html)
+[SNP FDR cutoff: 0.2](https://xsun1229.github.io/factor_analysis/ECT_2peer.html)
 
-  [SNP FDR cutoff: 0.1](https://xsun1229.github.io/factor_analysis/ECT_2peer_fdr01.html)
+[SNP FDR cutoff: 0.1](https://xsun1229.github.io/factor_analysis/ECT_2peer_fdr01.html)
 
 3. ACAT
 
 [Details](https://xsun1229.github.io/factor_analysis/acat_2peer.html)
 
-4. MAGMA (TO DO)
+4. MAGMA
 
-[Details]()
+[Details](https://xsun1229.github.io/factor_analysis/magma_2peer.html)
 
-5. Heritability (TO DO)
+5. Heritability
 
 [Details](https://xsun1229.github.io/factor_analysis/hsq_pc_regressed.html)

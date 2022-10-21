@@ -643,7 +643,7 @@ p
 
 
 
-We noticed that there is some inflations for random data (Leukocyte (CD15+), Platelet, T cell (CD8+)). We compute genomic inflation factors for all cell types. 
+We noticed that there is some inflation for random data (Leukocyte (CD15+), Platelet, T cell (CD8+)). We compute genomic inflation factors for all cell types. 
 
 
 $$ chisq = qchisq(1-pvalue,1)$$

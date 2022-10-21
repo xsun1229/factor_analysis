@@ -8,6 +8,15 @@ editor_options:
   chunk_output_type: console
 ---
 
+
+# **Latest Results**
+
+[Regressing out PEER factors when computing PCs](https://xsun1229.github.io/factor_analysis/pc_regress_out_peer.html)
+
+[Correcting FDR](https://xsun1229.github.io/factor_analysis/redo_correct_lfdr.html)
+
+
+
 # **1. Introduction**
 
 GWAS has found many variants. However, the mechanisms of these variants are often unknown. 

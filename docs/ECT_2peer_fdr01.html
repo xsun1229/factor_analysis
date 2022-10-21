@@ -15,6 +15,7 @@
 
 <title>Effect Size Consistency Tests (SNP FDR cutoff: 0.1)</title>
 
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -54,6 +55,8 @@ div.section {
   padding-top: 12px;
 }
 </style>
+
+
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -367,7 +370,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Effect Size Consistency Tests (SNP FDR cutoff: 0.1)</h1>
+<h1 class="title toc-ignore">Effect Size Consistency Tests (SNP FDR
+cutoff: 0.1)</h1>
 <h4 class="author">XSun</h4>
 <h4 class="date">2022-10-04</h4>
 
@@ -376,7 +380,9 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -385,7 +391,9 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -394,17 +402,27 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-10-15
+<strong>Last updated:</strong> 2022-10-21
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
 </p>
 <p>
-<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
 </p>
 <p>
-This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -413,109 +431,171 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
 </p>
 </div>
 <div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20200623)</code> </a>
 </p>
 </div>
-<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div id="strongSeedstrongcodesetseed20200623code"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20200623)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
 </p>
 </div>
-<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
 </p>
 </div>
 <div id="strongCachestrongnone" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
 </p>
 </div>
 <div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee1a7d3ee5a2e557828529d904e6fc93d911bb626targetblanke1a7d3ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/e1a7d3ee5a2e557828529d904e6fc93d911bb626" target="_blank">e1a7d3e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0706c05f0cc4cab9ffe730583aad9373fdbebd7ftargetblank0706c05a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/xsun1229/factor_analysis/tree/0706c05f0cc4cab9ffe730583aad9373fdbebd7f" target="_blank">0706c05</a>
+</a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreee1a7d3ee5a2e557828529d904e6fc93d911bb626targetblanke1a7d3ea" class="panel-collapse collapse">
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0706c05f0cc4cab9ffe730583aad9373fdbebd7ftargetblank0706c05a"
+class="panel-collapse collapse">
 <div class="panel-body">
 <p>
-Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/e1a7d3ee5a2e557828529d904e6fc93d911bb626" target="_blank">e1a7d3e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version
+<a href="https://github.com/xsun1229/factor_analysis/tree/0706c05f0cc4cab9ffe730583aad9373fdbebd7f" target="_blank">0706c05</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
 </p>
 <p>
-Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
 </p>
 <pre><code>
 Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    analysis/.Rhistory
+    Ignored:    analysis/figure/
     Ignored:    output/.Rhistory
 
 Untracked files:
-    Untracked:  analysis/hsq_pc_regressed.Rmd
+    Untracked:  analysis/acat_fdr.Rmd
+    Untracked:  analysis/hsq_pc_fdr.Rmd
+    Untracked:  analysis/magma_2peer.Rmd
+    Untracked:  analysis/magma_fdr.Rmd
+    Untracked:  analysis/redo_correct_lfdr.Rmd
 
 Unstaged changes:
+    Modified:   analysis/ACAT_random.Rmd
+    Modified:   analysis/ECT_2peer.Rmd
+    Modified:   analysis/ECT_2peer_fdr01.Rmd
+    Modified:   analysis/ECT_redo.Rmd
     Modified:   analysis/acat_2peer.Rmd
+    Modified:   analysis/hsq_pc_regressed.Rmd
     Modified:   analysis/pc_regress_out_peer.Rmd
 
 </code></pre>
 <p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
 </p>
 </div>
 </div>
@@ -526,7 +606,12 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/ECT_2peer_fdr01.Rmd</code>) and HTML (<code>docs/ECT_2peer_fdr01.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/ECT_2peer_fdr01.Rmd</code>) and
+HTML (<code>docs/ECT_2peer_fdr01.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -550,6 +635,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/0706c05f0cc4cab9ffe730583aad9373fdbebd7f/docs/ECT_2peer_fdr01.html" target="_blank">0706c05</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-10-17
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -630,12 +732,14 @@ update
 <p>Workflow:</p>
 <ol style="list-style-type: decimal">
 <li><p>Association test: factor ~ snp + covariates</p></li>
-<li><p>For the pairs have multiple snps passing FDR &lt; 0.1, do ECT</p></li>
+<li><p>For the pairs have multiple snps passing FDR &lt; 0.1, do
+ECT</p></li>
 </ol>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
-<div id="the-number-of-snps-passing-fdr-0.1-in-association-tests" class="section level2">
+<div id="the-number-of-snps-passing-fdr-0.1-in-association-tests"
+class="section level2">
 <h2>The number of SNPs passing FDR &lt; 0.1 in association tests</h2>
 <p><img src="figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-2-1.png" width="1440" style="display: block; margin: auto;" /></p>
 <p>
@@ -678,9 +782,10 @@ XSun
 </div>
 <div id="ect-results" class="section level2">
 <h2>ECT results</h2>
-<div id="results-for-all-pairs-have-3snps" class="section level3">
-<h3>Results for all pairs have &gt;=3SNPs</h3>
-<p><img src="figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-3-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<div id="number-of-pairs-passing-different-ect-fdr-cutoff"
+class="section level3">
+<h3>Number of pairs passing different ECT FDR cutoff</h3>
+<p><img src="figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
 Past versions of unnamed-chunk-3-1.png
@@ -705,6 +810,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/0706c05f0cc4cab9ffe730583aad9373fdbebd7f/docs/figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-3-1.png" target="_blank">0706c05</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-10-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/xsun1229/factor_analysis/blob/d4bc14deaf5801a5c43494b505eda4ec7ba80d37/docs/figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-3-1.png" target="_blank">d4bc14d</a>
 </td>
 <td>
@@ -718,47 +834,9 @@ XSun
 </table>
 </div>
 </div>
-<p><img src="figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-3-2.png" width="1440" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-2">
-Past versions of unnamed-chunk-3-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-3-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/d4bc14deaf5801a5c43494b505eda4ec7ba80d37/docs/figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-3-2.png" target="_blank">d4bc14d</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-10-05
-</td>
-</tr>
-</tbody>
-</table>
 </div>
-</div>
-</div>
-<div id="results-for-all-pairs-have-5snps" class="section level3">
-<h3>Results for all pairs have &gt;=5SNPs</h3>
+<div id="results-for-all-pairs-have-3snps" class="section level3">
+<h3>Results for all pairs have &gt;=3SNPs</h3>
 <p><img src="figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-4-1.png" width="1440" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
@@ -782,6 +860,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/0706c05f0cc4cab9ffe730583aad9373fdbebd7f/docs/figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-4-1.png" target="_blank">0706c05</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-10-17
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/xsun1229/factor_analysis/blob/e1a7d3ee5a2e557828529d904e6fc93d911bb626/docs/figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-4-1.png" target="_blank">e1a7d3e</a>
@@ -836,6 +925,10 @@ XSun
 </div>
 </div>
 </div>
+<div id="results-for-all-pairs-have-5snps" class="section level3">
+<h3>Results for all pairs have &gt;=5SNPs</h3>
+<p><img src="figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-5-1.png" width="1440" style="display: block; margin: auto;" /><img src="figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-5-2.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
 <div id="detailed-results" class="section level3">
 <h3>Detailed results</h3>
 <div id="b-cell-cd19" class="section level4">
@@ -869,44 +962,7 @@ XSun
 <p>Compute ECT FDR only for pairs have &gt;=5 SNPs</p>
 <div id="htmlwidget-9426e8dbc00f518789c4" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-9426e8dbc00f518789c4">{"x":{"filter":"none","vertical":false,"data":[["1","12","14","25","26","28","37","41","45","54","59","66","72","98","102","106","119","121","122","126","134","143","170","172","174","177","180","182","193","199","205","210","211","213","214","220","226","227","228","235","238","239","245","253","260","261","265","266","267","272","277","278","281","288","291","292","297","301","302","309","310","312","315","319","326","338","351","357","363","370","372","373","377","386","392","406","409","413","428","432","435","437","448","453","461","474","484","490","494","504","509","510","512","518","527","532","539","542","552","559","564","569","572","578","582","583","589","590","592","593","594","595","596","599","602","608","610","613","617","623","625","626","628","631","633","636","637","638","639","646","651","655","662","663","664","669","679","680","692","694","701","705","711","712","713","722","723","726","735","737","747","751","760","770","771","773","781","783","785","786","788","792","799","806","807","809","810","815","816","820","833","839","842","843","845","849","854","855","856","857","859","865","871","872","875","879","883","889","896","917","922","923","926","928","929","930","933","935","939","940","945","947","951","955","959"],["allergy","allergy","allergy","baso","baso","eo","eo","eo","eo","eo","eo","EUR.IBD","EUR.IBD","gran","gran","gran","hct","hct","hct","hgb","hgb","hgb","mch","mch","mch","mch","mch","mch","mch","mch","mch","mch","mch","mch","mch","mch","mch","mch","mchc","mcv","mcv","mcv","mcv","mcv","mcv","mcv","mcv","mcv","mcv","mcv","mcv","mcv","mcv","mcv","mono","mono","mono","mono","mono","mono","mono","mono","mono","mono","mono","mpv","mpv","mpv","mpv","mpv","mpv","mpv","mpv","mpv","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","myeloid_wbc","neut","neut","neut","neut","neut","neut","neut","neut","neut","pct","pct","pct","pct","pct","pct","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","pdw","plt","plt","plt","plt","plt","plt","plt","plt","plt","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rbc","rdw","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","ret","T1D","T1D","T1D","T1D","T1D","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc","wbc"],["pwy116_pc3","pwy302_pc3","pwy319_pc2","pwy270_pc4","pwy318_pc2","pwy116_pc3","pwy161_pc3","pwy176_pc4","pwy205_pc2","pwy293_pc1","pwy296_pc1","pwy117_pc3","pwy271_pc1","pwy202_pc1","pwy270_pc1","pwy291_pc2","pwy228_pc1","pwy270_pc4","pwy295_pc1","pwy113_pc1","pwy143_pc2","pwy270_pc4","pwy114_pc2","pwy120_pc1","pwy129_pc1","pwy142_pc2","pwy151_pc2","pwy159_pc4","pwy187_pc2","pwy212_pc2","pwy236_pc1","pwy271_pc4","pwy271_pc5","pwy274_pc3","pwy283_pc4","pwy293_pc2","pwy332_pc1","pwy89_pc4","pwy143_pc5","pwy101_pc2","pwy113_pc4","pwy120_pc4","pwy142_pc4","pwy167_pc4","pwy187_pc2","pwy190_pc1","pwy217_pc1","pwy224_pc4","pwy236_pc1","pwy271_pc4","pwy288_pc1","pwy288_pc3","pwy289_pc4","pwy89_pc4","pwy115_pc3","pwy117_pc4","pwy137_pc1","pwy165_pc2","pwy165_pc3","pwy223_pc2","pwy224_pc2","pwy256_pc1","pwy266_pc2","pwy274_pc2","pwy289_pc2","pwy113_pc4","pwy153_pc1","pwy177_pc1","pwy200_pc1","pwy258_pc1","pwy266_pc2","pwy270_pc4","pwy288_pc4","pwy95_pc1","pwy117_pc1","pwy143_pc3","pwy150_pc1","pwy159_pc2","pwy196_pc1","pwy202_pc1","pwy212_pc3","pwy228_pc1","pwy282_pc2","pwy288_pc2","pwy312_pc1","pwy143_pc3","pwy173_pc3","pwy196_pc1","pwy202_pc1","pwy255_pc1","pwy270_pc1","pwy270_pc3","pwy286_pc1","pwy291_pc2","pwy143_pc1","pwy167_pc1","pwy255_pc1","pwy258_pc1","pwy288_pc4","pwy310_pc1","pwy113_pc4","pwy116_pc3","pwy122_pc2","pwy131_pc3","pwy138_pc4","pwy139_pc2","pwy159_pc4","pwy161_pc3","pwy169_pc1","pwy169_pc2","pwy169_pc3","pwy173_pc2","pwy173_pc3","pwy186_pc4","pwy192_pc1","pwy200_pc1","pwy211_pc2","pwy223_pc1","pwy255_pc3","pwy266_pc2","pwy270_pc4","pwy271_pc5","pwy284_pc3","pwy286_pc4","pwy289_pc1","pwy292_pc4","pwy292_pc5","pwy293_pc2","pwy293_pc4","pwy316_pc3","pwy94_pc3","pwy116_pc2","pwy143_pc1","pwy143_pc3","pwy145_pc1","pwy167_pc1","pwy255_pc1","pwy258_pc1","pwy310_pc1","pwy318_pc4","pwy120_pc4","pwy129_pc1","pwy137_pc1","pwy138_pc1","pwy140_pc2","pwy165_pc4","pwy167_pc4","pwy183_pc3","pwy270_pc4","pwy271_pc5","pwy291_pc2","pwy295_pc3","pwy191_pc5","pwy113_pc4","pwy114_pc2","pwy115_pc3","pwy127_pc3","pwy136_pc4","pwy137_pc3","pwy139_pc2","pwy142_pc1","pwy145_pc1","pwy155_pc3","pwy169_pc3","pwy177_pc1","pwy180_pc2","pwy181_pc1","pwy190_pc3","pwy192_pc4","pwy200_pc1","pwy233_pc1","pwy258_pc5","pwy270_pc1","pwy270_pc4","pwy271_pc1","pwy288_pc1","pwy292_pc4","pwy292_pc5","pwy293_pc2","pwy294_pc1","pwy294_pc4","pwy312_pc5","pwy89_pc4","pwy95_pc1","pwy126_pc2","pwy16_pc3","pwy173_pc2","pwy266_pc2","pwy288_pc4","pwy122_pc4","pwy136_pc1","pwy139_pc1","pwy143_pc1","pwy144_pc1","pwy153_pc1","pwy159_pc4","pwy165_pc3","pwy177_pc3","pwy187_pc2","pwy192_pc4","pwy224_pc1","pwy228_pc1","pwy270_pc1","pwy286_pc1","pwy291_pc2"],["04022","05212","05235","05131","05231","04022","04371","04620","04728","05170","05203","04024","05132","04725","05131","05168","04926","05131","05202","04014","04151","05131","04015","04062","04114","04150","04218","04360","04660","04910","04934","05132","05132","05135","05160","05170","05418","01522","04151","03040","04014","04062","04150","04514","04660","04666","04915","04922","04934","05132","05165","05165","05166","01522","04020","04024","04141","04510","04510","04921","04922","05012","05100","05135","05166","04014","04261","04621","04723","05016","05100","05131","05165","03013","04024","04151","04217","04360","04714","04725","04910","04926","05152","05165","05222","04151","04611","04714","04725","05010","05131","05131","05163","05168","04151","04514","05010","05016","05165","05220","04014","04022","04066","04120","04142","04144","04360","04371","04530","04530","04530","04611","04611","04659","04670","04723","04810","04921","05010","05100","05131","05132","05161","05163","05166","05169","05169","05170","05170","05226","03010","04022","04151","04151","04210","04514","05010","05016","05220","05231","04062","04114","04141","04142","04145","04510","04514","04650","05131","05132","05168","05202","04668","04014","04015","04020","04080","04140","04141","04144","04150","04210","04310","04530","04621","04625","04630","04666","04670","04723","04931","05016","05131","05131","05132","05165","05169","05169","05170","05200","05200","05222","01522","03013","04072","00190","04611","05100","05165","04066","04140","04144","04151","04152","04261","04360","04510","04621","04660","04670","04922","04926","05131","05163","05168"],["cGMP-PKG signaling pathway","Pancreatic cancer","PD-L1 expression and PD-1 checkpoint pathway in cancer","Shigellosis","Choline metabolism in cancer","cGMP-PKG signaling pathway","Apelin signaling pathway","Toll-like receptor signaling pathway","Dopaminergic synapse","Human immunodeficiency virus 1 infection","Viral carcinogenesis","cAMP signaling pathway","Salmonella infection","Cholinergic synapse","Shigellosis","Herpes simplex virus 1 infection","Relaxin signaling pathway","Shigellosis","Transcriptional misregulation in cancer","Ras signaling pathway","PI3K-Akt signaling pathway","Shigellosis","Rap1 signaling pathway","Chemokine signaling pathway","Oocyte meiosis","mTOR signaling pathway","Cellular senescence","Axon guidance","T cell receptor signaling pathway","Insulin signaling pathway","Cushing syndrome","Salmonella infection","Salmonella infection","Yersinia infection","Hepatitis C","Human immunodeficiency virus 1 infection","Fluid shear stress and atherosclerosis","Endocrine resistance","PI3K-Akt signaling pathway","Spliceosome","Ras signaling pathway","Chemokine signaling pathway","mTOR signaling pathway","Cell adhesion molecules","T cell receptor signaling pathway","Fc gamma R-mediated phagocytosis","Estrogen signaling pathway","Glucagon signaling pathway","Cushing syndrome","Salmonella infection","Human papillomavirus infection","Human papillomavirus infection","Human T-cell leukemia virus 1 infection","Endocrine resistance","Calcium signaling pathway","cAMP signaling pathway","Protein processing in endoplasmic reticulum","Focal adhesion","Focal adhesion","Oxytocin signaling pathway","Glucagon signaling pathway","Parkinson disease","Bacterial invasion of epithelial cells","Yersinia infection","Human T-cell leukemia virus 1 infection","Ras signaling pathway","Adrenergic signaling in cardiomyocytes","NOD-like receptor signaling pathway","Retrograde endocannabinoid signaling","Huntington disease","Bacterial invasion of epithelial cells","Shigellosis","Human papillomavirus infection","RNA transport","cAMP signaling pathway","PI3K-Akt signaling pathway","Necroptosis","Axon guidance","Thermogenesis","Cholinergic synapse","Insulin signaling pathway","Relaxin signaling pathway","Tuberculosis","Human papillomavirus infection","Small cell lung cancer","PI3K-Akt signaling pathway","Platelet activation","Thermogenesis","Cholinergic synapse","Alzheimer disease","Shigellosis","Shigellosis","Human cytomegalovirus infection","Herpes simplex virus 1 infection","PI3K-Akt signaling pathway","Cell adhesion molecules","Alzheimer disease","Huntington disease","Human papillomavirus infection","Chronic myeloid leukemia","Ras signaling pathway","cGMP-PKG signaling pathway","HIF-1 signaling pathway","Ubiquitin mediated proteolysis","Lysosome","Endocytosis","Axon guidance","Apelin signaling pathway","Tight junction","Tight junction","Tight junction","Platelet activation","Platelet activation","Th17 cell differentiation","Leukocyte transendothelial migration","Retrograde endocannabinoid signaling","Regulation of actin cytoskeleton","Oxytocin signaling pathway","Alzheimer disease","Bacterial invasion of epithelial cells","Shigellosis","Salmonella infection","Hepatitis B","Human cytomegalovirus infection","Human T-cell leukemia virus 1 infection","Epstein-Barr virus infection","Epstein-Barr virus infection","Human immunodeficiency virus 1 infection","Human immunodeficiency virus 1 infection","Gastric cancer","Ribosome","cGMP-PKG signaling pathway","PI3K-Akt signaling pathway","PI3K-Akt signaling pathway","Apoptosis","Cell adhesion molecules","Alzheimer disease","Huntington disease","Chronic myeloid leukemia","Choline metabolism in cancer","Chemokine signaling pathway","Oocyte meiosis","Protein processing in endoplasmic reticulum","Lysosome","Phagosome","Focal adhesion","Cell adhesion molecules","Natural killer cell mediated cytotoxicity","Shigellosis","Salmonella infection","Herpes simplex virus 1 infection","Transcriptional misregulation in cancer","TNF signaling pathway","Ras signaling pathway","Rap1 signaling pathway","Calcium signaling pathway","Neuroactive ligand-receptor interaction","Autophagy - animal","Protein processing in endoplasmic reticulum","Endocytosis","mTOR signaling pathway","Apoptosis","Wnt signaling pathway","Tight junction","NOD-like receptor signaling pathway","C-type lectin receptor signaling pathway","JAK-STAT signaling pathway","Fc gamma R-mediated phagocytosis","Leukocyte transendothelial migration","Retrograde endocannabinoid signaling","Insulin resistance","Huntington disease","Shigellosis","Shigellosis","Salmonella infection","Human papillomavirus infection","Epstein-Barr virus infection","Epstein-Barr virus infection","Human immunodeficiency virus 1 infection","Pathways in cancer","Pathways in cancer","Small cell lung cancer","Endocrine resistance","RNA transport","Phospholipase D signaling pathway","Oxidative phosphorylation","Platelet activation","Bacterial invasion of epithelial cells","Human papillomavirus infection","HIF-1 signaling pathway","Autophagy - animal","Endocytosis","PI3K-Akt signaling pathway","AMPK signaling pathway","Adrenergic signaling in cardiomyocytes","Axon guidance","Focal adhesion","NOD-like receptor signaling pathway","T cell receptor signaling pathway","Leukocyte transendothelial migration","Glucagon signaling pathway","Relaxin signaling pathway","Shigellosis","Human cytomegalovirus infection","Herpes simplex virus 1 infection"],[67,42,49,117,43,67,56,44,56,100,95,71,111,41,117,119,52,117,72,84,126,117,99,88,58,55,78,58,51,62,46,111,111,65,76,100,65,42,126,58,84,88,55,51,51,56,48,43,46,111,131,131,105,42,57,71,78,85,85,61,43,69,42,65,105,84,56,75,58,112,42,117,131,71,71,126,69,58,90,41,62,52,92,131,40,126,70,90,41,82,117,117,110,119,126,51,82,112,131,43,84,67,57,70,67,111,58,56,69,69,69,70,70,50,58,58,102,61,82,42,117,111,73,110,105,105,105,100,100,45,85,67,126,126,73,51,82,112,43,43,88,58,78,67,81,85,51,70,117,111,119,72,50,84,99,57,55,69,78,111,55,73,50,69,75,54,55,56,58,58,45,112,117,117,111,131,105,105,100,204,204,40,42,71,59,61,70,42,131,57,69,111,126,48,56,58,85,75,51,58,43,52,117,110,119],[0.617075940049172,0.373386525739463,0.950076298607451,0.431447018781829,0.669442769667914,0.966482770423182,0.222108194173484,0.00196207280767079,0.0598391422290086,0.276722795475551,0.270840417051263,0.46798066747548,0.48758627319927,0.489657886306312,0.636554253864481,0.803428067285934,0.895959625064014,0.68628219234088,0.902037327387184,0.459535181168374,0.0688959638705625,0.696035969436688,0.946396952219058,0.0296843360087016,0.444972470707938,0.0850337993360822,0.928321206619907,0.0144995517819949,0.788052348770349,0.542526170989836,0.0576762028419312,0.407703378151138,0.838433207406248,0.987342260600928,0.346407356538039,0.668262840097325,0.0896368087281003,0.837262247746407,0.917761615365066,0.970993569085624,0.616505959505622,0.882838954165836,0.171577877724025,0.70364905151799,0.530989085739694,0.679135880155931,0.846437066550377,0.985641022361435,0.184675531941624,0.423338023950539,0.83520479058975,0.0505306868677736,0.97936873908595,0.0237578467074523,0.651831499799703,0.686370200983932,0.629050411877813,0.240511982532288,0.471720752057176,0.232382504632092,0.943694231764186,0.780913220563639,0.812517967425887,0.731612131415347,0.0921652146881139,0.256166481868327,0.828459162844494,0.651703571371268,0.792821012288412,0.769188184571515,0.464161530538565,0.686332146003679,0.37318177120023,0.515023120650314,0.291311068856334,0.183251765587143,0.328405395495945,0.599409820235674,0.41715727321948,0.139490905639921,0.207467964927296,0.818059484558523,0.34128734498511,0.25942275714156,0.393090280173319,0.777343698366113,0.546096466267336,0.158005484465268,0.677435807787048,0.164484176449474,0.611484761815496,0.328512306689591,0.702254534933385,0.75182381747038,0.0617395097357856,0.0706167647682215,0.0786252542801136,0.00152486442497949,0.748462512028253,0.000559056855342867,0.171743659491915,0.693789359023515,0.973430669924385,0.44387644017456,0.429841941486868,0.415025274900874,0.103195837721803,0.256468636074,0.601102205963496,0.471522416341575,0.270286855674663,0.36441009760735,0.113102148350996,0.570914763404119,0.815238865282828,0.722302339633257,0.959084907335962,0.842431863717748,0.419357358787022,0.490590993620624,0.0613533080203195,0.0649699899416974,0.878904110812042,0.182273442936467,0.735770352808914,0.216438541608521,0.000525327596168344,0.345977678288692,0.301702718579486,0.496210698350652,0.367826464747546,0.866832545300616,0.136146097271399,0.102978132586356,0.863676356827702,0.20595704610141,0.3780010647617,0.503806644727387,0.549049618135859,0.942203294088756,0.722716581554513,0.831956554673143,0.196067442057184,0.469098981701048,0.851618143903591,0.129424840547198,0.787475315081787,0.00742694387519625,0.918799640401829,0.712199885688709,0.751231135559845,0.928427970557721,0.858200006071622,0.143301653310494,0.0724962173027368,0.0820205263974676,0.0447736598775584,0.000848261564918241,0.120906294003962,0.219768522079954,0.0495386456613107,0.162213038371263,0.205675426672777,0.0393438459806953,0.205118773491444,0.430397824927991,0.0383977310505219,0.206301340372664,0.04140723249389,0.0748237263487214,0.134864042533113,0.2388282083935,0.177394837708664,0.251846665424097,0.0688468318427666,0.365871022588617,0.214935469749091,0.657489559767759,0.00960305555432567,0.402924392838453,0.00143394106168338,0.45360923773039,0.700065465687733,0.91142898856224,0.681670996373167,0.927677438707598,0.0244988646603428,0.316778132626107,0.796714854067266,0.576831820085706,0.176843576196191,0.450532044357961,0.0968625046586754,0.116819996306505,0.685454833942191,0.805960000059987,0.000459878917711573,0.989563696753703,0.931043569114735,0.212110342213274,0.366294204922202,0.431367665370477,0.535648374221189,0.993734205529408,0.422788625505479],[0.0682382618043668,0.200383717192398,0.00110854174104798,0.16035136531002,0.0394451607438729,0.000499457259416778,0.279865187812355,0.928547485562796,0.628847536494801,0.283580090622405,0.289464210531094,0.0909144528341742,0.100876731142037,0.126139606892471,0.0481030198366228,0.017374226301364,0.00482636095596123,0.045086742734875,0.00273971449433691,0.143160485006116,0.516286983100883,0.0422454677977141,0.00127810512823161,0.732423074199382,0.151908143619902,0.564572409263788,0.00228697413604997,0.810002830874121,0.00956895548838317,0.0995058249079169,0.380034342104052,0.175952067917939,0.00635688388471547,7.12115436579877e-05,0.221305798039005,0.0397390319773405,0.554155588239689,0.0118641310783311,0.00301188991023782,0.000292023435806717,0.0684515154536798,0.00612575130559975,0.196906417618857,0.040097550044337,0.0829860249818359,0.0472328218685607,0.0105548388894048,9.16412603614674e-05,0.390481140395992,0.165565468506164,0.0121684973699997,0.567595979657762,0.000189201164814022,0.673139575325942,0.0439598618037308,0.0450606538330794,0.0502169062298953,0.167307839704601,0.0763402166843136,0.26959446656647,0.000663415861483452,0.0139087285020344,0.0123478346778405,0.0327242683044054,0.548575907648372,0.247297168350956,0.0103162593513423,0.0362151315552016,0.012413084093937,0.0154694824624804,0.111515117662686,0.0450719336729742,0.200536595612562,0.0629238902015934,0.269444462244779,0.392432905844403,0.236187713518749,0.0750268696590581,0.169618314459784,0.325818233613917,0.360665697301763,0.0148589844945699,0.129592641597108,0.301203880138288,0.18607258733149,0.0223659489349096,0.0978467572812747,0.42902531055139,0.0374865613118731,0.419256301269883,0.0703466863705106,0.189820781715474,0.0317561450174501,0.0278901255939591,0.466910739243798,0.511994750355953,0.57967668029553,0.88686989674395,0.0224533391496092,0.961638765770746,0.408630589195603,0.0276743374422016,0.00013027141185004,0.15258075025692,0.128466947804101,0.113253988618157,0.297141966237839,0.247026244153887,0.0585606877566579,0.0481109284182675,0.290023577232015,0.165914008618096,0.505733043642218,0.0867759469254804,0.0153280898101565,0.0226069608367348,0.000581194896548173,0.0111167769807596,0.133992285515553,0.0995637583240166,0.624566072981149,0.614588629163882,0.0051142661286857,0.393780513409136,0.02483579991153,0.241261639933025,0.962806518923726,0.177858098314682,0.209523287094167,0.0971387215809623,0.204566371865831,0.00792338519238977,0.330344601909584,0.525749184676597,0.0064903062484462,0.362563360582902,0.196961397111108,0.118620858762398,0.0964872751726132,0.00148612054446904,0.0349827001073035,0.00811976938277952,0.178082022307028,0.137602814031016,0.00984998651250458,0.475801004020796,0.0203492319791608,0.862640082442138,0.00188019187488481,0.0377572740487363,0.0280260598319803,0.00228015604541206,0.00702600104309518,0.32077127636236,0.507390494728864,0.420430690748834,0.675455867405618,0.815530431269805,0.49108828465617,0.345600490054984,0.570713735346733,0.29729513526053,0.362918242129976,0.605536762907407,0.363620800131405,0.10639746258044,0.697938299868407,0.362130003379915,0.527182351795134,0.588998008696236,0.38839243650377,0.263355062558592,0.329972024060446,0.182219082453299,0.51641064019259,0.206052956086191,0.287285559808729,0.0540708276291327,0.640251429803117,0.179217042934921,0.694777513502583,0.146678052034478,0.0411010259755006,0.00349472580418276,0.0464652459245238,0.00232830275869725,0.59748471548231,0.198235644657103,0.0185964373284848,0.0842531955456777,0.243685903705794,0.148527303383536,0.538461092988828,0.358474022792412,0.0355773962760062,0.0108661164170132,0.929497964768729,3.77930622300219e-05,0.00211631340642615,0.354900670678013,0.205730547953184,0.160401830312592,0.0670832380491341,1.74491720252368e-05,0.132165374939889],[0.667,0.354,0.949,0.404,0.667,0.958,0.276,0.0192,0.063,0.25,0.271,0.461,0.442,0.451,0.581,0.799,0.906,0.668,0.931,0.432,0.0795,0.706,0.942,0.0362,0.473,0.0725,0.934,0.0149,0.775,0.545,0.0589,0.413,0.813,0.988,0.368,0.688,0.0781,0.825,0.919,0.979,0.626,0.878,0.176,0.746,0.532,0.659,0.835,0.984,0.193,0.456,0.816,0.0524,0.973,0.0312,0.669,0.709,0.623,0.26,0.482,0.27,0.945,0.765,0.858,0.731,0.0851,0.247,0.821,0.65,0.804,0.78,0.491,0.713,0.368,0.5,0.27,0.193,0.347,0.592,0.407,0.127,0.206,0.824,0.395,0.242,0.374,0.746,0.517,0.147,0.679,0.155,0.602,0.298,0.692,0.74,0.0724,0.0661,0.0875,0.0059,0.756,0.00076,0.186,0.661,0.985,0.433,0.418,0.389,0.0993,0.238,0.611,0.472,0.274,0.393,0.0968,0.545,0.822,0.708,0.959,0.861,0.384,0.498,0.0626,0.0507,0.884,0.156,0.754,0.223,0.0024,0.329,0.311,0.522,0.386,0.859,0.121,0.1021,0.85,0.205,0.39,0.492,0.599,0.946,0.726,0.832,0.228,0.487,0.836,0.132,0.796,0.0252,0.915,0.709,0.767,0.926,0.844,0.15,0.0645,0.0787,0.0427,0.001,0.138,0.194,0.0515,0.14,0.205,0.0414,0.183,0.428,0.0311,0.227,0.0386,0.0633,0.111,0.242,0.12,0.245,0.0492,0.334,0.223,0.635,0.0083,0.4,0.0014,0.49,0.68,0.916,0.669,0.969,0.0269,0.306,0.792,0.588,0.147,0.482,0.0842,0.102,0.681,0.818,0.0115,0.988,0.925,0.195,0.377,0.4,0.526,0.992,0.384],[0.978064981949458,0.897588679245283,0.992646496815287,0.897588679245283,0.978064981949458,0.992646496815287,0.85738064516129,0.607311290322581,0.675146739130435,0.85738064516129,0.85738064516129,0.897588679245283,0.897588679245283,0.897588679245283,0.959730050933786,0.978064981949458,0.992646496815287,0.978064981949458,0.992646496815287,0.897588679245283,0.708875,0.978064981949458,0.992646496815287,0.607311290322581,0.897588679245283,0.692215841584158,0.992646496815287,0.573948,0.978064981949458,0.933870106761566,0.675146739130435,0.897588679245283,0.978064981949458,0.994064516129032,0.897588679245283,0.978064981949458,0.7083,0.978064981949458,0.992646496815287,0.994064516129032,0.969133757961783,0.983085747392816,0.844813636363636,0.978064981949458,0.928108695652174,0.978064981949458,0.978064981949458,0.994064516129032,0.844813636363636,0.897588679245283,0.978064981949458,0.675146739130435,0.993636267232238,0.607311290322581,0.978064981949458,0.978064981949458,0.969133757961783,0.85738064516129,0.897588679245283,0.85738064516129,0.992646496815287,0.978064981949458,0.980054309327037,0.978064981949458,0.718481739130435,0.85738064516129,0.978064981949458,0.974962732919255,0.978064981949458,0.978064981949458,0.897588679245283,0.978064981949458,0.897588679245283,0.9,0.85738064516129,0.844813636363636,0.897588679245283,0.9613760539629,0.897588679245283,0.759633540372671,0.85738064516129,0.978064981949458,0.897588679245283,0.85738064516129,0.897588679245283,0.978064981949458,0.916889502762431,0.804323863636364,0.978064981949458,0.820137362637363,0.966194029850746,0.883969604863222,0.978064981949458,0.978064981949458,0.692215841584158,0.678197872340426,0.725130769230769,0.42372,0.978064981949458,0.18297,0.844813636363636,0.978064981949458,0.994064516129032,0.897588679245283,0.897588679245283,0.897588679245283,0.73616,0.85738064516129,0.969133757961783,0.897588679245283,0.85738064516129,0.897588679245283,0.73616,0.933870106761566,0.978064981949458,0.978064981949458,0.992646496815287,0.980054309327037,0.897588679245283,0.898078651685393,0.675146739130435,0.675146739130435,0.985265895953757,0.820918032786885,0.978064981949458,0.85738064516129,0.2889,0.897588679245283,0.891348214285714,0.920747714808044,0.897588679245283,0.980054309327037,0.759633540372671,0.73616,0.980054309327037,0.85738064516129,0.897588679245283,0.897588679245283,0.964607679465776,0.992646496815287,0.978064981949458,0.978064981949458,0.85738064516129,0.897588679245283,0.978064981949458,0.779852760736196,0.978064981949458,0.607311290322581,0.992646496815287,0.978064981949458,0.978064981949458,0.992646496815287,0.978064981949458,0.806983240223464,0.675146739130435,0.7083,0.615170149253731,0.1926,0.791035714285714,0.845348416289593,0.675146739130435,0.793058823529412,0.85738064516129,0.614838461538462,0.844813636363636,0.897588679245283,0.607311290322581,0.85738064516129,0.607311290322581,0.675146739130435,0.759633540372671,0.85738064516129,0.759633540372671,0.85738064516129,0.675146739130435,0.897588679245283,0.85738064516129,0.972171428571429,0.49955625,0.897588679245283,0.206357142857143,0.897588679245283,0.978064981949458,0.992646496815287,0.978064981949458,0.992646496815287,0.607311290322581,0.887584337349398,0.978064981949458,0.959735593220339,0.804323863636364,0.897588679245283,0.718481739130435,0.73616,0.978064981949458,0.978064981949458,0.548491304347826,0.994064516129032,0.992646496815287,0.845878378378378,0.897588679245283,0.897588679245283,0.922655737704918,0.994064516129032,0.897588679245283],[5,5,5,5,6,5,6,5,5,5,5,7,6,5,6,5,5,5,7,5,6,5,5,5,5,5,5,5,9,5,9,5,8,5,5,6,5,5,5,6,5,5,10,5,6,5,5,5,5,5,5,6,5,6,6,5,6,9,8,6,9,7,6,5,5,6,6,7,7,7,6,5,5,8,5,5,5,5,5,7,5,5,8,5,5,5,5,5,6,5,5,6,6,5,7,6,5,6,6,5,5,7,10,5,6,7,9,6,6,12,5,6,5,5,5,7,6,5,6,6,5,5,6,5,6,7,5,6,6,6,5,5,7,5,6,5,5,5,5,5,5,7,10,5,5,5,5,5,7,5,5,5,6,7,6,7,5,8,5,5,6,7,5,6,5,7,5,5,7,5,6,6,6,8,6,5,6,5,8,5,10,5,5,5,5,5,7,6,5,5,8,5,5,7,6,7,6,6,5,5,5,5,7,5,6],[5,5,5,5,6,5,6,5,5,5,5,7,6,5,6,5,5,5,7,5,6,5,5,5,5,5,5,5,9,5,9,5,8,5,5,6,5,5,4,6,4,5,9,5,6,5,5,5,5,5,5,6,5,6,6,5,6,9,8,6,9,7,6,5,5,6,6,7,7,7,6,5,5,8,5,5,5,5,5,7,5,5,7,5,5,5,5,5,6,5,5,6,6,5,6,5,5,6,6,5,5,7,10,5,6,7,9,6,6,12,5,6,5,5,5,7,6,5,6,6,5,5,6,5,6,7,5,6,6,6,5,5,7,5,6,5,5,5,5,5,5,6,10,5,5,5,5,5,7,5,5,5,6,7,6,7,5,8,5,5,6,7,5,6,5,7,5,5,7,5,6,6,6,8,6,5,6,5,8,5,10,5,5,5,5,5,7,6,5,5,8,5,5,7,6,7,6,6,4,5,5,5,7,5,6],[0.967980132450331,0.842777777777778,0.992,0.842777777777778,0.967980132450331,0.992,0.734805194805195,0.437333333333333,0.50187037037037,0.721830985915493,0.734805194805195,0.86864406779661,0.862952380952381,0.86864406779661,0.95284,0.97375,0.992,0.967980132450331,0.992,0.853509615384615,0.509296875,0.967980132450331,0.992,0.50187037037037,0.86864406779661,0.509296875,0.992,0.3818125,0.97375,0.901008064516129,0.50187037037037,0.84665,0.97375,0.992,0.842777777777778,0.967980132450331,0.509296875,0.97375,0.992,0.992,0.967980132450331,0.988956043956044,0.689224137931034,0.97375,0.893934426229508,0.967980132450331,0.97375,0.992,0.689224137931034,0.86864406779661,0.97375,0.50187037037037,0.992,0.492,0.967980132450331,0.967980132450331,0.967980132450331,0.734805194805195,0.86864406779661,0.734805194805195,0.992,0.97375,0.975165745856354,0.97375,0.5125,0.721830985915493,0.97375,0.967980132450331,0.97375,0.97375,0.86864406779661,0.967980132450331,0.842777777777778,0.86864406779661,0.734805194805195,0.689224137931034,0.842777777777778,0.955590551181102,0.842777777777778,0.60546511627907,0.692295081967213,0.97375,0.842777777777778,0.721830985915493,0.842777777777778,0.97375,0.89063025210084,0.627058823529412,0.967980132450331,0.627058823529412,0.956666666666667,0.783205128205128,0.967980132450331,0.97375,0.509296875,0.50187037037037,0.5125,0.2419,0.97375,0.0956666666666667,0.689224137931034,0.967980132450331,0.992,0.853509615384615,0.848415841584158,0.842777777777778,0.536679487179487,0.721830985915493,0.9635,0.86864406779661,0.734805194805195,0.842777777777778,0.536679487179487,0.901008064516129,0.97375,0.967980132450331,0.992,0.975165745856354,0.842777777777778,0.86864406779661,0.50187037037037,0.50187037037037,0.990273224043716,0.627058823529412,0.97375,0.719076923076923,0.123,0.832654320987654,0.7969375,0.891157024793388,0.842777777777778,0.975165745856354,0.590595238095238,0.536679487179487,0.975165745856354,0.692295081967213,0.842777777777778,0.86864406779661,0.956666666666667,0.992,0.97375,0.97375,0.719076923076923,0.86864406779661,0.97375,0.615,0.97375,0.492,0.992,0.967980132450331,0.97375,0.992,0.975165745856354,0.627058823529412,0.50187037037037,0.509296875,0.50187037037037,0.0956666666666667,0.623913043478261,0.689224137931034,0.50187037037037,0.623913043478261,0.692295081967213,0.50187037037037,0.689224137931034,0.853509615384615,0.492,0.719076923076923,0.50187037037037,0.50187037037037,0.568875,0.721830985915493,0.590595238095238,0.721830985915493,0.50187037037037,0.835,0.719076923076923,0.967980132450331,0.283583333333333,0.842777777777778,0.0956666666666667,0.86864406779661,0.967980132450331,0.992,0.967980132450331,0.992,0.492,0.794050632911392,0.97375,0.955590551181102,0.627058823529412,0.86864406779661,0.5125,0.536679487179487,0.967980132450331,0.97375,0.336785714285714,0.992,0.992,0.689224137931034,0.842777777777778,0.842777777777778,0.891157024793388,0.992,0.842777777777778]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>trait<\/th>\n      <th>factor<\/th>\n      <th>pwy_code<\/th>\n      <th>pwy_name<\/th>\n      <th>pwy_gene_num<\/th>\n      <th>pval_fitting<\/th>\n      <th>rsq_fitting<\/th>\n      <th>pval_ECT<\/th>\n      <th>fdr_ECT<\/th>\n      <th>num_snp_pass_cutoff<\/th>\n      <th>num_snp_noMHC<\/th>\n      <th>ECT_fdr_5snp<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[5,6,7,8,9,10,11,12]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-<p><img src="figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-1">
-Past versions of unnamed-chunk-13-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-13-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/e1a7d3ee5a2e557828529d904e6fc93d911bb626/docs/figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-13-1.png" target="_blank">e1a7d3e</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-10-05
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/ECT_2peer_fdr01.Rmd/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="t-cell-cd4" class="section level4">
 <h4>T cell (CD4+)</h4>
@@ -926,31 +982,27 @@ XSun
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
-<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.2.0 (2022-04-22)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Scientific Linux 7.4 (Nitrogen)
+Running under: CentOS Linux 7 (Core)
 
 Matrix products: default
 BLAS/LAPACK: /software/openblas-0.3.13-el7-x86_64/lib/libopenblas_haswellp-r0.3.13.so
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[1] C
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] gridExtra_2.3 ggplot2_3.3.5
+[1] forcats_0.5.1 tidyr_1.2.0   gridExtra_2.3 ggplot2_3.3.5
 
 loaded via a namespace (and not attached):
  [1] tidyselect_1.1.2  xfun_0.30         bslib_0.3.1       purrr_0.3.4      
@@ -961,8 +1013,8 @@ loaded via a namespace (and not attached):
 [21] lifecycle_1.0.1   stringr_1.4.0     munsell_0.5.0     gtable_0.3.0     
 [25] workflowr_1.7.0   htmlwidgets_1.5.4 evaluate_0.15     labeling_0.4.2   
 [29] knitr_1.39        fastmap_1.1.0     crosstalk_1.2.0   httpuv_1.6.5     
-[33] fansi_1.0.3       highr_0.9         Rcpp_1.0.8.3      promises_1.2.0.1 
-[37] scales_1.2.0      DT_0.22           jsonlite_1.8.0    farver_2.1.0     
+[33] fansi_1.0.3       highr_0.9         Rcpp_1.0.8.3      DT_0.22          
+[37] promises_1.2.0.1  scales_1.2.0      jsonlite_1.8.0    farver_2.1.0     
 [41] fs_1.5.2          digest_0.6.29     stringi_1.7.6     dplyr_1.0.9      
 [45] grid_4.2.0        rprojroot_2.0.3   cli_3.3.0         tools_4.2.0      
 [49] magrittr_2.0.3    sass_0.4.1        tibble_3.1.7      crayon_1.5.1     
@@ -987,6 +1039,8 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
+
+
 
 
 </div>

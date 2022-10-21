@@ -1,0 +1,32 @@
+---
+title: "Analyses using PCs where PEER factors were regressed out"
+author: "XSun"
+date: "2022-10-19"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# Introduction
+
+In the earlier analysis, we used local FDR to compute the SNP FDR in association tests. We will correct it here. 
+
+
+# Results
+
+
+1. ECT 
+
+[SNP FDR cutoff: 0.2](https://xsun1229.github.io/factor_analysis/ECT_redo.html)
+
+2. ACAT (TO DO)
+
+[Details](https://xsun1229.github.io/factor_analysis/acat_fdr.html)
+
+3. MAGMA (TO DO)
+
+[Details](https://xsun1229.github.io/factor_analysis/magma_fdr.html)
+
+4. Heritability
+
+[Details](https://xsun1229.github.io/factor_analysis/hsq_pc_fdr.html)

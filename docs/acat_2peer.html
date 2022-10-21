@@ -11,10 +11,11 @@
 
 <meta name="author" content="XSun" />
 
-<meta name="date" content="2022-10-03" />
+<meta name="date" content="2022-10-19" />
 
-<title>ACAT</title>
+<title>ACAT (Peer regressed)</title>
 
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -36,6 +37,14 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.22/datatables.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -46,6 +55,8 @@ div.section {
   padding-top: 12px;
 }
 </style>
+
+
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -359,16 +370,18 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">ACAT</h1>
+<h1 class="title toc-ignore">ACAT (Peer regressed)</h1>
 <h4 class="author">XSun</h4>
-<h4 class="date">2022-10-03</h4>
+<h4 class="date">2022-10-19</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -377,7 +390,9 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -386,17 +401,27 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-10-03
+<strong>Last updated:</strong> 2022-10-21
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
 </p>
 <p>
-<strong>Knit directory:</strong> <code>factor_analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
 </p>
 <p>
-This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -405,91 +430,141 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
 </p>
 </div>
 <div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20200623)</code> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20200623)</code> </a>
 </p>
 </div>
-<div id="strongSeedstrongcodesetseed20200623code" class="panel-collapse collapse">
+<div id="strongSeedstrongcodesetseed20200623code"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20200623)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20200623)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
 </p>
 </div>
-<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
 </p>
 </div>
 <div id="strongCachestrongnone" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
 </p>
 </div>
 <div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree826458ff12e8843916c5d5aaeb1cf3acde5f93c3targetblank826458fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xsun1229/factor_analysis/tree/826458ff12e8843916c5d5aaeb1cf3acde5f93c3" target="_blank">826458f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0706c05f0cc4cab9ffe730583aad9373fdbebd7ftargetblank0706c05a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/xsun1229/factor_analysis/tree/0706c05f0cc4cab9ffe730583aad9373fdbebd7f" target="_blank">0706c05</a>
+</a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree826458ff12e8843916c5d5aaeb1cf3acde5f93c3targetblank826458fa" class="panel-collapse collapse">
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree0706c05f0cc4cab9ffe730583aad9373fdbebd7ftargetblank0706c05a"
+class="panel-collapse collapse">
 <div class="panel-body">
 <p>
-Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xsun1229/factor_analysis/tree/826458ff12e8843916c5d5aaeb1cf3acde5f93c3" target="_blank">826458f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version
+<a href="https://github.com/xsun1229/factor_analysis/tree/0706c05f0cc4cab9ffe730583aad9373fdbebd7f" target="_blank">0706c05</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
 </p>
 <p>
-Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
 </p>
 <pre><code>
 Ignored files:
@@ -499,15 +574,24 @@ Ignored files:
     Ignored:    output/.Rhistory
 
 Untracked files:
-    Untracked:  analysis/ECT_2peer.Rmd
-    Untracked:  analysis/acat_2peer.Rmd
+    Untracked:  analysis/acat_fdr.Rmd
+    Untracked:  analysis/hsq_pc_fdr.Rmd
+    Untracked:  analysis/magma_2peer.Rmd
+    Untracked:  analysis/magma_fdr.Rmd
+    Untracked:  analysis/redo_correct_lfdr.Rmd
 
 Unstaged changes:
+    Modified:   analysis/ACAT_random.Rmd
+    Modified:   analysis/ECT_redo.Rmd
+    Modified:   analysis/acat_2peer.Rmd
+    Modified:   analysis/hsq_pc_regressed.Rmd
     Modified:   analysis/pc_regress_out_peer.Rmd
 
 </code></pre>
 <p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
 </p>
 </div>
 </div>
@@ -516,72 +600,267 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/acat_2peer.Rmd</code>) and HTML
+(<code>docs/acat_2peer.html</code>) files. If you’ve configured a remote
+Git repository (see <code>?wflow_git_remote</code>), click on the
+hyperlinks in the table below to view the files as they were in that
+past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/0706c05f0cc4cab9ffe730583aad9373fdbebd7f/analysis/acat_2peer.Rmd" target="_blank">0706c05</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-10-17
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/92eba4566328abad938b6d3f740068b5390f20bb/analysis/acat_2peer.Rmd" target="_blank">92eba45</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-10-03
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/92eba4566328abad938b6d3f740068b5390f20bb/docs/acat_2peer.html" target="_blank">92eba45</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-10-03
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
-<div id="acat-results-from-real-data" class="section level2">
-<h2>ACAT results from real data</h2>
+<div id="comparing-acat-p-values-from-real-and-random-data-mhc-included"
+class="section level2">
+<h2>Comparing ACAT p-values from real and random data (MHC
+included)</h2>
 <p><img src="figure/acat_2peer.Rmd/unnamed-chunk-2-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
+Past versions of unnamed-chunk-2-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/92eba4566328abad938b6d3f740068b5390f20bb/docs/figure/acat_2peer.Rmd/unnamed-chunk-2-1.png" target="_blank">92eba45</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-10-03
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="acat-results-from-real-data-mhc-removed" class="section level2">
-<h2>ACAT results from real data (MHC removed)</h2>
+</div>
+</div>
+<div id="comparing-acat-p-values-from-real-and-random-data-mhc-excluded"
+class="section level2">
+<h2>Comparing ACAT p-values from real and random data (MHC
+excluded)</h2>
 <p><img src="figure/acat_2peer.Rmd/unnamed-chunk-3-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
+Past versions of unnamed-chunk-3-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-3-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/92eba4566328abad938b6d3f740068b5390f20bb/docs/figure/acat_2peer.Rmd/unnamed-chunk-3-1.png" target="_blank">92eba45</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-10-03
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="acat-results-from-random-data" class="section level2">
-<h2>ACAT results from random data</h2>
 </div>
-<div id="acat-results-from-random-data-mhc-removed" class="section level2">
-<h2>ACAT results from random data (MHC removed)</h2>
+</div>
+<div id="pool-all-data-mhc-excluded" class="section level2">
+<h2>Pool all data (MHC excluded)</h2>
+<p>We pooled all cell types to check if the inflation from random data
+(Platelet, T cell (CD8+)) dominant the whole data set.</p>
+<p><img src="figure/acat_2peer.Rmd/unnamed-chunk-4-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="calibrate-acat-p-values-by-trait." class="section level1">
+<h1>Calibrate ACAT p-values by trait.</h1>
+<p>We can get a conclusion that results are driven mostly by some
+traits, instead of pathways. So we will correct ACAT p-values using
+random SNPs from the same trait.</p>
+<p>That is, for each trait (trait X), use the random ACAT p-values
+related to trait X (all factor-trait X pairs) as null distribution, then
+correct the real ACAT p-values. All calibration will be done within each
+trait. In this way, we will not need to make a QQ-plot showing the
+random ACAT and real ACAT p-values to demonstrate the signal from real
+ACAT. Showing the QQ-plot of calibrated real ACAT p-values will be
+enough.</p>
+<p>We calibrated p-values according to:</p>
+<p>p_corr[t] &lt;- sum(p_real[t] &gt; p_random)/length(p_random)</p>
+<p>For those p_corr == 0, we set p_corr[p_corr == 0] &lt;-
+0.5/length(p_random)</p>
+<p><img src="figure/acat_2peer.Rmd/unnamed-chunk-5-1.png" width="1728" style="display: block; margin: auto;" /></p>
+<p>There are many pairs have same calibrated p-values, especially for
+the pairs whose real ACAT p-values are small. The reason is that the
+number of (p_random &lt; p_real[t]) is small for these pairs. So they
+are all set to same values.</p>
+</div>
+<div id="fdr-correction-for-calibrated-acat-p-values"
+class="section level1">
+<h1>FDR correction for calibrated ACAT p-values</h1>
+<p>We computed the FDR for the calibrated ACAT p-values above.</p>
+<div id="results-summarized-by-cell-types" class="section level2">
+<h2>Results – Summarized by cell types</h2>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","vertical":false,"data":[["num_pairs_pass_fdr&lt;0.05","percentage_pairs_pass_fdr&lt;0.05","total_pairs"],["293","0.0127613240418118","22960"],["1217","0.0502477291494633","24220"],["661","0.0314761904761905","21000"],["637","0.0402654867256637","15820"],["285","0.0121173469387755","23520"],["0","0","23940"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B.cell..CD19..<\/th>\n      <th>Monocyte..CD14..<\/th>\n      <th>Leukocyte..CD15..<\/th>\n      <th>Platelet<\/th>\n      <th>T.cell..CD4..<\/th>\n      <th>T.cell..CD8..<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="results-in-each-cell-type-summarizing-by-traits"
+class="section level2">
+<h2>Results – In each cell type, summarizing by traits</h2>
+<div id="htmlwidget-cfefb73e51b4928e765c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfefb73e51b4928e765c">{"x":{"filter":"none","vertical":false,"data":[["EUR.UC","EUR.CD","EUR.IBD","mch","mchc","mcv","rdw","ret","baso","plt","pct","pdw","mpv","hct","hgb","mono","eo","gran","lymph","myeloid_wbc","neut","rbc","wbc","ukb.allasthma","allergy","T1D"],[1,13,9,92,82,6,1,15,9,4,0,0,7,21,14,8,48,2,5,0,2,13,2,12,2,7],[150,62,26,195,37,93,4,18,19,27,6,30,3,26,16,2,41,39,21,37,148,46,42,27,171,5],[11,4,8,83,32,37,28,19,8,40,18,7,4,0,9,16,11,9,157,22,10,108,45,25,1,3],[0,3,0,59,6,12,26,65,15,0,20,4,44,0,64,30,7,62,28,31,55,79,44,2,13,5],[26,17,14,11,9,2,1,16,3,80,4,34,1,0,4,0,8,5,13,4,4,14,7,3,16,2],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>B cell (CD19+)<\/th>\n      <th>Monocyte (CD14+)<\/th>\n      <th>Leukocyte (CD15+)<\/th>\n      <th>Platelet<\/th>\n      <th>T cell (CD4+)<\/th>\n      <th>T cell (CD8+)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":26,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,25,26,50,100]}},"evals":[],"jsHooks":[]}</script>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
-<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.2.0 (2022-04-22)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Scientific Linux 7.4 (Nitrogen)
+Running under: CentOS Linux 7 (Core)
 
 Matrix products: default
 BLAS/LAPACK: /software/openblas-0.3.13-el7-x86_64/lib/libopenblas_haswellp-r0.3.13.so
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[1] C
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] gridExtra_2.3 ggplot2_3.3.5
+[1] data.table_1.14.2 gridExtra_2.3     ggplot2_3.3.5    
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8.3     highr_0.9        pillar_1.7.0     compiler_4.2.0  
- [5] bslib_0.3.1      later_1.3.0      jquerylib_0.1.4  git2r_0.30.1    
- [9] workflowr_1.7.0  tools_4.2.0      digest_0.6.29    jsonlite_1.8.0  
-[13] evaluate_0.15    lifecycle_1.0.1  tibble_3.1.7     gtable_0.3.0    
-[17] pkgconfig_2.0.3  rlang_1.0.5      DBI_1.1.2        cli_3.3.0       
-[21] rstudioapi_0.13  yaml_2.3.5       xfun_0.30        fastmap_1.1.0   
-[25] withr_2.5.0      dplyr_1.0.9      stringr_1.4.0    knitr_1.39      
-[29] generics_0.1.2   fs_1.5.2         vctrs_0.4.1      sass_0.4.1      
-[33] tidyselect_1.1.2 rprojroot_2.0.3  grid_4.2.0       glue_1.6.2      
-[37] R6_2.5.1         fansi_1.0.3      rmarkdown_2.14   farver_2.1.0    
-[41] purrr_0.3.4      magrittr_2.0.3   scales_1.2.0     promises_1.2.0.1
-[45] ellipsis_0.3.2   htmltools_0.5.2  assertthat_0.2.1 colorspace_2.0-3
-[49] httpuv_1.6.5     labeling_0.4.2   utf8_1.2.2       stringi_1.7.6   
-[53] munsell_0.5.0    crayon_1.5.1    </code></pre>
+ [1] tidyselect_1.1.2  xfun_0.30         bslib_0.3.1       purrr_0.3.4      
+ [5] reshape2_1.4.4    colorspace_2.0-3  vctrs_0.4.1       generics_0.1.2   
+ [9] htmltools_0.5.2   yaml_2.3.5        utf8_1.2.2        rlang_1.0.5      
+[13] jquerylib_0.1.4   later_1.3.0       pillar_1.7.0      glue_1.6.2       
+[17] withr_2.5.0       DBI_1.1.2         lifecycle_1.0.1   plyr_1.8.7       
+[21] stringr_1.4.0     munsell_0.5.0     gtable_0.3.0      workflowr_1.7.0  
+[25] htmlwidgets_1.5.4 evaluate_0.15     labeling_0.4.2    knitr_1.39       
+[29] fastmap_1.1.0     crosstalk_1.2.0   httpuv_1.6.5      fansi_1.0.3      
+[33] highr_0.9         Rcpp_1.0.8.3      DT_0.22           promises_1.2.0.1 
+[37] scales_1.2.0      jsonlite_1.8.0    farver_2.1.0      fs_1.5.2         
+[41] digest_0.6.29     stringi_1.7.6     dplyr_1.0.9       grid_4.2.0       
+[45] rprojroot_2.0.3   cli_3.3.0         tools_4.2.0       magrittr_2.0.3   
+[49] sass_0.4.1        tibble_3.1.7      crayon_1.5.1      whisker_0.4      
+[53] pkgconfig_2.0.3   ellipsis_0.3.2    assertthat_0.2.1  rmarkdown_2.14   
+[57] rstudioapi_0.13   R6_2.5.1          git2r_0.30.1      compiler_4.2.0   </code></pre>
 </div>
 </div>
 </div>
@@ -598,6 +877,8 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
+
+
 
 
 </div>

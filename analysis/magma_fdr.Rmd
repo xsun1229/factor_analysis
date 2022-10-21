@@ -1,0 +1,83 @@
+---
+title: "MAGMA results (FDR corrected)"
+author: "XSun"
+date: "2022-10-19"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# Introduction
+
+In this part, we used [MAGMA](https://ctg.cncr.nl/software/magma) to do the classical GWAS pathway analysis with cis-variants. Then, we compared the MAGMA results with the candidate pathways from our methods. 
+
+# MAGMA results
+
+## Results for the pairs have ECT FDR < 0.1
+
+The top one "EUR.CD - Phosphatidylinositol signaling system" is also supported by MAGMA
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/CEDAR_KEGG_compare.rdata")
+ect <- ect[ect$fdr_ECT < 0.1,]
+DT::datatable(ect, options = list(pageLength =5))
+```
+
+## Results for the pairs have ECT FDR < 0.2
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/CEDAR_KEGG_compare.rdata")
+ect <- ect[!ect$fdr_ECT < 0.1,]
+DT::datatable(ect, options = list(pageLength =5))
+```
+
+# **Random MAGMA results -- random genes**
+
+For each factor-trait pair, we sampled the genes match the number of genes in the pathway and do magma geneset analysis for this random gene set. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=3, fig.width=6}
+
+load("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/CEDAR_KEGG_compare.rdata")
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(ect$magma_p)))),
+                       expected = -log10(ppoints(nrow(ect))))
+#  
+
+q1 <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  ggtitle("Real data") + theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+load("/project2/xinhe/xsun/magma/final_results_random_included.rdata")
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(ect_final$magma_random_P)))),
+                       expected = -log10(ppoints(nrow(ect_final))))
+q2 <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  ggtitle("Random data") + theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+all <- grid.arrange(q1,q2, nrow = 1)
+
+```
+
+```{r echo=FALSE}
+load("/project2/xinhe/xsun/magma/final_results_random_included.rdata")
+DT::datatable(ect_final, options = list(pageLength =5))
+```

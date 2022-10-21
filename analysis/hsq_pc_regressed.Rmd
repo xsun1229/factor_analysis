@@ -1,5 +1,5 @@
 ---
-title: "hsq_pc_regressed"
+title: "Heritability of PCs (PEER regressed out)"
 author: "XSun"
 date: "2022-10-12"
 output: workflowr::wflow_html
@@ -7,9 +7,74 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
-
-```{r}
-
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
 ```
 
+
+## Introduction
+
+We computed the heritability of PCs (PEER factor regressed) with gcta.
+
+The results are a little better than the [results](https://xsun1229.github.io/factor_analysis/hsq_pc_fdr.html) where the PEER factors are not regressed out.
+
+## Results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=12}
+celltypes <- c("B_cell","CD14_positive_monocyte","CD15_positive_leukocyte","platelet","T_cell","thymocyte")
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+
+
+p1 <- list()
+p2 <- list()
+for (i in 1:length(celltypes)){
+  
+  folder_celltype <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/8.regress_out_peer/2peer/3.heritability/")
+  file_hsq <- paste0(folder_celltype,"hsq_processed.txt")
+  
+  H <- read.table(file_hsq, header = T)
+  sum_sorted <- H[order(as.numeric(H$hsq)),]
+  sum_sorted$order <- seq(1,nrow(H),by=1)
+  
+  p1[[i]] <- ggplot(sum_sorted, aes(x=order, y=hsq)) + theme_bw(base_line_size =0.3) +
+    geom_errorbar(aes(ymin=hsq-SE, ymax=hsq+SE), width=0.1, color = "grey",alpha=0.6) +
+    geom_point(size = 0.8, color = "steelblue") + 
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) + 
+    xlab("PCs sorted by heritability") + ylab("Heritability \u00B1 SE") + 
+    ylim(-2,3)  + 
+    theme(axis.title.x = element_text(size = 14),
+          axis.text.x = element_text(size = 12, color = "black"),
+          axis.title.y = element_text(size = 14),
+          axis.text.y = element_text(size = 12, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  plotdata <- data.frame(observed = -log10(sort(H$pval)),
+                         expected = -log10(ppoints(nrow(H))))
+  
+  
+  p2[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+    geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  
+  
+  
+}
+
+
+all_interval <- grid.arrange(p1[[1]],p1[[2]],p1[[3]],p1[[4]],p1[[5]],p1[[6]], nrow = 2)
+
+all_qq <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
+
+```

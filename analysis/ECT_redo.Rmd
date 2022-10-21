@@ -1,5 +1,5 @@
 ---
-title: "Effect Size Consistency Tests"
+title: "Effect Size Consistency Tests (FDR corrected)"
 author: "XSun"
 date: "2022-10-15"
 output: workflowr::wflow_html
@@ -10,6 +10,8 @@ editor_options:
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 suppressMessages(library(ggplot2))
 suppressMessages(library(gridExtra))
+suppressMessages(library(tidyr))
+suppressMessages(library(forcats))
 ```
 
 # Introduction
@@ -50,7 +52,7 @@ for (t in 1:length(type)) {
     theme_bw(base_line_size =0.3) +
     
     ggtitle(type[t]) + theme(plot.title = element_text(hjust = 0.5)) +
-    labs(x = "Number of SNPs pass FDR < 0.1 for each pair",
+    labs(x = "Number of SNPs pass FDR < 0.2 for each pair",
          y = "Count") +
     
     geom_text(aes(label = Freq), colour = "black",size =2,vjust = -0.1) +
@@ -70,8 +72,58 @@ all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
 
 ## ECT results
 
+### Number of pairs passing different ECT FDR cutoff 
 
-### Results for all pairs have >=3SNPs
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=5}
+
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+
+x <- c()
+y <- c()
+for (i in 1:length(path)){
+  folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
+  
+  load(paste0(folder_path,"results/ECT_summary_table.rdata"))
+  x[i] <- sum(df_sum$fdr_ECT < 0.1)
+  y[i] <- sum(df_sum$fdr_ECT < 0.2) 
+  
+  
+}
+
+type <- c("CD19+","CD14+","CD15+","PLT","CD4+","CD8+")
+
+
+data <- data.frame(x, y,type)
+df <- gather(data, event, total, x:y)
+
+
+bar <- ggplot(df, aes(type, total, fill=event)) +
+  
+  theme_bw(base_line_size =0.3) +
+
+  geom_bar(stat = "identity", position = 'dodge', alpha = 0.2) +
+  scale_fill_manual(name="group", values=c("red", "blue"),labels=c("FDR < 0.1","FDR < 0.2")) +
+  
+  aes(x = fct_inorder(type)) + 
+  
+  labs(x = "Cell types", y = "Count") +
+  
+  geom_text(aes(label = total),position = position_dodge(0.9),
+            color="black",size = 3,vjust = -0.3) +
+  
+  ylim(0,80) +
+  
+  theme(axis.title.x = element_text(size = 12),
+        axis.text.x = element_text(size = 10, color = "black"),
+        axis.title.y = element_text(size = 12),
+        axis.text.y = element_text(size = 10, color = "black"),
+        text= element_text(family="Times New Roman"))
+
+bar
+
+```
+
+### ECT qqplots and rsq barplots for all pairs have >=3SNPs
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
 
@@ -167,7 +219,7 @@ all1 <- grid.arrange(p1[[1]],p1[[2]],p1[[3]],p1[[4]],p1[[5]],p1[[6]], nrow = 2)
 all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
 ```
 
-### Results for all pairs have >=5SNPs
+### ECT qqplots and rsq barplots for all pairs have >=5SNPs
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
 
@@ -263,6 +315,109 @@ all1 <- grid.arrange(p1[[1]],p1[[2]],p1[[3]],p1[[4]],p1[[5]],p1[[6]], nrow = 2)
 all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
 ```
 
+
+### Top 10 pairs have ECT FDR <0.1
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+
+summary <- data.frame(matrix(NA, nrow = 1, ncol = 12))
+for (i in 1:length(path)){
+  folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
+  
+  load(paste0(folder_path,"results/ECT_summary_table.rdata"))
+  
+  if (sum(df_sum$fdr_ECT < 0.1) > 0) {
+    tmp <- df_sum[df_sum$fdr_ECT < 0.1,]
+    tmp$celltype <- type[i]
+    
+    colnames(summary) <- colnames(tmp)
+    summary <- rbind(summary,tmp)
+  }
+  
+}
+summary <- summary[-1,]
+summary <- cbind(summary$celltype,summary)
+summary <- summary[,-ncol(summary)]
+colnames(summary)[1] <- "Celltypes"
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+
+effect size plots for the top 2 pairs
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
+
+ load("/project2/xinhe/xsun/CEDAR/10.T_cell_kegg/9.pcs_40genes_rerun/2.ECT/results/assoc_results_harmo_2snps.rdata")
+ trait <- "EUR.CD"
+ factor <- "pwy124_pc1"
+ fdr_cutoff <- 0.2
+ dat <- assoc_harmo_all[[trait]][[factor]]
+ snp_select <- dat[dat$fdr < fdr_cutoff,]
+
+ fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
+
+ eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
+ geom_point() +
+ geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
+ theme_bw(base_line_size =0.3) +
+ theme(axis.title.x = element_text(size = 12),
+       axis.text.x = element_text(size = 10, color = "black"),
+       axis.title.y = element_text(size = 12),
+       axis.text.y = element_text(size = 10, color = "black"),
+       text= element_text(family="Times New Roman")) +
+ geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
+ geom_label(aes(x = -0.25, y = 0.07), hjust = 0,
+            label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
+                          " \nECT p-value =5.0e-07"),
+                                  #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
+            color = "black",
+            family = "Times New Roman",
+            size = 3,
+            label.size = NA,
+            alpha = 0) +
+   ggtitle(paste0(factor,"-", trait)) + theme(plot.title = element_text(hjust = 0.5))
+ 
+eff
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
+
+ load("/project2/xinhe/xsun/CEDAR/14.thymocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/assoc_results_harmo_2snps.rdata")
+ trait <- "T1D"
+ factor <- "pwy122_pc5"
+ fdr_cutoff <- 0.2
+ dat <- assoc_harmo_all[[trait]][[factor]]
+ snp_select <- dat[dat$fdr < fdr_cutoff,]
+
+ fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
+
+ eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
+ geom_point() +
+ geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
+ theme_bw(base_line_size =0.3) +
+ theme(axis.title.x = element_text(size = 12),
+       axis.text.x = element_text(size = 10, color = "black"),
+       axis.title.y = element_text(size = 12),
+       axis.text.y = element_text(size = 10, color = "black"),
+       text= element_text(family="Times New Roman")) +
+ geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
+ geom_label(aes(x = -0.18, y = 0.07), hjust = 0,
+            label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
+                          " \nECT p-value =5.0e-07"),
+                                  #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
+            color = "black",
+            family = "Times New Roman",
+            size = 3,
+            label.size = NA,
+            alpha = 0) +
+   ggtitle(paste0(factor,"-", trait)) + theme(plot.title = element_text(hjust = 0.5))
+ 
+eff
+```
+
 ### Detailed results 
 
 #### B cell (CD19+)
@@ -332,45 +487,7 @@ df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=5}
 
-load("/project2/xinhe/xsun/CEDAR/16.platelet_kegg/9.pcs_40genes_rerun/2.ECT/results/assoc_results_harmo_2snps.rdata")
-trait <- "ret"
-factor <- "pwy136_pc4"
-fdr_cutoff <- 0.1
-dat <- assoc_harmo_all[[trait]][[factor]]
-snp_select <- dat[dat$fdr < fdr_cutoff,]
-
-fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
-
-eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
-  
-  geom_point() + 
-  
-  geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
-  
-  theme_bw(base_line_size =0.3) +
-  
-  theme(axis.title.x = element_text(size = 12),
-        axis.text.x = element_text(size = 10, color = "black"),
-        axis.title.y = element_text(size = 12),
-        axis.text.y = element_text(size = 10, color = "black"),
-        text= element_text(family="Times New Roman")) + 
-  
-  geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
-  
-  geom_label(aes(x = -0.25, y = 0.07), hjust = 0, 
-             label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
-                           
-                           " \nECT p-value =0.0010"),
-                                   #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
-             color = "black",
-             family = "Times New Roman",
-             size = 3,
-             label.size = NA,
-             alpha = 0)
-eff
-```
 
 #### T cell (CD4+)
 
@@ -403,4 +520,6 @@ df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
 df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
+
+
 

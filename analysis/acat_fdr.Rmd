@@ -1,0 +1,226 @@
+---
+title: "ACAT (FDR corrected)"
+author: "XSun"
+date: "2022-10-20"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+suppressMessages(library(data.table))
+```
+
+# Results
+
+## Comparing ACAT p-values from real and random data (MHC included)
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_FDR_corrected/results/acat_real.rdata")
+acat_real <- acat_allcelltypes
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_FDR_corrected/results/acat_random.rdata")
+acat_random <- acat_all
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+
+p <- list()
+for (i in 1:length(acat_random)){
+  
+  p_random <- acat_random[[i]]
+  p_real <- acat_real[[i]]
+  
+  plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(p_random)))),
+                         expected = -log10(ppoints(length(p_random))),
+                         observed_real = -log10(sort(as.numeric(as.character(p_real)))) )
+  dat.m <- melt(plotdata, id.vars = "expected")
+  
+  
+  p[[i]]<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+    geom_point(shape = 1, size = 1.5) +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) +
+    
+    scale_colour_manual(values = c("red", "steelblue")) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5))
+  
+}
+
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+```
+
+
+
+## Comparing ACAT p-values from real and random data (MHC excluded)
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_FDR_corrected/results/acat_real_MHCremoved.rdata")
+acat_real <- acat_allcelltypes_MHCremoved
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_FDR_corrected/results/acat_random_MHCremoved.rdata")
+acat_random <- acat_all_MHCremoved
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+
+p <- list()
+for (i in 1:length(acat_random)){
+  
+  p_random <- acat_random[[i]]
+  p_real <- acat_real[[i]]
+  
+  plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(p_random)))),
+                         expected = -log10(ppoints(length(p_random))),
+                         observed_real = -log10(sort(as.numeric(as.character(p_real)))) )
+  dat.m <- melt(plotdata, id.vars = "expected")
+  
+  
+  p[[i]]<- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+    geom_point(shape = 1, size = 1.5) +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) +
+    
+    scale_colour_manual(values = c("red", "steelblue")) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5))
+  
+}
+
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+```
+
+
+## Pool all data (MHC excluded)
+
+We pooled all cell types to check if the inflation from random data (Platelet, T cell (CD8+)) dominant the whole data set.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
+
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_FDR_corrected/results/acat_random_MHCremoved.rdata")
+acat_random <- acat_all_MHCremoved
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_FDR_corrected/results/acat_real_MHCremoved.rdata")
+acat_real <- acat_allcelltypes_MHCremoved
+
+acat_pool_real <- c()
+for(i in 1:length(acat_real)) {
+  
+  acat_pool_real <- c(acat_pool_real,acat_real[[i]])
+  
+}
+
+acat_pool_random <- c()
+for(i in 1:length(acat_random)) {
+  
+  acat_pool_random <- c(acat_pool_random,acat_random[[i]])
+  
+}
+
+if (length(acat_pool_random) > length(acat_pool_real)) {
+  acat_pool_real[length(acat_pool_real)+1] <- 1
+}
+acat_pool_random[is.na(acat_pool_random)] <- 1
+
+plotdata <- data.frame(observed_random = -log10(sort(as.numeric(as.character(acat_pool_random)))),
+                       expected = -log10(ppoints(length(acat_pool_random))),
+                       observed_real = -log10(sort(as.numeric(as.character(acat_pool_real)))) )
+dat.m <- melt(plotdata, id.vars = "expected")
+
+p <- ggplot(dat.m, aes(expected, value, colour = variable)) + theme_bw(base_line_size =0.3) +
+  geom_point(shape = 1, size = 1.5) +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) +
+  
+  scale_colour_manual(values = c("red", "steelblue")) +
+  
+  ggtitle("Pooled data") + theme(plot.title = element_text(hjust = 0.5))
+
+p
+
+```
+
+# Calibrate ACAT p-values by trait.
+
+We can get a conclusion that results are driven mostly by some traits, instead of pathways. So we will correct ACAT p-values using random SNPs from the same trait.
+
+That is, for each trait (trait X), use the random ACAT p-values related to trait X (all factor-trait X pairs) as null distribution, then correct the real ACAT p-values. All calibration will be done within each trait.
+In this way, we will not need to make a QQ-plot showing the random ACAT and real ACAT p-values to demonstrate the signal from real ACAT. Showing the QQ-plot of calibrated real ACAT p-values will be enough.
+
+We calibrated p-values according to: 
+
+p_corr[t] <- sum(p_real[t] > p_random)/length(p_random)
+
+For those p_corr == 0, we set p_corr[p_corr == 0] <- 0.5/length(p_random)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=18}
+
+
+##### qqplot
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_FDR_corrected/results/calibratedbytrait_acat_real_p.rdata")
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+plot <- list()
+for (i in 1:length(type)){
+  
+  p <- acat_corr_all[[i]]
+
+  plotdata <- data.frame(observed = -log10(sort(p)),
+                         expected = -log10(ppoints(length(p))))
+  #  
+  
+  plot[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+    geom_point(aes(expected, observed), shape = 1, size = 1.5,color = "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  
+}
+all <- grid.arrange(plot[[1]],plot[[2]],plot[[3]],plot[[4]],plot[[5]],plot[[6]], nrow = 2)
+```
+
+There are many pairs have same calibrated p-values, especially for the pairs whose real ACAT p-values are small. The reason is that the number of (p_random < p_real[t]) is small for these pairs. So they are all set to same values. 
+
+
+# FDR correction for calibrated ACAT p-values
+
+We computed the FDR for the calibrated ACAT p-values above.
+
+## Results -- Summarized by cell types
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_FDR_corrected/results/summary_fdr_calibratedbytrait_acat_real_p.rdata")
+DT::datatable(summary, options = list(pageLength =20))
+```
+
+
+## Results -- In each cell type, summarizing by traits
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/ACAT_randomsnp_FDR_corrected/results/summarybytrait_fdr_calibratedbytrait_acat_real_p.rdata")
+DT::datatable(summary, options = list(pageLength =26))
+```
