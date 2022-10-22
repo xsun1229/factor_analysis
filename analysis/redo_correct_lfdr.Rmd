@@ -19,14 +19,20 @@ In the earlier analysis, we used local FDR to compute the SNP FDR in association
 
 [SNP FDR cutoff: 0.2](https://xsun1229.github.io/factor_analysis/ECT_redo.html)
 
-2. ACAT (TO DO)
+[SNP FDR cutoff: 0.1](https://xsun1229.github.io/factor_analysis/ECT_redo_fdr01.html)
+
+2. ACAT 
 
 [Details](https://xsun1229.github.io/factor_analysis/acat_fdr.html)
 
-3. MAGMA (TO DO)
+3. MAGMA
 
 [Details](https://xsun1229.github.io/factor_analysis/magma_fdr.html)
 
 4. Heritability
 
 [Details](https://xsun1229.github.io/factor_analysis/hsq_pc_fdr.html)
+
+5. p-values in gene ~ SNP & factor ~ SNP
+
+[Details](https://xsun1229.github.io/factor_analysis/check_pval.html)

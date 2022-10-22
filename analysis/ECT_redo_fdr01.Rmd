@@ -1,0 +1,422 @@
+---
+title: "Effect Size Consistency Tests (SNP FDR < 0.2, FDR corrected)"
+author: "XSun"
+date: "2022-10-21"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+suppressMessages(library(tidyr))
+suppressMessages(library(forcats))
+```
+
+# Introduction
+
+Workflow:
+
+1. Association test: factor ~ snp + covariates 
+
+2. For the pairs have multiple snps passing FDR < 0.1, do ECT
+
+# Results
+
+## The number of SNPs passing FDR < 0.1 in association tests
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+
+
+p <- list()
+for (t in 1:length(type)) {
+  
+  folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[t],"/9.pcs_40genes_rerun/2.ECT/")
+
+  load(paste0(folder_path,"results/number_snp_fdr01_allpairs_fdr01.rdata"))
+  
+  count_vector <- c()
+  for (i in 1:length(snp_num_fdr01)) {
+    count_vector <- c(count_vector,snp_num_fdr01[[i]])
+  }
+  
+  summary <- as.data.frame(table(count_vector))
+  
+  p[[t]] <- ggplot(summary, aes(x = count_vector, y =Freq)) +
+    geom_bar(stat = "identity",fill = "steelblue") +
+    
+    theme_bw(base_line_size =0.3) +
+    
+    ggtitle(type[t]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = "Number of SNPs pass FDR < 0.1 for each pair",
+         y = "Count") +
+    
+    geom_text(aes(label = Freq), colour = "black",size =2,vjust = -0.1) +
+    
+    theme(axis.title.x = element_text(size = 10),
+          axis.text.x = element_text(size = 8, color = "black"),
+          axis.title.y = element_text(size = 10),
+          axis.text.y = element_text(size = 8, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+}
+
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+
+
+```
+
+## ECT results
+
+### Number of pairs passing different ECT FDR cutoff 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=5}
+
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+
+x <- c()
+y <- c()
+for (i in 1:length(path)){
+  folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
+  
+  load(paste0(folder_path,"results/ECT_summary_table_fdr01.rdata"))
+  x[i] <- sum(df_sum$fdr_ECT < 0.1)
+  y[i] <- sum(df_sum$fdr_ECT < 0.2) 
+  
+  
+}
+
+type <- c("CD19+","CD14+","CD15+","PLT","CD4+","CD8+")
+
+
+data <- data.frame(x, y,type)
+df <- gather(data, event, total, x:y)
+
+
+bar <- ggplot(df, aes(type, total, fill=event)) +
+  
+  theme_bw(base_line_size =0.3) +
+
+  geom_bar(stat = "identity", position = 'dodge', alpha = 0.2) +
+  scale_fill_manual(name="group", values=c("red", "blue"),labels=c("FDR < 0.1","FDR < 0.2")) +
+  
+  aes(x = fct_inorder(type)) + 
+  
+  labs(x = "Cell types", y = "Count") +
+  
+  geom_text(aes(label = total),position = position_dodge(0.9),
+            color="black",size = 3,vjust = -0.3) +
+  
+  ylim(0,60) +
+  
+  theme(axis.title.x = element_text(size = 12),
+        axis.text.x = element_text(size = 10, color = "black"),
+        axis.title.y = element_text(size = 12),
+        axis.text.y = element_text(size = 10, color = "black"),
+        text= element_text(family="Times New Roman"))
+
+bar
+
+```
+
+
+
+### Results for all pairs have >=3SNPs
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+
+p1 <- list()
+p2 <- list()
+for (i in 1:length(type)){ 
+  
+  file_ect_results <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_results_fdr01.rdata")
+  load(file_ect_results)
+  
+  file_ect_summary <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fdr01.rdata")
+  load(file_ect_summary)
+  
+  plot_sum <- df_sum[df_sum$num_snp_pass_cutoff >= 3,] ######
+  
+  plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(plot_sum$pval_ECT)))),
+                         expected = -log10(ppoints(nrow(plot_sum))))
+  #  
+  
+  p1[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  
+  #### rsq barplot (selected data)
+  rsq_resampling_all <- c()
+  rsq_fitting_all <- c()
+  for (t in 1:nrow(plot_sum)) {
+    
+    trait <- plot_sum$trait[t]
+    factor <- plot_sum$factor[t]
+    
+    r_rsp_pair <- r_rsp_all[[trait]][[factor]]
+    set.seed(100)
+    select <- sample(length(r_rsp_pair),100)
+    rsq_s <- r_rsp_pair[select]
+    rsq_resampling_all <- c(rsq_resampling_all,rsq_s)
+    
+    r_std_trait <- r_std_all[[trait]]
+    index <- grep(paste0(factor),names(r_std_trait))
+    rsq_fitting_all <- c(rsq_fitting_all,r_std_trait[[index]])
+    
+  }
+  
+  rsq_resampling_all <- as.data.frame(rsq_resampling_all)
+  rsq_resampling_all$f <- "a"
+  colnames(rsq_resampling_all)[1] <- "rsq"
+  
+  rsq_fitting_all <- as.data.frame(rsq_fitting_all)
+  rsq_fitting_all$f <- "b"
+  colnames(rsq_fitting_all)[1] <- "rsq"
+  
+  dat <- rbind(rsq_resampling_all, rsq_fitting_all)
+  
+  p2[[i]] <- ggplot(dat,aes(x=rsq)) + 
+    
+    theme_bw(base_line_size =0.3) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    
+    # geom_histogram(data=subset(dat,f == 'a'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+    # geom_histogram(data=subset(dat,f == 'b'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+    # 
+    # scale_fill_manual(name="group", values=c("blue", "red"),labels=c("control","real data")) +
+    # 
+    geom_histogram(data=subset(dat,f == 'a'),aes(y=..density..), fill="blue",alpha = 0.2, binwidth = 0.05) +
+    geom_histogram(data=subset(dat,f == 'b'),aes(y=..density..), fill="red",alpha = 0.2, binwidth = 0.05) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),
+          text= element_text(family="Times New Roman"))
+  
+  
+}
+
+
+all1 <- grid.arrange(p1[[1]],p1[[2]],p1[[3]],p1[[4]],p1[[5]],p1[[6]], nrow = 2)
+all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
+```
+
+### Results for all pairs have >=5SNPs
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+
+p1 <- list()
+p2 <- list()
+for (i in 1:length(type)){ 
+  
+  file_ect_results <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_results_fdr01.rdata")
+  load(file_ect_results)
+  
+  file_ect_summary <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fdr01.rdata")
+  load(file_ect_summary)
+  
+  plot_sum <- df_sum[df_sum$num_snp_pass_cutoff >= 5,] ######
+  
+  plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(plot_sum$pval_ECT)))),
+                         expected = -log10(ppoints(nrow(plot_sum))))
+  #  
+  
+  p1[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  
+  #### rsq barplot (selected data)
+  rsq_resampling_all <- c()
+  rsq_fitting_all <- c()
+  for (t in 1:nrow(plot_sum)) {
+    
+    trait <- plot_sum$trait[t]
+    factor <- plot_sum$factor[t]
+    
+    r_rsp_pair <- r_rsp_all[[trait]][[factor]]
+    set.seed(100)
+    select <- sample(length(r_rsp_pair),100)
+    rsq_s <- r_rsp_pair[select]
+    rsq_resampling_all <- c(rsq_resampling_all,rsq_s)
+    
+    r_std_trait <- r_std_all[[trait]]
+    index <- grep(paste0(factor),names(r_std_trait))
+    rsq_fitting_all <- c(rsq_fitting_all,r_std_trait[[index]])
+    
+  }
+  
+  rsq_resampling_all <- as.data.frame(rsq_resampling_all)
+  rsq_resampling_all$f <- "a"
+  colnames(rsq_resampling_all)[1] <- "rsq"
+  
+  rsq_fitting_all <- as.data.frame(rsq_fitting_all)
+  rsq_fitting_all$f <- "b"
+  colnames(rsq_fitting_all)[1] <- "rsq"
+  
+  dat <- rbind(rsq_resampling_all, rsq_fitting_all)
+  
+  p2[[i]] <- ggplot(dat,aes(x=rsq)) + 
+    
+    theme_bw(base_line_size =0.3) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    
+    # geom_histogram(data=subset(dat,f == 'a'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+    # geom_histogram(data=subset(dat,f == 'b'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+    # 
+    # scale_fill_manual(name="group", values=c("blue", "red"),labels=c("control","real data")) +
+    # 
+    geom_histogram(data=subset(dat,f == 'a'),aes(y=..density..), fill="blue",alpha = 0.2, binwidth = 0.05) +
+    geom_histogram(data=subset(dat,f == 'b'),aes(y=..density..), fill="red",alpha = 0.2, binwidth = 0.05) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),
+          text= element_text(family="Times New Roman"))
+  
+  
+}
+
+
+all1 <- grid.arrange(p1[[1]],p1[[2]],p1[[3]],p1[[4]],p1[[5]],p1[[6]], nrow = 2)
+all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
+```
+
+### Detailed results 
+
+#### B cell (CD19+)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/4.B_cell_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fdr01.rdata")
+DT::datatable(df_sum, options = list(pageLength =5))
+```
+
+Compute ECT FDR only for pairs have >=5 SNPs
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
+DT::datatable(df_sum_15, options = list(pageLength =5))
+```
+
+
+
+
+#### Monocyte (CD14+)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/6.CD14_positive_monocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fdr01.rdata")
+DT::datatable(df_sum, options = list(pageLength =5))
+```
+
+Compute ECT FDR only for pairs have >=5 SNPs
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
+DT::datatable(df_sum_15, options = list(pageLength =5))
+```
+#### Leukocyte (CD15+)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/8.CD15_positive_leukocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fdr01.rdata")
+DT::datatable(df_sum, options = list(pageLength =5))
+```
+
+Compute ECT FDR only for pairs have >=5 SNPs
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
+DT::datatable(df_sum_15, options = list(pageLength =5))
+```
+
+#### Platelet
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/16.platelet_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fdr01.rdata")
+DT::datatable(df_sum, options = list(pageLength =5))
+```
+
+Compute ECT FDR only for pairs have >=5 SNPs
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
+DT::datatable(df_sum_15, options = list(pageLength =5))
+```
+
+
+
+#### T cell (CD4+)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/10.T_cell_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fdr01.rdata")
+DT::datatable(df_sum, options = list(pageLength =5))
+```
+
+Compute ECT FDR only for pairs have >=5 SNPs
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
+DT::datatable(df_sum_15, options = list(pageLength =5))
+```
+
+
+#### T cell (CD8+)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/14.thymocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fdr01.rdata")
+DT::datatable(df_sum, options = list(pageLength =5))
+```
+
+Compute ECT FDR only for pairs have >=5 SNPs
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
+DT::datatable(df_sum_15, options = list(pageLength =5))
+```
+

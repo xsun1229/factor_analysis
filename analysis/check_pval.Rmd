@@ -1,0 +1,15 @@
+---
+title: "p-values in gene ~ SNP & factor ~ SNP (FDR corrected)"
+author: "XSun"
+date: "2022-10-22"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+```{r}
+
+```
+
