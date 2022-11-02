@@ -7,9 +7,106 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+suppressMessages(library(DT))
+```
 
-```{r}
+
+# Introduction
+
+In this session, we tried to check the p-values in gene~SNP association tests to check if the factor improved the power of the association tests. 
+
+The ECT results: 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/global_analysis_FDR_corrected/results/ECT_summary.rdata")
+sum_sorted <- summary[order(summary$fdr_ECT,decreasing = F),]
+DT::datatable(sum_sorted, options = list(pageLength =5))
+```
+
+We checked p-values for top 5 pairs.
+
+# Results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=10}
+
+num_test_pair <- 5
+num_top_gene <- 10
+
+snp_fdr <- 0.2
+
+folder_results <- "/project2/xinhe/xsun/CEDAR/global_analysis_FDR_corrected/gene_assoc/"
+for (i in 1:num_test_pair) {
+  
+  folder_pair <- paste0(folder_results,"/",paste0(sum_sorted$factor[i],"_",sum_sorted$trait[i]),"/assoc_sum_snpside/")
+  file_snps <- list.files(folder_pair)
+  
+  p_all <- c()
+  for (j in 1:length(file_snps)) {
+    
+    load(paste0(folder_pair, file_snps[j]))
+    p_all <- c(p_all,gene_snp_assoc$P)
+  }
+  
+  
+  plotdata <- data.frame(observed = -log10(sort(as.numeric(p_all))),
+                         expected = -log10(ppoints(length(p_all))))
+  
+  
+  qq <- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(paste0(sum_sorted$factor[i],"_",sum_sorted$trait[i],"_", sum_sorted$Celltypes[i])) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  p_all <- as.data.frame(p_all)
+  
+  hist <- ggplot(p_all, aes(x=p_all)) + 
+  geom_histogram() + ggtitle(paste0(sum_sorted$factor[i],"_",sum_sorted$trait[i],"_" ,sum_sorted$Celltypes[i])) + 
+    theme(plot.title = element_text(hjust = 0.5)) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),
+          text= element_text(family="Times New Roman")) +
+    
+    theme_bw(base_line_size =0.3,) 
+  
+  all <- grid.arrange(qq,hist, nrow = 1)
+  all
+  
+  path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+  type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+
+  pair_select <- sum_sorted[i,]
+  index_celltype <- which(type == pair_select$Celltypes)
+  
+  pwy <- sum_sorted$factor[i]
+  trait <- sum_sorted$trait[i]
+  
+  file_assoc <- paste0("/project2/xinhe/xsun/CEDAR/",path[index_celltype],"/9.pcs_40genes_rerun/2.ECT/results/assoc_results_allpairs.rdata")
+  load(file_assoc)
+  assoc_pair <- assoc_all[[trait]][[pwy]]
+  snp <- assoc_pair[assoc_pair$fdr < 0.2,]
+  
+  print(sprintf(" p-values from factor ~ SNP"))
+  print(paste0(snp$P))
+}
+
+
+
 
 ```
+
+
 
