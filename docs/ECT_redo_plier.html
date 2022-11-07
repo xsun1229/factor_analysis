@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2022-11-07" />
+
+<title>Effect Size Consistency Tests (SNP FDR &lt; 0.2, FDR corrected, PLIER LV)</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.22/datatables.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Effect Size Consistency Tests (SNP FDR &lt;
+0.2, FDR corrected, PLIER LV)</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2022-11-07</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2022-11-07
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R
+Markdown file created these results, you’ll want to first commit it to
+the Git repo. If you’re still working on the analysis, you can ignore
+this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree7af77b71a1a69a81a35f25936c021cf95aaa9ddatargetblank7af77b7a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/xsun1229/factor_analysis/tree/7af77b71a1a69a81a35f25936c021cf95aaa9dda" target="_blank">7af77b7</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistree7af77b71a1a69a81a35f25936c021cf95aaa9ddatargetblank7af77b7a"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/xsun1229/factor_analysis/tree/7af77b71a1a69a81a35f25936c021cf95aaa9dda" target="_blank">7af77b7</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+    Ignored:    output/.Rhistory
+
+Untracked files:
+    Untracked:  analysis/ECT_redo_plier.Rmd
+    Untracked:  analysis/redo_correct_lfdr_plier.Rmd
+
+Unstaged changes:
+    Modified:   analysis/ECT_redo.Rmd
+    Modified:   analysis/index.Rmd
+    Modified:   analysis/redo_correct_lfdr.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with
+<code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<div id="the-number-of-snps-passing-fdr-0.2-in-association-tests"
+class="section level2">
+<h2>The number of SNPs passing FDR &lt; 0.2 in association tests</h2>
+<p><img src="figure/ECT_redo_plier.Rmd/unnamed-chunk-2-1.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ect-results" class="section level2">
+<h2>ECT results</h2>
+<div id="number-of-pairs-passing-different-ect-fdr-cutoff"
+class="section level3">
+<h3>Number of pairs passing different ECT FDR cutoff</h3>
+<p><img src="figure/ECT_redo_plier.Rmd/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ect-qqplots-and-rsq-barplots-for-all-pairs-have-3snps"
+class="section level3">
+<h3>ECT qqplots and rsq barplots for all pairs have &gt;=3SNPs</h3>
+<p><img src="figure/ECT_redo_plier.Rmd/unnamed-chunk-4-1.png" width="1440" style="display: block; margin: auto;" /><img src="figure/ECT_redo_plier.Rmd/unnamed-chunk-4-2.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-pairs-have-ect-fdr-0.2" class="section level3">
+<h3>Top pairs have ECT FDR &lt;0.2</h3>
+<div id="htmlwidget-178b88f96a364abe2239" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-178b88f96a364abe2239">{"x":{"filter":"none","vertical":false,"data":[["12","13","14","20","39","46","64","102","138","121","25","206","225","95","269","146","239","1","5","50","88","107","164","170","240","266","281","298","303","9","10","49","66","90","103","129","140","207","220","252","278","287"],["B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","Monocyte (CD14+)","Monocyte (CD14+)","Monocyte (CD14+)","Monocyte (CD14+)","Leukocyte (CD15+)","Leukocyte (CD15+)","Platelet","Platelet","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)"],["allergy","allergy","allergy","baso","EUR.CD","EUR.CD","EUR.UC","lymph","mpv","allergy","baso","ret","ukb.allasthma","mch","T1D","mpv","ret","allergy","allergy","EUR.IBD","hgb","mch","mcv","mono","pdw","rbc","ret","T1D","T1D","baso","baso","EUR.UC","hct","lymph","mch","mcv","mono","pdw","rbc","ret","ukb.allasthma","wbc"],["bcell_lv57","bcell_lv63","bcell_lv65","bcell_lv71","bcell_lv49","bcell_lv96","bcell_lv30","bcell_lv96","bcell_lv109","cd14_lv69","cd14_lv68","cd14_lv28","cd14_lv5","cd15_lv103","cd15_lv41","plt_lv37","plt_lv2","tcell_lv113","tcell_lv28","tcell_lv32","tcell_lv83","tcell_lv126","tcell_lv76","tcell_lv128","tcell_lv92","tcell_lv39","tcell_lv11","tcell_lv23","tcell_lv81","thy_lv50","thy_lv52","thy_lv121","thy_lv106","thy_lv40","thy_lv31","thy_lv31","thy_lv114","thy_lv9","thy_lv120","thy_lv105","thy_lv6","thy_lv112"],[0.00344870240290792,0.000367643051651317,0.00022093393566983,0.0014530278291105,0.000918787920484811,0.00416708830699649,0.000316860579503053,0.00094071935470399,0.00237279729225834,0.000513658736965246,9.88107806444578e-05,0.000208918104700945,1.79559586557167e-05,9.49689763168225e-05,6.66268254340834e-05,0.00433896996299535,0.00152987375519759,0.000799241189703149,0.00041967902105606,0.0133878677488766,0.000860548750621568,0.00142431671744744,0.00262142302774899,0.0039470743197082,0.00137131232197103,0.010736946319647,0.00517924703126157,0.0058007789928217,0.0149167462875211,0.00267468252439382,0.00247659661728755,0.00050429326792323,0.00485475127844285,0.000563094645190077,0.00101193414573796,0.000275514945541155,0.000286316159791269,0.000316914398187054,0.00169938260420551,0.00313793019321813,0.00109911168997022,0.00832959721883379],[0.999970654132992,0.990929434389482,0.993537216283412,0.977387844622666,0.998163268330273,0.991683188010965,0.999999752271403,0.950335412409519,0.995260035582474,0.999999348987963,0.999802388202282,0.993773423352291,0.999964088405105,0.999810071066473,0.999866750788266,0.99995354779685,0.996942593003312,0.954191525100074,0.999160818088369,0.99955782054633,0.999998172781657,0.997153395243217,0.999983044464137,0.999961559874502,0.997259255853542,0.999715579995215,0.999933814413141,0.999916976627,0.99945108072636,0.99998234849748,0.999984866195688,0.999999372511163,0.999941847913071,0.998874127785199,0.99797715571924,0.999449046017403,0.999427449657361,0.971070761375192,0.974911904762249,0.999975704670531,0.999997019267681,0.999828816077349],[0.0042,0.004,0.0026,0.0062,0.0071,0.0036,5e-07,0.0066,0.005,0.0032,0.000133,0.000261,0.000155,0.000141,0.000447,0.000899,0.000189,0.0017,0.0014,0.0036,0.0045,0.0012,0.0068,0.0042,0.0063,0.0046,0.006,0.0075,0.0052,0.0075,0.0046,5e-07,0.0082,0.0014,0.0041,0.00082,0.001,0.0016,0.0067,0.0027,0.0032,0.0084],[0.190911111111111,0.190911111111111,0.190911111111111,0.190911111111111,0.190911111111111,0.190911111111111,0.000121,0.190911111111111,0.190911111111111,0.1928,0.0186775,0.020967,0.0186775,0.041172,0.065262,0.124961,0.052542,0.1802,0.1802,0.196581818181818,0.196581818181818,0.1802,0.196581818181818,0.196581818181818,0.196581818181818,0.196581818181818,0.196581818181818,0.19875,0.196581818181818,0.189969230769231,0.150266666666667,0.000147,0.189969230769231,0.09408,0.150266666666667,0.09408,0.09408,0.09408,0.189969230769231,0.1323,0.1344,0.189969230769231],[2,4,4,4,3,3,2,5,3,2,3,4,3,3,3,2,3,5,3,2,2,3,2,2,3,2,2,2,2,2,2,2,2,3,3,3,3,5,4,2,2,2],[1,3,3,4,3,3,1,5,3,2,3,4,3,3,3,2,3,5,3,2,2,3,2,2,3,2,2,2,2,1,2,2,2,3,3,3,3,5,4,2,1,2],["no-plier-annotated-pathways","1.GSE29618_LAIV_VS_TIV_FLU_VACCINE_DAY7_BCELL_UP,2.GSE22886_NEUTROPHIL_VS_MONOCYTE_UP,3.CROONQUIST_IL6_DEPRIVATION_DN,","no-plier-annotated-pathways","1.MIPS_RIBOSOME_CYTOPLASMIC,","1.REACTOME_GENERIC_TRANSCRIPTION_PATHWAY,2.MIPS_NOP56P_ASSOCIATED_PRE_RRNA_COMPLEX,3.REACTOME_LOSS_OF_NLP_FROM_MITOTIC_CENTROSOMES,","no-plier-annotated-pathways","1.GSE22886_NAIVE_TCELL_VS_MONOCYTE_UP,2.GSE29618_BCELL_VS_MDC_DAY7_FLU_VACCINE_DN,3.GSE39820_TGFBETA1_VS_TGFBETA3_IN_IL6_TREATED_CD4_TCELL_UP,","no-plier-annotated-pathways","1.MIKKELSEN_MEF_HCP_WITH_H3K27ME3,","no-plier-annotated-pathways","no-plier-annotated-pathways","no-plier-annotated-pathways","no-plier-annotated-pathways","no-plier-annotated-pathways","1.LU_EZH2_TARGETS_DN,","1.GSE22886_NAIVE_VS_MEMORY_TCELL_UP,","1.GSE18791_CTRL_VS_NEWCASTLE_VIRUS_DC_2H_DN,2.GSE17974_0H_VS_4H_IN_VITRO_ACT_CD4_TCELL_DN,3.GSE22886_IL2_VS_IL15_STIM_NKCELL_UP,","1.KEGG_PATHOGENIC_ESCHERICHIA_COLI_INFECTION,2.GSE3982_BCELL_VS_EFF_MEMORY_CD4_TCELL_DN,3.MARTINEZ_RB1_AND_TP53_TARGETS_DN,","1.DUTERTRE_ESTRADIOL_RESPONSE_6HR_UP,","no-plier-annotated-pathways","1.MARTINEZ_RB1_AND_TP53_TARGETS_DN,","no-plier-annotated-pathways","1.GSE26928_CENTR_MEMORY_VS_CXCR5_POS_CD4_TCELL_UP,2.GSE22886_NAIVE_CD4_TCELL_VS_MONOCYTE_UP,3.GSE11864_UNTREATED_VS_CSF1_IFNG_PAM3CYS_IN_MAC_DN,","1.GSE36476_YOUNG_VS_OLD_DONOR_MEMORY_CD4_TCELL_16H_TSST_ACT_UP,","no-plier-annotated-pathways","1.GSE22886_NEUTROPHIL_VS_DC_DN,","1.PID_CASPASE_PATHWAY,2.KEGG_NOD_LIKE_RECEPTOR_SIGNALING_PATHWAY,3.KEGG_HEMATOPOIETIC_CELL_LINEAGE,","no-plier-annotated-pathways","no-plier-annotated-pathways","no-plier-annotated-pathways","1.LU_EZH2_TARGETS_DN,","1.REACTOME_GENERIC_TRANSCRIPTION_PATHWAY,2.KEGG_PYRIMIDINE_METABOLISM,3.GSE29617_DAY3_VS_DAY7_TIV_FLU_VACCINE_PBMC_2008_DN,","no-plier-annotated-pathways","1.REACTOME_M_G1_TRANSITION,2.KEGG_PROTEASOME,3.GSE2706_R848_VS_LPS_2H_STIM_DC_DN,","1.REACTOME_3_UTR_MEDIATED_TRANSLATIONAL_REGULATION,2.MIPS_RIBOSOME_CYTOPLASMIC,3.REACTOME_INFLUENZA_VIRAL_RNA_TRANSCRIPTION_AND_REPLICATION,","1.REACTOME_3_UTR_MEDIATED_TRANSLATIONAL_REGULATION,2.MIPS_RIBOSOME_CYTOPLASMIC,3.REACTOME_INFLUENZA_VIRAL_RNA_TRANSCRIPTION_AND_REPLICATION,","no-plier-annotated-pathways","1.REACTOME_SIGNALING_BY_GPCR,2.REACTOME_PHASE1_FUNCTIONALIZATION_OF_COMPOUNDS,3.KEGG_ANTIGEN_PROCESSING_AND_PRESENTATION,","no-plier-annotated-pathways","no-plier-annotated-pathways","1.REACTOME_SIGNALING_BY_GPCR,2.MIPS_C_COMPLEX_SPLICEOSOME,3.KEGG_PEROXISOME,","no-plier-annotated-pathways"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Celltypes<\/th>\n      <th>trait<\/th>\n      <th>factor<\/th>\n      <th>pval_fitting<\/th>\n      <th>rsq_fitting<\/th>\n      <th>pval_ECT<\/th>\n      <th>fdr_ECT<\/th>\n      <th>num_snp_pass_cutoff<\/th>\n      <th>num_snp_noMHC<\/th>\n      <th>PLIER_annotated_pwy<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.2.0 (2022-04-22)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: CentOS Linux 7 (Core)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.3.13-el7-x86_64/lib/libopenblas_haswellp-r0.3.13.so
+
+locale:
+[1] C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] forcats_0.5.1 tidyr_1.2.0   gridExtra_2.3 ggplot2_3.3.5
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.1.2  xfun_0.30         bslib_0.3.1       purrr_0.3.4      
+ [5] colorspace_2.0-3  vctrs_0.4.1       generics_0.1.2    htmltools_0.5.2  
+ [9] yaml_2.3.5        utf8_1.2.2        rlang_1.0.5       jquerylib_0.1.4  
+[13] later_1.3.0       pillar_1.7.0      glue_1.6.2        withr_2.5.0      
+[17] DBI_1.1.2         lifecycle_1.0.1   stringr_1.4.0     munsell_0.5.0    
+[21] gtable_0.3.0      workflowr_1.7.0   htmlwidgets_1.5.4 evaluate_0.15    
+[25] labeling_0.4.2    knitr_1.39        fastmap_1.1.0     crosstalk_1.2.0  
+[29] httpuv_1.6.5      fansi_1.0.3       highr_0.9         Rcpp_1.0.8.3     
+[33] promises_1.2.0.1  scales_1.2.0      DT_0.22           jsonlite_1.8.0   
+[37] farver_2.1.0      fs_1.5.2          digest_0.6.29     stringi_1.7.6    
+[41] dplyr_1.0.9       grid_4.2.0        rprojroot_2.0.3   cli_3.3.0        
+[45] tools_4.2.0       magrittr_2.0.3    sass_0.4.1        tibble_3.1.7     
+[49] crayon_1.5.1      pkgconfig_2.0.3   ellipsis_0.3.2    assertthat_0.2.1 
+[53] rmarkdown_2.14    rstudioapi_0.13   R6_2.5.1          git2r_0.30.1     
+[57] compiler_4.2.0   </code></pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

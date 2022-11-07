@@ -1,5 +1,5 @@
 ---
-title: "Analyses using PCs where PEER factors were regressed out"
+title: "Correcting FDR for CEDAR KEGG PC"
 author: "XSun"
 date: "2022-10-19"
 output: workflowr::wflow_html

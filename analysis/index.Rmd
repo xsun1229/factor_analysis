@@ -11,11 +11,19 @@ editor_options:
 
 # **Latest Results**
 
-[Regressing out PEER factors when computing PCs](https://xsun1229.github.io/factor_analysis/pc_regress_out_peer.html)
+**KEGG PC -- CEDAR**
 
 [Correcting FDR](https://xsun1229.github.io/factor_analysis/redo_correct_lfdr.html)
 
+[Regressing out PEER factors when computing PCs](https://xsun1229.github.io/factor_analysis/pc_regress_out_peer.html)
 
+**PLIER LV -- CEDAR**
+
+[Correcting FDR](https://xsun1229.github.io/factor_analysis/redo_correct_lfdr_plier.html)
+
+**KEGG PC -- GTEx whole blood**
+
+[Correcting FDR](https://xsun1229.github.io/factor_analysis/redo_correct_lfdr_gtexwholeblood.html)
 
 # **1. Introduction**
 

@@ -177,7 +177,7 @@ for (i in 1:length(type)){
     
     r_std_trait <- r_std_all[[trait]]
     index <- grep(paste0(factor),names(r_std_trait))
-    rsq_fitting_all <- c(rsq_fitting_all,r_std_trait[[index]])
+    rsq_fitting_all <- c(rsq_fitting_all,r_std_trait[index])
     
   }
   
@@ -273,7 +273,7 @@ for (i in 1:length(type)){
     
     r_std_trait <- r_std_all[[trait]]
     index <- grep(paste0(factor),names(r_std_trait))
-    rsq_fitting_all <- c(rsq_fitting_all,r_std_trait[[index]])
+    rsq_fitting_all <- c(rsq_fitting_all,r_std_trait[index])
     
   }
   
