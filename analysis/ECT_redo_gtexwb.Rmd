@@ -1,0 +1,51 @@
+---
+title: "Effect Size Consistency Tests (SNP FDR < 0.2, FDR corrected, GTEx whole blood)"
+author: "XSun"
+date: "2022-11-08"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+suppressMessages(library(tidyr))
+suppressMessages(library(forcats))
+```
+
+
+## The number of SNPs passing FDR < 0.2 in association tests
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=3, fig.width=5}
+
+load("/project2/xinhe/xsun/pwy_pcpeer/2.trait_factors/12.fdr_corrected_rerun/2.ECT/results/number_snp_fdr02_allpairs.rdata")
+
+count_vector <- c()
+for (i in 1:length(snp_num_fdr02)) {
+  count_vector <- c(count_vector,snp_num_fdr02[[i]])
+}
+  
+summary <- as.data.frame(table(count_vector))
+
+p <- ggplot(summary, aes(x = count_vector, y =Freq)) +
+  geom_bar(stat = "identity",fill = "steelblue") +
+    
+  theme_bw(base_line_size =0.3) +
+    
+  ggtitle("Whole blood") + theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = "Number of SNPs passing FDR < 0.2 for each pair",
+      y = "Count") +
+    
+  geom_text(aes(label = Freq), colour = "black",size =2,vjust = -0.1) +
+    
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times")) 
+
+p
+
+```
+

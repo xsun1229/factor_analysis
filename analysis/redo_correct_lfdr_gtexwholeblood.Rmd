@@ -1,0 +1,20 @@
+---
+title: "Correcting FDR for GTEx KEGG PCs (whole blood)"
+author: "XSun"
+date: "2022-11-08"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+# Introduction
+
+In the earlier analysis, we used local FDR to compute the SNP FDR in association tests. We will correct it here. 
+
+
+# Results
+
+
+1. ECT 
+
+[SNP FDR cutoff: 0.2](https://xsun1229.github.io/factor_analysis/ECT_redo_gtexwb.html)
