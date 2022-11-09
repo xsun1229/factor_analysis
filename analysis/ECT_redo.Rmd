@@ -322,17 +322,17 @@ all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
 path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
 type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
 
-summary <- data.frame(matrix(NA, nrow = 1, ncol = 12))
+summary <- c()
 for (i in 1:length(path)){
   folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
   
-  load(paste0(folder_path,"results/ECT_summary_table.rdata"))
+  load(paste0(folder_path,"results/ECT_summary_table_mbeadded.rdata"))
   
-  if (sum(df_sum$fdr_ECT < 0.1) > 0) {
-    tmp <- df_sum[df_sum$fdr_ECT < 0.1,]
+  if (sum(df_pass$fdr_ECT < 0.1) > 0) {
+    tmp <- df_pass[df_pass$fdr_ECT < 0.1,]
     tmp$celltype <- type[i]
     
-    colnames(summary) <- colnames(tmp)
+    #colnames(summary) <- colnames(tmp)
     summary <- rbind(summary,tmp)
   }
   
@@ -423,8 +423,8 @@ eff
 #### B cell (CD19+)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/4.B_cell_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table.rdata")
-DT::datatable(df_sum, options = list(pageLength =5))
+load("/project2/xinhe/xsun/CEDAR/4.B_cell_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_mbeadded.rdata")
+DT::datatable(df_pass, options = list(pageLength =5))
 ```
 
 Compute ECT FDR only for pairs have >=5 SNPs
@@ -432,7 +432,7 @@ Compute ECT FDR only for pairs have >=5 SNPs
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15 <- df_pass[df_pass$num_snp_pass_cutoff >= 5,]
 df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
@@ -443,30 +443,30 @@ DT::datatable(df_sum_15, options = list(pageLength =5))
 #### Monocyte (CD14+)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/6.CD14_positive_monocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table.rdata")
-DT::datatable(df_sum, options = list(pageLength =5))
+load("/project2/xinhe/xsun/CEDAR/6.CD14_positive_monocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_mbeadded.rdata")
+DT::datatable(df_pass, options = list(pageLength =5))
 ```
 
 Compute ECT FDR only for pairs have >=5 SNPs
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15 <- df_pass[df_pass$num_snp_pass_cutoff >= 5,]
 df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
 #### Leukocyte (CD15+)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/8.CD15_positive_leukocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table.rdata")
-DT::datatable(df_sum, options = list(pageLength =5))
+load("/project2/xinhe/xsun/CEDAR/8.CD15_positive_leukocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_mbeadded.rdata")
+DT::datatable(df_pass, options = list(pageLength =5))
 ```
 
 Compute ECT FDR only for pairs have >=5 SNPs
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15 <- df_pass[df_pass$num_snp_pass_cutoff >= 5,]
 df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
@@ -474,15 +474,15 @@ DT::datatable(df_sum_15, options = list(pageLength =5))
 #### Platelet
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/16.platelet_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table.rdata")
-DT::datatable(df_sum, options = list(pageLength =5))
+load("/project2/xinhe/xsun/CEDAR/16.platelet_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_mbeadded.rdata")
+DT::datatable(df_pass, options = list(pageLength =5))
 ```
 
 Compute ECT FDR only for pairs have >=5 SNPs
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15 <- df_pass[df_pass$num_snp_pass_cutoff >= 5,]
 df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
@@ -492,15 +492,15 @@ DT::datatable(df_sum_15, options = list(pageLength =5))
 #### T cell (CD4+)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/10.T_cell_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table.rdata")
-DT::datatable(df_sum, options = list(pageLength =5))
+load("/project2/xinhe/xsun/CEDAR/10.T_cell_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_mbeadded.rdata")
+DT::datatable(df_pass, options = list(pageLength =5))
 ```
 
 Compute ECT FDR only for pairs have >=5 SNPs
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15 <- df_pass[df_pass$num_snp_pass_cutoff >= 5,]
 df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```
@@ -509,14 +509,14 @@ DT::datatable(df_sum_15, options = list(pageLength =5))
 #### T cell (CD8+)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-load("/project2/xinhe/xsun/CEDAR/14.thymocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table.rdata")
-DT::datatable(df_sum, options = list(pageLength =5))
+load("/project2/xinhe/xsun/CEDAR/14.thymocyte_kegg/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_mbeadded.rdata")
+DT::datatable(df_pass, options = list(pageLength =5))
 ```
 
 Compute ECT FDR only for pairs have >=5 SNPs
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-df_sum_15 <- df_sum[df_sum$num_snp_pass_cutoff >= 5,]
+df_sum_15 <- df_pass[df_pass$num_snp_pass_cutoff >= 5,]
 df_sum_15$ECT_fdr_5snp <- p.adjust(df_sum_15$pval_ECT, method = "fdr")
 DT::datatable(df_sum_15, options = list(pageLength =5))
 ```

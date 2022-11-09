@@ -219,15 +219,15 @@ all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
 path <- c("19.Bcell_plier","18.CD14_plier","20.CD15_plier","17.platelet_plier","21.Tcell_plier","22.thy_plier")
 type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
 
-summary <- data.frame(matrix(NA, nrow = 1, ncol = 12))
+#summary <- data.frame(matrix(NA, nrow = 1, ncol = 12))
 summary <- c()
 for (i in 1:length(path)){
   folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/3.fdr_correct/")
   
-  load(paste0(folder_path,"results/ECT_summary_table.rdata"))
+  load(paste0(folder_path,"results/ECT_summary_table_mbeadded.rdata"))
   
-  if (sum(df_sum$fdr_ECT < 0.2) > 0) {
-    tmp <- df_sum[df_sum$fdr_ECT < 0.2,]
+  if (sum(df_pass$fdr_ECT < 0.2) > 0) {
+    tmp <- df_pass[df_pass$fdr_ECT < 0.2,]
     tmp$celltype <- type[i]
     
    # colnames(summary) <- colnames(tmp)
@@ -242,3 +242,73 @@ colnames(summary)[1] <- "Celltypes"
 DT::datatable(summary, options = list(pageLength =10))
 ```
 
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
+
+ load("/project2/xinhe/xsun/CEDAR/19.Bcell_plier/3.fdr_correct/results/assoc_results_harmo_2snps.rdata")
+ trait <- "EUR.UC"
+ factor <- "bcell_lv30"
+ fdr_cutoff <- 0.2
+ dat <- assoc_harmo_all[[trait]][[factor]]
+ snp_select <- dat[dat$fdr < fdr_cutoff,]
+
+ fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
+
+ eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
+ geom_point() +
+ geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
+ theme_bw(base_line_size =0.3) +
+ theme(axis.title.x = element_text(size = 12),
+       axis.text.x = element_text(size = 10, color = "black"),
+       axis.title.y = element_text(size = 12),
+       axis.text.y = element_text(size = 10, color = "black"),
+       text= element_text(family="Times New Roman")) +
+ geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
+ geom_label(aes(x = 0.1, y = 0.5), hjust = 0,
+            label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
+                          " \nECT p-value =5.0e-07"),
+                                  #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
+            color = "black",
+            family = "Times New Roman",
+            size = 3,
+            label.size = NA,
+            alpha = 0) +
+   ggtitle(paste0(factor,"-", trait)) + theme(plot.title = element_text(hjust = 0.5))
+ 
+eff
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
+
+ load("/project2/xinhe/xsun/CEDAR/22.thy_plier/3.fdr_correct/results/assoc_results_harmo_2snps.rdata")
+ trait <- "EUR.UC"
+ factor <- "thy_lv121"
+ fdr_cutoff <- 0.2
+ dat <- assoc_harmo_all[[trait]][[factor]]
+ snp_select <- dat[dat$fdr < fdr_cutoff,]
+
+ fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
+
+ eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
+ geom_point() +
+ geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
+ theme_bw(base_line_size =0.3) +
+ theme(axis.title.x = element_text(size = 12),
+       axis.text.x = element_text(size = 10, color = "black"),
+       axis.title.y = element_text(size = 12),
+       axis.text.y = element_text(size = 10, color = "black"),
+       text= element_text(family="Times New Roman")) +
+ geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
+ geom_label(aes(x = -0.2, y = 0.24), hjust = 0,
+            label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
+                          " \nECT p-value =5.0e-07"),
+                                  #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
+            color = "black",
+            family = "Times New Roman",
+            size = 3,
+            label.size = NA,
+            alpha = 0) +
+   ggtitle(paste0(factor,"-", trait)) + theme(plot.title = element_text(hjust = 0.5))
+ 
+eff
+```

@@ -14,6 +14,7 @@ suppressMessages(library(tidyr))
 suppressMessages(library(forcats))
 ```
 
+# Results
 
 ## The number of SNPs passing FDR < 0.2 in association tests
 
@@ -49,3 +50,158 @@ p
 
 ```
 
+## ECT results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=10}
+load("/project2/xinhe/xsun/pwy_pcpeer/2.trait_factors/12.fdr_corrected_rerun/2.ECT/results/ECT_results.rdata")
+load("/project2/xinhe/xsun/pwy_pcpeer/2.trait_factors/12.fdr_corrected_rerun/2.ECT/results/ECT_summary_table.rdata")
+
+plot_sum <- df_sum[df_sum$num_snp_pass_cutoff >= 3,] ######
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(plot_sum$pval_ECT)))),
+                       expected = -log10(ppoints(nrow(plot_sum))))
+#  
+
+p1<- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+  geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  ggtitle("Whole blood") + theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 14),
+        axis.text.x = element_text(size = 12, color = "black"),
+        axis.title.y = element_text(size = 14),
+        axis.text.y = element_text(size = 12, color = "black"),
+        text= element_text(family="Times")) 
+
+
+rsq_resampling_all <- c()
+rsq_fitting_all <- c()
+for (t in 1:nrow(plot_sum)) {
+  
+  trait <- plot_sum$trait[t]
+  factor <- plot_sum$factor[t]
+  
+  r_rsp_pair <- r_rsp_all[[trait]][[factor]]
+  set.seed(100)
+  select <- sample(length(r_rsp_pair),100)
+  rsq_s <- r_rsp_pair[select]
+  rsq_resampling_all <- c(rsq_resampling_all,rsq_s)
+  
+  r_std_trait <- r_std_all[[trait]]
+  index <- grep(paste0(factor),names(r_std_trait))
+  rsq_fitting_all <- c(rsq_fitting_all,r_std_trait[[index]])
+  
+}
+
+rsq_resampling_all <- as.data.frame(rsq_resampling_all)
+rsq_resampling_all$f <- "a"
+colnames(rsq_resampling_all)[1] <- "rsq"
+
+rsq_fitting_all <- as.data.frame(rsq_fitting_all)
+rsq_fitting_all$f <- "b"
+colnames(rsq_fitting_all)[1] <- "rsq"
+
+dat <- rbind(rsq_resampling_all, rsq_fitting_all)
+
+p2 <- ggplot(dat,aes(x=rsq)) + 
+  
+  theme_bw(base_line_size =0.3) +
+  
+  ggtitle("Whole blood") + theme(plot.title = element_text(hjust = 0.5)) +
+  
+  # geom_histogram(data=subset(dat,f == 'a'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+  # geom_histogram(data=subset(dat,f == 'b'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+  # 
+  # scale_fill_manual(name="group", values=c("blue", "red"),labels=c("control","real data")) +
+  # 
+  geom_histogram(data=subset(dat,f == 'a'),aes(y=..density..), fill="blue",alpha = 0.2, binwidth = 0.05) +
+  geom_histogram(data=subset(dat,f == 'b'),aes(y=..density..), fill="red",alpha = 0.2, binwidth = 0.05) +
+  
+  theme(axis.title.x = element_text(size = 14),
+        axis.text.x = element_text(size = 12, color = "black"),
+        axis.title.y = element_text(size = 14),
+        axis.text.y = element_text(size = 12, color = "black"),
+        text= element_text(family="Times")) 
+
+all <- grid.arrange(p1,p2, nrow = 1)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/pwy_pcpeer/2.trait_factors/12.fdr_corrected_rerun/2.ECT/results/ECT_summary_table.rdata")
+DT::datatable(df_sum, options = list(pageLength =10))
+```
+
+effect size plots for the top 2 pairs
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
+
+ load("/project2/xinhe/xsun/pwy_pcpeer/2.trait_factors/12.fdr_corrected_rerun/2.ECT/results/assoc_results_harmo_2snps.rdata")
+ trait <- "mcv"
+ factor <- "pwy99_pc1"
+ fdr_cutoff <- 0.2
+ dat <- assoc_harmo_all[[trait]][[factor]]
+ snp_select <- dat[dat$fdr < fdr_cutoff,]
+
+ fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
+
+ eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
+ geom_point() +
+ geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
+ theme_bw(base_line_size =0.3) +
+ theme(axis.title.x = element_text(size = 12),
+       axis.text.x = element_text(size = 10, color = "black"),
+       axis.title.y = element_text(size = 12),
+       axis.text.y = element_text(size = 10, color = "black"),
+       text= element_text(family="Times New Roman")) +
+ geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
+ geom_label(aes(x = 1, y = 0.04), hjust = 0,
+            label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
+                          " \nECT p-value =5.0e-07"),
+                                  #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
+            color = "black",
+            family = "Times New Roman",
+            size = 3,
+            label.size = NA,
+            alpha = 0) +
+   ggtitle(paste0(factor,"-", trait)) + theme(plot.title = element_text(hjust = 0.5))
+ 
+eff
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
+
+ load("/project2/xinhe/xsun/pwy_pcpeer/2.trait_factors/12.fdr_corrected_rerun/2.ECT/results/assoc_results_harmo_2snps.rdata")
+ trait <- "mono"
+ factor <- "pwy308_pc5"
+ fdr_cutoff <- 0.2
+ dat <- assoc_harmo_all[[trait]][[factor]]
+ snp_select <- dat[dat$fdr < fdr_cutoff,]
+
+ fit <- lm(snp_select$beta.outcome ~ 0 + snp_select$beta.exposure)
+
+ eff <- ggplot(snp_select, aes(x=beta.exposure, y=beta.outcome, color=chr)) +
+ geom_point() +
+ geom_errorbar(aes(ymin=beta.outcome-se.outcome, ymax=beta.outcome+se.outcome, color=chr), width=0.01 ,alpha=0.6) +
+ theme_bw(base_line_size =0.3) +
+ theme(axis.title.x = element_text(size = 12),
+       axis.text.x = element_text(size = 10, color = "black"),
+       axis.title.y = element_text(size = 12),
+       axis.text.y = element_text(size = 10, color = "black"),
+       text= element_text(family="Times New Roman")) +
+ geom_smooth(method = lm, se = F, color = "grey", size = 0.5) +
+ geom_label(aes(x = 0, y = 0.02), hjust = 0,
+            label = paste("rsq = ",signif(summary(fit)$r.squared, 3),
+                          " \nECT p-value =5.0e-07"),
+                                  #" \np-value =",signif(summary(fit)$coef[1,4], 3)),
+            color = "black",
+            family = "Times New Roman",
+            size = 3,
+            label.size = NA,
+            alpha = 0) +
+   ggtitle(paste0(factor,"-", trait)) + theme(plot.title = element_text(hjust = 0.5))
+ 
+eff
+```
