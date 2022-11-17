@@ -11,9 +11,9 @@
 
 <meta name="author" content="XSun" />
 
-<meta name="date" content="2022-11-07" />
+<meta name="date" content="2022-11-17" />
 
-<title>Correcting FDR for CEDAR PLIER LV</title>
+<title>Effect Size Consistency Tests (SNP FDR &lt; 0.2, FDR corrected, GTEx whole blood, ACAT FDR filtered)</title>
 
 <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -37,6 +37,14 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.22/datatables.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -362,9 +370,10 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Correcting FDR for CEDAR PLIER LV</h1>
+<h1 class="title toc-ignore">Effect Size Consistency Tests (SNP FDR &lt;
+0.2, FDR corrected, GTEx whole blood, ACAT FDR filtered)</h1>
 <h4 class="author">XSun</h4>
-<h4 class="date">2022-11-07</h4>
+<h4 class="date">2022-11-17</h4>
 
 </div>
 
@@ -397,7 +406,7 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span> 1
 </p>
@@ -431,12 +440,96 @@ changes </a>
 <div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
+<p>The R Markdown is untracked by Git. To know which version of the R
+Markdown file created these results, you’ll want to first commit it to
+the Git repo. If you’re still working on the analysis, you can ignore
+this warning. When you’re finished, you can run
 <code>wflow_publish</code> to commit the R Markdown file and build the
 HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
@@ -482,9 +575,11 @@ Ignored files:
     Ignored:    output/.Rhistory
 
 Untracked files:
+    Untracked:  analysis/ECT_redo_gtexwb_acat_filtered_2digits.Rmd
     Untracked:  analysis/ECT_redo_plier_acat_2digits.Rmd
 
 Unstaged changes:
+    Modified:   analysis/redo_correct_lfdr_gtexwholeblood.Rmd
     Modified:   analysis/redo_correct_lfdr_plier.Rmd
 
 </code></pre>
@@ -500,100 +595,64 @@ have uncommitted changes.
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were
-made to the R Markdown
-(<code>analysis/redo_correct_lfdr_plier.Rmd</code>) and HTML
-(<code>docs/redo_correct_lfdr_plier.html</code>) files. If you’ve
-configured a remote Git repository (see <code>?wflow_git_remote</code>),
-click on the hyperlinks in the table below to view the files as they
-were in that past version.
+There are no past versions. Publish this analysis with
+<code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/18198ad2b82e7ca3a67ae1446a48d7a3c4d58f1b/analysis/redo_correct_lfdr_plier.Rmd" target="_blank">18198ad</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-07
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/18198ad2b82e7ca3a67ae1446a48d7a3c4d58f1b/docs/redo_correct_lfdr_plier.html" target="_blank">18198ad</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-07
-</td>
-<td>
-update
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>In the earlier analysis, we used local FDR to compute the SNP FDR in
-association tests. We will correct it here.</p>
-</div>
 <div id="results" class="section level1">
 <h1>Results</h1>
-<ol style="list-style-type: decimal">
-<li>ECT</li>
-</ol>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/ECT_redo_plier_acat_2digits.html">SNP
-FDR cutoff: 0.2 – ACAT FDR filtered</a></p>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/ECT_redo_plier.html">SNP
-FDR cutoff: 0.2</a></p>
-<ol start="2" style="list-style-type: decimal">
-<li>ACAT</li>
-</ol>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/acat_fdr_plier.html">Details</a></p>
+<div id="ect-results" class="section level2">
+<h2>ECT results</h2>
+<p><img src="figure/ECT_redo_gtexwb_acat_filtered_2digits.Rmd/unnamed-chunk-2-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="htmlwidget-178b88f96a364abe2239" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-178b88f96a364abe2239">{"x":{"filter":"none","vertical":false,"data":[["793","1897","2170","2306","2317","4109","4150","4213","4333","5904","6462","6664","7552","7594","7626","7682","7995","8600"],["eo","hct","hct","hgb","hgb","mcv","mcv","mono","mono","pct","plt","rbc","ret","ret","ret","ret","ret","wbc"],["pwy300_pc5","pwy129_pc1","pwy95_pc1","pwy196_pc1","pwy200_pc1","pwy41_pc1","pwy99_pc1","pwy128_pc5","pwy18_pc5","pwy304_pc4","pwy258_pc5","pwy120_pc1","pwy104_pc4","pwy125_pc5","pwy143_pc5","pwy171_pc4","pwy94_pc1","pwy130_pc1"],["05210","04114","03013","04714","04723","00510","03022","04110","00230","05214","05016","04062","03320","04071","04151","04550","03010","04115"],["Colorectal cancer","Oocyte meiosis","RNA transport","Thermogenesis","Retrograde endocannabinoid signaling","N-Glycan biosynthesis","Basal transcription factors","Cell cycle","Purine metabolism","Glioma","Huntington disease","Chemokine signaling pathway","PPAR signaling pathway","Sphingolipid signaling pathway","PI3K-Akt signaling pathway","Signaling pathways regulating pluripotency of stem cells","Ribosome","p53 signaling pathway"],[88,137,201,253,168,53,59,129,137,79,300,217,82,133,376,152,171,74],[0.0015378496809121,0.000271260726928248,4.52382235971328e-05,0.000606910908458028,3.24393749281351e-05,0.00253725152653223,0.000126331240553979,8.07273931179532e-05,0.000266979751167458,7.06336161257645e-06,9.60046059402647e-05,0.00291321679331094,2.44005054012248e-05,0.00019459799779296,0.0005461251034209,0.000758585140354593,8.40909447063457e-05,5.04409087885291e-05],[0.996926665619817,0.992591106877159,0.997752934291289,0.580136617749047,0.775173180285683,0.545931510308423,0.567321804052949,0.985363769665877,0.787619899724052,0.952236192955803,0.865062455311642,0.690089880944186,0.991944382731188,0.699085473883779,0.962082146221227,0.98531544210489,0.737397950322655,0.997583875543486],[0.000505,0.000254,0.000388,0.000224,0.000363,0.000453,4.1e-05,0.000465,0.000413,9e-05,0.000301,0.000392,0.000126,0.000194,0.000438,0.000323,0.000111,0.000143],[0.192517222222222,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941,0.187695882352941],[3,4,4,15,13,13,19,5,10,8,9,9,5,13,5,4,13,4],[3,4,4,15,12,13,19,5,10,8,9,9,5,13,5,4,13,4],[0.0401185024508479,0.0699674472489653,0.00225041961372513,0.00731993048969335,0.0148546981234426,0.0478940480732649,0.0156013555729183,0.0788440818680931,0.0499349682050188,0.0656461873010506,0.0228692593986308,0.0305599288692321,0.0733589471801305,0.0133430911489741,0.0796866732120761,0.0331656824074318,0.0464418485301105,0.0513399484927019],[0.09,0.1,0.09,0.09,0.09,0.09,0.09,0.1,0.1,0.1,0.09,0.09,0.1,0.09,0.1,0.09,0.09,0.1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>trait<\/th>\n      <th>factor<\/th>\n      <th>pwy_code<\/th>\n      <th>pwy_name<\/th>\n      <th>pwy_gene_num<\/th>\n      <th>pval_fitting<\/th>\n      <th>rsq_fitting<\/th>\n      <th>pval_ECT<\/th>\n      <th>fdr_ECT<\/th>\n      <th>num_snp_pass_cutoff<\/th>\n      <th>num_snp_noMHC<\/th>\n      <th>acat_p<\/th>\n      <th>acat_fdr<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.2.0 (2022-04-22)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: CentOS Linux 7 (Core)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.3.13-el7-x86_64/lib/libopenblas_haswellp-r0.3.13.so
+
+locale:
+[1] C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] forcats_0.5.1 tidyr_1.2.0   gridExtra_2.3 ggplot2_3.3.5
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.1.2  xfun_0.30         bslib_0.3.1       purrr_0.3.4      
+ [5] colorspace_2.0-3  vctrs_0.4.1       generics_0.1.2    htmltools_0.5.2  
+ [9] yaml_2.3.5        utf8_1.2.2        rlang_1.0.5       jquerylib_0.1.4  
+[13] later_1.3.0       pillar_1.7.0      glue_1.6.2        withr_2.5.0      
+[17] DBI_1.1.2         lifecycle_1.0.1   stringr_1.4.0     munsell_0.5.0    
+[21] gtable_0.3.0      workflowr_1.7.0   htmlwidgets_1.5.4 evaluate_0.15    
+[25] labeling_0.4.2    knitr_1.39        fastmap_1.1.0     crosstalk_1.2.0  
+[29] httpuv_1.6.5      fansi_1.0.3       highr_0.9         Rcpp_1.0.8.3     
+[33] promises_1.2.0.1  scales_1.2.0      DT_0.22           jsonlite_1.8.0   
+[37] farver_2.1.0      fs_1.5.2          digest_0.6.29     stringi_1.7.6    
+[41] dplyr_1.0.9       grid_4.2.0        rprojroot_2.0.3   cli_3.3.0        
+[45] tools_4.2.0       magrittr_2.0.3    sass_0.4.1        tibble_3.1.7     
+[49] crayon_1.5.1      pkgconfig_2.0.3   ellipsis_0.3.2    assertthat_0.2.1 
+[53] rmarkdown_2.14    rstudioapi_0.13   R6_2.5.1          git2r_0.30.1     
+[57] compiler_4.2.0   </code></pre>
+</div>
+</div>
 </div>
 
 

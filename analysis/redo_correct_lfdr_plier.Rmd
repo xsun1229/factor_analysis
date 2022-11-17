@@ -17,6 +17,8 @@ In the earlier analysis, we used local FDR to compute the SNP FDR in association
 
 1. ECT 
 
+[SNP FDR cutoff: 0.2 -- ACAT FDR filtered](https://xsun1229.github.io/factor_analysis/ECT_redo_plier_acat_2digits.html)
+
 [SNP FDR cutoff: 0.2](https://xsun1229.github.io/factor_analysis/ECT_redo_plier.html)
 
 2. ACAT 

@@ -1,0 +1,104 @@
+---
+title: "Effect Size Consistency Tests (SNP FDR < 0.2, FDR corrected, GTEx whole blood, ACAT FDR filtered)"
+author: "XSun"
+date: "2022-11-17"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+suppressMessages(library(tidyr))
+suppressMessages(library(forcats))
+```
+
+# Results
+
+
+
+## ECT results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=10}
+load("/project2/xinhe/xsun/pwy_pcpeer/2.trait_factors/12.fdr_corrected_rerun/2.ECT/results/ECT_results.rdata")
+load("/project2/xinhe/xsun/pwy_pcpeer/2.trait_factors/12.fdr_corrected_rerun/2.ECT/results/ECT_summary_table_acat_filtered_2digits.rdata")
+
+plot_sum <- df_sum[df_sum$num_snp_pass_cutoff >= 3,] ######
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(plot_sum$pval_ECT)))),
+                       expected = -log10(ppoints(nrow(plot_sum))))
+#  
+
+p1<- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+  geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  ggtitle("Whole blood") + theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 14),
+        axis.text.x = element_text(size = 12, color = "black"),
+        axis.title.y = element_text(size = 14),
+        axis.text.y = element_text(size = 12, color = "black"),
+        text= element_text(family="Times")) 
+
+
+rsq_resampling_all <- c()
+rsq_fitting_all <- c()
+for (t in 1:nrow(plot_sum)) {
+  
+  trait <- plot_sum$trait[t]
+  factor <- plot_sum$factor[t]
+  
+  r_rsp_pair <- r_rsp_all[[trait]][[factor]]
+  set.seed(100)
+  select <- sample(length(r_rsp_pair),100)
+  rsq_s <- r_rsp_pair[select]
+  rsq_resampling_all <- c(rsq_resampling_all,rsq_s)
+  
+  r_std_trait <- r_std_all[[trait]]
+  index <- grep(paste0(factor),names(r_std_trait))
+  rsq_fitting_all <- c(rsq_fitting_all,r_std_trait[[index]])
+  
+}
+
+rsq_resampling_all <- as.data.frame(rsq_resampling_all)
+rsq_resampling_all$f <- "a"
+colnames(rsq_resampling_all)[1] <- "rsq"
+
+rsq_fitting_all <- as.data.frame(rsq_fitting_all)
+rsq_fitting_all$f <- "b"
+colnames(rsq_fitting_all)[1] <- "rsq"
+
+dat <- rbind(rsq_resampling_all, rsq_fitting_all)
+
+p2 <- ggplot(dat,aes(x=rsq)) + 
+  
+  theme_bw(base_line_size =0.3) +
+  
+  ggtitle("Whole blood") + theme(plot.title = element_text(hjust = 0.5)) +
+  
+  # geom_histogram(data=subset(dat,f == 'a'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+  # geom_histogram(data=subset(dat,f == 'b'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+  # 
+  # scale_fill_manual(name="group", values=c("blue", "red"),labels=c("control","real data")) +
+  # 
+  geom_histogram(data=subset(dat,f == 'a'),aes(y=..density..), fill="blue",alpha = 0.2, binwidth = 0.05) +
+  geom_histogram(data=subset(dat,f == 'b'),aes(y=..density..), fill="red",alpha = 0.2, binwidth = 0.05) +
+  
+  theme(axis.title.x = element_text(size = 14),
+        axis.text.x = element_text(size = 12, color = "black"),
+        axis.title.y = element_text(size = 14),
+        axis.text.y = element_text(size = 12, color = "black"),
+        text= element_text(family="Times")) 
+
+all <- grid.arrange(p1,p2, nrow = 1)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/pwy_pcpeer/2.trait_factors/12.fdr_corrected_rerun/2.ECT/results/ECT_summary_table_acat_filtered_2digits.rdata")
+df_sum <- df_sum[df_sum$fdr_ECT < 0.2,]
+DT::datatable(df_sum, options = list(pageLength =10))
+```
+
