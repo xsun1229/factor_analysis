@@ -1,0 +1,287 @@
+---
+title: "Effect Size Consistency Tests (SNP FDR < 0.2, FDR corrected, ACAT FDR < 0.1)"
+author: "XSun"
+date: "2022-11-17"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+suppressMessages(library(tidyr))
+suppressMessages(library(forcats))
+```
+
+# Introduction
+
+Workflow:
+
+1. Association test: factor ~ snp + covariates 
+
+2. For the pairs have multiple snps (>=3) passing FDR < 0.2 && ACAT FDR < 0.1, do ECT
+
+# Results
+
+## ECT results
+
+### Number of pairs passing different ECT FDR cutoff 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=5}
+
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+
+x <- c()
+y <- c()
+for (i in 1:length(path)){
+  folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
+  
+  load(paste0(folder_path,"results/ECT_summary_table_acat_filtered.rdata"))
+  x[i] <- sum(df_sum$fdr_ECT < 0.1)
+  y[i] <- sum(df_sum$fdr_ECT < 0.2) 
+  
+  
+}
+
+type <- c("CD19+","CD14+","CD15+","PLT","CD4+","CD8+")
+
+
+data <- data.frame(x, y,type)
+df <- gather(data, event, total, x:y)
+
+
+bar <- ggplot(df, aes(type, total, fill=event)) +
+  
+  theme_bw(base_line_size =0.3) +
+
+  geom_bar(stat = "identity", position = 'dodge', alpha = 0.2) +
+  scale_fill_manual(name="group", values=c("red", "blue"),labels=c("FDR < 0.1","FDR < 0.2")) +
+  
+  aes(x = fct_inorder(type)) + 
+  
+  labs(x = "Cell types", y = "Count") +
+  
+  geom_text(aes(label = total),position = position_dodge(0.9),
+            color="black",size = 3,vjust = -0.3) +
+  
+  ylim(0,65) +
+  
+  theme(axis.title.x = element_text(size = 12),
+        axis.text.x = element_text(size = 10, color = "black"),
+        axis.title.y = element_text(size = 12),
+        axis.text.y = element_text(size = 10, color = "black"),
+        text= element_text(family="Times New Roman"))
+
+bar
+
+```
+
+
+### ECT qqplots and rsq barplots for all pairs have >=3SNPs
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+
+p1 <- list()
+p2 <- list()
+for (i in 1:length(type)){ 
+  
+  file_ect_results <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_results.rdata")
+  load(file_ect_results)
+  
+  file_ect_summary <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_acat_filtered.rdata")
+  load(file_ect_summary)
+  
+  plot_sum <- df_sum[df_sum$num_snp_pass_cutoff >= 3,] ######
+  
+  plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(plot_sum$pval_ECT)))),
+                         expected = -log10(ppoints(nrow(plot_sum))))
+  #  
+  
+  p1[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),
+          text= element_text(family="Times New Roman")) 
+  
+  
+  #### rsq barplot (selected data)
+  rsq_resampling_all <- c()
+  rsq_fitting_all <- c()
+  for (t in 1:nrow(plot_sum)) {
+    
+    trait <- plot_sum$trait[t]
+    factor <- plot_sum$factor[t]
+    
+    r_rsp_pair <- r_rsp_all[[trait]][[factor]]
+    set.seed(100)
+    select <- sample(length(r_rsp_pair),100)
+    rsq_s <- r_rsp_pair[select]
+    rsq_resampling_all <- c(rsq_resampling_all,rsq_s)
+    
+    r_std_trait <- r_std_all[[trait]]
+    index <- grep(paste0(factor),names(r_std_trait))
+    rsq_fitting_all <- c(rsq_fitting_all,r_std_trait[index])
+    
+  }
+  
+  rsq_resampling_all <- as.data.frame(rsq_resampling_all)
+  rsq_resampling_all$f <- "a"
+  colnames(rsq_resampling_all)[1] <- "rsq"
+  
+  rsq_fitting_all <- as.data.frame(rsq_fitting_all)
+  rsq_fitting_all$f <- "b"
+  colnames(rsq_fitting_all)[1] <- "rsq"
+  
+  dat <- rbind(rsq_resampling_all, rsq_fitting_all)
+  
+  p2[[i]] <- ggplot(dat,aes(x=rsq)) + 
+    
+    theme_bw(base_line_size =0.3) +
+    
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    
+    # geom_histogram(data=subset(dat,f == 'a'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+    # geom_histogram(data=subset(dat,f == 'b'),aes(fill=f,y=..density..), alpha = 0.2, binwidth = 0.05) +
+    # 
+    # scale_fill_manual(name="group", values=c("blue", "red"),labels=c("control","real data")) +
+    # 
+    geom_histogram(data=subset(dat,f == 'a'),aes(y=..density..), fill="blue",alpha = 0.2, binwidth = 0.05) +
+    geom_histogram(data=subset(dat,f == 'b'),aes(y=..density..), fill="red",alpha = 0.2, binwidth = 0.05) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),
+          text= element_text(family="Times New Roman"))
+  
+  
+}
+
+
+all1 <- grid.arrange(p1[[1]],p1[[2]],p1[[3]],p1[[4]],p1[[5]],p1[[6]], nrow = 2)
+all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
+```
+
+
+### Top pairs with ECT FDR <0.2
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+
+summary <- c()
+for (i in 1:length(path)){
+  folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
+  
+  load(paste0(folder_path,"results/ECT_summary_table_acat_filtered.rdata"))
+  
+  if (sum(df_sum$fdr_ECT < 0.2) > 0) {
+    tmp <- df_sum[df_sum$fdr_ECT < 0.2,]
+    tmp$celltype <- type[i]
+    
+    #colnames(summary) <- colnames(tmp)
+    summary <- rbind(summary,tmp)
+  }
+  
+}
+
+summary <- cbind(summary$celltype,summary)
+summary <- summary[,-ncol(summary)]
+colnames(summary)[1] <- "Celltypes"
+
+load("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/final_results_random_included.rdata")
+ect_final$pair <- paste0(ect_final$trait,"-",ect_final$factor)
+ect_select <- cbind(ect_final$pair,ect_final$magma_p,ect_final$magma_fdr,ect_final$magma_random_P,ect_final$mbe_reverse, ect_final$mbe_pval_reverse)
+colnames(ect_select) <- c("pair","magma_p","magma_fdr","magma_random_P","mbe_reverse","mbe_pval_reverse")
+summary$pair <- paste0(summary$trait,"-",summary$factor)
+summary <- merge(summary,ect_select, by ="pair")
+summary <- summary[,-1]
+DT::datatable(summary, options = list(pageLength =10))
+```
+
+## MAGMA results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=3, fig.width=6}
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(summary$magma_p)))),
+                       expected = -log10(ppoints(nrow(summary))))
+#  
+
+q1 <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  ggtitle("Real data") + theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(summary$magma_random_P)))),
+                       expected = -log10(ppoints(nrow(summary))))
+q2 <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  ggtitle("Random data") + theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman")) 
+
+all <- grid.arrange(q1,q2, nrow = 1)
+
+```
+
+## Checking the lost top1 pair
+
+"pwy124_pc1" - EUR.CD
+
+ACAT p-value: 0.079, ACAT FDR: 0.1036 (shall we rounded up two desmos place to keep this pair) 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
+
+ load("/project2/xinhe/xsun/CEDAR/10.T_cell_kegg/9.pcs_40genes_rerun/2.ECT/results/assoc_results_harmo_2snps.rdata")
+ trait <- "EUR.CD"
+ factor <- "pwy124_pc1"
+ fdr_cutoff <- 0.2
+ dat <- assoc_harmo_all[[trait]][[factor]]
+ 
+ plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(dat$pval.exposure)))),
+                       expected = -log10(ppoints(nrow(dat))))
+#  
+ ggplot(plotdata) + theme_bw(base_line_size =0.3) +
+  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
+  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+  ggtitle("Random data") + theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+       y = expression(paste("Observed -log"[10],"(p-value)"))) +
+  
+  theme(axis.title.x = element_text(size = 10),
+        axis.text.x = element_text(size = 8, color = "black"),
+        axis.title.y = element_text(size = 10),
+        axis.text.y = element_text(size = 8, color = "black"),
+        text= element_text(family="Times New Roman"))  +
+    ggtitle(paste0(factor,"-", trait)) + theme(plot.title = element_text(hjust = 0.5))
+ 
+
+DT::datatable(dat, options = list(pageLength =10))
+```
