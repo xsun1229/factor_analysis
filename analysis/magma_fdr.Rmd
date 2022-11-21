@@ -33,7 +33,7 @@ DT::datatable(ect, options = list(pageLength =5))
 
 Phosphatidylinositol signaling system
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=3, fig.width=3}
 trait <- "EUR.CD"
 factor <- "pwy124_pc1"
 pwy <- 124
@@ -71,6 +71,22 @@ magma_gene_select <- merge(magma_gene_select, loadings_sorted, by="symbol")
 
 
 DT::datatable(magma_gene_select, options = list(pageLength =5))
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(magma_gene_select$P)))),
+                         expected = -log10(ppoints(nrow(magma_gene_select))))
+  #  
+  
+ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 14),
+          axis.text.x = element_text(size = 12, color = "black"),
+          axis.title.y = element_text(size = 14),
+          axis.text.y = element_text(size = 12, color = "black"),
+          text= element_text(family="Times")) 
 ```
 
 PLCG2 [Using genes to triangulate the pathophysiology of granulomatous autoinflammatory disease: NOD2, PLCG2 and LACC1](https://academic.oup.com/intimm/article/30/5/205/4930795)
@@ -83,7 +99,7 @@ PLCG1 [PLC1 participates in the intracellular transduction of receptor-mediated 
 
 Sphingolipid signaling pathway
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=3, fig.width=3}
 trait <- "ret"
 factor <- "pwy125_pc5"
 pwy <- 125
@@ -120,6 +136,22 @@ loadings_sorted$loading_rank <- seq(1,nrow(loadings_sorted),by=1)
 magma_gene_select <- merge(magma_gene_select, loadings_sorted, by="symbol")
 
 DT::datatable(magma_gene_select, options = list(pageLength =5))
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(magma_gene_select$P)))),
+                         expected = -log10(ppoints(nrow(magma_gene_select))))
+  #  
+  
+ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 14),
+          axis.text.x = element_text(size = 12, color = "black"),
+          axis.title.y = element_text(size = 14),
+          axis.text.y = element_text(size = 12, color = "black"),
+          text= element_text(family="Times")) 
 ```
 
 top genes: 
@@ -140,7 +172,7 @@ TP53 [The TP53 gene provides instructions for making a protein called tumor prot
 
 Chronic myeloid leukemia
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=3, fig.width=3}
 trait <- "lymph"
 factor <- "pwy310_pc1"
 pwy <- 310
@@ -177,6 +209,22 @@ loadings_sorted$loading_rank <- seq(1,nrow(loadings_sorted),by=1)
 magma_gene_select <- merge(magma_gene_select, loadings_sorted, by="symbol")
 
 DT::datatable(magma_gene_select, options = list(pageLength =5))
+
+plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(magma_gene_select$P)))),
+                         expected = -log10(ppoints(nrow(magma_gene_select))))
+  #  
+  
+ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 14),
+          axis.text.x = element_text(size = 12, color = "black"),
+          axis.title.y = element_text(size = 14),
+          axis.text.y = element_text(size = 12, color = "black"),
+          text= element_text(family="Times")) 
 ```
 
 BAX BAK1 [Bax and Bak are two nuclear-encoded proteins present in higher eukaryotes that are able to pierce the mitochondrial outer membrane to mediate cell death by apoptosis. Thus, organelles recruited by nucleated cells to supply energy can be recruited by Bax and Bak to kill cells.](https://www.sciencedirect.com/science/article/pii/S0167488910003368)
