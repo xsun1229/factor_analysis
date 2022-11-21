@@ -1,7 +1,7 @@
 ---
-title: "Effect Size Consistency Tests (SNP FDR < 0.2, FDR corrected, ACAT FDR < 0.1)"
+title: "Effect Size Consistency Tests (SNP FDR < 0.2, FDR corrected, corrected ACAT FDR < 0.1)"
 author: "XSun"
-date: "2022-11-17"
+date: "2022-11-21"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
@@ -37,7 +37,7 @@ y <- c()
 for (i in 1:length(path)){
   folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
   
-  load(paste0(folder_path,"results/ECT_summary_table_acat_filtered.rdata"))
+  load(paste0(folder_path,"results/ECT_summary_table_corrected_acat_filtered.rdata"))
   x[i] <- sum(df_sum$fdr_ECT < 0.1)
   y[i] <- sum(df_sum$fdr_ECT < 0.2) 
   
@@ -65,7 +65,7 @@ bar <- ggplot(df, aes(type, total, fill=event)) +
   geom_text(aes(label = total),position = position_dodge(0.9),
             color="black",size = 3,vjust = -0.3) +
   
-  ylim(0,65) +
+  ylim(0,30) +
   
   theme(axis.title.x = element_text(size = 12),
         axis.text.x = element_text(size = 10, color = "black"),
@@ -93,7 +93,7 @@ for (i in 1:length(type)){
   file_ect_results <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_results.rdata")
   load(file_ect_results)
   
-  file_ect_summary <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_acat_filtered.rdata")
+  file_ect_summary <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_corrected_acat_filtered.rdata")
   load(file_ect_summary)
   
   plot_sum <- df_sum[df_sum$num_snp_pass_cutoff >= 3,] ######
@@ -185,7 +185,7 @@ summary <- c()
 for (i in 1:length(path)){
   folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
   
-  load(paste0(folder_path,"results/ECT_summary_table_acat_filtered.rdata"))
+  load(paste0(folder_path,"results/ECT_summary_table_corrected_acat_filtered.rdata"))
   
   if (sum(df_sum$fdr_ECT < 0.2) > 0) {
     tmp <- df_sum[df_sum$fdr_ECT < 0.2,]
@@ -251,37 +251,3 @@ all <- grid.arrange(q1,q2, nrow = 1)
 
 ```
 
-## Checking the lost top1 pair
-
-"pwy124_pc1" - EUR.CD
-
-ACAT p-value: 0.079, ACAT FDR: 0.1036 (shall we rounded up two digits to keep this pair) 
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=5, fig.width=6}
-
- load("/project2/xinhe/xsun/CEDAR/10.T_cell_kegg/9.pcs_40genes_rerun/2.ECT/results/assoc_results_harmo_2snps.rdata")
- trait <- "EUR.CD"
- factor <- "pwy124_pc1"
- fdr_cutoff <- 0.2
- dat <- assoc_harmo_all[[trait]][[factor]]
- 
- plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(dat$pval.exposure)))),
-                       expected = -log10(ppoints(nrow(dat))))
-#  
- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
-  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
-  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
-  ggtitle("Random data") + theme(plot.title = element_text(hjust = 0.5)) +
-  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
-       y = expression(paste("Observed -log"[10],"(p-value)"))) +
-  
-  theme(axis.title.x = element_text(size = 10),
-        axis.text.x = element_text(size = 8, color = "black"),
-        axis.title.y = element_text(size = 10),
-        axis.text.y = element_text(size = 8, color = "black"),
-        text= element_text(family="Times New Roman"))  +
-    ggtitle(paste0(factor,"-", trait)) + theme(plot.title = element_text(hjust = 0.5))
- 
-
-DT::datatable(dat, options = list(pageLength =10))
-```

@@ -18,23 +18,176 @@ In this part, we used [MAGMA](https://ctg.cncr.nl/software/magma) to do the clas
 
 # MAGMA results
 
-## Results for the pairs have ECT FDR < 0.1
+## Results for top pairs 
 
 The top one "EUR.CD - Phosphatidylinositol signaling system" is also supported by MAGMA
 
 ```{r echo=FALSE}
 load("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/CEDAR_KEGG_compare.rdata")
-ect <- ect[ect$fdr_ECT < 0.1,]
 DT::datatable(ect, options = list(pageLength =5))
 ```
 
-## Results for the pairs have ECT FDR < 0.2
+## MAGMA gene p-values for several highlihgted pairs
+
+### pwy124_pc1 - EUR.CD from T cell
+
+Phosphatidylinositol signaling system
 
 ```{r echo=FALSE}
-load("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/CEDAR_KEGG_compare.rdata")
-ect <- ect[!ect$fdr_ECT < 0.1,]
-DT::datatable(ect, options = list(pageLength =5))
+trait <- "EUR.CD"
+factor <- "pwy124_pc1"
+pwy <- 124
+pc <- 1
+celltype <- "10.T_cell_kegg"
+
+file_expr <- paste0("/project2/xinhe/xsun/CEDAR/",celltype,"/1.find_factors/all.pwy_g_expr_.rdata")
+load(file_expr)
+file_magma <- paste0("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/geneanalysis/", trait, ".genes.out")
+magma_gene_results <- read.table(file_magma,header = T,colClasses = "character")
+
+gene_name <- cbind(as.character(geneexpr_all_pway[[pwy]]$gene),as.character(geneexpr_all_pway[[pwy]]$SYMBOL))
+colnames(gene_name) <- c("GENE","symbol")
+magma_gene_select <- magma_gene_results[magma_gene_results$GENE %in% gene_name,]
+magma_gene_select <- merge(magma_gene_select, gene_name, by="GENE")
+
+expr_select <- geneexpr_all_pway[[pwy]]
+expr_matrix <- expr_select[,5:ncol(expr_select)]
+row.names(expr_matrix) <-expr_select$SYMBOL
+expr_matrix <- t(expr_matrix)
+mode(expr_matrix) <- "numeric"
+  
+###pca, genes with largest loading, prepare phe files for these genes
+pca <- prcomp(expr_matrix, scale. = T)
+  
+pc_selected <- pca$x[,pc]
+loadings_selected <- pca$rotation[,pc]
+loadings_sorted <- loadings_selected[order(abs(loadings_selected),decreasing = T)]
+
+loadings_sorted <- as.data.frame(cbind(names(loadings_sorted),loadings_sorted))
+colnames(loadings_sorted) <- c("symbol", "loadings")
+loadings_sorted$loading_rank <- seq(1,nrow(loadings_sorted),by=1)
+
+magma_gene_select <- merge(magma_gene_select, loadings_sorted, by="symbol")
+
+
+DT::datatable(magma_gene_select, options = list(pageLength =5))
 ```
+
+PLCG2 [Using genes to triangulate the pathophysiology of granulomatous autoinflammatory disease: NOD2, PLCG2 and LACC1](https://academic.oup.com/intimm/article/30/5/205/4930795)
+
+PLCG1 [PLC1 participates in the intracellular transduction of receptor-mediated tyrosine kinase activators and may participate in the inflammation reaction through a specific function](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5331171/)
+
+
+
+### pwy125_pc5-ret from B cell
+
+Sphingolipid signaling pathway
+
+```{r echo=FALSE}
+trait <- "ret"
+factor <- "pwy125_pc5"
+pwy <- 125
+pc <- 5
+celltype <- "4.B_cell_kegg"
+
+file_expr <- paste0("/project2/xinhe/xsun/CEDAR/",celltype,"/1.find_factors/all.pwy_g_expr_.rdata")
+load(file_expr)
+file_magma <- paste0("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/geneanalysis/", trait, ".genes.out")
+magma_gene_results <- read.table(file_magma,header = T,colClasses = "character")
+
+gene_name <- cbind(as.character(geneexpr_all_pway[[pwy]]$gene),as.character(geneexpr_all_pway[[pwy]]$SYMBOL))
+colnames(gene_name) <- c("GENE","symbol")
+magma_gene_select <- magma_gene_results[magma_gene_results$GENE %in% gene_name,]
+magma_gene_select <- merge(magma_gene_select, gene_name, by="GENE")
+
+expr_select <- geneexpr_all_pway[[pwy]]
+expr_matrix <- expr_select[,5:ncol(expr_select)]
+row.names(expr_matrix) <-expr_select$SYMBOL
+expr_matrix <- t(expr_matrix)
+mode(expr_matrix) <- "numeric"
+  
+###pca, genes with largest loading, prepare phe files for these genes
+pca <- prcomp(expr_matrix, scale. = T)
+  
+pc_selected <- pca$x[,pc]
+loadings_selected <- pca$rotation[,pc]
+loadings_sorted <- loadings_selected[order(abs(loadings_selected),decreasing = T)]
+
+loadings_sorted <- as.data.frame(cbind(names(loadings_sorted),loadings_sorted))
+colnames(loadings_sorted) <- c("symbol", "loadings")
+loadings_sorted$loading_rank <- seq(1,nrow(loadings_sorted),by=1)
+
+magma_gene_select <- merge(magma_gene_select, loadings_sorted, by="symbol")
+
+DT::datatable(magma_gene_select, options = list(pageLength =5))
+```
+
+top genes: 
+
+RELA: [RELA shows a weak DNA-binding site which could contribute directly to DNA binding in the NF-kappa-B complex. Beside its activity as a direct transcriptional activator, it is also able to modulate promoters accessibility to transcription factors and thereby indirectly regulate gene expression](https://www.uniprot.org/uniprotkb/Q04206/entry)
+
+GAB2 [Gab2 plays a pivotal role in the EGF-induced ERK activation pathway and that it can complement the function of Gab1 in the EGF signalling pathway; Gab1 and Gab2 are critical signalling threshold proteins for ERK activation by EGF](https://www.ncbi.nlm.nih.gov/gene/9846)
+
+MAPK3 [MAP kinases, also known as extracellular signal-regulated kinases (ERKs), act in a signaling cascade that regulates various cellular processes such as proliferation, differentiation, and cell cycle progression in response to a variety of extracellular signals.](https://www.genecards.org/cgi-bin/carddisp.pl?gene=MAPK3)
+
+PPP2R2A [The product of this gene belongs to the phosphatase 2 regulatory subunit B family. Protein phosphatase 2 is one of the four major Ser/Thr phosphatases, and it is implicated in the negative control of cell growth and division](https://en.wikipedia.org/wiki/PPP2R2A)
+
+PPP2R5B has similar functions
+
+TP53 [The TP53 gene provides instructions for making a protein called tumor protein p53 (or p53). This protein acts as a tumor suppressor, which means that it regulates cell division by keeping cells from growing and dividing (proliferating) too fast or in an uncontrolled way.](https://medlineplus.gov/genetics/gene/tp53/)
+
+### pwy310_pc1-lymph from B cell
+
+Chronic myeloid leukemia
+
+```{r echo=FALSE}
+trait <- "lymph"
+factor <- "pwy310_pc1"
+pwy <- 310
+pc <- 1
+celltype <- "4.B_cell_kegg"
+
+file_expr <- paste0("/project2/xinhe/xsun/CEDAR/",celltype,"/1.find_factors/all.pwy_g_expr_.rdata")
+load(file_expr)
+file_magma <- paste0("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/geneanalysis/", trait, ".genes.out")
+magma_gene_results <- read.table(file_magma,header = T,colClasses = "character")
+
+gene_name <- cbind(as.character(geneexpr_all_pway[[pwy]]$gene),as.character(geneexpr_all_pway[[pwy]]$SYMBOL))
+colnames(gene_name) <- c("GENE","symbol")
+magma_gene_select <- magma_gene_results[magma_gene_results$GENE %in% gene_name,]
+magma_gene_select <- merge(magma_gene_select, gene_name, by="GENE")
+
+expr_select <- geneexpr_all_pway[[pwy]]
+expr_matrix <- expr_select[,5:ncol(expr_select)]
+row.names(expr_matrix) <-expr_select$SYMBOL
+expr_matrix <- t(expr_matrix)
+mode(expr_matrix) <- "numeric"
+  
+###pca, genes with largest loading, prepare phe files for these genes
+pca <- prcomp(expr_matrix, scale. = T)
+  
+pc_selected <- pca$x[,pc]
+loadings_selected <- pca$rotation[,pc]
+loadings_sorted <- loadings_selected[order(abs(loadings_selected),decreasing = T)]
+
+loadings_sorted <- as.data.frame(cbind(names(loadings_sorted),loadings_sorted))
+colnames(loadings_sorted) <- c("symbol", "loadings")
+loadings_sorted$loading_rank <- seq(1,nrow(loadings_sorted),by=1)
+
+magma_gene_select <- merge(magma_gene_select, loadings_sorted, by="symbol")
+
+DT::datatable(magma_gene_select, options = list(pageLength =5))
+```
+
+BAX BAK1 [Bax and Bak are two nuclear-encoded proteins present in higher eukaryotes that are able to pierce the mitochondrial outer membrane to mediate cell death by apoptosis. Thus, organelles recruited by nucleated cells to supply energy can be recruited by Bax and Bak to kill cells.](https://www.sciencedirect.com/science/article/pii/S0167488910003368)
+
+BAD [The protein encoded by this gene is a member of the BCL-2 family. BCL-2 family members are known to be regulators of programmed cell death. This protein positively regulates cell apoptosis by forming heterodimers with BCL-xL (B-cell lymphoma-extra large) and BCL-2, and reversing their death repressor activity. Proapoptotic activity of this protein is regulated through its phosphorylation. Protein kinases AKT and MAP kinase, as well as protein phosphatase calcineurin were found to be involved in the regulation of this protein. Alternative splicing of this gene results in two transcript variants which encode the same isoform](https://www.genecards.org/cgi-bin/carddisp.pl?gene=BAD)
+
+RB1 [The RB1 gene provides instructions for making a protein called pRB. This protein acts as a tumor suppressor, which means that it regulates cell growth and keeps cells from dividing too fast or in an uncontrolled way.](https://medlineplus.gov/genetics/gene/rb1/)
+
+BCL2L1 [BCL-xL/BCL2L1 is a critical anti-apoptotic protein that promotes the survival of differentiating pancreatic cells from human pluripotent stem cells](https://www.nature.com/articles/s41419-020-2589-7)
+
+
 
 # Random MAGMA results -- random genes
 
@@ -86,3 +239,6 @@ all <- grid.arrange(q1,q2, nrow = 1)
 load("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/final_results_random_included.rdata")
 DT::datatable(ect_final, options = list(pageLength =5))
 ```
+
+
+
