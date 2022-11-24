@@ -1,0 +1,161 @@
+---
+title: "Compare ACAT and Fisher exact test results"
+author: "XSun"
+date: "2022-11-23"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(ggplot2))
+suppressMessages(library(gridExtra))
+suppressMessages(library(tidyr))
+suppressMessages(library(forcats))
+```
+
+
+# Introduction
+
+The convergence test was performed using Fisher exact test. Then, we compare the results of Fisher exact test with results of ACAT. 
+
+For each factor - trait pair, we counted the number of SNPs passing different FDR cutoffs (0.05, 0.1, 0.2) from real data and compare the number from random data using Fisher Exact test. The p-values of the tests were recorded. 
+
+# Fisher Exact results
+
+## SNP cutoff: FDR<0.05
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+load("/project2/xinhe/xsun/CEDAR/global_analysis_FDR_corrected/results/summary_acat_fisher.rdata")
+
+p <- list()
+for (i in 1:length(type)) {
+  
+  df <- summary_allcelltype[[i]]
+  
+  plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(df$fisher_p_005)))),
+                         expected = -log10(ppoints(nrow(df))))
+  #  
+  
+  p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),)
+  
+}
+
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+
+
+```
+
+
+## SNP cutoff: FDR<0.1
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+load("/project2/xinhe/xsun/CEDAR/global_analysis_FDR_corrected/results/summary_acat_fisher.rdata")
+
+p <- list()
+for (i in 1:length(type)) {
+  
+  df <- summary_allcelltype[[i]]
+  
+  plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(df$fisher_p_01)))),
+                         expected = -log10(ppoints(nrow(df))))
+  #  
+  
+  p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),)
+  
+}
+
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+
+
+```
+
+
+## SNP cutoff: FDR<0.2
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+load("/project2/xinhe/xsun/CEDAR/global_analysis_FDR_corrected/results/summary_acat_fisher.rdata")
+
+p <- list()
+for (i in 1:length(type)) {
+  
+  df <- summary_allcelltype[[i]]
+  
+  plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(df$fisher_p_02)))),
+                         expected = -log10(ppoints(nrow(df))))
+  #  
+  
+  p[[i]] <- ggplot(plotdata) + theme_bw(base_line_size =0.3,) +
+    geom_point(aes(expected, observed), shape = 1, size = 3, color= "steelblue") +
+    geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = expression(paste("Expected -log"[10],"(p-value)")),
+         y = expression(paste("Observed -log"[10],"(p-value)"))) +
+    
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),)
+  
+}
+
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+
+
+```
+
+
+# Compare Fisher Exact results with ACAT results
+
+There are convergence signal when using SNP FDR < 0.2. So we compared the FDR with the corrected FDR from ACAT.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=10, fig.width=15}
+
+type <- c("B cell (CD19+)","Monocyte (CD14+)","Leukocyte (CD15+)","Platelet","T cell (CD4+)","T cell (CD8+)")
+load("/project2/xinhe/xsun/CEDAR/global_analysis_FDR_corrected/results/summary_acat_fisher.rdata")
+
+p <- list()
+for (i in 1:length(type)) {
+  
+  df <- summary_allcelltype[[i]]
+  df$acat_fdr_correct <- p.adjust(df$acat_p_correct, method = "fdr")
+  p[[i]] <- ggplot(df, aes(x=acat_fdr_correct, y=as.numeric(fisher_p_02))) +
+  geom_point() +
+    ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
+    labs(x = "corrected ACAT FDR",
+         y = "Fisher FDR") +
+
+    theme(axis.title.x = element_text(size = 22),
+          axis.text.x = element_text(size = 20, color = "black"),
+          axis.title.y = element_text(size = 22),
+          axis.text.y = element_text(size = 20, color = "black"),)
+  
+}
+all <- grid.arrange(p[[1]],p[[2]],p[[3]],p[[4]],p[[5]],p[[6]], nrow = 2)
+```

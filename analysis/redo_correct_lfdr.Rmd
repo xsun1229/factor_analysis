@@ -27,9 +27,11 @@ In the earlier analysis, we used local FDR to compute the SNP FDR in association
 
 [SNP FDR cutoff: 0.1](https://xsun1229.github.io/factor_analysis/ECT_redo_fdr01.html)
 
-2. ACAT 
+2. Convergence test 
 
-[Details](https://xsun1229.github.io/factor_analysis/acat_fdr.html)
+[Compare ACAT and Fisher exact test results](https://xsun1229.github.io/factor_analysis/compare_acat_fisher.html)
+
+[ACAT](https://xsun1229.github.io/factor_analysis/acat_fdr.html)
 
 3. MAGMA
 
@@ -42,3 +44,7 @@ In the earlier analysis, we used local FDR to compute the SNP FDR in association
 5. p-values in gene ~ SNP & factor ~ SNP
 
 [Details](https://xsun1229.github.io/factor_analysis/check_pval.html)
+
+6. Colocalization analysis
+
+[SNP FDR cutoff: 0.2, without any acat filter](https://xsun1229.github.io/factor_analysis/coloc_fdr.html)
