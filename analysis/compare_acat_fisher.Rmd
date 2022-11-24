@@ -144,12 +144,12 @@ p <- list()
 for (i in 1:length(type)) {
   
   df <- summary_allcelltype[[i]]
-  df$acat_fdr_correct <- p.adjust(df$acat_p_correct, method = "fdr")
-  p[[i]] <- ggplot(df, aes(x=acat_fdr_correct, y=as.numeric(fisher_p_02))) +
+  #df$acat_fdr_correct <- p.adjust(df$acat_p_correct, method = "fdr")
+  p[[i]] <- ggplot(df, aes(x=as.numeric(acat_p_correct), y=as.numeric(fisher_p_02))) +
   geom_point() +
     ggtitle(type[i]) + theme(plot.title = element_text(hjust = 0.5)) +
-    labs(x = "corrected ACAT FDR",
-         y = "Fisher FDR") +
+    labs(x = "corrected ACAT pvalue",
+         y = "Fisher pvalue") +
 
     theme(axis.title.x = element_text(size = 22),
           axis.text.x = element_text(size = 20, color = "black"),
