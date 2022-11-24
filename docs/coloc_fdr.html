@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="XSun" />
+
+<meta name="date" content="2022-11-24" />
+
+<title>Colocalization Analysis</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.22/datatables.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">factor_analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/xsun1229/factor_analysis">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Colocalization Analysis</h1>
+<h4 class="author">XSun</h4>
+<h4 class="date">2022-11-24</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2022-11-24
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>factor_analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.0). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20200623code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20200623)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20200623code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20200623)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeca628a7bb2a9f1ec39884ad8dd389d22fa4b8934targetblankca628a7a">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/xsun1229/factor_analysis/tree/ca628a7bb2a9f1ec39884ad8dd389d22fa4b8934" target="_blank">ca628a7</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomxsun1229factoranalysistreeca628a7bb2a9f1ec39884ad8dd389d22fa4b8934targetblankca628a7a"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/xsun1229/factor_analysis/tree/ca628a7bb2a9f1ec39884ad8dd389d22fa4b8934" target="_blank">ca628a7</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    analysis/.Rhistory
+    Ignored:    output/.Rhistory
+
+Unstaged changes:
+    Modified:   analysis/ECT_redo.Rmd
+    Modified:   analysis/coloc_fdr.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/coloc_fdr.Rmd</code>) and HTML
+(<code>docs/coloc_fdr.html</code>) files. If you’ve configured a remote
+Git repository (see <code>?wflow_git_remote</code>), click on the
+hyperlinks in the table below to view the files as they were in that
+past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/xsun1229/factor_analysis/blob/ca628a7bb2a9f1ec39884ad8dd389d22fa4b8934/analysis/coloc_fdr.Rmd" target="_blank">ca628a7</a>
+</td>
+<td>
+XSun
+</td>
+<td>
+2022-11-24
+</td>
+<td>
+update
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>For the original <a
+href="https://xsun1229.github.io/factor_analysis/ECT_redo.html#Top_10_pairs_have_ECT_FDR_01">10
+pairs</a> with ECT FDR &lt; 0.1 (without any convergence filter), we
+checked the colocalization of the supporting SNP loci. The range of the
+loci is +-100kb from the supporting SNP.</p>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<div id="htmlwidget-c3f4891eb8e9a8c25198" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3f4891eb8e9a8c25198">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"],["B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","B cell (CD19+)","Monocyte (CD14+)","Monocyte (CD14+)","Monocyte (CD14+)","T cell (CD4+)","T cell (CD4+)","T cell (CD4+)","T cell (CD8+)","T cell (CD8+)","T cell (CD8+)"],["pwy125_pc5-ret","pwy125_pc5-ret","pwy125_pc5-ret","pwy161_pc1-lymph","pwy161_pc1-lymph","pwy161_pc1-lymph","pwy161_pc1-lymph","pwy18_pc3-lymph","pwy18_pc3-lymph","pwy18_pc3-lymph","pwy18_pc3-lymph","pwy18_pc3-lymph","pwy18_pc3-lymph","pwy18_pc3-lymph","pwy18_pc3-lymph","pwy18_pc3-lymph","pwy18_pc3-lymph","pwy197_pc4-mch","pwy197_pc4-mch","pwy197_pc4-mch","pwy197_pc4-mch","pwy197_pc4-mch","pwy197_pc4-mch","pwy197_pc4-mch","pwy197_pc4-mch","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy234_pc3-myeloid_wbc","pwy310_pc1-lymph","pwy310_pc1-lymph","pwy310_pc1-lymph","pwy310_pc1-lymph","pwy310_pc1-lymph","pwy310_pc1-lymph","pwy310_pc1-lymph","pwy310_pc1-lymph","pwy310_pc1-lymph","pwy312_pc1-lymph","pwy312_pc1-lymph","pwy312_pc1-lymph","pwy312_pc1-lymph","pwy312_pc1-lymph","pwy97_pc5-ret","pwy97_pc5-ret","pwy97_pc5-ret","pwy124_pc1-EUR.CD","pwy124_pc1-EUR.CD","pwy124_pc1-EUR.CD","pwy122_pc5-T1D","pwy122_pc5-T1D","pwy122_pc5-T1D"],["rs12893668","rs73652622","rs79570398","rs13209890","rs17229044","rs55706446","rs59107033","rs10915874","rs11168249","rs13230583","rs13431440","rs17041439","rs17229044","rs59107033","rs61387190","rs7040409","rs990171","rs115253693","rs11811522","rs12037805","rs3118233","rs34734847","rs4378991","rs4925500","rs739385","rs10075801","rs12239046","rs12266014","rs1834550","rs192022","rs1945392","rs2246941","rs2736100","rs2979489","rs55986493","rs71191701","rs7520047","rs10828723","rs17229044","rs193772","rs2347784","rs2522056","rs3767501","rs4756265","rs55706446","rs7040409","rs13230583","rs193772","rs3030791","rs55706446","rs77653640","rs10716631","rs3169166","rs649729","rs114607072","rs3810936","rs6873866","rs1893592","rs6476839","rs7239671"],[418,661,604,482,444,108,302,642,509,903,427,536,444,302,639,736,705,153,444,473,398,583,334,338,583,474,790,558,419,307,602,476,474,406,378,484,344,539,444,604,610,426,540,585,108,736,903,604,442,108,761,386,512,705,894,380,719,198,232,149],[1.8097307274397e-05,3.49409648081967e-15,8.8928182284523e-05,9.78386115787969e-06,0.00112228471193933,4.46930475516042e-24,5.36248172042642e-05,0.000858143591682189,0.000247971817974618,2.10078774750026e-05,7.62862894970758e-17,0.000206633239451821,0.00135028400471867,5.35280888549336e-05,9.76321120114686e-07,2.84453376513441e-12,4.40690745494857e-11,1.48500320300883e-07,3.28044720649027e-05,0.0614853255475466,1.40183595433143e-07,9.37324261070262e-34,5.36195951726971e-05,0.021814961827955,5.22753045626634e-06,2.89432201483392e-19,1.26597569971124e-12,3.24985300033056e-33,0.000395502443759005,7.63777952654943e-05,0.000266966727620989,0.00136299822913697,3.76736717828187e-08,2.66777246699849e-07,0.000731083143406371,4.15252745590795e-10,3.52610877319943e-06,4.44754136756087e-11,0.00100130084324772,0.00964615592213669,0.000120252631335139,3.19798584643092e-05,6.96154583055121e-05,0.0136040277112689,4.53658618255625e-24,4.94333633351864e-12,1.10251572180004e-05,0.0134724071711802,0.00185547449521623,4.37303110872452e-24,0.000954849303723868,2.56204096158774e-11,5.38837990628022e-16,0.0103068693641871,2.06676439587278e-06,9.80066092410351e-10,8.84513474791857e-08,5.22875313928403e-10,0.000156924575123815,1.09083057023243e-06],[4.11061866197829e-06,5.87866609112248e-16,2.90531453774135e-05,4.27180441760449e-06,7.27595102682133e-05,4.46681677571918e-26,1.0163954614402e-05,0.000147141358523179,2.5055537403549e-05,2.14176947791109e-05,6.88751145569629e-18,1.47578047065834e-05,0.000106053281318641,2.92751967016023e-06,6.41772290789949e-08,2.14907327690718e-13,2.36662275236267e-11,5.08210577976627e-09,1.74460166357111e-06,0.00342466397705989,5.37995414301487e-08,2.2388045840741e-34,7.4776512416836e-06,0.000576146269001704,2.99848391139381e-07,3.90064463450649e-20,2.21034722918509e-13,5.08279428075042e-34,8.01686914388453e-05,2.10494451596013e-06,3.25304138067239e-05,0.000118228953540092,4.0961407563557e-09,2.6908887238165e-08,2.43873912849117e-05,2.78744007400311e-11,6.42442801431548e-07,2.86999132040507e-12,8.02364086760632e-05,0.00103205946875402,7.12052056490014e-06,5.12597510444743e-06,9.50296584244494e-05,0.00130388243034005,5.66998275787581e-26,2.81330454795223e-13,2.55318645687535e-05,0.00117960587155762,0.00048156361642924,4.18166089072394e-26,0.000213504407395847,1.26731079739238e-11,1.92097857664289e-15,0.00133506176882033,4.79381741394752e-07,3.53014456183335e-11,2.1794383702537e-08,1.53476471916943e-11,4.2968309012471e-06,3.76400674422855e-08],[0.226619913115626,0.523429016356957,0.223852005005991,0.245675625212025,0.461061072343863,0.664744997200282,0.425401120140018,0.271873961432837,0.377522341305248,0.324010009246471,0.509654393918283,0.695289862231774,0.554728568037387,0.424633782360613,0.686111840873131,0.44198967212912,0.390577136019552,0.695631733851409,0.625870559751967,0.538489835530011,0.315632926475526,0.142786027629292,0.571176364136851,0.60384134522837,0.43784641915888,0.32912062053648,0.564245527861151,0.472030904686205,0.392324700727961,0.694367679161958,0.637758357277026,0.191745853155362,0.623711243757202,0.545959466453108,0.764303571615009,0.630002589268181,0.442821386211566,0.590132744240042,0.411358040981284,0.438187765536232,0.619743161953232,0.497599517630935,0.0145711192291243,0.523487109226578,0.674752144780503,0.768106053813224,0.170043894077294,0.611999644457966,0.296932517190874,0.650425672755782,0.419270752255825,0.337016666455446,0.00545597547648181,0.477286378778374,0.605183438588792,0.605693152690011,0.377341446477434,0.848642940134531,0.737210163974996,0.54396592360145],[0.05075179449373,0.0876757711886691,0.0724296255183084,0.106618570941294,0.0293829647588419,0.00631480926580019,0.0801353889561523,0.045935610017555,0.0375609214616338,0.329984766313353,0.0455693961885784,0.0494027135953586,0.0431685468040203,0.0226711262523014,0.0448316351380066,0.0328676123533208,0.209349903890196,0.0235256654987209,0.032943786923808,0.0296263086825374,0.120569539639872,0.0332805944226216,0.0793053338236006,0.0155896353769416,0.0245770687958732,0.0437280578092386,0.098177626832968,0.0733713871111864,0.0789963568744705,0.0188498190139685,0.07742757883079,0.0158414537269385,0.0675053936587794,0.0546696501049679,0.0252858996259988,0.0419617380305836,0.0802032999949558,0.0377090132157148,0.0324078596143925,0.0463777362005857,0.036353083226715,0.0793360104109782,0.0189241916987046,0.0497619480472904,0.00811615463586021,0.0435253524381462,0.393348078351646,0.0532648746484763,0.0764405780053995,0.00587592256407847,0.093262687261073,0.166208155267326,0.0184746972989278,0.0613738078371267,0.140116353452336,0.021443873731895,0.0924465997684886,0.0247831360782646,0.0199432377698721,0.0183323216020582],[0.722606084464706,0.388895212454368,0.703600388148039,0.647691748181105,0.508360918675087,0.328940193533918,0.494399702132011,0.681185143599402,0.58464370987774,0.345962798867922,0.444776209893137,0.255086033128709,0.400646547872556,0.552638635778561,0.269055483490513,0.5251427155145,0.400072960022517,0.280842447067444,0.341151104250496,0.366973866262845,0.563797339901466,0.82393337794808,0.349457204793135,0.358177911297731,0.537570984666399,0.627151321654284,0.337576845304395,0.454597708202609,0.52820327126237,0.286704019084293,0.284514566750756,0.790931465935022,0.308783320814205,0.39937058975579,0.209655058224301,0.32803567225811,0.476971145241904,0.372158242496897,0.555152562152399,0.504756282872292,0.343776381668153,0.423027366124517,0.966340043955441,0.411843032584523,0.317131700583636,0.188368593743406,0.436571470549273,0.32008346785082,0.624289866692081,0.34369840468014,0.486298206771982,0.496775178238935,0.976069327224589,0.449697882251492,0.254697661812736,0.372862972562726,0.530211843508346,0.126573923248983,0.242685376849107,0.437700626325855],["Sphingolipid signaling pathway","Sphingolipid signaling pathway","Sphingolipid signaling pathway","Apelin signaling pathway","Apelin signaling pathway","Apelin signaling pathway","Apelin signaling pathway","Purine metabolism","Purine metabolism","Purine metabolism","Purine metabolism","Purine metabolism","Purine metabolism","Purine metabolism","Purine metabolism","Purine metabolism","Purine metabolism","Long-term potentiation","Long-term potentiation","Long-term potentiation","Long-term potentiation","Long-term potentiation","Long-term potentiation","Long-term potentiation","Long-term potentiation","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Non-alcoholic fatty liver disease","Chronic myeloid leukemia","Chronic myeloid leukemia","Chronic myeloid leukemia","Chronic myeloid leukemia","Chronic myeloid leukemia","Chronic myeloid leukemia","Chronic myeloid leukemia","Chronic myeloid leukemia","Chronic myeloid leukemia","Small cell lung cancer","Small cell lung cancer","Small cell lung cancer","Small cell lung cancer","Small cell lung cancer","RNA degradation","RNA degradation","RNA degradation","Phosphatidylinositol signaling system","Phosphatidylinositol signaling system","Phosphatidylinositol signaling system","HIF-1 signaling pathway","HIF-1 signaling pathway","HIF-1 signaling pathway"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Cell type<\/th>\n      <th>pair<\/th>\n      <th>snp<\/th>\n      <th>#snp in this locus<\/th>\n      <th>PP.H0.abf<\/th>\n      <th>PP.H1.abf<\/th>\n      <th>PP.H2.abf<\/th>\n      <th>PP.H3.abf<\/th>\n      <th>PP.H4.abf<\/th>\n      <th>pwy<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.2.0 (2022-04-22)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: CentOS Linux 7 (Core)
+
+Matrix products: default
+BLAS/LAPACK: /software/openblas-0.3.13-el7-x86_64/lib/libopenblas_haswellp-r0.3.13.so
+
+locale:
+[1] C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.9     purrr_0.3.4    
+[5] readr_2.1.2     tidyr_1.2.0     tibble_3.1.7    ggplot2_3.3.5  
+[9] tidyverse_1.3.1
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.8.3      lubridate_1.8.0   assertthat_0.2.1  rprojroot_2.0.3  
+ [5] digest_0.6.29     utf8_1.2.2        R6_2.5.1          cellranger_1.1.0 
+ [9] backports_1.4.1   reprex_2.0.1      evaluate_0.15     httr_1.4.3       
+[13] pillar_1.7.0      rlang_1.0.5       readxl_1.4.0      rstudioapi_0.13  
+[17] whisker_0.4       jquerylib_0.1.4   DT_0.22           rmarkdown_2.14   
+[21] htmlwidgets_1.5.4 munsell_0.5.0     broom_0.8.0       compiler_4.2.0   
+[25] httpuv_1.6.5      modelr_0.1.8      xfun_0.30         pkgconfig_2.0.3  
+[29] htmltools_0.5.2   tidyselect_1.1.2  workflowr_1.7.0   fansi_1.0.3      
+[33] crayon_1.5.1      tzdb_0.3.0        dbplyr_2.1.1      withr_2.5.0      
+[37] later_1.3.0       grid_4.2.0        jsonlite_1.8.0    gtable_0.3.0     
+[41] lifecycle_1.0.1   DBI_1.1.2         git2r_0.30.1      magrittr_2.0.3   
+[45] scales_1.2.0      cli_3.3.0         stringi_1.7.6     fs_1.5.2         
+[49] promises_1.2.0.1  xml2_1.3.3        bslib_0.3.1       ellipsis_0.3.2   
+[53] generics_0.1.2    vctrs_0.4.1       tools_4.2.0       glue_1.6.2       
+[57] crosstalk_1.2.0   hms_1.1.1         fastmap_1.1.0     yaml_2.3.5       
+[61] colorspace_2.0-3  rvest_1.0.2       knitr_1.39        haven_2.5.0      
+[65] sass_0.4.1       </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

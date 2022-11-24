@@ -6,10 +6,34 @@ output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
-
-## Introduction
-
-```{r}
-
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(tidyverse))
 ```
 
+
+# Introduction
+
+For the original [10 pairs](https://xsun1229.github.io/factor_analysis/ECT_redo.html#Top_10_pairs_have_ECT_FDR_01) with ECT FDR < 0.1 (without any convergence filter), we checked the colocalization of the supporting SNP loci. The range of the loci is +-100kb from the supporting SNP. 
+
+# Results
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("/project2/xinhe/xsun/CEDAR/global_analysis_FDR_corrected/results/coloc_1e+05_cov.rdata")
+load("/project2/xinhe/xsun/CEDAR/global_analysis_FDR_corrected/results/ECT_summary.rdata")
+
+for (i in 1:nrow(coloc_summary)) {
+  
+  pair <- coloc_summary$pair[i]
+  traits <- unlist(strsplit(pair, split = "-"))[2]
+  factors <- unlist(strsplit(pair, split = "-"))[1]
+  celltype <- coloc_summary$`Cell type`[i]
+  
+  select <- summary %>% filter(Celltypes == celltype,
+        trait == traits,
+         summary$factor == factors)
+  coloc_summary$pwy[i] <- select$pwy_name
+
+}
+
+DT::datatable(coloc_summary, options = list(pageLength =5))
+```
