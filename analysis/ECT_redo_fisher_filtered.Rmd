@@ -37,7 +37,7 @@ y <- c()
 for (i in 1:length(path)){
   folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
   
-  load(paste0(folder_path,"results/ECT_summary_table_fisher_filtered.rdata"))
+  load(paste0(folder_path,"results/ECT_summary_table_fisher_filtered_p_005.rdata"))
   x[i] <- sum(df_sum$fdr_ECT < 0.1)
   y[i] <- sum(df_sum$fdr_ECT < 0.2) 
   
@@ -65,7 +65,7 @@ bar <- ggplot(df, aes(type, total, fill=event)) +
   geom_text(aes(label = total),position = position_dodge(0.9),
             color="black",size = 3,vjust = -0.3) +
   
-  ylim(0,65) +
+  ylim(0,25) +
   
   theme(axis.title.x = element_text(size = 12),
         axis.text.x = element_text(size = 10, color = "black"),
@@ -88,12 +88,12 @@ path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leuko
 
 p1 <- list()
 p2 <- list()
-for (i in 1:length(type)){ 
+for (i in 1:5){ 
   
   file_ect_results <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_results.rdata")
   load(file_ect_results)
   
-  file_ect_summary <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fisher_filtered.rdata")
+  file_ect_summary <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/results/ECT_summary_table_fisher_filtered_p_005.rdata")
   load(file_ect_summary)
   
   plot_sum <- df_sum[df_sum$num_snp_pass_cutoff >= 3,] ######
@@ -170,8 +170,11 @@ for (i in 1:length(type)){
 }
 
 
-all1 <- grid.arrange(p1[[1]],p1[[2]],p1[[3]],p1[[4]],p1[[5]],p1[[6]], nrow = 2)
-all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
+all1 <- grid.arrange(p1[[1]],p1[[2]],p1[[3]],p1[[4]],p1[[5]], nrow = 2)
+all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]], nrow = 2)
+
+#all1 <- grid.arrange(p1[[1]],p1[[2]],p1[[3]],p1[[4]],p1[[5]],p1[[6]], nrow = 2)
+#all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
 ```
 
 
@@ -185,7 +188,7 @@ summary <- c()
 for (i in 1:length(path)){
   folder_path <- paste0("/project2/xinhe/xsun/CEDAR/",path[i],"/9.pcs_40genes_rerun/2.ECT/")
   
-  load(paste0(folder_path,"results/ECT_summary_table_fisher_filtered.rdata"))
+  load(paste0(folder_path,"results/ECT_summary_table_fisher_filtered_p_005.rdata"))
   
   if (sum(df_sum$fdr_ECT < 0.2) > 0) {
     tmp <- df_sum[df_sum$fdr_ECT < 0.2,]

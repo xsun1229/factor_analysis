@@ -78,10 +78,11 @@ colnames(pathway) <- c("code","name")
     acat_trait_snp_sort_10$pwy_name <- pwy_name
     acat_trait_snp_sort_10 <- as.matrix(acat_trait_snp_sort_10)
     
-    acat_summary <- cbind(acat_summary,acat_trait_snp_sort_10)
+    acat_summary <- rbind(acat_summary,acat_trait_snp_sort_10)
     acat_summary_list[[j]] <- acat_trait_snp_sort_10
   }
   acat_summary <- data.frame(acat_summary)
+  rownames(acat_summary) <- seq(1,nrow(acat_summary),by=1)
   print(names(acat_allcelltypes)[i])
   DT::datatable(acat_summary)
   #print(acat_summary)
@@ -135,10 +136,11 @@ colnames(pathway) <- c("code","name")
     acat_trait_snp_sort_10$pwy_name <- pwy_name
     acat_trait_snp_sort_10 <- as.matrix(acat_trait_snp_sort_10)
     
-    acat_summary <- cbind(acat_summary,acat_trait_snp_sort_10)
+    acat_summary <- rbind(acat_summary,acat_trait_snp_sort_10)
     acat_summary_list[[j]] <- acat_trait_snp_sort_10
   }
   acat_summary <- data.frame(acat_summary)
+  rownames(acat_summary) <- seq(1,nrow(acat_summary),by=1)
   print(names(acat_allcelltypes)[i])
   DT::datatable(acat_summary)
   
@@ -191,10 +193,11 @@ colnames(pathway) <- c("code","name")
     acat_trait_snp_sort_10$pwy_name <- pwy_name
     acat_trait_snp_sort_10 <- as.matrix(acat_trait_snp_sort_10)
     
-    acat_summary <- cbind(acat_summary,acat_trait_snp_sort_10)
+    acat_summary <- rbind(acat_summary,acat_trait_snp_sort_10)
     acat_summary_list[[j]] <- acat_trait_snp_sort_10
   }
   acat_summary <- data.frame(acat_summary)
+  rownames(acat_summary) <- seq(1,nrow(acat_summary),by=1)
   print(names(acat_allcelltypes)[i])
   DT::datatable(acat_summary)
 
@@ -247,10 +250,11 @@ colnames(pathway) <- c("code","name")
     acat_trait_snp_sort_10$pwy_name <- pwy_name
     acat_trait_snp_sort_10 <- as.matrix(acat_trait_snp_sort_10)
     
-    acat_summary <- cbind(acat_summary,acat_trait_snp_sort_10)
+    acat_summary <- rbind(acat_summary,acat_trait_snp_sort_10)
     acat_summary_list[[j]] <- acat_trait_snp_sort_10
   }
   acat_summary <- data.frame(acat_summary)
+  rownames(acat_summary) <- seq(1,nrow(acat_summary),by=1)
   print(names(acat_allcelltypes)[i])
   DT::datatable(acat_summary)
   
@@ -304,10 +308,11 @@ colnames(pathway) <- c("code","name")
     acat_trait_snp_sort_10$pwy_name <- pwy_name
     acat_trait_snp_sort_10 <- as.matrix(acat_trait_snp_sort_10)
     
-    acat_summary <- cbind(acat_summary,acat_trait_snp_sort_10)
+    acat_summary <- rbind(acat_summary,acat_trait_snp_sort_10)
     acat_summary_list[[j]] <- acat_trait_snp_sort_10
   }
   acat_summary <- data.frame(acat_summary)
+  rownames(acat_summary) <- seq(1,nrow(acat_summary),by=1)
   print(names(acat_allcelltypes)[i])
   DT::datatable(acat_summary)
   
@@ -360,10 +365,11 @@ colnames(pathway) <- c("code","name")
     acat_trait_snp_sort_10$pwy_name <- pwy_name
     acat_trait_snp_sort_10 <- as.matrix(acat_trait_snp_sort_10)
     
-    acat_summary <- cbind(acat_summary,acat_trait_snp_sort_10)
+    acat_summary <- rbind(acat_summary,acat_trait_snp_sort_10)
     acat_summary_list[[j]] <- acat_trait_snp_sort_10
   }
   acat_summary <- data.frame(acat_summary)
+  rownames(acat_summary) <- seq(1,nrow(acat_summary),by=1)
   print(names(acat_allcelltypes)[i])
   DT::datatable(acat_summary)
   
