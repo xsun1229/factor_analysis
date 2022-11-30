@@ -11,9 +11,9 @@
 
 <meta name="author" content="XSun" />
 
-<meta name="date" content="2022-10-19" />
+<meta name="date" content="2022-11-30" />
 
-<title>Correcting FDR for CEDAR KEGG PC</title>
+<title>ECT summary under different settings</title>
 
 <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -362,9 +362,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Correcting FDR for CEDAR KEGG PC</h1>
+<h1 class="title toc-ignore">ECT summary under different settings</h1>
 <h4 class="author">XSun</h4>
-<h4 class="date">2022-10-19</h4>
+<h4 class="date">2022-11-30</h4>
 
 </div>
 
@@ -431,10 +431,10 @@ changes </a>
 <div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
+<p>The R Markdown is untracked by Git. To know which version of the R
+Markdown file created these results, you’ll want to first commit it to
+the Git repo. If you’re still working on the analysis, you can ignore
+this warning. When you’re finished, you can run
 <code>wflow_publish</code> to commit the R Markdown file and build the
 HTML.</p>
 </div>
@@ -504,344 +504,63 @@ have uncommitted changes.
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were
-made to the R Markdown (<code>analysis/redo_correct_lfdr.Rmd</code>) and
-HTML (<code>docs/redo_correct_lfdr.html</code>) files. If you’ve
-configured a remote Git repository (see <code>?wflow_git_remote</code>),
-click on the hyperlinks in the table below to view the files as they
-were in that past version.
+There are no past versions. Publish this analysis with
+<code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/bea93d1c590e5cb7e76ca1226e93c6a4f0e2568c/docs/redo_correct_lfdr.html" target="_blank">bea93d1</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-24
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/ca628a7bb2a9f1ec39884ad8dd389d22fa4b8934/analysis/redo_correct_lfdr.Rmd" target="_blank">ca628a7</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-24
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/ae171e4d8ce39fec3298a28492730a3d396c7c2b/analysis/redo_correct_lfdr.Rmd" target="_blank">ae171e4</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-24
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/ae171e4d8ce39fec3298a28492730a3d396c7c2b/docs/redo_correct_lfdr.html" target="_blank">ae171e4</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-24
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/ff6589a3973740121f3aa4f90debd60e06d96559/analysis/redo_correct_lfdr.Rmd" target="_blank">ff6589a</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-21
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/ff6589a3973740121f3aa4f90debd60e06d96559/docs/redo_correct_lfdr.html" target="_blank">ff6589a</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-21
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/32981f264b5db813b0f73d92ec6bbfaba0c4e74f/docs/redo_correct_lfdr.html" target="_blank">32981f2</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-17
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/049da6f028944807cf7e073c555282127c660667/analysis/redo_correct_lfdr.Rmd" target="_blank">049da6f</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-17
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/049da6f028944807cf7e073c555282127c660667/docs/redo_correct_lfdr.html" target="_blank">049da6f</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-17
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/18198ad2b82e7ca3a67ae1446a48d7a3c4d58f1b/analysis/redo_correct_lfdr.Rmd" target="_blank">18198ad</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-11-07
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/2081ed32c6020a320b39bfad6c6d41fa0635450a/docs/redo_correct_lfdr.html" target="_blank">2081ed3</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-10-22
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/db09c7c4f047357b2d43377e7646d9d3551d4bd2/analysis/redo_correct_lfdr.Rmd" target="_blank">db09c7c</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-10-22
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/xsun1229/factor_analysis/38828c2716cd9d7a54dc4e4a27b1bf7cba8cd717/docs/redo_correct_lfdr.html" target="_blank">38828c2</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-10-21
-</td>
-<td>
-update
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/xsun1229/factor_analysis/blob/ae43c9cf1d9a5c40fd27e1b6cd10f11416b86b84/analysis/redo_correct_lfdr.Rmd" target="_blank">ae43c9c</a>
-</td>
-<td>
-XSun
-</td>
-<td>
-2022-10-21
-</td>
-<td>
-update
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>In the earlier analysis, we used local FDR to compute the SNP FDR in
-association tests. We will correct it here.</p>
-</div>
-<div id="results" class="section level1">
-<h1>Results</h1>
-<ol style="list-style-type: decimal">
-<li>ECT</li>
-</ol>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/ECT_summary_differentsettings.html">Summary
-– different settings</a></p>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/ECT_redo_fisher_filtered.html">SNP
-FDR cutoff: 0.2 – fisher filter applied</a></p>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/ECT_redo_acat_corrected.html">SNP
-FDR cutoff: 0.2 – corrected acat filter applied</a></p>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/ECT_redo_acat_filtered_2digits.html">SNP
-FDR cutoff: 0.2 – acat filter applied, keep 2 decimal places of ECT
-FDR</a></p>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/ECT_redo_acat_filtered.html">SNP
-FDR cutoff: 0.2 – acat filter applied</a></p>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/ECT_redo.html">SNP FDR
-cutoff: 0.2</a></p>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/ECT_redo_fdr01.html">SNP
-FDR cutoff: 0.1</a></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Convergence test</li>
-</ol>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/compare_acat_fisher.html">Compare
-ACAT and Fisher exact test results</a></p>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/acat_fdr.html">ACAT</a></p>
-<ol start="3" style="list-style-type: decimal">
-<li>MAGMA</li>
-</ol>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/magma_fdr.html">Details</a></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Heritability</li>
-</ol>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/hsq_pc_fdr.html">Details</a></p>
-<ol start="5" style="list-style-type: decimal">
-<li>p-values in gene ~ SNP &amp; factor ~ SNP</li>
-</ol>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/check_pval.html">Details</a></p>
-<ol start="6" style="list-style-type: decimal">
-<li>Colocalization analysis</li>
-</ol>
-<p><a
-href="https://xsun1229.github.io/factor_analysis/coloc_fdr.html">SNP FDR
-cutoff: 0.2, without any acat filter</a></p>
-</div>
+<table>
+<colgroup>
+<col width="14%" />
+<col width="16%" />
+<col width="17%" />
+<col width="17%" />
+<col width="34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Settings</th>
+<th>#pairs passing ECT FDR &lt; 0.1</th>
+<th>#pairs with 0.1&lt; ECT FDR &lt; 0.2</th>
+<th>#pairs passing MAGMA FDR &lt; 0.1</th>
+<th>#pairs passing MAGMA FDR &lt; 0.1 / #pairs passing ECT FDR &lt;
+0.2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No filter</td>
+<td>10</td>
+<td>131</td>
+<td>71</td>
+<td>50.35%</td>
+</tr>
+<tr class="even">
+<td>ACAT FDR &lt; 0.1</td>
+<td>7</td>
+<td>109</td>
+<td>63</td>
+<td>54.31%</td>
+</tr>
+<tr class="odd">
+<td>Corrected ACAT FDR &lt; 0.1</td>
+<td>2</td>
+<td>45</td>
+<td>20</td>
+<td>42.55%</td>
+</tr>
+<tr class="even">
+<td>FET FDR &lt; 0.1</td>
+<td>18</td>
+<td>94</td>
+<td>49</td>
+<td>42.24%</td>
+</tr>
+</tbody>
+</table>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using

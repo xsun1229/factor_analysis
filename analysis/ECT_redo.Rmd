@@ -316,7 +316,7 @@ all2 <- grid.arrange(p2[[1]],p2[[2]],p2[[3]],p2[[4]],p2[[5]],p2[[6]], nrow = 2)
 ```
 
 
-### Top 10 pairs have ECT FDR <0.1
+### Top pairs have ECT FDR <0.2
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 path <- c("4.B_cell_kegg","6.CD14_positive_monocyte_kegg","8.CD15_positive_leukocyte_kegg","16.platelet_kegg","10.T_cell_kegg","14.thymocyte_kegg")
@@ -328,8 +328,8 @@ for (i in 1:length(path)){
   
   load(paste0(folder_path,"results/ECT_summary_table_mbeadded.rdata"))
   
-  if (sum(df_pass$fdr_ECT < 0.1) > 0) {
-    tmp <- df_pass[df_pass$fdr_ECT < 0.1,]
+  if (sum(df_pass$fdr_ECT < 0.2) > 0) {
+    tmp <- df_pass[df_pass$fdr_ECT < 0.2,]
     tmp$celltype <- type[i]
     
     #colnames(summary) <- colnames(tmp)
@@ -341,7 +341,28 @@ for (i in 1:length(path)){
 summary <- cbind(summary$celltype,summary)
 summary <- summary[,-ncol(summary)]
 colnames(summary)[1] <- "Celltypes"
-DT::datatable(summary, options = list(pageLength =10))
+
+ect <- summary
+
+
+folder_magma <- "/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/genesetanalysis/"
+
+magma_p <- c()
+#magma_fdr <- c()
+for (i in 1:nrow(ect)) {
+  
+  file_magma <- paste0(folder_magma,ect$trait[i],".sum.magma.rdata")
+  load(file_magma)
+  
+  index <- which(summary$codes == ect$pwy_code[i])
+  magma_p[i] <- summary$P[index]
+  #magma_fdr[i] <- summary$fdr[index]
+}
+
+ect$magma_p <- magma_p
+ect$magma_fdr <- p.adjust(magma_p, method = "fdr")
+
+DT::datatable(ect, options = list(pageLength =10))
 ```
 
 

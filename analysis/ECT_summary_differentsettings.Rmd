@@ -1,0 +1,15 @@
+---
+title: "ECT summary under different settings"
+author: "XSun"
+date: "2022-11-30"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+| Settings                 | #pairs passing ECT FDR < 0.1 | #pairs with 0.1< ECT FDR < 0.2 | #pairs passing MAGMA FDR < 0.1 | #pairs passing MAGMA FDR < 0.1 / #pairs passing ECT FDR < 0.2 |
+|--------------------------|------------------------------|--------------------------------|--------------------------------|---------------------------------------------------------------|
+| No filter                | 10                           | 131                            | 71                             | 50.35%                                                        |
+| ACAT FDR < 0.1           | 7                            | 109                            | 63                             | 54.31%                                                        |
+| Corrected ACAT FDR < 0.1 | 2                            | 45                             | 20                             | 42.55%                                                        |
+| FET FDR < 0.1            | 18                           | 94                             | 49                             | 42.24%                                                        |

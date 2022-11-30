@@ -201,53 +201,77 @@ summary <- cbind(summary$celltype,summary)
 summary <- summary[,-ncol(summary)]
 colnames(summary)[1] <- "Celltypes"
 
-load("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/final_results_random_included.rdata")
-ect_final$pair <- paste0(ect_final$trait,"-",ect_final$factor)
-ect_select <- cbind(ect_final$pair,ect_final$magma_p,ect_final$magma_fdr,ect_final$magma_random_P,ect_final$mbe_reverse, ect_final$mbe_pval_reverse)
-colnames(ect_select) <- c("pair","magma_p","magma_fdr","magma_random_P","mbe_reverse","mbe_pval_reverse")
-summary$pair <- paste0(summary$trait,"-",summary$factor)
-summary <- merge(summary,ect_select, by ="pair")
-summary <- summary[,-1]
-DT::datatable(summary, options = list(pageLength =10))
+
+ect <- summary
+
+
+folder_magma <- "/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/genesetanalysis/"
+
+magma_p <- c()
+#magma_fdr <- c()
+for (i in 1:nrow(ect)) {
+  
+  file_magma <- paste0(folder_magma,ect$trait[i],".sum.magma.rdata")
+  load(file_magma)
+  
+  index <- which(summary$codes == ect$pwy_code[i])
+  magma_p[i] <- summary$P[index]
+  #magma_fdr[i] <- summary$fdr[index]
+}
+
+ect$magma_p <- magma_p
+ect$magma_fdr <- p.adjust(magma_p, method = "fdr")
+
+DT::datatable(ect, options = list(pageLength =10))
+
+
+# load("/project2/xinhe/xsun/CEDAR/MAGMA_FDR_corrected/results/final_results_random_included.rdata")
+# ect_final$pair <- paste0(ect_final$trait,"-",ect_final$factor)
+# ect_select <- cbind(ect_final$pair,ect_final$magma_p,ect_final$magma_fdr,ect_final$magma_random_P,ect_final$mbe_reverse, ect_final$mbe_pval_reverse)
+# colnames(ect_select) <- c("pair","magma_p","magma_fdr","magma_random_P","mbe_reverse","mbe_pval_reverse")
+# summary$pair <- paste0(summary$trait,"-",summary$factor)
+# summary <- merge(summary,ect_select, by ="pair")
+# summary <- summary[,-1]
+# DT::datatable(summary, options = list(pageLength =10))
 ```
 
-## MAGMA results
+<!-- ## MAGMA results -->
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=3, fig.width=6}
+<!-- ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE,fig.height=3, fig.width=6} -->
 
-plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(summary$magma_p)))),
-                       expected = -log10(ppoints(nrow(summary))))
-#  
+<!-- plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(summary$magma_p)))), -->
+<!--                        expected = -log10(ppoints(nrow(summary)))) -->
+<!-- #   -->
 
-q1 <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
-  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
-  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
-  ggtitle("Real data") + theme(plot.title = element_text(hjust = 0.5)) +
-  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
-       y = expression(paste("Observed -log"[10],"(p-value)"))) +
-  
-  theme(axis.title.x = element_text(size = 10),
-        axis.text.x = element_text(size = 8, color = "black"),
-        axis.title.y = element_text(size = 10),
-        axis.text.y = element_text(size = 8, color = "black"),
-        text= element_text(family="Times New Roman")) 
+<!-- q1 <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--   geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") + -->
+<!--   geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--   ggtitle("Real data") + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--   labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--        y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
 
-plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(summary$magma_random_P)))),
-                       expected = -log10(ppoints(nrow(summary))))
-q2 <- ggplot(plotdata) + theme_bw(base_line_size =0.3) +
-  geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") +
-  geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") +
-  ggtitle("Random data") + theme(plot.title = element_text(hjust = 0.5)) +
-  labs(x = expression(paste("Expected -log"[10],"(p-value)")),
-       y = expression(paste("Observed -log"[10],"(p-value)"))) +
-  
-  theme(axis.title.x = element_text(size = 10),
-        axis.text.x = element_text(size = 8, color = "black"),
-        axis.title.y = element_text(size = 10),
-        axis.text.y = element_text(size = 8, color = "black"),
-        text= element_text(family="Times New Roman")) 
+<!--   theme(axis.title.x = element_text(size = 10), -->
+<!--         axis.text.x = element_text(size = 8, color = "black"), -->
+<!--         axis.title.y = element_text(size = 10), -->
+<!--         axis.text.y = element_text(size = 8, color = "black"), -->
+<!--         text= element_text(family="Times New Roman"))  -->
 
-all <- grid.arrange(q1,q2, nrow = 1)
+<!-- plotdata <- data.frame(observed = -log10(sort(as.numeric(as.character(summary$magma_random_P)))), -->
+<!--                        expected = -log10(ppoints(nrow(summary)))) -->
+<!-- q2 <- ggplot(plotdata) + theme_bw(base_line_size =0.3) + -->
+<!--   geom_point(aes(expected, observed), shape = 1, size = 1.5, color = "steelblue") + -->
+<!--   geom_abline(intercept = 0, slope = 1, alpha = 0.6, color = "red") + -->
+<!--   ggtitle("Random data") + theme(plot.title = element_text(hjust = 0.5)) + -->
+<!--   labs(x = expression(paste("Expected -log"[10],"(p-value)")), -->
+<!--        y = expression(paste("Observed -log"[10],"(p-value)"))) + -->
 
-```
+<!--   theme(axis.title.x = element_text(size = 10), -->
+<!--         axis.text.x = element_text(size = 8, color = "black"), -->
+<!--         axis.title.y = element_text(size = 10), -->
+<!--         axis.text.y = element_text(size = 8, color = "black"), -->
+<!--         text= element_text(family="Times New Roman"))  -->
+
+<!-- all <- grid.arrange(q1,q2, nrow = 1) -->
+
+<!-- ``` -->
 
